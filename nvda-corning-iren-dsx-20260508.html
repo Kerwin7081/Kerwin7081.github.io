@@ -6,160 +6,36 @@
 <title>英伟达押注光纤与地主 · Kerwin Team</title>
 <meta name="description" content="Kerwin Team 研究简报：英伟达连续投资 Corning 与 IREN，揭示 AI 工厂从芯片竞争进入光纤、电力、土地等物理基础设施竞争阶段。">
 <style>
-:root{
-  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
-  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.85}
-a{color:inherit}.back{max-width:780px;margin:0 auto;padding:6px 16px 0}.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
-.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
-.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}.top-date{font-size:13px;color:#8b4513;line-height:1.6;font-weight:600}.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--blue:#2563eb;--up:#16a34a;--down:#dc2626;--warn:#92400e;--gold:#8a5b2b;--date:#8b4513}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.85}a{color:inherit}.back{max-width:780px;margin:0 auto;padding:6px 16px 0}.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}.top-date{font-size:13px;color:#8b4513;line-height:1.6;font-weight:600}.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
 .wrap{max-width:700px;margin:0 auto;background:#fff}.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px}.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{flex-shrink:0;padding:11px 14px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
 .section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}strong{color:#16110d}em{color:var(--gold);font-style:normal;font-weight:700}
 .callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}.alert strong{color:#9a3412}.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}.stat-value.up{color:var(--up)}.stat-value.down{color:var(--down)}.stat-value.blue{color:var(--blue)}.stat-value.gold{color:var(--gold)}.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
 .table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:500px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}tbody tr:last-child td{border-bottom:none}.tag{display:inline-block;padding:2px 7px;font-size:10px;font-weight:700;border-radius:2px}.tag.green{background:#dcfce7;color:#166534}.tag.red{background:#fee2e2;color:#991b1b}.tag.amber{background:#fef3c7;color:#92400e}.tag.grey{background:#f0ede8;color:#6f6258}
 .flow{display:flex;flex-direction:column;gap:0;margin:16px 0}.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px Arial,sans-serif;line-height:1.5;border:1px solid #e5ddd3;border-radius:4px}.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:2px 0;line-height:1}
-.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}.timeline{margin:16px 0;position:relative;padding-left:28px;border-left:2px solid #e0d5c5}.timeline-item{margin-bottom:20px;position:relative}.timeline-item::before{content:'';position:absolute;left:-34px;top:4px;width:10px;height:10px;border-radius:50%;background:#8a5b2b;border:2px solid #fff;box-shadow:0 0 0 2px #8a5b2b}.timeline-date{font:11px 'Courier New',monospace;color:#8a5b2b;letter-spacing:.06em;margin-bottom:3px}.timeline-content{font:13px Arial,sans-serif;color:#4b3826;line-height:1.6}
-.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
-@media(max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px}.hero{padding:28px 16px 24px}.hero-title{font-size:26px}.section{padding:22px 16px}.section h2{font-size:20px}.stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.path-item{gap:12px;padding:14px}.path-num{font-size:28px;width:30px}}
+.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}.ticker{min-width:64px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #dccdbf;background:#f7efe6;color:#8a5b2b;border-radius:4px;font:800 15px Arial,sans-serif;letter-spacing:.06em;flex-shrink:0}.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}.timeline{margin:16px 0;position:relative;padding-left:28px;border-left:2px solid #e0d5c5}.timeline-item{margin-bottom:20px;position:relative}.timeline-item::before{content:'';position:absolute;left:-34px;top:4px;width:10px;height:10px;border-radius:50%;background:#8a5b2b;border:2px solid #fff;box-shadow:0 0 0 2px #8a5b2b}.timeline-date{font:11px 'Courier New',monospace;color:#8a5b2b;letter-spacing:.06em;margin-bottom:3px}.timeline-content{font:13px Arial,sans-serif;color:#4b3826;line-height:1.6}.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+@media(max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px}.hero{padding:28px 16px 24px}.hero-title{font-size:26px}.section{padding:22px 16px}.section h2{font-size:20px}.stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.path-item{gap:12px;padding:14px}.path-num{font-size:28px;width:30px}.ticker{min-width:54px;height:30px;font-size:13px}}
 </style>
 </head>
 <body>
 <!-- pv-counter data-page-slug=nvda-corning-iren-dsx-20260508 -->
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell">
-<div class="topbar">
-  <div class="top-kicker">KERWIN TEAM PRESENTS</div>
-  <h1 class="top-title">英伟达押注光纤与地主<br>研究简报</h1>
-  <div class="top-date">报告发布日期：2026年5月8日</div>
-  <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
-</div>
+<div class="topbar"><div class="top-kicker">KERWIN TEAM PRESENTS</div><h1 class="top-title">英伟达押注光纤与地主<br>研究简报</h1><div class="top-date">报告发布日期：2026年5月8日</div><div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div></div>
 <div class="wrap">
-<div class="hero">
-  <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
-  <div class="hero-title">英伟达押注光纤与地主</div>
-  <div class="hero-sub">IREN & Corning 双投资深度解析</div>
-  <div class="hero-meta">2026年5月8日 · AI 工厂基础设施专题</div>
-</div>
-<nav class="nav">
-  <a href="#intro">核心判断</a><a href="#structure">交易结构</a><a href="#dsx">DSX拼图</a><a href="#companies">公司解剖</a><a href="#map">投资图谱</a><a href="#returns">回报推演</a><a href="#follow">跟随启发</a><a href="#conclusion">结语</a>
-</nav>
-
-<div class="section" id="intro">
-  <div class="section-label">引言 · 核心判断</div>
-  <h2>AI 工厂最稀缺的，正在从 GPU 转向物理基础设施</h2>
-  <p>两天之内，英伟达连续宣布对 Corning 和 IREN 的战略投资。一个做光纤，一个自建变电站。两笔交易指向同一个判断：AI 工厂的稀缺资源，已经从单一 GPU 供给，扩散到光纤、电力、土地、变电站和数据中心地基。</p>
-  <div class="callout"><div class="callout-label">核心结论</div><p>Corning 是光子时代的“铺管工”；IREN 是 AI 工厂的“地主”。英伟达用权证结构锁定它们，本质上是在为 DSX AI 工厂标准补上最底层的两块拼图。</p></div>
-  <div class="stat-grid">
-    <div class="stat-cell"><div class="stat-value gold">$5亿</div><div class="stat-label">英伟达对 Corning 的真实预付现金</div></div>
-    <div class="stat-cell"><div class="stat-value blue">$34亿</div><div class="stat-label">英伟达与 IREN 的五年 AI 云采购合同</div></div>
-    <div class="stat-cell"><div class="stat-value up">$32亿</div><div class="stat-label">Corning 潜在投资上限</div></div>
-    <div class="stat-cell"><div class="stat-value up">$21亿</div><div class="stat-label">IREN 权证潜在行权上限</div></div>
-  </div>
-</div>
-
-<div class="section" id="structure">
-  <div class="section-label">01 · 投资结构</div>
-  <h2>两笔设计精妙的权证交易</h2>
-  <p>权证是一张提前约定价格的购股票据。若股价高于行权价，行权获利；若低于行权价，权证到期作废。英伟达真正购买的，不只是股价上行权，更是供应链优先权、产能绑定权和产业标准落地权。</p>
-  <h3>Corning：付了真钱的双层结构</h3>
-  <p>英伟达花 <strong>$5亿</strong> 买入两张票据：一张是预付权证，行权价 $0.0001/股，锁定 300 万股；另一张是传统认股权证，行权价 $180/股，最多购入 1500 万股，期限 3 年。Corning 同时承诺产能扩大 10 倍，新建 3 座美国工厂。</p>
-  <h3>IREN：一张零成本的免费期权</h3>
-  <p>英伟达出资 $0，获得最多 3000 万股认购权，行权价 $70，期限 5 年。代价藏在另一份文件里：同日签署的 $34 亿、5 年期 AI 云采购合同。</p>
-  <div class="table-wrap"><table><thead><tr><th>维度</th><th>IREN</th><th>Corning</th></tr></thead><tbody>
-    <tr><td>英伟达预付现金</td><td>$0</td><td>$5亿</td></tr>
-    <tr><td>期权费来源</td><td>$34亿采购合同</td><td>$5亿真实现金</td></tr>
-    <tr><td>有效期</td><td>5年，窗口更宽</td><td>3年，时间更紧</td></tr>
-    <tr><td>行权价</td><td>$70，价外约23%</td><td>$180，价外约11%</td></tr>
-    <tr><td>潜在投资上限</td><td>$21亿</td><td>$32亿</td></tr>
-    <tr><td>信号强度</td><td><span class="tag amber">中，零成本</span></td><td><span class="tag green">强，真实出资</span></td></tr>
-  </tbody></table></div>
-  <div class="flow"><div class="flow-box">英伟达 → IREN：$34亿采购合同，提供稳定收入保障</div><div class="flow-arrow">↓</div><div class="flow-box alt">IREN → 英伟达：$21亿上限认购权，提供股权上行空间</div><div class="flow-arrow">↓</div><div class="flow-box accent">英伟达用订单作期权费，IREN 用股权潜力换收入确定性</div></div>
-</div>
-
-<div class="section" id="dsx">
-  <div class="section-label">02 · DSX 战略</div>
-  <h2>从卖 GPU 到定义 AI 工厂标准</h2>
-  <p>DSX（Data-center Scale X）是英伟达 2026 年 GTC 发布的 AI 工厂参考架构，是英伟达从“卖 GPU”升级为“定义 AI 工厂建设标准”的战略支点。一旦客户采用 DSX 标准建设 AI 工厂，整条供应链都在英伟达生态内运行。</p>
-  <div class="flow"><div class="flow-box">计算层：Vera Rubin GPU，GB300 / B300 NVL72</div><div class="flow-arrow">↓</div><div class="flow-box alt">网络层：Spectrum-X / Quantum-X 光子交换机</div><div class="flow-arrow">↓</div><div class="flow-box light">能源层：DSX Flex 电网联动 + DSX Max-Q 每瓦算力最优化</div><div class="flow-arrow">↓</div><div class="flow-box accent">数字层：Omniverse DSX，建厂前数字孪生仿真</div></div>
-  <div class="callout"><div class="callout-label">拼图位置</div><p><strong>Corning</strong> 补全的是“传输介质”：GPU 产生数据，Coherent / Lumentum 将电信号转换为光信号，Corning 的光纤负责传输。<br><strong>IREN</strong> 补全的是“物理地基”：AI 工厂建在哪里，电力从哪里来，变电站由谁控制。</p></div>
-</div>
-
-<div class="section" id="companies">
-  <div class="section-label">03 · 被投企业</div>
-  <h2>一个是光子时代的管道，一个是 AI 工厂的地基</h2>
-  <h3>Corning（GLW）：低损耗光纤的长期王者</h3>
-  <p>Corning 是全球低损耗光纤的发明者，当前仍是全球最大光纤光缆供应商之一。进入壁垒来自玻璃科学、光学物理、大规模制造能力和垂直整合体系。</p>
-  <div class="path-grid"><div class="path-item"><div class="path-num">01</div><div><div class="path-title">技术护城河</div><p class="path-desc">超低损耗光纤并不是简单玻璃管，需要精确控制折射率分布，Corning 拥有数十年专利与量产工艺。</p></div></div><div class="path-item"><div class="path-num">02</div><div><div class="path-title">规模护城河</div><p class="path-desc">AI 数据中心从铜缆升级为高密度光纤，新进入者需要多年才能建立同等规模。</p></div></div><div class="path-item"><div class="path-num">03</div><div><div class="path-title">英伟达绑定</div><p class="path-desc">三座新工厂专供英伟达，产能预定锁死，竞争对手难以轻易抢单。</p></div></div></div>
-  <h3>IREN（IREN）：Neocloud 里的物理基础设施运营商</h3>
-  <p>IREN 与 CoreWeave、Nebius 同属 Neocloud 赛道，但商业模式更靠近电力、土地与变电站。它从比特币矿业时代积累了廉价电力、土地和电网接入资产。</p>
-  <div class="path-grid"><div class="path-item"><div class="path-num">01</div><div><div class="path-title">土地与电力护城河</div><p class="path-desc">德州风电、加拿大水电、已完成审批的电网接入协议，是最难复制的基础设施壁垒。</p></div></div><div class="path-item"><div class="path-num">02</div><div><div class="path-title">垂直整合护城河</div><p class="path-desc">电网接入协议、自有变电站、自有土地、自建液冷数据中心、自购 GPU 集群形成完整闭环。</p></div></div><div class="path-item"><div class="path-num">03</div><div><div class="path-title">合同护城河</div><p class="path-desc">微软 $97 亿加英伟达 $34 亿，已锁定 ARR 能见度。能够同时签约微软和英伟达的基础设施公司极其稀缺。</p></div></div></div>
-  <div class="alert"><div class="alert-label">IREN 财报噪音</div><p>Q3 FY26 总营收 $1.448 亿，低于预期；净亏损 -$2.478 亿。但比特币矿业仍占收入大头，过渡期财报噪音较大。核心变量不是当季 EPS，而是 AI Cloud ARR 爬坡速度、工程交付与合同兑现。</p></div>
-</div>
-
-<div class="section" id="map">
-  <div class="section-label">04 · 英伟达投资图谱</div>
-  <h2>英伟达正在系统性扫货 AI 工厂供应链</h2>
-  <div class="table-wrap"><table><thead><tr><th>环节</th><th>标的</th><th>投资 / 上限</th><th>战略含义</th></tr></thead><tbody>
-    <tr><td>芯片制造</td><td>Intel</td><td>$50亿</td><td>CPU 与先进制造补位</td></tr>
-    <tr><td>芯片设计</td><td>Synopsys</td><td>$20亿</td><td>EDA 工具链绑定</td></tr>
-    <tr><td>定制算力</td><td>Marvell</td><td>$20亿</td><td>ASIC 与光学 DSP</td></tr>
-    <tr><td>光收发器</td><td>Coherent</td><td>$20亿</td><td>激光器与 EML 产能</td></tr>
-    <tr><td>光模块</td><td>Lumentum</td><td>$20亿</td><td>光模块供给锁定</td></tr>
-    <tr><td>电信网络</td><td>Nokia</td><td>$10亿</td><td>AI-RAN 与边缘网络</td></tr>
-    <tr><td>AI 云</td><td>CoreWeave / Nebius</td><td>各约 $20亿</td><td>云算力与主权 AI 云</td></tr>
-    <tr><td>光纤 / 光缆</td><td>Corning</td><td>$5亿 → $32亿</td><td>传输介质锁定</td></tr>
-    <tr><td>AI 工厂地基</td><td>IREN</td><td>最高 $21亿</td><td>土地、电力、变电站</td></tr>
-  </tbody></table></div>
-  <div class="callout"><div class="callout-label">三大趋势</div><p>第一，光子化不可逆，供应链正在被全面锁定。第二，电力与土地成为 AI 时代的战略资产。第三，英伟达正在从“卖铲子”升级为“标准制定者”。</p></div>
-</div>
-
-<div class="section" id="returns">
-  <div class="section-label">05 · 投资回报推演</div>
-  <h2>权证结构创造了不对称收益</h2>
-  <h3>Corning：$180 是关键行权节点</h3>
-  <div class="table-wrap"><table><thead><tr><th>Corning 股价</th><th>行权成本</th><th>持股市值</th><th>账面收益</th></tr></thead><tbody>
-    <tr><td>$180</td><td>$27亿</td><td>$27亿</td><td>$0</td></tr>
-    <tr><td>$220</td><td>$27亿</td><td>$33亿</td><td>+$6亿</td></tr>
-    <tr><td>$280</td><td>$27亿</td><td>$42亿</td><td>+$15亿</td></tr>
-    <tr><td>$350</td><td>$27亿</td><td>$52.5亿</td><td>+$25.5亿</td></tr>
-  </tbody></table></div>
-  <h3>IREN：$70 是英伟达权证的定价锚</h3>
-  <div class="table-wrap"><table><thead><tr><th>IREN 股价</th><th>行权成本</th><th>持股市值</th><th>收益</th></tr></thead><tbody>
-    <tr><td>$70</td><td>$21亿</td><td>$21亿</td><td>$0</td></tr>
-    <tr><td>$100</td><td>$21亿</td><td>$30亿</td><td>+$9亿</td></tr>
-    <tr><td>$140</td><td>$21亿</td><td>$42亿</td><td>+$21亿</td></tr>
-    <tr><td>$200</td><td>$21亿</td><td>$60亿</td><td>+$39亿</td></tr>
-  </tbody></table></div>
-  <div class="alert"><div class="alert-label">估值提醒</div><p>IREN 的理论故事很强，但需要把 $34 亿采购合同与 $21 亿权证分开看。采购合同是英伟达的运营支出，权证才是投资收益工具。个人投资者用真实本金跟随，风险结构与英伟达并不相同。</p></div>
-</div>
-
-<div class="section" id="follow">
-  <div class="section-label">06 · 投资人跟随启发</div>
-  <h2>Corning 更稳，IREN 更进攻</h2>
-  <div class="path-grid">
-    <div class="path-item"><div class="path-num">GLW</div><div><div class="path-title">Corning：稳健型核心仓观察</div><p class="path-desc">英伟达真实出资 $5 亿，信号可信度较高。光纤在 AI 工厂从铜互联切换光互联的大趋势下，需求增长确定性更强。适合稳健型投资者，核心仓位可观察 5% 至 8%。关键跟踪点是股价接近 $180。</p></div></div>
-    <div class="path-item"><div class="path-num">IREN</div><div><div class="path-title">IREN：进攻型卫星仓观察</div><p class="path-desc">微软 $97 亿加英伟达 $34 亿，ARR 能见度高；自有土地与电力壁垒真实存在。但工程执行、财报过渡期、股权稀释和高波动是主要风险。适合卫星仓位 3% 至 5%。关键跟踪点是 ARR 爬坡速度和股价突破 $70。</p></div></div>
-  </div>
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-date">方法论 01</div><div class="timeline-content">用英伟达的出资规模判断确定性：直接大额股权投资最强，预付权证次之，零成本权证需要独立评估基本面。</div></div>
-    <div class="timeline-item"><div class="timeline-date">方法论 02</div><div class="timeline-content">识别权证行权催化剂：Corning 接近 $180、IREN 接近 $70 时，市场会开始提前定价英伟达行权预期。</div></div>
-    <div class="timeline-item"><div class="timeline-date">方法论 03</div><div class="timeline-content">用合同追踪替代季报追踪：Corning 看新工厂进度与产品渗透率，IREN 看 AI Cloud ARR 爬坡速度。</div></div>
-  </div>
-</div>
-
-<div class="conclusion" id="conclusion">
-  <h2>结语</h2>
-  <p>这两笔投资，指向一个清晰的产业判断：AI 工厂建设正在从“芯片和算法竞争”，进入“电力、土地、光纤等物理基础设施竞争”。</p>
-  <p>对个人投资者来说，跟随英伟达买这两家公司的逻辑成立，但方式需要分层：Corning 稳健进核心仓，IREN 激进配卫星仓。两者的核心催化剂，都来自英伟达权证的行权区间。</p>
-</div>
-
-<div class="footer">
-  本文为投资研究参考，不构成具体投资建议。数据来源：Enya 系统、NVIDIA 官方公告、IREN / Corning 8-K、SEC 13F、Reuters、Bloomberg。截至 2026 年 5 月 8 日。<br>
-  © Kerwin｜AI 精选组合研究｜Enya.Clawd 自动化呈现
-</div>
+<div class="hero"><div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div><div class="hero-title">英伟达押注光纤与地主</div><div class="hero-sub">IREN & Corning 双投资深度解析</div><div class="hero-meta">2026年5月8日 · AI 工厂基础设施专题</div></div>
+<nav class="nav"><a href="#intro">核心判断</a><a href="#structure">交易结构</a><a href="#dsx">DSX拼图</a><a href="#companies">公司解剖</a><a href="#map">投资图谱</a><a href="#returns">回报推演</a><a href="#follow">跟随启发</a><a href="#conclusion">结语</a></nav>
+<div class="section" id="intro"><div class="section-label">引言 · 核心判断</div><h2>AI 工厂最稀缺的，正在从 GPU 转向物理基础设施</h2><p>两天之内，英伟达连续宣布对 Corning 和 IREN 的战略投资。一个做光纤，一个自建变电站。两笔交易指向同一个判断：AI 工厂的稀缺资源，已经从单一 GPU 供给，扩散到光纤、电力、土地、变电站和数据中心地基。</p><div class="callout"><div class="callout-label">核心结论</div><p>Corning 是光子时代的“铺管工”；IREN 是 AI 工厂的“地主”。英伟达用权证结构锁定它们，本质上是在为 DSX AI 工厂标准补上最底层的两块拼图。</p></div><div class="stat-grid"><div class="stat-cell"><div class="stat-value gold">$5亿</div><div class="stat-label">英伟达对 Corning 的真实预付现金</div></div><div class="stat-cell"><div class="stat-value blue">$34亿</div><div class="stat-label">英伟达与 IREN 的五年 AI 云采购合同</div></div><div class="stat-cell"><div class="stat-value up">$32亿</div><div class="stat-label">Corning 潜在投资上限</div></div><div class="stat-cell"><div class="stat-value up">$21亿</div><div class="stat-label">IREN 权证潜在行权上限</div></div></div></div>
+<div class="section" id="structure"><div class="section-label">01 · 投资结构</div><h2>两笔设计精妙的权证交易</h2><p>权证是一张提前约定价格的购股票据。若股价高于行权价，行权获利；若低于行权价，权证到期作废。英伟达真正购买的，不只是股价上行权，更是供应链优先权、产能绑定权和产业标准落地权。</p><h3>Corning：付了真钱的双层结构</h3><p>英伟达花 <strong>$5亿</strong> 买入两张票据：一张是预付权证，行权价 $0.0001/股，锁定 300 万股；另一张是传统认股权证，行权价 $180/股，最多购入 1500 万股，期限 3 年。Corning 同时承诺产能扩大 10 倍，新建 3 座美国工厂。</p><h3>IREN：一张零成本的免费期权</h3><p>英伟达出资 $0，获得最多 3000 万股认购权，行权价 $70，期限 5 年。代价藏在另一份文件里：同日签署的 $34 亿、5 年期 AI 云采购合同。</p><div class="table-wrap"><table><thead><tr><th>维度</th><th>IREN</th><th>Corning</th></tr></thead><tbody><tr><td>英伟达预付现金</td><td>$0</td><td>$5亿</td></tr><tr><td>期权费来源</td><td>$34亿采购合同</td><td>$5亿真实现金</td></tr><tr><td>有效期</td><td>5年，窗口更宽</td><td>3年，时间更紧</td></tr><tr><td>行权价</td><td>$70，价外约23%</td><td>$180，价外约11%</td></tr><tr><td>潜在投资上限</td><td>$21亿</td><td>$32亿</td></tr><tr><td>信号强度</td><td><span class="tag amber">中，零成本</span></td><td><span class="tag green">强，真实出资</span></td></tr></tbody></table></div><div class="flow"><div class="flow-box">英伟达 → IREN：$34亿采购合同，提供稳定收入保障</div><div class="flow-arrow">↓</div><div class="flow-box alt">IREN → 英伟达：$21亿上限认购权，提供股权上行空间</div><div class="flow-arrow">↓</div><div class="flow-box accent">英伟达用订单作期权费，IREN 用股权潜力换收入确定性</div></div></div>
+<div class="section" id="dsx"><div class="section-label">02 · DSX 战略</div><h2>从卖 GPU 到定义 AI 工厂标准</h2><p>DSX（Data-center Scale X）是英伟达 2026 年 GTC 发布的 AI 工厂参考架构，是英伟达从“卖 GPU”升级为“定义 AI 工厂建设标准”的战略支点。一旦客户采用 DSX 标准建设 AI 工厂，整条供应链都在英伟达生态内运行。</p><div class="flow"><div class="flow-box">计算层：Vera Rubin GPU，GB300 / B300 NVL72</div><div class="flow-arrow">↓</div><div class="flow-box alt">网络层：Spectrum-X / Quantum-X 光子交换机</div><div class="flow-arrow">↓</div><div class="flow-box light">能源层：DSX Flex 电网联动 + DSX Max-Q 每瓦算力最优化</div><div class="flow-arrow">↓</div><div class="flow-box accent">数字层：Omniverse DSX，建厂前数字孪生仿真</div></div><div class="callout"><div class="callout-label">拼图位置</div><p><strong>Corning</strong> 补全的是“传输介质”：GPU 产生数据，Coherent / Lumentum 将电信号转换为光信号，Corning 的光纤负责传输。<br><strong>IREN</strong> 补全的是“物理地基”：AI 工厂建在哪里，电力从哪里来，变电站由谁控制。</p></div></div>
+<div class="section" id="companies"><div class="section-label">03 · 被投企业</div><h2>一个是光子时代的管道，一个是 AI 工厂的地基</h2><h3>Corning（GLW）：低损耗光纤的长期王者</h3><p>Corning 是全球低损耗光纤的发明者，当前仍是全球最大光纤光缆供应商之一。进入壁垒来自玻璃科学、光学物理、大规模制造能力和垂直整合体系。</p><div class="path-grid"><div class="path-item"><div class="path-num">01</div><div><div class="path-title">技术护城河</div><p class="path-desc">超低损耗光纤并不是简单玻璃管，需要精确控制折射率分布，Corning 拥有数十年专利与量产工艺。</p></div></div><div class="path-item"><div class="path-num">02</div><div><div class="path-title">规模护城河</div><p class="path-desc">AI 数据中心从铜缆升级为高密度光纤，新进入者需要多年才能建立同等规模。</p></div></div><div class="path-item"><div class="path-num">03</div><div><div class="path-title">英伟达绑定</div><p class="path-desc">三座新工厂专供英伟达，产能预定锁死，竞争对手难以轻易抢单。</p></div></div></div><h3>IREN（IREN）：Neocloud 里的物理基础设施运营商</h3><p>IREN 与 CoreWeave、Nebius 同属 Neocloud 赛道，但商业模式更靠近电力、土地与变电站。它从比特币矿业时代积累了廉价电力、土地和电网接入资产。</p><div class="path-grid"><div class="path-item"><div class="path-num">01</div><div><div class="path-title">土地与电力护城河</div><p class="path-desc">德州风电、加拿大水电、已完成审批的电网接入协议，是最难复制的基础设施壁垒。</p></div></div><div class="path-item"><div class="path-num">02</div><div><div class="path-title">垂直整合护城河</div><p class="path-desc">电网接入协议、自有变电站、自有土地、自建液冷数据中心、自购 GPU 集群形成完整闭环。</p></div></div><div class="path-item"><div class="path-num">03</div><div><div class="path-title">合同护城河</div><p class="path-desc">微软 $97 亿加英伟达 $34 亿，已锁定 ARR 能见度。能够同时签约微软和英伟达的基础设施公司极其稀缺。</p></div></div></div><div class="alert"><div class="alert-label">IREN 财报噪音</div><p>Q3 FY26 总营收 $1.448 亿，低于预期；净亏损 -$2.478 亿。但比特币矿业仍占收入大头，过渡期财报噪音较大。核心变量不是当季 EPS，而是 AI Cloud ARR 爬坡速度、工程交付与合同兑现。</p></div></div>
+<div class="section" id="map"><div class="section-label">04 · 英伟达投资图谱</div><h2>英伟达正在系统性扫货 AI 工厂供应链</h2><div class="table-wrap"><table><thead><tr><th>环节</th><th>标的</th><th>投资 / 上限</th><th>战略含义</th></tr></thead><tbody><tr><td>芯片制造</td><td>Intel</td><td>$50亿</td><td>CPU 与先进制造补位</td></tr><tr><td>芯片设计</td><td>Synopsys</td><td>$20亿</td><td>EDA 工具链绑定</td></tr><tr><td>定制算力</td><td>Marvell</td><td>$20亿</td><td>ASIC 与光学 DSP</td></tr><tr><td>光收发器</td><td>Coherent</td><td>$20亿</td><td>激光器与 EML 产能</td></tr><tr><td>光模块</td><td>Lumentum</td><td>$20亿</td><td>光模块供给锁定</td></tr><tr><td>电信网络</td><td>Nokia</td><td>$10亿</td><td>AI-RAN 与边缘网络</td></tr><tr><td>AI 云</td><td>CoreWeave / Nebius</td><td>各约 $20亿</td><td>云算力与主权 AI 云</td></tr><tr><td>光纤 / 光缆</td><td>Corning</td><td>$5亿 → $32亿</td><td>传输介质锁定</td></tr><tr><td>AI 工厂地基</td><td>IREN</td><td>最高 $21亿</td><td>土地、电力、变电站</td></tr></tbody></table></div><div class="callout"><div class="callout-label">三大趋势</div><p>第一，光子化不可逆，供应链正在被全面锁定。第二，电力与土地成为 AI 时代的战略资产。第三，英伟达正在从“卖铲子”升级为“标准制定者”。</p></div></div>
+<div class="section" id="returns"><div class="section-label">05 · 投资回报推演</div><h2>权证结构创造了不对称收益</h2><h3>Corning：$180 是关键行权节点</h3><div class="table-wrap"><table><thead><tr><th>Corning 股价</th><th>行权成本</th><th>持股市值</th><th>账面收益</th></tr></thead><tbody><tr><td>$180</td><td>$27亿</td><td>$27亿</td><td>$0</td></tr><tr><td>$220</td><td>$27亿</td><td>$33亿</td><td>+$6亿</td></tr><tr><td>$280</td><td>$27亿</td><td>$42亿</td><td>+$15亿</td></tr><tr><td>$350</td><td>$27亿</td><td>$52.5亿</td><td>+$25.5亿</td></tr></tbody></table></div><h3>IREN：$70 是英伟达权证的定价锚</h3><div class="table-wrap"><table><thead><tr><th>IREN 股价</th><th>行权成本</th><th>持股市值</th><th>收益</th></tr></thead><tbody><tr><td>$70</td><td>$21亿</td><td>$21亿</td><td>$0</td></tr><tr><td>$100</td><td>$21亿</td><td>$30亿</td><td>+$9亿</td></tr><tr><td>$140</td><td>$21亿</td><td>$42亿</td><td>+$21亿</td></tr><tr><td>$200</td><td>$21亿</td><td>$60亿</td><td>+$39亿</td></tr></tbody></table></div><div class="alert"><div class="alert-label">估值提醒</div><p>IREN 的理论故事很强，但需要把 $34 亿采购合同与 $21 亿权证分开看。采购合同是英伟达的运营支出，权证才是投资收益工具。个人投资者用真实本金跟随，风险结构与英伟达并不相同。</p></div></div>
+<div class="section" id="follow"><div class="section-label">06 · 投资人跟随启发</div><h2>Corning 更稳，IREN 更进攻</h2><div class="path-grid"><div class="path-item"><div class="ticker">GLW</div><div><div class="path-title">Corning：稳健型核心仓观察</div><p class="path-desc">英伟达真实出资 $5 亿，信号可信度较高。光纤在 AI 工厂从铜互联切换光互联的大趋势下，需求增长确定性更强。适合稳健型投资者，核心仓位可观察 5% 至 8%。关键跟踪点是股价接近 $180。</p></div></div><div class="path-item"><div class="ticker">IREN</div><div><div class="path-title">IREN：进攻型卫星仓观察</div><p class="path-desc">微软 $97 亿加英伟达 $34 亿，ARR 能见度高；自有土地与电力壁垒真实存在。但工程执行、财报过渡期、股权稀释和高波动是主要风险。适合卫星仓位 3% 至 5%。关键跟踪点是 ARR 爬坡速度和股价突破 $70。</p></div></div></div><div class="timeline"><div class="timeline-item"><div class="timeline-date">方法论 01</div><div class="timeline-content">用英伟达的出资规模判断确定性：直接大额股权投资最强，预付权证次之，零成本权证需要独立评估基本面。</div></div><div class="timeline-item"><div class="timeline-date">方法论 02</div><div class="timeline-content">识别权证行权催化剂：Corning 接近 $180、IREN 接近 $70 时，市场会开始提前定价英伟达行权预期。</div></div><div class="timeline-item"><div class="timeline-date">方法论 03</div><div class="timeline-content">用合同追踪替代季报追踪：Corning 看新工厂进度与产品渗透率，IREN 看 AI Cloud ARR 爬坡速度。</div></div></div></div>
+<div class="conclusion" id="conclusion"><h2>结语</h2><p>这两笔投资，指向一个清晰的产业判断：AI 工厂建设正在从“芯片和算法竞争”，进入“电力、土地、光纤等物理基础设施竞争”。</p><p>对个人投资者来说，跟随英伟达买这两家公司的逻辑成立，但方式需要分层：Corning 稳健进核心仓，IREN 激进配卫星仓。两者的核心催化剂，都来自英伟达权证的行权区间。</p></div>
+<div class="footer">本文为投资研究参考，不构成具体投资建议。数据来源：Enya 系统、NVIDIA 官方公告、IREN / Corning 8-K、SEC 13F、Reuters、Bloomberg。截至 2026 年 5 月 8 日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
 </div></div></div>
 </body>
 </html>
