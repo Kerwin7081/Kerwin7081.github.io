@@ -240,10 +240,14 @@ body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roma
   var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
   var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
   var el = document.getElementById('counter-num');
-  // POST to count this visit
-  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+  // GET current count first
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){
     if(el) el.textContent = d.count.toLocaleString();
   }).catch(function(){if(el) el.textContent = '-';});
+  // POST to increment (fire and forget)
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = d.count.toLocaleString();
+  }).catch(function(){});
 })();
 </script>
 <!-- /Enya 计数器 -->
