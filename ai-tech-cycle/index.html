@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美国AI科技大周期的本质 · Kerwin Team</title>
+<style>
+:root {
+ --bg: #fff1e5;
+ --paper: #fffaf4;
+ --ink: #1f1a17;
+ --muted: #6f6258;
+ --line: #dccdbf;
+ --blue: #2563eb;
+ --up: #16a34a;
+ --down: #dc2626;
+ --warn: #92400e;
+ --gold: #8a5b2b;
+ --date: #8b4513;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+ background: var(--bg);
+ color: var(--ink);
+ font-family: Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+ font-size: 15px;
+ line-height: 1.85;
+}
+
+/* ── WRAPPER ── */
+.page {
+ max-width: 780px;
+ margin: 0 auto;
+ border-top: 8px solid var(--ink);
+}
+
+/* ── TOP HEADER ── */
+.top-header {
+ background: var(--paper);
+ padding: 32px 28px 28px;
+ border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+ font-family: Arial, sans-serif;
+ font-size: 11px;
+ font-weight: 700;
+ letter-spacing: 0.18em;
+ color: var(--muted);
+ text-transform: uppercase;
+ margin-bottom: 14px;
+}
+
+.header-title {
+ font-family: Georgia, 'Times New Roman', 'PingFang SC', serif;
+ font-size: clamp(28px, 5vw, 46px);
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.2;
+ margin-bottom: 6px;
+}
+
+.header-sub {
+ font-family: Georgia, 'Times New Roman', 'PingFang SC', serif;
+ font-size: clamp(20px, 3vw, 30px);
+ font-weight: 400;
+ color: var(--ink);
+ margin-bottom: 16px;
+}
+
+.header-date {
+ font-size: 13px;
+ color: var(--date);
+ font-weight: 700;
+ margin-bottom: 22px;
+}
+
+.header-rule { border: none; border-top: 1px solid var(--line); margin-bottom: 20px; }
+
+.header-byline {
+ font-size: 13px;
+ color: var(--muted);
+ line-height: 1.75;
+}
+
+/* ── BRAND BAND ── */
+.brand-band {
+ background: var(--ink);
+ padding: 10px 28px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.brand-pill {
+ font-family: Arial, sans-serif;
+ font-size: 11px;
+ letter-spacing: 0.08em;
+ color: #e8d5b8;
+ white-space: nowrap;
+ border: 1px solid rgba(232,213,184,0.35);
+ padding: 5px 18px;
+ border-radius: 20px;
+}
+
+/* ── HERO ── */
+.hero {
+ background: var(--paper);
+ padding: 44px 28px 36px;
+ border-bottom: 2px solid var(--ink);
+ text-align: center;
+}
+
+.hero-title {
+ font-family: Georgia, 'Times New Roman', 'PingFang SC', serif;
+ font-size: clamp(26px, 4.5vw, 44px);
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.25;
+ margin-bottom: 14px;
+}
+
+.hero-deck {
+ font-size: 15px;
+ color: var(--date);
+ font-weight: 700;
+ margin-bottom: 6px;
+}
+
+.hero-meta {
+ font-size: 12px;
+ color: var(--muted);
+ letter-spacing: 0.05em;
+}
+
+/* ── NAV ── */
+.nav {
+ background: var(--bg);
+ border-bottom: 1px solid var(--line);
+ overflow-x: auto;
+ -webkit-overflow-scrolling: touch;
+ position: sticky;
+ top: 0;
+ z-index: 80;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-inner {
+ display: flex;
+ padding: 0 20px;
+ white-space: nowrap;
+}
+
+.nav-a {
+ display: inline-block;
+ padding: 11px 14px;
+ font-size: 12px;
+ color: var(--muted);
+ text-decoration: none;
+ border-bottom: 2px solid transparent;
+ transition: color 0.15s, border-color 0.15s;
+ white-space: nowrap;
+}
+.nav-a:hover, .nav-a.on {
+ color: var(--ink);
+ border-bottom-color: var(--ink);
+}
+
+/* ── BODY ── */
+.body {
+ padding: 0 28px 72px;
+}
+
+/* ── SECTION ── */
+.sec {
+ padding: 48px 0 44px;
+ border-bottom: 1px solid var(--line);
+}
+.sec:last-child { border-bottom: none; }
+
+.sec-label {
+ font-size: 10px;
+ font-weight: 700;
+ letter-spacing: 0.22em;
+ color: var(--muted);
+ text-transform: uppercase;
+ margin-bottom: 10px;
+}
+
+h2 {
+ font-family: Georgia, 'Times New Roman', 'PingFang SC', serif;
+ font-size: clamp(19px, 2.8vw, 26px);
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.35;
+ margin-bottom: 22px;
+}
+
+p {
+ color: var(--ink);
+ margin-bottom: 15px;
+ line-height: 1.88;
+ font-size: 15px;
+}
+p:last-child { margin-bottom: 0; }
+
+strong { color: var(--ink); font-weight: 700; }
+em { color: var(--gold); font-style: normal; font-weight: 700; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+ background: #fef9c3;
+ border-left: 4px solid var(--warn);
+ padding: 18px 20px;
+ margin: 24px 0;
+ font-size: 14.5px;
+ color: var(--warn);
+ line-height: 1.85;
+}
+
+/* ── CALLOUT ── */
+.callout {
+ background: var(--paper);
+ border: 1px solid var(--line);
+ border-left: 4px solid var(--gold);
+ padding: 18px 20px;
+ margin: 24px 0;
+ font-size: 14.5px;
+ line-height: 1.85;
+}
+
+/* ── STAT GRID ── */
+.stat-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+ gap: 12px;
+ margin: 24px 0;
+}
+
+.stat-card {
+ background: var(--paper);
+ border: 1px solid var(--line);
+ padding: 16px 16px 14px;
+}
+
+.stat-label {
+ font-size: 10px;
+ font-weight: 700;
+ letter-spacing: 0.12em;
+ color: var(--muted);
+ text-transform: uppercase;
+ margin-bottom: 6px;
+}
+
+.stat-val {
+ font-family: Georgia, serif;
+ font-size: 22px;
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.1;
+ margin-bottom: 4px;
+}
+
+.stat-note {
+ font-size: 11px;
+ color: var(--muted);
+}
+
+/* ── TABLE ── */
+.table-wrap {
+ overflow-x: auto;
+ margin: 24px 0;
+}
+
+table {
+ width: 100%;
+ border-collapse: collapse;
+ min-width: 460px;
+ font-size: 13px;
+}
+
+thead tr {
+ background: var(--ink);
+ color: #fff;
+}
+
+th {
+ padding: 10px 14px;
+ text-align: left;
+ font-weight: 700;
+ font-size: 11px;
+ letter-spacing: 0.08em;
+ text-transform: uppercase;
+ white-space: nowrap;
+}
+
+td {
+ padding: 10px 14px;
+ color: var(--ink);
+ border-bottom: 1px solid var(--line);
+ vertical-align: top;
+ line-height: 1.6;
+}
+
+tr:nth-child(even) td { background: rgba(220,205,191,0.18); }
+tr:last-child td { border-bottom: none; }
+td:first-child { font-weight: 700; }
+
+/* ── FLOW ── */
+.flow {
+ background: var(--paper);
+ border: 1px solid var(--line);
+ padding: 26px 22px;
+ margin: 24px 0;
+ font-family: 'Courier New', monospace;
+ font-size: 12.5px;
+ line-height: 2.1;
+}
+
+.fn { display: block; color: var(--ink); font-weight: 700; }
+.fa { display: block; color: var(--gold); padding-left: 8px; font-size: 11px; }
+.fs { display: block; color: var(--muted); padding-left: 22px; font-size: 11.5px; }
+
+/* ── PATH GRID ── */
+.path-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+ gap: 14px;
+ margin: 24px 0;
+}
+
+.path-card {
+ background: var(--paper);
+ border: 1px solid var(--line);
+ padding: 18px;
+ position: relative;
+}
+
+.path-num {
+ font-family: Georgia, serif;
+ font-size: 28px;
+ font-weight: 700;
+ color: var(--line);
+ line-height: 1;
+ margin-bottom: 8px;
+}
+
+.path-title {
+ font-size: 13px;
+ font-weight: 700;
+ color: var(--ink);
+ margin-bottom: 8px;
+ line-height: 1.4;
+}
+
+.path-body {
+ font-size: 12px;
+ color: var(--muted);
+ line-height: 1.7;
+}
+
+.path-tag {
+ display: inline-block;
+ margin-top: 10px;
+ font-size: 10px;
+ font-weight: 700;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ padding: 3px 8px;
+}
+
+.tag-high { background: #fee2e2; color: var(--down); }
+.tag-mid  { background: #fef3c7; color: var(--warn); }
+.tag-low  { background: #dcfce7; color: var(--up); }
+
+/* ── CONCLUSION ── */
+.conclusion-box {
+ background: var(--ink);
+ padding: 36px 28px;
+ margin-top: 28px;
+ text-align: center;
+}
+
+.conclusion-box p {
+ font-family: Georgia, serif;
+ font-size: 15px;
+ color: rgba(255,255,255,0.82);
+ line-height: 2;
+ margin-bottom: 24px;
+}
+
+.q-list { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+
+.q-row {
+ display: flex;
+ gap: 14px;
+ align-items: flex-start;
+ padding: 12px 16px;
+ border: 1px solid rgba(220,205,191,0.2);
+ font-size: 12px;
+ color: #e8d5b8;
+ line-height: 1.65;
+}
+
+.q-n {
+ font-family: Georgia, serif;
+ font-size: 18px;
+ font-weight: 700;
+ color: rgba(220,205,191,0.3);
+ flex-shrink: 0;
+ line-height: 1.2;
+}
+
+/* ── FOOTER ── */
+footer {
+ background: var(--paper);
+ border-top: 2px solid var(--ink);
+ padding: 28px 28px 24px;
+ font-size: 12px;
+ color: var(--muted);
+ line-height: 1.85;
+}
+
+.footer-rule { border: none; border-top: 1px solid var(--line); margin: 14px 0; }
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+ .page { border-top-width: 5px; }
+ .top-header { padding: 24px 20px 22px; }
+ .hero { padding: 32px 20px 28px; }
+ .body { padding: 0 20px 48px; }
+ .sec { padding: 36px 0 32px; }
+ footer { padding: 22px 20px 20px; }
+ .flow { padding: 20px 16px; font-size: 11px; }
+ .conclusion-box { padding: 28px 20px; }
+ .path-grid { grid-template-columns: 1fr; }
+ .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- TOP HEADER -->
+<div class="top-header">
+ <div class="kicker">KERWIN TEAM · MACRO RESEARCH</div>
+ <div class="header-title">美国AI科技大周期的本质</div>
+ <div class="header-sub">泡沫还是繁荣？</div>
+ <div class="header-date">报告发布日期：2026年5月9日</div>
+ <hr class="header-rule">
+ <div class="header-byline">
+ 本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
+ 底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+ </div>
+</div>
+
+<!-- BRAND BAND -->
+<div class="brand-band">
+ <span class="brand-pill">2026 kerwin 宏观对冲及 AI 精选组合</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+ <div class="hero-title">美国AI科技大周期的本质</div>
+ <div class="hero-deck">泡沫还是繁荣？</div>
+ <div class="hero-meta">专题研究报告 · 2026年5月9日</div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+ <div class="nav-inner">
+ <a class="nav-a on" href="#s1">宏观框架</a>
+ <a class="nav-a" href="#s2">循环融资</a>
+ <a class="nav-a" href="#s3">资本配置</a>
+ <a class="nav-a" href="#s4">关键差异</a>
+ <a class="nav-a" href="#s5">红线预判</a>
+ <a class="nav-a" href="#s6">投资含义</a>
+ <a class="nav-a" href="#s7">结语</a>
+ </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+<!-- 01 -->
+<div class="sec" id="s1">
+ <div class="sec-label">Part 01 · 宏观框架</div>
+ <h2>以中国房地产大周期理解美国AI科技周期</h2>
+ <p>理解一个正在展开的大型资本周期，最有效的方法不是构造复杂模型，而是<em>寻找历史上一个已被完整验证的类比框架</em>。</p>
+ <p>中国房地产大周期（2003–2021）是一个已被市场反复解剖的标本。它的核心机制不是"房价上涨"这么简单，而是——一个建立在<strong>国家级资本流入</strong>之上的、<strong>内部循环融资</strong>驱动的大型经济周期。这个框架，恰好可以用来解读当前美国AI科技周期的底层逻辑。</p>
+ <p>我们不是在做两个行业的简单对比，而是在<strong>提取一套"大型资本周期的通用解剖学"</strong>，然后用它来审视AI周期走到哪里了、结构性脆弱点在哪里、以及投资者该如何定位。</p>
+</div>
+
+<!-- 02 -->
+<div class="sec" id="s2">
+ <div class="sec-label">Part 02 · 周期核心机制</div>
+ <h2>循环融资结构：从房地产到AI</h2>
+ <p>中国房地产大周期里有一个经典微观结构：<strong>供应商参股开发商，开发商反过来参股供应商。</strong>这并非投机，而是一种实用主义的融资安排——在银行信贷不畅时，用股权关系锁定订单与融资，降低交易成本。</p>
+ <p>在上升周期，这种结构是效率放大器：资金在体系内高效流转，订单加速兑现，风险看起来被稀释了。但它的本质是——<strong>外部资金通过"总阀门"注入后，在体系内反复循环</strong>，每一次循环都创造更多账面资产和更多账面利润。</p>
+
+ <blockquote>
+ <strong>关键认知：</strong>循环融资结构是周期的放大器，不是周期的终结者。触发破灭的，永远是某个<strong>外生的、不可被内部消化的约束条件</strong>被强制触发——正如三条红线之于房地产，而非开发商之间的融资架构本身。
+ </blockquote>
+
+ <p>美国AI科技周期是否存在类似的循环融资结构？答案是——<strong>结构不同，逻辑一致。</strong></p>
+ <p>科技巨头向AI初创公司投资数十亿美元，这些AI公司再用同一笔钱向科技巨头购买云服务和算力。科技巨头的云收入增长，反过来支撑更大的Capex承诺。Oracle、Microsoft、Google、Amazon——它们既是AI公司的投资者，又是AI公司的供应商，<strong>资金在同一个生态系统内反复循环。</strong></p>
+ <p>这不是批评，这是<strong>所有大型资本周期的共同特征</strong>。中国房地产如此，19世纪美国铁路大建设如此，光纤泡沫如此，AI周期也同样如此。</p>
+</div>
+
+<!-- 03 -->
+<div class="sec" id="s3">
+ <div class="sec-label">Part 03 · 宏观本质</div>
+ <h2>国家级资本配置运动</h2>
+ <p>中国房地产大周期的真正驱动力，从来不是开发商之间的融资技巧，而是<strong>国家级别的资本流量</strong>——央行货币政策、财政扩张、银行信贷，海量资金通过土地财政这个总阀门流向房地产，带动建筑、建材、家电、金融等全产业链，构成整整二十年的经济繁荣主轴。</p>
+ <p>美国AI科技周期的底层逻辑与此高度同构。<strong>科技巨头的Capex，就是这个周期的总阀门。</strong></p>
+
+ <div class="flow">
+ <span class="fn">美国财政赤字扩张（GDP占比约7%，历史高位）</span>
+ <span class="fa">↓ 维持整体需求，托底科技巨头广告 / 云 / 企业软件收入</span>
+ <span class="fn">科技巨头自身强劲 FCF（微软/谷歌/Meta/亚马逊年合计逾 3,000 亿美元）</span>
+ <span class="fa">↓ 支撑巨额资本开支（2025-2026年合计承诺超 3,000 亿美元）</span>
+ <span class="fn">Capex 注入算力基础设施 ← 总阀门</span>
+ <span class="fa">↓ 分流至各细分赛道</span>
+ <span class="fs">光互联 · HBM内存 · 先进封装 · 数据中心电力 · 液冷系统</span>
+ <span class="fa">↓ 订单流向亚洲供应链（美国AI财政扩张的出口效应）</span>
+ <span class="fs">韩国：SK Hynix · 三星 HBM</span>
+ <span class="fs">台湾：台积电 CoWoS 先进封装</span>
+ <span class="fs">日本：半导体材料与设备</span>
+ <span class="fs">荷兰：ASML 光刻机</span>
+ </div>
+
+ <p>这正是为什么韩国SK Hynix与三星在2025年显著拉动GDP增长，台积电先进制程订单排到数年后，日本半导体设备股持续强势。<em>美国AI财政扩张的出口效应，已在亚洲产业链上留下清晰的宏观印记。</em></p>
+</div>
+
+<!-- 04 -->
+<div class="sec" id="s4">
+ <div class="sec-label">Part 04 · 关键差异</div>
+ <h2>两个周期不能简单等同</h2>
+ <p>类比不等于等同。两个周期存在几处结构性差异，必须厘清：</p>
+
+ <div class="table-wrap">
+ <table>
+ <thead>
+ <tr><th>维度</th><th>中国房地产周期</th><th>美国AI科技周期</th></tr>
+ </thead>
+ <tbody>
+ <tr><td>总阀门性质</td><td>政策性，可被行政指令关闭</td><td>市场性，需多重市场力量驱动关闭</td></tr>
+ <tr><td>核心企业杠杆</td><td>开发商高杠杆，资产负债表脆弱</td><td>微软/谷歌/Meta 资产负债表极健康</td></tr>
+ <tr><td>价值兑现路径</td><td>清晰，居民购房是真实消费行为</td><td>待验证，AI能力→生产力→GDP增量</td></tr>
+ <tr><td>破灭触发机制</td><td>可被一刀切（三条红线即可）</td><td>需多重因素共振，周期更长</td></tr>
+ <tr><td>破灭节奏</td><td>快，实物资产流动性极差</td><td>通常更慢，但积累时间更长</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="callout">
+ ⚠️ <strong>AI周期最大的结构性脆弱点：</strong>中国房地产有清晰的"价值兑现终点"——居民购房，资金最终沉淀为实物资产，脱离循环体系。而AI的价值兑现终点目前仍不够清晰。<br><br>
+ Capex流入算力 ✓ &nbsp;·&nbsp; 算力产生AI能力 ✓ &nbsp;·&nbsp; AI能力转化为生产力提升 → <strong>目前仍是最大的黑箱。</strong><br><br>
+ 如果兑现终点迟迟不到来，循环体系维持时间越长，最终调整的幅度就越大。
+ </div>
+</div>
+
+<!-- 05 -->
+<div class="sec" id="s5">
+ <div class="sec-label">Part 05 · 红线预判</div>
+ <h2>什么会成为美国AI周期的"三条红线"？</h2>
+ <p>不是判断循环会不会崩，而是<em>持续追踪哪一根红线正在被悄悄画出来</em>——这才是前瞻投资者的正确姿势。</p>
+
+ <div class="path-grid">
+ <div class="path-card">
+ <div class="path-num">01</div>
+ <div class="path-title">AI企业软件续约率持续低于预期</div>
+ <div class="path-body">内生性失血，渐进发酵。2026年Q3-Q4是关键观察窗口，这是验证AI外部真实需求最干净的数据。</div>
+ <span class="path-tag tag-mid">中高概率</span>
+ </div>
+ <div class="path-card">
+ <div class="path-num">02</div>
+ <div class="path-title">地缘政治导致算力供应链断裂</div>
+ <div class="path-body">台海局势演化、出口管制升级均可能冲击供应链，属外生冲击，难以预测但影响显著。</div>
+ <span class="path-tag tag-mid">中等概率</span>
+ </div>
+ <div class="path-card">
+ <div class="path-num">03</div>
+ <div class="path-title">美联储维持超预期长期高利率</div>
+ <div class="path-body">渐进式收紧，类慢性失血。已部分被市场定价，但持续时间超预期仍可引发估值重估。</div>
+ <span class="path-tag tag-mid">中等概率</span>
+ </div>
+ <div class="path-card">
+ <div class="path-num">04</div>
+ <div class="path-title">SEC/FTC对关联交易会计处理启动审查</div>
+ <div class="path-body">外科手术式冲击，类似三条红线。概率低但属尾部风险，一旦触发将产生系统性影响。</div>
+ <span class="path-tag tag-high">低概率·高影响</span>
+ </div>
+ <div class="path-card">
+ <div class="path-num">05</div>
+ <div class="path-title">核心节点出现流动性危机</div>
+ <div class="path-body">如OpenAI等核心AI公司出现信用问题，可能引发整个循环体系的信用传染与连锁反应。</div>
+ <span class="path-tag tag-high">低概率·极高影响</span>
+ </div>
+ </div>
+</div>
+
+<!-- 06 -->
+<div class="sec" id="s6">
+ <div class="sec-label">Part 06 · 投资含义</div>
+ <h2>对持仓决策的四个核心判断</h2>
+
+ <div class="path-grid">
+ <div class="path-card">
+ <div class="path-num">①</div>
+ <div class="path-title">不要把"循环融资"本身当作做空信号</div>
+ <div class="path-body">在资本充裕的上升周期里，循环融资是正常的经济现象，不是系统性风险的来源。把微观结构批评混同于宏观周期判断，是最常见的分析层次错误。</div>
+ </div>
+ <div class="path-card">
+ <div class="path-num">②</div>
+ <div class="path-title">追踪"活水"是否仍在流入</div>
+ <div class="path-body">核心指标：科技巨头季度Capex是否持续超预期；美国财政赤字是否维持扩张；企业AI软件采购的实际落地数据。Capex承诺与落地之间的gap是最重要的信息不对称来源。</div>
+ </div>
+ <div class="path-card">
+ <div class="path-num">③</div>
+ <div class="path-title">亚洲产业链受益逻辑仍然成立</div>
+ <div class="path-body">HBM内存、先进封装已是"先行受益"，算力确定性高；AI应用层的亚洲受益者（日韩软件企业）属"后期受益"，尚待验证。</div>
+ </div>
+ <div class="path-card">
+ <div class="path-num">④</div>
+ <div class="path-title">把握"兑现终点"到来的信号</div>
+ <div class="path-body">当企业AI使用率、劳动生产率数据开始在宏观统计中显著体现，是周期从"基础设施建设阶段"进入"应用变现阶段"的关键信号，届时估值逻辑将发生根本性转变。</div>
+ </div>
+ </div>
+</div>
+
+<!-- 07 -->
+<div class="sec" id="s7">
+ <div class="sec-label">结语</div>
+ <h2>回到最初的问题</h2>
+ <p>美国科技巨头互相融资、互相下单，是泡沫还是繁荣？答案是：<strong>它既不是证明繁荣的理由，也不是判断泡沫的依据。</strong>它只是资本充裕型经济周期在微观层面的必然表现形式。</p>
+ <p>正如中国房地产大周期里的供应商股东制度，在周期顺风时是效率工具，在周期逆转时是放大器——破灭的扳机，从来都在外部，而不在结构内部。</p>
+
+ <div class="conclusion-box">
+ <p>
+ 真正值得持续追问的，不是<br>
+ "这些公司互相投资对不对"，<br>
+ 而是三个更根本的问题：
+ </p>
+ <div class="q-list">
+ <div class="q-row"><span class="q-n">01</span><span>这个国家级别的资本周期，走到哪里了？</span></div>
+ <div class="q-row"><span class="q-n">02</span><span>总阀门——科技巨头的 Capex——还开着吗？</span></div>
+ <div class="q-row"><span class="q-n">03</span><span>价值兑现的终点，近了还是远了？</span></div>
+ </div>
+ </div>
+</div>
+
+</div><!-- /body -->
+
+<!-- FOOTER -->
+<footer>
+ <div>数据来源：公开财报、Bloomberg、公司官方披露</div>
+ <hr class="footer-rule">
+ <div class="footer-brand">Enya — 香港首个 OpenClaw 打造的女性投顾 Agent</div>
+ <div>本文不构成严谨投资建议。严谨投资建议请与 Kerwin 联系</div>
+ <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
+ <hr class="footer-rule">
+ <div>© 2026 kerwin 宏观对冲及 AI 精选组合 · 专题研究报告</div>
+</footer>
+
+</div><!-- /page -->
+
+<script>
+// Nav highlight on scroll
+const navLinks = document.querySelectorAll('.nav-a');
+const sections = document.querySelectorAll('.sec[id]');
+
+const io = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ navLinks.forEach(n => n.classList.toggle('on', n.getAttribute('href') === '#' + e.target.id));
+ }
+ });
+}, { rootMargin: '-15% 0px -70% 0px' });
+
+sections.forEach(s => io.observe(s));
+
+navLinks.forEach(n => {
+ n.addEventListener('click', e => {
+ e.preventDefault();
+ document.querySelector(n.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+ });
+});
+</script>
+</body>
+</html>

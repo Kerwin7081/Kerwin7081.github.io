@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnyaClawd — Research</title>
+<style>
+:root {
+ --bg: #fff1e5;
+ --paper: #fffaf4;
+ --ink: #1f1a17;
+ --muted: #6f6258;
+ --line: #dccdbf;
+ --gold: #8a5b2b;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+ background: var(--bg);
+ color: var(--ink);
+ font-family: Georgia, 'Times New Roman', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', serif;
+ font-size: 15px;
+ line-height: 1.85;
+}
+.page {
+ max-width: 780px;
+ margin: 0 auto;
+ padding: 0 10px 60px;
+}
+.shell {
+ background: var(--paper);
+ border: 1px solid var(--line);
+ box-shadow: 0 10px 30px rgba(15,23,42,.06);
+ margin-top: 10px;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+ padding: 40px 32px 32px;
+ border-top: 8px solid var(--ink);
+ border-bottom: 2px solid var(--ink);
+ text-align: center;
+}
+.masthead-kicker {
+ font-family: Arial, sans-serif;
+ font-size: 11px;
+ font-weight: 700;
+ letter-spacing: 0.18em;
+ color: var(--muted);
+ text-transform: uppercase;
+ margin-bottom: 12px;
+}
+.masthead h1 {
+ font-family: Georgia, serif;
+ font-size: clamp(28px, 5vw, 46px);
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.15;
+ margin-bottom: 8px;
+}
+.masthead-sub {
+ font-size: 15px;
+ color: var(--gold);
+ font-weight: 700;
+ margin-bottom: 6px;
+}
+.masthead-meta {
+ font-size: 13px;
+ color: var(--muted);
+}
+.masthead-desc {
+ margin-top: 18px;
+ padding-top: 18px;
+ border-top: 1px solid var(--line);
+ font-family: Arial, 'PingFang SC', sans-serif;
+ font-size: 13px;
+ color: var(--muted);
+ line-height: 1.75;
+ max-width: 560px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+/* ── ARTICLES ── */
+.articles {
+ padding: 32px 32px 48px;
+}
+.articles-label {
+ font-size: 10px;
+ font-weight: 700;
+ letter-spacing: 0.22em;
+ color: var(--muted);
+ text-transform: uppercase;
+ margin-bottom: 24px;
+}
+.article-card {
+ display: block;
+ text-decoration: none;
+ border-bottom: 1px solid var(--line);
+ padding: 22px 0;
+ transition: background 0.15s;
+}
+.article-card:hover {
+ background: rgba(220,205,191,0.12);
+ margin: 0 -12px;
+ padding: 22px 12px;
+ border-radius: 6px;
+}
+.article-card:last-of-type { border-bottom: none; }
+
+.article-date {
+ font-size: 11px;
+ font-weight: 700;
+ color: var(--gold);
+ letter-spacing: 0.08em;
+ margin-bottom: 4px;
+ font-family: Arial, sans-serif;
+}
+.article-title {
+ font-size: 21px;
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.3;
+ margin-bottom: 6px;
+}
+.article-title:hover { color: #8a5b2b; }
+.article-deck {
+ font-size: 13px;
+ color: var(--muted);
+ line-height: 1.6;
+ font-family: Arial, 'PingFang SC', sans-serif;
+}
+.article-tag {
+ display: inline-block;
+ font-size: 10px;
+ font-weight: 700;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ padding: 2px 8px;
+ border: 1px solid var(--line);
+ color: var(--muted);
+ margin-top: 8px;
+ border-radius: 3px;
+}
+.article-source {
+ display: inline-block;
+ font-size: 9px;
+ font-weight: 700;
+ letter-spacing: 0.08em;
+ padding: 2px 6px;
+ border: 1px solid var(--gold);
+ color: var(--gold);
+ margin-top: 8px;
+ margin-left: 6px;
+ border-radius: 3px;
+ opacity: 0.7;
+}
+
+/* ── LOADING / EMPTY ── */
+.articles-loading {
+ text-align: center;
+ padding: 32px 0;
+ color: var(--muted);
+ font-size: 13px;
+ font-family: Arial, 'PingFang SC', sans-serif;
+}
+
+/* ── FOOTER ── */
+footer {
+ padding: 28px 32px 24px;
+ border-top: 2px solid var(--ink);
+ font-family: Arial, 'PingFang SC', sans-serif;
+ font-size: 12px;
+ color: var(--muted);
+ line-height: 1.85;
+ text-align: center;
+}
+.footer-rule { border: none; border-top: 1px solid var(--line); margin: 14px 0; }
+.footer-brand { font-weight: 700; color: var(--ink); font-size: 12px; margin-bottom: 4px; }
+
+/* ── GATE ── */
+.gate-prompt {
+ text-align: center;
+ padding: 42px 32px;
+ background: linear-gradient(180deg, #fffaf4 0%, #f8efe4 100%);
+ border-bottom: 2px solid var(--line);
+}
+.gate-prompt-inner {
+ display: inline-block;
+ border: 1px solid var(--line);
+ background: var(--card-bg, #fffdf9);
+ border-radius: 12px;
+ padding: 28px 36px;
+ box-shadow: 0 4px 20px rgba(15,23,42,.04);
+}
+.gate-hint {
+ font-family: Arial, 'PingFang SC', sans-serif;
+ font-size: 13px;
+ color: var(--muted);
+ margin-bottom: 12px;
+ letter-spacing: 0.06em;
+}
+.gate-input-box {
+ display: inline-block;
+ width: 48px;
+ height: 48px;
+ border: 2px solid var(--ink);
+ border-radius: 8px;
+ font-family: Georgia, serif;
+ font-size: 24px;
+ text-align: center;
+ background: var(--paper);
+ outline: none;
+ caret-color: var(--ink);
+ animation: gate-blink 1.2s ease-in-out infinite;
+}
+.gate-input-box:focus {
+ animation: none;
+ box-shadow: 0 0 0 4px rgba(31,26,23,0.12);
+}
+@keyframes gate-blink {
+ 0%, 100% { box-shadow: 0 0 0 0 rgba(31,26,23,0.18); }
+ 50% { box-shadow: 0 0 0 8px rgba(31,26,23,0); }
+}
+.gated-content { display: none; }
+.gated-content.visible { display: block; }
+
+@media (max-width: 640px) {
+ .page { padding: 0 4px 40px; }
+ .masthead { padding: 28px 20px 24px; }
+ .gate-prompt { padding: 28px 20px; }
+ .gate-prompt-inner { padding: 20px 24px; }
+ .articles { padding: 24px 20px 36px; }
+ footer { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="shell">
+
+<!-- MASTHEAD -->
+<div class="masthead">
+ <div class="masthead-kicker">Kerwin Team · Research</div>
+ <h1>EnyaClawd</h1>
+ <div class="masthead-sub">香港首个 OpenClaw 打造的女性投顾 Agent</div>
+ <div class="masthead-meta">宏观对冲 · AI 精选组合 · 专题研究</div>
+</div>
+
+<!-- GATE -->
+<div class="gate-prompt" id="gate-prompt">
+ <div class="gate-prompt-inner">
+ <div class="gate-hint">请输入 <strong>k</strong>，方可显示首页完整内容</div>
+ <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+ </div>
+</div>
+<div class="gated-content" id="gated-content">
+
+<!-- ARTICLES -->
+<div class="articles">
+ <div class="articles-label">研究文章</div>
+ <div id="articles-list">
+  <div class="articles-loading">加载中…</div>
+ </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+ <div>本网站由 Kerwin 团队出品</div>
+ <div>Kerwin 确定研究主题及校对逻辑</div>
+ <div>OpenClaw 打造的 Enya 全程自动化编码实现</div>
+ <div>底层 AI 模型：GPT-5.5 及 Claude 付费版</div>
+ <div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+ <hr class="footer-rule">
+ <div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div>
+ <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
+ <hr class="footer-rule">
+ <div>© 2026 kerwin 宏观对冲及 AI 精选组合</div>
+</footer>
+
+</div><!-- /gated-content -->
+</div><!-- /shell -->
+</div><!-- /page -->
+
+<script>
+// ── Gate ──
+(function() {
+ var input = document.getElementById('gate-input');
+ if (!input) return;
+ input.addEventListener('input', function() {
+ if (input.value === 'k' || input.value === 'K') {
+ var gate = document.getElementById('gate-prompt');
+ var content = document.getElementById('gated-content');
+ if (gate && content) {
+ gate.style.display = 'none';
+ content.classList.add('visible');
+ }
+ }
+ });
+})();
+
+// ── Registry loader ──
+(function() {
+ var list = document.getElementById('articles-list');
+ if (!list) return;
+
+ fetch('/registry.json')
+   .then(function(r) { return r.json(); })
+   .then(function(pages) {
+     // Sort by date descending using ISO extract
+     pages.sort(function(a, b) {
+       var da = a.date.replace(/[^\d]/g, '');
+       var db = b.date.replace(/[^\d]/g, '');
+       return db - da;
+     });
+
+     if (!pages.length) {
+       list.innerHTML = '<div class="articles-loading">暂无研究文章</div>';
+       return;
+     }
+
+     var html = '';
+     pages.forEach(function(p) {
+       // Determine URL: enya uses /slug/, codex longform uses /slug.html
+       var href;
+       if (p.source === 'codex') {
+         href = '/' + p.slug + '.html';
+       } else {
+         href = '/' + p.slug + '/';
+       }
+       var sourceTag = '';
+       if (p.source === 'codex') {
+         sourceTag = ' <span class="article-source">长文</span>';
+       }
+       html += '<a class="article-card" href="' + href + '">' +
+         '<div class="article-date">' + esc(p.date) + '</div>' +
+         '<div class="article-title">' + esc(p.title) + '</div>' +
+         '<div class="article-deck">' + esc(p.deck) + '</div>' +
+         '<span class="article-tag">' + esc(p.tag) + '</span>' + sourceTag +
+         '</a>';
+     });
+     list.innerHTML = html;
+   })
+   .catch(function() {
+     list.innerHTML = '<div class="articles-loading">加载失败，请稍后刷新</div>';
+   });
+
+ function esc(s) {
+   var d = document.createElement('div');
+   d.textContent = s;
+   return d.innerHTML;
+ }
+})();
+</script>
+</body>
+</html>
