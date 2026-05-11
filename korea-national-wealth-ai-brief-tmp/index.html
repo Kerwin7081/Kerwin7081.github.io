@@ -71,7 +71,8 @@ tbody tr:last-child td{border-bottom:none}
 @media(max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px}.hero{padding:28px 16px 24px}.hero-title{font-size:26px}.section{padding:22px 16px}.section h2{font-size:20px}.stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}}
 </style>
 </head>
-<body><!-- cache-bust-1778469355 -->
+<body>
+<!-- pv-counter data-page-slug=korea-national-wealth-ai-brief --><!-- cache-bust-1778469355 -->
 <div style="max-width:780px;margin:0 auto;padding:6px 16px 0;"><a href="/" style="display:inline-block;font-family:Arial,"PingFang SC",sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid #dccdbf;border-radius:4px;background:#fffaf4;">← 返回首页</a></div>
 <div class="page"><div class="shell">
 <div class="topbar">
@@ -433,5 +434,22 @@ tbody tr:last-child td{border-bottom:none}
 
 </div></div></div>
 <div style="max-width:780px;margin:32px auto 24px;padding:16px;text-align:center;"><a href="/" style="font-family:Arial,"PingFang SC",sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700;">← 返回首页</a></div>
+<!-- Enya 页面计数器 -->
+<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">
+  👀 页面浏览量：<span class="counter-num" id="counter-num">...</span>
+</div>
+<script>
+(function(){
+  var slug = document.querySelector('[data-page-slug]');
+  var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
+  var counterUrl = '/counter?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  // POST to count this visit
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = d.count.toLocaleString();
+  }).catch(function(){if(el) el.textContent = '-';});
+})();
+</script>
+<!-- /Enya 计数器 -->
 </body>
 </html>

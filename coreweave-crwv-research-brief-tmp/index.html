@@ -39,7 +39,8 @@ body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roma
 @media (max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:28px}.hero{padding:28px 18px 24px}.hero-title{font-size:28px}.metrics-grid{grid-template-columns:1fr 1fr}.section{padding:22px 16px}.data-key{max-width:58%}}
 </style>
 </head>
-<body><!-- cache-bust-1778469355 -->
+<body>
+<!-- pv-counter data-page-slug=coreweave-crwv-research-brief --><!-- cache-bust-1778469355 -->
 <div style="max-width:780px;margin:0 auto;padding:6px 16px 0;"><a href="/" style="display:inline-block;font-family:Arial,"PingFang SC",sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid #dccdbf;border-radius:4px;background:#fffaf4;">← 返回首页</a></div>
 <div class="page"><div class="shell">
 <div class="topbar">
@@ -212,5 +213,22 @@ body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roma
 <div class="footer">数据来源：CoreWeave SEC披露文件（10-K FY2025、Q1 2026 8-K）、CNBC、Sacra研报、TipRanks、LSEG。未来预测含不确定性，仅供参考，不构成投资建议。<br><br>© 2026 内部研究报告 · 2026年5月8日</div>
 </div></div></div>
 <div style="max-width:780px;margin:32px auto 24px;padding:16px;text-align:center;"><a href="/" style="font-family:Arial,"PingFang SC",sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700;">← 返回首页</a></div>
+<!-- Enya 页面计数器 -->
+<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">
+  👀 页面浏览量：<span class="counter-num" id="counter-num">...</span>
+</div>
+<script>
+(function(){
+  var slug = document.querySelector('[data-page-slug]');
+  var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
+  var counterUrl = '/counter?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  // POST to count this visit
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = d.count.toLocaleString();
+  }).catch(function(){if(el) el.textContent = '-';});
+})();
+</script>
+<!-- /Enya 计数器 -->
 </body>
 </html>

@@ -1,3 +1,20 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/korea-national-wealth-ai-brief-tmp/"></head>
-<body><p>页面已移动，<a href="/korea-national-wealth-ai-brief-tmp/">点击访问</a></p></body></html>
+<body data-page-slug="korea-national-wealth-ai-brief"><p>页面已移动，<a href="/korea-national-wealth-ai-brief-tmp/">点击访问</a></p><!-- Enya 页面计数器 -->
+<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">
+  👀 页面浏览量：<span class="counter-num" id="counter-num">...</span>
+</div>
+<script>
+(function(){
+  var slug = document.querySelector('[data-page-slug]');
+  var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
+  var counterUrl = '/counter?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  // POST to count this visit
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = d.count.toLocaleString();
+  }).catch(function(){if(el) el.textContent = '-';});
+})();
+</script>
+<!-- /Enya 计数器 -->
+</body></html>
