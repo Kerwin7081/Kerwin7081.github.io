@@ -37,5 +37,21 @@
 <div class="conclusion" id="conclusion"><h2>结语</h2><p>这两笔投资，指向一个清晰的产业判断：AI 工厂建设正在从“芯片和算法竞争”，进入“电力、土地、光纤等物理基础设施竞争”。</p><p>对个人投资者来说，跟随英伟达买这两家公司的逻辑成立，但方式需要分层：Corning 稳健进核心仓，IREN 激进配卫星仓。两者的核心催化剂，都来自英伟达权证的行权区间。</p></div>
 <div class="footer">本文为投资研究参考，不构成具体投资建议。数据来源：Enya 系统、NVIDIA 官方公告、IREN / Corning 8-K、SEC 13F、Reuters、Bloomberg。截至 2026 年 5 月 8 日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
 </div></div></div>
+
+<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">
+  👀 页面浏览量：<span class="counter-num" id="counter-num">...</span>
+</div>
+<script>
+(function(){
+  var slug = document.querySelector('[data-page-slug]');
+  var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
+  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = d.count.toLocaleString();
+  }).catch(function(){if(el) el.textContent = '-';});
+})();
+</script>
+<!-- /Enya 计数器 -->
 </body>
 </html>
