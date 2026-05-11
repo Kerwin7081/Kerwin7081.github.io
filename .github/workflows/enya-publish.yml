@@ -1,0 +1,103 @@
+name: Enya Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Target slug on enyaclawd.com"
+        required: false
+        type: string
+      html_path:
+        description: "Path to HTML file in repository"
+        required: false
+        type: string
+      meta_path:
+        description: "Path to meta.json in repository"
+        required: false
+        type: string
+  push:
+    branches:
+      - main
+    paths:
+      - "publish/**"
+      - ".github/enya-publish-map.json"
+      - ".github/workflows/enya-publish.yml"
+      - "*.html"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      ENYA_HOST: ${{ secrets.ENYA_HOST }}
+      ENYA_USER: ${{ secrets.ENYA_USER }}
+      ENYA_SSH_KEY: ${{ secrets.ENYA_SSH_KEY }}
+      ENYA_SSH_PORT: ${{ secrets.ENYA_SSH_PORT || '22' }}
+      REMOTE_BASE: /opt/agent-publish-stage
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${ENYA_HOST}" || { echo "Missing secret ENYA_HOST"; exit 1; }
+          test -n "${ENYA_USER}" || { echo "Missing secret ENYA_USER"; exit 1; }
+          test -n "${ENYA_SSH_KEY}" || { echo "Missing secret ENYA_SSH_KEY"; exit 1; }
+
+      - name: Configure SSH
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "${ENYA_SSH_KEY}" > ~/.ssh/enya_publish_key
+          chmod 600 ~/.ssh/enya_publish_key
+          ssh-keyscan -p "${ENYA_SSH_PORT}" "${ENYA_HOST}" >> ~/.ssh/known_hosts
+
+      - name: Build deployment list
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > /tmp/enya_deploy_list.tsv
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.slug }}" ]; then
+            SLUG="${{ github.event.inputs.slug }}"
+            HTML_PATH="${{ github.event.inputs.html_path }}"
+            META_PATH="${{ github.event.inputs.meta_path }}"
+            if [ -z "$HTML_PATH" ]; then HTML_PATH="publish/${SLUG}/index.html"; fi
+            if [ -z "$META_PATH" ]; then META_PATH="publish/${SLUG}/meta.json"; fi
+            printf '%s\t%s\t%s\n' "$SLUG" "$HTML_PATH" "$META_PATH" >> /tmp/enya_deploy_list.tsv
+          else
+            if [ -d publish ]; then
+              find publish -mindepth 1 -maxdepth 1 -type d | sort | while read -r dir; do
+                SLUG="$(basename "$dir")"
+                if [ -f "$dir/index.html" ] && [ -f "$dir/meta.json" ]; then
+                  printf '%s\t%s\t%s\n' "$SLUG" "$dir/index.html" "$dir/meta.json" >> /tmp/enya_deploy_list.tsv
+                fi
+              done
+            fi
+
+            if [ -f .github/enya-publish-map.json ]; then
+              jq -r '.[] | [.slug, .html_path, .meta_path] | @tsv' .github/enya-publish-map.json >> /tmp/enya_deploy_list.tsv
+            fi
+          fi
+
+          sort -u /tmp/enya_deploy_list.tsv -o /tmp/enya_deploy_list.tsv
+          echo "Deployment list:"
+          cat /tmp/enya_deploy_list.tsv
+          test -s /tmp/enya_deploy_list.tsv || { echo "No deployable pages found"; exit 0; }
+
+      - name: Deploy to Enya publish stage
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS=$'\t' read -r SLUG HTML_PATH META_PATH; do
+            if [ -z "$SLUG" ]; then continue; fi
+            test -f "$HTML_PATH" || { echo "Missing HTML file: $HTML_PATH"; exit 1; }
+            test -f "$META_PATH" || { echo "Missing meta file: $META_PATH"; exit 1; }
+            echo "Deploying $SLUG"
+            ssh -i ~/.ssh/enya_publish_key -p "${ENYA_SSH_PORT}" "${ENYA_USER}@${ENYA_HOST}" "mkdir -p '${REMOTE_BASE}/${SLUG}'"
+            scp -i ~/.ssh/enya_publish_key -P "${ENYA_SSH_PORT}" "$HTML_PATH" "${ENYA_USER}@${ENYA_HOST}:${REMOTE_BASE}/${SLUG}/index.html"
+            scp -i ~/.ssh/enya_publish_key -P "${ENYA_SSH_PORT}" "$META_PATH" "${ENYA_USER}@${ENYA_HOST}:${REMOTE_BASE}/${SLUG}/meta.json"
+            echo "Published: https://enyaclawd.com/${SLUG}/"
+          done < /tmp/enya_deploy_list.tsv
