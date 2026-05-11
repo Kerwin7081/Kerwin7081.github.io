@@ -1,19 +1,67 @@
 # Kerwin / Enya 投研网页排版与发布 Skill
 
-版本：v1.1  
+版本：v1.2  
 最后更新：2026-05-11  
 适用对象：ChatGPT、Claude、Codex、OpenClaw、Enya、Abba 及其他自动化 Agent  
 适用场景：把 Kerwin 的宏观研究、公司深度、产业链分析、组合复盘、客户分享内容生成公开 HTML 网页。
 
 ---
 
-## 0. 核心原则
+## 0. 最重要的执行原则
 
-所有 Kerwin / Enya 投研网页默认采用 **780px 窄版投研简报模板**，风格接近金融研究长文、公众号文章和客户可分享研究页。
+本文件是 Kerwin / Enya 投研网页的固定执行标准。任何 Agent 生成网页时，必须先读本文件，再生成 HTML。
 
-不要自由发挥成宽屏 Dashboard。不要使用 1100px 以上大卡片网页。不要把页面做成炫技型视觉作品。
+网页生产分为两个阶段：
 
-网页的目标是：
+### 阶段一：生成预览版
+
+Agent 必须先按照本 Skill 生成 HTML 页面，供 Kerwin 审阅确认。
+
+此阶段只输出或保存预览版，不得直接发布到官网。
+
+### 阶段二：Kerwin 确认后发布
+
+只有当 Kerwin 明确说出以下意思时，才允许发布：
+
+```text
+发布
+确认发布
+发布到官网
+更新官网
+可以发布
+```
+
+然后 Agent 才能把文件写入正式发布目录：
+
+```bash
+/opt/agent-publish-stage/{slug}/index.html
+/opt/agent-publish-stage/{slug}/meta.json
+```
+
+系统自动部署到：
+
+```text
+https://enyaclawd.com/{slug}/
+```
+
+严禁在 Kerwin 未确认前直接发布到官网。
+
+---
+
+## 1. 核心视觉原则
+
+所有 Kerwin / Enya 投研网页默认采用 **780px 窄版投研简报模板**。
+
+页面气质应接近：
+
+```text
+金融研究简报
+公众号长文
+客户可分享研究页
+投顾视角专题报告
+```
+
+目标：
 
 1. 清晰阅读。
 2. 专业可信。
@@ -21,11 +69,18 @@
 4. 手机端表现稳定。
 5. 保持 Kerwin / Enya 统一视觉识别。
 
+禁止：
+
+1. 不要自由发挥成宽屏 Dashboard。
+2. 不要使用 1100px 以上大卡片网页。
+3. 不要把页面做成炫技型视觉作品。
+4. 不要删除 Kerwin / Enya 固定身份识别元素。
+
 ---
 
-## 1. 发布标准
+## 2. 正式发布标准
 
-Enya 网站正式发布路径采用服务器发布中转目录，不以 GitHub Pages 单文件直写作为首选流程。
+Enya 网站正式发布路径采用服务器发布中转目录。
 
 标准流程：
 
@@ -40,17 +95,21 @@ index.html
 meta.json
 ```
 
-系统自动部署到：
+自动部署后的正式地址：
 
 ```text
 https://enyaclawd.com/{slug}/
 ```
 
-如果临时使用 GitHub Pages 根目录单文件，也必须遵守本 Skill 的视觉和结构规范。
+注意：
+
+1. GitHub Pages 根目录单文件不是首选正式发布流程。
+2. 如果临时使用 GitHub Pages 单文件，也必须遵守本 Skill 的视觉和结构规范。
+3. 正式官网更新必须走 `/opt/agent-publish-stage/{slug}/`。
 
 ---
 
-## 2. meta.json 标准
+## 3. meta.json 标准
 
 ```json
 {
@@ -75,12 +134,12 @@ https://enyaclawd.com/{slug}/
 - `category`：研究类别。
 - `summary`：一句话摘要。
 - `tags`：主题标签。
-- `source`：固定建议为 `Kerwin Team x OpenClaw Enya`。
-- `published`：默认 `true`。
+- `source`：建议固定为 `Kerwin Team x OpenClaw Enya`。
+- `published`：正式发布时设为 `true`。
 
 ---
 
-## 3. 页面基础视觉变量
+## 4. 页面基础视觉变量
 
 HTML 内必须使用以下 CSS 变量作为默认色系：
 
@@ -116,7 +175,7 @@ HTML 内必须使用以下 CSS 变量作为默认色系：
 
 ---
 
-## 4. 页面宽度与整体结构
+## 5. 页面宽度与整体结构
 
 必须采用 780px 主容器，正文内部 700px。
 
@@ -156,7 +215,7 @@ HTML 内必须使用以下 CSS 变量作为默认色系：
 
 ---
 
-## 5. 返回首页按钮
+## 6. 返回首页按钮
 
 页面顶部必须有返回首页按钮，放在 `body` 开始后、`.page` 之前。
 
@@ -187,7 +246,7 @@ HTML 内必须使用以下 CSS 变量作为默认色系：
 
 ---
 
-## 6. Topbar 顶部区
+## 7. Topbar 顶部区
 
 Topbar 是 Kerwin 网页最重要的身份识别区，必须保留。
 
@@ -247,7 +306,7 @@ Topbar 是 Kerwin 网页最重要的身份识别区，必须保留。
 
 ---
 
-## 7. Hero 主视觉区
+## 8. Hero 主视觉区
 
 ```html
 <div class="hero">
@@ -300,7 +359,7 @@ Topbar 是 Kerwin 网页最重要的身份识别区，必须保留。
 
 ---
 
-## 8. 横向导航 nav
+## 9. 横向导航 nav
 
 每篇文章必须有横向导航，锚点对应正文 section。
 
@@ -344,7 +403,7 @@ Topbar 是 Kerwin 网页最重要的身份识别区，必须保留。
 
 ---
 
-## 9. Section 正文章节
+## 10. Section 正文章节
 
 ```html
 <div class="section" id="intro">
@@ -394,7 +453,7 @@ p {
 
 ---
 
-## 10. Stat Grid 数据卡片
+## 11. Stat Grid 数据卡片
 
 适合展示关键数字、合同金额、增长率、市值、Capex、市场份额等。
 
@@ -443,7 +502,7 @@ p {
 
 ---
 
-## 11. Table 表格
+## 12. Table 表格
 
 所有对比内容必须用 `table-wrap` 包裹，保证手机端横向滚动。
 
@@ -502,7 +561,7 @@ tbody td {
 
 ---
 
-## 12. Flow 流程图
+## 13. Flow 流程图
 
 用于资金流、产业传导、风险传导、政策传导和商业模式拆解。
 
@@ -560,7 +619,7 @@ tbody td {
 
 ---
 
-## 13. Callout 核心判断
+## 14. Callout 核心判断
 
 ```html
 <div class="callout">
@@ -592,7 +651,7 @@ tbody td {
 
 ---
 
-## 14. Alert 风险提示
+## 15. Alert 风险提示
 
 ```html
 <div class="alert">
@@ -627,11 +686,11 @@ tbody td {
 
 ---
 
-## 15. Path Grid 投资路径 / 观察项
+## 16. Path Grid 投资路径 / 观察项
 
 用于投资含义、红线判断、多空逻辑、战略路径、组合动作、观察指标。
 
-### 15.1 数字编号卡片
+### 16.1 数字编号卡片
 
 ```html
 <div class="path-grid">
@@ -685,9 +744,9 @@ tbody td {
 }
 ```
 
-### 15.2 股票代码 / Ticker 卡片
+### 16.2 股票代码 / Ticker 卡片
 
-重要修订：**不要把股票代码 GLW、IREN、NVDA 等放进 `.path-num`。**
+重要修订：**不要把股票代码 GLW、IREN、NVDA、TSM、AMD 等放进 `.path-num`。**
 
 `.path-num` 只适合 `01 / 02 / 03` 这种数字编号。股票代码长度不固定，如果使用 `.path-num`，会导致大字母与正文重叠。
 
@@ -698,14 +757,6 @@ tbody td {
   <div class="ticker">GLW</div>
   <div>
     <div class="path-title">Corning：稳健型核心仓观察</div>
-    <p class="path-desc">说明文字。</p>
-  </div>
-</div>
-
-<div class="path-item">
-  <div class="ticker">IREN</div>
-  <div>
-    <div class="path-title">IREN：进攻型卫星仓观察</div>
     <p class="path-desc">说明文字。</p>
   </div>
 </div>
@@ -728,21 +779,9 @@ tbody td {
 }
 ```
 
-手机端：
-
-```css
-@media(max-width:640px) {
-  .ticker {
-    min-width: 54px;
-    height: 30px;
-    font-size: 13px;
-  }
-}
-```
-
 ---
 
-## 16. Timeline 方法论 / 事件线
+## 17. Timeline 方法论 / 事件线
 
 ```html
 <div class="timeline">
@@ -795,7 +834,7 @@ tbody td {
 
 ---
 
-## 17. Tag 标签
+## 18. Tag 标签
 
 ```html
 <span class="tag green">利好</span>
@@ -821,7 +860,7 @@ tbody td {
 
 ---
 
-## 18. Conclusion 结语区
+## 19. Conclusion 结语区
 
 结语区可使用深色背景，增强收束感。
 
@@ -852,7 +891,7 @@ tbody td {
 
 ---
 
-## 19. Footer 标准
+## 20. Footer 标准
 
 Footer 必须包含免责声明和固定署名。
 
@@ -895,68 +934,25 @@ Footer 样式：
 
 ---
 
-## 20. 移动端标准
+## 21. 移动端标准
 
 必须保留手机端适配。
 
 ```css
 @media(max-width:640px) {
-  .page {
-    padding: 0 4px 20px;
-  }
-
-  .topbar {
-    padding: 16px 16px 12px;
-  }
-
-  .top-title {
-    font-size: 26px;
-  }
-
-  .hero {
-    padding: 28px 16px 24px;
-  }
-
-  .hero-title {
-    font-size: 26px;
-  }
-
-  .section {
-    padding: 22px 16px;
-  }
-
-  .section h2 {
-    font-size: 20px;
-  }
-
-  .stat-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stat-value {
-    font-size: 24px;
-  }
-
-  td, th {
-    font-size: 11px;
-    padding: 6px 8px;
-  }
-
-  .path-item {
-    gap: 12px;
-    padding: 14px;
-  }
-
-  .path-num {
-    font-size: 28px;
-    width: 30px;
-  }
-
-  .ticker {
-    min-width: 54px;
-    height: 30px;
-    font-size: 13px;
-  }
+  .page { padding: 0 4px 20px; }
+  .topbar { padding: 16px 16px 12px; }
+  .top-title { font-size: 26px; }
+  .hero { padding: 28px 16px 24px; }
+  .hero-title { font-size: 26px; }
+  .section { padding: 22px 16px; }
+  .section h2 { font-size: 20px; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .stat-value { font-size: 24px; }
+  td, th { font-size: 11px; padding: 6px 8px; }
+  .path-item { gap: 12px; padding: 14px; }
+  .path-num { font-size: 28px; width: 30px; }
+  .ticker { min-width: 54px; height: 30px; font-size: 13px; }
 }
 ```
 
@@ -971,7 +967,7 @@ Footer 样式：
 
 ---
 
-## 21. 禁止事项
+## 22. 禁止事项
 
 1. 不要使用 1100px 以上宽屏 Dashboard 版式。
 2. 不要把股票代码放进 `.path-num`。
@@ -983,15 +979,64 @@ Footer 样式：
 8. 不要把正文做成密集大段，没有 section-label、h2、callout、stat-grid、table 等结构。
 9. 不要使用中文网站作为数据来源。
 10. 不要在 footer 使用旧版权文案。
+11. 不要在 Kerwin 未确认前直接发布到官网。
+12. 不要把 GitHub Pages 单文件更新误认为 Enya 官网正式发布。
 
 ---
 
-## 22. Agent 执行简版
+## 23. Agent 标准工作流
+
+### 23.1 生成网页时
+
+Agent 应先生成：
+
+```text
+index.html
+meta.json
+```
+
+并把 HTML 预览版发给 Kerwin 确认。
+
+确认前只做以下动作：
+
+1. 输出 HTML 代码。
+2. 生成本地预览文件。
+3. 放到草稿目录。
+4. 生成可审阅链接，但必须明确标注为预览。
+
+### 23.2 发布网页时
+
+只有 Kerwin 明确说“发布”后，才执行：
+
+```bash
+mkdir -p /opt/agent-publish-stage/{slug}/
+cp index.html /opt/agent-publish-stage/{slug}/index.html
+cp meta.json /opt/agent-publish-stage/{slug}/meta.json
+```
+
+最终地址：
+
+```text
+https://enyaclawd.com/{slug}/
+```
+
+发布后必须反馈：
+
+```text
+已发布
+slug
+正式地址
+index.html 和 meta.json 已写入
+```
+
+---
+
+## 24. Agent 执行简版
 
 给其他 Agent 的极简执行指令：
 
 ```text
-请按 Kerwin / Enya 投研网页 Skill 生成 HTML。
+请先读取 Kerwin7081.github.io 仓库根目录的 KERWIN_WEB_SKILL.md，再按该规范生成 HTML。
 
 必须使用：
 背景 #fff1e5，正文纸色 #fffaf4，主文字 #1f1a17，强调色 #8a5b2b。
@@ -1009,15 +1054,18 @@ Footer 固定署名：
 
 股票代码如 GLW、IREN、NVDA、TSM、AMD 必须使用 .ticker 样式，不得使用 .path-num。
 
-发布时生成 index.html + meta.json，放入：
-/opt/agent-publish-stage/{slug}/
+工作流：
+先生成 HTML 预览给 Kerwin 确认。
+Kerwin 明确说“发布”后，才写入：
+/opt/agent-publish-stage/{slug}/index.html
+/opt/agent-publish-stage/{slug}/meta.json
 最终地址：
 https://enyaclawd.com/{slug}/
 ```
 
 ---
 
-## 23. 标准参考页面
+## 25. 标准参考页面
 
 当前标准由以下页面沉淀而来：
 
@@ -1030,11 +1078,18 @@ https://enyaclawd.com/{slug}/
 - 修复 `GLW / IREN` 大字与正文重叠。
 - 新增 `.ticker` 股票代码样式。
 - Footer 固定改为：`© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现`。
+- 明确 GitHub Pages 单文件不等于 Enya 官网正式发布。
 
 ---
 
-## 24. 最终判断
+## 26. 最终判断
 
 Kerwin / Enya 网页不是普通 HTML 页面，而是一种固定投研表达格式。以后任何 Agent 生成网页时，必须先遵守本文件，再根据具体内容调整章节和数据。
 
 视觉可微调，身份识别不可漂移。
+
+最关键的三条执行纪律：
+
+1. **先生成，给 Kerwin 确认，再发布。**
+2. **发布必须走 `/opt/agent-publish-stage/{slug}/index.html + meta.json`。**
+3. **股票代码用 `.ticker`，不要用 `.path-num`。**
