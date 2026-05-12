@@ -52,5 +52,21 @@
       </div>
     </div>
   </main>
+
+<div class="back" style="margin-top:12px;text-align:center"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span class="counter-num" id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugEl = document.querySelector('[data-page-slug]');
+  var slugVal = (slugEl && slugEl.getAttribute('data-page-slug')) || 'ai-datacenter-connectivity-20260512';
+  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
+    if(el) el.textContent = Number(d.count || 0).toLocaleString();
+  }).catch(function(){if(el) el.textContent = '-';});
+})();
+</script>
+<!-- /Enya 计数器 -->
+
 </body>
 </html>
