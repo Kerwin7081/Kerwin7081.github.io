@@ -3,137 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kerwin 组合跟踪 — 按细分行业分类 | 2026-05-12</title>
+<title>Kerwin 组合跟踪 — 按细分行业分类</title>
 <style>
-  :root {
-    --bg: #fafaf8;
-    --card: #fff;
-    --border: #e6e4dd;
-    --text: #1a1a18;
-    --muted: #888;
-    --up: #1a6b3c;
-    --down: #c0392b;
-    --accent: #2c3e50;
-    --sector-bg: #f5f4f0;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: -apple-system, 'Noto Sans HK', 'PingFang HK', 'Microsoft YaHei', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding: 16px 12px 40px;
-    max-width: 720px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
-  header {
-    text-align: center;
-    padding: 24px 0 16px;
-    border-bottom: 2px solid var(--border);
-    margin-bottom: 20px;
-  }
-  header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; }
-  header .sub { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-  
-  .section-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent);
-    padding: 8px 12px;
-    margin: 16px 0 4px;
-    background: var(--sector-bg);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 4px 4px 0;
-    letter-spacing: 0.03em;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.78rem;
-    margin-bottom: 8px;
-  }
-  thead th {
-    text-align: right;
-    padding: 6px 8px;
-    font-size: 0.7rem;
-    color: var(--muted);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid var(--border);
-  }
-  thead th:first-child { text-align: left; }
-  tbody td {
-    text-align: right;
-    padding: 4px 8px;
-    font-variant-numeric: tabular-nums;
-    font-family: 'SF Mono','JetBrains Mono','Consolas',monospace;
-    font-size: 0.74rem;
-    white-space: nowrap;
-  }
-  tbody td:first-child { text-align: left; font-family: 'SF Mono','JetBrains Mono','Consolas',monospace; }
-  tbody tr { border-bottom: 1px solid #f0efe8; }
-  .up { color: var(--up); }
-  .down { color: var(--down); }
-  .na { color: var(--muted); font-size: 0.7rem; }
-  
-  .meta {
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin: 20px 0 6px;
-    padding: 8px 0;
-    border-top: 1px solid var(--border);
-  }
-  
-  .footer {
-    text-align: center;
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin-top: 28px;
-    padding-top: 16px;
-    border-top: 2px solid var(--border);
-    line-height: 1.8;
-  }
-  
-  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
-  
-  .stats-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 8px 0 16px;
-  }
-  .stat-pill {
-    font-size: 0.68rem;
-    padding: 2px 8px;
-    border-radius: 10px;
-    background: #f0efe8;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  
-  /* mobile tweaks */
-  @media (max-width: 480px) {
-    body { padding: 10px 6px; }
-    table { font-size: 0.7rem; }
-    tbody td { font-size: 0.68rem; padding: 3px 4px; }
-    thead th { font-size: 0.65rem; padding: 4px 4px; }
-    .section-title { font-size: 0.78rem; padding: 6px 8px; }
-    header h1 { font-size: 1rem; }
-  }
+:root{
+  --bg:#fdf6ed; --paper:#fffdf7; --ink:#1a1512; --muted:#6f6358;
+  --line:#dccdbf; --up:#16a34a; --down:#dc2626; --gold:#996000;
+  --sector-bg:#f9f3ea;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roman','PingFang HK','Microsoft YaHei',sans-serif;color:var(--ink)}
+.page{max-width:720px;margin:0 auto;padding:8px 8px 24px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 6px 20px rgba(15,23,42,.05)}
+.topbar{background:linear-gradient(180deg,#fff8f0,#fffdf7);padding:14px 20px 10px;border-top:6px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 10px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:6px}
+.top-title{font-size:28px;font-weight:700;line-height:1.12;margin:0 0 4px;color:#16110d}
+.top-date{font-size:12px;color:#8b4513;line-height:1.5;font-weight:600}
+.top-block{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+@media(max-width:640px){.page{padding:0 2px 16px}.topbar{padding:12px 14px 8px}.top-title{font-size:22px}}
+
+/* section */
+.sec-title{
+  font-size:13px;font-weight:700;color:var(--ink);
+  padding:7px 14px;margin:0;background:var(--sector-bg);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  letter-spacing:.02em;
+}
+/* table */
+.table-wrap{padding:0 8px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:340px;font-size:12px}
+thead th{text-align:right;padding:4px 8px;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.06em;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{text-align:right;padding:3px 8px;font-family:'SF Mono','Consolas','Menlo',monospace;font-size:11.5px;border-bottom:1px solid #f3efe8;white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody td:first-child{text-align:left;font-weight:600}
+tr:last-child td{border-bottom:none}
+.up{color:var(--up)}.down{color:var(--down)}.na{color:var(--muted);font-size:10px;font-family:Arial,sans-serif}
+
+/* coverage label */
+.coverage{background:var(--sector-bg);padding:8px 16px;font-size:11px;color:var(--muted);line-height:1.6}
+.coverage strong{color:#8b4513}
+
+footer{background:var(--paper);border-top:2px solid var(--ink);padding:20px 20px 16px;font-size:11px;color:var(--muted);line-height:1.85;text-align:center}
+.footer-rule{border:none;border-top:1px solid var(--line);margin:12px 0}
 </style>
 </head>
 <body>
+<div class="page"><div class="shell">
 
-<header>
-  <h1>Kerwin 宏观对冲AI精选组合</h1>
-  <div class="sub">按细分行业分类 · MTD 降序 · 2026-05-12</div>
-  <div class="sub">美股截至 2026-05-11 收盘 | 亚洲截至 2026-05-12 盘中/最新</div>
-</header>
+<div class="topbar">
+<div class="top-kicker">KERWIN PORTFOLIO — SECTOR VIEW</div>
+<h1 class="top-title">宏观对冲AI精选组合<br>按细分行业分类</h1>
+<div class="top-date">报告日期：2026年5月12日</div>
+<div class="top-block">美股截至 2026-05-11 收盘 · 亚洲截至 2026-05-12 最新 · YTD起点 2025-12-31 收盘价<br>按 MTD 降序排列 · 17个细分行业</div>
+</div>
 
-<!-- ═══════════════════ 存储 ═══════════════════ -->
-<div class="section-title">💾 存储</div>
-<table>
+<!-- 存储 -->
+<div class="sec-title">💾 存储</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>MU</td><td class="up">+6%</td><td class="up">+47%</td><td class="up">+179%</td></tr>
@@ -142,12 +67,11 @@
 <tr><td>2408.TW</td><td class="up">+10%</td><td class="up">+27%</td><td class="up">+56%</td></tr>
 <tr><td>SMSN.IL</td><td class="down">−1%</td><td class="up">+26%</td><td class="up">+135%</td></tr>
 <tr><td>005930.KS</td><td class="up">+6%</td><td class="up">+23%</td><td class="up">+122%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ CPU/移动芯片 ═══════════════════ -->
-<div class="section-title">🧠 CPU/移动芯片</div>
-<table>
+<!-- CPU -->
+<div class="sec-title">🧠 CPU/移动芯片</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>2454.TW</td><td class="up">+7%</td><td class="up">+35%</td><td class="up">+171%</td></tr>
@@ -155,43 +79,39 @@
 <tr><td>INTC</td><td class="up">+4%</td><td class="up">+30%</td><td class="up">+251%</td></tr>
 <tr><td>AMD</td><td class="up">+1%</td><td class="up">+27%</td><td class="up">+114%</td></tr>
 <tr><td>ARM</td><td class="up">0%</td><td class="up">+1%</td><td class="up">+95%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ GPU/ASIC ═══════════════════ -->
-<div class="section-title">🎮 GPU/ASIC</div>
-<table>
+<!-- GPU -->
+<div class="sec-title">🎮 GPU/ASIC</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>NVDA</td><td class="up">+2%</td><td class="up">+11%</td><td class="up">+18%</td></tr>
 <tr><td>AVGO</td><td class="up">0%</td><td class="up">+2%</td><td class="up">+24%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 芯片设计/制造工具 ═══════════════════ -->
-<div class="section-title">🔧 芯片设计/制造工具</div>
-<table>
+<!-- EDA/Fab -->
+<div class="sec-title">🔧 芯片设计/制造工具</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>SNPS</td><td class="up">0%</td><td class="up">+6%</td><td class="up">+10%</td></tr>
 <tr><td>TSM</td><td class="down">−2%</td><td class="up">+2%</td><td class="up">+33%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 光通信 ═══════════════════ -->
-<div class="section-title">💡 光通信</div>
-<table>
+<!-- 光通信 -->
+<div class="sec-title">💡 光通信</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>COHR</td><td class="up">+13%</td><td class="up">+15%</td><td class="up">+106%</td></tr>
 <tr><td>LITE</td><td class="up">+17%</td><td class="up">+11%</td><td class="up">+186%</td></tr>
 <tr><td>MRVL</td><td class="up">0%</td><td class="up">+4%</td><td class="up">+101%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 电力与核能 ═══════════════════ -->
-<div class="section-title">⚡ 电力与核能</div>
-<table>
+<!-- 电力 -->
+<div class="sec-title">⚡ 电力与核能</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>POWL</td><td class="up">+4%</td><td class="up">+17%</td><td class="up">+203%</td></tr>
@@ -199,34 +119,31 @@
 <tr><td>BEP</td><td class="up">+1%</td><td class="up">+3%</td><td class="up">+28%</td></tr>
 <tr><td>CCJ</td><td class="up">+3%</td><td class="up">0%</td><td class="up">+31%</td></tr>
 <tr><td>ETN</td><td class="up">+4%</td><td class="down">−2%</td><td class="up">+32%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 贵金属 ═══════════════════ -->
-<div class="section-title">🥇 贵金属</div>
-<table>
+<!-- 贵金属 -->
+<div class="sec-title">🥇 贵金属</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>WPM</td><td class="up">+4%</td><td class="up">+14%</td><td class="up">+22%</td></tr>
 <tr><td>AEM</td><td class="up">+2%</td><td class="up">+7%</td><td class="up">+16%</td></tr>
 <tr><td>FNV</td><td class="up">+2%</td><td class="up">+5%</td><td class="up">+15%</td></tr>
 <tr><td>GLD</td><td class="up">0%</td><td class="up">+3%</td><td class="up">+10%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 铜矿 ═══════════════════ -->
-<div class="section-title">🔶 铜矿</div>
-<table>
+<!-- 铜矿 -->
+<div class="sec-title">🔶 铜矿</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>FCX</td><td class="up">+4%</td><td class="up">+14%</td><td class="up">+27%</td></tr>
 <tr><td>COPX</td><td class="up">+2%</td><td class="up">+11%</td><td class="up">+22%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 科技巨头与企业软件 ═══════════════════ -->
-<div class="section-title">🏢 科技巨头与企业软件</div>
-<table>
+<!-- 科技巨头 -->
+<div class="sec-title">🏢 科技巨头与企业软件</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>ORCL</td><td class="down">−1%</td><td class="up">+13%</td><td class="down">−1%</td></tr>
@@ -236,23 +153,21 @@
 <tr><td>MSFT</td><td class="down">−1%</td><td class="up">0%</td><td class="down">−15%</td></tr>
 <tr><td>META</td><td class="down">−2%</td><td class="down">−2%</td><td class="down">−9%</td></tr>
 <tr><td>CRM</td><td class="down">−2%</td><td class="down">−3%</td><td class="down">−33%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ AI算力与数据中心 ═══════════════════ -->
-<div class="section-title">☁️ AI算力与数据中心</div>
-<table>
+<!-- AI基建 -->
+<div class="sec-title">☁️ AI算力与数据中心</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>NBIS</td><td class="up">+5%</td><td class="up">+20%</td><td class="up">+122%</td></tr>
 <tr><td>EQIX</td><td class="up">+1%</td><td class="up">0%</td><td class="up">+42%</td></tr>
 <tr><td>CRWV</td><td class="up">0%</td><td class="down">−4%</td><td class="up">+60%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 加密及交易平台 ═══════════════════ -->
-<div class="section-title">₿ 加密及交易平台</div>
-<table>
+<!-- 加密 -->
+<div class="sec-title">₿ 加密及交易平台</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>CRCL</td><td class="up">+16%</td><td class="up">+32%</td><td class="up">+66%</td></tr>
@@ -260,40 +175,36 @@
 <tr><td>HOOD</td><td class="up">+5%</td><td class="up">+10%</td><td class="down">−29%</td></tr>
 <tr><td>BTC-USD</td><td class="up">+2%</td><td class="up">+5%</td><td class="down">−6%</td></tr>
 <tr><td>ETH-USD</td><td class="up">+2%</td><td class="up">+2%</td><td class="down">−21%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 自动驾驶及机器人储能 ═══════════════════ -->
-<div class="section-title">🚗 自动驾驶及机器人储能</div>
-<table>
+<!-- 自动驾驶 -->
+<div class="sec-title">🚗 自动驾驶及机器人储能</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>TSLA</td><td class="up">+4%</td><td class="up">+14%</td><td class="down">−1%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 服务器及边缘计算 ═══════════════════ -->
-<div class="section-title">🖥️ 服务器及边缘计算</div>
-<table>
+<!-- 服务器 -->
+<div class="sec-title">🖥️ 服务器及边缘计算</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>DELL</td><td class="down">−5%</td><td class="up">+18%</td><td class="up">+96%</td></tr>
 <tr><td>NOK</td><td class="up">+9%</td><td class="up">+5%</td><td class="up">+115%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 国防数据分析 ═══════════════════ -->
-<div class="section-title">🛡️ 国防数据分析</div>
-<table>
+<!-- 国防 -->
+<div class="sec-title">🛡️ 国防数据分析</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>PLTR</td><td class="down">−1%</td><td class="down">−5%</td><td class="down">−23%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 亚太精选 ═══════════════════ -->
-<div class="section-title">🌏 亚太精选</div>
-<table>
+<!-- 亚太 -->
+<div class="sec-title">🌏 亚太精选</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>7709.HK</td><td class="up">+24%</td><td class="up">+66%</td><td class="up">+501%</td></tr>
@@ -303,41 +214,34 @@
 <tr><td>6268.T</td><td class="up">+2%</td><td class="up">+13%</td><td class="up">+49%</td></tr>
 <tr><td>039030.KQ</td><td class="up">+5%</td><td class="up">+5%</td><td class="up">+73%</td></tr>
 <tr><td>1810.HK</td><td class="up">0%</td><td class="up">+2%</td><td class="down">−19%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<!-- ═══════════════════ 主题ETF ═══════════════════ -->
-<div class="section-title">📊 主题ETF</div>
-<table>
+<!-- ETF -->
+<div class="sec-title">📊 主题ETF</div>
+<div class="table-wrap"><table>
 <thead><tr><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>ARKK</td><td class="up">+1%</td><td class="up">+4%</td><td class="up">+4%</td></tr>
 <tr><td>ARKG</td><td class="down">−2%</td><td class="down">−1%</td><td class="up">+3%</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<hr>
-
-<!-- ═══════════════════ 观察单 ═══════════════════ -->
-<div class="section-title">🔍 观察单</div>
-<table>
-<thead><tr><th>代码</th><th>名称</th><th>市值(B)</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
+<!-- 观察单 -->
+<div class="sec-title" style="background:#fef9c3;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)">🔍 观察单</div>
+<div class="table-wrap"><table>
+<thead><tr><th>代码</th><th>名称</th><th>市值B</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>285A.T</td><td>KIOXIA</td><td>25,041</td><td class="up">+3.3%</td><td class="up">+22.3%</td><td class="up">+353.7%</td></tr>
 <tr><td>9988.HK</td><td>阿里巴巴</td><td>2,570</td><td class="down">−3.7%</td><td class="up">+6.3%</td><td class="down">−8.5%</td></tr>
 <tr><td>0700.HK</td><td>腾讯控股</td><td>4,197</td><td class="down">−1.5%</td><td class="down">−0.7%</td><td class="down">−24.4%</td></tr>
 <tr><td>02513.HK</td><td>智谱AI</td><td colspan="4" class="na">数据不可用 / 待上市</td></tr>
-<tr><td>00100.HK</td><td>MiniMax(稀宇)</td><td colspan="4" class="na">数据不可用 / 待上市</td></tr>
+<tr><td>00100.HK</td><td>MiniMax稀宇</td><td colspan="4" class="na">数据不可用 / 待上市</td></tr>
 <tr><td>—</td><td>思格新能源</td><td colspan="4" class="na">私有 / 无公开行情</td></tr>
 <tr><td>—</td><td>曦智科技</td><td colspan="4" class="na">私有 / 无公开行情</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<hr>
-
-<!-- ═══════════════════ 指数基准 ═══════════════════ -->
-<div class="section-title">📈 指数基准</div>
-<table>
+<!-- 指数 -->
+<div class="sec-title" style="background:#eff6ff;border-top:1px solid #2563eb;border-bottom:1px solid #2563eb">📈 指数基准</div>
+<div class="table-wrap"><table>
 <thead><tr><th>指数</th><th>最新值</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
 <tbody>
 <tr><td>S&P 500</td><td>7,412.84</td><td class="up">+0.19%</td><td class="up">+2.83%</td><td class="up">+7.77%</td></tr>
@@ -347,23 +251,23 @@
 <tr><td>上证综指</td><td colspan="4" class="na">数据不可用</td></tr>
 <tr><td>深证成指</td><td colspan="4" class="na">数据不可用</td></tr>
 <tr><td>恒生科技</td><td colspan="4" class="na">数据不可用</td></tr>
-</tbody>
-</table>
+</tbody></table></div>
 
-<div class="meta">
-  📌 统计口径：YTD 起点 2025-12-31 收盘价｜美股截至 2026-05-11 收盘｜亚洲截至 2026-05-12 最新可得｜
-  观察单中 02513.HK / 00100.HK 当前无 yfinance 行情数据（可能待上市或已退市）｜
-  上证/深证/恒生科技数据源暂不可用
+<div class="coverage">
+<strong>统计口径：</strong>YTD起点 2025-12-31 收盘价 · 美股截至 2026-05-11 收盘 · 亚洲截至 2026-05-12 最新可得数据<br>
+<strong>数据源：</strong>yfinance 日线 · 组合标的表现数据由用户提供 · 观察单与指数由 Enya 自动获取<br>
+<strong>注：</strong>02513.HK / 00100.HK 当前无 yfinance 行情数据（可能待上市）；上证/深证/恒生科技数据源暂不可用
 </div>
 
-<div class="footer">
-  本报表由Enya自动跟踪、审阅并输出<br>
-  Enya — 香港首个OpenClaw打造的女性投顾Agent<br>
-  X 账户：@enyaclawd<br>
-  助理Agent—Abba对本报告亦有贡献<br>
-  <br>
-  本文不构成严谨投资建议。严谨投资建议请与Kerwin联系
-</div>
+<footer>
+本报表由Enya自动跟踪、审阅并输出<br>
+Enya — 香港首个OpenClaw打造的女性投顾Agent<br>
+X 账户：@enyaclawd<br>
+助理Agent—Abba对本报告亦有贡献
+<div class="footer-rule"></div>
+本文不构成严谨投资建议。严谨投资建议请与Kerwin联系
+</footer>
 
+</div></div>
 </body>
 </html>
