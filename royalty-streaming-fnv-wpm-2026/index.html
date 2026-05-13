@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矿业 Royalty Streaming 模式深度分析 | Kerwin Research</title>
+<meta name="description" content="从 Franco-Nevada 与 Wheaton Precious Metals 多年财报原文解剖 Royalty / Streaming 模式的财务回报逻辑，并延伸至油气、铜、铀等大宗商品赛道。">
+<!-- pv-counter data-page-slug=royalty-streaming-fnv-wpm-2026 -->
+<style>
+:root{
+  --bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;
+  --blue:#2563eb;--up:#16a34a;--down:#dc2626;--warn:#92400e;--gold:#8a5b2b;--date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:14px;line-height:1.85}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}
+.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.callout p{font-size:13px;color:#5c3d1e;margin:0 0 8px}
+.callout p:last-child{margin-bottom:0}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat-grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}
+.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-value.up{color:var(--up)}
+.stat-value.gold{color:var(--gold)}
+.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:500px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+td.up{color:var(--up);font-weight:700}
+td.down{color:var(--down);font-weight:700}
+td.gold{color:var(--gold);font-weight:700}
+.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}
+.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.alert p{font-size:13px;color:#6b3f15;margin:0 0 8px}
+.alert p:last-child{margin-bottom:0}
+.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}
+.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}
+.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}
+.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}
+.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}
+.ticker{min-width:64px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #dccdbf;background:#f7efe6;color:#8a5b2b;border-radius:4px;font:800 15px Arial,sans-serif;letter-spacing:.06em;flex-shrink:0}
+.flow{display:flex;flex-wrap:wrap;gap:0;margin:16px 0;border:1px solid #e0d4c4;overflow:hidden;border-radius:4px}
+.flow-item{flex:1 1 140px;padding:14px 16px;border-right:1px solid #e7ddd3;background:#fdfaf5;min-width:120px}
+.flow-item:last-child{border-right:none}
+.flow-label{font:700 10px Arial,sans-serif;color:#8a5b2b;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.flow-val{font:700 15px Georgia,serif;color:#1f1a17;line-height:1.3}
+.flow-sub{font:12px Arial,sans-serif;color:#8a7769;margin-top:3px}
+.tag{display:inline-block;padding:2px 7px;font-size:10px;font-weight:700;border-radius:2px;font-family:Arial,sans-serif}
+.tag.green{background:#dcfce7;color:#166534}
+.tag.red{background:#fee2e2;color:#991b1b}
+.tag.amber{background:#fef3c7;color:#92400e}
+.tag.grey{background:#f0ede8;color:#6f6258}
+.block-quote{border-left:3px solid #c5a882;padding:12px 18px;margin:16px 0;background:#fefaf4;font-style:italic;font-size:14px;color:#5c4a3a;line-height:1.8}
+.divider{border:none;border-top:1px solid #e7ddd3;margin:20px 0}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.conclusion .callout{background:#2d2419;border-color:#5c4a3a;border-left-color:#c5a882}
+.conclusion .callout p{color:#e8d5b8}
+.conclusion .callout-label{color:#c5a882}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}
+.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+.cost-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;padding:14px 16px;margin:12px 0;font-family:'Courier New',Courier,monospace;font-size:12px;line-height:1.9;color:#0c4a6e;overflow-x:auto}
+.note{font-size:12px;color:#8a7769;font-style:italic;margin-top:8px;font-family:Arial,sans-serif}
+@media(max-width:640px){
+  body{font-size:14px;line-height:1.82}
+  .page{padding:0 4px 20px}
+  .back{padding:6px 10px 0}
+  .back a{font-size:12px;padding:4px 10px}
+  .topbar{padding:16px 16px 12px}
+  .top-title{font-size:26px;line-height:1.14}
+  .top-date{font-size:13px}
+  .top-block{font-size:12px;line-height:1.75}
+  .hero{padding:28px 16px 24px}
+  .hero-title{font-size:26px;line-height:1.18}
+  .hero-sub{font-size:13px}
+  .hero-meta{font-size:12px}
+  .nav a{padding:10px 12px;font-size:12px}
+  .section{padding:22px 16px}
+  .section h2{font-size:20px;line-height:1.34}
+  .section h3{font-size:16px}
+  p{font-size:14px;line-height:1.82}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .stat-grid-4{grid-template-columns:1fr 1fr}
+  .stat-value{font-size:24px}
+  td,th{font-size:11px;padding:6px 8px}
+  .path-item{gap:12px;padding:14px}
+  .path-num{font-size:28px;width:30px}
+  .ticker{min-width:54px;height:30px;font-size:13px}
+  .footer,.counter-wrap{font-size:11px;line-height:1.75}
+  .flow{flex-direction:column}
+  .flow-item{border-right:none;border-bottom:1px solid #e7ddd3}
+  .flow-item:last-child{border-bottom:none}
+}
+</style>
+</head>
+<body data-page-slug="royalty-streaming-fnv-wpm-2026">
+
+<div class="back"><a href="/">← 返回首页</a></div>
+
+<div class="page"><div class="shell">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">矿业 Royalty Streaming 模式<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年5月13日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及AI精选组合</div>
+      <div class="hero-title">Franco-Nevada × Wheaton Precious Metals<br>多年财报原文解剖</div>
+      <div class="hero-sub">Royalty / Streaming 模式的财务回报逻辑 · 跨商品应用版图 · 2026 YTD 表现</div>
+      <div class="hero-meta">FNV · WPM · TPL · 铜 · 铀 · 能源转型赛道</div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <a href="#intro">核心判断</a>
+      <a href="#model">模式解析</a>
+      <a href="#fnv">FNV 财报</a>
+      <a href="#wpm">WPM 财报</a>
+      <a href="#assets">核心资产</a>
+      <a href="#othercommodity">跨商品</a>
+      <a href="#logic">五层逻辑</a>
+      <a href="#risk">风险</a>
+      <a href="#conclusion">结语</a>
+    </nav>
+
+    <!-- SECTION: 核心判断 -->
+    <div class="section" id="intro">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>永远不需要挖矿的矿业公司</h2>
+      <p>在资本密集、周期剧烈的矿业行业，最高的财务回报不来自最能挖矿的公司，而来自永远不需要挖矿的公司。Royalty / Streaming 公司预先用现金换取矿山未来收入的永久分成权，此后不承担任何运营成本、资本开支、环保责任，却持续分享矿价上涨和产量扩张的全部收益。</p>
+      <div class="callout">
+        <div class="callout-label">核心结论</div>
+        <p>FNV 自 2007 年 IPO 以来实现 <strong>17% 年化总股东回报（TSR CAGR）</strong>，跑赢同期金价（约 8-9%）和标普 500（约 10-11%）。WPM 同级别。这一回报来自一种本质上极其简单的商业模式：签好合同，收好钱，等待金价。</p>
+        <p>模式的核心不对称：以矿业融资成本（<strong>6× FCF</strong>）买入未来现金流，以优质金融资产（<strong>15× FCF</strong>）在市场定价，套利来自估值体系的结构性差异。</p>
+      </div>
+      <div class="stat-grid-4">
+        <div class="stat-cell">
+          <div class="stat-value gold">17%</div>
+          <div class="stat-label">FNV IPO 至今<br>年化 TSR CAGR</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value gold">86%</div>
+          <div class="stat-label">FNV 2024<br>调整后 EBITDA 利润率</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value gold">85%+</div>
+          <div class="stat-label">WPM 2025<br>现金经营利润率</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value gold">87%</div>
+          <div class="stat-label">TPL 2024<br>油气 Royalty 利润率</div>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">名词说明 — TSR CAGR</div>
+        <p><strong>TSR（Total Shareholder Return，总股东回报）</strong>：衡量股票投资的综合收益，等于「股价涨幅 + 历年分红的再投资收益」之和。与仅看股价不同，TSR 把每次派息假设为按当时市价再买入股票，还原了复利效应。</p>
+        <p><strong>CAGR（Compound Annual Growth Rate，年化复合增长率）</strong>：将多年累计回报折算成「每年平均几何增长率」。例如 10 年累计涨 4 倍，CAGR ≈ 14.9%，而非简单除以 10 年的 30%。</p>
+        <p><strong>IPO 至今 TSR CAGR = 17%</strong>：从 FNV 2007 年上市至今，将股价涨幅与每年分红再投资的复合效果合并计算，折算成年均 17% 的增长速率。</p>
+      </div>
+    </div>
+
+    <!-- SECTION: 模式解析 -->
+    <div class="section" id="model">
+      <div class="section-label">01 · 模式解析</div>
+      <h2>Royalty vs Streaming：两种工具的结构差异</h2>
+      <p>流媒体（Streaming）模式由 Wheaton River 于 2004 年首创，Royalty 模式则早至 1986 年由 Franco-Nevada 创始人 Pierre Lassonde 发明。两者外形相似、内核不同。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>维度</th><th>Royalty（权益金）</th><th>Streaming（流媒体协议）</th></tr></thead>
+          <tbody>
+            <tr><td>交易标的</td><td>矿山收入的固定百分比（如 NSR 2%）</td><td>特定金属未来产量的购买权</td></tr>
+            <tr><td>实物交割</td><td>不见矿石，只收钱</td><td>按约定低价买入实物（~$400-530/oz），再按市价售出</td></tr>
+            <tr><td>收益计量</td><td>矿山收入 × 权益率</td><td>（市价 - 固定合同成本）× 实物量</td></tr>
+            <tr><td>探索期权</td><td><span class="tag green">极强</span> NSR 无到期，储量增长全收益</td><td><span class="tag amber">有限</span> 通常按协议约定量</td></tr>
+            <tr><td>常见场景</td><td>历史悠久，覆盖各类矿山</td><td>铜矿、锌矿的伴生金银——矿企视为副产品融资</td></tr>
+            <tr><td>典型案例</td><td>FNV 的 Detour Lake NSR</td><td>WPM 的 Salobo 金流、Antamina 银流</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>两家公司基因对比</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>维度</th><th>FNV（混合型，Royalty 发明者）</th><th>WPM（纯 Streaming，规模最大）</th></tr></thead>
+          <tbody>
+            <tr><td>成立 / IPO</td><td>2007 年多伦多 IPO，模式源自 1986 年</td><td>2004 年创立（Silver Wheaton），2017 年更名</td></tr>
+            <tr><td>核心工具</td><td>NSR Royalty + 流媒体协议</td><td>几乎 100% 流媒体协议</td></tr>
+            <tr><td>资产规模</td><td>119 个现金流资产（2024）</td><td>~40+ 个流媒体协议</td></tr>
+            <tr><td>商品构成</td><td>黄金 + 白银 + PGM + 铁矿 + 能源（油气）</td><td>黄金 + 白银 + 钯 + 钴（无能源）</td></tr>
+            <tr><td>利润率指标</td><td>调整后 EBITDA Margin（~83-86%）</td><td>现金经营利润率（$/GEO，~83-85%+）</td></tr>
+            <tr><td>IPO 至今 TSR CAGR</td><td class="gold">17%（2007 至今）</td><td class="gold">同级别（15-20%+）</td></tr>
+            <tr><td>2026 YTD（截至5月12日）</td><td class="up"><strong>+14.8%</strong>（GLD 同期 +9.7%，跑赢黄金约 5ppt）</td><td class="up"><strong>+22.6%</strong>（领先 FNV 约 8ppt，领先 GLD 约 13ppt）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">※ 数据来源：Kerwin 团队组合追踪系统，截至 2026 年 5 月 12 日收盘。</p>
+      <div class="callout">
+        <div class="callout-label">大铜矿：Streaming 的天然温床</div>
+        <p>铜矿企业以"副产品"视角对待伴生金银，愿意以折扣价预售换取前期建设资金；Streaming 公司以市价出售，套利来自估值体系的结构性差异。全球头部铜矿（Salobo、Antamina、Peñasquito、Cobre Panama）几乎全部与 FNV 或 WPM 签有流媒体协议。</p>
+      </div>
+    </div>
+
+    <!-- SECTION: FNV -->
+    <div class="section" id="fnv">
+      <div class="section-label">02 · FNV 财报解剖（2007–2026）</div>
+      <h2>Franco-Nevada：18 年复利的财务验证</h2>
+      <p>自 2007 年 IPO 以来，FNV 实现了 17% 的年化总股东回报，GEO（Gold Equivalent Ounce，黄金等量盎司——将白银、钯金等不同贵金属按当时市价折算为黄金盎司的统一计量单位，例如银金比 80:1 时，80 盎司白银 = 1 GEO）销售量增长 3 倍，收入增长 <strong>12 倍</strong>，累计派息约 <strong>28 亿美元</strong>，连续 <strong>19 年</strong>提高股息。这一业绩跨越了 2008 年金融危机、2013 年黄金熊市、2020 年新冠冲击、2023 年巴拿马事件等多次重大压力测试。</p>
+
+      <div class="flow">
+        <div class="flow-item"><div class="flow-label">2024 收入</div><div class="flow-val">$1,113.6M</div><div class="flow-sub">数据来源：6-K SEC</div></div>
+        <div class="flow-item"><div class="flow-label">2024 EBITDA</div><div class="flow-val">$951.6M</div><div class="flow-sub">利润率 86%</div></div>
+        <div class="flow-item"><div class="flow-label">2024 运营 CF</div><div class="flow-val">$829.5M</div><div class="flow-sub">FCF 转化率 87%</div></div>
+        <div class="flow-item"><div class="flow-label">可动用资本</div><div class="flow-val">$3.1B</div><div class="flow-sub">零负债</div></div>
+      </div>
+
+      <h3>多年利润率追踪</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>年份</th><th>收入（$M）</th><th>调整后 EBITDA（$M）</th><th>EBITDA 利润率</th><th>调整后净利润率</th><th>运营现金流（$M）</th></tr></thead>
+          <tbody>
+            <tr><td>2022</td><td>1,315.7</td><td>—</td><td class="gold">~82%+</td><td>—</td><td>—</td></tr>
+            <tr><td>2023</td><td>1,219.0</td><td>1,014.7</td><td class="gold"><strong>83.2%</strong></td><td>~56%</td><td>~$1,000</td></tr>
+            <tr><td>2024</td><td>1,113.6</td><td>951.6</td><td class="gold"><strong>86%</strong></td><td><strong>56%</strong></td><td>829.5</td></tr>
+            <tr><td>2025 Q2（单季）</td><td>369.4 <span class="tag green">历史记录</span></td><td>—</td><td class="gold">历史高点</td><td>—</td><td><strong>430.3</strong> <span class="tag green">历史记录</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据来源：FNV 历年 6-K / 40-F SEC 存档原文</p>
+
+      <h3>为什么利润率能到 86%？——成本结构的根本原因</h3>
+      <div class="cost-box">传统矿企成本结构：
+  收入
+  - 采矿运营成本（AISC）         ← FNV 不承担
+  - 维持性资本开支                ← FNV 不承担
+  - 勘探费用                      ← FNV 不承担
+  - 环保修复准备金                ← FNV 不承担
+  = EBITDA（普通矿企 20–40%）
+
+FNV 成本结构：
+  收入（GEOs × 金价）
+  - Streaming 合同固定低价买入成本
+  - 总部运营费用（约 50 人团队）
+  = EBITDA（83–86%）</div>
+
+      <h3>自由现金流转化率：复利机器的核心</h3>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-value up">87%</div>
+          <div class="stat-label">FNV 2024 FCF 转化率<br>（OCF / EBITDA）</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value" style="color:#dc2626">50–65%</div>
+          <div class="stat-label">传统矿企（如 Barrick）<br>FCF 转化率（被 CapEx 侵蚀）</div>
+        </div>
+      </div>
+
+      <h3>探索期权：财报数字之外的隐性价值</h3>
+      <p>FNV IPO 时从 Newmont 购入的原始矿权组合，17 年间累计产生超过 <strong>22 亿美元</strong>收入，而这些矿山的储量同期<strong>翻了三倍</strong>。FNV 无需额外付出任何成本，却按相同协议分享了所有新增产量的收益。这是 NSR Royalty 区别于所有其他金融工具的核心：付钱时按已知储量定价，但协议覆盖面积内的一切新发现均属于 Royalty 持有人。</p>
+
+      <h3>2026 年 YTD 表现</h3>
+      <div class="callout">
+        <div class="callout-label">2026 YTD — FNV（截至 2026 年 5 月 12 日）</div>
+        <p>FNV 2026 年 YTD <strong>+14.8%</strong>，跑赢黄金（GLD +9.7%）约 5 个百分点，但落后同赛道的 WPM（+22.6%）约 8 个百分点，原因在于能源资产（贡献约 22% 收入）在金价牛市中形成部分对冲，压低了上行弹性。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>代码</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月MTD</th><th>YTD</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ticker">WPM</span></td><td class="up">+12.2%</td><td class="up">+24.1%</td><td class="down">-19.8%</td><td class="down">-3.5%</td><td class="up">+13.7%</td><td class="up"><strong>+22.6%</strong></td></tr>
+            <tr><td><span class="ticker">FNV</span></td><td class="up">+13.1%</td><td class="up">+19.7%</td><td class="down">-11.8%</td><td class="down">-6.8%</td><td class="up">+3.2%</td><td class="up"><strong>+14.8%</strong></td></tr>
+            <tr><td>AEM</td><td class="up">+12.4%</td><td class="up">+32.1%</td><td class="down">-19.2%</td><td class="down">-7.3%</td><td class="up">+4.6%</td><td class="up">+16.3%</td></tr>
+            <tr><td>GLD</td><td class="up">+12.3%</td><td class="up">+8.7%</td><td class="down">-11.1%</td><td class="down">-1.5%</td><td class="up">+2.6%</td><td class="up">+9.7%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据来源：Kerwin 团队组合追踪系统，截至 2026 年 5 月 12 日收盘。3 月为全年最大单月回调，反映贵金属股高 Beta 特征。</p>
+    </div>
+
+    <!-- SECTION: WPM -->
+    <div class="section" id="wpm">
+      <div class="section-label">03 · WPM 财报解剖（2004–2026）</div>
+      <h2>Wheaton Precious Metals：纯 Streaming 的超线性杠杆</h2>
+      <p>WPM 是 Streaming 逻辑最纯粹的表达：买入价格在协议签订时锁定（约 $400-530/GEO，即每黄金等量盎司），卖出价格随金价浮动。当金价上涨，单位利润几乎 100% 落入公司口袋。</p>
+
+      <h3>单位经济学：固定成本合同的物理基础</h3>
+      <div class="cost-box">WPM 单位经济学（2025 年全年）：
+  卖出价格：  ~$3,554/GEO（市场价）
+- 合同买入成本：  $514/GEO（固定）
+= 单位毛利：  $3,040/GEO
+= 现金经营利润率：  ~85%+
+
+金价每涨 $1,000：利润率扩张约 3–5 个百分点</div>
+
+      <h3>超线性利润率扩张</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>金价区间</th><th>合同成本 / GEO</th><th>单位毛利</th><th>现金利润率</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>$1,800 / oz</td><td>~$450</td><td>$1,350</td><td class="gold">75%</td><td>2021 年区间</td></tr>
+            <tr><td>$2,500 / oz</td><td>~$470</td><td>$2,030</td><td class="gold">81%</td><td>2024 年均值</td></tr>
+            <tr><td>$3,500 / oz</td><td>$514</td><td>$2,986</td><td class="gold">85%+</td><td>2025 年区间</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>2025 年 Q2 财报明确记录：<strong>利润率同比增幅超过了金价本身的涨幅</strong>——这是固定成本合同超线性杠杆的最佳注解。传统矿企运营成本随通胀上涨（AISC 近年从 $1,000 升至 $1,400+），而 WPM 合同成本接近刚性。</p>
+
+      <h3>多年财报关键数字</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>年份</th><th>收入（$M）</th><th>运营现金流（$M）</th><th>现金利润率 / GEO</th><th>调整后净利润（$M）</th></tr></thead>
+          <tbody>
+            <tr><td>2021</td><td>1,202</td><td>845</td><td>—</td><td>592</td></tr>
+            <tr><td>2022</td><td>1,065</td><td>743</td><td class="gold">~75%（整体）</td><td>505</td></tr>
+            <tr><td>2023</td><td>~1,016</td><td>~560</td><td>—</td><td>—</td></tr>
+            <tr><td>2024</td><td><strong>1,285</strong> <span class="tag green">记录</span></td><td><strong>~1,000</strong> <span class="tag green">记录</span></td><td class="gold">$2,400 / GEO</td><td><strong>640</strong>（+20%）</td></tr>
+            <tr><td>2025 Q2（单季）</td><td><strong>503</strong> <span class="tag green">记录</span></td><td><strong>415</strong> <span class="tag green">记录</span></td><td class="gold">$2,717 / GEO（+37%）</td><td>286 <span class="tag green">记录</span></td></tr>
+            <tr><td>2025 全年</td><td>记录</td><td>记录</td><td class="gold"><strong>$3,040 / GEO（+53%）</strong></td><td>记录</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据来源：WPM 历年 6-K / SEC 存档原文</p>
+      <p>注意 2022 年的数据：即便全年通胀高企，WPM 仍维持 <strong>75%</strong> 现金经营利润率——成本不随通胀走，利润率反而受保护。</p>
+
+      <h3>产能规划：未来增长已锁定在合同文本中</h3>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-value gold">87万</div>
+          <div class="stat-label">2029 年 GEO 产量指引</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-value gold">95万+</div>
+          <div class="stat-label">2030–2034 年均 GEO 指引<br>（较当前 +40%）</div>
+        </div>
+      </div>
+      <p>增量产能来自已签署合同的矿山产能爬坡，无需支付新的建设资本。包括 Blackwater、Goose 爬坡，以及 Antamina 2026 年 4 月起新增金流（预计额外 <strong>7 万 GEO/年</strong>）。</p>
+
+      <h3>2026 年 YTD 表现</h3>
+      <div class="callout">
+        <div class="callout-label">2026 YTD — WPM vs FNV vs GLD（截至 2026 年 5 月 12 日）</div>
+        <p>WPM YTD <strong>+22.6%</strong>，FNV <strong>+14.8%</strong>，GLD <strong>+9.7%</strong>。WPM 领先 FNV 约 8 个百分点，领先黄金 ETF 约 13 个百分点。差距来源清晰：WPM 纯贵金属敞口 + 固定成本合同结构在金价牛市中展现更高价格 Beta；FNV 的能源资产贡献约 22% 收入，在金价上行阶段形成抑制。</p>
+        <p>月度节奏上，2月为全年高点（WPM +24.1%，FNV +19.7%），3月大幅回调（WPM -19.8%，FNV -11.8%）——WPM 的回调幅度约为 FNV 的 1.7 倍，印证了更高 Beta 的两面性：上行弹性更大，下行也更剧烈。</p>
+      </div>
+    </div>
+
+    <!-- SECTION: 核心资产 -->
+    <div class="section" id="assets">
+      <div class="section-label">04 · 核心资产对比</div>
+      <h2>头部资产：大型铜矿是最优质的 Streaming 标的</h2>
+      <p>两家公司的头部资产共享相似逻辑——大型铜矿的伴生贵金属产生最稳定、最长寿命的 Streaming 现金流，运营商均为全球顶级投资级矿企，违约风险接近于零。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>资产</th><th>公司</th><th>合同类型</th><th>矿山运营方</th><th>战略意义</th></tr></thead>
+          <tbody>
+            <tr><td>Salobo（巴西）</td><td><span class="ticker">WPM</span></td><td>金流</td><td>Vale</td><td>WPM 最大单一资产，世界级铜金矿，产量持续高位</td></tr>
+            <tr><td>Antamina（秘鲁）</td><td><span class="ticker">WPM</span></td><td>银流 + 2026 新增金流</td><td>Glencore / BHP / Teck</td><td>全球最大锌铜矿之一，2026 年协议扩容 +7万 GEO/年</td></tr>
+            <tr><td>Peñasquito（墨西哥）</td><td><span class="ticker">WPM</span></td><td>银流</td><td>Newmont</td><td>全球最大银矿之一，多金属复合矿</td></tr>
+            <tr><td>Cobre Panama</td><td><span class="ticker">FNV</span></td><td>金银流</td><td>First Quantum</td><td>曾为最大资产，2023 年政治停产，已计提减值 $11.7 亿 <span class="tag red">风险已实现</span></td></tr>
+            <tr><td>Candelaria（智利）</td><td><span class="ticker">FNV</span></td><td>金银流</td><td>Lundin Mining</td><td>长寿命铜金矿，稳定产出</td></tr>
+            <tr><td>Detour Lake（加拿大）</td><td><span class="ticker">FNV</span></td><td>NSR Royalty</td><td>Agnico Eagle</td><td>IPO 原始资产之一，储量持续增长</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION: 跨商品 -->
+    <div class="section" id="othercommodity">
+      <div class="section-label">05 · 跨商品应用版图</div>
+      <h2>Royalty / Streaming 不是贵金属的专属工具</h2>
+      <p>只要满足三个条件——<strong>大型长寿命资产、前期资本密集、运营方有融资需求</strong>——这一模式就可以移植。以下是已验证的核心赛道。</p>
+
+      <h3>5.1 油气 Royalty：Texas Pacific Land（TPL）——陆上地权版 FNV</h3>
+      <p>TPL 是美国最大的 Permian Basin 私人地主，也是美国上市公司中最纯粹的油气 Royalty 模式代表。其地权来源极为独特：<strong>创立于 1888 年</strong>，前身为 Texas & Pacific 铁路公司的土地信托，在铁路破产重组后接管了约 300 万英亩西德克萨斯土地，用于偿还债权人。此后近 130 年以被动方式持有这些土地，直到 <strong>2016 年才启动主动经营策略</strong>，挖掘土地的现代资源价值。</p>
+      <p>今日 TPL 持有约 <strong>88.2 万英亩地表权</strong>和 <strong>20.7 万净 Royalty 英亩</strong>（其中约 2.58 万英亩为 Permian 核心钻探区），<strong>全部位于 Permian Basin</strong>——全球单位面积产量最高的陆上油田。这意味着 ExxonMobil、Chevron、Diamondback、Pioneer（现 ExxonMobil）、ConocoPhillips 等全球顶级运营商，只要在 TPL 的土地上打井，每桶油气产量都必须向 TPL 支付固定百分比的 Royalty，且整个过程 <strong>TPL 不承担任何钻探成本、管线投资或油田运营支出</strong>。</p>
+      <p>更关键的是，TPL 同时拥有地表权的多元货币化能力：<strong>油气产量 Royalty</strong>（核心收入）、<strong>采出水处理 Royalty</strong>（油田伴生水处理费）、<strong>供水收入</strong>（为钻井作业提供水源）、<strong>地役权与通道费</strong>（管线、电力、道路过境使用权）。2025 年，TPL 更将地表权延伸至 <strong>AI 数据中心用地</strong>和<strong>太阳能光伏租约</strong>，将百年铁路土地的价值在数字时代二次货币化。</p>
+      <p>自 2016 年主动化以来，TPL 的油气 Royalty 产量增长超过 <strong>300%</strong>，且截至 2025 年底持有 <strong>953 口已完钻未投产井（DUC）和 493 口许可井</strong>作为未来产量储备，意味着 Royalty 收入还有数年内生增长动力，无需任何资本投入。零负债、零资本开支、数十年土地库存，是 TPL 模式的三大结构性护城河。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>年份</th><th>收入（$M）</th><th>调整后 EBITDA（$M）</th><th>EBITDA 利润率</th><th>自由现金流（$M）</th><th>FCF 利润率</th></tr></thead>
+          <tbody>
+            <tr><td>2024</td><td>705.8</td><td>611</td><td class="gold"><strong>87%</strong></td><td>461</td><td>65%</td></tr>
+            <tr><td>2025</td><td>798.2</td><td>~687（估算）</td><td class="gold"><strong>86%</strong></td><td>~502（估算）</td><td>62%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据来源：TPL 历年 8-K SEC 存档原文；2025 估算项目已标注</p>
+      <div class="callout">
+        <div class="callout-label">TPL 的新矿脉</div>
+        <p>TPL 已将地表权延伸至 <strong>AI 数据中心用地</strong>和<strong>工业水淡化</strong>，将百年前铁路土地的价值在数字时代二次货币化——Royalty 模式的"新矿脉"，与 FNV 探索期权逻辑高度相似。</p>
+      </div>
+
+      <h3>5.2 铜与工业金属 Streaming：能源转型驱动的新赛道</h3>
+      <p>全球预估到 2030 年需新建 <strong>260+ 座</strong>锂、钴、镍、铜矿山，所需投资规模远超传统债权融资能力，Streaming 协议正在填补这一资本空白。作为参照，2026 年 YTD 铜矿股表现同样强劲，印证铜需求叙事的市场认可度：</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>代码</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月MTD</th><th>YTD</th><th>标的</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ticker">FCX</span></td><td class="up">+18.9%</td><td class="up">+13.0%</td><td class="down">-13.7%</td><td class="down">-1.5%</td><td class="up">+11.4%</td><td class="up"><strong>+27.3%</strong></td><td>Freeport-McMoRan（全球最大铜矿商）</td></tr>
+            <tr><td><span class="ticker">COPX</span></td><td class="up">+18.1%</td><td class="up">+12.8%</td><td class="down">-20.2%</td><td class="up">+4.3%</td><td class="up">+10.0%</td><td class="up"><strong>+22.0%</strong></td><td>铜矿 ETF（全球铜矿股组合）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据来源：Kerwin 团队组合追踪系统，截至 2026 年 5 月 12 日收盘。FCX YTD +27.3% 领先贵金属股，但未享有 Royalty/Streaming 的高利润率结构保护。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>案例</th><th>合同类型</th><th>规模 / 主体</th><th>意义</th></tr></thead>
+          <tbody>
+            <tr><td>Glencore 出售 1.5% NSR 铜 Royalty</td><td>铜 Royalty</td><td>~$12.5 亿对价</td><td>大型矿企开始主动出售铜 Royalty 换现金</td></tr>
+            <tr><td>Osisko 签署银 + 铜双 Streaming</td><td>铜银双流</td><td>总预付 $1.5 亿</td><td>首批跨贵金属 / 工业金属混合 Streaming</td></tr>
+            <tr><td>WPM 钴 Streaming（Voisey's Bay）</td><td>钴流</td><td>Vale 运营，加拿大北部</td><td>WPM 向电池金属延伸的战略试水</td></tr>
+            <tr><td>Mercedes / Stellantis / 特斯拉</td><td>战略性包销协议（Streaming 变体）</td><td>多矿山</td><td>工业资本采纳 Streaming 逻辑，确保电池金属供应链</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.3 铀 Royalty：核电复兴的安静受益者</h3>
+      <p>随着全球核电复兴叙事成型（美国、法国、中国、日本重启核计划），铀矿 Royalty 正在引起市场关注。代表公司：<strong>Yellow Cake（YCA.L）</strong>持有 Kazatomprom 铀的实物仓储权利，本质是铀的实物 Streaming 变体；<strong>Uranium Royalty Corp（UROY）</strong>专注铀矿 Royalty，持有 Athabasca Basin 等高品位矿区权益组合。核心逻辑与贵金属完全一致：矿山运营方承担全部技术风险，Royalty 持有人静待铀价回升。</p>
+
+      <h3>5.4 跨商品利润率对比</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>商品 / 公司</th><th>EBITDA 利润率</th><th>资本开支</th><th>商品价格敏感度</th><th>股息特征</th></tr></thead>
+          <tbody>
+            <tr><td>黄金 Royalty（FNV）</td><td class="gold"><strong>83–86%</strong></td><td>极低（并购为主）</td><td>高，超线性</td><td>19 年连续增长</td></tr>
+            <tr><td>贵金属 Streaming（WPM）</td><td class="gold"><strong>83–85%</strong></td><td>极低</td><td>高，超线性，Beta 更高</td><td>15 年+连续增长</td></tr>
+            <tr><td>油气地权（TPL）</td><td class="gold"><strong>86–87%</strong></td><td>零（纯地权）</td><td>中（油价 + 产量双敏感）</td><td>高派息率，增长</td></tr>
+            <tr><td>铜 Streaming（新兴）</td><td>预估 70–80%+</td><td>极低</td><td>高（铜价周期）</td><td>尚无大型纯播放</td></tr>
+            <tr><td>铀 Royalty（UROY 等）</td><td>变化大（早期）</td><td>极低</td><td>极高（铀价弹性大）</td><td>目前优先增长</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION: 五层逻辑 -->
+    <div class="section" id="logic">
+      <div class="section-label">06 · 财务回报逻辑</div>
+      <h2>模式财务回报的五层递进结构</h2>
+      <div class="path-grid">
+        <div class="path-item">
+          <div class="path-num">01</div>
+          <div>
+            <div class="path-title">金价杠杆（完整正相关）</div>
+            <p class="path-desc">买入成本固定，金价每涨 $100，单位毛利近乎增加 $100，没有任何成本对冲消耗。对比传统矿企：运营成本随通胀上涨（AISC $1,000→$1,400+），金价上涨的一部分被吃掉。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="path-num">02</div>
+          <div>
+            <div class="path-title">无资本消耗的复利增长</div>
+            <p class="path-desc">普通矿企每年被迫将运营现金流的 30–50% 重投维持性资本开支（仅为保住现有产能）。FNV / WPM 无需此项，FCF 转化率约 85–90% vs 矿企的 50–65%，长期复利效应差距巨大。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="path-num">03</div>
+          <div>
+            <div class="path-title">合同结构的不对称估值套利</div>
+            <p class="path-desc">矿企以"副产品 / 融资"视角出售 Streaming 权利，接受 ~6× FCF 的估值；Royalty / Streaming 公司在资本市场享有 ~15× FCF 的估值溢价。套利空间来自两种估值体系的结构性差异，且这一差异持续存在。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="path-num">04</div>
+          <div>
+            <div class="path-title">无负债大资本池的并购飞轮</div>
+            <p class="path-desc">FNV 可动用资本 $3.1B，WPM 持有 $2B 循环信贷额度（未使用），双方均零负债。高利润率 → 大量 FCF → 零负债大资本池 → 更多优质资产 → 更多 GEOs → 更多利润。自我强化飞轮。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="path-num">05</div>
+          <div>
+            <div class="path-title">免费探索期权（NSR 专属）</div>
+            <p class="path-desc">FNV IPO 时购入的矿权组合，17 年间累计产生逾 $22 亿收入，矿山储量同期翻三倍——FNV 未付额外对价，却按相同协议分享了所有新增产量。NSR Royalty 是唯一能免费享有勘探上行的金融工具。</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>与其他投资工具的三角对比</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>投资标的</th><th>金价杠杆</th><th>通胀成本暴露</th><th>运营风险</th><th>股息</th><th>探索期权</th></tr></thead>
+          <tbody>
+            <tr><td>实物黄金 / GLD</td><td>1:1</td><td>无</td><td>无</td><td>无</td><td>无</td></tr>
+            <tr><td><strong>WPM（纯 Streaming）</strong></td><td class="up">超线性（Beta 高）</td><td class="up">极低（固定成本）</td><td>低</td><td>15 年+连续增长</td><td>有（面积覆盖）</td></tr>
+            <tr><td><strong>FNV（混合 Royalty）</strong></td><td class="up">超线性（Beta 中）</td><td class="up">极低</td><td>低</td><td>19 年连续增长</td><td class="up"><strong>极强（NSR 无限期）</strong></td></tr>
+            <tr><td>Barrick / Newmont</td><td>正相关但被成本侵蚀</td><td class="down">高（AISC 随通胀）</td><td>高</td><td>不稳定</td><td>有</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION: 风险 -->
+    <div class="section" id="risk">
+      <div class="section-label">07 · 结构性风险</div>
+      <h2>财报告诉我们什么：模式无法规避的风险</h2>
+
+      <div class="alert">
+        <div class="alert-label">风险案例：Cobre Panama</div>
+        <p>2023 年底，巴拿马政府强制 First Quantum 停产，FNV 手持 Streaming 合同却没有任何运营控制权，只能接受零收入并计提 <strong>$11.73 亿减值</strong>，全年录得净亏损 <strong>$4.664 亿</strong>。</p>
+        <p><strong>组合韧性的验证</strong>：扣除 Cobre Panama 影响，FNV 其余资产 2024 年收入实际增长 +15%，EBITDA 增长 +16%。单点失能未能动摇整体，但政治 / 主权风险的真实性已被实证。</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>风险类型</th><th>FNV 暴露程度</th><th>WPM 暴露程度</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>金价下行</td><td class="amber">高</td><td class="amber">高</td><td>但固定成本结构，抗跌优于矿企</td></tr>
+            <tr><td>政治 / 主权停产</td><td class="down">中高（已有案例）</td><td>中</td><td>分散降低但无法消除</td></tr>
+            <tr><td>矿山运营失败</td><td class="up">低</td><td class="up">低</td><td>无运营控制权，也无直接损失</td></tr>
+            <tr><td>收购估值过高</td><td>中</td><td>中</td><td>历史上偶发，无负债缓冲</td></tr>
+            <tr><td>金价长期熊市</td><td>中（能源对冲部分）</td><td class="amber">较高（纯贵金属敞口）</td><td>WPM 无能源资产</td></tr>
+            <tr><td>新兴商品赛道（铜 / 铀）</td><td>低（现阶段）</td><td>低（现阶段）</td><td>尾部风险定价仍不充分</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION: 情境选择 -->
+    <div class="section" id="scenario">
+      <div class="section-label">08 · 情境选择</div>
+      <h2>FNV vs WPM：谁更适合哪种情境</h2>
+      <div class="path-grid">
+        <div class="path-item">
+          <div class="ticker">WPM</div>
+          <div>
+            <div class="path-title">金价牛市、趋势明确 <span class="tag green">进攻</span></div>
+            <p class="path-desc">固定成本合同的超线性杠杆，利润率扩张更快，价格 Beta 更高，无能源资产拖累。2026 年 YTD 表现领先 FNV 约 34 个百分点即为实证。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="ticker">FNV</div>
+          <div>
+            <div class="path-title">不确定环境、需要稳定底仓 <span class="tag amber">防御</span></div>
+            <p class="path-desc">能源资产多元化对冲，探索期权更强，历史波动率更低，19 年连续股息增长提供心理锚点。适合作为贵金属组合的稳定核心仓。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="ticker">TPL</div>
+          <div>
+            <div class="path-title">Permian 油气 + 数字基础设施双主题 <span class="tag grey">多元化</span></div>
+            <p class="path-desc">与贵金属低相关，87% EBITDA 利润率同等级别，AI 数据中心地权延伸提供额外增长主题，适合作为 Royalty 模式的非贵金属补充持仓。</p>
+          </div>
+        </div>
+        <div class="path-item">
+          <div class="path-num">∞</div>
+          <div>
+            <div class="path-title">同时持有两者：防御 + 进攻</div>
+            <p class="path-desc">FNV 承担防御性底仓（稳定股息、探索期权、多元化）+ WPM 承担进攻性敞口（纯贵金属 Beta、超线性利润率）。两者历史相关性高但结构差异足以互补。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="conclusion" id="conclusion">
+      <h2>结语：比矿企更懂金融的公司</h2>
+      <p>这两家公司共同验证了一个反直觉的命题：在资本密集、周期剧烈的矿业行业，最高的财务回报不来自最能挖矿的公司，而来自永远不需要挖矿的公司。</p>
+      <div class="callout">
+        <div class="callout-label">三个核心不对称</div>
+        <p>① <strong>成本不对称</strong>：固定买入成本 vs 浮动市价收入，金价上涨全部落入利润；</p>
+        <p>② <strong>风险不对称</strong>：享有上行期权（探索、扩产、金价涨），规避下行暴露（运营成本、资本开支）；</p>
+        <p>③ <strong>估值不对称</strong>：以矿业融资成本（6× FCF）买入，以优质金融资产（15× FCF）定价。</p>
+      </div>
+      <p>Royalty / Streaming 的模式并不局限于贵金属，它是一套资本配置哲学：哪里有大型长寿命资产、哪里有运营方的融资需求，哪里就有永久分成权的空间。油气（TPL）、铜矿（工业金属 Streaming）、铀（核电复兴）正在重复这一逻辑。</p>
+      <p>Royalty / Streaming 的终极价值，不是比矿企更会挖矿，而是<strong>比矿企更懂金融</strong>。</p>
+    </div>
+
+    <div class="footer">
+      本文为投资研究参考，不构成具体投资建议。数据来源：Franco-Nevada 及 Wheaton Precious Metals 历年 6-K / 40-F SEC 存档原文、TPL 历年 8-K、FNV 2025/2026 Asset Handbook。带"估算"标注处为基于财报数据推算，非官方披露数字。截至 2026 年 5 月 13 日。<br>
+      © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+    </div>
+    <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+
+  </div><!-- /wrap -->
+</div></div><!-- /shell /page -->
+
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+
+<script>
+(function(){
+  var slugVal = 'royalty-streaming-fnv-wpm-2026';
+  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){ if(el) el.textContent = '-'; });
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){});
+})();
+</script>
+</body>
+</html>
