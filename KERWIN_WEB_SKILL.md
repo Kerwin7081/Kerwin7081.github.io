@@ -78,7 +78,19 @@ https://enyaclawd.com/{slug}/
 
 所有新网页默认从这份模板出发，再做内容填充。
 
-9. 默认巡检脚本：
+9. 组合类 / 报表类页面使用独立官方模板：
+
+```text
+/opt/kerwin-agent/repos/site/templates/kerwin-portfolio-report-template.html
+```
+
+适用场景：
+- 月度组合跟踪
+- 周度组合跟踪
+- 行业拆解型组合报表
+- 观察单 / 指数基准为主体的组合页
+
+10. 默认巡检脚本：
 
 ```bash
 python3 /opt/kerwin-agent/repos/site/tools/audit_pages.py
@@ -86,7 +98,7 @@ python3 /opt/kerwin-agent/repos/site/tools/audit_pages.py
 
 用于检查返回首页、浏览量统计、移动端适配、topbar/hero 等关键结构是否缺失。
 
-10. 首页前端只渲染 `homepage_approved: true` 的条目；未带该标记的页面即使存在，也不上首页。
+11. 首页前端只渲染 `homepage_approved: true` 的条目；未带该标记的页面即使存在，也不上首页。
 
 ```bash
 python3 /opt/kerwin-agent/repos/site/tools/homepage_registry.py approve \

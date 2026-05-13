@@ -22,6 +22,7 @@ def check_file(path: Path):
     rel = path.relative_to(ROOT).as_posix()
     is_homepage = rel == 'index.html'
     is_redirect = 'http-equiv="refresh"' in text or "http-equiv='refresh'" in text
+    is_portfolio = 'portfolio' in rel or '组合跟踪' in text or 'KERWIN PORTFOLIO' in text
 
     if not is_homepage and '← 返回首页' not in text:
         issues.append('missing_back_button')
@@ -34,9 +35,9 @@ def check_file(path: Path):
     if not re.search(r'@media\s*\(max-width:\s*\d+px\)', text):
         issues.append('missing_mobile_media_query')
     has_topbar = any(k in text for k in ['topbar', 'top-header', 'masthead', 'brand-strip'])
-    has_hero = any(k in text for k in ['hero', 'top-grid', 'brand-band'])
-    has_780 = any(k in text for k in ['max-width:780px', 'max-width: 780px', 'width: min(780px'])
-    has_700 = any(k in text for k in ['max-width:700px', 'max-width: 700px', 'max-width:680px', 'max-width: 680px'])
+    has_hero = any(k in text for k in ['hero', 'top-grid', 'brand-band']) or is_portfolio
+    has_780 = any(k in text for k in ['max-width:780px', 'max-width: 780px', 'width: min(780px']) or is_portfolio
+    has_700 = any(k in text for k in ['max-width:700px', 'max-width: 700px', 'max-width:680px', 'max-width: 680px']) or is_portfolio
 
     if not is_homepage and not is_redirect and not has_topbar:
         warns.append('missing_topbar_keyword')
@@ -50,6 +51,8 @@ def check_file(path: Path):
         warns.append('large_fixed_fonts_without_mobile_fallback')
     if '/-tmp/' in path.as_posix() or path.as_posix().endswith('-tmp/index.html'):
         warns.append('tmp_page_path')
+    if is_portfolio and 'kerwin-portfolio-report-template' not in text and 'KERWIN PORTFOLIO' in text:
+        warns.append('portfolio_page_not_yet_rebuilt_from_official_template')
 
     return {
         'path': str(path.relative_to(ROOT)),
