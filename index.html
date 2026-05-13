@@ -307,6 +307,8 @@ footer {
  fetch('/registry.json?v=202605131100', {cache:'no-store'})
    .then(function(r) { return r.json(); })
    .then(function(pages) {
+     pages = pages.filter(function(p) { return p.homepage_approved === true; });
+
      // Sort by publish time descending; fallback to date descending
      pages.sort(function(a, b) {
        var ta = a.published_at ? Date.parse(a.published_at) : NaN;

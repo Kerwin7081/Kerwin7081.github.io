@@ -26,6 +26,7 @@ def upsert_entry(args):
         'deck': args.deck,
         'tag': args.tag,
         'source': args.source,
+        'homepage_approved': True,
     }
     if args.published_at:
         entry['published_at'] = args.published_at
