@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEP 与 Bloom Energy｜AI 电力基础设施研究简报</title>
+<!-- pv-counter data-page-slug=bep-bloom-ai-power-20260513 -->
 <style>
 :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--up:#16a34a;--blue:#2563eb;--warn:#b45309}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Microsoft YaHei',serif}body::before{content:'';display:block;height:8px;background:#111}.page{max-width:780px;margin:0 auto;padding:0 16px 28px}.back{padding:10px 0}.back a{display:inline-block;font:700 12px Arial;color:var(--gold);text-decoration:none;border:1px solid var(--line);padding:5px 10px;background:var(--paper);border-radius:4px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}.topbar{padding:18px 22px 14px;border-bottom:1px solid #111;background:linear-gradient(180deg,#fff8f0,#fffaf4)}.top-kicker{font:700 11px Arial;letter-spacing:.12em;color:#8a7769}.top-title{font-size:34px;line-height:1.12;margin:8px 0;color:#16110d}.top-date{font:600 13px Arial;color:#8b4513}.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font:13px/1.8 Arial;color:#4b413a}.wrap{max-width:700px;margin:0 auto;background:#fff}.hero{padding:34px 24px 28px;text-align:center;background:linear-gradient(180deg,#fff8ef,#fdf4ea);border-bottom:1px solid #ead7c9}.badge{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 14px;color:var(--gold);font:700 11px Arial;letter-spacing:1px;margin-bottom:18px}.hero-title{font-size:30px;font-weight:700;line-height:1.2}.hero-sub{font:14px/1.6 Arial;color:#7b4f24;margin-top:10px}.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line)}.nav a{flex-shrink:0;padding:11px 14px;font:600 12px Arial;color:#7a685a;text-decoration:none}.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}h2{font-size:22px;line-height:1.35;margin:0 0 14px}h3{font-size:17px;border-bottom:1px solid #e7ddd3;padding-bottom:8px;margin:18px 0 10px}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 14px}.callout{border:1px solid #e7ddd3;border-left:4px solid var(--gold);padding:18px 20px;margin:16px 0;background:#fdfaf5;color:#5c3d1e}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia;color:#16110d}.up{color:var(--up)}.gold{color:var(--gold)}.blue{color:var(--blue)}.stat-label{font:12px/1.4 Arial;color:#6f6258}.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial;min-width:560px}thead{background:#3d3229;color:#f5f0e8}th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #e5d9cc;vertical-align:top;line-height:1.5}.alert{background:#fff7ed;border-left:3px solid var(--warn);padding:14px 16px;margin:16px 0;color:#6b3f15}.conclusion{background:#1f1a17;padding:28px 20px}.conclusion h2{color:#f5f0e8}.conclusion p{color:#e8d5b8}.footer{padding:20px;font:11px/1.8 Arial;color:#6f6258;background:#fbf7f1;border-top:1px solid #e7ddd3}@media(max-width:640px){.top-title{font-size:26px}.hero-title{font-size:26px}.section{padding:22px 16px}.stat-grid{grid-template-columns:1fr}.stat-value{font-size:24px}}
 </style>
@@ -161,5 +162,16 @@
     </div>
   </div>
 </div>
+<div style="max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center;"><a href="/" style="font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700;">← 返回首页</a></div>
+<div class="counter-wrap" style="text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='bep-bloom-ai-power-20260513';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
 </body>
 </html>

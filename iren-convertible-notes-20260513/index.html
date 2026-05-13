@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IREN可转换票据专题 · Kerwin研究简报</title>
+<!-- pv-counter data-page-slug=iren-convertible-notes-20260513 -->
 <style>
 :root {
   --bg: #fff1e5;
@@ -770,6 +771,16 @@ tbody tr:nth-child(even) td { background: var(--bg); }
 </div><!-- /wrap -->
 </div><!-- /shell -->
 </div><!-- /page -->
-
+<div style="max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center;"><a href="/" style="font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700;">← 返回首页</a></div>
+<div class="counter-wrap" style="text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='iren-convertible-notes-20260513';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
 </body>
 </html>
