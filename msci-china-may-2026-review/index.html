@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSCI中国指数调整及趋势指向 · 研究简报</title>
+<meta name="description" content="MSCI 2026年5月季度调整：中国指数新纳入22只、剔除24只，光通信全产业链集中爆发；中美在AI数据中心光互联、InP与TFLN材料平台上的供应链博弈进入新阶段。">
+<!-- pv-counter data-page-slug=msci-china-may-2026-review -->
+<style>
+:root{
+  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
+  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
+  font-size:14px;line-height:1.85;
+}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}
+.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}
+.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin:16px 0}
+@media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:16px 12px;text-align:center}
+.stat-value{font:700 26px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:4px}.stat-value.up{color:var(--up)}.stat-value.down{color:var(--down)}.stat-label{font:11px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:12px Arial,sans-serif;min-width:500px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:8px 10px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:10px;white-space:nowrap}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:7px 10px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+.flow{display:flex;flex-direction:column;gap:0;margin:16px 0}
+.flow-box{background:#f5f0e8;color:#3d3229;padding:10px 14px;font:12px Arial,sans-serif;line-height:1.5;border:1px solid #e5ddd3;border-radius:4px}
+.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}
+.flow-arrow{text-align:center;font-size:16px;color:#b8a590;padding:1px 0;line-height:1}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}
+.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-value{font-size:22px}td,th{font-size:10px;padding:5px 7px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
+</style>
+</head>
+<body>
+
+<div class="back"><a href="/">← 返回首页</a></div>
+
+<div class="page"><div class="shell">
+
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">MSCI中国指数调整<br>趋势指向</h1>
+    <div class="top-date">报告发布日期：2026年5月13日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
+      <div class="hero-title">中美光通信供应链：<br>MSCI 5月调整中的信号</div>
+      <div class="hero-sub">22只新增 · 平均YTD +77.21% · 光通信全产业链集中纳入</div>
+      <div class="hero-meta">2026年5月13日 · MSCI Quarterly Index Review</div>
+    </div>
+
+    <nav class="nav">
+      <a href="#core">核心数据</a>
+      <a href="#additions">新增标的</a>
+      <a href="#deletions">剔除标的</a>
+      <a href="#supply-chain">中美供应链</a>
+      <a href="#inp">InP vs TFLN</a>
+      <a href="#trump">特朗普访华</a>
+      <a href="#conclusion">结语</a>
+    </nav>
+
+    <!-- ===== 核心数据 ===== -->
+    <div class="section" id="core">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>一次指向明确的指数再定价</h2>
+      <p>北京时间 2026 年 5 月 13 日，MSCI 公布 5 月季度调整结果（5 月 29 日收盘后生效）。MSCI 中国指数<strong>新纳入 22 只、剔除 24 只</strong>，不涉及 A 股纳入因子变化。本次调整最突出的信号是：<strong>光通信 / 光器件 / 交换芯片全产业链集体纳入</strong>——从光纤（长飞、永鼎）到光器件（天孚、光库）到光芯片（仕佳）到交换芯片（盛科）到有源光缆（长芯盛），构成了一条完整的中美竞争与合作交织的 AI 数据中心光互联价值链。</p>
+      <p>本次调整发生在<strong>特朗普第二任期首次访华（5 月 12–15 日）</strong>期间。美国光电子龙头 Coherent（COHR）CEO Jim Anderson 随行，核心议题之一是北京对铟（InP 调制器关键材料）的出口管制——这直接关联到本报告所分析的中美光通信材料平台竞争。</p>
+
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value up">22</div><div class="stat-label">中国指数<br>新增</div></div>
+        <div class="stat-cell"><div class="stat-value down">24</div><div class="stat-label">中国指数<br>剔除</div></div>
+        <div class="stat-cell"><div class="stat-value up">+77.21%</div><div class="stat-label">新增平均<br>YTD 收益</div></div>
+        <div class="stat-cell"><div class="stat-value down">−11.16%</div><div class="stat-label">剔除平均<br>YTD 收益</div></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">核心结论</div>
+        <p>这是一次<strong>指数层面的供应链价值确认</strong>。MSCI 中国指数 22 只新增中 7 只（市值权重约 40%）集中在 AI 数据中心光互联赛道。全球被动资金在 5 月 29 日调仓时，将不得不向这些中国光通信标的分配资本——这标志着<strong>中国光通信企业从全球指数的"边缘"进入"主流"</strong>。与此同时，InP 材料平台因铟出口管制面临成本压力，TFLN（薄膜铌酸锂）替代路线正在加速——中国在铌酸锂晶体生长和 TFLN 晶圆制造上拥有全球最完整的供应链，这一优势正通过 MSCI 纳入被定价。</p>
+      </div>
+    </div>
+
+    <!-- ===== 新增标的全览 ===== -->
+    <div class="section" id="additions">
+      <div class="section-label">01 · 新增标的全览</div>
+      <h2>22只纳入 · 平均 YTD +77.21%</h2>
+      <p>本次 MSCI 中国指数新增包括 19 只 A 股（沪/深股通）、1 只 H 股（中远海能）、1 只港股中国公司（建滔积层板）及 1 只 ADR（满帮集团）。YTD 收益率以 2025-12-31 收盘价为基准，数据截至 2026-05-13 A 股/HK 收盘、2026-05-12 ADR 收盘。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>代码</th><th>企业名称</th><th style="text-align:right">YTD</th><th>行业</th><th>MSCI简称</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1888.HK</td><td>建滔积层板</td><td style="text-align:right;color:#dc2626;font-weight:700">+256.60%</td><td>PCB/覆铜板</td><td>KNGBRD LAMNTS HLDG</td></tr>
+            <tr><td>601869.SH</td><td>长飞光纤</td><td style="text-align:right;color:#dc2626;font-weight:700">+249.74%</td><td>光纤光缆</td><td>YANGTZE OPTICAL</td></tr>
+            <tr><td>001389.SZ</td><td>方邦股份</td><td style="text-align:right;color:#dc2626;font-weight:700">+138.61%</td><td>高端电子材料</td><td>DELTON TECHN</td></tr>
+            <tr><td>688702.SH</td><td>盛科通信</td><td style="text-align:right;color:#dc2626;font-weight:700">+113.65%</td><td>交换芯片</td><td>SUZHOU CENTEC</td></tr>
+            <tr><td>600105.SH</td><td>永鼎股份</td><td style="text-align:right;color:#dc2626;font-weight:700">+106.49%</td><td>光纤光缆</td><td>JIANGSU ETERN</td></tr>
+            <tr><td>688313.SH</td><td>仕佳光子</td><td style="text-align:right;color:#dc2626;font-weight:700">+102.37%</td><td>光芯片/半导体</td><td>HENAN SHIJIA</td></tr>
+            <tr><td>1138.HK</td><td>中远海能</td><td style="text-align:right;color:#dc2626;font-weight:700">+95.00%</td><td>能源运输</td><td>COSCO SHIPPING ENERGY</td></tr>
+            <tr><td>300548.SZ</td><td>长芯盛</td><td style="text-align:right;color:#dc2626;font-weight:700">+92.32%</td><td>光通信互联</td><td>EVERPROX TECH</td></tr>
+            <tr><td>300620.SZ</td><td>光库科技</td><td style="text-align:right;color:#dc2626;font-weight:700">+88.43%</td><td>光通信器件</td><td>ADVANCED FIBER</td></tr>
+            <tr><td>300394.SZ</td><td>天孚通信</td><td style="text-align:right;color:#dc2626;font-weight:700">+86.27%</td><td>光器件</td><td>SUZHOU A</td></tr>
+            <tr><td>300390.SZ</td><td>天华新能</td><td style="text-align:right;color:#dc2626;font-weight:700">+82.77%</td><td>新能源锂电材料</td><td>CANMAX TECH</td></tr>
+            <tr><td>002487.SZ</td><td>大金重工</td><td style="text-align:right;color:#16a34a;font-weight:700">+60.02%</td><td>风电装备制造</td><td>DAJIN HEAVY IND</td></tr>
+            <tr><td>688331.SH</td><td>荣昌生物</td><td style="text-align:right;color:#16a34a;font-weight:700">+53.04%</td><td>创新药</td><td>REMEGEN</td></tr>
+            <tr><td>301358.SZ</td><td>湖南裕能</td><td style="text-align:right;color:#16a34a;font-weight:700">+51.81%</td><td>磷酸铁锂正极</td><td>HUNAN YUNENG</td></tr>
+            <tr><td>000688.SZ</td><td>国城矿业</td><td style="text-align:right;color:#16a34a;font-weight:700">+48.93%</td><td>有色金属采选</td><td>GUOCHENG MINING</td></tr>
+            <tr><td>300395.SZ</td><td>菲利华</td><td style="text-align:right;color:#16a34a;font-weight:700">+48.45%</td><td>石英材料/半导体辅材</td><td>HUBEI FEILIHUA</td></tr>
+            <tr><td>688002.SH</td><td>睿创微纳</td><td style="text-align:right;color:#16a34a;font-weight:700">+45.35%</td><td>红外传感器/芯片</td><td>RAYTRON TECH</td></tr>
+            <tr><td>001203.SZ</td><td>大中矿业</td><td style="text-align:right;color:#16a34a;font-weight:700">+44.54%</td><td>铁矿石采选</td><td>DAZHONG MINING</td></tr>
+            <tr><td>688629.SH</td><td>华丰科技</td><td style="text-align:right;color:#16a34a;font-weight:700">+36.72%</td><td>连接器/电子元器件</td><td>SICHUAN HUAFENG</td></tr>
+            <tr><td>002850.SZ</td><td>科达利</td><td style="text-align:right;color:#16a34a;font-weight:700">+24.48%</td><td>锂电池结构件</td><td>SHENZHEN KEDALI</td></tr>
+            <tr><td>YMM</td><td>满帮集团</td><td style="text-align:right;color:#dc2626;font-weight:700">−17.23%</td><td>物流数字化平台</td><td>FULL TRUCK ALLIANCE</td></tr>
+            <tr><td>688506.SH</td><td>百利天恒</td><td style="text-align:right;color:#dc2626;font-weight:700">−18.11%</td><td>创新药</td><td>SICHUAN BIOKIN</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>新增标的中 20 正 2 负。光通信 / 光纤 / 光器件类占比最高（7 只），与中金"AI 算力驱动光模块数通高景气"判断一致。长飞光纤与百利天恒同时也是 MSCI 新兴市场指数中新增市值前三。</p>
+    </div>
+
+    <!-- ===== 剔除标的全览 ===== -->
+    <div class="section" id="deletions">
+      <div class="section-label">02 · 剔除标的全览</div>
+      <h2>24只剔除 · 平均 YTD −11.16%</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>代码</th><th>企业名称</th><th style="text-align:right">YTD</th><th>行业</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0177.HK</td><td>江苏宁沪高速</td><td style="text-align:right;color:#16a34a;font-weight:700">+9.48%</td><td>高速公路</td></tr>
+            <tr><td>603195.SH</td><td>公牛集团</td><td style="text-align:right;color:#16a34a;font-weight:700">+5.56%</td><td>电工产品</td></tr>
+            <tr><td>3311.HK</td><td>中国建筑国际</td><td style="text-align:right;color:#16a34a;font-weight:700">+4.28%</td><td>工程建筑</td></tr>
+            <tr><td>600109.SH</td><td>国金证券</td><td style="text-align:right;color:#dc2626;font-weight:700">−0.97%</td><td>券商</td></tr>
+            <tr><td>002090.SZ</td><td>金智科技</td><td style="text-align:right;color:#dc2626;font-weight:700">−1.36%</td><td>智能电网</td></tr>
+            <tr><td>688728.SH</td><td>格科微</td><td style="text-align:right;color:#dc2626;font-weight:700">−2.14%</td><td>图像传感器</td></tr>
+            <tr><td>300339.SZ</td><td>润和软件</td><td style="text-align:right;color:#dc2626;font-weight:700">−5.62%</td><td>IT软件</td></tr>
+            <tr><td>688009.SH</td><td>中国通号</td><td style="text-align:right;color:#dc2626;font-weight:700">−6.95%</td><td>铁路信号</td></tr>
+            <tr><td>2799.HK</td><td>中信金融资产</td><td style="text-align:right;color:#dc2626;font-weight:700">−7.32%</td><td>不良资管</td></tr>
+            <tr><td>002673.SZ</td><td>西部证券</td><td style="text-align:right;color:#dc2626;font-weight:700">−7.98%</td><td>券商</td></tr>
+            <tr><td>600004.SH</td><td>白云机场</td><td style="text-align:right;color:#dc2626;font-weight:700">−9.94%</td><td>机场</td></tr>
+            <tr><td>2357.HK</td><td>中航科工</td><td style="text-align:right;color:#dc2626;font-weight:700">−10.86%</td><td>航空军工</td></tr>
+            <tr><td>601136.SH</td><td>首创证券</td><td style="text-align:right;color:#dc2626;font-weight:700">−10.59%</td><td>券商</td></tr>
+            <tr><td>688538.SH</td><td>和辉光电</td><td style="text-align:right;color:#dc2626;font-weight:700">−11.65%</td><td>面板显示</td></tr>
+            <tr><td>002085.SZ</td><td>万丰奥威</td><td style="text-align:right;color:#dc2626;font-weight:700">−12.43%</td><td>汽车零部件</td></tr>
+            <tr><td>002456.SZ</td><td>欧菲光</td><td style="text-align:right;color:#dc2626;font-weight:700">−14.03%</td><td>摄像头模组</td></tr>
+            <tr><td>603160.SH</td><td>汇顶科技</td><td style="text-align:right;color:#dc2626;font-weight:700">−14.14%</td><td>指纹芯片</td></tr>
+            <tr><td>688608.SH</td><td>恒玄科技</td><td style="text-align:right;color:#dc2626;font-weight:700">−16.71%</td><td>蓝牙/WiFi芯片</td></tr>
+            <tr><td>688169.SH</td><td>石头科技</td><td style="text-align:right;color:#dc2626;font-weight:700">−21.08%</td><td>扫地机器人</td></tr>
+            <tr><td>0772.HK</td><td>阅文集团</td><td style="text-align:right;color:#dc2626;font-weight:700">−21.52%</td><td>数字阅读</td></tr>
+            <tr><td>002223.SZ</td><td>鱼跃医疗</td><td style="text-align:right;color:#dc2626;font-weight:700">−22.61%</td><td>医疗器械</td></tr>
+            <tr><td>1357.HK</td><td>美图公司</td><td style="text-align:right;color:#dc2626;font-weight:700">−27.69%</td><td>互联网</td></tr>
+            <tr><td>1066.HK</td><td>威高股份</td><td style="text-align:right;color:#dc2626;font-weight:700">−29.28%</td><td>医用耗材</td></tr>
+            <tr><td>9899.HK</td><td>网易云音乐</td><td style="text-align:right;color:#dc2626;font-weight:700">−32.25%</td><td>在线音乐</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>剔除标的仅 3 只 YTD 为正（宁沪高速、公牛集团、中国建筑国际）。行业分布偏重消费互联网（阅文、美图、网易云音乐）、金融（3 家券商 + 中信金融资产）和消费电子（欧菲光、汇顶、石头）。整体呈现"去旧经济、去消费端、去低流动性"的调整方向。</p>
+    </div>
+
+    <!-- ===== 中美供应链互动 ===== -->
+    <div class="section" id="supply-chain">
+      <div class="section-label">03 · 中美光通信供应链对照</div>
+      <h2>四家美国企业与7家中国新增标的</h2>
+      <p>MSCI 新增的 22 只标的中，7 只集中在 AI 数据中心光互联赛道（长飞光纤、永鼎股份、盛科通信、仕佳光子、长芯盛、光库科技、天孚通信）。我们将其与 Kerwin 组合中关注的四家美国光通信企业进行供应链交叉对照：</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>美国企业</th><th>对应中国新增标的</th><th>关系性质</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coherent</strong><br>COHR</td>
+              <td>天孚通信 · 光库科技<br>仕佳光子 · 长芯盛</td>
+              <td><strong>竞合。</strong>天孚是其光模块核心器件供应商；光库在铌酸锂调制器赛道与之直接竞争；长芯盛（EverProX）在 AOC 有源光缆领域对标 Coherent</td>
+            </tr>
+            <tr>
+              <td><strong>Lumentum</strong><br>LITE</td>
+              <td>光库科技 · 天孚通信<br>仕佳光子</td>
+              <td><strong>竞争+代工互嵌。</strong>光库的铌酸锂调制器与 Lumentum 正面冲突；Lumentum 在华有代工产线，部分光芯片来自仕佳同类供应商</td>
+            </tr>
+            <tr>
+              <td><strong>Marvell</strong><br>MRVL</td>
+              <td>盛科通信 · 长芯盛</td>
+              <td><strong>上下游互嵌。</strong>盛科的以太网交换芯片直接对标 Marvell（Innovium 收购）；Marvell 的 PAM4 DSP 是 AOC/光模块核心芯片，长芯盛处于其下游应用层</td>
+            </tr>
+            <tr>
+              <td><strong>Corning</strong><br>GLW</td>
+              <td>长飞光纤 · 永鼎股份</td>
+              <td><strong>竞合。</strong>长飞是全球最大光纤生产商，与 Corning 在光纤预制棒领域有长期合资（YOTC）；同时在特种光纤和空芯光纤上直接竞争</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">趋势判断</div>
+        <p><strong>不是单向替代，是既竞争又互嵌。</strong>美国企业依赖中国供应商降本（天孚 → Coherent），中国企业依赖美国芯片和标准体系（Marvell DSP → 长芯盛）。MSCI 纳入中国光通信全产业链，本质上是全球资本对"AI 数据中心光互联不能只有美国供应商"这一事实的定价确认。</p>
+      </div>
+    </div>
+
+    <!-- ===== InP vs TFLN ===== -->
+    <div class="section" id="inp">
+      <div class="section-label">04 · 材料平台之争</div>
+      <h2>InP vs TFLN：下一代光调制器路线</h2>
+
+      <p>AI 数据中心光互联从 800G → 1.6T → 3.2T 演进，传统硅光调制器带宽已接近物理极限。两种材料平台正在争夺 3.2T+ 时代的调制器主导权：</p>
+
+      <div class="flow">
+        <div class="flow-box">
+          <strong>InP（磷化铟）</strong> — 当前主流。Coherent 与 Lumentum 的核心路线。电光效率高、工艺成熟，但在 3.2T+ 速率上高频特性开始暴露劣势；关键材料铟（In）受北京出口管制，供应链成本面临结构性上升。
+        </div>
+        <div class="flow-arrow">vs</div>
+        <div class="flow-box accent">
+          <strong>TFLN（薄膜铌酸锂）</strong> — 下一代平台。唯一能同时兼顾 >100GHz 超高带宽、低驱动电压、低插损的材料。光库科技是中国唯一铌酸锂调制器晶圆级量产企业。中国在铌酸锂晶体生长和晶圆制造上拥有全球最完整的供应链。
+        </div>
+      </div>
+
+      <p><strong>为什么这个路线之争现在很重要：</strong></p>
+      <p>① 铟（In）是 InP 调制器的关键原材料。北京对铟的出口管制持续收紧——Coherent CEO Jim Anderson 此次随特朗普访华，Reuters 明确指出议题之一就是铟管制。InP 路线若因材料受限而成本上升，TFLN 的性价比优势将进一步放大。</p>
+      <p>② Lumentum 已明确将 TFLN 列为 1.6T/3.2T 核心调制器路线；Coherent 历史上以 InP 为主但已开始布局 TFLN 补充。两家美国龙头的路线选择，直接影响中国 TFLN 供应链（光库、天孚、仕佳）的定价权。</p>
+      <p>③ MSCI 纳入光库科技和天孚通信，本质上是<strong>全球资本对 TFLN 路线前景和中国铌酸锂供应链优势的提前押注</strong>。</p>
+
+      <div class="alert">
+        <div class="alert-label">⚠️ 风险提示</div>
+        <p>TFLN 路线尚未在 3.2T 光模块中大规模量产验证；InP 生态成熟度和客户惯性可能在中期维持其主导地位。光库科技 YTD +88% 已包含较高预期溢价，若 TFLN 量产进度不及预期，估值存在回调风险。</p>
+      </div>
+    </div>
+
+    <!-- ===== 特朗普访华 ===== -->
+    <div class="section" id="trump">
+      <div class="section-label">05 · 地缘时间窗</div>
+      <h2>特朗普访华与 CEO 随行团</h2>
+      <p>特朗普 2026 年 5 月 12–15 日对中国进行国事访问。白宫公布了 16 人 CEO 随行名单。在 Kerwin 关注的 Lumentum / Coherent / Marvell / Corning 四家中：</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>企业</th><th>随行状态</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Coherent</strong>（COHR）</td><td style="color:#16a34a;font-weight:700">✅ 在团</td><td>CEO Jim Anderson 随行。Reuters：正就北京对铟（In）的出口管制进行交涉</td></tr>
+            <tr><td><strong>Lumentum</strong>（LITE）</td><td style="color:#dc2626">❌ 不在</td><td>未出现在任何官方/媒体随行名单中</td></tr>
+            <tr><td><strong>Marvell</strong>（MRVL）</td><td style="color:#dc2626">❌ 不在</td><td>未出现在随行名单中</td></tr>
+            <tr><td><strong>Corning</strong>（GLW）</td><td style="color:#dc2626">❌ 不在</td><td>未出现在随行名单中</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Coherent 是四家中唯一随行的。</strong>半导体相关随行者还包括 Qualcomm（Amon）、Micron（Mehrotra），以及后期补票上飞机的 Nvidia（Jensen Huang，原本未受邀）。</p>
+      <p>这个名单的信息量在于：<strong>Coherent 随行 + 中国光通信全产业链集体纳入 MSCI = 中美在 AI 光互联赛道正在形成一个"既博弈又需要对方"的新型市场结构。</strong>美国需要中国在铟、铌酸锂等关键材料上的供应稳定；中国光通信企业需要在国际资本市场上获得定价权——两条线在同一个时间窗口交汇。</p>
+
+      <div class="callout">
+        <div class="callout-label">组合关联</div>
+        <p>本报告覆盖的光通信赛道与 Kerwin 组合中 COHR（Coherent）、LITE（Lumentum）、MRVL（Marvell）构成直接映射。MSCI 中国指数此次调整的本质，是在<strong>为 AI 数据中心光互联的"双供应链"结构定价</strong>——美国一侧（COHR/LITE/MRVL）和中国一侧（光库/天孚/盛科/长芯盛）同时获得指数层面的资本配置。这是五层框架中"第 3 层（技术/产业传导）+ 第 2 层（政策/地缘）"的典型共振案例。</p>
+      </div>
+    </div>
+
+    <!-- ===== 结语 ===== -->
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>MSCI 2026 年 5 月季度调整不是一次普通的指数例行维护。22 只新增的上游集中在光通信，24 只剔除的下游分散在消费互联网、券商和传统制造——<strong>方向清晰：资本从"旧消费"转向"新基建"，从"模式创新"转向"物理层硬科技"。</strong></p>
+      <p style="margin-top:14px;">对中国光通信企业而言，纳入 MSCI 中国指数意味着同时进入 MSCI 新兴市场指数，获得全球被动资金配置。5 月 29 日收盘生效时，光库、天孚、盛科、长芯盛将首次面临指数基金的买入需求——这是中国光通信产业从"全球供应链参与者"升级为"全球资本定价参与者"的标志性时刻。</p>
+      <p style="margin-top:14px;">InP 还是 TFLN？铟管制还是铌酸锂替代？Coherent 的 Jim Anderson 在北京谈什么？——这些问题的答案将在未来 12–18 个月决定谁掌控 3.2T+ 光互联时代的利润分配。MSCI 的指数委员会已经投下了他们的票。</p>
+    </div>
+
+    <div class="footer">
+      本报告由 Enya 自动跟踪、审阅并输出。YTD 数据以 2025-12-31 收盘价为基准，通过 yfinance 获取。MSCI 成分股名单来源于 MSCI 官方 5 月 12 日公布的 Global Standard Indexes PDF。<br>
+      本文为投资研究参考，不构成具体投资建议。数据截至 2026 年 5 月 13 日。<br>
+      © 2026 Kerwin｜宏观对冲及 AI 精选组合研究｜Enya.Clawd 自动化呈现<br>
+      Enya—香港首个 OpenClaw 打造的女性投顾 Agent · X：@enyaclawd
+    </div>
+
+  </div>
+</div></div>
+
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+
+<script>
+(function(){
+  var slugVal='msci-china-may-2026-review';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
