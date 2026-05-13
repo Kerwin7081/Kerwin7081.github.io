@@ -222,6 +222,69 @@ HTML 内必须使用以下 CSS 变量作为默认色系：
 - `--warn`：警示。
 - `--date`：日期色。
 
+### 4A. 固定字体与排版原则
+
+默认按 **手机优先（mobile-first）** 设计，再向桌面端平滑放大。
+
+字体使用原则：
+
+1. **大标题 / Hero / H2**：优先 serif，建议：
+   - `Georgia`
+   - `'Times New Roman'`
+   - `'Noto Serif SC'`
+2. **日期 / 标签 / 导航 / 表格 / 来源 / 说明文字**：优先 sans-serif，建议：
+   - `Arial`
+   - `'PingFang SC'`
+   - `'Hiragino Sans GB'`
+   - `'Microsoft YaHei'`
+3. 不要混入花哨字体。
+4. 不要使用过细字重，公开页默认以 400 / 600 / 700 为主。
+
+### 4B. 固定字号层级（默认标准）
+
+除非 Kerwin 明确要求改版，否则默认使用以下字号层级：
+
+```text
+正文 body：14px / line-height 1.85
+顶部 kicker：11px
+top-title：34px
+top-date：13px
+producer block：13px
+hero title：30px
+hero sub：14px
+hero meta：12px
+section label：10px
+H2：22px
+H3：17px
+表格正文：13px
+表头：11px
+stat-value：28px
+footer / disclaimer：11px
+```
+
+说明：
+
+- 公开网页正文不要超过 `15px`，否则手机端会显得松散发飘。
+- H2 不要超过 `24px`，否则会破坏克制感。
+- 表格和标签不要大于正文，避免视觉噪音。
+
+### 4C. 固定间距原则
+
+```text
+topbar padding：18px 22px 14px
+hero padding：34px 24px 28px
+section padding：26px 20px
+section 与 section 之间：靠 border-bottom 分隔，不额外堆大空白
+主要卡片/表格/flow/callout 上下间距：16px
+H2 下正文首段前距：14px 左右
+```
+
+禁止：
+
+1. 不要为了“高级感”把段间距拉得过大。
+2. 不要在手机端保留桌面版超宽留白。
+3. 不要出现一屏只有标题和大片空白的情况。
+
 ---
 
 ## 5. 页面宽度与整体结构
@@ -1023,34 +1086,47 @@ Footer 样式：
 
 ## 21. 移动端标准
 
-必须保留手机端适配。
+必须保留手机端适配，并默认先为手机端阅读体验设计。
 
 ```css
 @media(max-width:640px) {
+  body { font-size: 14px; line-height: 1.82; }
   .page { padding: 0 4px 20px; }
+  .back { padding: 6px 10px 0; }
+  .back a { font-size: 12px; padding: 4px 10px; }
   .topbar { padding: 16px 16px 12px; }
-  .top-title { font-size: 26px; }
+  .top-title { font-size: 26px; line-height: 1.14; }
+  .top-date { font-size: 13px; }
+  .top-block { font-size: 12px; line-height: 1.75; }
   .hero { padding: 28px 16px 24px; }
-  .hero-title { font-size: 26px; }
+  .hero-title { font-size: 26px; line-height: 1.18; }
+  .hero-sub { font-size: 13px; }
+  .hero-meta { font-size: 12px; }
+  .nav a { padding: 10px 12px; font-size: 12px; }
   .section { padding: 22px 16px; }
-  .section h2 { font-size: 20px; }
+  .section h2 { font-size: 20px; line-height: 1.34; }
+  .section h3 { font-size: 16px; }
+  p { font-size: 14px; line-height: 1.82; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .stat-value { font-size: 24px; }
   td, th { font-size: 11px; padding: 6px 8px; }
   .path-item { gap: 12px; padding: 14px; }
   .path-num { font-size: 28px; width: 30px; }
   .ticker { min-width: 54px; height: 30px; font-size: 13px; }
+  .footer, .disclaimer, .counter-wrap { font-size: 11px; line-height: 1.75; }
 }
 ```
 
 移动端原则：
 
-1. 保留双列统计卡片。
+1. 保留双列统计卡片，不轻易改成三列或单列超长堆叠。
 2. 表格必须允许横向滚动。
 3. 导航必须允许横向滑动。
 4. 不使用复杂大图。
 5. 不使用超宽卡片。
 6. 股票代码必须用 `.ticker`，避免重叠。
+7. 手机端首屏必须尽量在标题、日期、producer、hero 之间保持紧凑，不要出现大面积空白。
+8. 正文段落宽度与字号要保证单屏可持续阅读，优先稳而不是炫。
 
 ---
 
