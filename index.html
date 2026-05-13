@@ -304,7 +304,7 @@ footer {
  var list = document.getElementById('articles-list');
  if (!list) return;
 
- fetch('/registry.json')
+ fetch('/registry.json?v=202605131100', {cache:'no-store'})
    .then(function(r) { return r.json(); })
    .then(function(pages) {
      // Sort by date descending using ISO extract
