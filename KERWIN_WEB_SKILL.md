@@ -70,7 +70,23 @@ https://enyaclawd.com/{slug}/
 5. 首页卡片标题默认使用 Kerwin 指定文案，不得擅自改写。
 6. 首页默认按发布时间倒序排列；若同日多篇，以 `published_at` 更晚者排在更前。
 7. 不允许再由 Agent 直接手改首页列表；必须通过统一脚本执行：首页准入脚本：
-8. 首页前端只渲染 `homepage_approved: true` 的条目；未带该标记的页面即使存在，也不上首页。
+8. 默认官方模板文件：
+
+```text
+/opt/kerwin-agent/repos/site/templates/kerwin-research-brief-template.html
+```
+
+所有新网页默认从这份模板出发，再做内容填充。
+
+9. 默认巡检脚本：
+
+```bash
+python3 /opt/kerwin-agent/repos/site/tools/audit_pages.py
+```
+
+用于检查返回首页、浏览量统计、移动端适配、topbar/hero 等关键结构是否缺失。
+
+10. 首页前端只渲染 `homepage_approved: true` 的条目；未带该标记的页面即使存在，也不上首页。
 
 ```bash
 python3 /opt/kerwin-agent/repos/site/tools/homepage_registry.py approve \
