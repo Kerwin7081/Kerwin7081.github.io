@@ -1,98 +1,28 @@
 <!DOCTYPE html>
-<html lang='zh-CN'>
+<html lang="zh-CN">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEP 与 Bloom Energy｜AI 电力基础设施研究简报</title>
 <style>
-:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--deep:#2b211b;--card:#fffdf9;--soft:#f6eadc;}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:16px;line-height:1.9}.page{max-width:900px;margin:0 auto;padding:12px 10px 60px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 38px rgba(15,23,42,.08)}.masthead{padding:46px 38px 34px;border-top:9px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center}.kicker{font-family:Arial,'PingFang SC',sans-serif;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}.masthead h1{font-size:clamp(30px,5vw,50px);line-height:1.16;margin-bottom:12px}.subtitle{color:var(--gold);font-weight:800;font-size:16px}.meta{font-family:Arial,'PingFang SC',sans-serif;color:var(--muted);font-size:13px;margin-top:8px}.producer{margin:22px auto 0;padding-top:18px;border-top:1px solid var(--line);max-width:660px;font-family:Arial,'PingFang SC',sans-serif;font-size:13px;line-height:1.8;color:var(--muted)}.content{padding:34px 42px 46px}.lead{font-size:20px;line-height:1.8;color:var(--deep);font-weight:700;border-left:5px solid var(--gold);padding:12px 0 12px 18px;margin-bottom:26px;background:linear-gradient(90deg,#f6eadc,rgba(246,234,220,0))}.note{font-family:Arial,'PingFang SC',sans-serif;background:var(--soft);border:1px solid var(--line);padding:16px 18px;border-radius:10px;color:var(--deep);font-size:14px;margin:20px 0 28px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 30px}.metric{background:var(--card);border:1px solid var(--line);padding:14px 12px;border-radius:10px}.metric .label{font-family:Arial,'PingFang SC',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}.metric .num{font-size:24px;font-weight:800;color:var(--gold);line-height:1.2}.metric .desc{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);margin-top:4px;line-height:1.55}h2{font-size:28px;line-height:1.3;border-top:2px solid var(--ink);padding-top:24px;margin:34px 0 14px}h3{font-size:21px;margin:25px 0 8px;color:var(--deep)}p{margin:12px 0}.em{font-weight:800;color:var(--gold)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 17px}.box-title{font-size:17px;font-weight:800;color:var(--deep);margin-bottom:8px}.box p{font-size:15px;margin:6px 0}.quote{font-size:19px;font-weight:800;line-height:1.75;background:#f3e2cf;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 22px;margin:26px 0}.list{margin:10px 0 18px;padding-left:0;list-style:none}.list li{margin:9px 0;padding-left:20px;position:relative}.list li:before{content:'•';position:absolute;left:0;color:var(--gold);font-weight:800}.source{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:38px;padding-top:18px}.source a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}footer{border-top:2px solid var(--ink);padding:24px 36px 30px;text-align:center;font-family:Arial,'PingFang SC',sans-serif;color:var(--muted);font-size:12px;line-height:1.8}@media(max-width:760px){.content{padding:26px 22px 36px}.masthead{padding:34px 22px 28px}.metrics{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.metric .num{font-size:21px}body{font-size:15px}}
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--up:#16a34a;--blue:#2563eb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Microsoft YaHei',serif}.back{max-width:780px;margin:0 auto;padding:8px 16px}.back a{font:700 12px Arial;color:var(--gold);text-decoration:none;border:1px solid var(--line);padding:4px 10px;background:var(--paper);border-radius:4px}.page{max-width:780px;margin:0 auto;padding:0 10px 28px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}.topbar{padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111;background:linear-gradient(180deg,#fff8f0,#fffaf4)}.top-kicker{font:700 11px Arial;letter-spacing:.12em;color:#8a7769}.top-title{font-size:34px;line-height:1.12;margin:8px 0;color:#16110d}.top-date{font:600 13px Arial;color:#8b4513}.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font:13px/1.8 Arial;color:#4b413a}.wrap{max-width:700px;margin:0 auto;background:#fff}.hero{padding:34px 24px 28px;text-align:center;background:linear-gradient(180deg,#fff8ef,#fdf4ea);border-bottom:1px solid #ead7c9}.badge{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:5px 14px;color:var(--gold);font:700 11px Arial;letter-spacing:1px;margin-bottom:18px}.hero-title{font-size:30px;font-weight:700;line-height:1.2}.hero-sub{font:14px/1.6 Arial;color:#7b4f24;margin-top:10px}.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line)}.nav a{flex-shrink:0;padding:11px 14px;font:600 12px Arial;color:#7a685a;text-decoration:none}.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}h2{font-size:22px;line-height:1.35;margin:0 0 14px}h3{font-size:17px;border-bottom:1px solid #e7ddd3;padding-bottom:8px;margin-top:18px}p{font-size:14px;line-height:1.85;color:#3d3229}.callout{border:1px solid #e7ddd3;border-left:4px solid var(--gold);padding:18px 20px;margin:16px 0;background:#fdfaf5;color:#5c3d1e}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia;color:#16110d}.up{color:var(--up)}.gold{color:var(--gold)}.blue{color:var(--blue)}.stat-label{font:12px/1.4 Arial;color:#6f6258}.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial;min-width:520px}thead{background:#3d3229;color:#f5f0e8}th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #e5d9cc;vertical-align:top;line-height:1.5}.alert{background:#fff7ed;border-left:3px solid #c77728;padding:14px 16px;margin:16px 0;color:#6b3f15}.conclusion{background:#1f1a17;padding:28px 20px}.conclusion h2{color:#f5f0e8}.conclusion p{color:#e8d5b8}.footer{padding:20px;font:11px/1.8 Arial;color:#6f6258;background:#fbf7f1;border-top:1px solid #e7ddd3}@media(max-width:640px){.top-title{font-size:26px}.hero-title{font-size:26px}.section{padding:22px 16px}.stat-value{font-size:24px}}
 </style>
 </head>
-<body data-page-slug='bep-bloom-ai-power-20260513'>
-<div class='page'><div class='shell'>
-<header class='masthead'>
-<div class='kicker'>KERWIN TEAM PRESENTS</div>
-<h1>BEP 与 Bloom Energy<br>AI 电力基础设施研究简报</h1>
-<div class='subtitle'>Brookfield Renewable 的底仓价值，与 Bloom Energy 的高弹性 AI 供电叙事</div>
-<div class='meta'>报告发布日期：2026年5月13日｜投顾第一人称视角</div>
-<div class='producer'>本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
-</header>
-<main class='content'>
-<div class='lead'>我组合里讨论的不是英国石油 BP，而是 Brookfield Renewable Partners，代码 BEP。我的核心判断是：BEP 更适合作为 AI 电力基础设施底仓，Bloom Energy 更像高弹性、高波动的 AI 现场供电设备商。</div>
-<div class='note'>数据口径说明：BEP 最新财报为 2026年一季度，发布于 2026年5月1日。Bloom Energy 最新财报为 2026年一季度，发布于 2026年4月28日。股价年初至今表现采用公开可得的总回报口径，不同数据源更新时间略有差异，因此我在正文中标注具体可得数据日。</div>
-<section class='metrics'>
-<div class='metric'><div class='label'>BEP Q1 FFO</div><div class='num'>3.75亿</div><div class='desc'>美元，同比增长19%</div></div>
-<div class='metric'><div class='label'>BEP FFO / Unit</div><div class='num'>0.55</div><div class='desc'>美元，同比增长15%</div></div>
-<div class='metric'><div class='label'>BE Q1 Revenue</div><div class='num'>7.511亿</div><div class='desc'>美元，同比增长130.4%</div></div>
-<div class='metric'><div class='label'>BE Product Revenue</div><div class='num'>+208.4%</div><div class='desc'>产品收入同比增速</div></div>
-</section>
-<h2>一、我先把结论放在前面</h2>
-<p>我看 BEP，不能再只把它理解成传统新能源股。它已经逐步变成一个 <span class='em'>电力基础设施平台</span>：水电提供稳定现金流，风电和太阳能提供增长，储能和分布式能源提供灵活性，Westinghouse 核能服务提供长期战略期权。</p>
-<p>Bloom Energy 则站在另一端。它不是传统电力公用事业，也不是单纯氢能源概念。它真正被市场重新定价的原因，是它把固体氧化物燃料电池变成了 AI 数据中心现场供电方案。AI 数据中心不只缺 GPU，也缺电、缺并网、缺变压器、缺可以快速上线的电力方案。</p>
-<p>所以我会这样区分：BEP 是组合里的稳健平台型电力资产，Bloom 是 AI 电力缺口下的高弹性设备股。前者适合作为底仓观察，后者需要用财报、订单、毛利率和现金流持续验证。</p>
-<h2>二、BEP 是一家什么公司</h2>
-<p>BEP 是 Brookfield 体系下的上市可再生能源与能源转型平台。它的资产覆盖水电、风电、太阳能、分布式能源、储能和可持续解决方案。Brookfield 官方介绍中，能源组合包括 hydro、solar、wind、storage、distributed energy、nuclear 和其他 sustainable solutions。</p>
-<p>我最看重 BEP 的，不是某一个电站，也不是单一新能源技术，而是 Brookfield 的平台能力。它可以在全球范围买资产、开发资产、融资、运营、卖出成熟资产，再把资金投向更高回报的新项目。</p>
-<div class='grid2'>
-<div class='box'><div class='box-title'>BEP 的底盘</div><p>水电资产寿命长、现金流稳定、重置成本高，是 BEP 最重要的压舱石。</p><p>风电和太阳能资产提供扩张能力，但也更依赖融资成本、项目回报率和资产周转。</p></div>
-<div class='box'><div class='box-title'>BEP 的升级</div><p>分布式能源、储能、可持续解决方案和 Westinghouse 核能服务，让 BEP 从传统绿电平台升级为 AI 电力时代的基础设施资产。</p></div>
-</div>
-<p>从我的组合框架看，BEP 对应的是 AI 产业链中最底层的物理约束：电力。GPU、HBM、光模块、服务器是算力供给的前端，电网、现场供电、核能、长期 PPA 和能源项目融资是算力扩张的后端。</p>
-<h2>三、BEP 最新财报怎么看</h2>
-<p>2026年一季度，BEP 交出了一份我认为偏正面的财报。公司报告 FFO 为 3.75 亿美元，较去年同期的 3.15 亿美元增长 19%；每单位 FFO 为 0.55 美元，较去年同期 0.48 美元增长 15%。过去十二个月 FFO 为 13.94 亿美元，每单位 FFO 为 2.08 美元。</p>
-<p>这里我不会过度看传统净利润。BEP 一季度归属于 unitholders 的净亏损为 2.29 亿美元，这和折旧、利息、外汇、金融工具、非现金项目有关。对这种长久期能源基础设施平台，我更重视 FFO、分派覆盖、融资成本、资产回收和开发管线。</p>
-<h3>1、水电：稳定现金流底座</h3>
-<p>水电分部一季度 FFO 为 2.10 亿美元，同比接近增长 30%。这说明 BEP 的底盘仍然有效。水电不是市场最性感的叙事，但在电力紧缺、负荷增长、AI 数据中心追求稳定供电的时代，水电的长期价值反而更突出。</p>
-<h3>2、风电与太阳能：增长弹性来源</h3>
-<p>风电和太阳能分部合计 FFO 为 2.45 亿美元，同比超过 60%。增长来自开发活动、Neoen 和 Geronimo Power 收购，以及部分资产出售收益。我的理解是，BEP 的打法不是简单持有资产吃息，而是持续通过开发、并购、资产成熟化和资本回收来滚动复利。</p>
-<h3>3、储能、分布式能源与可持续解决方案：估值叙事的升级点</h3>
-<p>这部分一季度贡献 FFO 5800 万美元。更重要的是 Westinghouse 的存在。公司提到 Westinghouse 核燃料、维护服务、反应堆设计和工程活动均有贡献，同时还在推进支持美国新核电部署的工作。</p>
-<p>AI 时代的数据中心不可能长期只靠临时电源和排队并网。最终它需要长期、稳定、大规模、可融资、可持续的电力结构。核能、水电、现场供电、储能和绿电 PPA 会一起进入新一轮基础设施组合。</p>
-<h2>四、BEP 的关键不是 EPS，而是资本循环能力</h2>
-<p>BEP 一季度签署和完成接近 28 亿美元资产出售交易，其中归属于 Brookfield Renewable 的净 proceeds 约 8.2 亿美元。公司一季度末拥有超过 47 亿美元可用流动性，并发行 5 亿加元 30年期债券，固定利率 5.2%。</p>
-<p>这组数据对我很重要。高利率环境下，很多新能源公司不是没有项目，而是资本结构承受不了。BEP 的优势在于 Brookfield 体系的融资、资产管理和资本回收能力。它能把成熟资产卖出，把资本再部署到更高回报的能源基础设施项目中。</p>
-<div class='quote'>我持有 BEP，看重的是它作为 AI 电力基础设施底仓的长期价值，而不是指望它像 Bloom 那样一年暴涨数倍。</div>
-<h2>五、Bloom Energy 是一家什么公司</h2>
-<p>Bloom Energy，代码 BE，是一家总部位于美国加州圣何塞的现场供电公司。它的核心技术是固体氧化物燃料电池系统，可以为数据中心、半导体制造、大型商业与工业客户提供高可靠、模块化的现场电力。</p>
-<p>过去市场常把 Bloom 放在氢能源或清洁能源概念里。但最近一年多，它在 AI 领域突然火热，真正原因是美国 AI 数据中心的电力约束被市场重新定价。传统电网扩容慢，并网排队长，变压器紧缺，天然气电厂审批建设也需要时间。Bloom 的价值在于：它可以更快部署在客户现场或近场，为 AI 数据中心提供电力。</p>
-<h2>六、Bloom 最新财报为什么刺激市场</h2>
-<p>Bloom 2026年一季度收入为 7.511 亿美元，同比增长 130.4%；产品收入为 6.533 亿美元，同比增长 208.4%；GAAP 毛利率为 30.0%，Non GAAP 毛利率为 31.5%；营业利润为 7220 万美元，Non GAAP 营业利润为 1.297 亿美元；经营现金流为 7360 万美元。</p>
-<p>更关键的是，公司上调 2026 全年指引：收入预计 34 亿至 38 亿美元，Non GAAP 毛利率约 34%，Non GAAP 营业利润 6 亿至 7.5 亿美元，Non GAAP EPS 为 1.85 至 2.25 美元。</p>
-<p>我认为这就是市场愿意重估 Bloom 的原因。它不是只讲 AI 电力故事，而是已经把数据中心电力需求转化成收入、利润、现金流和上调指引。</p>
-<h2>七、BEP 与 Bloom 的合作意味着什么</h2>
-<p>2025年10月，Brookfield 与 Bloom Energy 宣布 50 亿美元战略 AI 基础设施合作。Bloom 将成为 Brookfield 全球 AI factories 的优先现场供电商，Brookfield 将投资最高 50 亿美元部署 Bloom 的燃料电池技术。</p>
-<p>这不是 BEP 当季财报里已经完全体现的收入项目，而是 Brookfield 集团 AI Infrastructure strategy 的重要布局。对 BEP 的影响更偏中长期：它说明 Brookfield 已经把 AI factories 作为基础设施投资对象，而这类项目需要电力、数据中心、资本结构、现场供电、长期电力资产和能源开发能力。</p>
-<p>在这套关系里，Brookfield 提供资本、项目开发、基础设施整合和客户入口；Bloom 提供现场供电技术和设备；BEP 作为 Brookfield 体系内的能源基础设施平台，未来可能通过电力资产、PPA、核能服务、储能和能源项目获得协同。</p>
-<h2>八、年初至今股价表现：BEP 是稳健上行，Bloom 是高弹性重估</h2>
-<div class='grid2'>
-<div class='box'><div class='box-title'>BEP</div><p>截至 FinanceCharts 2026年5月11日数据，BEP 年初至今总回报约为 <span class='em'>+29.22%</span>。</p><p>对基础设施和分派属性资产来说，这已经是较强表现。</p></div>
-<div class='box'><div class='box-title'>Bloom Energy</div><p>截至 FinanceCharts 2026年5月7日数据，BE 年初至今总回报约为 <span class='em'>+197.66%</span>。</p><p>另一数据源 YTDReturn 显示截至 2026年4月30日，BE 年初至今总回报约为 +226.11%。</p></div>
-</div>
-<p>这两个涨幅的区别，正好解释两家公司在组合里的角色。BEP 是稳健平台型资产，估值弹性来自 FFO 增长、资产回收、利率回落和 AI 电力叙事增强。Bloom 是高弹性成长股，估值弹性来自数据中心订单、收入兑现、指引上调和市场对现场供电模式的重新定价。</p>
-<h2>九、我的组合判断</h2>
-<ul class='list'>
-<li>BEP 我会继续作为 AI 电力基础设施底仓观察。它的重点不是短期 EPS，而是 FFO、分派、融资成本、资产回收、Westinghouse 核能服务和 AI 电力项目协同。</li>
-<li>Bloom 我会作为 AI 电力链高弹性标的重点跟踪，但不会简单把它当作稳健公用事业。它的估值已经反映很高预期，后续必须持续验证订单、交付、毛利率和现金流。</li>
-<li>如果 AI 数据中心电力缺口继续扩大，BEP 和 Bloom 都会受益，但受益方式不同。BEP 受益于长期基础设施资产价值重估，Bloom 受益于现场供电设备的快速放量。</li>
-<li>真正需要警惕的是：Bloom 股价已经大幅上涨，任何订单延迟、毛利率低于预期、客户集中风险或 AI 电力叙事降温，都可能带来剧烈波动。</li>
-</ul>
-<div class='quote'>一句话总结：BEP 是我组合里的 AI 电力基础设施底仓，Bloom 是 AI 电力短缺下最具爆发力的现场供电设备商之一。一个偏稳，一个偏猛，不能用同一套仓位逻辑处理。</div>
-<div class='source'>
-资料来源：<br>
-1. Brookfield Renewable 2026年一季度财报：<a href='https://bep.brookfield.com/press-releases/brookfield-renewable-reports-record-first-quarter-results-0'>Brookfield Renewable Reports Record First Quarter Results</a><br>
-2. Brookfield Renewable 官方业务介绍：<a href='https://bep.brookfield.com/'>Brookfield Renewable Partners Homepage</a><br>
-3. Bloom Energy 2026年一季度财报：<a href='https://www.bloomenergy.com/news/bloom-energy-reports-record-first-quarter-2026-results-and-raises-full-year-2026-guidance/'>Bloom Energy Reports Record First Quarter 2026 Results</a><br>
-4. Brookfield 与 Bloom Energy 合作公告：<a href='https://www.bloomenergy.com/news/brookfield-and-bloom-energy-announce-5-billion-strategic-ai-infrastructure-partnership/'>Brookfield and Bloom Energy Announce $5 Billion Strategic AI Infrastructure Partnership</a><br>
-5. BEP 与 BE 年初至今总回报：<a href='https://www.financecharts.com/stocks/BEP/performance/total-return'>FinanceCharts BEP Total Return</a>，<a href='https://www.financecharts.com/stocks/BE/performance/total-return'>FinanceCharts BE Total Return</a>，<a href='https://www.ytdreturn.com/be/'>YTDReturn BE</a>
-</div>
-</main>
-<footer>
-<div>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
-<div>本页面内容仅供研究与交流，不构成个性化投资建议。</div>
-</footer>
-</div></div>
-<div class='counter-wrap' style='text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)'>👀 页面浏览量：<span class='counter-num' id='counter-num'>...</span></div>
-<script>(function(){var slug=document.querySelector('[data-page-slug]');var slugVal=(slug&&slug.getAttribute('data-page-slug'))||'bep-bloom-ai-power-20260513';var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);var el=document.getElementById('counter-num');fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});})();</script>
+<body>
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+<div class="topbar"><div class="top-kicker">KERWIN TEAM PRESENTS</div><h1 class="top-title">BEP 与 Bloom Energy<br>研究简报</h1><div class="top-date">报告发布日期：2026年5月13日</div><div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div></div>
+<div class="wrap">
+<div class="hero"><div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div><div class="hero-title">AI 电力基础设施的两条路径</div><div class="hero-sub">Brookfield Renewable 的平台型能源资产，与 Bloom Energy 的现场供电高弹性机会</div></div>
+<nav class="nav"><a href="#intro">核心判断</a><a href="#bep">BEP</a><a href="#financials">财报</a><a href="#bloom">Bloom</a><a href="#partnership">合作</a><a href="#market">股价</a><a href="#conclusion">结语</a></nav>
+<div class="section" id="intro"><div class="section-label">引言 · 核心判断</div><h2>AI 数据中心正在把电力从后台成本推到前台瓶颈</h2><p>BEP 与 Bloom Energy 的共同背景，是美国 AI 数据中心建设正在进入电力约束阶段。算力基础设施的竞争，已经从 GPU、HBM、网络设备，延伸到并网、现场供电、长期购电协议、核能服务与能源项目融资。</p><div class="callout"><p>BEP 更接近平台型能源基础设施资产，重心在长期现金流、资产回收、融资能力和核能服务期权；Bloom Energy 更接近 AI 电力短缺下的现场供电设备商，业绩弹性更强，估值和股价波动也更高。</p></div><div class="stat-grid"><div class="stat-cell"><div class="stat-value gold">3.75亿</div><div class="stat-label">BEP 2026 Q1 FFO，美元</div></div><div class="stat-cell"><div class="stat-value up">+19%</div><div class="stat-label">BEP Q1 FFO 同比增速</div></div><div class="stat-cell"><div class="stat-value blue">7.511亿</div><div class="stat-label">Bloom 2026 Q1 收入，美元</div></div><div class="stat-cell"><div class="stat-value up">+130.4%</div><div class="stat-label">Bloom Q1 收入同比增速</div></div></div></div>
+<div class="section" id="bep"><div class="section-label">公司解剖 · Brookfield Renewable</div><h2>BEP 是 Brookfield 体系下的能源基础设施平台</h2><p>BEP 全称 Brookfield Renewable Partners L.P.，是 Brookfield 体系下的上市可再生能源与能源转型平台。公司资产覆盖水电、风电、太阳能、分布式能源、储能和可持续解决方案。</p><p>这类公司的核心不在单一技术路线，而在平台能力。BEP 的竞争力来自资产获取、项目开发、长期融资、资产运营、成熟资产出售和资本再部署。</p><div class="table-wrap"><table><thead><tr><th>资产类型</th><th>主要价值</th></tr></thead><tbody><tr><td>水电</td><td>提供长久期、低替代性、较稳定的现金流。</td></tr><tr><td>风电与太阳能</td><td>提供规模扩张与项目开发弹性。</td></tr><tr><td>Westinghouse 核能服务</td><td>提供核燃料、维护、反应堆设计与新核电部署相关的长期战略期权。</td></tr></tbody></table></div></div>
+<div class="section" id="financials"><div class="section-label">财报 · 2026 Q1</div><h2>BEP 最新财报：FFO 创纪录，资本循环能力仍在</h2><p>Brookfield Renewable 于 2026年5月1日发布 2026年一季度业绩。公司报告 FFO 为 3.75 亿美元，同比增长 19%；每单位 FFO 为 0.55 美元，同比增长 15%；过去十二个月 FFO 为 13.94 亿美元，每单位 FFO 为 2.08 美元。</p><p>传统净利润口径方面，一季度归属于 unitholders 的净亏损为 2.29 亿美元。对这类能源基础设施公司，分析重点应放在 FFO、分派覆盖、融资成本、资产回收和开发管线。</p><div class="table-wrap"><table><thead><tr><th>分部</th><th>2026 Q1 FFO</th><th>核心含义</th></tr></thead><tbody><tr><td>水电</td><td>2.10 亿美元</td><td>同比接近增长 30%，继续提供稳定现金流底盘。</td></tr><tr><td>风电与太阳能</td><td>2.45 亿美元</td><td>同比超过 60%，受开发活动、收购和资产出售收益推动。</td></tr><tr><td>分布式能源、储能与可持续解决方案</td><td>5800 万美元</td><td>Westinghouse 表现稳定，核能服务成为长期战略期权。</td></tr></tbody></table></div><p>BEP 一季度签署和完成接近 28 亿美元资产出售交易，其中归属于 Brookfield Renewable 的净 proceeds 约 8.2 亿美元。公司一季度末拥有超过 47 亿美元可用流动性，并发行 5 亿加元 30 年期债券，固定利率 5.2%。</p></div>
+<div class="section" id="bloom"><div class="section-label">公司解剖 · Bloom Energy</div><h2>Bloom Energy：从燃料电池公司到 AI 现场供电标的</h2><p>Bloom Energy，代码 BE，总部位于美国加州圣何塞。公司核心技术是固体氧化物燃料电池系统，可以为数据中心、半导体制造、大型商业与工业客户提供高可靠、模块化的现场电力。</p><p>Bloom 2026年一季度收入为 7.511 亿美元，同比增长 130.4%；产品收入为 6.533 亿美元，同比增长 208.4%；GAAP 毛利率为 30.0%，Non GAAP 毛利率为 31.5%；经营现金流为 7360 万美元。</p><div class="alert">Bloom 的弹性来自高增长，也带来高波动。后续需要持续跟踪订单交付、毛利率、客户集中度、燃料成本、现金流和估值消化能力。</div></div>
+<div class="section" id="partnership"><div class="section-label">合作 · AI Infrastructure</div><h2>Brookfield 与 Bloom 的 50 亿美元合作，指向 AI 工厂现场供电需求</h2><p>2025年10月，Brookfield 与 Bloom Energy 宣布 50 亿美元战略 AI 基础设施合作。Bloom 将成为 Brookfield 全球 AI factories 的优先现场供电商，Brookfield 将投资最高 50 亿美元部署 Bloom 的燃料电池技术。</p></div>
+<div class="section" id="market"><div class="section-label">市场表现 · YTD</div><h2>年初至今表现：BEP 稳健上行，Bloom 高弹性重估</h2><p>截至 FinanceCharts 2026年5月11日数据，BEP 年初至今总回报约为 +29.22%。截至 FinanceCharts 2026年5月7日数据，Bloom Energy 年初至今总回报约为 +197.66%。另一数据源 YTDReturn 显示，截至 2026年4月30日，Bloom Energy 年初至今总回报约为 +226.11%。</p><div class="stat-grid"><div class="stat-cell"><div class="stat-value up">+29.22%</div><div class="stat-label">BEP YTD Total Return</div></div><div class="stat-cell"><div class="stat-value up">+197.66%</div><div class="stat-label">BE YTD Total Return</div></div></div></div>
+<div class="conclusion" id="conclusion"><h2>结语</h2><p>BEP 与 Bloom Energy 分别代表 AI 电力基础设施的两种路径：一种是长期能源资产平台，依靠水电、风光、储能、核能服务和资本循环形成基础设施价值；另一种是现场供电设备商，依靠 AI 数据中心电力缺口形成高增长弹性。</p></div>
+<div class="footer">本文为投资研究参考，不构成具体投资建议。数据来源：Brookfield Renewable 官方公告、Bloom Energy 官方公告、FinanceCharts、YTDReturn。数据截至 2026 年 5 月 13 日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+</div></div></div>
 </body>
 </html>
