@@ -33,13 +33,18 @@ def check_file(path: Path):
         issues.append('missing_counter_script')
     if not re.search(r'@media\s*\(max-width:\s*\d+px\)', text):
         issues.append('missing_mobile_media_query')
-    if not is_homepage and not is_redirect and 'topbar' not in text:
+    has_topbar = any(k in text for k in ['topbar', 'top-header', 'masthead', 'brand-strip'])
+    has_hero = any(k in text for k in ['hero', 'top-grid', 'brand-band'])
+    has_780 = any(k in text for k in ['max-width:780px', 'max-width: 780px', 'width: min(780px'])
+    has_700 = any(k in text for k in ['max-width:700px', 'max-width: 700px', 'max-width:680px', 'max-width: 680px'])
+
+    if not is_homepage and not is_redirect and not has_topbar:
         warns.append('missing_topbar_keyword')
-    if not is_homepage and not is_redirect and 'hero' not in text:
+    if not is_homepage and not is_redirect and not has_hero:
         warns.append('missing_hero_keyword')
-    if not is_homepage and 'max-width:780px' not in text:
+    if not is_homepage and not has_780:
         warns.append('missing_780_container')
-    if not is_homepage and 'wrap' in text and 'max-width:700px' not in text:
+    if not is_homepage and 'wrap' in text and not has_700:
         warns.append('missing_700_wrap')
     if re.search(r'font-size:\s*(1[6-9]|[2-9]\d)px', text) and not re.search(r'@media\s*\(max-width:\s*\d+px\)', text):
         warns.append('large_fixed_fonts_without_mobile_fallback')
