@@ -1,7 +1,7 @@
 # Kerwin / Enya 投研网页排版与发布 Skill
 
-版本：v1.2  
-最后更新：2026-05-11  
+版本：v1.3  
+最后更新：2026-05-13  
 适用对象：ChatGPT、Claude、Codex、OpenClaw、Enya、Abba 及其他自动化 Agent  
 适用场景：把 Kerwin 的宏观研究、公司深度、产业链分析、组合复盘、客户分享内容生成公开 HTML 网页。
 
@@ -10,6 +10,12 @@
 ## 0. 最重要的执行原则
 
 本文件是 Kerwin / Enya 投研网页的固定执行标准。任何 Agent 生成网页时，必须先读本文件，再生成 HTML。
+
+### 单一事实源
+
+以后所有 Agent 的网页排版、发布、首页上架规则，以本文件为唯一标准。
+
+其他 skill、模板、脚本、发布入口如果与本文件冲突，一律以本文件为准，并应回指本文件，不得各自维护分叉标准。
 
 网页生产分为两个阶段：
 
@@ -38,6 +44,8 @@ Agent 必须先按照本 Skill 生成 HTML 页面，供 Kerwin 审阅确认。
 /opt/agent-publish-stage/{slug}/meta.json
 ```
 
+注意：发布器现在默认不会自动把页面加入首页；只有显式首页审批后，页面才会上首页。
+
 系统自动部署到：
 
 ```text
@@ -45,6 +53,46 @@ https://enyaclawd.com/{slug}/
 ```
 
 严禁在 Kerwin 未确认前直接发布到官网。
+
+### 首页上架规则
+
+首页上架与“页面已生成”不是同一动作。
+
+1. 页面可以先生成预览版，供 Kerwin 审阅。
+2. 在 Kerwin 未明确确认前，禁止把页面加入首页列表。
+3. 首页列表的开关文件是：
+
+```text
+/opt/kerwin-agent/repos/site/registry.json
+```
+
+4. 只有在 Kerwin 确认后，才允许新增或更新对应 registry 条目。
+5. 首页卡片标题默认使用 Kerwin 指定文案，不得擅自改写。
+6. 首页默认按发布时间倒序排列；若同日多篇，以 `published_at` 更晚者排在更前。
+7. 不允许再由 Agent 直接手改首页列表；必须通过统一脚本执行：首页准入脚本：
+
+```bash
+python3 /opt/kerwin-agent/repos/site/tools/homepage_registry.py approve \
+  --slug <slug> \
+  --title "<title>" \
+  --date "<YYYY年M月D日>" \
+  --deck "<deck>" \
+  --tag "<tag>" \
+  --source enya \
+  --published-at "<ISO8601>"
+```
+
+下架首页：
+
+```bash
+python3 /opt/kerwin-agent/repos/site/tools/homepage_registry.py hide --slug <slug>
+```
+
+推荐做法：
+
+- 预览阶段：先完成 `index.html`，必要时仅生成直链预览，不更新首页 registry。
+- 确认发布阶段：使用统一脚本写入或更新 `registry.json`，让页面进入首页。
+- 禁止多个 Agent 直接各自修改 `registry.json` 结构或排序逻辑。
 
 ---
 
@@ -243,6 +291,44 @@ HTML 内必须使用以下 CSS 变量作为默认色系：
   background: var(--paper);
 }
 ```
+
+页面底部也应保留一个返回首页入口，避免移动端用户读到底部后必须回滚。
+
+---
+
+## 6A. 页面浏览量统计
+
+每个正式子页面必须带浏览量统计。
+
+要求：
+
+1. 在 `</head>` 前加入页面标识：
+
+```html
+<!-- pv-counter data-page-slug={slug} -->
+```
+
+2. 页面底部显示浏览量文本与数值容器：
+
+```html
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+```
+
+3. 在 `</body>` 前加入统计脚本：
+
+```html
+<script>
+(function(){
+  var slugVal = '{slug}';
+  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){ if(el) el.textContent = '-'; });
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){});
+})();
+</script>
+```
+
+4. 不得删除统计区；若页面极简，也必须至少保留隐藏度较低的可见浏览量模块。
 
 ---
 
