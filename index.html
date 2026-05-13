@@ -307,8 +307,15 @@ footer {
  fetch('/registry.json?v=202605131100', {cache:'no-store'})
    .then(function(r) { return r.json(); })
    .then(function(pages) {
-     // Sort by date descending using ISO extract
+     // Sort by publish time descending; fallback to date descending
      pages.sort(function(a, b) {
+       var ta = a.published_at ? Date.parse(a.published_at) : NaN;
+       var tb = b.published_at ? Date.parse(b.published_at) : NaN;
+       if (!Number.isNaN(ta) || !Number.isNaN(tb)) {
+         ta = Number.isNaN(ta) ? 0 : ta;
+         tb = Number.isNaN(tb) ? 0 : tb;
+         if (tb !== ta) return tb - ta;
+       }
        var da = a.date.replace(/[^\d]/g, '');
        var db = b.date.replace(/[^\d]/g, '');
        return db - da;
