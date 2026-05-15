@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从 H200 对华开放，看懂 GPU 算力市场｜研究简报</title>
+<meta name="description" content="从 H200 对华开放出发，拆解 GPU 销售价格、租赁价格、HBM3e 成本占比、NeoCloud 回本周期与中国订单规模。">
+<!-- pv-counter data-page-slug=h200-gpu-market-brief-preview-20260515 -->
+<style>
+:root{
+  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
+  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
+  font-size:14px;line-height:1.85;
+}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}
+.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}
+.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}
+.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.stat-value.gold{color:var(--gold)}.stat-value.blue{color:var(--blue)}.stat-value.up{color:var(--up)}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:500px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+.flow{display:flex;flex-direction:column;gap:0;margin:16px 0}
+.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px Arial,sans-serif;line-height:1.5;border:1px solid #e5ddd3;border-radius:4px}
+.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}
+.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:2px 0;line-height:1}
+.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}
+.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}
+.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}
+.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}
+.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}
+.source-list{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;line-height:1.75;color:#6f6258;margin-top:10px}
+.source-list a{color:#7b4f24;text-decoration:none;border-bottom:1px solid #dccdbf}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}
+.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){
+  body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-grid{grid-template-columns:1fr}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}
+}
+</style>
+</head>
+<body data-page-slug="h200-gpu-market-brief-preview-20260515">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">H200 对华开放<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年5月15日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
+      <div class="hero-title">从 H200 对华开放，看懂 GPU 算力市场的真实价格</div>
+      <div class="hero-sub">销售价、租赁价、回本周期、HBM3e 成本占比与中国订单推演</div>
+      <div class="hero-meta">2026年5月15日 · AI 基础设施专题研究</div>
+    </div>
+    <nav class="nav">
+      <a href="#intro">核心判断</a>
+      <a href="#price">价格体系</a>
+      <a href="#rental">租赁回本</a>
+      <a href="#hbm">HBM3e</a>
+      <a href="#china">中国订单</a>
+      <a href="#strategy">投资含义</a>
+      <a href="#sources">资料来源</a>
+    </nav>
+
+    <div class="section" id="intro">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>这不是一条单纯的出口新闻，而是一扇观察 GPU 算力市场的窗口</h2>
+      <p>美国重新放行部分中国企业采购 NVIDIA H200，表面看是中美科技政策的边际变化，深层看则是一次对全球 AI 算力价格体系的压力测试。它让投资者可以同时观察四件事：H200 的销售价格、云端租赁价格、HBM3e 在 GPU 中的成本权重，以及中国订单究竟会消化库存还是拉动新增产量。</p>
+      <p>我的判断是，H200 已经不是 NVIDIA 最新一代产品，但它仍然是当前高端可用算力市场中的关键资产。Blackwell 是未来方向，H100 与 H200 仍是当下真实可用算力的主力底座。</p>
+      <div class="callout">
+        <div class="callout-label">核心结论</div>
+        <p>H200 中国订单是 NVIDIA 的收入期权；H200 租赁价格是全球算力紧张的温度计；HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value gold">$32K</div><div class="stat-label">H200 单颗建模基准销售价</div></div>
+        <div class="stat-cell"><div class="stat-value blue">$4至$6</div><div class="stat-label">主流租赁中枢，美元/GPU·小时</div></div>
+        <div class="stat-cell"><div class="stat-value up">15至24个月</div><div class="stat-label">真实经营口径回本期估算</div></div>
+        <div class="stat-cell"><div class="stat-value gold">25%至38%</div><div class="stat-label">HBM3e 占 H200 BOM 成本估算</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="price">
+      <div class="section-label">01 · 价格体系</div>
+      <h2>一颗 H200 到底卖多少钱，必须先分清三种价格</h2>
+      <p>H200 不是黄金、铜或原油那样的标准化透明商品。投资者在市场上看到的价格，可能是裸芯片或加速卡，也可能是 8 卡服务器节点，也可能是整机柜或云端租赁价格。如果把这些口径混在一起，就很容易误判 NVIDIA 收入和下游客户成本。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>价格口径</th><th>估算区间</th><th>适合用途</th></tr></thead>
+          <tbody>
+            <tr><td>NVIDIA 芯片销售价</td><td>约 27,000 至 40,000 美元/颗</td><td>估算 NVIDIA 芯片收入</td></tr>
+            <tr><td>投研建模基准价</td><td>约 32,000 美元/颗</td><td>测算订单规模与回本周期</td></tr>
+            <tr><td>市场流通价</td><td>约 30,000 至 50,000 美元/颗，特殊渠道更高</td><td>观察可交付性、稀缺性和合规溢价</td></tr>
+            <tr><td>服务器或机柜价格</td><td>显著高于 GPU 裸价</td><td>包含 CPU、网络、散热、电源、集成与交付</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>我更倾向用 32,000 美元作为 H200 的基准建模价格。这个数字不追求精确到每一个合同，但足以支持投资推演：25 万颗、50 万颗、75 万颗分别对应多大收入弹性，NeoCloud 采购后大致多久能回本，HBM3e 对产业链利润的拉动有多大。</p>
+      <div class="flow">
+        <div class="flow-box">裸 GPU 或芯片价格：反映 NVIDIA 收入口径</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box alt">服务器节点价格：叠加 CPU、NVSwitch、网络、散热、电源和集成</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box accent">云端租赁价格：反映真实客户需求、利用率和可交付算力稀缺程度</div>
+      </div>
+    </div>
+
+    <div class="section" id="rental">
+      <div class="section-label">02 · 租赁与回本</div>
+      <h2>GPU·小时的本质，是把昂贵硬件变成现金流资产</h2>
+      <p>GPU·小时的含义很简单：1 张 GPU 连续运行 1 小时，就是 1 个 GPU·小时。8 张 H200 跑 1 小时，就是 8 个 GPU·小时。8 张 H200 连续运行 30 天，就是 8 × 24 × 30，也就是 5,760 个 GPU·小时。</p>
+      <p>当前 H200 的云租赁价格大致分三层：低价或承诺型 NeoCloud 大约 2.3 至 4 美元/GPU·小时；主流 NeoCloud 或高保障租赁大约 4 至 7 美元/GPU·小时；大云厂商高端实例可以超过 10 美元/GPU·小时。为了做投资测算，我使用 4 至 6 美元/GPU·小时作为核心区间。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>租赁场景</th><th>直观含义</th><th>以 6 美元/GPU·小时测算</th></tr></thead>
+          <tbody>
+            <tr><td>1 张 H200 跑 1 小时</td><td>1 GPU·小时</td><td>6 美元</td></tr>
+            <tr><td>8 张 H200 跑 1 小时</td><td>一台 8 卡服务器运行 1 小时</td><td>48 美元</td></tr>
+            <tr><td>8 张 H200 跑 1 天</td><td>一台 8 卡服务器运行 24 小时</td><td>1,152 美元</td></tr>
+            <tr><td>8 张 H200 跑 1 个月</td><td>一台 8 卡服务器连续运行 30 天</td><td>34,560 美元</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>回本周期的简化推演</h3>
+      <p>如果只看单颗 H200，采购成本按 32,000 美元，租赁价格按 6 美元/GPU·小时，满负荷运行时静态回本期约 7.4 个月。如果考虑 80% 利用率，裸 GPU 回本期约 9.3 个月。</p>
+      <p>但真实世界中，客户租到的不是一颗裸 GPU，而是一台完整 AI 服务器。8 颗 H200 的芯片成本是 256,000 美元，但完整 8 卡服务器还需要 CPU、内存、NVSwitch、网卡、电源、散热、主板和集成，总成本可能在 320,000 至 400,000 美元区间。</p>
+      <div class="callout">
+        <div class="callout-label">回本口径</div>
+        <p>裸 GPU 回本看起来约 7 至 10 个月；如果按完整服务器和数据中心经营口径，加入利用率、机房、电力、网络、维修、运维和融资成本，真实回本期更可能在 15 至 24 个月。</p>
+      </div>
+      <p>这解释了为什么 NeoCloud 仍然愿意大规模采购高端 GPU。只要 H200 能维持 5 至 6 美元/GPU·小时的租赁价格，并且利用率稳定在 70% 以上，它仍然是一类高吸引力的现金流资产。一旦租赁价格跌到 3 美元以下，或利用率明显下降，回本周期会迅速拉长。</p>
+    </div>
+
+    <div class="section" id="hbm">
+      <div class="section-label">03 · HBM3e</div>
+      <h2>HBM3e 是成本大项，也是交付瓶颈，但不是 NVIDIA 的利润杀手</h2>
+      <p>H200 的核心规格之一是 141GB HBM3e 和 4.8TB/s 显存带宽。对于大模型推理、长上下文、多并发、RAG 和 Agent 工作流，显存容量与带宽往往比单纯算力峰值更能决定实际体验。</p>
+      <p>这里最容易混淆的是 HBM3e 的成本占比。若看 H200 制造成本或 BOM，HBM3e 可能占 25% 至 38%；若看 NVIDIA 对外销售价格，HBM3e 只占约 3% 至 7%。两个数字差距很大，但并不矛盾，因为分母完全不同。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>观察口径</th><th>分母</th><th>HBM3e 占比估算</th><th>含义</th></tr></thead>
+          <tbody>
+            <tr><td>BOM 制造成本</td><td>假设约 4,800 美元/颗</td><td>约 25% 至 38%</td><td>HBM3e 是硬件成本大项</td></tr>
+            <tr><td>NVIDIA 销售价格</td><td>约 27,000 至 40,000 美元/颗</td><td>约 3% 至 7%</td><td>NVIDIA 定价权来自芯片、CUDA、生态、稀缺性和集群标准</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>换句话说，HBM3e 对 NVIDIA 来说更像交付瓶颈，而不是利润杀手；对 SK hynix、Micron、Samsung 来说，它才是更直接的利润弹性来源。</p>
+      <h3>一个 H200 机架里有多少 HBM3e 价值</h3>
+      <p>如果一颗 H200 内部 HBM3e 价值按 1,100 至 1,800 美元估算，那么 8 卡 H200 服务器节点约含 8,800 至 14,400 美元 HBM3e；32 卡机架约含 35,000 至 58,000 美元 HBM3e；64 卡机架约含 70,000 至 115,000 美元 HBM3e。</p>
+      <div class="alert">
+        <div class="alert-label">关键理解</div>
+        <p>HBM3e 在整机柜总价值中并不是金额最大的部分，但它是决定交付节奏的重要瓶颈。没有 HBM3e，就没有 H200 的有效交付。</p>
+      </div>
+    </div>
+
+    <div class="section" id="china">
+      <div class="section-label">04 · 中国订单</div>
+      <h2>中国 H200 订单短期看库存释放，中期看新增产量需求</h2>
+      <p>Reuters 最新报道显示，美国已批准约 10 家中国公司采购 H200，包括阿里、腾讯、字节跳动、京东等，但截至报道时仍未发生实际交付。这里最重要的不是批准本身，而是批准之后能否进入真实交付。</p>
+      <p>我的推演是，如果只落地 20 万至 30 万颗，NVIDIA 更可能通过库存和既有排产来满足；如果落地 50 万颗以上，就会明显拉动新增生产、HBM3e 采购、先进封装、测试和服务器集成；如果接近 75 万颗许可上限，则必然是库存与新增产量共同满足。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>落地情景</th><th>H200 数量</th><th>NVIDIA 芯片收入</th><th>终端采购规模</th><th>对应 HBM3e 价值</th></tr></thead>
+          <tbody>
+            <tr><td>保守落地</td><td>25 万颗</td><td>约 80 亿美元</td><td>约 100 亿美元</td><td>约 2.75 亿至 4.5 亿美元</td></tr>
+            <tr><td>基准落地</td><td>50 万颗</td><td>约 160 亿美元</td><td>约 200 亿美元</td><td>约 5.5 亿至 9 亿美元</td></tr>
+            <tr><td>许可上限</td><td>75 万颗</td><td>约 240 亿美元</td><td>约 300 亿美元</td><td>约 8.25 亿至 13.5 亿美元</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>这里的关键矛盾在于，H200 新增生产不是没有机会成本。它会与 Blackwell 争夺部分 HBM、封装、测试、基板、服务器集成和交付资源。NVIDIA 要在 H200 中国收入期权和 Blackwell 全球放量主线之间做产能分配。</p>
+    </div>
+
+    <div class="section" id="strategy">
+      <div class="section-label">05 · 投资含义</div>
+      <h2>投资者应该盯交付，不只盯批准</h2>
+      <p>从投资角度，我会把这件事拆成四条主线。</p>
+      <div class="path-grid">
+        <div class="path-item"><div class="path-num">01</div><div><div class="path-title">NVIDIA：收入期权</div><p class="path-desc">25 万颗 H200 对应约 80 亿美元芯片收入，50 万颗对应约 160 亿美元，75 万颗对应约 240 亿美元。它不是 NVIDIA 的全部基本盘，但足以构成可观的上行情景。</p></div></div>
+        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">HBM 厂商：利润弹性</div><p class="path-desc">H200 只是 HBM3e 需求的一部分，Blackwell、AI ASIC、TPU、Trainium 和 AMD MI 系列也在争夺高端内存。存储链条的核心变量是供给分配和合约价格。</p></div></div>
+        <div class="path-item"><div class="path-num">03</div><div><div class="path-title">NeoCloud：算力资产收益率</div><p class="path-desc">只要 H200 租赁价格维持在 5 至 6 美元/GPU·小时，且利用率稳定在 70% 以上，真实经营口径 15 至 24 个月回本仍有吸引力。</p></div></div>
+        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">国产替代链：交付越慢，叙事越强</div><p class="path-desc">如果 H200 继续停留在批准层面，国产 AI 芯片链条更容易获得资金关注；如果 H200 真正放量交付，国产替代链短线可能面临反向交易。</p></div></div>
+      </div>
+      <p>最终，我会把接下来的跟踪重点压缩成三件事：第一，是否出现首批真实交付；第二，NVIDIA 是否在财报或指引中确认中国 H200 订单贡献；第三，HBM3e 合约价格是否继续上修。</p>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>这次 H200 对华开放，让我们看清了当前 GPU 算力市场的真实结构：H200 不是最新产品，但仍是重要的可用高端算力；Blackwell 是未来方向，但尚未完全替代 Hopper；HBM3e 是交付瓶颈，也是存储链条利润弹性的来源；NeoCloud 的租赁回本模型说明，算力资产仍有高现金流吸引力。</p>
+      <p>我对这件事的最终判断是：H200 中国订单是 NVIDIA 的收入期权，H200 租赁价格是全球算力紧张的温度计，HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
+    </div>
+
+    <div class="section" id="sources">
+      <div class="section-label">资料来源 · 非中文信源</div>
+      <h2>主要参考资料</h2>
+      <div class="source-list">
+        <p>1. Reuters，2026年5月14日，关于美国批准约 10 家中国公司采购 NVIDIA H200 且尚未实际交付的报道。</p>
+        <p>2. NVIDIA 官方 H200 产品页，关于 141GB HBM3e 与 4.8TB/s 显存带宽的规格说明。</p>
+        <p>3. Nebius、RunPod、GetDeploying 等公开云租赁价格页面，用于观察 H200 的 NeoCloud 租赁价格区间。</p>
+        <p>4. TrendForce 与 Reuters 关于 HBM、DRAM 供需和 2026 年合约价格方向的公开报道。</p>
+        <p>5. 本文中合同金额、回本周期和 HBM3e 价值均为投研估算，不代表 NVIDIA 或供应商正式报价。</p>
+      </div>
+    </div>
+
+    <div class="footer">本文为投资研究参考，不构成具体投资建议。文中价格、订单、租赁费率、回本周期和成本占比均为基于公开信息与合理假设的估算，实际合同价格、交付节奏、利用率和利润率可能显著偏离。数据截至 2026年5月15日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+  </div>
+</div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='h200-gpu-market-brief-preview-20260515';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
