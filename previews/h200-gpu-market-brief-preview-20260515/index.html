@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>从 H200 对华开放，看懂 GPU 算力市场｜研究简报</title>
-<meta name="description" content="从 H200 对华开放出发，拆解 GPU 销售价格、租赁价格、HBM3e 成本占比、NeoCloud 回本周期与中国订单规模。">
+<title>从 H200 进华，看懂 GPU 算力市场｜研究简报</title>
+<meta name="description" content="从 H200 进华出发，拆解 GPU 销售价格、租赁价格、HBM3e 成本占比、NeoCloud 回本周期与中国订单规模。">
 <!-- pv-counter data-page-slug=h200-gpu-market-brief-preview-20260515 -->
 <style>
 :root{
@@ -31,6 +31,7 @@ a{color:inherit}
 .hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
 .badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
 .hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-title .line{display:block}
 .hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
 .hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
 .nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
@@ -66,7 +67,6 @@ tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
 .path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}
 .path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}
 .source-list{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;line-height:1.75;color:#6f6258;margin-top:10px}
-.source-list a{color:#7b4f24;text-decoration:none;border-bottom:1px solid #dccdbf}
 .conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
 .conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
 .conclusion p{color:#e8d5b8}
@@ -84,14 +84,14 @@ tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
 <div class="page"><div class="shell">
   <div class="topbar">
     <div class="top-kicker">KERWIN TEAM PRESENTS</div>
-    <h1 class="top-title">H200 对华开放<br>研究简报</h1>
+    <h1 class="top-title">H200 进华<br>研究简报</h1>
     <div class="top-date">报告发布日期：2026年5月15日</div>
     <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
   </div>
   <div class="wrap">
     <div class="hero">
       <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
-      <div class="hero-title">从 H200 对华开放，看懂 GPU 算力市场的真实价格</div>
+      <div class="hero-title"><span class="line">从 H200 进华</span><span class="line">看懂 GPU 算力市场的真实价格</span></div>
       <div class="hero-sub">销售价、租赁价、回本周期、HBM3e 成本占比与中国订单推演</div>
       <div class="hero-meta">2026年5月15日 · AI 基础设施专题研究</div>
     </div>
@@ -100,19 +100,19 @@ tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
       <a href="#price">价格体系</a>
       <a href="#rental">租赁回本</a>
       <a href="#hbm">HBM3e</a>
-      <a href="#china">中国订单</a>
+      <a href="#china">进华订单</a>
       <a href="#strategy">投资含义</a>
       <a href="#sources">资料来源</a>
     </nav>
 
     <div class="section" id="intro">
       <div class="section-label">引言 · 核心判断</div>
-      <h2>这不是一条单纯的出口新闻，而是一扇观察 GPU 算力市场的窗口</h2>
-      <p>美国重新放行部分中国企业采购 NVIDIA H200，表面看是中美科技政策的边际变化，深层看则是一次对全球 AI 算力价格体系的压力测试。它让投资者可以同时观察四件事：H200 的销售价格、云端租赁价格、HBM3e 在 GPU 中的成本权重，以及中国订单究竟会消化库存还是拉动新增产量。</p>
-      <p>我的判断是，H200 已经不是 NVIDIA 最新一代产品，但它仍然是当前高端可用算力市场中的关键资产。Blackwell 是未来方向，H100 与 H200 仍是当下真实可用算力的主力底座。</p>
+      <h2>这不是一条单纯的政策新闻，而是一扇观察 GPU 算力市场的窗口</h2>
+      <p>H200 进华，表面看是中美科技博弈下的一个阶段性变量；深层看，则是一次对全球 AI 算力价格体系的压力测试。它让投资者可以同时观察四件事：H200 的销售价格、云端租赁价格、HBM3e 在 GPU 中的成本权重，以及相关订单究竟会消化库存还是拉动新增产量。</p>
+      <p>我的判断是，H200 已经不是 NVIDIA 最新一代产品，但它仍然是当前高端可用算力市场中的关键资产。Blackwell 和 Rubin 是未来方向，H100 与 H200 仍是当下真实可用算力的重要底座。</p>
       <div class="callout">
         <div class="callout-label">核心结论</div>
-        <p>H200 中国订单是 NVIDIA 的收入期权；H200 租赁价格是全球算力紧张的温度计；HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
+        <p>H200 进华订单是 NVIDIA 的收入期权；H200 租赁价格是全球算力紧张的温度计；HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
       </div>
       <div class="stat-grid">
         <div class="stat-cell"><div class="stat-value gold">$32K</div><div class="stat-label">H200 单颗建模基准销售价</div></div>
@@ -197,9 +197,9 @@ tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
     </div>
 
     <div class="section" id="china">
-      <div class="section-label">04 · 中国订单</div>
-      <h2>中国 H200 订单短期看库存释放，中期看新增产量需求</h2>
-      <p>Reuters 最新报道显示，美国已批准约 10 家中国公司采购 H200，包括阿里、腾讯、字节跳动、京东等，但截至报道时仍未发生实际交付。这里最重要的不是批准本身，而是批准之后能否进入真实交付。</p>
+      <div class="section-label">04 · 进华订单</div>
+      <h2>H200 进华订单短期看库存释放，中期看新增产量需求</h2>
+      <p>公开报道显示，约 10 家中国公司进入 H200 采购许可框架，包括阿里、腾讯、字节跳动、京东等，但截至相关报道时仍未发生实际交付。这里最重要的不是许可框架本身，而是后续能否进入真实交付。</p>
       <p>我的推演是，如果只落地 20 万至 30 万颗，NVIDIA 更可能通过库存和既有排产来满足；如果落地 50 万颗以上，就会明显拉动新增生产、HBM3e 采购、先进封装、测试和服务器集成；如果接近 75 万颗许可上限，则必然是库存与新增产量共同满足。</p>
       <div class="table-wrap">
         <table>
@@ -211,33 +211,33 @@ tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
           </tbody>
         </table>
       </div>
-      <p>这里的关键矛盾在于，H200 新增生产不是没有机会成本。它会与 Blackwell 争夺部分 HBM、封装、测试、基板、服务器集成和交付资源。NVIDIA 要在 H200 中国收入期权和 Blackwell 全球放量主线之间做产能分配。</p>
+      <p>这里的关键矛盾在于，H200 新增生产不是没有机会成本。它会与 Blackwell 以及后续 Rubin 争夺部分 HBM、封装、测试、基板、服务器集成和交付资源。NVIDIA 要在 H200 进华收入期权、Blackwell 放量和 Rubin 未来切换之间做产能分配。</p>
     </div>
 
     <div class="section" id="strategy">
       <div class="section-label">05 · 投资含义</div>
-      <h2>投资者应该盯交付，不只盯批准</h2>
+      <h2>投资者应该盯交付，不只盯许可框架</h2>
       <p>从投资角度，我会把这件事拆成四条主线。</p>
       <div class="path-grid">
         <div class="path-item"><div class="path-num">01</div><div><div class="path-title">NVIDIA：收入期权</div><p class="path-desc">25 万颗 H200 对应约 80 亿美元芯片收入，50 万颗对应约 160 亿美元，75 万颗对应约 240 亿美元。它不是 NVIDIA 的全部基本盘，但足以构成可观的上行情景。</p></div></div>
-        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">HBM 厂商：利润弹性</div><p class="path-desc">H200 只是 HBM3e 需求的一部分，Blackwell、AI ASIC、TPU、Trainium 和 AMD MI 系列也在争夺高端内存。存储链条的核心变量是供给分配和合约价格。</p></div></div>
+        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">HBM 厂商：利润弹性</div><p class="path-desc">H200 只是 HBM3e 需求的一部分，Blackwell、Rubin、AI ASIC、TPU、Trainium 和 AMD MI 系列也在争夺高端内存。存储链条的核心变量是供给分配和合约价格。</p></div></div>
         <div class="path-item"><div class="path-num">03</div><div><div class="path-title">NeoCloud：算力资产收益率</div><p class="path-desc">只要 H200 租赁价格维持在 5 至 6 美元/GPU·小时，且利用率稳定在 70% 以上，真实经营口径 15 至 24 个月回本仍有吸引力。</p></div></div>
-        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">国产替代链：交付越慢，叙事越强</div><p class="path-desc">如果 H200 继续停留在批准层面，国产 AI 芯片链条更容易获得资金关注；如果 H200 真正放量交付，国产替代链短线可能面临反向交易。</p></div></div>
+        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">国产替代链：真实交付决定交易方向</div><p class="path-desc">如果 H200 继续停留在许可框架层面，国产 AI 芯片链条更容易获得资金关注；如果 H200 真正放量交付，国产替代链短线可能面临反向交易。</p></div></div>
       </div>
-      <p>最终，我会把接下来的跟踪重点压缩成三件事：第一，是否出现首批真实交付；第二，NVIDIA 是否在财报或指引中确认中国 H200 订单贡献；第三，HBM3e 合约价格是否继续上修。</p>
+      <p>最终，我会把接下来的跟踪重点压缩成三件事：第一，是否出现首批真实交付；第二，NVIDIA 是否在财报或指引中确认 H200 进华订单贡献；第三，HBM3e 合约价格是否继续上修。</p>
     </div>
 
     <div class="conclusion" id="conclusion">
       <h2>结语</h2>
-      <p>这次 H200 对华开放，让我们看清了当前 GPU 算力市场的真实结构：H200 不是最新产品，但仍是重要的可用高端算力；Blackwell 是未来方向，但尚未完全替代 Hopper；HBM3e 是交付瓶颈，也是存储链条利润弹性的来源；NeoCloud 的租赁回本模型说明，算力资产仍有高现金流吸引力。</p>
-      <p>我对这件事的最终判断是：H200 中国订单是 NVIDIA 的收入期权，H200 租赁价格是全球算力紧张的温度计，HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
+      <p>H200 进华，让我们看清了当前 GPU 算力市场的真实结构：H200 不是最新产品，但仍是重要的可用高端算力；Blackwell 和 Rubin 是未来方向，但尚未完全替代 Hopper；HBM3e 是交付瓶颈，也是存储链条利润弹性的来源；NeoCloud 的租赁回本模型说明，算力资产仍有高现金流吸引力。</p>
+      <p>我对这件事的最终判断是：H200 进华订单是 NVIDIA 的收入期权，H200 租赁价格是全球算力紧张的温度计，HBM3e 成本与合约价格是存储链条利润弹性的核心线索。</p>
     </div>
 
     <div class="section" id="sources">
       <div class="section-label">资料来源 · 非中文信源</div>
       <h2>主要参考资料</h2>
       <div class="source-list">
-        <p>1. Reuters，2026年5月14日，关于美国批准约 10 家中国公司采购 NVIDIA H200 且尚未实际交付的报道。</p>
+        <p>1. Reuters，2026年5月14日，关于 H200 采购许可框架及尚未实际交付的报道。</p>
         <p>2. NVIDIA 官方 H200 产品页，关于 141GB HBM3e 与 4.8TB/s 显存带宽的规格说明。</p>
         <p>3. Nebius、RunPod、GetDeploying 等公开云租赁价格页面，用于观察 H200 的 NeoCloud 租赁价格区间。</p>
         <p>4. TrendForce 与 Reuters 关于 HBM、DRAM 供需和 2026 年合约价格方向的公开报道。</p>
