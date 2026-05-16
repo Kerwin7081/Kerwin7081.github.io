@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enya交易周报—Kerwin 2026 宏观对冲AI精选组合（2026-05-16）</title>
+  <meta name="description" content="Kerwin 团队自动化呈现的交易周报网页版，采用金融时报视觉风格。" />
+  <style>
+    :root {
+      --ft-bg: #fff1e5;
+      --ft-paper: #fffaf4;
+      --ft-ink: #1a1a1a;
+      --ft-muted: #6b5c53;
+      --ft-line: #d6c6b8;
+      --ft-accent: #0f5499;
+      --ft-up: #0b7a3c;
+      --ft-down: #b22222;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--ft-bg);
+      color: var(--ft-ink);
+      font-family: Georgia, "Times New Roman", "Noto Serif SC", serif;
+      line-height: 1.65;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+    .masthead {
+      border-top: 8px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 14px 0 18px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+      color: var(--ft-muted);
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.08;
+      font-weight: 700;
+    }
+    .subdeck {
+      margin-top: 14px;
+      max-width: 900px;
+      font-size: 19px;
+      color: #342d28;
+    }
+    .byline {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--ft-line);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: var(--ft-muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .card, .story {
+      background: var(--ft-paper);
+      border: 1px solid var(--ft-line);
+      padding: 20px;
+    }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 8px;
+    }
+    .lede {
+      font-size: 18px;
+      margin: 0 0 18px;
+    }
+    .meta-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    .meta-list div {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--ft-line);
+    }
+    .label { color: var(--ft-muted); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+    .big-number {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .big-number .tile {
+      background: #fff;
+      border: 1px solid var(--ft-line);
+      padding: 14px;
+    }
+    .tile strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+      margin-top: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      background: #fff;
+    }
+    th, td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #e4d9cf;
+      text-align: right;
+      white-space: nowrap;
+    }
+    th:first-child, td:first-child,
+    th:nth-child(2), td:nth-child(2) { text-align: left; }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--ft-muted);
+      background: #fcf4ed;
+      position: sticky;
+      top: 0;
+    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--ft-line); -webkit-overflow-scrolling: touch; }
+    .table-note {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      color: var(--ft-muted);
+      margin: 0 0 10px;
+    }
+    .up { color: var(--ft-up); font-weight: 700; }
+    .down { color: var(--ft-down); font-weight: 700; }
+    .flat { color: #8a7a70; font-weight: 700; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    ul.notes {
+      margin: 0;
+      padding-left: 18px;
+    }
+    ul.notes li { margin: 10px 0; }
+    .footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 2px solid #000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #4c4038;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border: 1px solid #000;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 860px) {
+      .grid, .two-col { grid-template-columns: 1fr; }
+      .meta-list, .big-number { grid-template-columns: 1fr; }
+      .wrap { padding: 18px 12px 40px; }
+      .card, .story { padding: 16px; }
+      .subdeck { font-size: 17px; }
+    }
+    @media (max-width: 640px) {
+      body { line-height: 1.55; }
+      h1 { font-size: 34px; }
+      .kicker, .badge, .label, th { letter-spacing: .03em; }
+      .subdeck { font-size: 16px; }
+      .lede { font-size: 16px; }
+      .byline, .footer, .meta-list, table { font-size: 13px; }
+      .section-title { font-size: 20px; }
+      .tile strong { font-size: 26px; }
+      th, td { padding: 8px 7px; font-size: 12px; }
+      th:first-child, td:first-child { position: sticky; left: 0; background: #fff; }
+      thead th:first-child { background: #fcf4ed; z-index: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="kicker">Kerwin Team | Weekly Portfolio Monitor</div>
+      <h1>Enya交易周报—Kerwin 2026 宏观对冲AI精选组合</h1>
+      <div class="subdeck">截至 2026 年 5 月 15 日收盘，本周呈现明显的高波动结构性分化——上涨仅 22 只、下跌 35 只。弹性集中在 AI 算力（NBIS +24%）、亚太精选（7709.HK +16%、9747.HK +15%）与光通信（COHR +14%）；拖累端则集中在部分芯片与核能板块（INTC -13%、LEU -12%、2454.TW -10%），资金仍在主线内部做高切低而非全面撤离。</div>
+      <div class="byline">
+        <strong>出品人：</strong>本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。底层 AI 模型：GPT-5.4 推理及 Kerwin 投资分析框架。<br/>
+        <strong>品牌标识：</strong>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="story">
+        <span class="badge">Week in View</span>
+        <h2 class="section-title">周度结论</h2>
+        <p class="lede">本周组合表现印证 Kerwin 五层框架中第 1 层（流动性/贴现率）与第 3 层（技术/产业传导）的交叉判断：分母端未有决定性变化，但高波动环境迫使资金进一步向能见度最高的 AI 算力与产业龙头集中。NBIS 的 +24% 和 7709.HK 的 +16% 既是产业真实需求信号，也是风险偏好收缩下的拥挤交易表现。</p>
+        <div class="meta-list">
+          <div><span class="label">版本</span>周报（每周六 09:00 HKT）</div>
+          <div><span class="label">报告日期</span>2026-05-16</div>
+          <div><span class="label">数据截止</span>2026-05-15 收盘</div>
+          <div><span class="label">5D口径</span>2026-05-15 vs 2026-05-08</div>
+          <div><span class="label">MTD 起点</span>2026-05-01 收盘</div>
+          <div><span class="label">YTD 起点</span>2025-12-31 收盘</div>
+          <div><span class="label">排序规则</span>按 5D 降序；同分再看 MTD / YTD</div>
+          <div><span class="label">输出渠道</span>Telegram 原始推送已于 09:03 HKT 完成</div>
+        </div>
+        <div class="big-number">
+          <div class="tile"><span class="label">上涨数</span><strong>22</strong></div>
+          <div class="tile"><span class="label">下跌数</span><strong>35</strong></div>
+          <div class="tile"><span class="label">最强</span><strong class="up">NBIS +24%</strong></div>
+          <div class="tile"><span class="label">最弱</span><strong class="down">INTC -13%</strong></div>
+        </div>
+      </article>
+      <aside class="card">
+        <h2 class="section-title">下周动作框架</h2>
+        <ul class="notes">
+          <li><strong>回调观察：</strong>NBIS（+24%）、7709.HK（+16%）、9747.HK（+15%）— 短线涨幅已大，追高性价比下降，等回踩确认</li>
+          <li><strong>持有观察：</strong>MSFT（+2%）、BTC-USD（+1%）、6268.T（+1%）— 周度持平，方向未明</li>
+          <li><strong>暂不追高：</strong>INTC（-13%）、LEU（-12%）、2454.TW（-10%）— 跌势未止，等待企稳信号</li>
+          <li><strong>主导因子：</strong>高波动下的结构性分化，AI算力与亚太精选继续领跑，芯片与核能承压。</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="card" style="margin-top:24px;">
+      <h2 class="section-title">组合标的表现</h2>
+      <p class="table-note">手机端可左右滑动表格；首列已固定，便于快速查看标的。按 5D 降序排列。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>标的</th><th>5D</th><th>MTD</th><th>YTD</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>NBIS</td><td class="up">+24%</td><td class="up">+42%</td><td class="up">+163%</td></tr>
+            <tr><td>7709.HK</td><td class="up">+16%</td><td class="up">+55%</td><td class="up">+463%</td></tr>
+            <tr><td>9747.HK</td><td class="up">+15%</td><td class="up">+53%</td><td class="up">+363%</td></tr>
+            <tr><td>COHR</td><td class="up">+14%</td><td class="up">+16%</td><td class="up">+107%</td></tr>
+            <tr><td>6324.T</td><td class="up">+14%</td><td class="up">+38%</td><td class="up">+85%</td></tr>
+            <tr><td>2408.TW</td><td class="up">+14%</td><td class="up">+31%</td><td class="up">+61%</td></tr>
+            <tr><td>NOK</td><td class="up">+9%</td><td class="up">+5%</td><td class="up">+116%</td></tr>
+            <tr><td>000660.KS</td><td class="up">+8%</td><td class="up">+26%</td><td class="up">+169%</td></tr>
+            <tr><td>LITE</td><td class="up">+7%</td><td class="up">+2%</td><td class="up">+163%</td></tr>
+            <tr><td>NVDA</td><td class="up">+5%</td><td class="up">+14%</td><td class="up">+21%</td></tr>
+            <tr><td>MRVL</td><td class="up">+4%</td><td class="up">+7%</td><td class="up">+108%</td></tr>
+            <tr><td>AAPL</td><td class="up">+2%</td><td class="up">+7%</td><td class="up">+10%</td></tr>
+            <tr><td>FCX</td><td class="up">+2%</td><td class="up">+11%</td><td class="up">+24%</td></tr>
+            <tr><td>MSFT</td><td class="up">+2%</td><td class="up">+2%</td><td class="down">-13%</td></tr>
+            <tr><td>BTC-USD</td><td class="up">+1%</td><td class="up">+1%</td><td class="down">-10%</td></tr>
+            <tr><td>6268.T</td><td class="up">+1%</td><td class="up">+12%</td><td class="up">+48%</td></tr>
+            <tr><td>BEP</td><td class="up">+1%</td><td class="up">+3%</td><td class="up">+27%</td></tr>
+            <tr><td>META</td><td class="up">+1%</td><td class="up">+1%</td><td class="down">-7%</td></tr>
+            <tr><td>005930.KS</td><td class="up">+1%</td><td class="up">+16%</td><td class="up">+111%</td></tr>
+            <tr><td>CRCL</td><td class="flat">+0%</td><td class="up">+14%</td><td class="up">+44%</td></tr>
+            <tr><td>HOOD</td><td class="flat">+0%</td><td class="up">+5%</td><td class="down">-32%</td></tr>
+            <tr><td>SMSN.IL</td><td class="flat">+0%</td><td class="up">+27%</td><td class="up">+137%</td></tr>
+            <tr><td>ETN</td><td class="down">-1%</td><td class="down">-6%</td><td class="up">+25%</td></tr>
+            <tr><td>GOOG</td><td class="down">-1%</td><td class="up">+3%</td><td class="up">+25%</td></tr>
+            <tr><td>AVGO</td><td class="down">-1%</td><td class="up">+1%</td><td class="up">+23%</td></tr>
+            <tr><td>ETH-USD</td><td class="down">-1%</td><td class="down">-3%</td><td class="down">-25%</td></tr>
+            <tr><td>EQIX</td><td class="down">-1%</td><td class="down">-2%</td><td class="up">+38%</td></tr>
+            <tr><td>6594.T</td><td class="down">-1%</td><td class="up">+7%</td><td class="up">+23%</td></tr>
+            <tr><td>TSLA</td><td class="down">-1%</td><td class="up">+8%</td><td class="down">-6%</td></tr>
+            <tr><td>ORCL</td><td class="down">-2%</td><td class="up">+12%</td><td class="down">-1%</td></tr>
+            <tr><td>TSM</td><td class="down">-2%</td><td class="up">+2%</td><td class="up">+33%</td></tr>
+            <tr><td>ARM</td><td class="down">-2%</td><td class="down">-1%</td><td class="up">+91%</td></tr>
+            <tr><td>SNPS</td><td class="down">-3%</td><td class="up">+3%</td><td class="up">+7%</td></tr>
+            <tr><td>PLTR</td><td class="down">-3%</td><td class="down">-7%</td><td class="down">-25%</td></tr>
+            <tr><td>COIN</td><td class="down">-3%</td><td class="up">+2%</td><td class="down">-14%</td></tr>
+            <tr><td>FNV</td><td class="down">-3%</td><td class="flat">+0%</td><td class="up">+9%</td></tr>
+            <tr><td>MU</td><td class="down">-3%</td><td class="up">+34%</td><td class="up">+154%</td></tr>
+            <tr><td>1810.HK</td><td class="down">-3%</td><td class="down">-1%</td><td class="down">-22%</td></tr>
+            <tr><td>AMZN</td><td class="down">-3%</td><td class="down">-2%</td><td class="up">+14%</td></tr>
+            <tr><td>COPX</td><td class="down">-3%</td><td class="up">+5%</td><td class="up">+16%</td></tr>
+            <tr><td>GLD</td><td class="down">-4%</td><td class="down">-1%</td><td class="up">+5%</td></tr>
+            <tr><td>CRM</td><td class="down">-5%</td><td class="down">-6%</td><td class="down">-34%</td></tr>
+            <tr><td>ARKK</td><td class="down">-5%</td><td class="down">-3%</td><td class="down">-3%</td></tr>
+            <tr><td>POWL</td><td class="down">-5%</td><td class="up">+6%</td><td class="up">+175%</td></tr>
+            <tr><td>CRWV</td><td class="down">-6%</td><td class="down">-10%</td><td class="up">+50%</td></tr>
+            <tr><td>WPM</td><td class="down">-6%</td><td class="up">+4%</td><td class="up">+11%</td></tr>
+            <tr><td>AEM</td><td class="down">-7%</td><td class="down">-2%</td><td class="up">+6%</td></tr>
+            <tr><td>AMD</td><td class="down">-7%</td><td class="up">+18%</td><td class="up">+98%</td></tr>
+            <tr><td>DELL</td><td class="down">-7%</td><td class="up">+15%</td><td class="up">+92%</td></tr>
+            <tr><td>039030.KQ</td><td class="down">-8%</td><td class="down">-7%</td><td class="up">+53%</td></tr>
+            <tr><td>ARKG</td><td class="down">-8%</td><td class="down">-7%</td><td class="down">-3%</td></tr>
+            <tr><td>CCJ</td><td class="down">-8%</td><td class="down">-11%</td><td class="up">+18%</td></tr>
+            <tr><td>QCOM</td><td class="down">-8%</td><td class="up">+14%</td><td class="up">+18%</td></tr>
+            <tr><td>SNDK</td><td class="down">-10%</td><td class="up">+19%</td><td class="up">+493%</td></tr>
+            <tr><td>2454.TW</td><td class="down">-10%</td><td class="up">+14%</td><td class="up">+128%</td></tr>
+            <tr><td>LEU</td><td class="down">-12%</td><td class="down">-12%</td><td class="down">-25%</td></tr>
+            <tr><td>INTC</td><td class="down">-13%</td><td class="up">+9%</td><td class="up">+195%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="card">
+        <h2 class="section-title">指数表现</h2>
+        <p class="table-note">指数表同样支持手机端横向滑动。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>代码</th><th>名称</th><th>5D</th><th>MTD</th><th>YTD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>^KS11</td><td>韩国KOSPI</td><td class="flat">+0%</td><td class="up">+8%</td><td class="up">+74%</td></tr>
+              <tr><td>^TWII</td><td>中国台湾</td><td class="down">-1%</td><td class="up">+1%</td><td class="up">+42%</td></tr>
+              <tr><td>^N225</td><td>日本日经225</td><td class="down">-2%</td><td class="up">+3%</td><td class="up">+18%</td></tr>
+              <tr><td>^NDX</td><td>纳指100</td><td class="flat">+0%</td><td class="up">+5%</td><td class="up">+15%</td></tr>
+              <tr><td>399001.SZ</td><td>深成指</td><td class="flat">+0%</td><td class="up">+1%</td><td class="up">+15%</td></tr>
+              <tr><td>^GSPC</td><td>标普500</td><td class="flat">+0%</td><td class="up">+2%</td><td class="up">+8%</td></tr>
+              <tr><td>000001.SS</td><td>上证</td><td class="down">-1%</td><td class="down">-1%</td><td class="up">+4%</td></tr>
+              <tr><td>3033.HK</td><td>恒生科技 ETF</td><td class="down">-1%</td><td class="up">+2%</td><td class="down">-8%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="section-title">5D 赢家与输家</h2>
+        <div class="table-wrap" style="margin-bottom:16px;">
+          <table>
+            <thead>
+              <tr><th>5D涨幅前五</th><th>5D</th><th>MTD</th><th>YTD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>NBIS</td><td class="up">+24%</td><td class="up">+42%</td><td class="up">+163%</td></tr>
+              <tr><td>7709.HK</td><td class="up">+16%</td><td class="up">+55%</td><td class="up">+463%</td></tr>
+              <tr><td>9747.HK</td><td class="up">+15%</td><td class="up">+53%</td><td class="up">+363%</td></tr>
+              <tr><td>COHR</td><td class="up">+14%</td><td class="up">+16%</td><td class="up">+107%</td></tr>
+              <tr><td>6324.T</td><td class="up">+14%</td><td class="up">+38%</td><td class="up">+85%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>5D跌幅前五</th><th>5D</th><th>MTD</th><th>YTD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>INTC</td><td class="down">-13%</td><td class="up">+9%</td><td class="up">+195%</td></tr>
+              <tr><td>LEU</td><td class="down">-12%</td><td class="down">-12%</td><td class="down">-25%</td></tr>
+              <tr><td>2454.TW</td><td class="down">-10%</td><td class="up">+14%</td><td class="up">+128%</td></tr>
+              <tr><td>SNDK</td><td class="down">-10%</td><td class="up">+19%</td><td class="up">+493%</td></tr>
+              <tr><td>QCOM</td><td class="down">-8%</td><td class="up">+14%</td><td class="up">+18%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      本报表由Enya自动跟踪、审阅并输出。Enya—香港首个OpenClaw打造的女性投顾Agent。<br/>
+      本文不构成严谨投资建议。严谨投资建议请与Kerwin联系。<br/>
+      X 账户：@enyaclawd &nbsp;|&nbsp; moltbook 账户：u/enyaclaw
+    </footer>
+  </div>
+</body>
+</html>
