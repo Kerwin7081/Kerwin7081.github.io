@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五角大楼“交易六队”研究简报｜从采购体系到国防产业资本配置</title>
+<meta name="description" content="梳理五角大楼 Economic Defense Unit 与“Deal Team Six”的职能、Cerberus 背景、主要交易案例、重点公司业务与上市状态。">
+<!-- pv-counter data-page-slug=deal-team-six-cerberus-defense-capital -->
+<style>
+:root{
+  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
+  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
+  font-size:14px;line-height:1.85;
+}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}.alert strong{color:#9a3412}.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}.stat-value.gold{color:var(--gold)}.stat-value.blue{color:var(--blue)}.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:620px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}
+.flow{display:flex;flex-direction:column;gap:0;margin:16px 0}.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px Arial,sans-serif;line-height:1.5;border:1px solid #e5ddd3;border-radius:4px}.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:2px 0;line-height:1}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:23px}td,th{font-size:11px;padding:6px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}.path-item{gap:12px;padding:14px}.path-num{font-size:26px;width:32px}}
+</style>
+</head>
+<body data-page-slug="deal-team-six-cerberus-defense-capital">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">五角大楼“交易六队”<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年5月17日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">国防工业基础 · 关键矿产 · 政府资本</div>
+      <div class="hero-title">从采购体系到产业资本配置</div>
+      <div class="hero-sub">理解 Deal Team Six、Cerberus 方法论与美国关键供应链重构</div>
+      <div class="hero-meta">2026年5月17日 · 专题研究报告</div>
+    </div>
+    <nav class="nav">
+      <a href="#intro">核心判断</a>
+      <a href="#what">职能定位</a>
+      <a href="#cerberus">Cerberus</a>
+      <a href="#george">George</a>
+      <a href="#deals">交易案例</a>
+      <a href="#companies">公司解剖</a>
+      <a href="#tickers">代码速查</a>
+      <a href="#framework">投资框架</a>
+      <a href="#conclusion">结语</a>
+    </nav>
+
+    <div class="section" id="intro">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>五角大楼正在把“采购能力”升级为“产业资本配置能力”</h2>
+      <p>“Deal Team Six”并不是一个普通的采购小组。公开报道中的这一称呼，指向的是五角大楼 Economic Defense Unit 之下的新型交易执行力量。它的使命，是把国防需求、产业政策、金融工具和私人资本连接起来，推动美国及盟友体系重建关键供应链。</p>
+      <p>这套机制最值得关注的地方，不在名称本身，而在交易方式的变化。过去，美国国防部更多扮演最终采购方；现在，它正在更早进入企业资本结构、产能规划和供应链重组环节，通过股权、贷款、价格地板、长期承购和私人资本配套，提升战略产业的可融资性。</p>
+      <div class="callout"><div class="callout-label">核心结论</div><p>“交易六队”代表的不是单一稀土主题，而是一种新的国防产业资本模式。它把国家安全需求转化为可以被银行、私募、产业资本共同参与的交易结构。</p></div>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value gold">4亿美元</div><div class="stat-label">国防部对 MP Materials 的可转换优先股投资口径</div></div>
+        <div class="stat-cell"><div class="stat-value blue">1.5亿美元</div><div class="stat-label">OSC/SBA 对 Mare Liberum 海事科技基金的低成本杠杆承诺口径</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="what">
+      <div class="section-label">01 · 职能定位</div>
+      <h2>交易六队主要做什么</h2>
+      <p>交易六队的核心工作，可以概括为“找到瓶颈、设计交易、撬动资本、锁定产能”。它面对的不是单一装备采购问题，而是国防工业基础中的关键环节缺口。</p>
+      <div class="path-grid">
+        <div class="path-item"><div class="path-num">01</div><div><div class="path-title">识别供应链瓶颈</div><p class="path-desc">稀土、永磁体、关键矿产、弹药、造船、无人系统、海事技术、能源与战略物流，都是可能影响国防交付能力的关键环节。</p></div></div>
+        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">评估企业产能与融资缺口</div><p class="path-desc">团队会像投行和私募股权机构一样，分析企业资产、现金流、资本开支、扩产周期、订单可见度与管理执行能力。</p></div></div>
+        <div class="path-item"><div class="path-num">03</div><div><div class="path-title">设计复合型交易结构</div><p class="path-desc">交易工具包括股权、可转换优先股、认股权证、贷款、贷款担保、价格地板、长期采购承诺和承购协议。</p></div></div>
+        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">带动外部资本进入</div><p class="path-desc">政府资金只是起点。更重要的是用政府信用降低不确定性，使银行、私募、产业资本愿意为扩产项目提供配套资金。</p></div></div>
+        <div class="path-item"><div class="path-num">05</div><div><div class="path-title">把战略需求转化为可融资现金流</div><p class="path-desc">长期订单、价格地板和采购承诺，可以提高收入可见度，让原本难以融资的重资产项目获得资本市场认可。</p></div></div>
+      </div>
+    </div>
+
+    <div class="section" id="cerberus">
+      <div class="section-label">02 · Cerberus 方法论</div>
+      <h2>Cerberus：交易六队背后的私募股权基因</h2>
+      <p>Cerberus Capital Management 是 Steve Feinberg 创立的另类资产管理平台，业务覆盖信贷、私募股权、房地产和复杂资产投资。它不是上市公司，也不是传统军工制造商，但它的投资方法深刻影响了交易六队的组织风格。</p>
+      <p>Cerberus 的典型能力，是在融资受限、运营复杂或需要重组的资产中寻找价值，通过资本结构调整、经营改善、并购整合和管理优化提升资产质量。把这一逻辑放到国防工业基础中，就形成了今天交易六队的基本工作方式：不是简单补贴企业，而是重构企业完成战略产能交付的条件。</p>
+      <div class="flow">
+        <div class="flow-box">Cerberus 传统能力：私募股权、信贷、困境资产、重组、运营改善</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box alt">进入国防场景：关键材料、制造产能、供应链安全、政府采购可见度</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box accent">交易六队模式：政府资本 + 长期订单 + 私人资本 + 产能指标</div>
+      </div>
+      <p>这也是为什么交易六队看起来更像“政府版产业资本团队”，而不是传统行政审批部门。它试图用资本市场语言解决国防工业基础的产能、融资和交付问题。</p>
+    </div>
+
+    <div class="section" id="george">
+      <div class="section-label">03 · 负责人背景</div>
+      <h2>George K. Kollitides II：从私募股权到国防产业交易</h2>
+      <p>George K. Kollitides II 是理解交易六队执行风格的关键人物。他的履历横跨私募股权、信贷、国防投资、企业重组和制造业运营。这种背景，使他更容易用资产负债表、资本开支和运营交付的语言，处理国防供应链问题。</p>
+      <p>他曾在 Cerberus 担任国防投资相关负责人，也曾管理 Remington Outdoor Company，并在 GE 的杠杆金融、重组和私募股权相关部门工作。这类经历与交易六队当前的任务高度吻合：识别战略资产，设计资本结构，推动企业扩产，并把交付结果与政府支持挂钩。</p>
+      <div class="callout"><div class="callout-label">人物价值</div><p>George 的价值，不在于他代表某一家企业，而在于他熟悉如何把融资受限、产能不足但具有战略意义的公司，改造成能够承接国防需求的产业平台。</p></div>
+    </div>
+
+    <div class="section" id="deals">
+      <div class="section-label">04 · 主要交易</div>
+      <h2>从稀土到海事科技：已披露交易的共同特征</h2>
+      <p>从目前公开披露的案例看，交易六队及其相关接口最先在关键矿产、稀土磁体和海事科技领域形成样板。其共同特征是：政府不只提供预算资金，而是通过复合交易降低企业扩产风险。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>项目</th><th>交易结构</th><th>战略意义</th><th>确定性判断</th></tr></thead>
+          <tbody>
+            <tr><td>MP Materials</td><td>可转换优先股、认股权证、价格地板、长期承购、银行融资配套。</td><td>围绕美国本土稀土矿和磁体制造建立闭环，是当前最具代表性的样板交易。</td><td>已披露高确定性案例</td></tr>
+            <tr><td>Vulcan Elements</td><td>OSC 条件贷款、商务部激励、私人资本配套。</td><td>补齐美国稀土永磁体制造环节，服务国防、卫星、工业电机和高端装备。</td><td>已宣布条件贷款</td></tr>
+            <tr><td>ReElement Technologies</td><td>OSC 条件贷款，与 Vulcan 形成中游处理和磁体制造组合。</td><td>强化稀土分离、精炼、回收和高纯材料处理能力。</td><td>已宣布条件贷款</td></tr>
+            <tr><td>Trilogy Metals</td><td>美国政府战略投资、认股权证、潜在董事席位和项目协调。</td><td>提前锁定阿拉斯加关键矿产开发权，覆盖铜、钴、锌、铅、银等资源。</td><td>已宣布战略投资</td></tr>
+            <tr><td>Mare Liberum</td><td>OSC 与 SBA 机制下的低成本杠杆支持。</td><td>将国防资本延伸至海事科技、海上自主系统、韧性物流和海洋基础设施。</td><td>已披露承诺口径</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="companies">
+      <div class="section-label">05 · 公司解剖</div>
+      <h2>每家公司到底做什么</h2>
+
+      <h3>MP Materials：美国稀土与磁体闭环的核心样板</h3>
+      <p>MP Materials 是美国本土稀土生产商，核心资产是加州 Mountain Pass 稀土矿。公司正在从采矿、选矿向金属化和永磁体制造延伸。国防部投资、价格地板和长期承购安排，使它不再只是传统资源股，也成为美国重建稀土供应链的政策载体。</p>
+
+      <h3>Vulcan Elements：美国本土永磁体制造平台</h3>
+      <p>Vulcan Elements 聚焦 NdFeB 稀土永磁体制造，应用场景包括国防、卫星、半导体设备、AI 数据中心、工业电机和消费电子。美国在稀土供应链上的短板并不只在矿山，更在磁体制造。Vulcan 的意义，正是补上中游制造能力。</p>
+
+      <h3>ReElement Technologies：稀土与关键材料精炼平台</h3>
+      <p>ReElement Technologies 的核心是关键材料分离和精炼技术，可从矿石精矿、废旧磁体、电子垃圾和电池材料中提取高纯度稀土及关键元素。它所处的位置是资源到材料之间的中游环节，决定矿产是否能真正转化为工业可用材料。</p>
+
+      <h3>Trilogy Metals：阿拉斯加关键矿产开发资产</h3>
+      <p>Trilogy Metals 是矿业开发公司，重点推进阿拉斯加 Upper Kobuk Mineral Projects，资源涉及铜、钴、锌、铅、银等关键矿产。美国政府进入这类早期资源开发资产，说明国防供应链重构已经前移到矿权、道路、许可和项目融资阶段。</p>
+
+      <h3>Mare Liberum：海事科技资本入口</h3>
+      <p>Mare Liberum 是海事科技投资机构，关注自主海上平台、海事态势感知、韧性物流、供应链技术、反无人机和海上防护能力。它不是单一经营公司，而是双用途海事科技的资本入口。</p>
+
+      <h3>Cerberus Capital Management：方法论来源，而非交易标的</h3>
+      <p>Cerberus 是另类资产管理公司，并不是上市军工公司。它的意义在于方法论：用私募股权、信贷、重组和运营改造方式处理复杂资产。交易六队对国防产业的处理方式，与这种方法具有明显连续性。</p>
+    </div>
+
+    <div class="section" id="tickers">
+      <div class="section-label">06 · 股票代码</div>
+      <h2>上市状态与公开市场观察入口</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>名称</th><th>是否上市</th><th>股票代码</th><th>观察重点</th></tr></thead>
+          <tbody>
+            <tr><td>MP Materials</td><td>上市</td><td>NYSE: MP</td><td>美国稀土和磁体一体化样板，最直接受益标的。</td></tr>
+            <tr><td>Trilogy Metals</td><td>上市</td><td>NYSE American: TMQ；TSX: TMQ</td><td>阿拉斯加关键矿产早期开发资产，政策弹性大但项目风险高。</td></tr>
+            <tr><td>American Resources Corp</td><td>上市</td><td>NASDAQ: AREC</td><td>可作为 ReElement 的间接观察入口，但不能等同于 ReElement 的纯粹上市载体。</td></tr>
+            <tr><td>Vulcan Elements</td><td>未上市</td><td>无</td><td>稀土永磁体制造平台，暂无法直接通过股票投资。</td></tr>
+            <tr><td>ReElement Technologies</td><td>本体未上市</td><td>无独立代码</td><td>稀土与关键材料精炼平台，需跟踪其与 AREC 的结构变化。</td></tr>
+            <tr><td>Mare Liberum</td><td>未上市</td><td>无</td><td>海事科技 VC，重点观察其投资组合公司。</td></tr>
+            <tr><td>Cerberus Capital Management</td><td>未上市</td><td>无</td><td>交易六队方法论来源，不是公开市场标的。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert"><div class="alert-label">口径提示</div><p><strong>AREC 不能机械等同于 ReElement。</strong>ReElement 本体并非独立上市公司，American Resources Corp 只是公开市场的关联观察入口。判断 AREC 时，需要单独分析其其他业务、财务结构、持股口径和资本运作风险。</p></div>
+    </div>
+
+    <div class="section" id="framework">
+      <div class="section-label">07 · 投资框架</div>
+      <h2>如何判断交易六队相关公司的投资价值</h2>
+      <p>这条线不能简单处理为“稀土概念”或“国防概念”。真正改变估值模型的，是交易条款是否改变公司未来现金流的确定性。</p>
+      <div class="path-grid">
+        <div class="path-item"><div class="path-num">01</div><div><div class="path-title">是否获得政府资本</div><p class="path-desc">包括股权、可转换优先股、认股权证、贷款、贷款担保。政府资本本身具有信用背书作用。</p></div></div>
+        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">是否获得价格或需求保护</div><p class="path-desc">价格地板、长期承购和多年期采购承诺，能够降低资源价格周期和扩产不确定性。</p></div></div>
+        <div class="path-item"><div class="path-num">03</div><div><div class="path-title">是否带来私人资本跟进</div><p class="path-desc">政府信用如果能撬动银行、私募或产业资本，就会放大项目融资能力。</p></div></div>
+        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">是否具备真实交付能力</div><p class="path-desc">政策支持不能替代工程能力。产能、良率、许可、劳动力、成本控制和建设周期仍是关键约束。</p></div></div>
+        <div class="path-item"><div class="path-num">05</div><div><div class="path-title">是否存在政策与治理风险</div><p class="path-desc">政府直接参与企业资本结构，会带来国会监督、利益冲突审查、预算周期和政策连续性风险。</p></div></div>
+      </div>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>“交易六队”的真正意义，是美国国防部开始从装备采购方，转向国防产业资本配置者。它用政府信用降低战略产业的融资风险，用长期需求改善企业现金流可见度，再通过私人资本放大产能扩张。</p>
+      <p>对投资者而言，后续最值得跟踪的并不是“Deal Team Six”这个称呼，而是每一笔交易中的实质条款：谁获得政府资本，谁获得价格保护，谁获得长期承购，谁的项目因此从普通资源或制造资产，转变为国防工业基础的一部分。</p>
+    </div>
+
+    <div class="footer">
+      本文为投资研究参考，不构成具体投资建议。涉及公司、基金、政府交易与股票代码信息，应以公司公告、监管文件和官方披露为准。<br>
+      资料参考：美国国防部、Office of Strategic Capital、DefenseScoop、Investopedia、MP Materials、Vulcan Elements、ReElement Technologies、Trilogy Metals、Mare Liberum、Cerberus、Yahoo Finance 等英文公开资料。<br>
+      数据截至 2026年5月17日。<br>
+      © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+    </div>
+  </div>
+</div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='deal-team-six-cerberus-defense-capital';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
