@@ -305,7 +305,7 @@ footer {
  var list = document.getElementById('articles-list');
  if (!list) return;
 
- fetch('/registry.json?v=202605131100', {cache:'no-store'})
+ fetch('/registry.json?v=202605172115', {cache:'no-store'})
    .then(function(r) { return r.json(); })
    .then(function(pages) {
      pages = pages.filter(function(p) { return p.homepage_approved === true; });
