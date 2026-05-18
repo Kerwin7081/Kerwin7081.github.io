@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩国工会系列2｜企业利润只属于股东嘛？</title>
+<meta name="description" content="从韩国半导体工会利润分润出发，拆解EBIT、EPS、Memory估值折价、SK海力士与三星差异，以及AI时代企业利润再分配的政治经济学。">
+<!-- pv-counter data-page-slug=korea-union-profit-sharing-20260519 -->
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--blue:#2563eb;--up:#16a34a;--down:#dc2626;--warn:#92400e;--gold:#8a5b2b;--date:#8b4513}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:14px;line-height:1.85}
+a{color:inherit}.back{max-width:780px;margin:0 auto;padding:6px 10px 0}.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}strong{font-weight:700;color:#1f1a17}.lead{font-size:15px;font-weight:700;color:#2d2419}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.flow{display:flex;flex-direction:column;margin:16px 0}.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px Arial,'PingFang SC',sans-serif;line-height:1.55;border:1px solid #e5ddd3;border-radius:4px}.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:2px 0;line-height:1}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial,'PingFang SC',sans-serif;min-width:560px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.55;vertical-align:top}.formula{background:#1f1a17;color:#f8efe2;border-radius:4px;padding:14px 16px;margin:16px 0;font:12px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-x:auto}.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:25px;line-height:1.18}.hero-sub{font-size:13px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}td,th{font-size:11px;padding:7px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
+</style>
+</head>
+<body data-page-slug="korea-union-profit-sharing-20260519">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+<div class="topbar">
+<div class="top-kicker">KERWIN TEAM PRESENTS</div>
+<h1 class="top-title">韩国工会系列2<br>企业利润只属于股东嘛？</h1>
+<div class="top-date">报告发布日期：2026年5月19日</div>
+<div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+</div>
+<div class="wrap">
+<div class="hero">
+<div class="badge">韩国工会系列 · 第二篇</div>
+<div class="hero-title">企业利润只属于股东嘛？</div>
+<div class="hero-sub">从利润分润、Memory估值折价到AI时代的政治经济学</div>
+<div class="hero-meta">2026年5月19日 · 国别研究 / 半导体研究</div>
+</div>
+<nav class="nav">
+<a href="#intro">核心判断</a><a href="#accounting">会计层级</a><a href="#valuation">估值折价</a><a href="#samsung">三星与海力士</a><a href="#political">政治经济学</a><a href="#framework">研究框架</a><a href="#conclusion">结语</a>
+</nav>
+<div class="section" id="intro">
+<div class="section-label">引言 · 核心判断</div>
+<h2>这不是普通劳资纠纷，而是AI周期利润分配的再定价</h2>
+<p class="lead">韩国半导体工会问题，表面是工资、奖金和罢工，底层是一个更大的问题：当AI带来超额利润时，这笔利润究竟应该归谁？</p>
+<p>在第一篇《斗狠的韩国工会》中，我们讨论的是韩国工会为什么敢斗狠，背后是韩国财阀制度、民主化运动、劳动法体系与产业周期共同塑造的结构结果。第二篇要继续往下拆：工会真正争夺的，并不是一个简单的“奖金数字”，而是企业利润表中的分配权。</p>
+<p>半导体公司不是轻资产软件公司。它们的收入背后，是极重的设备投入、折旧摊销、工艺迭代和资本开支。工会如果只是要求固定加薪，影响的是工资费用；如果要求按营业利润分润，影响的就是公司未来ROE、EPS、估值倍数以及资本再投资能力。</p>
+<div class="callout"><div class="callout-label">核心结论</div><p>韩国工会正在把AI半导体的景气周期，从股东独享的利润周期，改造成员工制度化参与分配的利润周期。它的本质不是单点工资谈判，而是AI时代企业利润再分配的前哨。</p></div>
+</div>
+<div class="section" id="accounting">
+<div class="section-label">01 · 会计层级</div>
+<h2>工会切的不是EBITDA，而是EBIT</h2>
+<p>要理解韩国半导体工会的利润分润诉求，必须先把利润表层级理清楚。很多讨论会直接说“利润的10%”，但没有说明到底是哪一层利润。这个细节在半导体行业尤其重要。</p>
+<div class="formula">营业收入 Revenue
+减：营业成本 COGS
+减：销售及管理费用 SG&amp;A
+= EBITDA 息税折旧摊销前利润
+减：折旧与摊销 D&amp;A
+= EBIT / Operating Profit / 영업이익 营业利润
+减：利息费用
+= 税前利润 EBT
+减：所得税
+= 净利润 Net Income
+= EPS 的基础</div>
+<p>韩国公司财报中的 <strong>영업이익</strong> 通常对应营业利润，也就是EBIT层。韩国半导体工会谈判中反复出现的“按年度营业利润的一定比例设立奖金池”，切入的正是这一层。</p>
+<p>这不是一个小差别。半导体是全球折旧摊销最重的行业之一。一座先进晶圆厂动辄上百亿美元投资，设备周期短，折旧压力大。对一家处于强景气周期的存储芯片公司而言，EBITDA margin可以很高，但扣除折旧与摊销后，EBIT margin会明显变薄。</p>
+<div class="alert"><div class="alert-label">关键点</div><p>所谓“营业利润的10%”，看起来只是公司利润的一小块，但它切的是已经扣完巨额折旧后的利润。它不是切在收入端，也不是切在EBITDA端，而是切在更接近股东回报与EPS的层级。</p></div>
+<p>简化理解：如果一家半导体公司EBITDA margin为50%，EBIT margin为25%，那么“营业利润的10%”相当于收入的2.5%，也相当于EBITDA的约5%。看起来温和，但对EPS和ROE的传导并不轻。</p>
+<h3>利润分润会反过来变成费用</h3>
+<p>利润分润不是股东分红。股东分红发生在净利润之后，属于利润分配；员工奖金通常进入人工成本或经营费用，发生在利润表之内。</p>
+<p>这意味着一个会计上的关键点：工会要求的利润分润，会被计入费用，并进一步压低报告营业利润。为避免循环计算，实务上通常可以理解为以“奖金前营业利润”为基数确定奖金池，再把奖金作为费用计入损益表。</p>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>无分润制度</th><th>10%营业利润分润</th><th>变化</th></tr></thead><tbody><tr><td>营业收入</td><td>210</td><td>210</td><td>不变</td></tr><tr><td>营业成本、SG&amp;A与D&amp;A合计</td><td>-100</td><td>-100</td><td>不变</td></tr><tr><td>奖金前营业利润</td><td>110</td><td>110</td><td>不变</td></tr><tr><td>员工分润</td><td>0</td><td>-11</td><td>增加成本</td></tr><tr><td><strong>报告营业利润</strong></td><td><strong>110</strong></td><td><strong>99</strong></td><td><strong>下降10%</strong></td></tr><tr><td>利息净额</td><td>-2</td><td>-2</td><td>不变</td></tr><tr><td>税前利润</td><td>108</td><td>97</td><td>下降约10.2%</td></tr><tr><td>所得税，假设25%</td><td>-27</td><td>-24.25</td><td>税负下降</td></tr><tr><td><strong>净利润</strong></td><td><strong>81</strong></td><td><strong>72.75</strong></td><td><strong>下降约10.2%</strong></td></tr></tbody></table></div>
+<p>这个模型的结论很直接：如果利润分润比例是10%，并且以奖金前营业利润为计算基础，那么EPS的降幅大体也接近10%。如果比例提升到15%，EPS压力会接近15%。税盾会抵消一小部分影响，但无法改变方向。利润分润本质上会把原本可能留给股东、债权人、再投资和税收的部分经营利润，重新分给员工。</p>
+</div>
+<div class="section" id="valuation">
+<div class="section-label">02 · 估值折价</div>
+<h2>为什么Micron的P/E也低：存储行业折价不是韩国独有</h2>
+<p>如果只看韩国工会，很容易得出一个过度简单的结论：SK海力士和三星估值低，是因为工会太强。这个解释不完整。</p>
+<p>Micron没有韩国式财阀结构，也没有韩国半导体工会当前这种制度化利润分润压力，但它的估值同样长期偏低。原因在于，Memory本身就是典型周期行业。市场对它的定价逻辑，不是按照“这一年赚多少钱”给估值，而是按照“这一轮赚的钱能持续多久”给估值。</p>
+<p>存储芯片没有强消费品牌，也没有软件订阅粘性。DRAM、NAND和HBM当然存在技术差距，但最终仍然绕不开供需周期、产能纪律和价格弹性。景气上行时，盈利急速膨胀；产能扩张过快或需求放缓时，盈利也会迅速回落。</p>
+<p>所以，Memory股票在周期顶部经常呈现一种看似矛盾的状态：EPS极高，P/E极低。这不是市场没有看到利润，而是市场怀疑利润是否可持续。</p>
+<div class="table-wrap"><table><thead><tr><th>折价来源</th><th>逻辑</th><th>影响对象</th></tr></thead><tbody><tr><td>周期性折价</td><td>市场把当前高EPS视为周期上行阶段的利润，而非永久利润</td><td>Micron、SK海力士、三星共同承受</td></tr><tr><td>资本密集度折价</td><td>高利润必须持续转化为高资本开支，FCF转化率低于账面利润</td><td>所有存储厂商</td></tr><tr><td>长期供给折价</td><td>新进入者、国产替代与产能周期会压制长期利润率假设</td><td>全球存储厂商</td></tr><tr><td>Korea Discount</td><td>财阀治理、分红政策、地缘风险和工会制度共同造成折价</td><td>主要影响韩国公司</td></tr></tbody></table></div>
+<p>这就解释了为什么Micron P/E也低。它低，主要是因为Memory周期、资本密集度和长期供给压力。SK海力士相对Micron再折一层，才是韩国治理结构、分红制度、劳工制度与地缘风险共同造成的Korea Discount。</p>
+<p>换句话说，工会不是Memory低估值的唯一原因。它更像是韩国半导体公司相对美国同行的额外折价项。</p>
+</div>
+<div class="section" id="samsung">
+<div class="section-label">03 · 公司差异</div>
+<h2>SK海力士与三星：一个已经定价，一个仍在发现价格</h2>
+<p>SK海力士与三星面对的是同一轮AI存储周期，但劳资博弈状态不同。</p>
+<p>SK海力士的特征是机制相对清晰。若奖金池按年度营业利润的一定比例设立，并取消原有封顶，就意味着员工参与上行周期的方式被制度化。对股东而言，这当然是成本；但对估值而言，确定的成本往往比不确定的冲突更容易被定价。</p>
+<p>三星的问题更复杂。三星不是纯Memory公司。它同时拥有存储、逻辑代工、消费电子、移动终端、显示等多个业务板块。AI内存周期带来的利润主要集中在半导体业务，尤其是存储业务；但组织内部的员工、业务单元和工会诉求并不会天然按照资本市场的分部估值逻辑分开。</p>
+<p>这就带来一个多元化集团特有的难题：半导体部门创造超额利润，其他部门是否也应分享？存储部门拿高奖金，逻辑芯片、手机、家电等部门员工如何看待？</p>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>SK海力士</th><th>三星电子</th></tr></thead><tbody><tr><td>业务结构</td><td>更接近纯Memory资产</td><td>多事业部集团</td></tr><tr><td>利润来源</td><td>AI存储景气更直接映射到公司盈利</td><td>半导体强周期与其他事业部差异并存</td></tr><tr><td>劳资成本可见性</td><td>较高，机制更容易被市场建模</td><td>较低，谈判与传染风险更复杂</td></tr><tr><td>员工激励问题</td><td>高利润与高奖金对应更直接</td><td>内部利润分配矛盾更突出</td></tr><tr><td>估值含义</td><td>成本被锁定后，不确定性下降</td><td>如果制度化未完成，仍存在估值折价</td></tr></tbody></table></div>
+<p>这也是为什么一个反直觉判断成立：已经锁定利润分润机制的公司，未必更应该被折价；真正需要折价的，可能是尚未完成劳资新均衡的公司。</p>
+<p>资本市场不怕明确的成本，怕无法量化的冲突。10%的利润分润虽然压低EPS，但它可以降低罢工尾部风险、稳定技术员工、减少人才外流，并让未来几年的人力成本曲线更可预测。</p>
+<h3>估值上的真正问题：市场到底该给分润机制折价，还是溢价</h3>
+<p>从静态财务模型看，利润分润一定压低EPS。若其他条件不变，10%的营业利润分润大体会使EPS下降约10%。</p>
+<p>但从估值倍数看，结论并不线性。市场最终给多少P/E，不只取决于EPS高低，也取决于盈利可持续性、治理稳定性、罢工风险和人才黏性。</p>
+<div class="table-wrap"><table><thead><tr><th>方向</th><th>逻辑</th><th>估值影响</th></tr></thead><tbody><tr><td>负面</td><td>员工分走一部分营业利润，EPS和ROE下降</td><td>压低股价或压低盈利预期</td></tr><tr><td>正面</td><td>机制透明、罢工风险下降、员工留存改善、人才外流减少</td><td>可能提高P/E倍数</td></tr></tbody></table></div>
+<p>在上行周期，员工分享利润可能被视为稳定生产与留住人才的价格；在下行周期，固定化的分润机制可能被视为利润弹性的负担。这就是半导体劳资协议真正复杂的地方：它不是单纯的成本项，而是跨周期风险管理工具。</p>
+</div>
+<div class="section" id="political">
+<div class="section-label">04 · 政治经济学</div>
+<h2>企业利润只属于股东嘛？</h2>
+<p>若从新古典经济学看，公司利润是资本承担风险后的回报，员工工资是劳动边际生产力的报酬。按这个框架，工会索要营业利润分润，属于劳动组织对企业剩余的一种再谈判。</p>
+<p>若从马克思政治经济学看，问题完全不同。马克思区分“劳动”和“劳动力”：工资购买的是劳动力，而劳动在生产过程中创造的价值超过工资成本，超出的部分就是剩余价值。利润、利息、地租，都是剩余价值的不同分配形态。</p>
+<p>放进这个框架，半导体工会要求分享营业利润，不是单纯“多拿奖金”，而是在要求重新分配由劳动与资本共同组织出来的剩余价值。</p>
+<p>半导体行业尤其适合观察这个问题。它的资本有机构成极高，厂房、设备、光刻机、蚀刻机、测试设备和封装产线构成庞大的不变资本。员工人数相对资产规模并不多，但每一名工程师、技术员和产线员工所操作的资本极其昂贵，单位劳动所撬动的产出巨大。</p>
+<div class="callout"><div class="callout-label">政治经济学底层</div><p>当一个高资本密集行业进入AI驱动的超级景气周期，少数员工群体会突然变成“高剩余价值生产者”。他们要求分享利润，不是偶然事件，而是产业利润率暴涨后的制度性反应。</p></div>
+<h3>AI时代的新分配问题</h3>
+<p>同样的问题，在美国科技公司以另一种方式出现。OpenAI、Anthropic、NVIDIA等AI核心公司，并不需要传统工会来发动利润分享。它们通过高薪、期权、RSU和股权激励，主动把一部分未来剩余价值让渡给关键员工，以换取技术壁垒、组织稳定和人才垄断。</p>
+<p>韩国半导体公司则更接近另一条路径：当利润暴涨已经发生，而员工发现自己并未充分参与上行周期时，工会组织就会把利润分配问题推到谈判桌上。</p>
+<div class="flow"><div class="flow-box">AI需求扩张 → HBM / DRAM / NAND价格和盈利上行</div><div class="flow-arrow">↓</div><div class="flow-box alt">企业利润暴涨 → 股东、员工、供应商、政府都开始重新谈判分配权</div><div class="flow-arrow">↓</div><div class="flow-box accent">利润表不再只是会计报表，也变成产业政治经济学的分配图</div></div>
+<p>两条路径不同，但本质相同：AI时代的超额利润，不可能永远只停留在股东利润表里。它会通过股权激励、奖金制度、工会谈判、供应商涨价、资本开支和国家产业政策，被重新切分。</p>
+</div>
+<div class="section" id="framework">
+<div class="section-label">05 · 投资研究框架</div>
+<h2>这不是道德判断，而是估值输入项</h2>
+<p>投资者不需要在新古典经济学和马克思政治经济学之间选边站。真正重要的是，把不同框架转化为估值输入。</p>
+<p>新古典框架提醒我们：利润分润会提高人工成本，压低EPS和ROE；如果分润比例制度化，模型必须下修未来股东收益。</p>
+<p>政治经济学框架提醒我们：当AI半导体利润继续上行，员工参与分配的诉求不会自然消失。它只会在不同公司、不同制度和不同国家中，以不同方式出现。</p>
+<p>因此，韩国半导体工会问题不应被视为一个孤立的劳资新闻。它是AI产业链估值重估的一部分。</p>
+<div class="table-wrap"><table><thead><tr><th>变量</th><th>观察重点</th><th>估值含义</th></tr></thead><tbody><tr><td>利润分润比例</td><td>10%、15%还是更高</td><td>直接影响EPS与ROE</td></tr><tr><td>制度期限</td><td>一年、三年、十年或永久机制</td><td>影响成本可见性与P/E倍数</td></tr><tr><td>奖金封顶</td><td>是否取消上限</td><td>决定员工对上行周期的参与程度</td></tr><tr><td>跨部门传染</td><td>半导体部门机制是否扩散到其他事业部</td><td>决定集团层面的利润弹性</td></tr></tbody></table></div>
+<p>若AI存储周期继续延长，SK海力士、三星、Micron的估值差异将不只取决于HBM技术领先，也取决于谁能把员工、资本开支、客户绑定和股东回报放进一个更稳定的新均衡。</p>
+</div>
+<div class="conclusion" id="conclusion">
+<h2>结语</h2>
+<p>第一篇看到的是韩国工会的斗狠。第二篇真正要看到的是：AI芯片利润表上的每一行，都已经进入再分配时代。</p>
+<p>企业利润当然与股东有关，但在AI超级周期里，它不可能只属于股东。员工会通过工会和股权激励参与，供应商会通过涨价参与，政府会通过产业政策和税收参与，客户会通过长期合约和议价权参与。利润表最终呈现的，不只是经营结果，也是产业链权力结构的结果。</p>
+</div>
+<div class="footer">资料口径：Samsung Electronics 2026年一季度业绩公告、SK hynix 2026年一季度业绩公告、Reuters关于三星劳资谈判与罢工风险报道、Reuters Breakingviews关于三星利润分润争议分析、MarketWatch关于Micron前瞻估值数据报道。文中量化模型为简化估算，用于说明利润分润沿损益表传导的方向与幅度，不构成财务预测或投资建议。<br><br>本文为投资研究参考，不构成具体投资建议。数据截至 2026年5月19日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+</div></div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){var slugVal='korea-union-profit-sharing-20260519';var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);var el=document.getElementById('counter-num');fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});})();
+</script>
+</body>
+</html>
