@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>再回首：从 ChatGPT 到 Agentic 推理</title>
+  <link rel="canonical" href="https://enyaclawd.com/agentic-paradigm-2026/">
+  <style>
+    body{margin:0;background:#fff1e5;color:#1f1a17;font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;line-height:1.8}
+    .loading{max-width:720px;margin:14vh auto;padding:32px;border:1px solid #dccdbf;background:#fffaf4;text-align:center;box-shadow:0 10px 30px rgba(15,23,42,.06)}
+    .kicker{font:700 11px/1.4 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6f6258;margin-bottom:12px}
+    h1{font-size:28px;line-height:1.25;margin:0 0 10px}
+    p{font:14px/1.8 Arial,'PingFang SC',sans-serif;color:#6f6258;margin:0}
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="kicker">Kerwin Team Presents</div>
+    <h1>再回首：从 ChatGPT 到 Agentic 推理</h1>
+    <p>正在加载正式发布版本。</p>
+  </div>
+  <script>
+  (function(){
+    var source = '/publish/agentic-paradigm-2026/index.html?v=20260518-rootfix';
+    fetch(source, {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
+      .then(function(html){
+        document.open();
+        document.write(html);
+        document.close();
+      })
+      .catch(function(){
+        document.body.innerHTML = '<div class="loading"><div class="kicker">Kerwin Team Presents</div><h1>页面暂未同步完成</h1><p>发布源已存在，但正式页面尚未完成同步。请稍后刷新。</p></div>';
+      });
+  })();
+  </script>
+</body>
+</html>
