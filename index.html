@@ -305,10 +305,23 @@ footer {
  var list = document.getElementById('articles-list');
  if (!list) return;
 
- fetch('/registry.json?v=202605172115', {cache:'no-store'})
+ fetch('/registry.json?v=202605191220', {cache:'no-store'})
    .then(function(r) { return r.json(); })
    .then(function(pages) {
      pages = pages.filter(function(p) { return p.homepage_approved === true; });
+
+     var pinnedPage = {
+       slug: 'dissect-enya-openclaw-investment-brief',
+       title: '拆解Enya\nOpenClaw部署投资启示录',
+       date: '2026年5月19日',
+       published_at: '2026-05-19T12:20:00+08:00',
+       deck: '从 Enya / OpenClaw 在 DigitalOcean 上的部署案例，拆解 Agent 经济对 CPU、NVMe SSD、NAND、互联、虚拟化与企业软件的基础设施需求。',
+       tag: 'AI基础设施',
+       source: 'codex',
+       homepage_approved: true
+     };
+     var hasPinned = pages.some(function(p) { return p.slug === pinnedPage.slug; });
+     if (!hasPinned) pages.push(pinnedPage);
 
      // Sort by publish time descending; fallback to date descending
      pages.sort(function(a, b) {
