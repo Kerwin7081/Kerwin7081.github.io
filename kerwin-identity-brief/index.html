@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerwin 投资框架简报</title>
+<meta name="description" content="Kerwin 的投资分析框架：从全球流动性、制度方向、技术传导、公司现金流到跨资产确认。">
+<!-- pv-counter data-page-slug=kerwin-identity-brief -->
+<style>
+:root{
+  --bg:#fff1e5;
+  --paper:#fffaf4;
+  --ink:#1f1a17;
+  --muted:#6f6258;
+  --line:#dccdbf;
+  --blue:#2563eb;
+  --up:#16a34a;
+  --down:#dc2626;
+  --warn:#92400e;
+  --gold:#8a5b2b;
+  --date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
+  font-size:14px;
+  line-height:1.85;
+}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 16px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:11px 14px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}
+.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.alert{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid var(--warn);padding:16px 18px;margin:16px 0}
+.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:var(--warn);text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}
+.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-value.gold{color:var(--gold)}
+.stat-value.blue{color:var(--blue)}
+.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:500px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+.flow{display:flex;flex-direction:column;gap:0;margin:16px 0}
+.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px Arial,sans-serif;line-height:1.5;border:1px solid #e5ddd3;border-radius:4px}
+.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}
+.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}
+.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}
+.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:2px 0;line-height:1}
+.visual{margin:16px 0;border:1px solid #e5d9cc;background:#fdfaf5}
+.visual img{display:block;width:100%;height:auto}
+.visual figcaption{font:12px Arial,'PingFang SC',sans-serif;color:#6f6258;line-height:1.6;padding:10px 12px;border-top:1px solid #e5d9cc}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}
+.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){
+  body{font-size:14px;line-height:1.82}
+  .page{padding:0 4px 20px}
+  .topbar{padding:16px 16px 12px}
+  .top-title{font-size:26px;line-height:1.14}
+  .top-date{font-size:13px}
+  .top-block{font-size:12px;line-height:1.75}
+  .hero{padding:28px 16px 24px}
+  .hero-title{font-size:26px;line-height:1.18}
+  .hero-sub{font-size:13px}
+  .hero-meta{font-size:12px}
+  .section{padding:22px 16px}
+  .section h2{font-size:20px;line-height:1.34}
+  .section h3{font-size:16px}
+  p{font-size:14px;line-height:1.82}
+  .stat-grid{grid-template-columns:1fr}
+  .stat-value{font-size:24px}
+  td,th{font-size:11px;padding:6px 8px}
+  .footer,.counter-wrap{font-size:11px;line-height:1.75}
+}
+</style>
+</head>
+<body data-page-slug="kerwin-identity-brief">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">Kerwin 投资框架<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年5月20日</div>
+    <div class="top-block">
+      本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
+      底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
+      <div class="hero-title">先判断结构，再决定什么资产值得承担风险</div>
+      <div class="hero-sub">从流动性、制度方向、技术传导、公司现金流到跨资产确认</div>
+      <div class="hero-meta">2026年5月20日 · 投研框架简报</div>
+    </div>
+    <nav class="nav">
+      <a href="#intro">核心判断</a>
+      <a href="#sequence">分析顺序</a>
+      <a href="#framework">五层框架</a>
+      <a href="#portfolio">组合角色</a>
+      <a href="#risk">现实检验</a>
+      <a href="#conclusion">结语</a>
+    </nav>
+
+    <div class="section" id="intro">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>Kerwin 的方法不是从股票开始，而是从结构开始。</h2>
+      <p>单一公司、单一叙事、单一新闻，都不是第一层变量。第一层变量是全球流动性与贴现率；第二层变量是财政、产业政策与制度激励；第三层才是技术革命如何穿透真实经济，形成订单、资本开支、供应链约束和现金流。</p>
+      <p>所以，这套框架的重点不是预测每一天的涨跌，而是判断一个资产是否处在正确的宏观约束、产业传导和现金流兑现路径上。</p>
+      <div class="callout">
+        <div class="callout-label">核心结论</div>
+        <p>先判断世界的流动性约束与制度方向，再判断技术变化在哪里穿透现实经济，最后才做资产选择。</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value gold">5层</div><div class="stat-label">从宏观到公司再到组合的分析结构</div></div>
+        <div class="stat-cell"><div class="stat-value blue">跨资产</div><div class="stat-label">用股票、商品、加密和现金共同校验 regime</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="sequence">
+      <div class="section-label">01 · 分析顺序</div>
+      <h2>从上到下，不从热点到结论。</h2>
+      <div class="flow">
+        <div class="flow-box">全球流动性与贴现率：美债、真实利率、美元、信用利差、日本利率与 carry trade</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box alt">制度、财政与政治方向：税收、关税、监管、产业政策、能源政策、国防支出</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box light">技术革命的现实传导：AI 模型、GPU、HBM、封装、数据中心、电力、网络与应用</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box accent">公司现金流与组合表达：收入质量、毛利、订单、自由现金流、估值与风险对冲</div>
+      </div>
+      <p>这个顺序的意义，是避免把“令人兴奋的叙事”误认为“可以长期承载资本的现金流”。技术革命可以创造巨大机会，但价值捕获通常不均匀，且会受到利率、融资成本、供应链和政策方向共同约束。</p>
+    </div>
+
+    <div class="section" id="framework">
+      <div class="section-label">02 · 五层框架</div>
+      <h2>每一层都负责过滤一种错误。</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>层级</th><th>关注变量</th><th>过滤的问题</th></tr></thead>
+          <tbody>
+            <tr><td>全球流动性</td><td>美债收益率、真实利率、美元、信用利差、日本货币政策</td><td>避免在贴现率逆风中高估成长资产可承受的估值</td></tr>
+            <tr><td>制度方向</td><td>财政、税收、关税、监管、产业政策、能源政策</td><td>区分情绪新闻与真正改变资本流向的政策变量</td></tr>
+            <tr><td>技术传导</td><td>AI CapEx、GPU、HBM、光模块、电力、铜、数据中心</td><td>避免只看技术兴奋度，而忽略订单、供给和资本开支</td></tr>
+            <tr><td>公司质量</td><td>收入、毛利、经营杠杆、现金流、客户集中度、估值</td><td>避免把正确行业里的弱公司当成高质量资产</td></tr>
+            <tr><td>跨资产确认</td><td>美股、黄金、白银、铜、Bitcoin、Ethereum、现金、短债</td><td>避免让单一资产的价格走势绑架整体判断</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="visual">
+        <img src="portfolio_ytd_2025_sorted.png" alt="Kerwin portfolio performance visual">
+        <figcaption>组合表现图用于提示这套框架的核心表达：AI 基建、硬资产、数字金融与现金类工具并不是孤立资产，而是同一宏观 regime 下的不同表达。</figcaption>
+      </figure>
+    </div>
+
+    <div class="section" id="portfolio">
+      <div class="section-label">03 · 组合角色</div>
+      <h2>组合里每个仓位都应该有功能。</h2>
+      <p>Kerwin 的组合视角不是简单追求标的数量分散，而是让每一类资产承担明确角色。增长资产负责进攻，硬资产负责通胀与制度风险，数字金融负责金融基础设施可选性，现金与短债负责生存和再部署能力。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角色</th><th>典型资产</th><th>组合功能</th></tr></thead>
+          <tbody>
+            <tr><td>增长核心</td><td>AI 核心股票、半导体、存储、数据中心链</td><td>表达技术革命与资本开支周期</td></tr>
+            <tr><td>产业外溢</td><td>电力、铜、光模块、服务器、封装与设备</td><td>捕捉 AI 从模型扩散到基础设施的二阶机会</td></tr>
+            <tr><td>制度对冲</td><td>黄金、白银、短债、现金、部分能源资产</td><td>对冲贴现率、货币贬值和制度风险</td></tr>
+            <tr><td>数字金融</td><td>Bitcoin、Ethereum、稳定币与 RWA 基础设施</td><td>表达金融基础设施迁移的长期可选性</td></tr>
+            <tr><td>流动性储备</td><td>现金、短久期工具、低波动仓位</td><td>在主线回撤时保留再部署能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="risk">
+      <div class="section-label">04 · 现实检验</div>
+      <h2>Conviction 必须持续接受证伪。</h2>
+      <p>长期判断可以有信念，但不能把信念变成防守性叙事。真正重要的是：当现实数据变化时，能否及时识别 thesis 是短期波动，还是已经被破坏。</p>
+      <div class="alert">
+        <div class="alert-label">风险提示</div>
+        <p>如果真实利率和美元同时上行、AI CapEx 放缓、供应链订单弱化、公司现金流无法兑现，或者跨资产信号出现明显背离，原有组合假设需要重新审判。</p>
+      </div>
+      <h3>三个检查问题</h3>
+      <p>第一，流动性是否支持估值？第二，技术传导是否继续扩散？第三，公司收入和自由现金流是否跟上叙事？</p>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>Kerwin 的投资框架可以压缩成一句话：先判断结构，再决定资本。市场每天都会给出价格，但不是每个价格都代表价值；技术每天都有叙事，但不是每个叙事都能变成现金流。</p>
+    </div>
+
+    <div class="footer">本文为投资研究参考，不构成具体投资建议。数据与框架截至 2026年5月20日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+  </div>
+</div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='kerwin-identity-brief';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
