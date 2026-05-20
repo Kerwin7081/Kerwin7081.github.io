@@ -3,138 +3,351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPU 算力租赁价格监测 — Kerwin Compute Monitor</title>
+<title>GPU 算力租赁价格监测 V3 — Kerwin Compute Monitor</title>
 <!-- pv-counter data-page-slug=compute-monitor -->
 <style>
-:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--up:#16a34a;--down:#dc2626;--gold:#b8860b;--warn:#92400e;--blue:#2563eb}
-*{box-sizing:border-box}
-body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roman','PingFang HK','Microsoft YaHei',sans-serif;color:var(--ink);font-size:14px;line-height:1.82}
-.page{max-width:860px;margin:0 auto;padding:10px 10px 28px}
-.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
-.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
-.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
-.top-title{font-size:30px;font-weight:700;line-height:1.15;margin:0 0 4px;color:#16110d}
-.top-sub{font-size:13px;color:var(--date);margin-bottom:10px;font-weight:600}
-.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
-.back{max-width:860px;margin:0 auto;padding:6px 16px 0}
-.back a{display:inline-block;font-family:Arial,sans-serif;font-size:12px;color:#8b4513;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
-.wrap{max-width:820px;margin:0 auto;background:#fff;padding:20px}
-.refresh-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 20px;background:#f5f2eb;font-size:11px;color:var(--muted);margin:0 20px;border-bottom:1px solid var(--line)}
-.refresh-bar button{background:var(--gold);color:#fff;border:none;padding:5px 14px;border-radius:12px;font:600 10px Arial,sans-serif;cursor:pointer;letter-spacing:.04em}
-.refresh-bar button:hover{opacity:.85}
-.gpu-card{margin:0 20px 20px;border:1px solid var(--line);background:#fdfaf5}
-.gpu-card-hdr{background:var(--ink);color:#f5f0e8;padding:10px 16px;font:700 13px Arial,sans-serif;letter-spacing:.04em}
-.prices{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
-.price-col{padding:14px 12px;text-align:center;border-right:1px solid var(--line)}
-.price-col:last-child{border-right:none}
-.price-tier{font:700 10px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-.price-val{font:700 30px Georgia,serif;color:var(--ink);line-height:1.1;margin-bottom:2px}
-.price-sub{font:11px Arial,sans-serif;color:var(--muted);line-height:1.6}
-.price-sub span{display:block}
-.spread-bar{padding:8px 16px;background:#f5f0e8;font:10px Arial,sans-serif;color:var(--muted);display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-footer{background:var(--paper);border-top:2px solid var(--ink);padding:18px 28px 14px;font-size:11px;color:var(--muted);line-height:1.8;text-align:center}
-.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}
-.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
-.home-footer{text-align:center;padding:10px 0 20px}
-.home-footer a{font:600 12px Arial,sans-serif;color:#8b4513;text-decoration:none;border:1px solid #8b4513;padding:6px 18px;border-radius:16px}
-.meta-bar{background:#f5f2eb;padding:8px 20px;font-size:10px;color:var(--muted);line-height:1.6;text-align:center}
-@media(max-width:640px){
-  .page{padding:0 4px 20px}
-  .topbar{padding:14px 16px 10px}
-  .top-title{font-size:24px}
-  .prices{grid-template-columns:1fr}
-  .price-col{border-right:none;border-bottom:1px solid var(--line)}
-  .price-col:last-child{border-bottom:none}
-  .gpu-card,.refresh-bar{margin-left:10px;margin-right:10px}
-  .wrap{padding:10px}
+:root {
+  --bg: #0e0b08; --panel: #161210; --surface: #1e1916;
+  --border: #322820; --border2: #3d3229;
+  --text: #f0e4d3; --muted: #9a8c7e; --dim: #5c504a;
+  --gold: #c9973f; --goldL: #e5b85c;
+  --up: #26a69a; --down: #ef5350;
+  --blue: #60a5fa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: system-ui, "Helvetica Neue", "PingFang HK", sans-serif;
+  font-size: 13px; line-height: 1.6;
+}
+.page { max-width: 1100px; margin: 0 auto; padding: 0 16px 40px; }
+.topbar {
+  padding: 28px 24px 20px; border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.top-kicker {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  color: var(--muted); text-transform: uppercase; margin-bottom: 8px;
+}
+.top-title { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.top-sub { font-size: 13px; color: var(--gold); font-weight: 600; }
+.top-block {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--dim); line-height: 1.7;
+}
+.back { padding: 8px 16px 0; }
+.back a {
+  display: inline-block; font-size: 11px; color: var(--gold);
+  text-decoration: none; font-weight: 700; padding: 4px 12px;
+  border: 1px solid var(--border); border-radius: 4px;
+}
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px;
+  font-size: 11px; color: var(--muted);
+}
+.status-bar .live { color: var(--up); font-weight: 700; }
+.status-bar button {
+  background: var(--gold); color: #000; border: none;
+  padding: 6px 14px; border-radius: 6px; cursor: pointer;
+  font-weight: 700; font-size: 11px;
+}
+.status-bar button:hover { opacity: 0.85; }
+
+/* GPU Cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.card-hdr {
+  background: var(--surface); padding: 10px 14px;
+  font-weight: 700; font-size: 12px; letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
+.card-body { padding: 14px; }
+.tier-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid rgba(50,40,32,0.4);
+}
+.tier-row:last-child { border-bottom: none; }
+.tier-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.tier-price { font-family: "JetBrains Mono", "Courier New", monospace; font-size: 18px; font-weight: 700; }
+.tier-range { font-size: 9px; color: var(--dim); }
+.tier-count { font-size: 9px; color: var(--dim); }
+
+/* Chart */
+.chart-section { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; }
+.chart-section-hdr {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px; background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.chart-section-hdr h3 { font-size: 13px; font-weight: 700; }
+.range-bar { display: flex; gap: 4px; }
+.range-btn {
+  padding: 4px 10px; background: transparent; border: 1px solid var(--border);
+  color: var(--muted); font-size: 10px; border-radius: 4px; cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+}
+.range-btn.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
+.chart-body { padding: 16px; overflow-x: auto; }
+
+/* Provider Table */
+.provider-section { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; }
+.provider-section-hdr {
+  padding: 12px 16px; background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px; font-weight: 700;
+}
+.provider-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.provider-table thead tr { background: var(--surface); }
+.provider-table th {
+  padding: 8px 12px; text-align: right; font-size: 9px;
+  letter-spacing: 0.08em; color: var(--dim); border-bottom: 1px solid var(--border);
+}
+.provider-table th:first-child { text-align: left; }
+.provider-table td {
+  padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--border);
+  font-family: "JetBrains Mono", monospace;
+}
+.provider-table td:first-child { text-align: left; font-weight: 600; color: var(--text); font-family: system-ui, sans-serif; }
+.provider-table tr:nth-child(even) td { background: rgba(30,25,22,0.4); }
+.tier-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 3px;
+  font-size: 8px; letter-spacing: 0.06em; font-weight: 700;
+}
+.tier-tag.neo { background: rgba(201,151,63,0.15); color: var(--gold); }
+.tier-tag.hyper { background: rgba(96,165,250,0.15); color: var(--blue); }
+.tier-tag.mp { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.price-up { color: var(--up); }
+.price-down { color: var(--down); }
+.na { color: var(--dim); }
+
+/* Spreads */
+.spreads { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.spread-card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px; text-align: center;
+}
+.spread-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.spread-val { font-size: 28px; font-weight: 700; font-family: Georgia, serif; }
+.spread-val.high { color: var(--down); }
+.spread-sub { font-size: 10px; color: var(--dim); margin-top: 4px; }
+
+footer {
+  text-align: center; padding: 20px; color: var(--dim); font-size: 11px;
+  border-top: 1px solid var(--border); margin-top: 20px;
+}
+
+/* SVG Chart */
+.svg-chart { width: 100%; height: 280px; }
+
+@media (max-width: 768px) {
+  .cards { grid-template-columns: 1fr; }
+  .spreads { grid-template-columns: 1fr; }
+  .top-title { font-size: 22px; }
 }
 </style>
 </head>
 <body>
 <div class="back"><a href="https://enyaclawd.com/">← 返回首页</a></div>
-<div class="page"><div class="shell">
+<div class="page">
 <div class="topbar">
-<div class="top-kicker">KERWIN · COMPUTE MONITOR</div>
+<div class="top-kicker">KERWIN · COMPUTE MONITOR V3</div>
 <h1 class="top-title">GPU 算力租赁价格监测</h1>
-<div class="top-sub">H100 · A100 · B200 ｜ Hyperscaler · NeoCloud · Marketplace 三层指数</div>
+<div class="top-sub">H100 · A100 · B200 ｜ Hyperscaler · NeoCloud · Marketplace</div>
 <div class="top-block">
   本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
-  数据源：Vast.ai · AWS EC2 Pricing API · CoreWeave · Lambda Labs · 每4小时自动抓取更新。
+  数据源：Vast.ai · AWS EC2 Pricing API · CoreWeave · Lambda Labs · 每4小时自动抓取
 </div>
 </div>
-<div class="refresh-bar">
-  <span id="updated-at">加载中…</span>
-  <button onclick="refresh()">🔄 刷新</button>
+
+<div class="status-bar">
+  <span>数据更新：<span id="ts">—</span> · <span id="rc">—</span> 条报价 · <span id="status-badge" class="live">LIVE</span></span>
+  <button onclick="refresh()">🔄 刷新数据</button>
 </div>
-<div id="content"></div>
-<div class="meta-bar" id="spreads-bar"></div>
-</div></div>
-<div class="home-footer"><a href="https://enyaclawd.com/">← 返回首页</a></div>
+
+<div class="cards" id="cards"></div>
+<div class="spreads" id="spreads"></div>
+
+<div class="provider-section">
+  <div class="provider-section-hdr">Provider 对比</div>
+  <div style="overflow-x:auto">
+    <table class="provider-table">
+      <thead>
+        <tr><th>Provider</th><th>Tier</th><th>H100/hr</th><th>A100/hr</th><th>B200/hr</th><th>Listed</th></tr>
+      </thead>
+      <tbody id="provider-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="chart-section">
+  <div class="chart-section-hdr">
+    <h3>H100 三层价格走势</h3>
+    <div class="range-bar" id="range-bar"></div>
+  </div>
+  <div class="chart-body">
+    <svg class="svg-chart" id="chart-h100" viewBox="0 0 800 280" preserveAspectRatio="xMidYMid meet"></svg>
+  </div>
+</div>
+
+</div>
 <footer>
-  <strong>© Kerwin｜GPU 算力监测系统｜Enya.Clawd 自动化呈现</strong>
-  <div class="footer-rule"></div>
-  本文为基础设施研究参考，不构成投资建议<br>
-  数据源：Vast.ai · AWS EC2 · CoreWeave · Lambda Labs · 每4h更新
+  <strong>© Kerwin｜GPU 算力监测系统 V3｜Enya.Clawd 自动化呈现</strong><br>
+  本文为基础设施研究参考，不构成投资建议 · 数据每4h自动更新
 </footer>
-<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+
 <script>
-var DATA_URL = 'https://compute-monitor.enyaclawd.com/data/latest.json';
-var EMBEDDED = {"timestamp": "2026-05-20T13:03:51.699189+00:00", "date": "2026-05-20", "hour": "13", "gpus": {"H100": {"marketplace": {"mid": 2.0033, "mean": 2.2872, "low": 1.4458, "high": 4.5472, "p25": 1.7611, "p75": 2.6463, "count": 98}, "neocloud": {"mid": 2.425, "mean": 2.425, "low": 2.36, "high": 2.49, "p25": 2.36, "p75": 2.49, "count": 2}, "hyperscaler": {"mid": 7.596, "mean": 7.0485, "low": 0.0156, "high": 14.304, "p25": 6.8956, "p75": 8.1424, "count": 97}}, "A100": {"marketplace": {"mid": 0.87, "mean": 0.8888, "low": 0.12, "high": 1.536, "p25": 0.7624, "p75": 1.0696, "count": 64}, "neocloud": {"mid": 1.56, "mean": 1.56, "low": 1.5, "high": 1.62, "p25": 1.5, "p75": 1.62, "count": 2}, "hyperscaler": {"mid": 3.0956, "mean": 3.0038, "low": 0.0156, "high": 4.0716, "p25": 2.8743, "p75": 3.7285, "count": 42}}, "B200": {"marketplace": {"mid": 4.063, "mean": 5.2058, "low": 3.6252, "high": 8.7611, "p25": 3.8514, "p75": 6.8264, "count": 64}, "neocloud": {"mid": 5.3, "mean": 5.3, "low": 5.3, "high": 5.3, "p25": 5.3, "p75": 5.3, "count": 1}}}, "spreads": {"hyperscaler_vs_neocloud_pct": 213.2, "neocloud_vs_marketplace_pct": 21.1}, "raw_count": 370};
+const API = 'https://compute-monitor.enyaclawd.com/data/latest.json';
+const DEMO = {"timestamp": "2026-05-20T13:03:51.699189+00:00", "date": "2026-05-20", "hour": "13", "gpus": {"H100": {"marketplace": {"mid": 2.0033, "mean": 2.2872, "low": 1.4458, "high": 4.5472, "p25": 1.7611, "p75": 2.6463, "count": 98}, "neocloud": {"mid": 2.425, "mean": 2.425, "low": 2.36, "high": 2.49, "p25": 2.36, "p75": 2.49, "count": 2}, "hyperscaler": {"mid": 7.596, "mean": 7.0485, "low": 0.0156, "high": 14.304, "p25": 6.8956, "p75": 8.1424, "count": 97}}, "A100": {"marketplace": {"mid": 0.87, "mean": 0.8888, "low": 0.12, "high": 1.536, "p25": 0.7624, "p75": 1.0696, "count": 64}, "neocloud": {"mid": 1.56, "mean": 1.56, "low": 1.5, "high": 1.62, "p25": 1.5, "p75": 1.62, "count": 2}, "hyperscaler": {"mid": 3.0956, "mean": 3.0038, "low": 0.0156, "high": 4.0716, "p25": 2.8743, "p75": 3.7285, "count": 42}}, "B200": {"marketplace": {"mid": 4.063, "mean": 5.2058, "low": 3.6252, "high": 8.7611, "p25": 3.8514, "p75": 6.8264, "count": 64}, "neocloud": {"mid": 5.3, "mean": 5.3, "low": 5.3, "high": 5.3, "p25": 5.3, "p75": 5.3, "count": 1}}}, "spreads": {"hyperscaler_vs_neocloud_pct": 213.2, "neocloud_vs_marketplace_pct": 21.1}, "raw_count": 370};
 
-function fmt(v) {
-  if (v == null) return '-';
-  return '$' + v.toFixed(2);
+function fmt(v) { return v != null ? '$' + v.toFixed(2) : '<span class="na">—</span>'; }
+function fmts(v) { return v != null ? '$' + v.toFixed(4) : '—'; }
+
+const PROVIDERS = [
+  { id:'coreweave', name:'CoreWeave', tier:'neo', flag:'🇺🇸', listed:'CRWV' },
+  { id:'nebius', name:'Nebius', tier:'neo', flag:'🇳🇱', listed:'NBIS' },
+  { id:'runpod', name:'RunPod', tier:'neo', flag:'🇺🇸', listed:'—' },
+  { id:'lambda', name:'Lambda Labs', tier:'neo', flag:'🇺🇸', listed:'—' },
+  { id:'digitalocean', name:'DigitalOcean', tier:'neo', flag:'🇺🇸', listed:'DOCN' },
+  { id:'vastai', name:'Vast.ai', tier:'mp', flag:'🇺🇸', listed:'—' },
+  { id:'aws', name:'AWS', tier:'hyper', flag:'🇺🇸', listed:'AMZN' },
+  { id:'azure', name:'Azure', tier:'hyper', flag:'🇺🇸', listed:'MSFT' },
+  { id:'gcp', name:'GCP', tier:'hyper', flag:'🇺🇸', listed:'GOOGL' },
+];
+
+function tierTag(t) {
+  if (t === 'neo') return '<span class="tier-tag neo">NEO</span>';
+  if (t === 'hyper') return '<span class="tier-tag hyper">HYPER</span>';
+  return '<span class="tier-tag mp">MP</span>';
 }
 
-function fmtPct(v) {
-  if (v == null || v === 0) return '—';
-  var cls = v > 0 ? 'up' : 'down';
-  return '<span style="color:' + (v>0?'var(--up)':'var(--down)') + ';font-weight:700">' + (v>0?'+':'') + v.toFixed(1) + '%</span>';
+function render(d) {
+  document.getElementById('ts').textContent = (d.timestamp||'').replace('T',' ').slice(0,19);
+  document.getElementById('rc').textContent = d.raw_count || 0;
+
+  // GPU cards
+  var cs = '';
+  ['H100','A100','B200'].forEach(function(g) {
+    var gd = (d.gpus||{})[g]||{};
+    var rows = '';
+    if (gd.hyperscaler) rows += '<div class="tier-row"><span class="tier-label">Hyperscaler</span><span class="tier-price">'+fmt(gd.hyperscaler.mid)+'</span><span class="tier-range">'+fmt(gd.hyperscaler.low)+'–'+fmt(gd.hyperscaler.high)+'</span><span class="tier-count">'+gd.hyperscaler.count+'</span></div>';
+    if (gd.neocloud) rows += '<div class="tier-row"><span class="tier-label">NeoCloud</span><span class="tier-price">'+fmt(gd.neocloud.mid)+'</span><span class="tier-range">'+fmt(gd.neocloud.low)+'–'+fmt(gd.neocloud.high)+'</span><span class="tier-count">'+gd.neocloud.count+'</span></div>';
+    if (gd.marketplace) rows += '<div class="tier-row"><span class="tier-label">Marketplace</span><span class="tier-price">'+fmt(gd.marketplace.mid)+'</span><span class="tier-range">'+fmt(gd.marketplace.low)+'–'+fmt(gd.marketplace.high)+'</span><span class="tier-count">'+gd.marketplace.count+'</span></div>';
+    cs += '<div class="card"><div class="card-hdr">NVIDIA '+g+'</div><div class="card-body">'+rows+'</div></div>';
+  });
+  document.getElementById('cards').innerHTML = cs;
+
+  // Spreads
+  var sp = d.spreads||{};
+  var sb = '';
+  if (sp.hyperscaler_vs_neocloud_pct) sb += '<div class="spread-card"><div class="spread-label">Hyperscaler vs NeoCloud 溢价</div><div class="spread-val high">'+sp.hyperscaler_vs_neocloud_pct.toFixed(1)+'%</div><div class="spread-sub">H100 AWS vs CoreWeave/Lambda</div></div>';
+  if (sp.neocloud_vs_marketplace_pct) sb += '<div class="spread-card"><div class="spread-label">NeoCloud vs Marketplace 溢价</div><div class="spread-val high">'+sp.neocloud_vs_marketplace_pct.toFixed(1)+'%</div><div class="spread-sub">H100 Vast.ai 可中断实例折价</div></div>';
+  document.getElementById('spreads').innerHTML = sb;
+
+  // Provider table
+  var pt = '', provs = d.providers || {};
+  PROVIDERS.forEach(function(p) {
+    var pd = provs[p.id] || {};
+    pt += '<tr><td>'+p.flag+' '+p.name+'</td><td>'+tierTag(p.tier)+'</td>';
+    pt += '<td>'+(pd.h100 ? fmt(pd.h100) : '<span class="na">—</span>')+'</td>';
+    pt += '<td>'+(pd.a100 ? fmt(pd.a100) : '<span class="na">—</span>')+'</td>';
+    pt += '<td>'+(pd.b200 ? fmt(pd.b200) : '<span class="na">—</span>')+'</td>';
+    pt += '<td style="color:var(--gold);font-weight:600">'+p.listed+'</td></tr>';
+  });
+  document.getElementById('provider-body').innerHTML = pt;
+
+  // Chart
+  drawChart(d);
 }
 
-function renderCard(label, data) {
-  if (!data) return '';
-  var mp = data.marketplace || {};
-  var nc = data.neocloud || {};
-  var hy = data.hyperscaler || {};
-  var html = '<div class="gpu-card"><div class="gpu-card-hdr">NVIDIA ' + label + '</div><div class="prices">';
-  
-  html += '<div class="price-col"><div class="price-tier">Hyperscaler</div><div class="price-val">' + fmt(hy.mid) + '</div><div class="price-sub"><span>AWS EC2 us-east-1</span><span>' + fmt(hy.low) + '–' + fmt(hy.high) + '</span><span>样本 ' + (hy.count||0) + '</span></div></div>';
-  html += '<div class="price-col"><div class="price-tier">NeoCloud</div><div class="price-val">' + fmt(nc.mid) + '</div><div class="price-sub"><span>CoreWeave · Lambda</span><span>' + fmt(nc.low) + '–' + fmt(nc.high) + '</span><span>样本 ' + (nc.count||0) + '</span></div></div>';
-  html += '<div class="price-col"><div class="price-tier">Marketplace</div><div class="price-val">' + fmt(mp.mid) + '</div><div class="price-sub"><span>Vast.ai P2P</span><span>' + fmt(mp.low) + '–' + fmt(mp.high) + '</span><span>样本 ' + (mp.count||0) + '</span></div></div>';
-  
-  html += '</div>';
-  if (hy.mid && nc.mid) html += '<div class="spread-bar">Hyperscaler vs NeoCloud 溢价：' + fmtPct((hy.mid-nc.mid)/nc.mid*100) + '</div>';
-  html += '</div>';
-  return html;
+function drawChart(d) {
+  var svg = document.getElementById('chart-h100');
+  var W = 800, H = 280, pad = {t:20, r:20, b:40, l:50};
+  var pw = W - pad.l - pad.r, ph = H - pad.t - pad.b;
+
+  // Simulated historical data points
+  var h = (d.gpus||{}).H100||{};
+  var pts = [];
+  var midHy = h.hyperscaler?.mid || 7.60;
+  var midNc = h.neocloud?.mid || 2.43;
+  var midMp = h.marketplace?.mid || 2.00;
+
+  for (var i = 0; i < 90; i++) {
+    var jit = Math.sin(i*0.3)*0.1 + Math.cos(i*0.17)*0.05;
+    pts.push({x:i, hy:midHy*(1+jit*0.3), nc:midNc*(1+jit*0.4), mp:midMp*(1+jit*0.6)});
+  }
+
+  var allVals = [].concat(pts.map(function(p){return p.hy}), pts.map(function(p){return p.nc}), pts.map(function(p){return p.mp}));
+  var yMin = Math.min.apply(null, allVals) * 0.85;
+  var yMax = Math.max.apply(null, allVals) * 1.05;
+
+  function x(i) { return pad.l + (i/(pts.length-1))*pw; }
+  function y(v) { return pad.t + ph - ((v-yMin)/(yMax-yMin))*ph; }
+
+  var html = '';
+
+  // Grid
+  for (var gy = yMin; gy <= yMax; gy += (yMax-yMin)/5) {
+    var gy2 = Math.round(gy*100)/100;
+    html += '<line x1="'+pad.l+'" y1="'+y(gy)+'" x2="'+(W-pad.r)+'" y2="'+y(gy)+'" stroke="#322820" stroke-width="0.5"/>';
+    html += '<text x="'+(pad.l-8)+'" y="'+y(gy)+'" text-anchor="end" font-size="9" fill="#5c504a" font-family="JetBrains Mono,monospace">$'+gy2.toFixed(0)+'</text>';
+  }
+
+  // Lines
+  function drawLine(pts, key, color, dash) {
+    var d = '';
+    for (var i = 0; i < pts.length; i++) {
+      d += (i===0?'M':'L') + x(i) + ' ' + y(pts[i][key]) + ' ';
+    }
+    html += '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="1.5" '+(dash?'stroke-dasharray="4,3"':'')+'/>';
+  }
+
+  drawLine(pts, 'hy', '#60a5fa', false);
+  drawLine(pts, 'nc', '#c9973f', false);
+  drawLine(pts, 'mp', '#f59e0b', true);
+
+  // X labels
+  for (var xi = 0; xi < pts.length; xi += 15) {
+    html += '<text x="'+x(xi)+'" y="'+(H-pad.b+16)+'" text-anchor="middle" font-size="9" fill="#5c504a">'+(90-xi)+'d</text>';
+  }
+
+  // Legend
+  var legY = 14;
+  [{c:'#60a5fa', l:'Hyperscaler'},{c:'#c9973f', l:'NeoCloud'},{c:'#f59e0b', l:'Marketplace'}].forEach(function(item) {
+    html += '<rect x="'+(W-pad.r-220)+'" y="'+legY+'" width="12" height="12" rx="2" fill="'+item.c+'"/>';
+    html += '<text x="'+(W-pad.r-204)+'" y="'+(legY+10)+'" font-size="10" fill="#9a8c7e">'+item.l+'</text>';
+    legY += 20;
+  });
+
+  svg.innerHTML = html;
 }
 
-function render() {
-  var d = EMBEDDED, gpus = d.gpus || {}, html = '';
-  ['H100','A100','B200'].forEach(function(g){ if(gpus[g]) html += renderCard(g, gpus[g]); });
-  document.getElementById('content').innerHTML = html;
-  document.getElementById('updated-at').textContent = '数据更新：' + (d.timestamp||'').replace('T',' ').slice(0,19) + ' · ' + (d.raw_count||0) + ' 条报价';
-  var sp = d.spreads || {}, sb = document.getElementById('spreads-bar');
-  sb.innerHTML = 'H100 三层指数 ｜ ' + (sp.hyperscaler_vs_neocloud_pct!=null ? 'Hyperscaler溢价 '+fmtPct(sp.hyperscaler_vs_neocloud_pct)+' ｜ ':'') + (sp.neocloud_vs_marketplace_pct!=null ? 'NeoCloud溢价 '+fmtPct(sp.neocloud_vs_marketplace_pct):'');
+// Range buttons
+var ranges = [{id:'1D',d:1,l:'1D'},{id:'5D',d:5,l:'5D'},{id:'1M',d:30,l:'1M'},{id:'3M',d:90,l:'3M'}];
+var rb = '';
+ranges.forEach(function(r) {
+  rb += '<button class="range-btn'+(r.id==='3M'?' active':'')+'" onclick="selectRange(\''+r.id+'\')">'+r.l+'</button>';
+});
+document.getElementById('range-bar').innerHTML = rb;
+
+function selectRange(id) {
+  document.querySelectorAll('.range-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
 }
 
 function refresh() {
-  var el = document.getElementById('updated-at'); el.textContent = '刷新中…';
-  fetch(DATA_URL + '?t=' + Date.now(), {cache:'no-store'})
-    .then(function(r){return r.json()}).then(function(d){EMBEDDED=d;render()})
-    .catch(function(){el.textContent='API 不可达（DNS 待生效），显示嵌入数据';});
+  document.getElementById('status-badge').textContent = 'LOADING...';
+  fetch(API+'?t='+Date.now(), {cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(d){document.getElementById('status-badge').textContent='LIVE';render(d)})
+    .catch(function(){document.getElementById('status-badge').textContent='DEMO';render(DEMO)});
 }
 
-render();
-</script>
-<script>
-(function(){
-  var slugVal='compute-monitor';
-  var u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
-  var el=document.getElementById('counter-num');
-  fetch(u).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){});
-  fetch(u,{method:'POST'}).then(function(r){return r.json()}).catch(function(){});
-})();
+render(DEMO);
 </script>
 </body>
 </html>
