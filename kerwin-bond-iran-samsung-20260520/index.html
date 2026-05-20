@@ -33,19 +33,8 @@ p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
 .game-tree .branch{color:#2563eb}
 .game-tree .result{color:#16a34a}
 .game-tree .dead{color:#dc2626}
-.tw{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
-table{width:100%;border-collapse:collapse;font:12px Arial,sans-serif;min-width:420px}
-thead tr{background:#3d3229;color:#f5f0e8}
-thead th{padding:8px 12px;text-align:left;font-weight:600;font-size:10px;letter-spacing:.06em}
-thead th:not(:first-child){text-align:right}
-tbody tr:nth-child(even){background:#fdfaf7}
-tbody td{padding:7px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
-tbody td:not(:first-child){text-align:right;font-family:'SF Mono','Consolas',monospace;font-size:11px}
-tbody td:first-child{font-weight:600}
-.up{color:var(--up);font-weight:700}
-.down{color:var(--down);font-weight:700}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin:16px 0}
-.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:16px 12px;text-align:center}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:16px 10px;text-align:center}
 .stat-value{font:700 24px Georgia,serif;color:#16110d;line-height:1.1;margin-bottom:6px}
 .stat-value.up{color:var(--up)}.stat-value.down{color:var(--down)}
 .stat-label{font:10px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
@@ -54,7 +43,6 @@ tbody td:first-child{font-weight:600}
 .compare-row{padding:6px 10px;border-bottom:1px solid var(--line);text-align:center}
 .compare-row:nth-child(odd){background:#fdfaf7}
 .compare-label{text-align:left;font-weight:600;font-size:11px}
-.chart-note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:4px}
 .path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}
 .path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}
 .path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}
@@ -73,7 +61,6 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
   h2{font-size:19px}
   .stat-grid{grid-template-columns:1fr 1fr;gap:6px}
   .compare-grid{font-size:10px}
-  tbody td{font-size:10px}
   .back{padding:6px 10px 0}
   .lead{font-size:15px}
 }
@@ -93,13 +80,20 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </div>
 <div class="wrap">
 
-<!-- Section 1: Opening Thesis -->
+<!-- Section 1: Opening -->
 <div class="section">
 <div class="section-label">投资组合启示：保持定力、逆向操作</div>
 
-<p class="lead">过去五个交易日，美国国债市场经历了自2025年4月以来最剧烈的抛售。10年期收益率从4.1%飙升至4.67%，30年期突破5.18%。通胀数据超预期——PPI同比6.0%、CPI同比3.8%——叠加霍尔木兹海峡封锁推动WTI原油站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率浮现"。我持有的宏观对冲AI精选组合64只标的中，53只在5D窗口内录得下跌。</p>
+<div class="stat-grid">
+  <div class="stat-cell"><div class="stat-value up">50</div><div class="stat-label">YTD 正收益</div></div>
+  <div class="stat-cell"><div class="stat-value down">14</div><div class="stat-label">YTD 负收益</div></div>
+  <div class="stat-cell"><div class="stat-value down">53</div><div class="stat-label">5D 下跌标的</div></div>
+  <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">5D 上涨标的</div></div>
+</div>
 
-<p>但我认为，这次是短暂的逆风。利率飙升的根源是地缘政治驱动的能源供给冲击，而地缘政治问题本质上是可逆的。2025年5月，10Y同样冲至4.6%，"滞胀论"四起，但9月之后Fed三连降，科技股暴涨。那些在恐慌中保持定力、甚至逆向操作的人，赚到了最大的一段收益。</p>
+<p class="lead">过去五个交易日，美国国债市场经历了自2025年4月以来最剧烈的抛售。10年期收益率从4.1%飙升至4.67%，30年期突破5.18%。PPI同比6.0%、CPI同比3.8%双双超预期，叠加霍尔木兹海峡封锁推动WTI站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率浮现"。我持有的宏观对冲AI精选组合64只标的中，53只在5D窗口内录得下跌——但这是一次"贴现率冲击"，估值压缩而非盈利恶化。AI算力基础设施直接受益股（NBIS、ARM、MRVL）逆势上涨，证明市场在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。YTD维度下，组合中仍有50只标的录得正收益——绝大多数持仓的基本面没有受损。</p>
+
+<p>我认为，这次是短暂的逆风。利率飙升的根源是地缘政治驱动的能源供给冲击，而地缘政治问题本质上是可逆的。2025年5月，10Y同样冲至4.6%，"滞胀论"四起，但9月之后Fed三连降，科技股暴涨。那些在恐慌中保持定力、甚至逆向操作的人，赚到了最大的一段收益。</p>
 
 <p>这篇文章从三个维度展开这一判断：美债收益率的周期性逻辑、伊朗的博弈困境、三星工会的终局推演。最后回到投资组合本身——在逆风中，应该怎么做。</p>
 </div>
@@ -133,9 +127,53 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <p>2026年的"开关"不是关税，是海峡复航。两者形式不同，但本质一致：<strong>都是政治决策，不是经济结构变迁。</strong>如果2025年5月保持定力是对的，那么2026年5月拥有相同的逻辑基础。</p>
 </div>
 
-<!-- Section 3: Iran -->
+<!-- Section 3: Portfolio Strategy -->
 <div class="section">
-<div class="section-label">二 · 伊朗博弈困境</div>
+<div class="section-label">二 · 投资组合启示</div>
+<h2>保持定力、逆向操作</h2>
+
+<div class="path-grid">
+  <div class="path-item">
+    <div class="path-num">01</div>
+    <div>
+      <div class="path-title">高YTD涨幅标的的回调是"弹簧压缩"</div>
+      <p class="path-desc">SNDK（+482.7% YTD）、7709.HK（+397%）、智谱AI（+654%）在过去5天领跌——因为它们在利率逆转时对估值压缩最敏感。但它们的涨幅有基本面支撑（存储紧缺、AI模型需求爆发），不是纯叙事。一旦利率回落，这些弹簧将释放最大的反弹动能。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">02</div>
+    <div>
+      <div class="path-title">三星罢工 → 存储供给收缩 → 利好存储板块</div>
+      <p class="path-desc">MU（+144.9% YTD，5D -8.8%）、SNDK（+482.7% YTD，5D -4.7%）、SK海力士（000660.KS，+167.3% YTD，5D -12.1%）的回调，是"被利率错杀 + 被罢工利好即将兑现"的双重机会。存储是当前组合中最具反直觉利好的板块。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">03</div>
+    <div>
+      <div class="path-title">AI算力基础设施是"免疫区"</div>
+      <p class="path-desc">NBIS（+10.4%）、ARM（+7.3%）、MRVL（+7.2%）在5D窗口中逆势上涨——当宏观恐慌来临时，资金不是逃离AI，而是从"AI叙事"向"AI现金牛"集中。持有真实AI现金流标的，是穿越利率风暴的最优策略。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">04</div>
+    <div>
+      <div class="path-title">加密/贵金属/铜的同步下跌 = 利率退潮后的最大弹性</div>
+      <p class="path-desc">黄金-4.63%、BTC-5.45%、ETH-7.53%——当所有对利率敏感的资产同步下跌，驱动因素是统一的（利率），而非各自基本面恶化。一旦海峡谈判出现正面进展、10Y回落至4.2%以下，这些资产将出现最猛烈的反弹。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">05</div>
+    <div>
+      <div class="path-title">盯住两根"弦"：霍尔木兹 + 日本央行</div>
+      <p class="path-desc">海峡复航是最大的上行催化剂。日本6月若加息（77%概率）是短期扰动，但日本的加息恰恰是"经济复苏→正常化"的信号，中长期对日本股票是利好。当前日本股票的回调——6594.T、6324.T、6268.T——是买入机会。</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Section 4: Iran -->
+<div class="section">
+<div class="section-label">三 · 伊朗博弈困境</div>
 <h2>封锁海峡正在成为战略负债</h2>
 
 <p>2026年5月14日，美国总统特朗普抵达北京，对中国进行为期三天的国事访问，与习近平主席会谈逾两小时，同游天坛。这是特朗普重返白宫后首次对华国事访问。紧随其后，俄罗斯总统普京于5月19日至20日接续访华。塞尔维亚总统亦即将到访。</p>
@@ -169,9 +207,9 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <p>3月23日的历史先例支持这一判断：仅Trump的谈判言论就让布伦特原油从$114单日暴跌至$102。一旦海峡复航预期形成，油价可能在1-2周内回落至$80-90区间。届时，支撑当前利率恐慌的"能源通胀"基础将从源头瓦解。</p>
 </div>
 
-<!-- Section 4: Samsung -->
+<!-- Section 5: Samsung -->
 <div class="section">
-<div class="section-label">三 · 三星工会博弈</div>
+<div class="section-label">四 · 三星工会博弈</div>
 <h2>牌已出尽，靴子落地</h2>
 
 <p>2026年5月20日，三星电子管理层与工会的最后谈判破裂。工会威胁展开18天罢工——据估算可能造成每天约$7亿美元的损失。消息传出后，三星股价盘中急跌，但随即反弹。</p>
@@ -206,99 +244,6 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <p>三星高层"不咸不淡地道了个歉"——管理层没有慌，很有定力。如果接受了工会的要求，反倒制造更大的不确定性：你不知道下一次更大的威胁是什么，又会什么时候爆发。而现在——谈判破裂、拒绝接受、靴子落地——牌已出尽。</p>
 
 <p>盘中急跌后反弹的走势，是市场在用真金白银确认这一判断。</p>
-</div>
-
-<!-- Section 5: Portfolio Implications -->
-<div class="section">
-<div class="section-label">四 · 投资组合启示</div>
-<h2>保持定力、逆向操作</h2>
-
-<div class="stat-grid">
-  <div class="stat-cell"><div class="stat-value up">50</div><div class="stat-label">组合 YTD 正收益</div></div>
-  <div class="stat-cell"><div class="stat-value down">14</div><div class="stat-label">组合 YTD 负收益</div></div>
-  <div class="stat-cell"><div class="stat-value down">53</div><div class="stat-label">组合 5D 下跌</div></div>
-  <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">组合 5D 上涨</div></div>
-</div>
-
-<p>64只组合标的中，53只在过去5天录得下跌。但下跌的分布揭示了一个关键事实：这是一次"贴现率冲击"——估值压缩而非盈利恶化。组合中AI算力基础设施直接受益股（NBIS +10.4%、ARM +7.3%、MRVL +7.2%）逆势上涨，证明市场并未放弃AI产业趋势，而是在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。</p>
-
-<div class="path-grid">
-  <div class="path-item">
-    <div class="path-num">01</div>
-    <div>
-      <div class="path-title">高YTD涨幅标的的回调是"弹簧压缩"</div>
-      <p class="path-desc">SNDK（+482.7% YTD）、7709.HK（+397%）、智谱AI（+654%）在过去5天领跌——因为它们在利率逆转时对估值压缩最敏感。但它们的涨幅是有基本面支撑的（存储紧缺、AI模型需求爆发），不是纯叙事。一旦利率回落，这些弹簧将释放最大的反弹动能。</p>
-    </div>
-  </div>
-  <div class="path-item">
-    <div class="path-num">02</div>
-    <div>
-      <div class="path-title">三星罢工 → 存储供给收缩 → 利好存储板块</div>
-      <p class="path-desc">MU（+144.9% YTD，5D -8.8%）、SNDK（+482.7% YTD，5D -4.7%）、SK海力士（000660.KS，+167.3% YTD，5D -12.1%）的回调，是"被利率错杀 + 被罢工利好即将兑现"的双重机会。存储是当前组合中最具反直觉利好的板块。</p>
-    </div>
-  </div>
-  <div class="path-item">
-    <div class="path-num">03</div>
-    <div>
-      <div class="path-title">AI算力基础设施是"免疫区"</div>
-      <p class="path-desc">NBIS、ARM、MRVL的5D逆势上涨证明——当宏观恐慌来临时，资金不是逃离AI，而是从"AI叙事"向"AI现金牛"集中。持有真实AI现金流标的，是穿越利率风暴的最优策略。</p>
-    </div>
-  </div>
-  <div class="path-item">
-    <div class="path-num">04</div>
-    <div>
-      <div class="path-title">加密/贵金属/铜的同步下跌 = 利率退潮后的最大弹性</div>
-      <p class="path-desc">黄金-4.63%、BTC-5.45%、ETH-7.53%——当所有对利率敏感的资产同步下跌，驱动因素是统一的（利率），而非各自基本面恶化。一旦海峡谈判出现正面进展、10Y回落至4.2%以下，这些资产将出现最猛烈的反弹。</p>
-    </div>
-  </div>
-  <div class="path-item">
-    <div class="path-num">05</div>
-    <div>
-      <div class="path-title">盯住两根"弦"：霍尔木兹 + 日本央行</div>
-      <p class="path-desc">海峡复航是最大的上行催化剂。日本6月若加息（77%概率）是短期扰动，但日本的加息恰恰是"经济复苏→正常化"的信号，中长期对日本股票是利好。当前日本股票的回调——6594.T、6324.T、6268.T——是买入机会。</p>
-    </div>
-  </div>
-</div>
-
-<h3>YTD 前十大（涨幅惊人，近期普遍回调）</h3>
-<div class="tw">
-<table>
-<thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
-<tbody><tr><td>SNDK</td><td class="down">-4.7%</td><td class="up">+16.5%</td><td class="up">+482.7%</td></tr>
-<tr><td>7709.HK</td><td class="down">-24.0%</td><td class="up">+68.6%</td><td class="up">+397.0%</td></tr>
-<tr><td>285A.T</td><td class="up">+0.2%</td><td class="up">+39.0%</td><td class="up">+384.9%</td></tr>
-<tr><td>9747.HK</td><td class="down">-8.9%</td><td class="up">+37.9%</td><td class="up">+279.3%</td></tr>
-<tr><td>DOCN</td><td class="down">-3.7%</td><td class="up">+45.9%</td><td class="up">+211.8%</td></tr>
-<tr><td>INTC</td><td class="down">-8.1%</td><td class="up">+11.2%</td><td class="up">+200.3%</td></tr>
-<tr><td>000660.KS</td><td class="down">-11.5%</td><td class="up">+36.0%</td><td class="up">+169.2%</td></tr>
-<tr><td>POWL</td><td class="down">-15.1%</td><td class="down">-5.0%</td><td class="up">+146.3%</td></tr>
-<tr><td>MU</td><td class="down">-8.8%</td><td class="up">+28.9%</td><td class="up">+144.9%</td></tr>
-<tr><td>LITE</td><td class="down">-10.3%</td><td class="down">-6.3%</td><td class="up">+141.5%</td></tr></tbody>
-</table>
-</div>
-<p class="chart-note">YTD前十大在5D窗口全部录得负收益——即便是最强赢家也在遭受利率冲击。但回调的幅度与YTD涨幅相比仍属健康范围。这些不是"出了问题的公司"，而是"被利率暂时压制的赢家"。</p>
-
-<h3>YTD 负收益标的（14只）</h3>
-<div class="tw">
-<table>
-<thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
-<tbody><tr><td>HOOD</td><td class="down">-5.3%</td><td class="up">+0.7%</td><td class="down">-34.4%</td></tr>
-<tr><td>CRM</td><td class="up">+4.7%</td><td class="down">-2.4%</td><td class="down">-32.1%</td></tr>
-<tr><td>LEU</td><td class="down">-16.5%</td><td class="down">-18.2%</td><td class="down">-30.4%</td></tr>
-<tr><td>ETH-USD</td><td class="down">-7.4%</td><td class="down">-8.0%</td><td class="down">-29.6%</td></tr>
-<tr><td>PLTR</td><td class="down">-0.5%</td><td class="down">-6.1%</td><td class="down">-23.9%</td></tr>
-<tr><td>1810.HK</td><td class="down">-5.9%</td><td class="up">+3.1%</td><td class="down">-23.7%</td></tr>
-<tr><td>COIN</td><td class="down">-6.8%</td><td class="up">+1.2%</td><td class="down">-14.5%</td></tr>
-<tr><td>BTC-USD</td><td class="down">-5.4%</td><td class="down">-1.9%</td><td class="down">-13.6%</td></tr>
-<tr><td>MSFT</td><td class="up">+2.4%</td><td class="up">+0.7%</td><td class="down">-13.5%</td></tr>
-<tr><td>TSLA</td><td class="down">-6.8%</td><td class="up">+3.4%</td><td class="down">-10.1%</td></tr>
-<tr><td>META</td><td class="down">-0.1%</td><td class="down">-1.0%</td><td class="down">-8.6%</td></tr>
-<tr><td>ORCL</td><td class="down">-2.9%</td><td class="up">+5.6%</td><td class="down">-6.3%</td></tr>
-<tr><td>ARKK</td><td class="down">-5.6%</td><td class="down">-4.0%</td><td class="down">-4.0%</td></tr>
-<tr><td>ARKG</td><td class="down">-5.4%</td><td class="down">-7.2%</td><td class="down">-2.9%</td></tr></tbody>
-</table>
-</div>
-<p class="chart-note">负收益标的集中在对贴现率高度敏感的板块：加密/交易所、软件/SaaS、核能/铀矿、波动性ETF。如果利率回落，这些板块将是反弹弹性最大的区域。其中部分标的（如CRM -32.1%、HOOD -34.4%）已积累了可观的逆向操作空间。</p>
 </div>
 
 <!-- Section 6: Conclusion -->
