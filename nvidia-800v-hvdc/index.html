@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英伟达 Rubin 时代：800V 供电革命与产业链投资图谱 | Kerwin Research</title>
+<!-- pv-counter data-page-slug=nvidia-800v-hvdc -->
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--blue:#2563eb;--up:#16a34a;--down:#dc2626;--warn:#92400e;--gold:#8a5b2b;--date:#8b4513}
+*{box-sizing:border-box;margin:0;padding:0}
+/* 字体原则：正文/标题 → Georgia；功能/标签/数据/说明文字 → Arial */
+body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',serif;color:var(--ink);font-size:14px;line-height:1.85}
+.back{max-width:780px;margin:0 auto;padding:6px 16px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+/* TOPBAR */
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d;font-family:Georgia,'Times New Roman',serif}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600;font-family:Arial,sans-serif}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,'PingFang SC',sans-serif}
+/* HERO */
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px;font-family:Georgia,'Times New Roman',serif}
+.hero-sub{color:#7b4f24;font:14px/1.6 Arial,'PingFang SC',sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,sans-serif}
+/* NAV */
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:11px 14px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:#1f1a17;border-color:#8a5b2b}
+/* SECTION */
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;font-weight:700;line-height:1.35;margin:0 0 14px;color:#16110d;font-family:Georgia,'Times New Roman',serif}
+.section h3{font-size:17px;font-weight:700;line-height:1.4;margin:20px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3;font-family:Georgia,'Times New Roman',serif}
+/* 正文段落：Georgia 14px，全文统一 */
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px;font-family:Georgia,'Times New Roman','Noto Serif SC',serif}
+p:last-child{margin-bottom:0}
+strong{color:#1f1a17}
+/* STAT */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}
+.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-value.up{color:var(--up)}.stat-value.down{color:var(--down)}.stat-value.blue{color:var(--blue)}.stat-value.gold{color:var(--gold)}
+.stat-label{font:12px/1.4 Arial,'PingFang SC',sans-serif;color:#6f6258}
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:13px Arial,'PingFang SC',sans-serif;min-width:480px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top;font-size:13px}
+/* FLOW */
+.flow{display:flex;flex-direction:column;gap:0;margin:16px 0}
+.flow-box{background:#f5f0e8;color:#3d3229;padding:12px 16px;font:13px/1.55 Arial,'PingFang SC',sans-serif;border:1px solid #e5ddd3;border-radius:4px}
+.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}
+.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}
+.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}
+.flow-box.highlight{background:#fff1e5;border-left:4px solid #8a5b2b;border-color:#dccdbf}
+.flow-box.gpu{background:#f0f4e8;border-color:#b8d4a0}
+.flow-arrow{text-align:center;font-size:18px;color:#b8a590;padding:3px 0;line-height:1;font-family:Arial,sans-serif}
+/* CALLOUT */
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:10px}
+/* callout 内的 p 继承正文字体但尺寸收紧为 13px */
+.callout p{font-size:13px;line-height:1.8;color:#5c3d1e;margin:0 0 8px;font-family:Georgia,'Times New Roman','Noto Serif SC',serif}
+.callout p:last-child{margin:0}
+/* ALERT */
+.alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:14px 0}
+.alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
+.alert p{font-size:13px;line-height:1.75;color:#6b3f15;margin:0 0 6px;font-family:Arial,'PingFang SC',sans-serif}
+.alert p:last-child{margin:0}
+.alert strong{color:#9a3412}
+/* PATH GRID */
+.path-grid{display:flex;flex-direction:column;gap:14px;margin:16px 0}
+.path-item{display:flex;gap:14px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px;align-items:flex-start}
+.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}
+.path-content{flex:1}
+.path-title{font:600 13px Arial,'PingFang SC',sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}
+/* path-desc 用 Arial（功能性说明文字），13px 统一 */
+.path-desc{font:13px/1.72 Arial,'PingFang SC',sans-serif;color:#6b5d53;margin:0 0 6px}
+.path-desc:last-child{margin:0}
+/* 股票代码 Ticker：禁止用 .path-num */
+.ticker{min-width:66px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #dccdbf;background:#f7efe6;color:#8a5b2b;border-radius:4px;font:800 13px Arial,sans-serif;letter-spacing:.04em;flex-shrink:0;padding:0 8px}
+/* TAG */
+.tag{display:inline-block;padding:2px 7px;font-size:10px;font-weight:700;border-radius:2px;font-family:Arial,sans-serif}
+.tag.green{background:#dcfce7;color:#166534}.tag.red{background:#fee2e2;color:#991b1b}.tag.amber{background:#fef3c7;color:#92400e}.tag.grey{background:#f0ede8;color:#6f6258}
+/* TIMELINE */
+.timeline{margin:16px 0;position:relative;padding-left:28px;border-left:2px solid #e0d5c5}
+.timeline-item{margin-bottom:20px;position:relative}
+.timeline-item::before{content:'';position:absolute;left:-34px;top:5px;width:10px;height:10px;border-radius:50%;background:#8a5b2b;border:2px solid #fff;box-shadow:0 0 0 2px #8a5b2b}
+.timeline-date{font:700 11px Arial,sans-serif;color:#8a5b2b;letter-spacing:.06em;margin-bottom:4px}
+.timeline-content{font:13px/1.65 Arial,'PingFang SC',sans-serif;color:#4b3826}
+/* FORMULA */
+.formula{background:#f0ede8;border:1px solid #dccdbf;border-radius:4px;padding:12px 16px;margin:14px 0;font-family:'Courier New',monospace;font-size:13px;color:#3d3229;line-height:1.75}
+/* SOURCE NOTE */
+.source-note{font:11px Arial,sans-serif;color:var(--muted);margin-top:-8px;margin-bottom:14px}
+/* CONCLUSION */
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;font-weight:700;margin-bottom:14px;font-family:Georgia,'Times New Roman',serif}
+.conclusion p{color:#e8d5b8;font-size:14px;line-height:1.85;font-family:Georgia,'Times New Roman','Noto Serif SC',serif;margin:0 0 12px}
+.conclusion .callout{background:#2d2621;border-color:#4a3d33;border-left-color:#c9956a}
+.conclusion .callout p{color:#e8d5b8}
+.conclusion .callout-label{color:#c9956a}
+/* COUNTER & FOOTER */
+.counter-wrap{padding:12px 20px;font-size:11px;color:#8a7769;font-family:Arial,sans-serif;background:#fbf7f1;border-top:1px solid #efe3d7;text-align:center}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,'PingFang SC',sans-serif}
+/* MOBILE */
+@media(max-width:640px){
+  .page{padding:0 4px 20px}.back{padding:6px 10px 0}.back a{font-size:12px;padding:4px 10px}
+  .topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}
+  .top-date,.top-block{font-size:12px}.top-block{line-height:1.75}
+  .hero{padding:28px 16px 24px}.hero-title{font-size:24px;line-height:1.18}.hero-sub,.hero-meta{font-size:12px}
+  .nav a{padding:10px 11px;font-size:11px}
+  .section{padding:20px 14px}.section h2{font-size:20px}.section h3{font-size:16px}
+  p{font-size:14px}
+  .stat-grid-3{grid-template-columns:1fr 1fr}.stat-value{font-size:22px}.stat-label{font-size:11px}
+  table,td,th{font-size:11px}td,th{padding:7px 9px}
+  .path-item{gap:10px;padding:13px}.ticker{min-width:52px;height:30px;font-size:12px;padding:0 5px}
+  .flow-box{font-size:12px;padding:10px 12px}
+  .callout p,.alert p,.path-desc,.timeline-content{font-size:13px}
+  .footer,.counter-wrap{font-size:11px;line-height:1.75}
+}
+</style>
+</head>
+<body>
+
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+  <h1 class="top-title">800V 供电革命<br>研究简报</h1>
+  <div class="top-date">报告发布日期：2026年5月20日</div>
+  <div class="top-block">
+    本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
+    底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+  </div>
+</div>
+
+<div class="wrap">
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">2026 kerwin 宏观对冲及AI精选组合</div>
+  <div class="hero-title">英伟达 Rubin 时代<br>从电网到芯片的供电革命</div>
+  <div class="hero-sub">800V HVDC 标准确立 · 产业链价值重新分配 · 投资图谱梳理</div>
+  <div class="hero-meta">2026年5月20日 · AI 基础设施专题</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#trigger">变革根源</a>
+  <a href="#basics">基础概念</a>
+  <a href="#architecture">新旧架构</a>
+  <a href="#sst">固态变压器</a>
+  <a href="#ganvssic">GaN vs SiC</a>
+  <a href="#supplychain">产业链图谱</a>
+  <a href="#companies">核心企业</a>
+  <a href="#tco">回本测算</a>
+  <a href="#investment">投资推演</a>
+  <a href="#risks">风险清单</a>
+</nav>
+
+<!-- §1 变革根源 + 物理约束（合并为一个 section，id=trigger） -->
+<div class="section" id="trigger">
+  <div class="section-label">起点 · 变革根源</div>
+  <h2>一切从 Rubin 开始</h2>
+  <p>2025 年 3 月，英伟达在 GTC 大会发布代号 <strong>Rubin Ultra</strong> 的下一代 AI 芯片平台，同时宣布下一代数据中心将采用 <strong>800V HVDC</strong>（高压直流，High Voltage Direct Current）供电标准，彻底放弃沿用几十年的交流配电体系。2026 年 3 月，十余家全球巨头在 GTC 宣布构建 NVIDIA 800V HVDC 生态联盟，时间表清晰：</p>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-date">2026 H2</div><div class="timeline-content">Vertiv 配套 HVDC 整机产品正式发布；订单确认窗口开启。</div></div>
+    <div class="timeline-item"><div class="timeline-date">2027</div><div class="timeline-content">NVIDIA Rubin Ultra 规模量产，800V 直流供电成为 AI 数据中心行业标准，产业链全面放量。</div></div>
+    <div class="timeline-item"><div class="timeline-date">2028+</div><div class="timeline-content">SST（固态变压器，Solid State Transformer）可靠性成熟、成本降至经济区间，正式规模落地。</div></div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">核心判断</div>
+    <p>这是数据中心供电架构二十年来最大规模的代际切换，牵动的不是某一个零件，而是从地下变压器到芯片板上最后一毫米的整条供电链。<strong>2026 年下半年是订单确认窗口，2027 年是放量元年。</strong></p>
+  </div>
+
+  <h3>为什么必须改——一道物理题</h3>
+  <p>英伟达 GPU 从 A100（400 瓦/卡）→ H100（700 瓦）→ GB200（1000 瓦）→ Rubin Ultra（单机柜 <strong>1 兆瓦级</strong>），五年内单机柜功率放大 30–50 倍。问题出在旧系统如何输送这些电力——传统数据中心用 <strong>54V 直流</strong>给机柜供电：</p>
+  <div class="formula">功率 = 电压 × 电流 （P = V × I）　　导线热损耗 = 电流² × 导线电阻 （P_loss = I² × R）</div>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-value down">18,500A</div><div class="stat-label">54V 给 1MW 机柜供电所需电流<br>相当于城市主干道配电量级</div></div>
+    <div class="stat-cell"><div class="stat-value up">1,250A</div><div class="stat-label">换成 800V 后所需电流<br>降低 93%，铜材减少 45%</div></div>
+  </div>
+  <p>用 54V 给 1MW 机柜供电，铜排要有手臂粗，单机柜铜材超 200 公斤，导线发热无法散热，机柜里几乎没有空间放 GPU。<strong>这不是工程优化，这是物理上的 yes/no。</strong></p>
+  <div class="stat-grid-3">
+    <div class="stat-cell"><div class="stat-value gold">−45%</div><div class="stat-label">铜材需求减少</div></div>
+    <div class="stat-cell"><div class="stat-value gold">−70%</div><div class="stat-label">维护成本降低</div></div>
+    <div class="stat-cell"><div class="stat-value gold">−30%</div><div class="stat-label">全生命周期 TCO 下降</div></div>
+  </div>
+  <p class="source-note">数据来源：NVIDIA 官方白皮书</p>
+</div>
+
+<!-- §2 基础概念 -->
+<div class="section" id="basics">
+  <div class="section-label">基础概念 · 看懂这场变革</div>
+  <h2>三个必须理解的词：交流、直流、整流</h2>
+  <h3>交流电（AC）vs 直流电（DC）</h3>
+  <p><strong>交流电（AC，Alternating Current）</strong>：电流方向每秒来回切换 50 次（中国标准），波形像正弦曲线。家用插座、电网长距离输送均采用交流，因为交流可以用变压器轻松升降电压。</p>
+  <p><strong>直流电（DC，Direct Current）</strong>：电流方向恒定，像单向流动的河流。手机电池、GPU 芯片、所有电子器件——只能接受直流。问题因此产生：<strong>电网送来的是交流，芯片需要的是直流，中间必须有人完成转换。</strong></p>
+  <h3>整流（Rectification）</h3>
+  <p>把交流变成直流的过程叫<strong>整流</strong>。利用只允许电流单向通过的器件——<strong>二极管（Diode）</strong>——把交流波形的反向部分翻转成正向，再用<strong>电容（Capacitor）</strong>填平波形，得到稳定直流。现代数据中心用 <strong>SiC</strong>（碳化硅，Silicon Carbide）或 <strong>GaN</strong>（氮化镓，Gallium Nitride）高效功率开关管，效率可达 98% 以上，并支持双向能量流动。</p>
+  <div class="callout">
+    <div class="callout-label">理解整流为什么重要</div>
+    <p>整流是这场供电革命的核心动作。整条产业链的利益分配，本质上是在争夺"在哪里整流、用什么器件整流、谁来做整流设备"这三个问题的答案。</p>
+  </div>
+</div>
+
+<!-- §3 新旧架构 -->
+<div class="section" id="architecture">
+  <div class="section-label">架构对比 · 旧世界 vs 新世界</div>
+  <h2>供电链的大手术：从六道关卡到三步直达</h2>
+  <h3>旧架构：六道关卡，层层损耗</h3>
+  <div class="flow">
+    <div class="flow-box">⚡ 电网（35kV 高压交流）</div>
+    <div class="flow-arrow">↓ 变电站变压器（工频变压器，铁芯体积庞大，重达数吨）</div>
+    <div class="flow-box">中压交流（10kV / 13.8kV）</div>
+    <div class="flow-arrow">↓ 楼宇内降压变压器</div>
+    <div class="flow-box">低压交流（480V / 415V）</div>
+    <div class="flow-arrow">↓ UPS（不间断电源，Uninterruptible Power Supply）——"交流→直流→充电→直流→交流"双重转换</div>
+    <div class="flow-box alt">低压交流配电（PDU，Power Distribution Unit）</div>
+    <div class="flow-arrow">↓ 机柜 PSU（Power Supply Unit）整流</div>
+    <div class="flow-box alt">54V 直流母线</div>
+    <div class="flow-arrow">↓ 板级 DC-DC（Direct Current to Direct Current，直流转直流变换器）</div>
+    <div class="flow-box alt">12V 直流</div>
+    <div class="flow-arrow">↓ GPU 板上 VRM（Voltage Regulator Module，电压调节模块）</div>
+    <div class="flow-box light">0.8V → GPU 核心</div>
+  </div>
+  <p>从电网到芯片，历经 <strong>6–7 次</strong>电压和电流形态变换，每次损耗 2–5% 效率，端到端效率约 94–95%。UPS 双重转换是最大浪费来源。</p>
+  <h3>新架构：三步直达，效率 97–98%</h3>
+  <div class="flow">
+    <div class="flow-box">⚡ 电网（35kV 高压交流）</div>
+    <div class="flow-arrow">↓ 变电站变压器</div>
+    <div class="flow-box">中压交流（10kV / 13.8kV）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box highlight">★ SST（固态变压器，Solid State Transformer）——一步直转，变压 + 整流合二为一</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box accent">800V 直流母线，直接进入机柜（取消 UPS 和机柜级交流整流模块）</div>
+    <div class="flow-arrow">↓ 机柜内 DC-DC（800V 降至 50V / 12V）</div>
+    <div class="flow-box alt">50V / 12V 直流</div>
+    <div class="flow-arrow">↓ GPU 板上 VRM</div>
+    <div class="flow-box gpu">0.8V → GPU 核心</div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">关键变化</div>
+    <p>旧架构里，电从电网到 GPU 核心要"折腾"6–7 次，每次折腾都在发热和浪费；新架构压缩到 3 次，省出来的热量、空间、铜材，全部给了算力。这不是省钱的优化，而是 1MW 机柜得以存在的物理前提。</p>
+  </div>
+</div>
+
+<!-- §4 固态变压器 -->
+<div class="section" id="sst">
+  <div class="section-label">核心技术 · 固态变压器</div>
+  <h2>SST：皇冠明珠，为何难摘</h2>
+  <h3>传统变压器的局限</h3>
+  <p>传统工频变压器用铁芯两侧绕线圈，交流电产生磁场穿铁芯，按匝数比改变电压。运行在 50Hz（每秒振荡 50 次）下，铁芯必须做得很大才能容纳足够磁通量。一个 2 兆瓦的工频变压器，重量 5–8 吨，体积接近半个集装箱。更关键的是：<strong>传统变压器只能变压，不能整流</strong>，旧架构里必须另加独立整流设备。</p>
+  <h3>SST 的四步工作原理</h3>
+  <p>SST 的核心思想：用电力电子器件（Power Electronics）代替铁芯，在一台设备里同时完成"降压"和"整流"。关键物理规律：<strong>变压器体积与工作频率成反比</strong>——频率提升 400 倍，铁芯可缩小到原来的几十分之一。</p>
+  <div class="flow">
+    <div class="flow-box"><strong>① SiC 高压整流</strong>　10kV 交流 → 10kV 直流</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt"><strong>② SiC 全桥逆变，斩波升频</strong>　10kV 直流 → 10kV 高频交流（20,000–50,000 Hz）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light"><strong>③ 高频变压器降压 + 电气隔离</strong>　10kV 高频交流 → 800V 高频交流（体积缩至传统的 1/10）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box accent"><strong>④ GaN/SiC 整流 + 滤波</strong>　800V 高频交流 → 800V 直流输出</div>
+  </div>
+  <h3>为什么必须用 SiC 和 GaN</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>材料</th><th>耐压上限</th><th>开关速度</th><th>在 SST 中的角色</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Si（硅）</strong>传统功率器件</td><td>~900V</td><td>基准</td><td>❌ 耐压不足，频率上不去，无法胜任</td></tr>
+        <tr><td><strong>SiC（碳化硅，Silicon Carbide）</strong></td><td>3.3kV–10kV</td><td>硅的 10 倍</td><td>✅ SST 高压一次侧唯一选择；耐温 &gt;200°C</td></tr>
+        <tr><td><strong>GaN（氮化镓，Gallium Nitride）</strong></td><td>100V–1200V</td><td>SiC 的 3–5 倍</td><td>✅ SST 输出侧；机柜内 800V→50V 降压段优先</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert">
+    <div class="alert-label">SST 当前成熟度</div>
+    <p>技术可行，但规模化还有两道坎：<strong>高频磁芯可靠性</strong>——纳米晶磁芯（Nanocrystalline Alloy，在纳米尺度控制晶体结构的金属软磁材料）在高频大功率下局部过热烧毁，国内已有案例；<strong>器件成本</strong>——单台 SST 整机成本是传统方案的 2–3 倍。</p>
+    <p>行业共识：<strong>SST 规模落地在 2028 年之后</strong>。2026–2027 年由传统方案过渡，为 SST 赛道提供早期埋伏窗口，但当下业绩兑现的是下游 HVDC 整机层。</p>
+  </div>
+</div>
+
+<!-- §5 GaN vs SiC -->
+<div class="section" id="ganvssic">
+  <div class="section-label">器件之争 · 势力范围划分</div>
+  <h2>GaN vs SiC：谁吃哪一段</h2>
+  <p>SiC 胜在高压和高温，GaN 胜在高频和体积，两者分段统治，几乎没有真正意义上的正面交锋。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>供电环节</th><th>电压范围</th><th>主导器件</th><th>原因</th></tr></thead>
+      <tbody>
+        <tr><td>SST 高压整流（一次侧）</td><td>3.3kV–10kV</td><td><span class="tag amber">SiC 独占</span></td><td>超出 GaN 耐压上限，SiC 无可替代</td></tr>
+        <tr><td>SST 输出侧 / 直流断路器</td><td>1.2kV–3.3kV</td><td><span class="tag amber">SiC 主导</span></td><td>GaN 1200V 版本开始突围，但 SiC 仍领先</td></tr>
+        <tr><td>800V→50V 总线变换（机柜内一级降压）</td><td>650V–1200V</td><td><span class="tag green">GaN/SiC 双轨</span></td><td>GaN 高频优势显现，快速抢占份额</td></tr>
+        <tr><td>50V→6V 中间级降压</td><td>80V–150V</td><td><span class="tag green">GaN 优势</span></td><td>极高开关频率 + 最小体积，GaN 胜出</td></tr>
+        <tr><td>GPU 核心末级（&lt;12V VRM）</td><td>&lt;12V</td><td><span class="tag grey">硅（Si）独占</span></td><td>成熟工艺、极低成本，硅不可替代</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <div class="callout-label">Yole Group 核心判断</div>
+    <p>NVIDIA 对 GaN 的拉动，相当于 Tesla 对 SiC 的意义——特斯拉把 SiC 推向电动车量产，NVIDIA 将把 GaN 从手机充电器推向兆瓦级数据中心电源。Yole 预计 AI 数据中心场景 GaN 增速将超过 SiC，因为从 800V 母线到 GPU 核心，每个机柜需要数十颗 GaN 器件，随机柜数量线性放大。</p>
+  </div>
+</div>
+
+<!-- §6 产业链图谱 -->
+<div class="section" id="supplychain">
+  <div class="section-label">产业链 · 四层结构全图</div>
+  <h2>完整价值流动图谱</h2>
+  <p>将整条供电链按功能分为四层，每层有独立的价值量、技术壁垒和兑现时机。</p>
+  <div class="flow">
+    <div class="flow-box highlight"><strong>LAYER ①　中压配电 + SST（楼宇周界）</strong><br>功能：10kV 交流 → 800V 直流　｜　价值量：0.5–0.6 USD/W　｜　兑现：2028+</div>
+    <div class="flow-arrow">↓ 800V 直流母线</div>
+    <div class="flow-box accent"><strong>LAYER ②　HVDC 整机系统（机柜电源中枢）</strong><br>功能：800V 分配管理 + BBU（Battery Backup Unit，电池备用单元）备电，替代传统 UPS　｜　价值量：1.0–1.2 USD/W　｜　兑现：2026 H2–2027 ✅ 当下最确定</div>
+    <div class="flow-arrow">↓ 800V 直流入柜</div>
+    <div class="flow-box alt"><strong>LAYER ③　机柜内 DC-DC 降压（800V → 50V/12V）</strong><br>功能：第一级降压，GaN 器件主战场　｜　价值量：0.3–0.5 USD/W　｜　兑现：2026 同步</div>
+    <div class="flow-arrow">↓ 50V / 12V</div>
+    <div class="flow-box light"><strong>LAYER ④　主板级 VRM（最终降压至 GPU 核心）</strong><br>功能：50V/12V → 0.8V，多相降压（Multi-phase Buck）　｜　价值量：0.2–0.3 USD/W　｜　兑现：随 GPU 出货同步 ✅</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box gpu">GPU / CPU / HBM（高带宽存储，High Bandwidth Memory）核心（0.8V）→ 算力输出</div>
+  </div>
+  <h3>上游基础材料：纳米晶磁芯</h3>
+  <p>SST 高频变压器磁芯必须使用<strong>纳米晶合金</strong>（Nanocrystalline Alloy）制成。制造工艺苛刻：熔融合金以接近 100 km/h 喷射到水冷转辊上，冷却速率接近每秒 100 万度，带材厚度精度 ±1 微米。全球量产厂商极少，头部已相继私有化：</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>公司</th><th>国籍</th><th>全球份额（估）</th><th>上市状态</th><th>投资可达性</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Proterial</strong>（原日立金属）</td><td>日本</td><td>28–45%</td><td>2023 年私有化（Bain Capital）</td><td>❌</td></tr>
+        <tr><td><strong>VAC</strong>（VACUUMSCHMELZE）</td><td>德国</td><td>~19%</td><td>Apollo Global Management（APO）持有</td><td>⚠️ 间接持 APO</td></tr>
+        <tr><td><strong>云路股份</strong>　688190.SS</td><td>中国</td><td>~12%</td><td>科创板上市 ✅</td><td>✅ A 股唯一纯正标的</td></tr>
+        <tr><td><strong>安泰科技</strong>　000969.SZ</td><td>中国</td><td>~8%</td><td>深交所上市（央企背景）✅</td><td>✅ 业务多元</td></tr>
+        <tr><td><strong>中国非晶</strong></td><td>中国</td><td>~5%</td><td>央企，未上市</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="source-note">份额来源：QYResearch、Market Growth Reports 行业估算，非公司官方披露。</p>
+</div>
+
+<!-- §7 核心企业 -->
+<div class="section" id="companies">
+  <div class="section-label">核心企业 · 精选标的</div>
+  <h2>护城河 × TAM × 毛利率——三维筛选</h2>
+  <p>从每层提取最核心的 1–2 家企业，筛选标准：护城河最深（标准制定权 / 平台共研 / 唯一供应商）+ TAM（可触达总市场规模，Total Addressable Market）最大 + 毛利率最高。剔除单维度突出但其余明显短板的跟随型企业。</p>
+
+  <h3>LAYER ①　中压端 / SST</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="ticker">ETN</div>
+      <div class="path-content">
+        <div class="path-title">Eaton 伊顿　<span class="tag amber">美股</span></div>
+        <p class="path-desc">GTC 2026 与英伟达联合发布 <strong>Beam Rubin DSX</strong> 模块化数据中心平台——英伟达官方认可的中压 SST 合作参考架构。数据中心电气业务加速增长，整体毛利率约 <strong>38%</strong>。护城河在于"被英伟达选中共研"的先发优势。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="ticker">IFNNY</div>
+      <div class="path-content">
+        <div class="path-title">Infineon 英飞凌　<span class="tag amber">美股 ADR</span></div>
+        <p class="path-desc">全球唯一同时量产 <strong>Si / SiC / GaN 三种功率器件</strong>的公司，横跨 Layer ①②③。Yole Group 评为数据中心电源赛道"by far the leader"（遥遥领先）。FY2026 AIDC（AI 数据中心）收入目标 <strong>15 亿欧元</strong>，毛利率约 <strong>44%</strong>。三料齐全意味着无论架构如何演进，都有牌打。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="ticker">601126</div>
+      <div class="path-content">
+        <div class="path-title">四方股份　<span class="tag grey">A 股</span></div>
+        <p class="path-desc">主导制定 <strong>HVDC 800V 国家标准</strong>，参与 17 个国家级 SST 示范项目。毛利率约 <strong>45%</strong>，是 A 股 SST 板块最高。SST 订单储备超 30 亿元。标准制定者永远比跟随者有溢价。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>LAYER ②　HVDC 整机（当下确定性最高层）</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="ticker">VRT</div>
+      <div class="path-content">
+        <div class="path-title">Vertiv 威图　<span class="tag amber">美股</span>　<span class="tag green">核心</span></div>
+        <p class="path-desc">全产业链"含 AI 浓度"最高的标的，几乎没有传统业务稀释。与英伟达 Vera Rubin Kyber 平台<strong>系统级共同研发</strong>，不可绕过。2026 年营收指引 <strong>135–140 亿美元</strong>，订单 Backlog（未完成积压订单）约 <strong>95 亿美元</strong>，能见度看到 2027 年底。毛利率约 <strong>36%</strong>，经营利润率快速扩张中。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="ticker">002364</div>
+      <div class="path-content">
+        <div class="path-title">中恒电气　<span class="tag grey">A 股</span>　<span class="tag green">核心</span></div>
+        <p class="path-desc">国内 HVDC 电源市占率 <strong>28%</strong>，HVDC 国家标准参与起草，阿里巴巴 Panama 海外数据中心独家 HVDC 供应商。<strong>海外业务毛利率高达 40%+</strong>（国内 25–30%），出海后享有品牌溢价而非低价竞争。2024 年数据中心电源营收同比增长 111%，2026E 超 15 亿元。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>LAYER ③　机柜内 DC-DC：GaN 主战场</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="ticker">NVTS</div>
+      <div class="path-content">
+        <div class="path-title">Navitas Semiconductor　<span class="tag amber">美股</span>　<span class="tag red">高 Beta</span></div>
+        <p class="path-desc">全球最纯正的 GaN+SiC 半导体小盘股。GaNFast（氮化镓快速）技术平台 + GeneSiC（碳化硅）产品线双轨，与英伟达在 Kyber 平台深度联合开发。毛利率约 <strong>40%</strong>，仍处亏损阶段。自 2025 年 5 月官宣合作后累计涨幅超 280%，是产业链中 <strong>Beta（市场弹性系数）最高</strong>的标的。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="ticker">02577</div>
+      <div class="path-content">
+        <div class="path-title">英诺赛科　<span class="tag grey">港股</span>　<span class="tag red">高 Beta</span></div>
+        <p class="path-desc">NVIDIA 800V HVDC 联盟<strong>唯一中国 GaN 供应商</strong>，提供 15V 至 1200V 全谱系 GaN 器件。全球唯一实现 8 英寸 GaN-on-Si（在硅基底上生长氮化镓以降低成本的核心工艺）量产的企业。当前毛利率受消费电子 GaN 价格战拖累仍为负值。<strong>关键观察点：2026 年中报 AI 数据中心业务毛利率是否单独披露并转正。</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <h3>LAYER ④　主板级 VRM</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="ticker">MPWR</div>
+      <div class="path-content">
+        <div class="path-title">Monolithic Power Systems（芯源系统）　<span class="tag amber">美股</span>　<span class="tag green">旗舰</span></div>
+        <p class="path-desc">整条 800V HVDC 产业链中<strong>护城河 + TAM + 毛利率三维指标同时最优</strong>的单一标的。预期在英伟达 Vera Rubin GPU 平台拿下约 <strong>70% 份额</strong>；已完成 800V 数据中心电源方案 Sampling（送样测试）；单芯片集成控制器+功率晶体管+保护电路，客户替换须重新设计整块主板，转换成本极高。</p>
+        <p class="path-desc">2025 年营收 <strong>28 亿美元</strong>（+26.4%），2026E <strong>33.9 亿美元</strong>（+21%），企业数据业务 50%+ 增速为管理层公开承诺下限。毛利率 <strong>55.2–55.3%</strong>（GAAP，通用会计准则），是整个 NVIDIA 供应链毛利率最高企业之一。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>上游磁材——卫星仓</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="ticker">688190</div>
+      <div class="path-content">
+        <div class="path-title">云路股份　<span class="tag grey">A 股</span>　<span class="tag grey">卫星仓</span></div>
+        <p class="path-desc">A 股唯一纯正纳米晶合金平台，科创板上市，三大产品线（非晶合金、纳米晶合金、磁性粉末）向下游 SST 整机厂直供材料。毛利率约 28–33%，当前 TAM 较小但 SST 放量后弹性大。适合作为上游卡位小仓位，非核心持仓。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §8 TCO -->
+<div class="section" id="tco">
+  <div class="section-label">成本测算 · 几年回本</div>
+  <h2>SST vs 传统方案：全生命周期 TCO 对比</h2>
+  <p>以 <strong>2 兆瓦中压配电单元</strong>（Rubin Ultra 时代数据中心标准 Power Pod 规格）为基准：</p>
+  <h3>CapEx（资本支出，Capital Expenditure）对比</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>项目</th><th>传统方案</th><th>SST 方案</th><th>差额</th></tr></thead>
+      <tbody>
+        <tr><td>中压变压器 + 整流器</td><td>~$35 万</td><td>—</td><td>−$35 万</td></tr>
+        <tr><td>UPS（含电池柜）</td><td>~$40 万</td><td>~$15 万（BBU 替代）</td><td>−$25 万</td></tr>
+        <tr><td>低压配电 + 铜排</td><td>~$12 万</td><td>~$5 万</td><td>−$7 万</td></tr>
+        <tr><td>SST 整机</td><td>—</td><td>~$90–120 万</td><td>+$90 万</td></tr>
+        <tr><td>安装 + 土建</td><td>~$8 万</td><td>~$5 万</td><td>−$3 万</td></tr>
+        <tr><td><strong>CapEx 合计</strong></td><td><strong>~$95 万</strong></td><td><strong>~$115–145 万</strong></td><td><strong>+$20–50 万</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="source-note">基于 NVIDIA、云路、四方、Vertiv 等厂商技术白皮书合理估算，非公司官方财务披露，实际报价因地区、规格、议价差异较大。</p>
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="stat-value up">$11–15 万</div><div class="stat-label">年度 OpEx（运营支出）节约合计<br>电费 + 冷却 + 维护 + 空间机会成本<br>（2MW 满载，年运行 8000h，电价 $0.1/度）</div></div>
+    <div class="stat-cell"><div class="stat-value gold">3–5 年</div><div class="stat-label">行业共识回本区间<br>设备寿命 15–20 年<br>全生命周期 TCO 优势显著</div></div>
+  </div>
+  <div class="callout">
+    <div class="callout-label">超越经济账的驱动力</div>
+    <p>经济测算不是 hyperscaler（超大规模数据中心运营商）的首要逻辑：① 1MW 机柜在物理上无法用旧架构实现，这是 yes/no 而非省不省钱；② SST 微秒级故障响应可避免 AI 训练中断（一次重大中断损失约 $1–1.5 万/分钟）；③ 800V 直流母线允许光伏和储能直接并入，满足微软、谷歌、OpenAI 的零碳算力承诺。</p>
+  </div>
+</div>
+
+<!-- §9 投资推演 -->
+<div class="section" id="investment">
+  <div class="section-label">投资推演 · 组合配置</div>
+  <h2>按时间窗口的分层配置逻辑</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>层级</th><th>代码</th><th>公司</th><th>护城河关键词</th><th>毛利率</th><th>配置角色</th></tr></thead>
+      <tbody>
+        <tr><td>①+③ 跨层</td><td><strong>IFNNY</strong></td><td>Infineon 英飞凌</td><td>三料齐全（Si/SiC/GaN），架构演进皆有牌打</td><td>~44%</td><td><span class="tag green">核心·确定性</span></td></tr>
+        <tr><td>②</td><td><strong>VRT</strong></td><td>Vertiv 威图</td><td>英伟达系统级共研，AI 数据中心纯标的</td><td>~36%</td><td><span class="tag green">核心·确定性</span></td></tr>
+        <tr><td>④</td><td><strong>MPWR</strong></td><td>MPS 芯源系统</td><td>全链毛利最高，Rubin 预期 70% 份额</td><td>55%+</td><td><span class="tag green">核心·高质量</span></td></tr>
+        <tr><td>①</td><td><strong>601126</strong></td><td>四方股份</td><td>HVDC 800V 国标制定者</td><td>~45%</td><td><span class="tag green">A 股·确定性</span></td></tr>
+        <tr><td>②</td><td><strong>002364</strong></td><td>中恒电气</td><td>国内 HVDC 28% 市占，海外 40% 毛利率</td><td>海外 40%</td><td><span class="tag green">A 股·确定性</span></td></tr>
+        <tr><td>③</td><td><strong>02577.HK</strong></td><td>英诺赛科</td><td>唯一中国 GaN 英伟达供应商</td><td>待验证</td><td><span class="tag red">港股·高 Beta</span></td></tr>
+        <tr><td>③</td><td><strong>NVTS</strong></td><td>Navitas</td><td>纯 GaN+SiC，英伟达深度共研</td><td>~40%</td><td><span class="tag red">美股·高 Beta</span></td></tr>
+        <tr><td>上游</td><td><strong>688190</strong></td><td>云路股份</td><td>A 股唯一纳米晶磁材纯标的</td><td>~30%</td><td><span class="tag grey">卫星·埋伏</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="path-grid">
+    <div class="path-item"><div class="path-num">01</div><div class="path-content"><div class="path-title">2026–2027 兑现层（现在布局，高确定性）</div><p class="path-desc">Vertiv、MPS、中恒电气、Infineon。Backlog（积压订单）可见，不是赌预期，是兑现确定性。适合核心仓约 60%。</p></div></div>
+    <div class="path-item"><div class="path-num">02</div><div class="path-content"><div class="path-title">2027–2028 放量层（现在埋伏，弹性配置）</div><p class="path-desc">英诺赛科、Navitas、四方股份。叙事先行于业绩，波动大，仓位上限严格控制。适合弹性仓约 30%。</p></div></div>
+    <div class="path-item"><div class="path-num">03</div><div class="path-content"><div class="path-title">2028 年之后（小仓位埋伏，远期看点）</div><p class="path-desc">云路股份（纳米晶磁材随 SST 放量）。需等 SST 可靠性和成本问题解决后重新定价。适合卫星仓约 10%。</p></div></div>
+  </div>
+</div>
+
+<!-- §10 风险清单 -->
+<div class="section" id="risks">
+  <div class="section-label">风险清单 · 必须直视</div>
+  <h2>五个不可回避的下行风险</h2>
+  <div class="alert"><div class="alert-label">风险一：标准之战尚未结束</div><p>800V 并非唯一路线，谷歌和 Meta 的部分架构仍在探索 ±400V 方案。若主流 hyperscaler 阵营分裂为两套标准，整条产业链渗透节奏将被打乱，产能投入提前而需求迟到的风险会集中释放。</p></div>
+  <div class="alert"><div class="alert-label">风险二：估值已跑在业绩前面</div><p>MPS 当前约 61 倍远期市盈率，股价远高于 DCF（贴现现金流，Discounted Cash Flow）公允价值约 $670，现价约 $1,583。Vertiv 的 95 亿美元 Backlog 已反映 2027 年预期。买这些标的，买的不是"发现机会"，而是判断"当前定价是否仍然合理"——一旦 AI 资本开支放缓信号出现，回调幅度将很显著。</p></div>
+  <div class="alert"><div class="alert-label">风险三：SST 磁芯技术风险</div><p>纳米晶磁芯在高频高功率下的可靠性问题未完全解决，国内已有头部 SST 企业出现烧毁事故。SST 层标的当前业绩无法支撑叙事估值，一旦出现公开负面技术事件，股价将大幅调整。</p></div>
+  <div class="alert"><div class="alert-label">风险四：中美科技博弈尾部风险</div><p>英诺赛科作为唯一中国 GaN 英伟达供应商，存在被纳入出口管制清单的低概率高影响风险；英伟达出口管制本身也限制了中国端使用最新 Rubin Ultra 架构，国内 HVDC 厂商真实大客户是国内云厂（阿里、腾讯、字节、华为），而非英伟达直接采购。</p></div>
+  <div class="alert"><div class="alert-label">风险五：联盟扩容稀释"唯一性"溢价</div><p>当前 NVIDIA 800V 联盟已有 13 家以上芯片厂商、10 家以上电源厂。"英诺赛科是唯一中国 GaN 供应商"的标签有 2–3 年时间窗口，期间若不能将测试阶段转化为实质订单并披露合理毛利率，溢价将自然消散。</p></div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="conclusion" id="conclusion">
+  <h2>结语</h2>
+  <p>800V HVDC 不是一个炒作题材，而是一道物理约束题的唯一解答。算力密度的终局，决定了供电架构必须升级；供电架构的升级，重新分配了从磁材到芯片的整条价值链。</p>
+  <p>这场变革的受益者是明确的，难点在于——所有人都知道。最好的标的已经定价了一部分预期，投资人的任务不是寻找被遗漏的名字，而是在预期与实际兑现之间的错位里，判断哪个时间点、哪家公司的定价仍然不对称。</p>
+  <div class="callout" style="margin-top:18px">
+    <div class="callout-label">核心选股纪律</div>
+    <p>护城河深的企业能扛住竞争冲击；毛利率高的企业能把增长变成真实利润；有确定时间窗口的企业能让等待有回报。<strong>三项同时满足的，才是真正值得配置的核心仓位。</strong></p>
+  </div>
+  <div style="margin-top:20px"><a href="/" style="display:inline-block;padding:8px 18px;background:#8a5b2b;color:#fff;font:700 12px Arial,sans-serif;border-radius:4px;text-decoration:none;letter-spacing:.04em">← 返回首页</a></div>
+</div>
+
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">…</span></div>
+<div class="footer">
+  本文为投资研究参考，不构成具体投资建议。数据来源：NVIDIA 官方公告、公司财务报告（GAAP 口径）、Yole Group、QYResearch、各厂商技术白皮书。截至 2026 年 5 月 20 日。<br>
+  © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+</div>
+
+</div></div></div>
+
+<script>
+(function(){
+  var s='nvidia-800v-hvdc',u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s),el=document.getElementById('counter-num');
+  fetch(u).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){if(el)el.textContent='-'});
+  fetch(u,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){});
+})();
+</script>
+</body>
+</html>
