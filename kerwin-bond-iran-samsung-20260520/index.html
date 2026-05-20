@@ -33,6 +33,17 @@ p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
 .game-tree .branch{color:#2563eb}
 .game-tree .result{color:#16a34a}
 .game-tree .dead{color:#dc2626}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:12px Arial,sans-serif;min-width:420px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:8px 12px;text-align:left;font-weight:600;font-size:10px;letter-spacing:.06em}
+thead th:not(:first-child){text-align:right}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:7px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+tbody td:not(:first-child){text-align:right;font-family:'SF Mono','Consolas',monospace;font-size:11px}
+tbody td:first-child{font-weight:600}
+.up{color:var(--up);font-weight:700}
+.down{color:var(--down);font-weight:700}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin:16px 0}
 .stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:16px 10px;text-align:center}
 .stat-value{font:700 24px Georgia,serif;color:#16110d;line-height:1.1;margin-bottom:6px}
@@ -91,11 +102,9 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
   <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">5D 上涨标的</div></div>
 </div>
 
-<p class="lead">过去五个交易日，美国国债市场经历了自2025年4月以来最剧烈的抛售。10年期收益率从4.1%飙升至4.67%，30年期突破5.18%。PPI同比6.0%、CPI同比3.8%双双超预期，叠加霍尔木兹海峡封锁推动WTI站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率浮现"。我持有的宏观对冲AI精选组合64只标的中，53只在5D窗口内录得下跌——但这是一次"贴现率冲击"，估值压缩而非盈利恶化。AI算力基础设施直接受益股（NBIS、ARM、MRVL）逆势上涨，证明市场在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。YTD维度下，组合中仍有50只标的录得正收益——绝大多数持仓的基本面没有受损。</p>
+<p class="lead">过去五个交易日，美国国债市场经历了自2025年4月以来最剧烈的抛售。10年期收益率从4.1%飙升至4.67%，30年期突破5.18%。PPI同比6.0%、CPI同比3.8%双双超预期，叠加霍尔木兹海峡封锁推动WTI站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率浮现"。我观察的宏观对冲AI精选组合64只标的中，53只在5D窗口内录得下跌——但这是一次"贴现率冲击"，估值压缩而非盈利恶化。AI算力基础设施直接受益股（NBIS、ARM、MRVL）逆势上涨，证明市场在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。YTD维度下，组合中仍有50只标的录得正收益——绝大多数持仓的基本面没有受损。</p>
 
 <p>我认为，这次是短暂的逆风。利率飙升的根源是地缘政治驱动的能源供给冲击，而地缘政治问题本质上是可逆的。2025年5月，10Y同样冲至4.6%，"滞胀论"四起，但9月之后Fed三连降，科技股暴涨。那些在恐慌中保持定力、甚至逆向操作的人，赚到了最大的一段收益。</p>
-
-<p>这篇文章从三个维度展开这一判断：美债收益率的周期性逻辑、伊朗的博弈困境、三星工会的终局推演。最后回到投资组合本身——在逆风中，应该怎么做。</p>
 </div>
 
 <!-- Section 2: US Treasury -->
@@ -112,24 +121,149 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 
 <p>这一轮利率飙升的传导链非常清晰：霍尔木兹海峡被封锁 → 全球原油航运受阻 → WTI突破$100 → 美国汽油破$4.50/加仑 → CPI 3.8% YoY、PPI 6.0% YoY双双超预期 → 降息预期归零 → 加息概率浮现。</p>
 
-<p>Polymarket数据显示，2026年全年零降息的概率一度升至69%，加息的概率冲到36%。但5月19日美联储主席Powell表态"油价驱动的通胀"后，加息概率已回落至27%。VIX仅18——市场并未恐慌，而是在理性地重新定价。</p>
-
 <p>2025年5月，几乎完全相同的故事发生过：关税冲击推高通胀预期，10Y冲至4.6%，市场认为降息遥遥无期。但关税是政治工具——可开可关。当政策逆转，10Y从4.6%回落至4.1%，Fed在9月后启动了三连降。那些在5月恐慌中坚持不卖的人，在Q4赚到了全年最大的涨幅。</p>
-
-<div class="compare-grid">
-<div class="compare-hdr"></div><div class="compare-hdr">2025 年 5 月</div><div class="compare-hdr">2026 年 5 月</div>
-<div class="compare-label">10Y 峰值</div><div>~4.6%</div><div>4.67%</div>
-<div class="compare-label">触发因素</div><div>关税政策冲击</div><div>海峡封锁/油价</div>
-<div class="compare-label">通胀性质</div><div>政策驱动（可逆）</div><div>地缘驱动（亦可逆）</div>
-<div class="compare-label">恐慌后结局</div><div>Q4 三连降 + 暴涨</div><div>？</div>
-</div>
 
 <p>2026年的"开关"不是关税，是海峡复航。两者形式不同，但本质一致：<strong>都是政治决策，不是经济结构变迁。</strong>如果2025年5月保持定力是对的，那么2026年5月拥有相同的逻辑基础。</p>
 </div>
 
-<!-- Section 3: Portfolio Strategy -->
+<!-- Section 3: Macro Dashboard -->
 <div class="section">
-<div class="section-label">二 · 投资组合启示</div>
+<div class="section-label">二 · 宏观数据仪表盘</div>
+<h2>过去7日关键指标变动</h2>
+
+<div class="tw">
+<table>
+<thead><tr><th>指标</th><th>最新值</th><th>5D 变动</th><th>MTD 变动</th><th>关键事件</th></tr></thead>
+<tbody>
+<tr><td>US 10Y</td><td>4.67%</td><td class="up">+4.57%</td><td class="up">+6.60%</td><td>5/13 PPI 超预期 → 5/15 单日 +14bp</td></tr>
+<tr><td>US 30Y</td><td>5.18%</td><td class="up">+2.98%</td><td class="up">+4.33%</td><td>突破 5% 心理关口</td></tr>
+<tr><td>US 2Y</td><td>~4.05%</td><td class="up">—</td><td class="up">—</td><td>突破 Fed Funds 上沿（4.0%）</td></tr>
+<tr><td>DXY</td><td>99.32</td><td class="up">+1.04%</td><td class="up">+1.13%</td><td>美元走强，风险偏好回流</td></tr>
+<tr><td>USDJPY</td><td>158.87</td><td class="up">+0.76%</td><td class="up">+1.20%</td><td>美日利差扩大</td></tr>
+<tr><td>日本 10Y</td><td>2.79%</td><td class="up">+1.5%</td><td class="up">+16.3%</td><td>29年新高，BOJ 6月加息 77% 概率</td></tr>
+<tr><td>WTI</td><td>$103.86</td><td class="up">+1.64%</td><td class="up">+1.88%</td><td>霍尔木兹封锁持续，美伊僵局</td></tr>
+<tr><td>Gold</td><td>$4,461</td><td class="down">-4.63%</td><td class="down">-3.64%</td><td>利率压制压倒避险需求</td></tr>
+<tr><td>Copper</td><td>$6.17</td><td class="down">-4.83%</td><td class="up">+4.05%</td><td>工业金属跟随风险偏好收缩</td></tr>
+<tr><td>VIX</td><td>18.06</td><td class="up">+0.39%</td><td class="up">+6.30%</td><td>温和抬升，尚未进入恐慌区间</td></tr>
+<tr><td>SPX</td><td>7,353</td><td class="down">-0.64%</td><td class="up">+1.71%</td><td>指数层面温和，内部分化剧烈</td></tr>
+<tr><td>NDX</td><td>28,818</td><td class="down">-0.85%</td><td class="up">+4.00%</td><td>成长股承压更明显</td></tr>
+<tr><td>BTC</td><td>$76,637</td><td class="down">-5.45%</td><td class="down">-1.86%</td><td>加密跟随风险资产全线下跌</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Section 4: 2025 vs 2026 -->
+<div class="section">
+<div class="section-label">三 · 2025 vs 2026 对比</div>
+<h2>两次"通胀→利率飙升"的本质差异</h2>
+
+<div class="compare-grid">
+<div class="compare-hdr"></div><div class="compare-hdr">2025 年 5 月</div><div class="compare-hdr">2026 年 5 月</div>
+<div class="compare-label">10Y 峰值</div><div>~4.6%</div><div>4.67%</div>
+<div class="compare-label">30Y 峰值</div><div>~5.0%</div><div>5.18%</div>
+<div class="compare-label">触发因素</div><div>关税政策冲击</div><div>海峡封锁 / 油价</div>
+<div class="compare-label">通胀性质</div><div>政策驱动（可逆）</div><div>地缘驱动（亦可逆）</div>
+<div class="compare-label">核心 CPI</div><div>温和偏高</div><div>3.8% YoY</div>
+<div class="compare-label">PPI</div><div>受控</div><div>6.0% YoY</div>
+<div class="compare-label">Fed 位置</div><div>高位（远高于中性）</div><div>中位（接近中性）</div>
+<div class="compare-label">市场预期</div><div>"推迟降息到 Q3/Q4"</div><div>"加息概率浮现"</div>
+<div class="compare-label">油价</div><div>相对平稳</div><div>$103+</div>
+<div class="compare-label">结局</div><div>Q4 三连降 + 暴涨</div><div>？</div>
+</div>
+
+<p>2025年的关键在于：关税是政治工具，可开可关。当关税威胁消退，通胀预期随之缓和，10Y从4.6%回落至4.1%，Fed在9月后启动连续三次降息。2026年看似更严重——PPI 6.0%、30Y突破5%、加息概率浮现——但根源同样是政治事件而非经济结构变迁。海峡复航 = 油价回落 = 通胀降温 = 利率下行。如果2025年5月"不卖"是对的，2026年5月拥有相同的逻辑基础。</p>
+</div>
+
+<!-- Section 5: Prediction Markets -->
+<div class="section">
+<div class="section-label">四 · 预测市场定价</div>
+<h2>Polymarket · Kalshi · CME FedWatch</h2>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="stat-value">97.8%</div><div class="stat-label">6月会议维持不变</div></div>
+  <div class="stat-cell"><div class="stat-value">57-69%</div><div class="stat-label">2026 全年零降息</div></div>
+  <div class="stat-cell"><div class="stat-value">27%</div><div class="stat-label">2026 年内加息</div></div>
+  <div class="stat-cell"><div class="stat-value">16%</div><div class="stat-label">降息一次 25bp</div></div>
+</div>
+
+<p>Polymarket "2026年零降息"合约交易量 $2,670万，当前 57% 概率（较高点 69% 回落）；"2026年加息"合约 27% 概率，从周中 36% 回落。Kalshi 零降息概率约 68%，与 Polymarket 基本一致。CME FedWatch 显示加息概率首次超越降息概率——但期货市场受机构套保行为影响，而 Polymarket/Kalshi 引入零售与全球资金流，三者价差恰恰说明恐慌情绪正在被理性定价所取代。Powell 5月19日表态"油价驱动通胀"后，加息概率已从 36% 回落至 27%。VIX 仅 18——市场并未恐慌。</p>
+</div>
+
+<!-- Section 6: Iran -->
+<div class="section">
+<div class="section-label">五 · 伊朗博弈困境</div>
+<h2>封锁海峡正在成为战略负债</h2>
+
+<p>2026年5月14日，美国总统特朗普抵达北京，对中国进行为期三天的国事访问，与习近平主席会谈逾两小时，同游天坛。这是特朗普重返白宫后首次对华国事访问。紧随其后，俄罗斯总统普京于5月19日至20日接续访华。塞尔维亚总统亦即将到访。</p>
+
+<p>京报网将这一安排描述为"美俄元首一周内前后脚访华，罕见外交安排"。中国人民大学重阳金融研究院的定调是：中国正在从国际秩序的"参与者"加速转向"塑造者"。</p>
+
+<p>在这个格局下，伊朗的战略处境正在急剧恶化。</p>
+
+<div class="game-tree">
+<span class="node">伊朗的博弈结构</span><br>
+<br>
+<span class="node">策略 A</span>：封锁霍尔木兹海峡<br>
+  └─ <span class="branch">→ 全球 20% 原油航运受阻</span><br>
+  └─ <span class="branch">→ WTI $103+，全球通胀</span><br>
+  └─ <span class="dead">→ 危害全球普通民众既得利益 → 成为"逆天遭人恨"的对象</span><br>
+<br>
+<span class="node">策略 B</span>：威胁破坏海底电缆<br>
+  └─ <span class="branch">→ 全球互联网面临风险</span><br>
+  └─ <span class="dead">→ 进一步强化"全球公敌"标签</span><br>
+<br>
+<span class="node">外部环境变化</span>：<br>
+  └─ <span class="branch">美、俄元首两周内先后访华 → 中国成为全球外交枢纽</span><br>
+  └─ <span class="branch">作为"秩序塑造者"，中国不可能支持破坏全球公共品的行为体</span><br>
+  └─ <span class="result">→ 伊朗外交孤立加深 → 谈判压力增大 → 海峡复航概率上升</span>
+</div>
+
+<p>封锁海峡、威胁破坏海底电缆——这些行为危害的是全球普通人的既得利益：油价负担、航运成本、互联网连接。这不是在与某一个国家对抗，而是在与全世界的日常生活为敌。伊朗每多封锁一天，就多失去一份国际同情。</p>
+
+<p>5月19日，CBS News报道：特朗普叫停了对伊朗的既定军事攻击，同时称"严肃谈判"正在进行。这不是软弱，而是对博弈均衡的理性判断：<strong>让伊朗自己消耗自己的国际信誉，比军事打击更有效、成本更低。</strong></p>
+
+<p>3月23日的历史先例支持这一判断：仅Trump的谈判言论就让布伦特原油从$114单日暴跌至$102。一旦海峡复航预期形成，油价可能在1-2周内回落至$80-90区间。届时，支撑当前利率恐慌的"能源通胀"基础将从源头瓦解。</p>
+</div>
+
+<!-- Section 7: Samsung -->
+<div class="section">
+<div class="section-label">六 · 三星工会博弈</div>
+<h2>牌已出尽，靴子落地</h2>
+
+<p>2026年5月20日，三星电子管理层与工会的最后谈判破裂。工会威胁展开18天罢工——据估算可能造成每天约$7亿美元的损失。消息传出后，三星股价盘中急跌，但随即反弹。</p>
+
+<p>以博弈论的框架来看，这是一场"最后通牒博弈"，而工会已经打完了所有牌。</p>
+
+<div class="game-tree">
+<span class="node">三星工会博弈 · 三轮演进</span><br>
+<br>
+<span class="node">第一轮</span>（5月12日）：工会提出永久性薪资结构改革要求<br>
+  └─ <span class="branch">三星回应：仅提供一次性绩效金，拒绝任何永久性承诺</span><br>
+  └─ 政府调解介入<br>
+<br>
+<span class="node">第二轮</span>（5月14日）：三星主动邀约重返谈判桌<br>
+  └─ 姿态放低——会长罕见公开道歉（媒体描述为"千载难逢的一次"）<br>
+  └─ 但底线寸步不让：薪酬制度灵活性不可让渡<br>
+<br>
+<span class="node">第三轮</span>（5月20日）：最后谈判破裂<br>
+  └─ 工会：18天罢工威胁（$7亿/天）<br>
+  └─ <span class="result">三星：沉默克制，不接受结构性让步</span><br>
+  └─ <span class="result">盘中急跌 → 随即反弹 → 市场认可"靴子落地"</span>
+</div>
+
+<p>三星管理层的策略是典型的"承诺策略"：如果这一次接受永久性薪资改革，等于把定价权交给了工会。棘轮效应下，下一次索求只会更大。短期罢工损失可以计算，但永久性制度让步的代价无法估量。</p>
+
+<p>而工会的致命弱点在于<strong>非对称成本</strong>。罢工工人损失工资，同时被非罢工同事眼红——他们损害了大多数人的利益。在全球投资者和产业链视角中，这部分人正在被贴上"贪得无厌"的标签。</p>
+
+<p>更重要的是：<strong>罢工对三星的存储业务可能构成"反直觉利好"。</strong>当前全球存储供需极度不对称：AI拉动HBM需求爆发，SK海力士、三星、美光全部满产。存储行业的问题是，需求一来，供给立刻扩产，价格反被压制。罢工恰恰打破了"扩产→降价"的周期逻辑——它使供给持续处于收缩状态，强化市场对供给紧张的预期，倒逼价格和毛利率进一步提升。三星的存储业务占其利润大半，罢工造成的产能损失很可能被价格上涨带来的利润增量对冲甚至超过。</p>
+
+<p>三星高层"不咸不淡地道了个歉"——管理层没有慌，很有定力。如果接受了工会的要求，反倒制造更大的不确定性：你不知道下一次更大的威胁是什么，又会什么时候爆发。而现在——谈判破裂、拒绝接受、靴子落地——牌已出尽。盘中急跌后反弹的走势，是市场在用真金白银确认这一判断。</p>
+</div>
+
+<!-- Section 8: Portfolio Strategy -->
+<div class="section">
+<div class="section-label">七 · 投资组合启示</div>
 <h2>保持定力、逆向操作</h2>
 
 <div class="path-grid">
@@ -171,84 +305,9 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </div>
 </div>
 
-<!-- Section 4: Iran -->
+<!-- Section 9: Conclusion -->
 <div class="section">
-<div class="section-label">三 · 伊朗博弈困境</div>
-<h2>封锁海峡正在成为战略负债</h2>
-
-<p>2026年5月14日，美国总统特朗普抵达北京，对中国进行为期三天的国事访问，与习近平主席会谈逾两小时，同游天坛。这是特朗普重返白宫后首次对华国事访问。紧随其后，俄罗斯总统普京于5月19日至20日接续访华。塞尔维亚总统亦即将到访。</p>
-
-<p>京报网将这一安排描述为"美俄元首一周内前后脚访华，罕见外交安排"。中国人民大学重阳金融研究院的定调是：中国正在从国际秩序的"参与者"加速转向"塑造者"。</p>
-
-<p>在这个格局下，伊朗的战略处境正在急剧恶化。</p>
-
-<div class="game-tree">
-<span class="node">伊朗的博弈结构</span><br>
-<br>
-<span class="node">策略 A</span>：封锁霍尔木兹海峡<br>
-  └─ <span class="branch">→ 全球 20% 原油航运受阻</span><br>
-  └─ <span class="branch">→ WTI $103+，全球通胀</span><br>
-  └─ <span class="dead">→ 危害全球普通民众既得利益 → 成为"逆天遭人恨"的对象</span><br>
-<br>
-<span class="node">策略 B</span>：威胁破坏海底电缆<br>
-  └─ <span class="branch">→ 全球互联网面临风险</span><br>
-  └─ <span class="dead">→ 进一步强化"全球公敌"标签</span><br>
-<br>
-<span class="node">外部环境变化</span>：<br>
-  └─ <span class="branch">美、俄元首两周内先后访华 → 中国成为全球外交枢纽</span><br>
-  └─ <span class="branch">作为"秩序塑造者"，中国不可能支持破坏全球公共品的行为体</span><br>
-  └─ <span class="result">→ 伊朗外交孤立加深 → 谈判压力增大 → 海峡复航概率上升</span>
-</div>
-
-<p>封锁海峡、威胁破坏海底电缆——这些行为危害的是全球普通人的既得利益：油价负担、航运成本、互联网连接。这不是在与某一个国家对抗，而是在与全世界的日常生活为敌。伊朗每多封锁一天，就多失去一份国际同情。</p>
-
-<p>5月19日，CBS News报道：特朗普叫停了对伊朗的既定军事攻击，同时称"严肃谈判"正在进行。这不是软弱，而是对博弈均衡的理性判断：<strong>让伊朗自己消耗自己的国际信誉，比军事打击更有效、成本更低。</strong></p>
-
-<p>3月23日的历史先例支持这一判断：仅Trump的谈判言论就让布伦特原油从$114单日暴跌至$102。一旦海峡复航预期形成，油价可能在1-2周内回落至$80-90区间。届时，支撑当前利率恐慌的"能源通胀"基础将从源头瓦解。</p>
-</div>
-
-<!-- Section 5: Samsung -->
-<div class="section">
-<div class="section-label">四 · 三星工会博弈</div>
-<h2>牌已出尽，靴子落地</h2>
-
-<p>2026年5月20日，三星电子管理层与工会的最后谈判破裂。工会威胁展开18天罢工——据估算可能造成每天约$7亿美元的损失。消息传出后，三星股价盘中急跌，但随即反弹。</p>
-
-<p>以博弈论的框架来看，这是一场"最后通牒博弈"，而工会已经打完了所有牌。</p>
-
-<div class="game-tree">
-<span class="node">三星工会博弈 · 三轮演进</span><br>
-<br>
-<span class="node">第一轮</span>（5月12日）：工会提出永久性薪资结构改革要求<br>
-  └─ <span class="branch">三星回应：仅提供一次性绩效金，拒绝任何永久性承诺</span><br>
-  └─ 政府调解介入<br>
-<br>
-<span class="node">第二轮</span>（5月14日）：三星主动邀约重返谈判桌<br>
-  └─ 姿态放低——会长罕见公开道歉（媒体描述为"千载难逢的一次"）<br>
-  └─ 但底线寸步不让：薪酬制度灵活性不可让渡<br>
-<br>
-<span class="node">第三轮</span>（5月20日）：最后谈判破裂<br>
-  └─ 工会：18天罢工威胁（$7亿/天）<br>
-  └─ <span class="result">三星：沉默克制，不接受结构性让步</span><br>
-  └─ <span class="result">盘中急跌 → 随即反弹 → 市场认可"靴子落地"</span>
-</div>
-
-<p>三星管理层的策略是典型的"承诺策略"：如果这一次接受永久性薪资改革，等于把定价权交给了工会。棘轮效应下，下一次索求只会更大。短期罢工损失可以计算，但永久性制度让步的代价无法估量。不接受→保住了长期的薪酬灵活性→消除了未来更大的不确定性。</p>
-
-<p>而工会的致命弱点在于<strong>非对称成本</strong>。罢工工人损失工资，同时被非罢工同事眼红——他们损害了大多数人的利益。在全球投资者和产业链视角中，这部分人正在被贴上"贪得无厌"的标签。</p>
-
-<p>更重要的是：<strong>罢工对三星的存储业务可能构成"反直觉利好"。</strong></p>
-
-<p>当前全球存储供需极度不对称：AI拉动HBM需求爆发，SK海力士、三星、美光全部满产。存储行业的问题是，需求一来，供给立刻扩产，价格反被压制。罢工恰恰打破了"扩产→降价"的周期逻辑——它使供给持续处于收缩状态，强化市场对供给紧张的预期，倒逼价格和毛利率进一步提升。三星的存储业务占其利润大半，罢工造成的产能损失很可能被价格上涨带来的利润增量对冲甚至超过。</p>
-
-<p>三星高层"不咸不淡地道了个歉"——管理层没有慌，很有定力。如果接受了工会的要求，反倒制造更大的不确定性：你不知道下一次更大的威胁是什么，又会什么时候爆发。而现在——谈判破裂、拒绝接受、靴子落地——牌已出尽。</p>
-
-<p>盘中急跌后反弹的走势，是市场在用真金白银确认这一判断。</p>
-</div>
-
-<!-- Section 6: Conclusion -->
-<div class="section">
-<div class="section-label">五 · 结语</div>
+<div class="section-label">八 · 结语</div>
 <h2>逆风中的定力</h2>
 
 <div class="callout">
