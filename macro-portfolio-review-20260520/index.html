@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>宏观利率冲击下的组合复盘 — 2026年5月5D回顾与2025年对比</title>
+<title>短暂逆风而非滞胀序幕 — Kerwin 2026年5月宏观与组合深度复盘</title>
 <!-- pv-counter data-page-slug=macro-portfolio-review-20260520 -->
 <style>
 :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--up:#16a34a;--down:#dc2626;--gold:#b8860b;--warn:#92400e;--date:#8b4513;--blue:#2563eb}
@@ -27,6 +27,8 @@ h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-botto
 p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
 .callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
 .callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.callout.blue{border-left-color:var(--blue);background:#eff6ff;color:#1e3a8a}
+.callout.green{border-left-color:var(--up);background:#f0fdf4;color:#14532d}
 .alert{background:#fff7ed;border-left:3px solid #c77728;border-radius:4px;padding:14px 16px;margin:16px 0;font-size:13px;color:#6b3f15}
 .alert-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#9a3412;text-transform:uppercase;margin-bottom:8px}
 .tw{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
@@ -52,12 +54,16 @@ tbody td:first-child{font-weight:600}
 .compare-row:nth-child(odd){background:#fdfaf7}
 .compare-label{text-align:left;font-weight:600;font-size:11px}
 .chart-note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:4px}
+.game-tree{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 20px;margin:16px 0;font-family:'SF Mono','Consolas','Courier New',monospace;font-size:12px;line-height:2;color:#3d3229}
+.game-tree .node{font-weight:700;color:#8a5b2b}
+.game-tree .choice{color:#2563eb}
+.game-tree .outcome{color:#16a34a}
+.game-tree .fail{color:#dc2626}
 footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px 18px;font-size:11px;color:var(--muted);line-height:1.85;text-align:center}
 .footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}
 .counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
 .home-footer{text-align:center;padding:10px 0 20px}
 .home-footer a{font:600 12px Arial,sans-serif;color:#8b4513;text-decoration:none;border:1px solid #8b4513;padding:6px 18px;border-radius:16px}
-.macro-tag{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:12px;padding:2px 10px;font:10px Arial,sans-serif;color:#8a5b2b;margin:2px 4px 2px 0}
 @media(max-width:640px){
   .page{padding:0 4px 20px}
   .topbar{padding:16px 16px 12px}
@@ -76,51 +82,54 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <div class="page"><div class="shell">
 <div class="topbar">
 <div class="top-kicker">KERWIN MACRO RESEARCH</div>
-<h1 class="top-title">宏观利率冲击下的组合复盘<br>2026年5月5D回顾与2025年对比</h1>
+<h1 class="top-title">短暂逆风，而非滞胀序幕<br>2026年5月宏观与组合深度复盘</h1>
 <div class="top-date">报告发布日期：2026年5月20日</div>
 <div class="top-block">
   本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
   底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。<br>
-  数据来源：yfinance · Reuters · Bloomberg · CNBC · CME FedWatch · Polymarket · Kalshi · TradingEconomics · FRED
+  数据来源：yfinance · Reuters · Bloomberg · CNBC · CME FedWatch · Polymarket · Kalshi · TradingEconomics · FRED · CBS News
 </div>
 </div>
 
 <div class="wrap">
 
-<!-- Section 1: Executive Summary -->
+<!-- Section 1: Core Thesis -->
 <div class="section">
 <div class="section-label">一 · 核心判断</div>
-<h2>这是一次"贴现率冲击"，不是基本面危机</h2>
+<h2>2026年5月的"通胀恐慌"是一次短暂逆风，而非滞胀序幕</h2>
 
 <div class="stat-grid">
-  <div class="stat-cell"><div class="stat-value down">53</div><div class="stat-label">5D 下跌标的</div></div>
-  <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">5D 上涨标的</div></div>
-  <div class="stat-cell"><div class="stat-value up">+4.57%</div><div class="stat-label">US10Y 5D变动</div></div>
-  <div class="stat-cell"><div class="stat-value up">+2.98%</div><div class="stat-label">US30Y 5D变动</div></div>
+  <div class="stat-cell"><div class="stat-value down">53</div><div class="stat-label">组合 5D 下跌标的</div></div>
+  <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">组合 5D 上涨标的</div></div>
+  <div class="stat-cell"><div class="stat-value up">+4.57%</div><div class="stat-label">US10Y 5D 变动</div></div>
+  <div class="stat-cell"><div class="stat-value up">+2.98%</div><div class="stat-label">US30Y 5D 变动</div></div>
 </div>
 
-<p>在2026年5月13日至20日的五个交易日中，Kerwin 宏观对冲AI精选组合64只标的中，53只录得下跌，仅11只上涨。这不是单一公司或板块的问题——这是美国国债市场自2025年4月以来最剧烈的单周抛售引发的<strong>系统性贴现率重定价</strong>。</p>
+<p>2026年5月13日至20日，美国国债市场经历了自2025年4月以来最剧烈的单周抛售——5月13日PPI同比6.0%（2022年以来最大涨幅）、5月15日CPI同比3.8%（2023年5月以来最高），叠加霍尔木兹海峡封锁推动WTI原油站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率不可忽视"。CME FedWatch出现结构性翻转：<strong>加息概率首次超过降息概率</strong>。Polymarket给出57%全年零降息定价，27%的加息概率虽已从周中36%回落，但恐慌的最高潮定格在了5月15-16日。</p>
 
-<p>5月13日PPI同比6.0%（2022年以来最大涨幅）、5月15日CPI同比3.8%（2023年5月以来最高）——两次超预期通胀数据叠加霍尔木兹海峡封锁推动WTI原油站稳$100以上，彻底瓦解了市场对2026年任何降息的期待。CME FedWatch出现了结构性翻转：<strong>加息概率首次超过降息概率</strong>。Polymarket给出57%全年零降息定价，27%的加息概率虽已从周中36%回落，但远高于一个月前的个位数。</p>
+<p>Kerwin 宏观对冲AI精选组合64只标的在5D窗口内53只下跌、11只上涨。但下跌的深度分布揭示了一个关键事实：<strong>这是一次"贴现率冲击"——估值压缩而非盈利恶化。AI算力基础设施直接受益股（NBIS +10.4%、ARM +7.3%、MRVL +7.2%）逆势上涨，证明市场并未放弃AI产业趋势，而是在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。</strong></p>
 
-<p>然而，组合中<strong>AI算力基础设施直接受益股（NBIS +10.4%、ARM +7.3%、MRVL +7.2%）逆势上涨</strong>，证明市场并未放弃AI产业趋势——它在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。</p>
+<div class="callout green">
+<div class="callout-label">Kerwin 核心观点</div>
+<p><strong>2026年这次是短暂的逆风，很快市场就会消化。</strong>利率飙升的根源是地缘政治驱动的能源供给冲击——霍尔木兹海峡封锁推高油价→通胀数据超预期→利率重定价。但地缘政治问题本质上是可逆的，不是结构性滞胀。2025年5月同样出现过10Y冲至4.6%的利率恐慌，最终以9月后Fed三连降和科技股暴涨收场。这一次，随着伊朗外交孤立加深、中国成为全球外交协调枢纽、三星工会博弈走向终局，支撑利率飙升的关键变量正在系统性松动。</p>
+</div>
 </div>
 
-<!-- Section 2: Macro Data -->
+<!-- Section 2: Macro Dashboard -->
 <div class="section">
 <div class="section-label">二 · 宏观数据仪表盘</div>
 <h2>过去7日关键指标变动</h2>
 
 <div class="tw">
 <table>
-<thead><tr><th>指标</th><th>最新值</th><th>5D变动</th><th>MTD变动</th><th>关键事件</th></tr></thead>
+<thead><tr><th>指标</th><th>最新值</th><th>5D 变动</th><th>MTD 变动</th><th>关键事件</th></tr></thead>
 <tbody>
-<tr><td>US 10Y</td><td>4.67%</td><td class="up">+4.57%</td><td class="up">+6.60%</td><td>5/13 PPI超预期→5/15单日+14bp</td></tr>
-<tr><td>US 30Y</td><td>5.18%</td><td class="up">+2.98%</td><td class="up">+4.33%</td><td>突破5%心理关口，匹配2025年5月前高</td></tr>
-<tr><td>US 2Y</td><td>~4.05%</td><td class="up">—</td><td class="up">—</td><td>突破Fed Funds上沿（4.0%）</td></tr>
+<tr><td>US 10Y</td><td>4.67%</td><td class="up">+4.57%</td><td class="up">+6.60%</td><td>5/13 PPI 超预期 → 5/15 单日 +14bp</td></tr>
+<tr><td>US 30Y</td><td>5.18%</td><td class="up">+2.98%</td><td class="up">+4.33%</td><td>突破 5% 心理关口，匹配 2025年5月前高</td></tr>
+<tr><td>US 2Y</td><td>~4.05%</td><td class="up">—</td><td class="up">—</td><td>突破 Fed Funds 上沿（4.0%）</td></tr>
 <tr><td>DXY</td><td>99.32</td><td class="up">+1.04%</td><td class="up">+1.13%</td><td>美元走强，风险偏好回流</td></tr>
 <tr><td>USDJPY</td><td>158.87</td><td class="up">+0.76%</td><td class="up">+1.20%</td><td>美日利差扩大</td></tr>
-<tr><td>日本10Y</td><td>2.79%</td><td class="up">+1.5%</td><td class="up">+16.3%</td><td>29年新高，BOJ 6月加息77%概率</td></tr>
+<tr><td>日本 10Y</td><td>2.79%</td><td class="up">+1.5%</td><td class="up">+16.3%</td><td>29年新高，BOJ 6月加息 77% 概率</td></tr>
 <tr><td>WTI</td><td>$103.86</td><td class="up">+1.64%</td><td class="up">+1.88%</td><td>霍尔木兹封锁持续，美伊僵局</td></tr>
 <tr><td>Gold</td><td>$4,461</td><td class="down">-4.63%</td><td class="down">-3.64%</td><td>利率压制压倒避险需求</td></tr>
 <tr><td>Copper</td><td>$6.17</td><td class="down">-4.83%</td><td class="up">+4.05%</td><td>工业金属跟随风险偏好收缩</td></tr>
@@ -132,18 +141,107 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </table>
 </div>
 
-<div class="callout">
+<div class="callout blue">
 <div class="callout-label">关键信号</div>
-<p>美债2年期收益率突破Fed Funds利率上沿（4.0%），这意味着市场认为当前政策利率<strong>不足以压制通胀</strong>。HSBC 5月20日警告：10Y已进入"危险区"——这个水平倾向于系统性压制几乎所有资产类别。如果终端利率预期继续上调，"风险资产可能暂时性全面走低"。</p>
+<p>美债2年期收益率突破Fed Funds利率上沿（4.0%），表面上看意味着市场认为当前政策利率"不足以压制通胀"。但VIX仅18、加息概率从36%回落至27%，说明市场并未进入系统性恐慌。HSBC今日的"危险区"警告恰恰可能出现在恐慌尾声——当大行开始高调警示时，市场往往已经在定价最坏情景。</p>
 </div>
 </div>
 
-<!-- Section 3: Portfolio Performance -->
+<!-- Section 3: Geopolitical Game Theory -->
 <div class="section">
-<div class="section-label">三 · 组合表现分解</div>
+<div class="section-label">三 · 地缘博弈论</div>
+<h2>伊朗：正在成为"逆天遭人恨"的全球公敌</h2>
+
+<p>霍尔木兹海峡危机推高油价→能源通胀→利率重定价，是全链条的源头。但这个源头本身正在发生结构性变化。</p>
+
+<h3>全球外交重心东移：中国成为"秩序塑造者"</h3>
+
+<p>过去两周，北京的外交日程密度极为罕见：</p>
+
+<div class="callout">
+<p>5月14日 · <strong>美国总统特朗普</strong>抵达北京，展开为期三天的国事访问，与习近平主席会谈逾2小时，同游天坛——这是特朗普重返白宫后首次对华国事访问。<br>
+5月15日 · <strong>法国总统马克龙</strong>此前已完成访华。<br>
+5月17日 · <strong>京报网</strong>报道："美俄元首一周内前后脚访华，罕见外交安排。"<br>
+5月19-20日 · <strong>俄罗斯总统普京</strong>对中国进行国事访问。<br>
+近日 · <strong>塞尔维亚总统</strong>即将来华。<br>
+同时 · <strong>李强会见美国工商界代表、丁薛祥会见俄罗斯第一副总理曼图罗夫。</strong></p>
+</div>
+
+<p>中国人民大学重阳金融研究院的定调是：<strong>"中国正在从国际秩序的'参与者'加速转向'塑造者'。"</strong></p>
+
+<p>在这个格局下，伊朗的战略处境正在急剧恶化：</p>
+
+<div class="game-tree">
+<span class="node">伊朗的博弈结构（简化）：</span><br>
+<br>
+<span class="node">伊朗</span> ─封锁海峡─→ 油价 $103+  → 全球通胀 → 普通民众受害<br>
+  │<br>
+  ├─威胁破坏海底电缆─→ 全球互联网风险 → <span class="fail">成为"逆天遭人恨"的对象</span><br>
+  │<br>
+  └─<span class="choice">中国角色转变</span>：美俄法元首密集访华<br>
+      │<br>
+      └─→ 中国从"参与者"→"塑造者"<br>
+          │<br>
+          └─→ 不可能支持破坏全球公共品（航运/互联网）的行为体<br>
+              │<br>
+              └─→ <span class="outcome">伊朗外交孤立加深 → 谈判压力增大 → 海峡复航概率上升</span>
+</div>
+
+<p>当美、俄、法三个联合国安理会常任理事国元首在两周内密集访问同一个国家，全球外交重心正在东移。伊朗封锁海峡、威胁破坏海底电缆——危害的是全球所有人的既得利益：油价、航运成本、互联网连接。作为正在被认可的"全球秩序塑造者"，中国的利益与全球公共品的稳定高度绑定。这意味着<strong>伊朗得到的不是更多筹码，而是更少同盟</strong>。</p>
+
+<p>Trump 5月19日叫停对伊朗的既定军事攻击（CBS News确认），同时称"严肃谈判"正在进行——这不是软弱，而是对博弈均衡的理性判断：<strong>让伊朗自己消耗自己的国际信誉，比军事打击更有效、成本更低。</strong>海峡每多封锁一天，伊朗就多失去一份国际同情。</p>
+
+<p>3月23日的历史先例提供了参照：仅Trump谈判言论就让布伦特原油从$114单日暴跌至$102。一旦海峡通航预期形成，油价可能在1-2周内回落至$80-90区间，支撑当前利率恐慌的"能源通胀"基础将迅速瓦解。</p>
+</div>
+
+<!-- Section 4: Samsung Game Theory -->
+<div class="section">
+<div class="section-label">四 · 三星博弈论</div>
+<h2>工会牌已出尽，供给收缩反成利好</h2>
+
+<p>三星电子工会谈判是本周另一条关键叙事。5月20日最新进展：管理层与工会的最后谈判破裂，18天罢工威胁（预估$7亿/天损失）悬于头顶。盘中股价急跌——但随即反弹。</p>
+
+<h3>一场"最后通牒博弈"的终结</h3>
+
+<div class="game-tree">
+<span class="node">三星工会博弈 · 三轮演进：</span><br>
+<br>
+<span class="node">Round 1</span>（5/12）工会要求永久性薪资结构改革<br>
+  └─→ <span class="choice">三星：一次性绩效金（one-off），拒绝永久承诺</span><br>
+  └─→ 政府调解介入<br>
+<br>
+<span class="node">Round 2</span>（5/14）三星主动邀约重返谈判桌<br>
+  └─→ 姿态放低（罕见会长道歉），但底线寸步不让<br>
+<br>
+<span class="node">Round 3</span>（5/20）最后谈判破裂<br>
+  └─→ <span class="fail">工会威胁 18 天罢工（$7亿/天）</span><br>
+  └─→ <span class="outcome">三星：沉默克制，不接受结构性让步</span><br>
+  └─→ <span class="outcome">盘中急跌 → 随即反弹（市场认可"靴子落地"）</span>
+</div>
+
+<p>博弈论视角下，三星管理层的策略是教科书级的<strong>"承诺策略"（Commitment Strategy）</strong>：如果接受永久性薪资改革，等于把定价权交给工会——棘轮效应下，下一次索求只会更大。不接受→短期罢工损失$7亿/天→但永久保住了薪酬制度的灵活性。</p>
+
+<p>而工会的致命弱点在于<strong>非对称成本</strong>：罢工工人损失工资+被同事眼红+被全球产业链怨恨；三星损失产能→<strong>反而推高存储价格</strong>→其他部门和非罢工员工受益。这不是一场对称战争。</p>
+
+<p>三星高层"不咸不淡道了个歉"——媒体描述为"千载难逢的一次"——恰恰是信号：管理层没有被吓到，很有定力。如果三星接受了工会要求，反倒会制造更大的不确定性：你不知道下一次更大的威胁是什么，又会在什么时候爆发。而现在，谈判破裂 = 拒绝接受 = 靴子落地 = 牌已出尽。</p>
+
+<h3>存储供给收缩的"反直觉利好"</h3>
+
+<p>当前全球存储供需极度不对称：AI拉动HBM需求爆发，SK海力士、三星、美光全部满产。罢工使三星产能进一步收缩→供给曲线左移→需求不变或增长→价格上升→毛利率扩大。</p>
+
+<p>这是存储行业周期性的本质：需求一来，供给立刻扩产，价格反被压制。罢工<strong>恰恰打破了"扩产→降价"的周期逻辑</strong>——它使供给持续处于收缩状态，强化了市场对供给紧张的预期，倒逼价格和毛利率进一步提升。三星的存储业务占其利润大半，罢工造成的产能损失很可能被价格上涨带来的利润增量对冲甚至超过。</p>
+
+<p>工会的少数罢工者在三星全体员工中将成为"被眼红的人"——他们损害了大多数非罢工员工的利益。在全球投资者和产业链视角中，这部分人会被贴上"贪得无厌"的标签。罢工不是工会的胜利，是工会信用的耗竭。<strong>从博弈论看，工会在这一刻已经失败——牌已出尽，大局已定。</strong></p>
+
+<p>今日盘中股价的走势（急跌后反弹）正是市场用真金白银在确认这一判断。</p>
+</div>
+
+<!-- Section 5: Portfolio 5D Performance -->
+<div class="section">
+<div class="section-label">五 · 组合表现分解</div>
 <h2>64只标的 5D 表现全景</h2>
 
-<h3>5D 涨幅前五（赢家：AI算力基础设施）</h3>
+<h3>5D 涨幅前五（赢家：AI 算力基础设施）</h3>
 <div class="tw">
 <table>
 <thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
@@ -154,7 +252,7 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <tr><td>CRM</td><td class="up">+4.7%</td><td class="down">-2.4%</td><td class="down">-32.1%</td></tr></tbody>
 </table>
 </div>
-<p class="chart-note">NBIS手握Meta等巨额AI订单、ARM受益CPU需求增长、MRVL受3.2T+光互连布局推动。三者共同特征：<strong>AI基础设施直接收入，现金流可见度高</strong>。</p>
+<p class="chart-note">NBIS 手握 Meta 等巨额 AI 订单、ARM 受益端侧 AI + CPU 需求增长、MRVL 受 3.2T+ 光互连布局推动。三者共同特征：<strong>AI 基础设施直接收入，现金流可见度高。市场在"去伪存真"——资金从 AI 叙事向 AI 现金牛集中。</strong></p>
 
 <h3>5D 跌幅前十（重灾区：高动量 + 周期敏感 + 加密敞口）</h3>
 <div class="tw">
@@ -175,71 +273,61 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 
 <div class="alert">
 <div class="alert-label">跌幅归因</div>
-<p><strong>7709.HK（-24.1%）</strong>：HK市场系统性抛售（美伊局势+恒指承压），年内暴涨397%后的获利盘出逃。<br>
-<strong>1879.HK 曦智科技（-21.0%）</strong>：AI光计算小市值概念股，62亿HKD低流动性，宏观恐慌下首当其冲。<br>
-<strong>LEU（-16.5%）</strong>：Q1业绩miss + 利润率压缩 + 核能板块轮动出清，尽管上调全年指引+$9亿HALEU大单。<br>
-<strong>IREN（-15.6%）</strong>：$30亿可转债稀释 + BTC联动下跌 + 收购不确定性，虽然与NVIDIA签$34亿AI云合同。<br>
-<strong>POWL（-15.1%）</strong>：通胀数据打击高估值工业股 + 内部人减持信号。<br>
-<strong>6324.T Harmonic Drive（-15.2%）</strong>：财年EPS miss 9.2% + 日本加息预期压制精密机械估值。<br>
-<strong>2513.HK 智谱AI（-13.5%）</strong>：YTD+654%后的自然获利回吐，HK AI板块情绪回调。<br>
-<strong>6268.T Nabtesco（-13.2%）</strong>：日本10Y升至29年高，工业自动化板块整体被利率重估。<br>
-<strong>6656.HK 思格新能源（-12.4%）</strong>：HK新能源概念，低流动性叠加宏观恐慌。<br>
-<strong>COPX（-12.6%）</strong>：铜价-4.83%，铜矿ETF跟随商品走弱。</p>
+<p><strong>7709.HK（-24.1%）</strong>：HK 市场系统性抛售（美伊局势 + 恒指承压），年内暴涨 397% 后的获利盘出逃，非基本面恶化。<br>
+<strong>1879.HK 曦智科技（-21.0%）</strong>：AI 光计算小市值概念股，62亿HKD 低流动性，宏观恐慌下首当其冲。<br>
+<strong>LEU（-16.5%）</strong>：Q1 业绩 miss + 利润率压缩 + 核能板块轮动出清。尽管上调全年指引 + 获 $9亿 HALEU 大单，但当前市场在"show me"模式下不给credit。<br>
+<strong>IREN（-15.6%）</strong>：$30亿可转债稀释 + BTC 联动下跌 + 收购不确定性。虽然与 NVIDIA 签 $34亿 AI 云合同，短期情绪完全被稀释和加密下跌主导。<br>
+<strong>POWL（-15.1%）</strong>：通胀数据打击高估值工业股 + 内部人减持信号。合同面积极但估值已提前透支。<br>
+<strong>6324.T Harmonic Drive（-15.2%）</strong>：财年 EPS miss 9.2% + 日本加息预期压制精密机械估值。<br>
+<strong>2513.HK 智谱AI（-13.5%）</strong>：YTD +654% 后的自然获利回吐，HK AI 板块情绪回调。基本面（Token 消耗量 120万亿/日）未变。<br>
+<strong>6268.T Nabtesco（-13.2%）</strong>：日本 10Y 升至 29 年高，工业自动化板块整体被利率重估。RV 减速器全球市占率 60% 的基本面未受损。<br>
+<strong>6656.HK 思格新能源（-12.4%）</strong>：HK 新能源概念，低流动性叠加宏观恐慌。<br>
+<strong>COPX（-12.6%）</strong>：铜价 -4.83%，铜矿 ETF 跟随商品走弱。铜的中长期供需逻辑未变。</p>
 </div>
 </div>
 
-<!-- Section 4: 2025 vs 2026 Comparison -->
+<!-- Section 6: 2025 vs 2026 -->
 <div class="section">
-<div class="section-label">四 · 2025 vs 2026 对比</div>
+<div class="section-label">六 · 2025 vs 2026 对比</div>
 <h2>两次"通胀→利率飙升"的本质差异</h2>
 
 <div class="compare-grid">
-<div class="compare-hdr">对比维度</div><div class="compare-hdr">2025年春季</div><div class="compare-hdr">2026年春季（当前）</div>
+<div class="compare-hdr">对比维度</div><div class="compare-hdr">2025 年春季</div><div class="compare-hdr">2026 年春季（当前）</div>
 
 <div class="compare-label">10Y 峰值</div><div>~4.6%</div><div class="up">4.67%（已突破）</div>
-
 <div class="compare-label">30Y 峰值</div><div>~5.0%</div><div class="up">5.18%（已突破）</div>
-
-<div class="compare-label">触发因素</div><div>关税政策冲击</div><div>油价$103+战争供给冲击</div>
-
-<div class="compare-label">通胀性质</div><div>政策驱动（可逆）</div><div class="down">能源供给（难逆）</div>
-
-<div class="compare-label">核心CPI</div><div>温和偏高</div><div class="down">3.8% YoY（加速中）</div>
-
-<div class="compare-label">PPI</div><div>受控</div><div class="down">6.0% YoY（2022后最高）</div>
-
-<div class="compare-label">Fed位置</div><div>高位（远高于中性利率）</div><div class="down">中位（接近中性，进退皆可）</div>
-
-<div class="compare-label">市场预期</div><div>"推迟降息到Q3/Q4"</div><div class="down">"可能加息"</div>
-
-<div class="compare-label">Fed内部</div><div>鸽派主导</div><div class="down">8-4分裂+领导层换血</div>
-
-<div class="compare-label">油价</div><div>相对平稳</div><div class="down">$103+，霍尔木兹封锁</div>
-
-<div class="compare-label">2Y vs FF</div><div>2Y < Fed Funds</div><div class="down">2Y > Fed Funds（不够紧）</div>
-
-<div class="compare-label">结局</div><div>9月后连续3次降息</div><div class="down">？？？</div>
+<div class="compare-label">触发因素</div><div>关税政策冲击</div><div>油价 $103+ 战争供给冲击</div>
+<div class="compare-label">通胀性质</div><div>政策驱动（可逆）</div><div>地缘驱动（亦可逆）</div>
+<div class="compare-label">核心 CPI</div><div>温和偏高</div><div>3.8% YoY</div>
+<div class="compare-label">PPI</div><div>受控</div><div>6.0% YoY（2022 后最高）</div>
+<div class="compare-label">Fed 位置</div><div>高位（远高于中性利率）</div><div>中位（接近中性，进退皆可）</div>
+<div class="compare-label">市场预期</div><div>"推迟降息到 Q3/Q4"</div><div>"加息概率不可忽视"</div>
+<div class="compare-label">Fed 内部</div><div>鸽派主导</div><div>8-4 分裂 + 领导层换血</div>
+<div class="compare-label">油价</div><div>相对平稳</div><div>$103+，霍尔木兹封锁</div>
+<div class="compare-label">2Y vs FF</div><div>2Y < Fed Funds</div><div>2Y > Fed Funds</div>
+<div class="compare-label">结局</div><div>9 月后连续 3 次降息</div><div><strong>大概率：恐慌消退 → 利率回落</strong></div>
 </div>
 
-<h3>2025年复盘：政策冲击 → 政策逆转 → 利率回落</h3>
+<h3>2025 年复盘：政策冲击 → 政策逆转 → 利率回落</h3>
 
-<p>2025年初，通胀粘性出现，Fed推迟降息。4月初特朗普宣布"对等关税"，10Y一度暴跌至4.045%（市场解读为衰退恐惧 > 通胀风险）。一周后关税暂停，10Y反弹至4.5%。5月触及~4.6%高点——即当前被反复引用的"2025年5月以来最高"基准。</p>
+<p>2025年初通胀粘性出现，Fed推迟降息。4月初特朗普宣布"对等关税"，10Y一度暴跌至4.045%（市场解读为衰退恐惧 > 通胀风险）。一周后关税暂停，10Y反弹至4.5%。5月触及~4.6%高点——即当前被反复引用的"2025年5月以来最高"基准。但关税是<strong>政治工具</strong>，可开可关。当关税威胁消退，Fed得以在9月后启动连续3次降息（累计75bp）。<strong>2025年5月扛住不卖的人，在Q4赚到了绝大多数YTD涨幅。</strong></p>
 
-<p>关键转折：关税是<strong>政策工具</strong>，可开可关。当关税威胁消退，通胀预期随之缓和，Fed得以在9月后启动连续3次降息（累计75bp），12月10日最后一次降息时将10Y压至4.15%。全年以10Y收于4.16%收官。</p>
+<h3>2026年：看似更严重，但本质上同样是可逆的</h3>
 
-<h3>2026年：供给冲击 → 无简单出口 → 利率可能继续上行</h3>
+<p>2026年的"通胀恐慌"看起来比2025年更严重——PPI 6.0%、CPI 3.8%、30Y突破5%、加息概率浮现。但根源同样是<strong>地缘政治事件</strong>而不是经济结构变迁：海峡封锁→油价→通胀→利率。一旦海峡复航（或复航预期形成），整条传导链将从源头瓦解。而正如第三节所分析，伊朗的战略地位正在急剧恶化——中美俄的外交协调正在挤压伊朗的博弈空间。</p>
 
-<p>这一次没有"关税暂停"这样的off-ramp。霍尔木兹海峡被封锁、WTI持续$100以上、美国汽油破$4.50/加仑——<strong>能源供给冲击驱动的结构性通胀</strong>无法通过货币政策直接解决。Natixis的John Briggs直言："解决战争，我们才能计算压力何时缓解。否则油价驱动的通胀粘性每天都在延长。"</p>
-
-<p>2年期收益率突破Fed Funds上沿是最危险的信号——市场在说当前利率"不够紧"。如果6-7月CPI/PPI继续超预期，Fed加息概率将从27%继续攀升，届时10Y可能突破5%、30Y可能向5.5-6%迈进，引发更广泛的金融条件收紧。</p>
+<div class="callout green">
+<div class="callout-label">核心差异</div>
+<p>2025年关税的"开关"是总统行政令——不确定的是政治意愿。2026年海峡的"开关"是停火谈判——不确定的是博弈均衡。但两者的共同点是：<strong>它们都是可逆的政治决策，而非不可逆的经济结构变迁。</strong>如果2025年5月是对的（不卖），那么2026年5月拥有同样的逻辑基础。</p>
+</div>
 </div>
 
-<!-- Section 5: YTD Anchors -->
+<!-- Section 7: YTD Anchors -->
 <div class="section">
-<div class="section-label">五 · YTD 视角</div>
+<div class="section-label">七 · YTD 视角</div>
 <h2>年初至今：50涨 / 14跌，但分化极端</h2>
 
-<h3>YTD 前十大（涨幅惊人，但近期普遍回调）</h3>
+<h3>YTD 前十大（涨幅惊人，近期普遍回调）</h3>
 <div class="tw">
 <table>
 <thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
@@ -255,7 +343,7 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <tr><td>LITE</td><td class="down">-10.3%</td><td class="down">-6.3%</td><td class="up">+141.5%</td></tr></tbody>
 </table>
 </div>
-<p class="chart-note">前十大YTD标的的5D表现均为负值——即便是最强赢家也在遭受利率冲击。SNDK YTD +482.7%但5D -4.7%，7709.HK YTD +397%但5D -24.1%。涨幅最大的标的在利率逆转时回调最深。</p>
+<p class="chart-note">前十大 YTD 标的的 5D 表现均为负值——即便是最强赢家也在遭受利率冲击。SNDK YTD +482.7% 但 5D -4.7%，7709.HK YTD +397% 但 5D -24.1%。涨幅最大的标的在利率逆转时回调最深——这恰恰是"短暂逆风"的特征：<strong>被压缩的估值弹簧在利率回落时将释放最大的反弹动能。</strong></p>
 
 <h3>YTD 负收益标的（14只，集中暴露利率敏感领域）</h3>
 <div class="tw">
@@ -277,69 +365,69 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <tr><td>ARKG</td><td class="down">-5.4%</td><td class="down">-7.2%</td><td class="down">-2.9%</td></tr></tbody>
 </table>
 </div>
-<p class="chart-note">负收益标的集中在几个脆弱板块：加密/交易所（BTC、ETH、COIN、HOOD）+ 软件/SaaS（CRM、PLTR）+ 核能/铀矿（LEU）+ 波动性ETF（ARKK、ARKG）+ 中国消费科技（1810.HK小米）。这些标的的共同特征是对贴现率高度敏感、或基本面存在独立压力。</p>
+<p class="chart-note">负收益标的集中在几个脆弱板块：加密/交易所（BTC、ETH、COIN、HOOD）+ 软件/SaaS（CRM、PLTR）+ 核能/铀矿（LEU）+ 波动性ETF（ARKK、ARKG）+ 中国消费科技（1810.HK小米）。这些标的的共同特征是对贴现率高度敏感、或基本面存在独立压力。如果利率回落，这些板块将是反弹弹性最大的区域。</p>
 </div>
 
-<!-- Section 6: Prediction Markets -->
+<!-- Section 8: Prediction Markets -->
 <div class="section">
-<div class="section-label">六 · 预测市场定价</div>
+<div class="section-label">八 · 预测市场定价</div>
 <h2>Polymarket · Kalshi · CME FedWatch</h2>
 
 <div class="stat-grid">
   <div class="stat-cell"><div class="stat-value">97.8%</div><div class="stat-label">6月会议维持不变</div></div>
-  <div class="stat-cell"><div class="stat-value">57-69%</div><div class="stat-label">2026全年零降息</div></div>
-  <div class="stat-cell"><div class="stat-value">27%</div><div class="stat-label">2026年内加息</div></div>
-  <div class="stat-cell"><div class="stat-value">16%</div><div class="stat-label">降息一次25bp</div></div>
+  <div class="stat-cell"><div class="stat-value">57-69%</div><div class="stat-label">2026 全年零降息</div></div>
+  <div class="stat-cell"><div class="stat-value">27%</div><div class="stat-label">2026 年内加息</div></div>
+  <div class="stat-cell"><div class="stat-value">16%</div><div class="stat-label">降息一次 25bp</div></div>
 </div>
 
-<p>Polymarket "2026年零降息"合约交易量$2,670万，当前57%概率（较5月16日69%回落）；"2026年加息"合约27%概率，从周中36%小幅回落——Powell 5月19日表态"油价驱动通胀"但未明确鹰派转向，令极端加息预期有所降温。Kalshi零降息概率约68%，与Polymarket基本一致。</p>
+<p>Polymarket "2026年零降息"合约交易量 $2,670万，当前 57% 概率（较5月16日 69% 回落）；"2026年加息"合约 27% 概率，从周中 36% 小幅回落。Kalshi 零降息概率约 68%，与 Polymarket 基本一致。CME FedWatch 显示加息概率首次超越降息概率，但期货市场受机构套保行为影响，而 Polymarket/Kalshi 引入零售和全球资金流——<strong>三个来源的价差正是恐慌情绪正在被理性定价所取代的信号。</strong></p>
 
-<p>CME FedWatch依靠联邦基金期货定价，目前显示加息概率首次超越降息概率。但期货市场受机构套保行为影响，而Polymarket/Kalshi引入零售和全球资金流——<strong>三个来源的价差正是定价错位的信号</strong>。当前三者的共同指向是：2026年底前不降息是基准情景，加息是低概率但不可忽视的尾部风险。</p>
-
-<div class="alert">
-<div class="alert-label">美联储领导层变动</div>
-<p>市场关注Kevin Warsh潜在接任美联储主席的可能性。Warsh以鹰派著称，若确认上任，可能加速加息路径定价——这是当前利率市场未被充分反映的政治不确定性。</p>
+<div class="callout blue">
+<div class="callout-label">市场正在自我消化</div>
+<p>加息概率从 36% → 27% 的回落不是偶然——Powell 5月19日表态"油价驱动通胀"但未明确鹰派转向，市场在 PPI/CPI 的冲击后冷静下来，正在寻找均衡点。VIX 仅 18——这不是恐慌，是理性重定价。HSBC 今日高调"危险区"警告，恰恰可能出现在恐慌尾声。</p>
 </div>
 </div>
 
-<!-- Section 7: Framework Analysis -->
+<!-- Section 9: Five-Layer Framework -->
 <div class="section">
-<div class="section-label">七 · 五层框架总结</div>
+<div class="section-label">九 · 五层框架总结</div>
 <h2>按 Kerwin 五层框架审视当前组合</h2>
 
-<h3>第1层：全球流动性 / 贴现率（主导因子）</h3>
-<p>US10Y +57bp至4.67%，US30Y突破5.18%，日本10Y升至2.79%（29年高）。全球三大利率中心同步上行，无风险利率的全面抬升构成组合5D表现的首要解释变量。这是"分母驱动"的下跌——估值压缩而非盈利恶化。</p>
+<h3>第1层：全球流动性 / 贴现率（主导但正在触顶）</h3>
+<p>US10Y +57bp 至 4.67%，US30Y 突破 5.18%，日本 10Y 升至 2.79%（29年高）。全球三大利率中心同步上行，构成组合 5D 表现的首要解释变量。但加息概率从 36% 回落至 27%、VIX 仅 18——利率恐慌可能已经接近阶段性顶部。</p>
 
-<h3>第2层：制度 / 财政 / 政治方向</h3>
-<p>美伊僵局推高油价→第二波通胀→Fed加息路径重新定价。Fed领导层换血增加政策不确定性。$691B单周国债拍卖加剧供需失衡。日本BOJ鹰派转向（6月77%加息概率）引发全球利率联动。关税、战争、财政赤字三线交织。</p>
+<h3>第2层：制度 / 财政 / 政治方向（正在转向有利）</h3>
+<p>美伊僵局是利率恐慌的根源，但全球外交格局正在发生深刻变化：Trump 访华、普京访华、法国总统此前访华、塞尔维亚总统即将访华——中国从"参与者"转型为"秩序塑造者"。在此格局下，伊朗封锁海峡（危害全球公共品）的行为正在使其陷入外交孤立。Trump 叫停军事攻击，"严肃谈判"进行中——地缘政治风险正在从"无解"向"可解"移动。</p>
 
-<h3>第3层：技术 / 产业传导</h3>
-<p>AI产业趋势未变：NVIDIA与IREN签$34亿合同、NBIS手握Meta等大单持续增长、ARM受益端侧AI+CPU需求。但"蹭AI概念"的小市值标的正在被清洗。市场在区分"真实AI现金流"与"AI叙事估值"。</p>
+<h3>第3层：技术 / 产业传导（趋势未变，分化加剧）</h3>
+<p>AI 产业趋势不变：NVIDIA 与 IREN 签 $34亿合同、NBIS 手握 Meta 等大单持续增长。资金正在从"AI 叙事"向"AI 现金牛"集中——NBIS +10.4%、ARM +7.3%、MRVL +7.2% 的逆势上涨就是证明。这是去伪存真的健康过程。</p>
 
-<h3>第4层：公司质量 / 估值</h3>
-<p>业绩miss的（LEU、6324.T）被无情惩罚；稀释融资的（IREN $3B CB）不被原谅；内部人减持的（POWL）放大抛压。市场已从"买一切AI"切换至"买能证明自己的AI"。</p>
+<h3>第4层：公司质量 / 估值（"show me"模式）</h3>
+<p>业绩 miss 的（LEU、6324.T）被惩罚；稀释融资的（IREN $3B CB）不被原谅；内部人减持的（POWL）放大抛压。但三星案例提供了"反直觉利好"的范例：工会罢工表面是利空，实质上强化了存储供给收缩逻辑，倒逼价格和毛利率上升。市场从"买一切 AI"切换至"买能证明自己的 AI"——这对持仓质量是利好。</p>
 
-<h3>第5层：跨资产确认</h3>
-<p>黄金-4.63%、铜-4.83%、BTC-5.45%、ETH-7.53%——贵金属+工业金属+加密全线下跌。这不是单一资产错杀，是全球风险偏好系统性收缩。DXY +1.04%确认资金从风险资产向美元现金回流。</p>
+<h3>第5层：跨资产确认（同步下跌 = 短暂逆风的特征）</h3>
+<p>黄金 -4.63%、铜 -4.83%、BTC -5.45%、ETH -7.53%——贵金属+工业金属+加密全线下跌。但这恰恰是"短暂逆风"的特征：<strong>当所有资产同步下跌时，说明驱动因素是统一的（利率），而非各自基本面恶化。</strong>一旦利率回落，所有被同步压缩的资产将同步反弹。DXY +1.04% 确认资金从风险资产向美元回流——这是恐慌性避险，不是结构性去风险化。</p>
 </div>
 
-<!-- Section 8: Conclusion -->
+<!-- Section 10: Strategy Implications -->
 <div class="section">
-<div class="section-label">八 · 策略含义</div>
-<h2>面对"真滞胀"与"假通胀恐慌"的差异</h2>
+<div class="section-label">十 · 策略含义</div>
+<h2>面对"短暂逆风"，不是恐慌的时候</h2>
 
-<div class="callout">
+<div class="callout green">
 <div class="callout-label">核心结论</div>
-<p><strong>2025年是"假通胀恐慌"——政策冲击可逆，Fed有空间降息。</strong><br>
-<strong>2026年很可能是"真滞胀序幕"——供给冲击难逆，Fed进退维谷。</strong></p>
+<p><strong>如果2025年5月"利率恐慌→不卖→Q4报复性反弹"的逻辑成立，那么2026年5月的逻辑基础相同甚至更强——因为这一次，支撑恐慌的三大支柱（伊朗孤立、三星靴子落地、中国外交协调）正在系统性松动。</strong></p>
 </div>
 
-<p>当前环境对组合管理的关键启发：</p>
-<p>1. <strong>高YTD涨幅标的需警惕"回撤惯性"</strong>：SNDK（+483%）、7709.HK（+397%）、智谱AI（+654%）等已在过去5天领跌，说明极端涨幅后对利率逆转极度敏感。这不是减仓建议，但需要设定止损/止盈纪律。</p>
-<p>2. <strong>AI算力基础设施是当前唯一"免疫区"</strong>：NBIS、ARM、MRVL的5D逆势上涨证明——当宏观恐慌来临时，资金不是逃离AI，而是从"AI叙事"向"AI现金牛"集中。这是去伪存真的健康过程。</p>
-<p>3. <strong>加密/贵金属/铜的同步下跌是预警信号</strong>：当传统避险资产（黄金）和数字黄金（BTC）同时下跌，说明流动性在系统性收缩。如果这一趋势延续，组合中的₿板块和🥇板块需要评估仓位耐受度。</p>
-<p>4. <strong>日本加息是全球利率上行的放大器</strong>：BOJ若在6月加息（77%概率），将推动JGB 10Y突破3%，日元套利交易进一步平仓，对全球风险资产施加额外压力。</p>
-<p>5. <strong>盯住霍尔木兹</strong>：这是目前所有宏观不确定性中最大的单一变量。如果海峡通航恢复，油价回落到$80-90区间，通胀预期将迅速降温，利率会跟随回落，当前最痛苦的持仓将迎来报复性反弹。</p>
+<p><strong>1. 高YTD涨幅标的的回调是"弹簧压缩"而非"结构破坏"。</strong>SNDK（+483%）、7709.HK（+397%）、智谱AI（+654%）等在5D窗口领跌，是因为它们在利率逆转时对估值压缩最敏感。但它们的涨幅是有基本面支撑的（存储紧缺、AI模型需求爆发），不是纯叙事。一旦利率回落，这些弹簧将释放最大的反弹动能。</p>
+
+<p><strong>2. AI算力基础设施是当前唯一"免疫区"。</strong>NBIS、ARM、MRVL 的 5D 逆势上涨证明——当宏观恐慌来临时，资金不是逃离AI，而是从"AI叙事的"向"AI现金牛的"集中。持有真实AI现金流标的，是穿越利率风暴的最优策略。</p>
+
+<p><strong>3. 三星罢工 → 存储供给收缩 → 利好存储板块。</strong>MU（+144.9% YTD，5D -8.8%）、SNDK（+482.7% YTD，5D -4.7%）、000660.KS（+167.3% YTD，5D -12.1%）的回调，恰恰是"被利率错杀 + 被罢工利好即将兑现"的双重机会。存储是当前组合中最具"反直觉利好"的板块。</p>
+
+<p><strong>4. 加密/贵金属/铜的同步下跌 = 利率退潮后的反弹弹性最大。</strong>当传统避险资产（黄金）和数字黄金（BTC）同时下跌，是因为利率压制压倒了一切。但这不是结构性趋势——一旦海峡谈判出现正面进展、10Y回落至4.2%以下，这些对利率最敏感的资产将出现最猛烈的反弹。</p>
+
+<p><strong>5. 盯住两根"弦"：霍尔木兹 + BOJ 6月会议。</strong>海峡复航是最大的上行催化剂；日本加息（77%概率）是最大的短期扰动。但日本的加息恰恰是"经济复苏→正常化"的信号，中长期对日本股票（6594.T、6324.T、6268.T）是利好而非利空。当前的日本股票回调是买入机会。</p>
 </div>
 
 </div>
@@ -348,7 +436,7 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
   <strong>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</strong>
   <div class="footer-rule"></div>
   本文为投资研究参考，不构成具体投资建议。数据截至2026年5月20日。<br>
-  数据源：yfinance · Reuters · Bloomberg · CNBC · CME FedWatch · Polymarket · Kalshi · TradingEconomics · FRED<br>
+  数据源：yfinance · Reuters · Bloomberg · CNBC · CME FedWatch · Polymarket · Kalshi · TradingEconomics · FRED · CBS News<br>
   过往表现不代表未来收益。
 </footer>
 </div></div>
