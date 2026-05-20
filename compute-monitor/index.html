@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPU 算力租赁价格监测 — Kerwin Compute Monitor</title>
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--up:#16a34a;--down:#dc2626;--gold:#b8860b;--warn:#92400e;--blue:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roman','PingFang HK','Microsoft YaHei',sans-serif;color:var(--ink);font-size:14px;line-height:1.82}
+.page{max-width:860px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:30px;font-weight:700;line-height:1.15;margin:0 0 4px;color:#16110d}
+.top-sub{font-size:13px;color:var(--date);margin-bottom:10px;font-weight:600}
+.wrap{max-width:820px;margin:0 auto;background:#fff;padding:20px}
+.refresh-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 20px;background:#f5f2eb;font-size:11px;color:var(--muted);margin:0 20px;border-bottom:1px solid var(--line)}
+.refresh-bar button{background:var(--gold);color:#fff;border:none;padding:5px 14px;border-radius:12px;font:600 10px Arial,sans-serif;cursor:pointer;letter-spacing:.04em}
+.gpu-card{margin:0 20px 20px;border:1px solid var(--line);background:#fdfaf5}
+.gpu-card-hdr{background:var(--ink);color:#f5f0e8;padding:10px 16px;font:700 13px Arial,sans-serif;letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.gpu-card-hdr .ts{font-weight:400;font-size:10px;opacity:.7}
+.prices{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.price-col{padding:14px 12px;text-align:center;border-right:1px solid var(--line)}
+.price-col:last-child{border-right:none}
+.price-tier{font:700 10px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.price-val{font:700 28px Georgia,serif;color:var(--ink);line-height:1.1;margin-bottom:2px}
+.price-val sup{font-size:14px;font-weight:400;color:var(--muted)}
+.price-sub{font:11px Arial,sans-serif;color:var(--muted);line-height:1.5}
+.price-sub span{display:block}
+.spread-bar{padding:8px 16px;background:#f5f0e8;font:10px Arial,sans-serif;color:var(--muted);display:flex;justify-content:center;gap:20px}
+.spread-bar strong{color:var(--warn)}
+.spread-bar .up{color:var(--up)}.spread-bar .down{color:var(--down)}
+.tw{overflow-x:auto;margin:0 20px 16px}
+table{width:100%;border-collapse:collapse;font:11px Arial,sans-serif}
+thead tr{background:var(--ink);color:#f5f0e8}
+th{padding:6px 10px;text-align:center;font-weight:600;font-size:9.5px;letter-spacing:.05em;white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:4px 10px;border-bottom:1px solid var(--line);text-align:center;font-family:'SF Mono','Consolas',monospace;font-size:10.5px}
+td:first-child{text-align:left;font-weight:600;font-size:10px;font-family:Arial,sans-serif}
+tr:nth-child(even) td{background:rgba(220,205,191,.08)}
+footer{background:var(--paper);border-top:2px solid var(--ink);padding:18px 28px 14px;font-size:11px;color:var(--muted);line-height:1.8;text-align:center}
+.meta-bar{background:#f5f2eb;padding:8px 20px;font-size:10px;color:var(--muted);line-height:1.6;text-align:center}
+.empty-state{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px}
+@media(max-width:640px){
+  .page{padding:0 4px 20px}
+  .topbar{padding:14px 16px 10px}
+  .top-title{font-size:24px}
+  .prices{grid-template-columns:1fr}
+  .price-col{border-right:none;border-bottom:1px solid var(--line)}
+  .price-col:last-child{border-bottom:none}
+  .gpu-card,.tw,.refresh-bar{margin-left:10px;margin-right:10px}
+  .wrap{padding:10px}
+}
+</style>
+</head>
+<body>
+<div class="page"><div class="shell">
+<div class="topbar">
+<div class="top-kicker">KERWIN · COMPUTE MONITOR</div>
+<h1 class="top-title">GPU 算力租赁价格监测</h1>
+<div class="top-sub">H100 · A100 · B200 ｜ Hyperscaler · NeoCloud · Marketplace 三层指数</div>
+</div>
+<div class="refresh-bar">
+  <span id="updated-at">加载中…</span>
+  <button onclick="refresh()">刷新数据</button>
+</div>
+<div id="content"></div>
+<div class="meta-bar" id="spreads-bar"></div>
+</div></div>
+<footer>
+  <strong>© Kerwin｜GPU 算力监测系统｜Enya.Clawd 自动化呈现</strong><br>
+  数据源：Vast.ai · AWS EC2 Pricing · CoreWeave · Lambda Labs<br>
+  每4小时自动更新 · 本文不构成投资建议
+</footer>
+
+<script>
+// Embedded initial data
+var EMBEDDED = {
+  "timestamp": "2026-05-20T13:03:51.699189+00:00",
+  "date": "2026-05-20",
+  "hour": "13",
+  "gpus": {
+    "H100": {
+      "marketplace": {
+        "mid": 2.0033,
+        "mean": 2.2872,
+        "low": 1.4458,
+        "high": 4.5472,
+        "p25": 1.7611,
+        "p75": 2.6463,
+        "count": 98
+      },
+      "neocloud": {
+        "mid": 2.425,
+        "mean": 2.425,
+        "low": 2.36,
+        "high": 2.49,
+        "p25": 2.36,
+        "p75": 2.49,
+        "count": 2
+      },
+      "hyperscaler": {
+        "mid": 7.596,
+        "mean": 7.0485,
+        "low": 0.0156,
+        "high": 14.304,
+        "p25": 6.8956,
+        "p75": 8.1424,
+        "count": 97
+      }
+    },
+    "A100": {
+      "marketplace": {
+        "mid": 0.87,
+        "mean": 0.8888,
+        "low": 0.12,
+        "high": 1.536,
+        "p25": 0.7624,
+        "p75": 1.0696,
+        "count": 64
+      },
+      "neocloud": {
+        "mid": 1.56,
+        "mean": 1.56,
+        "low": 1.5,
+        "high": 1.62,
+        "p25": 1.5,
+        "p75": 1.62,
+        "count": 2
+      },
+      "hyperscaler": {
+        "mid": 3.0956,
+        "mean": 3.0038,
+        "low": 0.0156,
+        "high": 4.0716,
+        "p25": 2.8743,
+        "p75": 3.7285,
+        "count": 42
+      }
+    },
+    "B200": {
+      "marketplace": {
+        "mid": 4.063,
+        "mean": 5.2058,
+        "low": 3.6252,
+        "high": 8.7611,
+        "p25": 3.8514,
+        "p75": 6.8264,
+        "count": 64
+      },
+      "neocloud": {
+        "mid": 5.3,
+        "mean": 5.3,
+        "low": 5.3,
+        "high": 5.3,
+        "p25": 5.3,
+        "p75": 5.3,
+        "count": 1
+      }
+    }
+  },
+  "spreads": {
+    "hyperscaler_vs_neocloud_pct": 213.2,
+    "neocloud_vs_marketplace_pct": 21.1
+  },
+  "raw_count": 370
+};
+var TS_DATA = {
+  "generated_at": "2026-05-20T13:04:56.576634+00:00Z",
+  "point_count": 2,
+  "ranges": {
+    "1D": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "5D": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "1M": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "3M": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "YTD": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "1Y": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ],
+    "ALL": [
+      {
+        "date": "2026-05-20",
+        "h100_neocloud": 2.425,
+        "h100_hyperscaler": 7.596,
+        "h100_marketplace": 2.0033,
+        "a100_neocloud": 1.56,
+        "b200_neocloud": 5.3,
+        "spread_pct": 213.2
+      }
+    ]
+  }
+};
+
+function fmt(v) {
+  if (v == null) return '-';
+  return '$' + v.toFixed(2);
+}
+
+function fmtPct(v) {
+  if (v == null || v === 0) return '<span style="color:var(--muted)">—</span>';
+  var cls = v > 0 ? 'up' : 'down';
+  var sign = v > 0 ? '+' : '';
+  return '<span class="' + cls + '">' + sign + v.toFixed(1) + '%</span>';
+}
+
+function renderGPUCard(label, data) {
+  if (!data) return '<div class="empty-state">暂无 ' + label + ' 数据</div>';
+  var mp = data.marketplace || {};
+  var nc = data.neocloud || {};
+  var hy = data.hyperscaler || {};
+  
+  var html = '<div class="gpu-card">';
+  html += '<div class="gpu-card-hdr"><span>🖥 NVIDIA ' + label + '</span></div>';
+  html += '<div class="prices">';
+  
+  // Hyperscaler
+  html += '<div class="price-col">';
+  html += '<div class="price-tier">Hyperscaler (AWS)</div>';
+  html += '<div class="price-val">' + fmt(hy.mid) + '</div>';
+  html += '<div class="price-sub">';
+  html += '<span>低 ' + fmt(hy.low) + ' · 高 ' + fmt(hy.high) + '</span>';
+  html += '<span>P25 ' + fmt(hy.p25) + ' · P75 ' + fmt(hy.p75) + '</span>';
+  html += '<span>样本 ' + (hy.count||0) + '</span>';
+  html += '</div></div>';
+  
+  // NeoCloud
+  html += '<div class="price-col">';
+  html += '<div class="price-tier">NeoCloud</div>';
+  html += '<div class="price-val">' + fmt(nc.mid) + '</div>';
+  html += '<div class="price-sub">';
+  html += '<span>CoreWeave · Lambda Labs</span>';
+  html += '<span>低 ' + fmt(nc.low) + ' · 高 ' + fmt(nc.high) + '</span>';
+  html += '<span>样本 ' + (nc.count||0) + '</span>';
+  html += '</div></div>';
+  
+  // Marketplace
+  html += '<div class="price-col">';
+  html += '<div class="price-tier">Marketplace (Vast.ai)</div>';
+  html += '<div class="price-val">' + fmt(mp.mid) + '</div>';
+  html += '<div class="price-sub">';
+  html += '<span>低 ' + fmt(mp.low) + ' · 高 ' + fmt(mp.high) + '</span>';
+  html += '<span>P25 ' + fmt(mp.p25) + ' · P75 ' + fmt(mp.p75) + '</span>';
+  html += '<span>样本 ' + (mp.count||0) + '</span>';
+  html += '</div></div>';
+  
+  html += '</div>';
+  
+  // Cross-tier spread
+  if (hy.mid && nc.mid) {
+    var spr = ((hy.mid - nc.mid) / nc.mid * 100);
+    html += '<div class="spread-bar">Hyperscaler vs NeoCloud 溢价：<strong>' + fmtPct(spr) + '</strong></div>';
+  }
+  
+  html += '</div>';
+  return html;
+}
+
+function render() {
+  var d = EMBEDDED;
+  var html = '';
+  
+  var gpus = d.gpus || {};
+  ['H100','A100','B200'].forEach(function(g) {
+    if (gpus[g]) html += renderGPUCard(g, gpus[g]);
+  });
+  
+  // Overall spreads
+  var sp = d.spreads || {};
+  var spHtml = '';
+  if (sp.hyperscaler_vs_neocloud_pct != null) {
+    spHtml += 'Hyperscaler vs NeoCloud 溢价：' + fmtPct(sp.hyperscaler_vs_neocloud_pct) + '&nbsp;&nbsp;';
+  }
+  if (sp.neocloud_vs_marketplace_pct != null) {
+    spHtml += 'NeoCloud vs Marketplace 溢价：' + fmtPct(sp.neocloud_vs_marketplace_pct);
+  }
+  document.getElementById('spreads-bar').innerHTML = spHtml || '&nbsp;';
+  
+  document.getElementById('content').innerHTML = html;
+  document.getElementById('updated-at').textContent = '数据更新：' + (d.timestamp || '—').replace('T',' ').slice(0,19) + ' · ' + (d.raw_count||0) + ' 条原始报价';
+}
+
+function refresh() {
+  var el = document.getElementById('updated-at');
+  el.textContent = '刷新中…';
+  fetch('/data/latest.json?t=' + Date.now(), {cache:'no-store'})
+    .then(function(r){return r.json()})
+    .then(function(d){ EMBEDDED = d; render(); })
+    .catch(function(){ el.textContent = '刷新失败（DNS 未就绪，显示缓存数据）'; });
+}
+
+render();
+</script>
+</body>
+</html>
