@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美债收益率逆风、伊朗与三星博弈论浅议——投资组合启示：保持定力、逆向操作</title>
+<!-- pv-counter data-page-slug=kerwin-bond-iran-samsung-20260520 -->
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--up:#16a34a;--down:#dc2626;--gold:#b8860b;--warn:#92400e;--date:#8b4513;--blue:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roman','PingFang HK','Microsoft YaHei',serif;color:var(--ink);font-size:15px;line-height:1.85}
+.page{max-width:800px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:22px 28px 18px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:30px;font-weight:700;line-height:1.15;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:#8b4513;line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.back{max-width:800px;margin:0 auto;padding:6px 16px 0}
+.back a{display:inline-block;font-family:Arial,sans-serif;font-size:12px;color:#8b4513;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.wrap{max-width:740px;margin:0 auto;background:#fff;padding:0 0 20px}
+.section{padding:28px 28px 22px;border-bottom:1px solid #efe3d7}
+.section:last-child{border-bottom:none}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d;font-family:Georgia,'Times New Roman','PingFang HK',serif}
+h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.lead{font-size:16px;line-height:1.9;color:#1f1a17;font-weight:600;margin:0 0 16px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.game-tree{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 20px;margin:16px 0;font-family:'SF Mono','Consolas','Courier New',monospace;font-size:12px;line-height:2;color:#3d3229;overflow-x:auto}
+.game-tree .node{font-weight:700;color:#7b4f24}
+.game-tree .branch{color:#2563eb}
+.game-tree .result{color:#16a34a}
+.game-tree .dead{color:#dc2626}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:12px Arial,sans-serif;min-width:420px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:8px 12px;text-align:left;font-weight:600;font-size:10px;letter-spacing:.06em}
+thead th:not(:first-child){text-align:right}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:7px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+tbody td:not(:first-child){text-align:right;font-family:'SF Mono','Consolas',monospace;font-size:11px}
+tbody td:first-child{font-weight:600}
+.up{color:var(--up);font-weight:700}
+.down{color:var(--down);font-weight:700}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:16px 12px;text-align:center}
+.stat-value{font:700 24px Georgia,serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-value.up{color:var(--up)}.stat-value.down{color:var(--down)}
+.stat-label{font:10px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:16px 0;font-size:12px}
+.compare-hdr{background:#3d3229;color:#f5f0e8;padding:6px 10px;font-weight:700;font-size:10px;text-align:center;letter-spacing:.04em}
+.compare-row{padding:6px 10px;border-bottom:1px solid var(--line);text-align:center}
+.compare-row:nth-child(odd){background:#fdfaf7}
+.compare-label{text-align:left;font-weight:600;font-size:11px}
+.chart-note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:4px}
+.path-grid{display:flex;flex-direction:column;gap:16px;margin:16px 0}
+.path-item{display:flex;gap:16px;padding:16px;background:#fdfaf5;border:1px solid #e7ddd3;border-radius:6px}
+.path-num{font:700 32px Georgia,serif;color:#8a5b2b;line-height:1;flex-shrink:0;width:38px}
+.path-title{font:600 13px Arial,sans-serif;color:#5c3d1e;letter-spacing:.04em;margin-bottom:6px}
+.path-desc{font-size:13px;line-height:1.7;color:#6b5d53;margin:0}
+footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px 18px;font-size:11px;color:var(--muted);line-height:1.85;text-align:center}
+.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+.home-footer{text-align:center;padding:10px 0 20px}
+.home-footer a{font:600 12px Arial,sans-serif;color:#8b4513;text-decoration:none;border:1px solid #8b4513;padding:6px 18px;border-radius:16px}
+@media(max-width:640px){
+  .page{padding:0 4px 20px}
+  .topbar{padding:16px 16px 12px}
+  .top-title{font-size:24px}
+  .section{padding:20px 16px 16px}
+  h2{font-size:19px}
+  .stat-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .compare-grid{font-size:10px}
+  tbody td{font-size:10px}
+  .back{padding:6px 10px 0}
+  .lead{font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="back"><a href="https://enyaclawd.com/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+<div class="topbar">
+<div class="top-kicker">KERWIN · 投资随笔</div>
+<h1 class="top-title">美债收益率逆风、伊朗与三星<br>博弈论浅议</h1>
+<div class="top-date">报告发布日期：2026年5月20日</div>
+<div class="top-block">
+  本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
+  底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+</div>
+</div>
+<div class="wrap">
+
+<!-- Section 1: Opening Thesis -->
+<div class="section">
+<div class="section-label">投资组合启示：保持定力、逆向操作</div>
+
+<p class="lead">过去五个交易日，美国国债市场经历了自2025年4月以来最剧烈的抛售。10年期收益率从4.1%飙升至4.67%，30年期突破5.18%。通胀数据超预期——PPI同比6.0%、CPI同比3.8%——叠加霍尔木兹海峡封锁推动WTI原油站稳$100以上，市场从"年内降息"叙事急速切换至"加息概率浮现"。我持有的宏观对冲AI精选组合64只标的中，53只在5D窗口内录得下跌。</p>
+
+<p>但我认为，这次是短暂的逆风。利率飙升的根源是地缘政治驱动的能源供给冲击，而地缘政治问题本质上是可逆的。2025年5月，10Y同样冲至4.6%，"滞胀论"四起，但9月之后Fed三连降，科技股暴涨。那些在恐慌中保持定力、甚至逆向操作的人，赚到了最大的一段收益。</p>
+
+<p>这篇文章从三个维度展开这一判断：美债收益率的周期性逻辑、伊朗的博弈困境、三星工会的终局推演。最后回到投资组合本身——在逆风中，应该怎么做。</p>
+</div>
+
+<!-- Section 2: US Treasury -->
+<div class="section">
+<div class="section-label">一 · 美债收益率逆风</div>
+<h2>利率恐慌的根源，与2025年的惊人相似</h2>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="stat-value">4.67%</div><div class="stat-label">US 10Y 当前</div></div>
+  <div class="stat-cell"><div class="stat-value up">+4.57%</div><div class="stat-label">10Y 5D 变动</div></div>
+  <div class="stat-cell"><div class="stat-value">5.18%</div><div class="stat-label">US 30Y 当前</div></div>
+  <div class="stat-cell"><div class="stat-value">$103.86</div><div class="stat-label">WTI 原油</div></div>
+</div>
+
+<p>这一轮利率飙升的传导链非常清晰：霍尔木兹海峡被封锁 → 全球原油航运受阻 → WTI突破$100 → 美国汽油破$4.50/加仑 → CPI 3.8% YoY、PPI 6.0% YoY双双超预期 → 降息预期归零 → 加息概率浮现。</p>
+
+<p>Polymarket数据显示，2026年全年零降息的概率一度升至69%，加息的概率冲到36%。但5月19日美联储主席Powell表态"油价驱动的通胀"后，加息概率已回落至27%。VIX仅18——市场并未恐慌，而是在理性地重新定价。</p>
+
+<p>2025年5月，几乎完全相同的故事发生过：关税冲击推高通胀预期，10Y冲至4.6%，市场认为降息遥遥无期。但关税是政治工具——可开可关。当政策逆转，10Y从4.6%回落至4.1%，Fed在9月后启动了三连降。那些在5月恐慌中坚持不卖的人，在Q4赚到了全年最大的涨幅。</p>
+
+<div class="compare-grid">
+<div class="compare-hdr"></div><div class="compare-hdr">2025 年 5 月</div><div class="compare-hdr">2026 年 5 月</div>
+<div class="compare-label">10Y 峰值</div><div>~4.6%</div><div>4.67%</div>
+<div class="compare-label">触发因素</div><div>关税政策冲击</div><div>海峡封锁/油价</div>
+<div class="compare-label">通胀性质</div><div>政策驱动（可逆）</div><div>地缘驱动（亦可逆）</div>
+<div class="compare-label">恐慌后结局</div><div>Q4 三连降 + 暴涨</div><div>？</div>
+</div>
+
+<p>2026年的"开关"不是关税，是海峡复航。两者形式不同，但本质一致：<strong>都是政治决策，不是经济结构变迁。</strong>如果2025年5月保持定力是对的，那么2026年5月拥有相同的逻辑基础。</p>
+</div>
+
+<!-- Section 3: Iran -->
+<div class="section">
+<div class="section-label">二 · 伊朗博弈困境</div>
+<h2>封锁海峡正在成为战略负债</h2>
+
+<p>2026年5月14日，美国总统特朗普抵达北京，对中国进行为期三天的国事访问，与习近平主席会谈逾两小时，同游天坛。这是特朗普重返白宫后首次对华国事访问。紧随其后，俄罗斯总统普京于5月19日至20日接续访华。塞尔维亚总统亦即将到访。</p>
+
+<p>京报网将这一安排描述为"美俄元首一周内前后脚访华，罕见外交安排"。中国人民大学重阳金融研究院的定调是：中国正在从国际秩序的"参与者"加速转向"塑造者"。</p>
+
+<p>在这个格局下，伊朗的战略处境正在急剧恶化。</p>
+
+<div class="game-tree">
+<span class="node">伊朗的博弈结构</span><br>
+<br>
+<span class="node">策略 A</span>：封锁霍尔木兹海峡<br>
+  └─ <span class="branch">→ 全球 20% 原油航运受阻</span><br>
+  └─ <span class="branch">→ WTI $103+，全球通胀</span><br>
+  └─ <span class="dead">→ 危害全球普通民众既得利益 → 成为"逆天遭人恨"的对象</span><br>
+<br>
+<span class="node">策略 B</span>：威胁破坏海底电缆<br>
+  └─ <span class="branch">→ 全球互联网面临风险</span><br>
+  └─ <span class="dead">→ 进一步强化"全球公敌"标签</span><br>
+<br>
+<span class="node">外部环境变化</span>：<br>
+  └─ <span class="branch">美、俄元首两周内先后访华 → 中国成为全球外交枢纽</span><br>
+  └─ <span class="branch">作为"秩序塑造者"，中国不可能支持破坏全球公共品的行为体</span><br>
+  └─ <span class="result">→ 伊朗外交孤立加深 → 谈判压力增大 → 海峡复航概率上升</span>
+</div>
+
+<p>封锁海峡、威胁破坏海底电缆——这些行为危害的是全球普通人的既得利益：油价负担、航运成本、互联网连接。这不是在与某一个国家对抗，而是在与全世界的日常生活为敌。伊朗每多封锁一天，就多失去一份国际同情。</p>
+
+<p>5月19日，CBS News报道：特朗普叫停了对伊朗的既定军事攻击，同时称"严肃谈判"正在进行。这不是软弱，而是对博弈均衡的理性判断：<strong>让伊朗自己消耗自己的国际信誉，比军事打击更有效、成本更低。</strong></p>
+
+<p>3月23日的历史先例支持这一判断：仅Trump的谈判言论就让布伦特原油从$114单日暴跌至$102。一旦海峡复航预期形成，油价可能在1-2周内回落至$80-90区间。届时，支撑当前利率恐慌的"能源通胀"基础将从源头瓦解。</p>
+</div>
+
+<!-- Section 4: Samsung -->
+<div class="section">
+<div class="section-label">三 · 三星工会博弈</div>
+<h2>牌已出尽，靴子落地</h2>
+
+<p>2026年5月20日，三星电子管理层与工会的最后谈判破裂。工会威胁展开18天罢工——据估算可能造成每天约$7亿美元的损失。消息传出后，三星股价盘中急跌，但随即反弹。</p>
+
+<p>以博弈论的框架来看，这是一场"最后通牒博弈"，而工会已经打完了所有牌。</p>
+
+<div class="game-tree">
+<span class="node">三星工会博弈 · 三轮演进</span><br>
+<br>
+<span class="node">第一轮</span>（5月12日）：工会提出永久性薪资结构改革要求<br>
+  └─ <span class="branch">三星回应：仅提供一次性绩效金，拒绝任何永久性承诺</span><br>
+  └─ 政府调解介入<br>
+<br>
+<span class="node">第二轮</span>（5月14日）：三星主动邀约重返谈判桌<br>
+  └─ 姿态放低——会长罕见公开道歉（媒体描述为"千载难逢的一次"）<br>
+  └─ 但底线寸步不让：薪酬制度灵活性不可让渡<br>
+<br>
+<span class="node">第三轮</span>（5月20日）：最后谈判破裂<br>
+  └─ 工会：18天罢工威胁（$7亿/天）<br>
+  └─ <span class="result">三星：沉默克制，不接受结构性让步</span><br>
+  └─ <span class="result">盘中急跌 → 随即反弹 → 市场认可"靴子落地"</span>
+</div>
+
+<p>三星管理层的策略是典型的"承诺策略"：如果这一次接受永久性薪资改革，等于把定价权交给了工会。棘轮效应下，下一次索求只会更大。短期罢工损失可以计算，但永久性制度让步的代价无法估量。不接受→保住了长期的薪酬灵活性→消除了未来更大的不确定性。</p>
+
+<p>而工会的致命弱点在于<strong>非对称成本</strong>。罢工工人损失工资，同时被非罢工同事眼红——他们损害了大多数人的利益。在全球投资者和产业链视角中，这部分人正在被贴上"贪得无厌"的标签。</p>
+
+<p>更重要的是：<strong>罢工对三星的存储业务可能构成"反直觉利好"。</strong></p>
+
+<p>当前全球存储供需极度不对称：AI拉动HBM需求爆发，SK海力士、三星、美光全部满产。存储行业的问题是，需求一来，供给立刻扩产，价格反被压制。罢工恰恰打破了"扩产→降价"的周期逻辑——它使供给持续处于收缩状态，强化市场对供给紧张的预期，倒逼价格和毛利率进一步提升。三星的存储业务占其利润大半，罢工造成的产能损失很可能被价格上涨带来的利润增量对冲甚至超过。</p>
+
+<p>三星高层"不咸不淡地道了个歉"——管理层没有慌，很有定力。如果接受了工会的要求，反倒制造更大的不确定性：你不知道下一次更大的威胁是什么，又会什么时候爆发。而现在——谈判破裂、拒绝接受、靴子落地——牌已出尽。</p>
+
+<p>盘中急跌后反弹的走势，是市场在用真金白银确认这一判断。</p>
+</div>
+
+<!-- Section 5: Portfolio Implications -->
+<div class="section">
+<div class="section-label">四 · 投资组合启示</div>
+<h2>保持定力、逆向操作</h2>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="stat-value up">50</div><div class="stat-label">组合 YTD 正收益</div></div>
+  <div class="stat-cell"><div class="stat-value down">14</div><div class="stat-label">组合 YTD 负收益</div></div>
+  <div class="stat-cell"><div class="stat-value down">53</div><div class="stat-label">组合 5D 下跌</div></div>
+  <div class="stat-cell"><div class="stat-value up">11</div><div class="stat-label">组合 5D 上涨</div></div>
+</div>
+
+<p>64只组合标的中，53只在过去5天录得下跌。但下跌的分布揭示了一个关键事实：这是一次"贴现率冲击"——估值压缩而非盈利恶化。组合中AI算力基础设施直接受益股（NBIS +10.4%、ARM +7.3%、MRVL +7.2%）逆势上涨，证明市场并未放弃AI产业趋势，而是在区分"谁能将AI需求转化为真实现金流"与"谁仅靠AI叙事支撑估值"。</p>
+
+<div class="path-grid">
+  <div class="path-item">
+    <div class="path-num">01</div>
+    <div>
+      <div class="path-title">高YTD涨幅标的的回调是"弹簧压缩"</div>
+      <p class="path-desc">SNDK（+482.7% YTD）、7709.HK（+397%）、智谱AI（+654%）在过去5天领跌——因为它们在利率逆转时对估值压缩最敏感。但它们的涨幅是有基本面支撑的（存储紧缺、AI模型需求爆发），不是纯叙事。一旦利率回落，这些弹簧将释放最大的反弹动能。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">02</div>
+    <div>
+      <div class="path-title">三星罢工 → 存储供给收缩 → 利好存储板块</div>
+      <p class="path-desc">MU（+144.9% YTD，5D -8.8%）、SNDK（+482.7% YTD，5D -4.7%）、SK海力士（000660.KS，+167.3% YTD，5D -12.1%）的回调，是"被利率错杀 + 被罢工利好即将兑现"的双重机会。存储是当前组合中最具反直觉利好的板块。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">03</div>
+    <div>
+      <div class="path-title">AI算力基础设施是"免疫区"</div>
+      <p class="path-desc">NBIS、ARM、MRVL的5D逆势上涨证明——当宏观恐慌来临时，资金不是逃离AI，而是从"AI叙事"向"AI现金牛"集中。持有真实AI现金流标的，是穿越利率风暴的最优策略。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">04</div>
+    <div>
+      <div class="path-title">加密/贵金属/铜的同步下跌 = 利率退潮后的最大弹性</div>
+      <p class="path-desc">黄金-4.63%、BTC-5.45%、ETH-7.53%——当所有对利率敏感的资产同步下跌，驱动因素是统一的（利率），而非各自基本面恶化。一旦海峡谈判出现正面进展、10Y回落至4.2%以下，这些资产将出现最猛烈的反弹。</p>
+    </div>
+  </div>
+  <div class="path-item">
+    <div class="path-num">05</div>
+    <div>
+      <div class="path-title">盯住两根"弦"：霍尔木兹 + 日本央行</div>
+      <p class="path-desc">海峡复航是最大的上行催化剂。日本6月若加息（77%概率）是短期扰动，但日本的加息恰恰是"经济复苏→正常化"的信号，中长期对日本股票是利好。当前日本股票的回调——6594.T、6324.T、6268.T——是买入机会。</p>
+    </div>
+  </div>
+</div>
+
+<h3>YTD 前十大（涨幅惊人，近期普遍回调）</h3>
+<div class="tw">
+<table>
+<thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
+<tbody><tr><td>SNDK</td><td class="down">-4.7%</td><td class="up">+16.5%</td><td class="up">+482.7%</td></tr>
+<tr><td>7709.HK</td><td class="down">-24.0%</td><td class="up">+68.6%</td><td class="up">+397.0%</td></tr>
+<tr><td>285A.T</td><td class="up">+0.2%</td><td class="up">+39.0%</td><td class="up">+384.9%</td></tr>
+<tr><td>9747.HK</td><td class="down">-8.9%</td><td class="up">+37.9%</td><td class="up">+279.3%</td></tr>
+<tr><td>DOCN</td><td class="down">-3.7%</td><td class="up">+45.9%</td><td class="up">+211.8%</td></tr>
+<tr><td>INTC</td><td class="down">-8.1%</td><td class="up">+11.2%</td><td class="up">+200.3%</td></tr>
+<tr><td>000660.KS</td><td class="down">-11.5%</td><td class="up">+36.0%</td><td class="up">+169.2%</td></tr>
+<tr><td>POWL</td><td class="down">-15.1%</td><td class="down">-5.0%</td><td class="up">+146.3%</td></tr>
+<tr><td>MU</td><td class="down">-8.8%</td><td class="up">+28.9%</td><td class="up">+144.9%</td></tr>
+<tr><td>LITE</td><td class="down">-10.3%</td><td class="down">-6.3%</td><td class="up">+141.5%</td></tr></tbody>
+</table>
+</div>
+<p class="chart-note">YTD前十大在5D窗口全部录得负收益——即便是最强赢家也在遭受利率冲击。但回调的幅度与YTD涨幅相比仍属健康范围。这些不是"出了问题的公司"，而是"被利率暂时压制的赢家"。</p>
+
+<h3>YTD 负收益标的（14只）</h3>
+<div class="tw">
+<table>
+<thead><tr><th>代码</th><th>5D</th><th>MTD</th><th>YTD</th></tr></thead>
+<tbody><tr><td>HOOD</td><td class="down">-5.3%</td><td class="up">+0.7%</td><td class="down">-34.4%</td></tr>
+<tr><td>CRM</td><td class="up">+4.7%</td><td class="down">-2.4%</td><td class="down">-32.1%</td></tr>
+<tr><td>LEU</td><td class="down">-16.5%</td><td class="down">-18.2%</td><td class="down">-30.4%</td></tr>
+<tr><td>ETH-USD</td><td class="down">-7.4%</td><td class="down">-8.0%</td><td class="down">-29.6%</td></tr>
+<tr><td>PLTR</td><td class="down">-0.5%</td><td class="down">-6.1%</td><td class="down">-23.9%</td></tr>
+<tr><td>1810.HK</td><td class="down">-5.9%</td><td class="up">+3.1%</td><td class="down">-23.7%</td></tr>
+<tr><td>COIN</td><td class="down">-6.8%</td><td class="up">+1.2%</td><td class="down">-14.5%</td></tr>
+<tr><td>BTC-USD</td><td class="down">-5.4%</td><td class="down">-1.9%</td><td class="down">-13.6%</td></tr>
+<tr><td>MSFT</td><td class="up">+2.4%</td><td class="up">+0.7%</td><td class="down">-13.5%</td></tr>
+<tr><td>TSLA</td><td class="down">-6.8%</td><td class="up">+3.4%</td><td class="down">-10.1%</td></tr>
+<tr><td>META</td><td class="down">-0.1%</td><td class="down">-1.0%</td><td class="down">-8.6%</td></tr>
+<tr><td>ORCL</td><td class="down">-2.9%</td><td class="up">+5.6%</td><td class="down">-6.3%</td></tr>
+<tr><td>ARKK</td><td class="down">-5.6%</td><td class="down">-4.0%</td><td class="down">-4.0%</td></tr>
+<tr><td>ARKG</td><td class="down">-5.4%</td><td class="down">-7.2%</td><td class="down">-2.9%</td></tr></tbody>
+</table>
+</div>
+<p class="chart-note">负收益标的集中在对贴现率高度敏感的板块：加密/交易所、软件/SaaS、核能/铀矿、波动性ETF。如果利率回落，这些板块将是反弹弹性最大的区域。其中部分标的（如CRM -32.1%、HOOD -34.4%）已积累了可观的逆向操作空间。</p>
+</div>
+
+<!-- Section 6: Conclusion -->
+<div class="section">
+<div class="section-label">五 · 结语</div>
+<h2>逆风中的定力</h2>
+
+<div class="callout">
+<div class="callout-label">核心观点</div>
+<p>当前美债收益率飙升的根源——霍尔木兹海峡封锁——是一个正在被大国协调所松动的变量。伊朗的外交孤立在加深，三星的工会博弈已走向终局。支撑利率恐慌的两根支柱都在松动。2025年5月的教训是：恐慌时离场的人错过了Q4的暴涨；恐慌时逆向买入的人赚到了全年最大的收益。这一次，我倾向于后者。</p>
+</div>
+
+<p>5月15日，我在组合交易日志中写下这样一段话——它恰好概括了这篇文章的全部逻辑：</p>
+
+<div class="callout">
+<p><em>"跌6.9%买入。市场情绪担忧通胀及加息可能，US10Y、US30Y大增。过去一两天这是宏观对普遍科技股的压制因素。不认为会长久。"</em></p>
+</div>
+
+<p>当利率冲击退潮——无论是通过海峡谈判取得进展、还是伊朗的外交孤立最终转化为实际行动、还是三星罢工靴子落地后存储价格开始反映供给收缩——被压缩的估值弹簧将释放。在逆风中保持定力，在恐慌中逆向操作，这就是我的选择。</p>
+</div>
+
+</div>
+<div class="home-footer"><a href="https://enyaclawd.com/">← 返回首页</a></div>
+<footer>
+  <strong>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</strong>
+  <div class="footer-rule"></div>
+  本文为投资研究参考，不构成具体投资建议。数据截至2026年5月20日。<br>
+  数据源：yfinance · Reuters · Bloomberg · CNBC · CME FedWatch · Polymarket · Kalshi · TradingEconomics · FRED · CBS News<br>
+  过往表现不代表未来收益。
+</footer>
+</div></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='kerwin-bond-iran-samsung-20260520';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
