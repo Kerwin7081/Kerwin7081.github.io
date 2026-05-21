@@ -139,6 +139,27 @@ tbody tr:nth-child(even){background:#fdfaf7}
   <div class="hero-meta">每 4 小时自动更新 · 研究参考</div>
 </div>
 
+<!-- Market Structure Explainer -->
+<div class="section" id="market-structure">
+  <div class="section-label">三层定价体系说明</div>
+  <h2>为什么 GPU 租赁有三层价格？</h2>
+  <p><strong>Hyperscaler（超大规模云）</strong>—— AWS、Azure、GCP 的官方按需定价。代表「零售」算力价格天花板。GPU 实例通常捆绑 8 卡整机起租，附带宽、存储和 SLA。价格最高，但可用性最稳定。</p>
+  <p><strong>NeoCloud（新型云厂商）</strong>—— CoreWeave、Nebius、Lambda Labs 等专业 GPU 云。代表「批发」算力市场。通常支持单 GPU 起租，无长期合约要求，价格约为 Hyperscaler 的 30-50%。是 AI 创业公司和中小团队的主力算力来源，也是算力价格竞争最激烈的层级。</p>
+  <p><strong>Marketplace（现货市场）</strong>—— Vast.ai 等 P2P GPU 租赁平台。代表算力的「现货/边际定价」。个体数据中心和矿场挂牌闲置 GPU，按秒计费，无最低租赁时长。价格最低但可靠性参差——本系统对 H200 额外过滤 reliability < 0.90 的报价。</p>
+  <div class="callout" style="margin-top:14px">
+    <div class="callout-label">投资含义</div>
+    <p>三层价差（Hyperscaler vs NeoCloud vs Marketplace）不是套利机会，而是<strong>算力供应链价值分配</strong>的直接体现。价差扩大 = NeoCloud 价值捕获增强 → 利好 CRWV/NBIS；价差缩小 = 算力供给充裕或 Hyperscaler 降价抢量。三层之间的价差方向是判断算力供需松紧的前置指标。</p>
+  </div>
+</div>
+
+<!-- Signals — Core Narrative -->
+<div class="section" id="signals">
+  <div class="section-label">核心信号 · 投资含义</div>
+  <h2>当前算力市场的关键变化</h2>
+  <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:16px">以下信号基于实时定价数据、行业公开信息和产业链交叉验证，每条信号附带投资含义解释。▲ = 利多结构性趋势，◆ = 中性/观望信号，▼ = 利空/压制因素。</p>
+  <div class="signal-list" id="signals-list"></div>
+</div>
+
 <!-- GPU Price Cards -->
 <div class="section" id="prices">
   <div class="section-label">实时定价 · 三层对比</div>
@@ -165,12 +186,6 @@ tbody tr:nth-child(even){background:#fdfaf7}
     * AWS GPU 实例以整机起租（如 p5.48xlarge = 8×H100），表内已折算单 GPU 均价。Azure/GCP 支持单 GPU 挂载。<br>
     计费粒度：Hyperscaler 按秒（首分钟后），NeoCloud 按小时或按秒，Marketplace 按秒。
   </div>
-</div>
-
-<!-- Signals -->
-<div class="section" id="signals">
-  <div class="section-label">量化信号</div>
-  <div class="signal-list" id="signals-list"></div>
 </div>
 
 <!-- Product Description -->
@@ -312,16 +327,17 @@ function render(d){
   // Signals
   var spreadPct=sp.hyperscaler_vs_neocloud_pct||0;
   var signals=[
-    {dir:'up',color:'var(--up)',icon:'▲',title:'A100 反衰减信号',desc:'问世 6 年的 GPU 租赁价格仍在上涨 → 存量算力货币化强劲 → 反驳 CapEx 泡沫叙事'},
-    {dir:'up',color:'var(--up)',icon:'▲',title:'年度合约 +42%',desc:'机构锁定至 2028 年 → CoreWeave/Nebius 隐藏收入可见性尚未被市场定价'},
-    {dir:'up',color:'var(--up)',icon:'▲',title:'Neocloud 价差持续扩大',desc:'Hyperscaler vs Neocloud 价差 '+spreadPct.toFixed(1)+'% → 结构性不收敛，非周期性现象'},
-    {dir:'up',color:'var(--up)',icon:'▲',title:'CME 算力期货即将上线',desc:'2026.5.12 CME + Silicon Data(DRW) 宣布 H2 推出全球首个 GPU 算力期货，现金结算挂钩每日 GPU 基准价 → 算力从定制化投入正式转为标准化大宗商品，本监测数据为期货现货定价提供前置参考'},
-    {dir:'mid',color:'#fbbf24',icon:'◆',title:'HBM3e +20% 成本传导',desc:'存储 → NVIDIA MSRP → 云租赁价格，4-6 周滞后，当前正在传导中'},
-    {dir:'mid',color:'#fbbf24',icon:'◆',title:'Blackwell 延期效应',desc:'B200/B300 爬坡至 6-7 月 → H100/H200 短期替代压力有限'},
-    {dir:'down',color:'var(--down)',icon:'▼',title:'定制芯片 + AMD 渗透',desc:'Trainium/TPU 设定 $0.80-1.20/小时天花板，AMD MI300X NeoCloud 仅 $1.50-2.99/hr → 非 NVIDIA 算力供给持续扩大，H100 Hyperscaler 按需价承压'}];
+    {dir:'up',color:'var(--up)',icon:'▲',title:'OpenAI 推出「保证容量」长租协议',desc:'2026.5.20 OpenAI 推出 Guaranteed Capacity：企业客户 1-3 年锁定 GPU 算力。叠加此前 $110B 融资（含 $30B NVIDIA Vera Rubin 专用容量），算力从按需购买转向长期合约锁定的趋势加速。',invest:'模型厂商向上游锁定算力 → AI 创业公司面临算力准入壁垒 → 拥有自有 GPU 产能的云厂商（CRWV/NBIS）议价力上升。算力从商品化走向「合约化」，类似电力市场的 PPA 演进路径。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'CME 算力期货即将上线',desc:'2026.5.12 CME + Silicon Data（DRW 背书）宣布 H2 推出全球首个 GPU 算力期货，现金结算挂钩每日 GPU 基准价。算力从定制化投入正式转为标准化大宗商品。',invest:'期货推出 = 机构资金入场通道打开。算力期货 + 现货租赁 + 长期合约（OpenAI GC），构成完整定价曲线（spot/forward/futures）。拥有现货定价数据的平台成为市场基础设施。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'算力商品化与金融化加速',desc:'三条线同步推进：OpenAI 合约锁量 → CME 期货锁价 → 算力代币探索链上结算。GPU 算力正在经历原油 1980s、电力 1990s 的金融化路径，从工程投入变为可交易资产类别。',invest:'算力金融化 = 价格发现从 OTC 双边谈判走向公开市场定价 → GPU 租赁价格透明度跃升 → CRWV/NBIS/IREN/EQIX 估值框架从「云厂商」向「算力基础设施 REITs + 商品生产商」混合模型迁移。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'A100 反衰减信号',desc:'问世 6 年的 GPU 租赁价格仍在上涨 → 存量算力货币化强劲。A100 NeoCloud 维持在 $1.56/hr，Marketplace 在 $0.87/hr，均未出现代际淘汰式崩跌。',invest:'反驳 AI CapEx 过剩叙事：即使新代 GPU 持续出货，老代 GPU 仍能产生正现金流 → GPU 资产残值高于市场预期 → 利好 GPU 云厂商资产负债表和折旧假设。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'Neocloud 价差持续扩大',desc:'Hyperscaler vs NeoCloud 价差 '+spreadPct.toFixed(1)+'%（H100 AWS $'+ (((d.gpus||{}).H100||{}).hyperscaler||{}).mid.toFixed(2) +' vs CoreWeave $'+ (((d.gpus||{}).H100||{}).neocloud||{}).mid.toFixed(2) +'）→ 结构性不收敛。',invest:'价差持续高于 150% = NeoCloud 的「价格优势 + 单 GPU 灵活起租」是结构性壁垒。这一价差是 NeoCloud 上市公司（CRWV/NBIS/DOCN）的核心护城河指标。'},
+    {dir:'mid',color:'#fbbf24',icon:'◆',title:'B200/H200 代际定价发现中',desc:'B200 NeoCloud $5.30/hr vs Marketplace $4.10/hr，H200 Marketplace $4.27/hr。新代 GPU 层间价差仍在收敛，反映供需双方对均衡价格的试探。',invest:'新代 GPU 定价未锚定 → 短期不宜据此推断利润率。关注 B200 Marketplace 较 NeoCloud 折价 23% 是否收敛——若收敛 = 需求强度确认；若扩大 = 供给过剩预警。'},
+    {dir:'mid',color:'#fbbf24',icon:'◆',title:'HBM3e 成本传导 + Blackwell 延期',desc:'HBM3e 合约价同比上涨 ~20% → NVIDIA GPU MSRP 上行 → 预计 4-6 周传导至云租赁价。B200 大规模爬坡推迟至 Q3，H100/H200 短期替代压力有限。',invest:'短期：H100/H200 租赁价有上行支撑（供应受限 + 成本传导）。中期：B200 放量后 H100 可能承压——建议跟踪 H100 Marketplace 价格作为先行指标。若 H100 跌破 $1.50/hr = 供给过剩信号。'},
+    {dir:'down',color:'var(--down)',icon:'▼',title:'定制芯片 + AMD 渗透加速',desc:'Trainium2 ~$3.50/hr（AWS 声称 H100 性能的 25% 成本）、TPU v5e $1.20/chip-hr、AMD MI300X NeoCloud 仅 $1.50-2.99/hr。非 NVIDIA 算力供给持续扩大。',invest:'定制芯片 + AMD 侵蚀 NVIDIA 推理市场份额（推理占 AI 算力 60%+）。关注 CRWV/NBIS 是否引入 AMD/ASIC 机型：若引入 = 竞争力增强；若仅 NVIDIA = 面临价格天花板。'}];
   var sl='';
   signals.forEach(function(s){
-    sl+='<div class="signal-item" style="border-left:3px solid '+s.color+'"><div class="signal-icon" style="color:'+s.color+'">'+s.icon+'</div><div class="signal-body"><h4>'+s.title+'</h4><p>'+s.desc+'</p></div></div>';
+    sl+='<div class="signal-item" style="border-left:3px solid '+s.color+'"><div class="signal-icon" style="color:'+s.color+'">'+s.icon+'</div><div class="signal-body"><h4>'+s.title+'</h4><p style="margin-bottom:6px">'+s.desc+'</p><p style="font-size:11px;color:var(--gold);font-family:Arial,sans-serif"><strong>→ 投资含义：</strong>'+s.invest+'</p></div></div>';
   });
   document.getElementById('signals-list').innerHTML=sl;
 
