@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三星与海力士港股 2x 产品跟踪复盘</title>
+<meta name="description" content="对比三星、SK海力士正股与香港 2x 杠杆产品 5月以来逐日涨跌幅、MTD累计表现、成交规模与NAV偏离，解释单日跟踪误差的来源。">
+<!-- pv-counter data-page-slug=samsung-hynix-hk-2x-tracking-20260521 -->
+<style>
+:root{
+  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
+  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
+  font-size:14px;line-height:1.85;
+}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:520px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:10px 12px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:9px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}.num{text-align:right;white-space:nowrap}.up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}.flat{color:var(--muted);font-weight:700}.note{font:12px Arial,sans-serif;color:var(--muted);line-height:1.75;margin-top:8px}
+.mini-list{margin:12px 0 0;padding-left:18px;color:#3d3229}.mini-list li{margin:6px 0}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
+</style>
+</head>
+<body data-page-slug="samsung-hynix-hk-2x-tracking-20260521">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">三星与海力士<br>港股 2x 产品跟踪复盘</h1>
+    <div class="top-date">报告发布日期：2026年5月21日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
+      <div class="hero-title">MTD 接近 2x，不等于每天都精确 2x</div>
+      <div class="hero-sub">正股、香港 2x 柜台、成交规模与 NAV 偏离的组合复盘</div>
+      <div class="hero-meta">数据区间：2026-05-01 至 2026-05-21</div>
+    </div>
+    <nav class="nav">
+      <a href="#intro">核心判断</a>
+      <a href="#mtd">MTD对比</a>
+      <a href="#daily">逐日数据</a>
+      <a href="#liquidity">成交与NAV</a>
+      <a href="#why">偏离原因</a>
+      <a href="#conclusion">结语</a>
+    </nav>
+
+    <div class="section" id="intro">
+      <div class="section-label">引言 · 核心判断</div>
+      <h2>这不是产品失效，而是“每日2x产品”的正常交易现实</h2>
+      <p>5月以来，三星电子和 SK 海力士正股大幅上涨，对应香港单股 2x 杠杆产品也显著放大收益。若看 MTD 累计，三星 2x 产品与正股的两倍关系基本接近；海力士 7709 也大体放大，但略低于机械 2x。</p>
+      <p>真正容易误判的是单日。单日收盘价常常不等于正股当日涨跌幅的精确两倍，因为投资者看到的是香港二级市场成交价，而产品真正跟踪的是每日 NAV；同时还叠加韩国与香港交易时段错位、汇率、做市商报价和折溢价。</p>
+      <div class="callout"><div class="callout-label">核心结论</div><p>判断产品是否“跟得住”，应优先看 NAV 与正股 2x 的关系；判断实际交易体验，才看港股柜台收盘价、成交额和盘口。三星建议优先观察 7747.HK 的 HKD 柜台，9747.HK 是 USD 柜台，成交更薄；海力士 7709.HK 交易规模明显更大，价格发现更充分。</p></div>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value">+67%</div><div class="stat-label">三星 2x 产品 5月MTD约涨幅，对比三星正股 +35.83%</div></div>
+        <div class="stat-cell"><div class="stat-value">+95.50%</div><div class="stat-label">7709.HK 5月MTD涨幅，对比海力士正股 +50.86%</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="mtd">
+      <div class="section-label">01 · MTD 累计</div>
+      <h2>累计层面，三星更接近 2x；海力士略低于机械 2x</h2>
+      <p>MTD 使用 2026年4月30日收盘至 2026年5月21日收盘的累计涨跌幅。它不是每日涨跌幅简单相加，而是按价格连续复利计算。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>标的</th><th>说明</th><th class="num">MTD</th><th class="num">机械2x参照</th><th>观察</th></tr></thead>
+          <tbody>
+            <tr><td>005930.KS</td><td>三星电子正股</td><td class="num up">+35.83%</td><td class="num">-</td><td>本轮存储行情中的三星正股表现。</td></tr>
+            <tr><td>7747.HK</td><td>三星2x，HKD柜台</td><td class="num up">+66.85%</td><td class="num">+71.66%</td><td>接近但略低于机械2x。</td></tr>
+            <tr><td>9747.HK</td><td>三星2x，USD柜台</td><td class="num up">+67.43%</td><td class="num">+71.66%</td><td>与7747方向一致，但成交更薄。</td></tr>
+            <tr><td>000660.KS</td><td>SK海力士正股</td><td class="num up">+50.86%</td><td class="num">-</td><td>HBM主线弹性更强。</td></tr>
+            <tr><td>7709.HK</td><td>海力士2x，HKD柜台</td><td class="num up">+95.50%</td><td class="num">+101.72%</td><td>大体放大，但 5月中下旬有几日未完全跟上。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">数据源：Yahoo Finance 收盘价；MTD 口径为 4/30 收盘至 5/21 收盘。</p>
+    </div>
+
+    <div class="section" id="daily">
+      <div class="section-label">02 · 逐日数据</div>
+      <h2>逐日层面，偏离主要集中在休市错位和大波动日</h2>
+      <h3>三星：005930.KS vs 7747.HK / 9747.HK</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日期</th><th class="num">005930.KS</th><th class="num">7747.HK</th><th class="num">9747.HK</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>05-04</td><td class="num up">+5.44%</td><td class="num up">+9.33%</td><td class="num up">+10.37%</td><td>接近2x。</td></tr>
+            <tr><td>05-05</td><td class="num flat">--</td><td class="num up">+2.93%</td><td class="num up">+1.39%</td><td>韩国休市，香港交易。</td></tr>
+            <tr><td>05-06</td><td class="num up">+14.41%</td><td class="num up">+25.24%</td><td class="num up">+26.29%</td><td>大涨日略低于机械2x。</td></tr>
+            <tr><td>05-07</td><td class="num up">+2.07%</td><td class="num up">+6.54%</td><td class="num up">+6.74%</td><td>港股产品强于机械2x。</td></tr>
+            <tr><td>05-08</td><td class="num down">-1.10%</td><td class="num up">+0.32%</td><td class="num down">-2.54%</td><td>两柜台表现分化。</td></tr>
+            <tr><td>05-11</td><td class="num up">+6.33%</td><td class="num up">+5.87%</td><td class="num up">+8.39%</td><td>未打满2x。</td></tr>
+            <tr><td>05-12</td><td class="num down">-2.28%</td><td class="num down">-4.69%</td><td class="num down">-4.96%</td><td>接近2x。</td></tr>
+            <tr><td>05-13</td><td class="num up">+1.79%</td><td class="num up">+6.56%</td><td class="num up">+6.68%</td><td>明显强于正股2x。</td></tr>
+            <tr><td>05-14</td><td class="num up">+4.23%</td><td class="num up">+4.15%</td><td class="num up">+4.26%</td><td>未打满2x。</td></tr>
+            <tr><td>05-15</td><td class="num down">-8.61%</td><td class="num down">-12.24%</td><td class="num down">-11.71%</td><td>跌幅小于机械2x。</td></tr>
+            <tr><td>05-18</td><td class="num up">+3.88%</td><td class="num up">+3.92%</td><td class="num up">+3.20%</td><td>未打满2x。</td></tr>
+            <tr><td>05-19</td><td class="num down">-1.96%</td><td class="num down">-2.50%</td><td class="num down">-2.05%</td><td>跌幅小于机械2x。</td></tr>
+            <tr><td>05-20</td><td class="num up">+0.18%</td><td class="num up">+0.36%</td><td class="num up">+0.11%</td><td>接近平盘。</td></tr>
+            <tr><td>05-21</td><td class="num up">+8.51%</td><td class="num up">+10.84%</td><td class="num up">+11.24%</td><td>明显低于机械2x。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>SK海力士：000660.KS vs 7709.HK</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日期</th><th class="num">000660.KS</th><th class="num">7709.HK</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><td>05-04</td><td class="num up">+12.52%</td><td class="num up">+22.98%</td><td>接近2x。</td></tr>
+            <tr><td>05-05</td><td class="num flat">--</td><td class="num up">+2.49%</td><td>韩国休市，香港交易。</td></tr>
+            <tr><td>05-06</td><td class="num up">+10.64%</td><td class="num up">+19.83%</td><td>接近2x。</td></tr>
+            <tr><td>05-07</td><td class="num up">+3.31%</td><td class="num up">+6.93%</td><td>接近2x。</td></tr>
+            <tr><td>05-08</td><td class="num up">+1.93%</td><td class="num up">+2.08%</td><td>未打满2x。</td></tr>
+            <tr><td>05-11</td><td class="num up">+11.51%</td><td class="num up">+23.60%</td><td>接近2x。</td></tr>
+            <tr><td>05-12</td><td class="num down">-2.39%</td><td class="num down">-5.18%</td><td>接近2x。</td></tr>
+            <tr><td>05-13</td><td class="num up">+7.68%</td><td class="num up">+14.81%</td><td>接近2x。</td></tr>
+            <tr><td>05-14</td><td class="num down">-0.30%</td><td class="num down">-0.57%</td><td>接近2x。</td></tr>
+            <tr><td>05-15</td><td class="num down">-7.66%</td><td class="num down">-13.41%</td><td>跌幅小于机械2x。</td></tr>
+            <tr><td>05-18</td><td class="num up">+1.15%</td><td class="num down">-0.42%</td><td>明显偏离。</td></tr>
+            <tr><td>05-19</td><td class="num down">-5.16%</td><td class="num down">-10.38%</td><td>接近2x。</td></tr>
+            <tr><td>05-20</td><td class="num flat">+0.00%</td><td class="num up">+0.84%</td><td>盘口或折溢价影响更明显。</td></tr>
+            <tr><td>05-21</td><td class="num up">+11.17%</td><td class="num up">+13.74%</td><td>明显低于机械2x。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section" id="liquidity">
+      <div class="section-label">03 · 成交规模与NAV</div>
+      <h2>7709 的价格发现更充分，三星需要区分 HKD 与 USD 柜台</h2>
+      <p>同一只三星 2x 产品有 HKD 与 USD 柜台。7747.HK 是 HKD 柜台，成交更活跃；9747.HK 是 USD 柜台，成交额显著较小。若用 9747.HK 的收盘价判断单日贴合度，容易把柜台流动性误判成产品跟踪误差。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>产品</th><th>柜台</th><th class="num">近10日均成交额</th><th class="num">5/21成交额</th><th>观察</th></tr></thead>
+          <tbody>
+            <tr><td>三星2x</td><td>7747.HK</td><td class="num">HK$28.4亿/日</td><td class="num">HK$28.3亿</td><td>更适合作为三星2x的交易观察柜台。</td></tr>
+            <tr><td>三星2x</td><td>9747.HK</td><td class="num">US$433万/日</td><td class="num">US$187万</td><td>USD柜台较薄，单日收盘价更易偏离。</td></tr>
+            <tr><td>海力士2x</td><td>7709.HK</td><td class="num">HK$74.2亿/日</td><td class="num">HK$90.5亿</td><td>交易最活跃，价格发现相对充分。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>最新可验证 NAV 截面</h3>
+      <p>历史逐日 NAV 数据目前公开接口不完整，因此不把缺失值模拟为官方 NAV。以下仅列可核验的最新日终 NAV 截面，用于说明市场收盘价与 NAV 之间的偏离。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>代码</th><th>币种</th><th class="num">NAV</th><th class="num">收盘价</th><th class="num">价/NAV偏离</th><th>日期</th></tr></thead>
+          <tbody>
+            <tr><td>7709.HK</td><td>HKD</td><td class="num">79.4911</td><td class="num">81.82</td><td class="num up">+2.93%</td><td>2026-05-20</td></tr>
+            <tr><td>7747.HK</td><td>HKD</td><td class="num">135.2283</td><td class="num">138.85</td><td class="num up">+2.68%</td><td>2026-05-20</td></tr>
+            <tr><td>9747.HK</td><td>USD</td><td class="num">17.2637</td><td class="num">17.70</td><td class="num up">+2.53%</td><td>2026-05-20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">AUM 官方口径：HKEX IFP 2026-03-31 显示三星2x基金 AUM 为 USD 728.48M，海力士2x基金 AUM 为 USD 1,964.97M。韩国媒体5月初报道更新口径更高，但本文不把媒体口径与官方静态页混用。</p>
+    </div>
+
+    <div class="section" id="why">
+      <div class="section-label">04 · 偏离来源</div>
+      <h2>为什么 MTD 接近 2x，但单日不总是 2x</h2>
+      <ul class="mini-list">
+        <li><strong>交易时段错位：</strong>韩国正股约在香港时间 14:30 收盘，港股产品到 16:00 才收盘。韩国收盘后的美股期货、AI链情绪、汇率变化会进入港股产品尾盘定价。</li>
+        <li><strong>市场价不等于 NAV：</strong>2x 产品理论跟踪每日 NAV，但投资者看到的是二级市场收盘价。收盘价可能相对 NAV 有溢价或折价。</li>
+        <li><strong>柜台流动性差异：</strong>三星 7747 与 9747 是同一产品不同币种柜台。USD 柜台更薄，收盘价更容易受尾盘成交影响。</li>
+        <li><strong>跨币种定价：</strong>底层股票是韩元资产，产品以港币或美元柜台交易，KRW、HKD、USD 的换算和做市商汇率假设会造成偏差。</li>
+        <li><strong>衍生品复制与再平衡：</strong>产品通常通过掉期、期权、融资和对冲组合复制每日 2x。大涨大跌时，做市商会扩大报价和控制风险。</li>
+        <li><strong>休市不同步：</strong>例如 5月5日韩国休市、香港开市，产品仍可交易预期，导致收益在前后交易日之间错位。</li>
+      </ul>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>这组数据给组合管理的含义很直接：如果只看月内趋势，三星与海力士的香港 2x 产品基本实现了杠杆表达；但如果做日内或短线归因，不能机械用正股涨跌幅乘以二来判断产品表现。正确框架是两层：第一层看 NAV 是否贴近每日 2x，第二层看市场成交价相对 NAV 的折溢价和柜台流动性。对实际交易而言，海力士 7709 是更厚的工具；三星则应优先用 7747 观察 HKD 主柜台，9747 更适合有美元结算需求时单独跟踪。</p>
+    </div>
+    <div class="footer">本文为投资研究参考，不构成具体投资建议。收盘价数据来自 Yahoo Finance；NAV 截面来自 POEMS/Morningstar；AUM 官方口径来自 HKEX IFP。数据截至 2026年5月21日，NAV 最新截面截至 2026年5月20日。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+  </div>
+</div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='samsung-hynix-hk-2x-tracking-20260521';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
