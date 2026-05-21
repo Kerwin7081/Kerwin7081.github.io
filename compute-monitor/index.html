@@ -191,6 +191,9 @@ tbody tr:nth-child(even){background:#fdfaf7}
     </ul>
     <h3>H200 特殊处理</h3>
     <p>H200 价格统计自动排除 reliability score &lt; 0.90 的低质报价，防止 RunPod 等平台的异常低价扭曲中位数和价格区间。</p>
+    <h3>CME 算力期货与监测指标意义</h3>
+    <p>2026 年 5 月 12 日，CME Group 与 Silicon Data（全球交易公司 DRW 背书的 GPU 市场情报领导者）联合宣布将于 2026 年下半年推出全球首个标准化算力期货合约，待监管审查。该合约以 Silicon Data 每日 GPU 按需租赁基准价为基础，现金结算，覆盖 H100、H200 及后续代际。</p>
+    <p><strong>本监测系统的指标意义：</strong>算力期货的推出标志着 GPU 计算从定制化协商投入正式过渡为标准化市场定价资产——相当于原油、电力、航运运费发展出期货市场的历史时刻。本系统追踪的三层 GPU 租赁价格，本质上是算力「现货」价格的实时快照。当 CME 期货上线后，<strong>现货-期货基差</strong>（spot-futures basis）将成为判断算力供需松紧的核心指标：期货升水（contango）预示供给宽松预期，现货升水（backwardation）则反映短期算力紧缺。</p>
     <h3>免责声明</h3>
     <p>本系统为投资研究参考工具，不构成任何投资建议。GPU 租赁价格为公开标价，可能与实际成交价存在差异。数据抓取存在延迟和缺失可能，请以原始来源为准。</p>
   </div>
@@ -283,7 +286,7 @@ function render(d){
     {dir:'up',color:'var(--up)',icon:'▲',title:'A100 反衰减信号',desc:'问世 6 年的 GPU 租赁价格仍在上涨 → 存量算力货币化强劲 → 反驳 CapEx 泡沫叙事'},
     {dir:'up',color:'var(--up)',icon:'▲',title:'年度合约 +42%',desc:'机构锁定至 2028 年 → CoreWeave/Nebius 隐藏收入可见性尚未被市场定价'},
     {dir:'up',color:'var(--up)',icon:'▲',title:'Neocloud 价差持续扩大',desc:'Hyperscaler vs Neocloud 价差 '+spreadPct.toFixed(1)+'% → 结构性不收敛，非周期性现象'},
-    {dir:'mid',color:'#fbbf24',icon:'◆',title:'B200 波动率 11.4% / H200 入场',desc:'B200 新代际 + H200 衔接代 → 定价发现活跃 → 对冲资金流入'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'CME 算力期货即将上线',desc:'2026.5.12 CME + Silicon Data(DRW) 宣布 H2 推出全球首个 GPU 算力期货，现金结算挂钩每日 GPU 基准价 → 算力从定制化投入正式转为标准化大宗商品，本监测数据为期货现货定价提供前置参考'},
     {dir:'mid',color:'#fbbf24',icon:'◆',title:'HBM3e +20% 成本传导',desc:'存储 → NVIDIA MSRP → 云租赁价格，4-6 周滞后，当前正在传导中'},
     {dir:'mid',color:'#fbbf24',icon:'◆',title:'Blackwell 延期效应',desc:'B200/B300 爬坡至 6-7 月 → H100/H200 短期替代压力有限'},
     {dir:'down',color:'var(--down)',icon:'▼',title:'定制芯片渗透',desc:'Trainium/TPU 设定 $0.80/小时天花板 → H100 Hyperscaler 按需价硬上限'}];
