@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-05-21T03:38:28.631199+00:00",
+  "timestamp": "2026-05-21T03:59:40.130636+00:00",
   "date": "2026-05-21",
   "hour": "03",
   "gpus": {
     "H100": {
       "marketplace": {
-        "mid": 2.0033,
-        "mean": 2.2716,
+        "mid": 2.0022,
+        "mean": 2.2662,
         "low": 1.3391,
         "high": 4.2671,
-        "p25": 1.8698,
+        "p25": 1.7611,
         "p75": 2.6431,
-        "count": 98
+        "count": 99
       },
       "neocloud": {
         "mid": 2.425,
@@ -34,8 +34,8 @@
     },
     "A100": {
       "marketplace": {
-        "mid": 0.8771,
-        "mean": 0.9022,
+        "mid": 0.8769,
+        "mean": 0.8993,
         "low": 0.1067,
         "high": 1.536,
         "p25": 0.7344,
@@ -63,11 +63,11 @@
     },
     "B200": {
       "marketplace": {
-        "mid": 4.1031,
-        "mean": 5.3273,
+        "mid": 4.1037,
+        "mean": 5.3393,
         "low": 3.7181,
         "high": 8.9855,
-        "p25": 3.9489,
+        "p25": 3.9106,
         "p75": 7.6424,
         "count": 64
       },
@@ -93,11 +93,11 @@
     "H200": {
       "marketplace": {
         "mid": 4.2669,
-        "mean": 4.1842,
+        "mean": 4.1927,
         "low": 1.5222,
         "high": 4.8062,
         "p25": 4.0022,
-        "p75": 4.673,
+        "p75": 4.8007,
         "count": 37
       },
       "neocloud": {
@@ -124,7 +124,71 @@
     "hyperscaler_vs_neocloud_pct": 213.2,
     "neocloud_vs_marketplace_pct": 21.1
   },
-  "raw_count": 480,
+  "raw_count": 481,
+  "other_chips": {
+    "amd_mi300x": {
+      "label": "AMD MI300X (192GB)",
+      "pricing": [
+        {
+          "provider": "TensorWave",
+          "tier": "neocloud",
+          "price": 1.5,
+          "note": "8-GPU bare-metal"
+        },
+        {
+          "provider": "Vultr",
+          "tier": "neocloud",
+          "price": 1.85,
+          "note": "\u5355 GPU \u6309\u9700"
+        },
+        {
+          "provider": "RunPod",
+          "tier": "neocloud",
+          "price": 2.99,
+          "note": "\u793e\u533a\u4e91\u6309\u9700"
+        },
+        {
+          "provider": "Oracle",
+          "tier": "hyperscaler",
+          "price": 6.0,
+          "note": "8-GPU \u88f8\u91d1\u5c5e"
+        },
+        {
+          "provider": "Azure",
+          "tier": "hyperscaler",
+          "price": 7.86,
+          "note": "ND MI300X v5"
+        }
+      ],
+      "market_status": "Vast.ai \u96f6\u6302\u724c\uff0c\u4ec5\u901a\u8fc7\u4e13\u7528\u4e91\u5382\u5546\u83b7\u53d6\u3002\u5b9a\u4ef7\u533a\u95f4 $1.50-7.86/hr\uff0cNeoCloud \u5747\u4ef7\u7ea6\u4e3a NVIDIA H100 \u7684 60-80%\u3002"
+    },
+    "asics": {
+      "label": "\u5b9a\u5236 ASIC\uff08TPU / Trainium / Maia\uff09",
+      "entries": [
+        {
+          "name": "Google TPU v5e",
+          "pricing": "$1.20/chip-hr",
+          "note": "\u4ec5 GCP\uff0c\u6309 chip-hour \u8ba1\u8d39"
+        },
+        {
+          "name": "Google TPU v5p",
+          "pricing": "$4.20/chip-hr",
+          "note": "\u4ec5 GCP\uff0c\u8bad\u7ec3\u4f18\u5316"
+        },
+        {
+          "name": "AWS Trainium2",
+          "pricing": "~$3.50/hr*",
+          "note": "\u4ec5 AWS\uff0cAWS \u58f0\u79f0\u6210\u672c\u7ea6\u4e3a H100 \u7684 25%"
+        },
+        {
+          "name": "MS Maia 100",
+          "pricing": "\u672a\u516c\u5f00",
+          "note": "\u4ec5 Azure\uff0c\u5185\u90e8\u4f18\u5148"
+        }
+      ],
+      "market_status": "ASIC \u4ec5\u5728\u539f\u5382\u516c\u6709\u4e91\u53ef\u7528\uff0c\u65e0\u4e8c\u7ea7\u5e02\u573a/\u73b0\u8d27\u5e02\u573a\u3002\u5b9a\u4ef7\u5355\u4f4d\u4e0d\u7edf\u4e00\uff08\u82af\u7247\u5c0f\u65f6 vs GPU \u5c0f\u65f6\uff09\uff0c\u4e0d\u53ef\u76f4\u63a5\u5bf9\u6bd4 NVIDIA \u79df\u8d41\u4ef7\u3002\u5e02\u573a\u4efd\u989d < 15%\uff0c\u4f46\u589e\u901f\u5feb\u4e8e GPU \u5e02\u573a\u6574\u4f53\u3002"
+    }
+  },
   "providers": {
     "vastai": {
       "h100": 2.0,
@@ -175,8 +239,8 @@
   "changes": {
     "H100": {
       "marketplace": {
-        "mtd_pct": 0.1,
-        "cum_pct": 0.1
+        "mtd_pct": 0.0,
+        "cum_pct": 0.0
       },
       "neocloud": {
         "mtd_pct": 0.0,

@@ -146,6 +146,12 @@ tbody tr:nth-child(even){background:#fdfaf7}
   <div class="spread-row" id="spreads"></div>
 </div>
 
+<!-- AMD & ASIC Reference -->
+<div class="section" id="other-chips">
+  <div class="section-label">AMD · 定制 ASIC 参考定价</div>
+  <div id="other-chips-content"></div>
+</div>
+
 <!-- Provider Table -->
 <div class="section" id="providers">
   <div class="section-label">Provider 明细</div>
@@ -210,7 +216,7 @@ tbody tr:nth-child(even){background:#fdfaf7}
 
 <script>
 // ── EMBEDDED DEMO DATA ──────────────────────────────────
-var DEMO={"timestamp":"2026-05-20T13:03:51.699189+00:00","date":"2026-05-20","hour":"13","gpus":{"H100":{"marketplace":{"mid":2.0033,"mean":2.2872,"low":1.4458,"high":4.5472,"p25":1.7611,"p75":2.6463,"count":98},"neocloud":{"mid":2.425,"mean":2.425,"low":2.36,"high":2.49,"p25":2.36,"p75":2.49,"count":2},"hyperscaler":{"mid":7.596,"mean":7.0485,"low":0.0156,"high":14.304,"p25":6.8956,"p75":8.1424,"count":97}},"A100":{"marketplace":{"mid":0.87,"mean":0.8888,"low":0.12,"high":1.536,"p25":0.7624,"p75":1.0696,"count":64},"neocloud":{"mid":1.56,"mean":1.56,"low":1.5,"high":1.62,"p25":1.5,"p75":1.62,"count":2},"hyperscaler":{"mid":3.0956,"mean":3.0038,"low":0.0156,"high":4.0716,"p25":2.8743,"p75":3.7285,"count":42}},"B200":{"marketplace":{"mid":4.063,"mean":5.2058,"low":3.6252,"high":8.7611,"p25":3.8514,"p75":6.8264,"count":64},"neocloud":{"mid":5.3,"mean":5.3,"low":5.3,"high":5.3,"p25":5.3,"p75":5.3,"count":1}},"H200":{"marketplace":{"mid":3.87,"mean":3.87,"low":2.50,"high":5.20,"p25":3.20,"p75":4.50,"count":38,"open":3.80,"close":3.87},"neocloud":{"mid":3.50,"mean":3.50,"low":2.30,"high":3.80,"p25":3.00,"p75":3.65,"count":12,"open":3.45,"close":3.50},"hyperscaler":{"mid":9.80,"mean":9.80,"low":6.00,"high":10.60,"p25":8.50,"p75":10.20,"count":6,"open":9.80,"close":9.80}}},"changes":{"H100":{"marketplace":{"mtd_pct":-0.1,"cum_pct":-0.1},"neocloud":{"mtd_pct":0.0,"cum_pct":0.0}},"H200":{"marketplace":{"mtd_pct":1.2,"cum_pct":1.2},"neocloud":{"mtd_pct":0.8,"cum_pct":0.8}}},"spreads":{"hyperscaler_vs_neocloud_pct":213.2,"neocloud_vs_marketplace_pct":21.1},"providers":{"coreweave":{"h100":2.43,"h200":4.20,"a100":1.56,"b200":5.30},"nebius":{"h100":2.42,"h200":3.50,"b200":5.18},"vastai":{"h100":2.00,"h200":3.87,"a100":0.87,"b200":4.06},"aws":{"h100":3.90,"h200":6.50,"a100":3.10},"azure":{"h100":6.98,"h200":10.60}},"raw_count":370};
+var DEMO={"timestamp":"2026-05-20T13:03:51.699189+00:00","date":"2026-05-20","hour":"13","gpus":{"H100":{"marketplace":{"mid":2.0033,"mean":2.2872,"low":1.4458,"high":4.5472,"p25":1.7611,"p75":2.6463,"count":98},"neocloud":{"mid":2.425,"mean":2.425,"low":2.36,"high":2.49,"p25":2.36,"p75":2.49,"count":2},"hyperscaler":{"mid":7.596,"mean":7.0485,"low":0.0156,"high":14.304,"p25":6.8956,"p75":8.1424,"count":97}},"A100":{"marketplace":{"mid":0.87,"mean":0.8888,"low":0.12,"high":1.536,"p25":0.7624,"p75":1.0696,"count":64},"neocloud":{"mid":1.56,"mean":1.56,"low":1.5,"high":1.62,"p25":1.5,"p75":1.62,"count":2},"hyperscaler":{"mid":3.0956,"mean":3.0038,"low":0.0156,"high":4.0716,"p25":2.8743,"p75":3.7285,"count":42}},"B200":{"marketplace":{"mid":4.063,"mean":5.2058,"low":3.6252,"high":8.7611,"p25":3.8514,"p75":6.8264,"count":64},"neocloud":{"mid":5.3,"mean":5.3,"low":5.3,"high":5.3,"p25":5.3,"p75":5.3,"count":1}},"H200":{"marketplace":{"mid":3.87,"mean":3.87,"low":2.50,"high":5.20,"p25":3.20,"p75":4.50,"count":38,"open":3.80,"close":3.87},"neocloud":{"mid":3.50,"mean":3.50,"low":2.30,"high":3.80,"p25":3.00,"p75":3.65,"count":12,"open":3.45,"close":3.50},"hyperscaler":{"mid":9.80,"mean":9.80,"low":6.00,"high":10.60,"p25":8.50,"p75":10.20,"count":6,"open":9.80,"close":9.80}}},"changes":{"H100":{"marketplace":{"mtd_pct":-0.1,"cum_pct":-0.1},"neocloud":{"mtd_pct":0.0,"cum_pct":0.0}},"H200":{"marketplace":{"mtd_pct":1.2,"cum_pct":1.2},"neocloud":{"mtd_pct":0.8,"cum_pct":0.8}}},"spreads":{"hyperscaler_vs_neocloud_pct":213.2,"neocloud_vs_marketplace_pct":21.1},"other_chips":{"amd_mi300x":{"label":"AMD MI300X (192GB)","pricing":[{"provider":"TensorWave","tier":"neocloud","price":1.50,"note":"8-GPU bare-metal"},{"provider":"Vultr","tier":"neocloud","price":1.85,"note":"单 GPU 按需"},{"provider":"RunPod","tier":"neocloud","price":2.99,"note":"社区云按需"},{"provider":"Oracle","tier":"hyperscaler","price":6.00,"note":"8-GPU 裸金属"},{"provider":"Azure","tier":"hyperscaler","price":7.86,"note":"ND MI300X v5"}],"market_status":"Vast.ai 零挂牌，仅通过专用云厂商获取。定价区间 $1.50-7.86/hr，NeoCloud 均价约为 NVIDIA H100 的 60-80%。"},"asics":{"label":"定制 ASIC（TPU / Trainium / Maia）","entries":[{"name":"Google TPU v5e","pricing":"$1.20/chip-hr","note":"仅 GCP，按 chip-hour 计费"},{"name":"Google TPU v5p","pricing":"$4.20/chip-hr","note":"仅 GCP，训练优化"},{"name":"AWS Trainium2","pricing":"~$3.50/hr*","note":"仅 AWS，AWS 声称成本约为 H100 的 25%"},{"name":"MS Maia 100","pricing":"未公开","note":"仅 Azure，内部优先"}],"market_status":"ASIC 仅在原厂公有云可用，无二级市场/现货市场。定价单位不统一（芯片小时 vs GPU 小时），不可直接对比 NVIDIA 租赁价。市场份额 < 15%，但增速快于 GPU 市场整体。"}},"providers":{"coreweave":{"h100":2.43,"h200":4.20,"a100":1.56,"b200":5.30},"nebius":{"h100":2.42,"h200":3.50,"b200":5.18},"vastai":{"h100":2.00,"h200":3.87,"a100":0.87,"b200":4.06},"aws":{"h100":3.90,"h200":6.50,"a100":3.10},"azure":{"h100":6.98,"h200":10.60}},"raw_count":370};
 var API='data/latest.json';
 
 // ── FORMATTERS ──────────────────────────────────────────
@@ -259,6 +265,29 @@ function render(d){
   if(sp.neocloud_vs_marketplace_pct) sb+='<div class="spread-card"><div class="spread-label">NeoCloud vs Marketplace 溢价</div><div class="spread-val">'+sp.neocloud_vs_marketplace_pct.toFixed(1)+'%</div><div class="spread-sub">H100 新型云 vs Vast.ai 现货折扣</div></div>';
   document.getElementById('spreads').innerHTML=sb;
 
+  // AMD & ASIC section
+  var oc=d.other_chips||{},ocHtml='';
+  if(oc.amd_mi300x){
+    ocHtml+='<h3>'+oc.amd_mi300x.label+'</h3>';
+    ocHtml+='<div class="table-wrap" style="margin-bottom:12px"><table><thead><tr><th>Provider</th><th>层级</th><th>$/GPU-hr</th><th>备注</th></tr></thead><tbody>';
+    (oc.amd_mi300x.pricing||[]).forEach(function(r){
+      var tCls=r.tier==='hyperscaler'?'hyper':'neo';
+      ocHtml+='<tr><td style="font-weight:600;font-family:Arial,sans-serif">'+r.provider+'</td><td>'+tierTag(r.tier)+'</td><td style="font-family:monospace">$'+r.price.toFixed(2)+'</td><td style="font-size:10px;color:var(--muted)">'+r.note+'</td></tr>';
+    });
+    ocHtml+='</tbody></table></div>';
+    ocHtml+='<p style="font-size:12px;color:var(--muted);font-family:Arial,sans-serif">'+oc.amd_mi300x.market_status+'</p>';
+  }
+  if(oc.asics){
+    ocHtml+='<h3 style="margin-top:16px">'+oc.asics.label+'</h3>';
+    ocHtml+='<div class="table-wrap" style="margin-bottom:12px"><table><thead><tr><th>芯片</th><th>参考价</th><th>备注</th></tr></thead><tbody>';
+    (oc.asics.entries||[]).forEach(function(e){
+      ocHtml+='<tr><td style="font-weight:600;font-family:Arial,sans-serif">'+e.name+'</td><td style="font-family:monospace">'+e.pricing+'</td><td style="font-size:10px;color:var(--muted)">'+e.note+'</td></tr>';
+    });
+    ocHtml+='</tbody></table></div>';
+    ocHtml+='<p style="font-size:12px;color:var(--muted);font-family:Arial,sans-serif">'+oc.asics.market_status+'</p>';
+  }
+  document.getElementById('other-chips-content').innerHTML=ocHtml;
+
   // Provider table
   var providers=[
     {id:'coreweave',name:'CoreWeave',tier:'neo',listed:'CRWV',minGpu:'1',minHr:'1小时'},
@@ -289,7 +318,7 @@ function render(d){
     {dir:'up',color:'var(--up)',icon:'▲',title:'CME 算力期货即将上线',desc:'2026.5.12 CME + Silicon Data(DRW) 宣布 H2 推出全球首个 GPU 算力期货，现金结算挂钩每日 GPU 基准价 → 算力从定制化投入正式转为标准化大宗商品，本监测数据为期货现货定价提供前置参考'},
     {dir:'mid',color:'#fbbf24',icon:'◆',title:'HBM3e +20% 成本传导',desc:'存储 → NVIDIA MSRP → 云租赁价格，4-6 周滞后，当前正在传导中'},
     {dir:'mid',color:'#fbbf24',icon:'◆',title:'Blackwell 延期效应',desc:'B200/B300 爬坡至 6-7 月 → H100/H200 短期替代压力有限'},
-    {dir:'down',color:'var(--down)',icon:'▼',title:'定制芯片渗透',desc:'Trainium/TPU 设定 $0.80/小时天花板 → H100 Hyperscaler 按需价硬上限'}];
+    {dir:'down',color:'var(--down)',icon:'▼',title:'定制芯片 + AMD 渗透',desc:'Trainium/TPU 设定 $0.80-1.20/小时天花板，AMD MI300X NeoCloud 仅 $1.50-2.99/hr → 非 NVIDIA 算力供给持续扩大，H100 Hyperscaler 按需价承压'}];
   var sl='';
   signals.forEach(function(s){
     sl+='<div class="signal-item" style="border-left:3px solid '+s.color+'"><div class="signal-icon" style="color:'+s.color+'">'+s.icon+'</div><div class="signal-body"><h4>'+s.title+'</h4><p>'+s.desc+'</p></div></div>';
