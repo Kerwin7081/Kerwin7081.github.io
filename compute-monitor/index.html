@@ -139,27 +139,6 @@ tbody tr:nth-child(even){background:#fdfaf7}
   <div class="hero-meta">每 4 小时自动更新 · 研究参考</div>
 </div>
 
-<!-- Market Structure Explainer -->
-<div class="section" id="market-structure">
-  <div class="section-label">三层定价体系说明</div>
-  <h2>为什么 GPU 租赁有三层价格？</h2>
-  <p><strong>Hyperscaler（超大规模云）</strong>—— AWS、Azure、GCP 的官方按需定价。代表「零售」算力价格天花板。GPU 实例通常捆绑 8 卡整机起租，附带宽、存储和 SLA。价格最高，但可用性最稳定。</p>
-  <p><strong>NeoCloud（新型云厂商）</strong>—— CoreWeave、Nebius、Lambda Labs 等专业 GPU 云。代表「批发」算力市场。通常支持单 GPU 起租，无长期合约要求，价格约为 Hyperscaler 的 30-50%。是 AI 创业公司和中小团队的主力算力来源，也是算力价格竞争最激烈的层级。</p>
-  <p><strong>Marketplace（现货市场）</strong>—— Vast.ai 等 P2P GPU 租赁平台。代表算力的「现货/边际定价」。个体数据中心和矿场挂牌闲置 GPU，按秒计费，无最低租赁时长。价格最低但可靠性参差——本系统对 H200 额外过滤 reliability < 0.90 的报价。</p>
-  <div class="callout" style="margin-top:14px">
-    <div class="callout-label">投资含义</div>
-    <p>三层价差（Hyperscaler vs NeoCloud vs Marketplace）不是套利机会，而是<strong>算力供应链价值分配</strong>的直接体现。价差扩大 = NeoCloud 价值捕获增强 → 利好 CRWV/NBIS；价差缩小 = 算力供给充裕或 Hyperscaler 降价抢量。三层之间的价差方向是判断算力供需松紧的前置指标。</p>
-  </div>
-</div>
-
-<!-- Signals — Core Narrative -->
-<div class="section" id="signals">
-  <div class="section-label">核心信号 · 投资含义</div>
-  <h2>当前算力市场的关键变化</h2>
-  <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:16px">以下信号基于实时定价数据、行业公开信息和产业链交叉验证，每条信号附带投资含义解释。▲ = 利多结构性趋势，◆ = 中性/观望信号，▼ = 利空/压制因素。</p>
-  <div class="signal-list" id="signals-list"></div>
-</div>
-
 <!-- GPU Price Cards -->
 <div class="section" id="prices">
   <div class="section-label">实时定价 · 三层对比</div>
@@ -167,11 +146,6 @@ tbody tr:nth-child(even){background:#fdfaf7}
   <div class="spread-row" id="spreads"></div>
 </div>
 
-<!-- AMD & ASIC Reference -->
-<div class="section" id="other-chips">
-  <div class="section-label">AMD · 定制 ASIC 参考定价</div>
-  <div id="other-chips-content"></div>
-</div>
 
 <!-- Provider Table -->
 <div class="section" id="providers">
@@ -186,6 +160,36 @@ tbody tr:nth-child(even){background:#fdfaf7}
     * AWS GPU 实例以整机起租（如 p5.48xlarge = 8×H100），表内已折算单 GPU 均价。Azure/GCP 支持单 GPU 挂载。<br>
     计费粒度：Hyperscaler 按秒（首分钟后），NeoCloud 按小时或按秒，Marketplace 按秒。
   </div>
+</div>
+
+
+<!-- Market Structure Explainer -->
+<div class="section" id="market-structure">
+  <div class="section-label">三层定价体系说明</div>
+  <h2>为什么 GPU 租赁有三层价格？</h2>
+  <p><strong>Hyperscaler（超大规模云）</strong>—— AWS、Azure、GCP 的官方按需定价。代表「零售」算力价格天花板。GPU 实例通常捆绑 8 卡整机起租，附带宽、存储和 SLA。价格最高，但可用性最稳定。</p>
+  <p><strong>NeoCloud（新型云厂商）</strong>—— CoreWeave、Nebius、Lambda Labs 等专业 GPU 云。代表「批发」算力市场。通常支持单 GPU 起租，无长期合约要求，价格约为 Hyperscaler 的 30-50%。是 AI 创业公司和中小团队的主力算力来源，也是算力价格竞争最激烈的层级。</p>
+  <p><strong>Marketplace（现货市场）</strong>—— Vast.ai 等 P2P GPU 租赁平台。代表算力的「现货/边际定价」。个体数据中心和矿场挂牌闲置 GPU，按秒计费，无最低租赁时长。价格最低但可靠性参差——本系统对 H200 额外过滤 reliability < 0.90 的报价。</p>
+  <div class="callout" style="margin-top:14px">
+    <div class="callout-label">投资含义</div>
+    <p>三层价差（Hyperscaler vs NeoCloud vs Marketplace）不是套利机会，而是<strong>算力供应链价值分配</strong>的直接体现。价差扩大 = NeoCloud 价值捕获增强 → 利好 CRWV/NBIS；价差缩小 = 算力供给充裕或 Hyperscaler 降价抢量。三层之间的价差方向是判断算力供需松紧的前置指标。</p>
+  </div>
+</div>
+
+
+<!-- Signals — Core Narrative -->
+<div class="section" id="signals">
+  <div class="section-label">核心信号 · 投资含义</div>
+  <h2>当前算力市场的关键变化</h2>
+  <p style="font-size:13px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:16px">以下信号基于实时定价数据、行业公开信息和产业链交叉验证，每条信号附带投资含义解释。▲ = 利多结构性趋势，◆ = 中性/观望信号，▼ = 利空/压制因素。</p>
+  <div class="signal-list" id="signals-list"></div>
+</div>
+
+
+<!-- AMD & ASIC Reference -->
+<div class="section" id="other-chips">
+  <div class="section-label">AMD · 定制 ASIC 参考定价</div>
+  <div id="other-chips-content"></div>
 </div>
 
 <!-- Product Description -->
@@ -327,8 +331,10 @@ function render(d){
   // Signals
   var spreadPct=sp.hyperscaler_vs_neocloud_pct||0;
   var signals=[
-    {dir:'up',color:'var(--up)',icon:'▲',title:'Anthropic 签约 Colossus 1：$15B/年 × 3 年锁定 230,000 GPU',desc:'2026.5.6 签约 xAI Colossus 1（Memphis），Anthropic 独占全部算力 · 3 年租约。SpaceX S-1 披露 $1.25B/月 → $15B/年 → $45B 总承诺。 $1.25B/月 → $15B/年。集群：150,000 H100 + 50,000 H200 + 30,000 GB200（Blackwell）= 230,000 GPU · 300MW。反推全包价 ~$7.44/GPU-hr（100% 利用率）≈ NeoCloud 均价 $3.19 × 2.3。',invest:'关键信号：超大客户为整集群独占支付 2.3× 溢价——不是大客户折扣，而是溢价抢资源。逆转传统「量大从优」逻辑 → AI 超算整集群供给极度稀缺 → NeoCloud（CRWV/NBIS）议价权在供给方。业绩与股价弹性来自「稀缺溢价」而非「规模降本」。CME 锚点：> $7.44 = 紧缺；< $7.44 = 充裕。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'Anthropic 签约 Colossus 1：$15B/年 × 3 年锁定 230,000 GPU',desc:'2026.5.6 签约 xAI Colossus 1（Memphis），Anthropic 独占全部算力 · 3 年租约。SpaceX S-1 披露 $1.25B/月 → $15B/年 → $45B 总承诺。集群：150,000 H100 + 50,000 H200 + 30,000 GB200（Blackwell）= 230,000 GPU · 300MW。反推全包价 ~$7.44/GPU-hr（100% 利用率）≈ NeoCloud 均价 $3.19 × 2.3。',invest:'关键信号：超大客户为整集群独占支付 2.3× 溢价——不是大客户折扣，而是溢价抢资源。逆转传统「量大从优」逻辑 → AI 超算整集群供给极度稀缺 → NeoCloud（CRWV/NBIS）议价权在供给方。业绩与股价弹性来自「稀缺溢价」而非「规模降本」。CME 锚点：> $7.44 = 紧缺；< $7.44 = 充裕。'},
     {dir:'up',color:'var(--up)',icon:'▲',title:'OpenAI 推出「保证容量」1-3 年长协',desc:'2026.5.20 OpenAI 推出 Guaranteed Capacity：企业客户 1-3 年锁定算力。叠加 $110B 融资含 $30B NVIDIA Vera Rubin 专用容量——模型厂商向上游锁算力已成行业标配。',invest:'OpenAI/Anthropic 同时推长协 → AI 创业公司算力准入壁垒上升 → 拥有自有 GPU 产能的 NeoCloud（CRWV/NBIS）议价力增强。算力从现货购买走向合约锁量。'},
+    {dir:'up',color:'var(--up)',icon:'▲',title:'算力价值链正向循环：每层都在赚该赚的钱',desc:'Anthropic 年收入 $43B × 40% 毛利 → $17.2B 毛利润，Colossus $15B 算力成本完全可覆盖。OpenAI 年收入 $25B × 33% 毛利 → $8.25B 毛利润。从 GPU 租赁商（NeoCloud $2.43/hr）→ 模型厂商（40% 毛利）→ 企业客户，每层保留合理利润，非赔本赚吆喝。',invest:'验证 AI 算力价值链可持续性。若本监测的 GPU 租赁价持续上行而模型厂商毛利同步扩张 = 需求端健康，算力成本可向下游传导。若租赁价上涨但模型厂商毛利压缩 = 警惕算力成本转嫁能力断裂，利空 GPU 云长期合约定价。'},
+
     {dir:'up',color:'var(--up)',icon:'▲',title:'CME 算力期货 + 算力金融化',desc:'2026.5.12 CME + Silicon Data（DRW 背书）宣布 H2 推出全球首个 GPU 算力期货。长协锁量 + 期货锁价 + 算力代币探索 → GPU 算力正经历原油 1980s/电力 1990s 的金融化路径。',invest:'完整算力定价曲线形成（spot/forward/futures）。CRWV/NBIS/IREN/EQIX 估值框架从「云厂商」向「算力基础设施 REITs + 商品生产商」混合模型迁移。'},
     {dir:'up',color:'var(--up)',icon:'▲',title:'A100 反衰减信号',desc:'问世 6 年的 GPU 租赁价格仍在上涨 → 存量算力货币化强劲。A100 NeoCloud 维持在 $1.56/hr，Marketplace 在 $0.87/hr，均未出现代际淘汰式崩跌。',invest:'反驳 AI CapEx 过剩叙事：即使新代 GPU 持续出货，老代 GPU 仍能产生正现金流 → GPU 资产残值高于市场预期 → 利好 GPU 云厂商资产负债表和折旧假设。'},
     {dir:'up',color:'var(--up)',icon:'▲',title:'Neocloud 价差持续扩大',desc:'Hyperscaler vs NeoCloud 价差 '+spreadPct.toFixed(1)+'%（H100 AWS $'+ (((d.gpus||{}).H100||{}).hyperscaler||{}).mid.toFixed(2) +' vs CoreWeave $'+ (((d.gpus||{}).H100||{}).neocloud||{}).mid.toFixed(2) +'）→ 结构性不收敛。',invest:'价差持续高于 150% = NeoCloud 的「价格优势 + 单 GPU 灵活起租」是结构性壁垒。这一价差是 NeoCloud 上市公司（CRWV/NBIS/DOCN）的核心护城河指标。'},
