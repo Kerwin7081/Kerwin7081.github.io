@@ -151,9 +151,13 @@ tbody tr:nth-child(even){background:#fdfaf7}
   <div class="section-label">Provider 明细</div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Provider</th><th>层级</th><th>A100/hr</th><th>H100/hr</th><th>H200/hr</th><th>B200/hr</th><th>代码</th></tr></thead>
+      <thead><tr><th>Provider</th><th>层级</th><th>A100/hr</th><th>H100/hr</th><th>H200/hr</th><th>B200/hr</th><th>起步GPU</th><th>最短起租</th><th>代码</th></tr></thead>
       <tbody id="provider-body"></tbody>
     </table>
+  </div>
+  <div style="font-size:11px;color:var(--muted);margin-top:8px;font-family:Arial,sans-serif;line-height:1.6">
+    * AWS GPU 实例以整机起租（如 p5.48xlarge = 8×H100），表内已折算单 GPU 均价。Azure/GCP 支持单 GPU 挂载。<br>
+    计费粒度：Hyperscaler 按秒（首分钟后），NeoCloud 按小时或按秒，Marketplace 按秒。
   </div>
 </div>
 
@@ -254,22 +258,22 @@ function render(d){
 
   // Provider table
   var providers=[
-    {id:'coreweave',name:'CoreWeave',tier:'neo',listed:'CRWV'},
-    {id:'nebius',name:'Nebius',tier:'neo',listed:'NBIS'},
-    {id:'lambda',name:'Lambda Labs',tier:'neo',listed:'--'},
-    {id:'jarvislabs',name:'Jarvislabs',tier:'neo',listed:'--'},
-    {id:'runpod',name:'RunPod',tier:'neo',listed:'--'},
-    {id:'digitalocean',name:'DigitalOcean',tier:'neo',listed:'DOCN'},
-    {id:'vastai',name:'Vast.ai',tier:'mp',listed:'--'},
-    {id:'aws',name:'AWS',tier:'hyper',listed:'AMZN'},
-    {id:'azure',name:'Azure',tier:'hyper',listed:'MSFT'},
-    {id:'gcp',name:'GCP',tier:'hyper',listed:'GOOGL'}
+    {id:'coreweave',name:'CoreWeave',tier:'neo',listed:'CRWV',minGpu:'1',minHr:'1小时'},
+    {id:'nebius',name:'Nebius',tier:'neo',listed:'NBIS',minGpu:'1',minHr:'1小时'},
+    {id:'lambda',name:'Lambda Labs',tier:'neo',listed:'--',minGpu:'1',minHr:'无最低'},
+    {id:'jarvislabs',name:'Jarvislabs',tier:'neo',listed:'--',minGpu:'1',minHr:'无最低'},
+    {id:'runpod',name:'RunPod',tier:'neo',listed:'--',minGpu:'1',minHr:'按秒'},
+    {id:'digitalocean',name:'DigitalOcean',tier:'neo',listed:'DOCN',minGpu:'1',minHr:'5分钟'},
+    {id:'vastai',name:'Vast.ai',tier:'mp',listed:'--',minGpu:'1',minHr:'按秒'},
+    {id:'aws',name:'AWS',tier:'hyper',listed:'AMZN',minGpu:'8*',minHr:'1分钟'},
+    {id:'azure',name:'Azure',tier:'hyper',listed:'MSFT',minGpu:'1-8',minHr:'1分钟'},
+    {id:'gcp',name:'GCP',tier:'hyper',listed:'GOOGL',minGpu:'1-8',minHr:'1分钟'}
   ];
   var provs=d.providers||{};
   var pt='';
   providers.forEach(function(p,i){
     var pd=provs[p.id]||{};
-    pt+='<tr style="'+(i%2?'':'background:#fdfaf7')+'"><td style="color:var(--ink);font-weight:600">'+p.name+'</td><td>'+tierTag(p.tier)+'</td><td>'+(pd.a100?fmt(pd.a100):'<span class="na">--</span>')+'</td><td>'+(pd.h100?fmt(pd.h100):'<span class="na">--</span>')+'</td><td>'+(pd.h200?fmt(pd.h200):'<span class="na">--</span>')+'</td><td>'+(pd.b200?fmt(pd.b200):'<span class="na">--</span>')+'</td><td style="color:'+(p.listed!=='--'?'var(--gold)':'var(--muted)')+'">'+p.listed+'</td></tr>';
+    pt+='<tr style="'+(i%2?'':'background:#fdfaf7')+'"><td style="color:var(--ink);font-weight:600">'+p.name+'</td><td>'+tierTag(p.tier)+'</td><td>'+(pd.a100?fmt(pd.a100):'<span class="na">--</span>')+'</td><td>'+(pd.h100?fmt(pd.h100):'<span class="na">--</span>')+'</td><td>'+(pd.h200?fmt(pd.h200):'<span class="na">--</span>')+'</td><td>'+(pd.b200?fmt(pd.b200):'<span class="na">--</span>')+'</td><td style="font-size:10px">'+p.minGpu+'</td><td style="font-size:10px">'+p.minHr+'</td><td style="color:'+(p.listed!=='--'?'var(--gold)':'var(--muted)')+'">'+p.listed+'</td></tr>';
   });
   document.getElementById('provider-body').innerHTML=pt;
 
