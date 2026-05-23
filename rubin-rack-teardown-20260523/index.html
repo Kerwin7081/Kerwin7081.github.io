@@ -29,8 +29,8 @@ th,td{padding:8px 9px;border-bottom:1px solid var(--line);font-size:13px;text-al
 th:first-child,td:first-child{text-align:left}
 th{background:#17202b;color:#cdd8e3;font-weight:700}
 tr:last-child td{border-bottom:0}
-.tight table{min-width:760px}
-.tight th,.tight td{padding:6px 7px;font-size:12px}
+.tight table{min-width:720px}
+.tight th,.tight td{padding:5px 6px;font-size:11.5px}
 .pos{color:var(--green);font-variant-numeric:tabular-nums}
 .neg{color:var(--red);font-variant-numeric:tabular-nums}
 .flat{color:#cbd5df;font-variant-numeric:tabular-nums}
@@ -75,6 +75,8 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th>分类</th><th>名称</th><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th><th>季收QoQ</th></tr></thead>
         <tbody>
+          <tr><td>Memory</td><td>SanDisk</td><td>SNDK</td><td class="neg">-4.1%</td><td class="pos">+24.6%</td><td class="pos">+437.2%</td><td class="pos">+96.7%</td></tr>
+          <tr><td>Memory</td><td>铠侠</td><td>285A.T</td><td class="pos">+3.7%</td><td class="pos">+57.6%</td><td class="pos">+405.7%</td><td class="flat">N/A</td></tr>
           <tr><td>Memory</td><td>SK海力士</td><td>000660.KS</td><td class="pos">+0.1%</td><td class="pos">+34.1%</td><td class="pos">+186.7%</td><td class="pos">+60.2%</td></tr>
           <tr><td>Memory</td><td>美光</td><td>MU</td><td class="neg">-1.5%</td><td class="pos">+38.5%</td><td class="pos">+138.1%</td><td class="pos">+74.9%</td></tr>
           <tr><td>Memory</td><td>三星电子</td><td>005930.KS</td><td class="neg">-2.3%</td><td class="pos">+25.8%</td><td class="pos">+127.6%</td><td class="pos">+42.7%</td></tr>
@@ -129,7 +131,7 @@ tr:last-child td{border-bottom:0}
         </tbody>
       </table>
     </div>
-    <p class="note">Power/Cooling 表中是机柜内 BOM 口径。机柜外还有更大的电力与热管理需求，包括 800V 电压架构、UPS、配电柜、母线槽、电源模块、CDU、冷板、快接头、热交换和整套液冷基础设施。简要观察标的：台达电 2308.TW、光宝科 2301.TW、奇鋐 3017.TW、双鸿 3324.TWO、健策 3653.TW、富世达 6805.TW。</p>
+    <p class="note">Power/Cooling 表中是机柜内 BOM 口径。机柜外还有更大的电力与热管理需求，包括 800V 电压架构、UPS、配电柜、母线槽、电源模块、CDU、冷板、快接头、热交换和整套液冷基础设施。精简观察：VRT 看数据中心电力基础设施，2308.TW 看电源/供配电，3017.TW 看液冷模组，6805.TW 看水冷机构件与快接头。</p>
   </section>
 
   <section>
@@ -139,13 +141,15 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th>分类</th><th>公司</th><th>代码</th><th>市值USD</th><th>远期PE</th><th>毛利率</th><th>EPS</th><th>近季收入增幅</th></tr></thead>
         <tbody>
-          <tr><td>Memory</td><td>SK海力士</td><td>000660.KS</td><td>906B</td><td>5.1</td><td>75.0%</td><td>N/A</td><td class="pos">+198.1%</td></tr>
+          <tr><td>Memory</td><td>SanDisk</td><td>SNDK</td><td>219B</td><td>8.4</td><td>56.0%</td><td>29.3</td><td class="pos">+251.0%</td></tr>
+          <tr><td>Memory</td><td>铠侠</td><td>285A.T</td><td>197B</td><td>56.8*</td><td>43.3%</td><td>1010.2</td><td class="pos">+188.9%</td></tr>
+          <tr><td>Memory</td><td>SK海力士</td><td>000660.KS</td><td>906B</td><td>5.1</td><td>75.0%</td><td>382280*</td><td class="pos">+198.1%</td></tr>
           <tr><td>Memory</td><td>美光</td><td>MU</td><td>847B</td><td>7.3</td><td>58.4%</td><td>21.2</td><td class="pos">+196.3%</td></tr>
-          <tr><td>Memory</td><td>三星电子</td><td>005930.KS</td><td>1.26T</td><td>5.6</td><td>47.7%</td><td>N/A</td><td class="pos">+69.2%</td></tr>
+          <tr><td>Memory</td><td>三星电子</td><td>005930.KS</td><td>1.26T</td><td>5.6</td><td>47.7%</td><td>52583*</td><td class="pos">+69.2%</td></tr>
           <tr><td>PCB</td><td>欣兴</td><td>3037.TW</td><td>49B</td><td>33.8</td><td>15.1%</td><td>4.4</td><td class="pos">+18.1%</td></tr>
           <tr><td>PCB</td><td>臻鼎-KY</td><td>4958.TW</td><td>18B</td><td>24.6</td><td>21.3%</td><td>6.8</td><td class="pos">+1.3%</td></tr>
           <tr><td>PCB材料</td><td>联茂</td><td>6213.TW</td><td>3B</td><td>22.3</td><td>13.7%</td><td>4.1</td><td class="pos">+16.3%</td></tr>
-          <tr><td>MLCC</td><td>三星电机</td><td>009150.KS</td><td>67B</td><td>49.8</td><td>20.1%</td><td>N/A</td><td class="pos">+17.2%</td></tr>
+          <tr><td>MLCC</td><td>三星电机</td><td>009150.KS</td><td>67B</td><td>49.8</td><td>20.1%</td><td>26909*</td><td class="pos">+17.2%</td></tr>
           <tr><td>MLCC</td><td>村田</td><td>6981.T</td><td>82B</td><td>30.1</td><td>42.3%</td><td>127.6</td><td class="pos">+5.4%</td></tr>
           <tr><td>MLCC</td><td>TDK</td><td>6762.T</td><td>40B</td><td>31.5</td><td>31.3%</td><td>103.1</td><td class="pos">+21.0%</td></tr>
           <tr><td>Networking</td><td>Marvell</td><td>MRVL</td><td>172B</td><td>36.0</td><td>51.0%</td><td>3.1</td><td class="pos">+22.1%</td></tr>
@@ -153,14 +157,20 @@ tr:last-child td{border-bottom:0}
           <tr><td>Networking</td><td>英伟达</td><td>NVDA</td><td>5.22T</td><td>17.0</td><td>74.1%</td><td>6.5</td><td class="pos">+85.2%</td></tr>
           <tr><td>ABF</td><td>南电</td><td>8046.TW</td><td>19B</td><td>33.5</td><td>9.1%</td><td>3.0</td><td class="pos">+21.5%</td></tr>
           <tr><td>Power/Cooling</td><td>台达电</td><td>2308.TW</td><td>173B</td><td>32.5</td><td>35.5%</td><td>23.0</td><td class="pos">+44.0%</td></tr>
+          <tr><td>Off-rack</td><td>Vertiv</td><td>VRT</td><td>126B</td><td>36.9</td><td>37.2%</td><td>4.0</td><td class="pos">+30.1%</td></tr>
+          <tr><td>Off-rack</td><td>奇鋐</td><td>3017.TW</td><td>32B</td><td>18.8</td><td>27.0%</td><td>48.4</td><td class="pos">+128.5%</td></tr>
+          <tr><td>Off-rack</td><td>富世达</td><td>6805.TW</td><td>4B</td><td>18.7</td><td>28.7%</td><td>31.1</td><td class="pos">+100.0%</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="note">* 285A.T 使用 trailing PE；000660.KS、005930.KS、009150.KS 的 EPS 由最新价格 / 远期 PE 反推，仅用于补齐横向观察，不替代公司公告。</p>
   </section>
 
   <section>
     <h2>五、公司简要定位</h2>
     <div class="cards">
+      <div class="card"><b>Memory · SNDK · SanDisk</b><p>NAND/存储周期高弹性标的。Rubin 内存成本抬升之外，AI 数据中心对高速存储和容量扩张也会形成外溢需求。</p></div>
+      <div class="card"><b>Memory · 285A.T · Kioxia / 铠侠</b><p>NAND 供应链核心标的。更偏存储侧映射，不是 HBM 纯标的，但适合观察 AI 数据中心存储资本开支扩散。</p></div>
       <div class="card"><b>Memory · 000660.KS · SK hynix</b><p>HBM 与高端 DRAM 核心标的。Rubin 对内存成本的拉升让 HBM 供给、ASP 与良率成为最重要变量。</p></div>
       <div class="card"><b>Memory · MU · Micron</b><p>美股内存代表。若 HBM 与高端 DRAM 进入供给约束周期，Micron 是美股中最直接的内存映射。</p></div>
       <div class="card"><b>Memory · 005930.KS · Samsung Electronics</b><p>内存与先进封装生态参与者。观察点在 HBM 追赶、DRAM 价格周期和 AI 客户认证进度。</p></div>
@@ -175,6 +185,9 @@ tr:last-child td{border-bottom:0}
       <div class="card"><b>Networking · NVDA · NVIDIA</b><p>Rubin 平台锚。其规格、量产时间、NVLink 设计和生态推进速度决定整条链的估值节奏。</p></div>
       <div class="card"><b>ABF · 8046.TW · Nan Ya PCB / 南电</b><p>ABF 载板核心观察。与欣兴共同验证高阶载板供需缺口和报价弹性。</p></div>
       <div class="card"><b>Power / Cooling · 2308.TW · Delta / 台达电</b><p>电源、供配电与散热系统核心。Rubin 功耗上行越明确，Delta 的数据中心电力价值越容易被验证。</p></div>
+      <div class="card"><b>Off-rack · VRT · Vertiv</b><p>数据中心电力和热管理基础设施龙头。它不是机柜内 BOM 标的，而是 AI 数据中心供电、UPS、配电和热管理扩建的机柜外映射。</p></div>
+      <div class="card"><b>Off-rack · 3017.TW · 奇鋐</b><p>液冷模组和散热系统观察标的。适合验证 Rubin 热密度提升是否外溢到整套液冷系统。</p></div>
+      <div class="card"><b>Off-rack · 6805.TW · 富世达</b><p>水冷机构件和快接头观察标的。更偏液冷细分零组件弹性，适合作为机柜外液冷基础设施扩散指标。</p></div>
     </div>
   </section>
 
