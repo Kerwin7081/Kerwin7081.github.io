@@ -76,7 +76,7 @@ tr:last-child td{border-bottom:0}
 
   <section>
     <h2>一、观察标的行情</h2>
-    <p class="note">按 Morgan 部件增幅顺序排列；每类内部按 YTD 降序。季度收入环比为最新季度收入相对上一季度变化，缺失显示 N/A。</p>
+    <p class="note">按 Morgan 部件增幅顺序排列；多数分类内部按 YTD 降序，Power/Cooling 按映射纯度与平台属性排序。季度收入环比为最新季度收入相对上一季度变化，缺失显示 N/A。</p>
     <div class="table-wrap micro">
       <table>
         <thead><tr><th>分类</th><th>名称</th><th>代码</th><th>1D</th><th>MTD</th><th>YTD</th><th>季收QoQ</th></tr></thead>
@@ -98,6 +98,8 @@ tr:last-child td{border-bottom:0}
           <tr><td>ABF</td><td>欣兴</td><td>3037.TW</td><td class="pos">+7.2%</td><td class="pos">+6.5%</td><td class="pos">+342.9%</td><td class="flat">N/A</td></tr>
           <tr><td>ABF</td><td>南电</td><td>8046.TW</td><td class="pos">+7.1%</td><td class="neg">-5.3%</td><td class="pos">+294.1%</td><td class="pos">+16.5%</td></tr>
           <tr><td>Power</td><td>台达电</td><td>2308.TW</td><td class="pos">+3.2%</td><td class="neg">-5.6%</td><td class="pos">+110.6%</td><td class="pos">+30.3%</td></tr>
+          <tr><td>Cooling</td><td>健策</td><td>3653.TW</td><td class="pos">+9.9%</td><td class="neg">-30.9%</td><td class="pos">+41.3%</td><td class="pos">+4.0%</td></tr>
+          <tr><td>Cooling</td><td>奇鋐</td><td>3017.TW</td><td class="pos">+2.0%</td><td class="neg">-11.8%</td><td class="pos">+74.9%</td><td class="pos">+22.7%</td></tr>
           <tr><td>Cooling</td><td>台达电</td><td>2308.TW</td><td class="pos">+3.2%</td><td class="neg">-5.6%</td><td class="pos">+110.6%</td><td class="pos">+30.3%</td></tr>
         </tbody>
       </table>
@@ -106,7 +108,7 @@ tr:last-child td{border-bottom:0}
 
   <section>
     <h2>二、Blackwell 到 Rubin 的部件增幅</h2>
-    <p class="note">以下为公开媒体对 Morgan Stanley 拆解的转述口径；Power/Cooling 分开列示，便于观察 Delta 的电源与散热系统暴露。</p>
+    <p class="note">以下为公开媒体对 Morgan Stanley 拆解的转述口径；Power/Cooling 分开列示，便于区分冷板/液冷纯度与台达电的平台型电源散热暴露。</p>
     <div class="bars">
       <div class="bar-row"><span>Memory</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><b>+435%</b></div>
       <div class="bar-row"><span>PCB</span><div class="bar-track"><div class="bar-fill" style="width:53.6%"></div></div><b>+233%</b></div>
@@ -133,11 +135,11 @@ tr:last-child td{border-bottom:0}
           <tr><td>Networking</td><td class="pos">+121%</td><td>NVDA / AVGO / MRVL</td><td>机柜级互联、交换芯片与数据中心网络价值提升</td></tr>
           <tr><td>ABF</td><td class="pos">+82%</td><td>3037.TW / 8046.TW</td><td>GPU、交换芯片与封装复杂度提升支撑载板需求</td></tr>
           <tr><td>Power</td><td class="pos">+32%</td><td>2308.TW</td><td>功耗上行后，电源、PSU 与机柜供配电成为出货确认项</td></tr>
-          <tr><td>Cooling</td><td class="pos">+12%</td><td>2308.TW</td><td>机柜内液冷价值增幅较低，但热密度上升会推动系统级散热需求</td></tr>
+          <tr><td>Cooling</td><td class="pos">+12%</td><td>3653.TW / 3017.TW / 2308.TW</td><td>3653 更偏 cold plate 与精密金属件；3017 偏散热模组与液冷；2308 是 power + cooling 平台型标的</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Power/Cooling 表中是机柜内 BOM 口径。机柜外还有更大的电力与热管理需求，包括 800V 电压架构、UPS、配电柜、母线槽、电源模块、CDU、冷板、快接头、热交换和整套液冷基础设施。精简观察：VRT 看数据中心电力基础设施，2308.TW 看电源/供配电，3017.TW 看液冷模组，6805.TW 看水冷机构件与快接头。</p>
+    <p class="note">Power/Cooling 表中是机柜内 BOM 口径。机柜外还有更大的电力与热管理需求，包括 800V 电压架构、UPS、配电柜、母线槽、电源模块、CDU、冷板、快接头、热交换和整套液冷基础设施。冷板/液冷映射优先看 3653.TW 健策、3017.TW 奇鋐；2308.TW 台达电更适合作为电源 + 散热平台型标的；VRT 看数据中心电力基础设施，6805.TW 看水冷机构件与快接头。</p>
   </section>
 
   <section>
@@ -163,8 +165,9 @@ tr:last-child td{border-bottom:0}
           <tr><td>Networking</td><td>英伟达</td><td>NVDA</td><td>5.22T</td><td>17.0</td><td>74.1%</td><td>6.5</td><td class="pos">+85.2%</td></tr>
           <tr><td>ABF</td><td>南电</td><td>8046.TW</td><td>19B</td><td>33.5</td><td>9.1%</td><td>3.0</td><td class="pos">+21.5%</td></tr>
           <tr><td>Power/Cooling</td><td>台达电</td><td>2308.TW</td><td>173B</td><td>32.5</td><td>35.5%</td><td>23.0</td><td class="pos">+44.0%</td></tr>
+          <tr><td>Cooling</td><td>健策</td><td>3653.TW</td><td>17B</td><td>31.1</td><td>40.9%</td><td>36.2</td><td class="pos">+11.6%</td></tr>
+          <tr><td>Cooling</td><td>奇鋐</td><td>3017.TW</td><td>32B</td><td>18.8</td><td>27.0%</td><td>48.4</td><td class="pos">+110.2%</td></tr>
           <tr><td>Off-rack</td><td>Vertiv</td><td>VRT</td><td>126B</td><td>36.9</td><td>37.2%</td><td>4.0</td><td class="pos">+30.1%</td></tr>
-          <tr><td>Off-rack</td><td>奇鋐</td><td>3017.TW</td><td>32B</td><td>18.8</td><td>27.0%</td><td>48.4</td><td class="pos">+128.5%</td></tr>
           <tr><td>Off-rack</td><td>富世达</td><td>6805.TW</td><td>4B</td><td>18.7</td><td>28.7%</td><td>31.1</td><td class="pos">+100.0%</td></tr>
         </tbody>
       </table>
@@ -190,9 +193,10 @@ tr:last-child td{border-bottom:0}
       <div class="card"><b>Networking · AVGO · Broadcom</b><p>网络 ASIC 与交换芯片核心。Rubin 机柜级互联升级，会强化数据中心网络芯片价值。</p></div>
       <div class="card"><b>Networking · NVDA · NVIDIA</b><p>Rubin 平台锚。其规格、量产时间、NVLink 设计和生态推进速度决定整条链的估值节奏。</p></div>
       <div class="card"><b>ABF · 8046.TW · Nan Ya PCB / 南电</b><p>ABF 载板核心观察。与欣兴共同验证高阶载板供需缺口和报价弹性。</p></div>
-      <div class="card"><b>Power / Cooling · 2308.TW · Delta / 台达电</b><p>电源、供配电与散热系统核心。Rubin 功耗上行越明确，Delta 的数据中心电力价值越容易被验证。</p></div>
+      <div class="card"><b>Power / Cooling · 2308.TW · Delta / 台达电</b><p>电源、供配电与散热系统平台型标的。冷板纯度不如健策、奇鋐，但在电源、供配电和 cooling 系统整合上更完整。</p></div>
       <div class="card"><b>Off-rack · VRT · Vertiv</b><p>数据中心电力和热管理基础设施龙头。它不是机柜内 BOM 标的，而是 AI 数据中心供电、UPS、配电和热管理扩建的机柜外映射。</p></div>
-      <div class="card"><b>Off-rack · 3017.TW · 奇鋐</b><p>液冷模组和散热系统观察标的。适合验证 Rubin 热密度提升是否外溢到整套液冷系统。</p></div>
+      <div class="card"><b>Cooling · 3653.TW · Jentech Precision / 健策</b><p>精密金属件与高性能热管理标的，cold plate 映射更纯。适合放在冷板/液冷链条优先观察位。</p></div>
+      <div class="card"><b>Cooling · 3017.TW · AVC / 奇鋐</b><p>散热模组与液冷供应链纯度高，上市可投资性好。适合验证 Rubin 热密度提升是否外溢到整套液冷系统。</p></div>
       <div class="card"><b>Off-rack · 6805.TW · 富世达</b><p>水冷机构件和快接头观察标的。更偏液冷细分零组件弹性，适合作为机柜外液冷基础设施扩散指标。</p></div>
     </div>
   </section>
