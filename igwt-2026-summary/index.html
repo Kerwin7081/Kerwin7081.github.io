@@ -28,6 +28,8 @@
     --gold-bright:#c08a3d;
     --ink-mid:#3d3229;
     --ink-light:#6f6258;
+    --headline:#16110d;
+    --headline-accent:#5f3514;
     --paper-warm:#fdfaf5;
     --paper-card:#fffaf4;
     --accent-red:#dc2626;
@@ -71,7 +73,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.25em;
-    color: var(--gold);
+    color: var(--headline-accent);
     text-transform: uppercase;
     margin-bottom: 18px;
   }
@@ -80,15 +82,16 @@
     font-size: clamp(32px, 5vw, 54px);
     font-weight: 700;
     line-height: 1.15;
-    color: var(--ink);
+    color: var(--headline);
     margin-bottom: 10px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
   }
   .masthead-subtitle {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: clamp(16px, 2.2vw, 21px);
-    color: var(--gold-light);
+    color: var(--headline-accent);
     margin-bottom: 28px;
   }
   .masthead-meta {
@@ -206,7 +209,7 @@
     color: var(--gold);
     line-height: 1;
     min-width: 52px;
-    opacity: 0.45;
+    opacity: 0.72;
     font-weight: 700;
     margin-top: -4px;
   }
@@ -215,7 +218,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.22em;
-    color: var(--gold);
+    color: var(--headline-accent);
     text-transform: uppercase;
     display: block;
     margin-bottom: 6px;
@@ -224,7 +227,7 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(20px, 2.8vw, 26px);
     font-weight: 700;
-    color: var(--ink);
+    color: var(--headline);
     line-height: 1.25;
   }
   .chapter-body {
@@ -248,7 +251,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--headline);
     margin-bottom: 8px;
     display: flex;
     align-items: center;
