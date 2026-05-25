@@ -9,13 +9,13 @@
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
-    --bg:#fff1e5;
-    --paper:#fffaf4;
-    --panel:#fdfaf5;
+    --bg:#ecd8c3;
+    --paper:#fff8ed;
+    --panel:#f6e7d6;
     --ink:#1f1a17;
-    --muted:#6f6258;
-    --line:#dccdbf;
-    --gold:#8a5b2b;
+    --muted:#51463d;
+    --line:#c9b29d;
+    --gold:#76451f;
     --table-head:#3d3229;
     --up:#16a34a;
     --down:#dc2626;
@@ -23,15 +23,15 @@
     --warn:#92400e;
     --date:#8b4513;
 
-    --gold-light:#a56f36;
+    --gold-light:#8a5527;
     --gold-pale:#f5eadc;
-    --gold-bright:#c08a3d;
+    --gold-bright:#9b642d;
     --ink-mid:#3d3229;
     --ink-light:#6f6258;
     --headline:#16110d;
     --headline-accent:#5f3514;
-    --paper-warm:#fdfaf5;
-    --paper-card:#fffaf4;
+    --paper-warm:#fff3e5;
+    --paper-card:#fff8ed;
     --accent-red:#dc2626;
     --accent-green:#16a34a;
     --border:#dccdbf;
@@ -53,7 +53,7 @@
 
   /* ── MASTHEAD ── */
   .masthead {
-    background: var(--paper);
+    background: linear-gradient(180deg, #ead1b7 0%, #fff4e6 78%, #fff8ed 100%);
     color: var(--ink);
     text-align: center;
     padding: 42px 24px 38px;
@@ -66,8 +66,12 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(255,250,244,0.9) 0%, rgba(253,250,245,0.65) 100%);
+    background: linear-gradient(180deg, rgba(118,69,31,0.08) 0%, rgba(255,248,237,0.22) 100%);
     pointer-events: none;
+  }
+  .masthead > * {
+    position: relative;
+    z-index: 1;
   }
   .masthead-kicker {
     font-family: 'JetBrains Mono', monospace;
@@ -85,7 +89,7 @@
     color: var(--headline);
     margin-bottom: 10px;
     letter-spacing: 0;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    text-shadow: 0 1px 0 rgba(255,255,255,0.55);
   }
   .masthead-subtitle {
     font-family: 'Playfair Display', serif;
