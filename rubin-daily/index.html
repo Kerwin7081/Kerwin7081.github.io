@@ -46,7 +46,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
   .hero{padding:20px 14px 16px}
   .hero-title{font-size:20px}
   .section{padding:16px 12px}
-  .footer,.counter-wrap{font-size:10px}
+  .gate-prompt{padding:0 20px 0;margin-bottom:16px} .gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:24px 32px;box-shadow:0 4px 20px rgba(15,23,42,.04)} .gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em} .gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite} .gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)} @keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}} .gated-content{display:none} .gated-content.visible{display:block} .footer,.counter-wrap{font-size:10px}
 }
 </style>
 </head>
@@ -58,18 +58,27 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 <div class="topbar">
   <div class="top-kicker">KERWIN RESEARCH · AI INFRASTRUCTURE</div>
   <h1 class="top-title">Rubin 机柜拆解<br>投资观察池日报</h1>
-  <div class="top-date">日报发布时间：2026年5月25日 17:58 HKT</div>
+  <div class="top-date">日报发布时间：2026年5月25日 18:10 HKT</div>
   <div class="top-block">
     标的池来源：基于 Morgan Stanley 对 NVIDIA Vera Rubin / VR200 机柜相对 Blackwell / GB300 的 BOM 差异拆解。<br>
     本日报由 OpenClaw Abba 自动化生成：数据 → Yahoo Finance、HTML 渲染 → GitHub Pages、推送 → Telegram。
   </div>
 </div>
 
+<div class="gate-prompt" id="gate-prompt">
+  <div class="gate-prompt-inner">
+    <div class="gate-hint">请输入 <strong>k</strong>，方可显示完整内容</div>
+    <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+  </div>
+</div>
+
+<div class="gated-content" id="gated-content">
+
 <div class="wrap">
 <div class="hero">
   <div class="badge">2026 kerwin Rubin 拆解投资观察</div>
   <div class="hero-title">从 Blackwell 到 Rubin<br>AI 机柜价值扩散 · 5月25日</div>
-  <div class="hero-meta">2026年5月25日 17:58 HKT 自动更新 · 数据来源 Yahoo Finance · GPU 平台锚 NVIDIA</div>
+  <div class="hero-meta">2026年5月25日 18:10 HKT 自动更新 · 数据来源 Yahoo Finance · GPU 平台锚 NVIDIA</div>
 </div>
 
 <div class="section">
@@ -511,7 +520,8 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
   <div class="callout">
     <div class="callout-label">注意</div>
     <p>
-      2476.HK 与 300476.SZ 为胜宏科技 A+H 上市口径，不应重复计算。
+      2476.HK 与 300476.SZ 为胜宏科技 A+H 上市口径，不应重复计算。<br>
+      2476.HK 上市日期：2026-04-21（港交所主板）｜300476.SZ 上市日期：2015-06-11（深交所创业板）。<br>
       3037.TW 同时出现在 PCB 与 ABF 类别，本表仅在 PCB 下展示，ABF 下仅展示 8046.TW 南电。
     </p>
   </div>
@@ -544,13 +554,33 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">…</span></div>
 
 <div class="footer">
-  数据来源：Yahoo Finance（yfinance）。自动生成时间：2026年5月25日 17:58 HKT。<br>
+  数据来源：Yahoo Finance（yfinance）。自动生成时间：2026年5月25日 18:10 HKT。<br>
   标的池来源：Rubin Rack Teardown 观察单（Morgan Stanley 拆解转述）。本报告不构成投资建议。<br>
   © Kerwin｜宏观对冲及 AI 精选组合研究｜OpenClaw Abba 自动化呈现
 </div>
 
-</div></div></div>
+</div></div>
 
+</div><!-- close .gated-content -->
+
+</div></div>
+
+<script>
+(function(){
+  var input=document.getElementById('gate-input');
+  if(!input)return;
+  input.addEventListener('input',function(){
+    if(input.value==='k'||input.value==='K'){
+      var gate=document.getElementById('gate-prompt');
+      var content=document.getElementById('gated-content');
+      if(gate&&content){
+        gate.style.display='none';
+        content.classList.add('visible');
+      }
+    }
+  });
+})();
+</script>
 <script>
 (function(){
   var s='rubin-daily',
