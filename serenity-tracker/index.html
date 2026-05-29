@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Serenity 观察池日报 2026年5月29日 | Kerwin Research</title>
+<style>
+#gate-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#1a1410;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+#gate-box{text-align:center;padding:40px}
+#gate-box h2{color:#f5f0e8;font-size:22px;margin:0 0 8px;font-weight:400;letter-spacing:2px}
+#gate-box p{color:#c4a97d;font-size:13px;margin:0 0 20px;font-family:Arial,sans-serif}
+#gate-box input{background:transparent;border:none;border-bottom:2px solid #5c3d1e;color:#f5f0e8;font:22px Georgia,serif;text-align:center;width:80px;outline:none;padding:6px 0;letter-spacing:8px;caret-color:#c4a97d}
+#gate-box input:focus{border-bottom-color:#c4a97d}
+#gate-err{color:#dc2626;font:12px Arial,sans-serif;margin-top:10px;display:none}
+#gate-content{display:none}
+</style>
 <!-- pv-counter data-page-slug=serenity-tracker -->
 <style>
 :root{--bg:#fff1e5;--paper:#fffaf4;--panel:#fdfaf5;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--head:#3d3229;--up:#16a34a;--down:#dc2626}
@@ -34,6 +44,15 @@
 </style>
 </head>
 <body>
+<div id="gate-overlay">
+  <div id="gate-box">
+    <h2>🔒</h2>
+    <p>输入密码以继续</p>
+    <input type="password" id="gate-input" maxlength="10" autofocus>
+    <div id="gate-err"></div>
+  </div>
+</div>
+<div id="gate-content">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell"><div class="wrap">
 
@@ -408,8 +427,29 @@
 </div>
 
 </div></div></div>
+</div>
 
 <script>
+(function(){
+  if(sessionStorage.getItem('gate_ok')==='k'){
+    document.getElementById('gate-overlay').style.display='none';
+    document.getElementById('gate-content').style.display='block';
+  }
+  var inp=document.getElementById('gate-input');
+  var err=document.getElementById('gate-err');
+  inp.addEventListener('input',function(){
+    if(inp.value==='k'){
+      sessionStorage.setItem('gate_ok','k');
+      document.getElementById('gate-overlay').style.display='none';
+      document.getElementById('gate-content').style.display='block';
+      err.style.display='none';
+    }else if(inp.value.length>=1&&inp.value!=='k'){
+      err.textContent='密码错误';
+      err.style.display='block';
+      inp.value='';
+    }
+  });
+})();
 (function(){
   var s='serenity-tracker',
       u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s),
