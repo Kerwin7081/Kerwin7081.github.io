@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Serenity 观察池日报 2026年5月29日 | Kerwin Research</title>
+<!-- pv-counter data-page-slug=serenity-tracker -->
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--panel:#fdfaf5;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--head:#3d3229;--up:#16a34a;--down:#dc2626}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','Noto Serif SC',serif;line-height:1.75}
+.back{max-width:780px;margin:0 auto;padding:6px 16px 0} .back a{display:inline-block;font:700 12px Arial,'PingFang SC',sans-serif;color:#8a5b2b;text-decoration:none;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper);margin-right:6px}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px} .shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)} .wrap{max-width:700px;margin:0 auto;background:#fff}
+.topbar{background:linear-gradient(180deg,#1a1410 0%,#2d2219 100%);padding:22px 24px 18px;border-bottom:4px solid #dccdbf} .kicker{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#c4a97d;text-transform:uppercase;margin-bottom:8px} h1{font-size:28px;line-height:1.15;color:#f5f0e8;margin:0 0 8px} .date-line{font:600 12px Arial,sans-serif;color:#c4a97d} .source{font:12px Arial,'PingFang SC',sans-serif;color:#c4a97d;line-height:1.7;margin-top:10px;padding-top:10px;border-top:1px solid #5c3d1e}
+.hero{background:linear-gradient(180deg,#fdf5ec 0%,#fef9f2 100%);padding:24px 22px;text-align:center;border-bottom:1px solid #ead7c9} .badge{display:inline-block;background:#1f1a17;color:#f5f0e8;border-radius:20px;padding:5px 14px;font:700 10px Arial,sans-serif;letter-spacing:1px;margin-bottom:12px} .hero-title{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:8px;color:#16110d} .hero-meta{font:700 11px Arial,sans-serif;color:#9a3412}
+.section{padding:20px;border-bottom:1px solid #efe3d7} .label{font:700 10px Arial,sans-serif;color:#8a2b00;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px} p{font-size:14px;color:#3d3229;margin:0 0 12px}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;background:#fdfaf5;padding:13px 15px;margin:12px 0} .callout p{font:12px/1.8 Arial,'PingFang SC',sans-serif;color:#5c3d1e;margin:0}
+.table-wrap{overflow-x:auto;border:1px solid #e5d9cc} table{width:100%;border-collapse:collapse;font:13px Arial,'PingFang SC',sans-serif;min-width:560px} th{background:var(--head);color:#f5f0e8;text-align:left;font-size:10px;font-weight:700;padding:8px 10px;white-space:nowrap} th.right{text-align:right} td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top} tbody tr:nth-child(even){background:#fdfaf7} .ticker{font-weight:800;color:#8a5b2b;white-space:nowrap} .role{font-size:10px;color:#8a7769;font-weight:500;white-space:normal;line-height:1.35;margin-top:2px} .name{font-weight:700;color:#1f1a17;white-space:nowrap} .price{font-family:Georgia,serif;font-weight:700;text-align:right;white-space:nowrap} .date,.muted{font-size:11px;color:#8a7769;white-space:nowrap}
+
+/* Company card */
+.card{margin:0 0 20px;border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;background:#fdfaf5}
+.card-header{padding:14px 18px;border-bottom:1px solid #e5d9cc;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.card-header-left{min-width:140px}
+.card-ticker{font:800 15px Arial,sans-serif;color:#8a5b2b}
+.card-name{font:700 15px Georgia,"Noto Serif SC",serif;color:#1f1a17;margin-top:2px}
+.card-tag{display:inline-block;background:#f7efe6;color:#8a5b2b;font:600 9px Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-top:4px}
+.card-quote{font:13px/1.7 Georgia,"Noto Serif SC",serif;color:#5c3d1e;font-style:italic;max-width:380px;text-align:right}
+.card-intro{padding:14px 18px;border-bottom:1px solid #e5d9cc}
+.card-intro p{font:13px/1.8 Arial,"PingFang SC",sans-serif;color:#3d3229;margin:0}
+.card-fin{padding:10px 18px;display:flex;gap:20px;flex-wrap:wrap;font:12px Arial,sans-serif;color:#5c3d1e}
+.card-price{padding:10px 18px;border-top:1px solid #e5d9cc;display:flex;gap:16px;flex-wrap:wrap;align-items:center;font:13px Arial,sans-serif}
+.card-price-val{font:700 18px Georgia,serif;color:#1f1a17}
+.card-price-row{display:flex;gap:14px;flex-wrap:wrap}
+.fin-box{min-width:100px} .fin-label{font:600 9px Arial,sans-serif;color:#8a7769;letter-spacing:.8px;text-transform:uppercase} .fin-val{font:700 16px Georgia,serif;color:#1f1a17;margin-top:2px} .fin-unit{font:11px Arial,sans-serif;color:#8a7769}
+
+.conclusion{background:#1f1a17;padding:22px 20px} .conclusion h2{color:#f5f0e8;font-size:18px;margin:0 0 8px} .conclusion p{color:#e8d5b8;font:12px/1.8 Arial,'PingFang SC',sans-serif;margin:0}
+.counter,.footer{padding:12px 20px;background:#fbf7f1;border-top:1px solid #efe3d7;font:11px/1.8 Arial,'PingFang SC',sans-serif;color:#6f6258;text-align:center} .footer{text-align:left}
+@media(max-width:640px){.page{padding:0 2px 18px} .topbar{padding:18px 14px 14px} h1{font-size:22px} .hero{padding:20px 14px} .hero-title{font-size:18px} .section{padding:16px 12px} table{font-size:12px;min-width:500px} td{padding:8px 8px} .card-header{padding:12px 14px} .card-intro{padding:12px 14px} .card-fin{padding:8px 14px;gap:14px} .card-price{padding:8px 14px;gap:10px}}
+</style>
+</head>
+<body>
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell"><div class="wrap">
+
+<div class="topbar">
+  <div class="kicker">KERWIN RESEARCH · SERENITY WATCH</div>
+  <h1>Serenity 观察池日报</h1>
+  <div class="date-line">发布时间：2026年5月29日 20:35 HKT</div>
+  <div class="source">标的池来源：@0xKevin00 2026年5月26日 X 长文《传奇白毛女股神 Serenity 看这篇文章就够了》。数据源：Yahoo Finance。</div>
+</div>
+
+<div class="hero">
+  <div class="badge">AI 光子供应链 × CPO 共封装光学</div>
+  <div class="hero-title">白毛女股神 Serenity 核心持仓<br>AI 供应链侦探版图 · 观察日报</div>
+  <div class="hero-meta">AXTI · SNDK · LITE · SIVE · AVGO · MRVL · POET · AAOI · RPI</div>
+</div>
+
+<div class="section">
+  <div class="label">背景摘要</div>
+  <p>
+    Serenity（@aleabitoreddit）从 Reddit r/wallstreetbets 一战成名，凭借对 AI 光子供应链的深度研究走红，被中文圈称为"白毛女股神"。
+    他聚焦 InP 衬底、CPO 共封装光学、外部光源、光收发器等 AI 数据中心互连链条中的冷门节点，
+    以对 AXTI 的早期重仓（从 $12 到 $70）确立声誉。本日报跟踪其公开提及的 9 只上市标的。
+  </p>
+  <div class="callout"><p>1D = 最新可得收盘价较上一交易日；MTD = 较上月最后交易日；YTD = 较上年最后交易日。SIVE 使用瑞典克朗（SEK），RPI 使用英鎊（GBP），其余为美元。跨市场时区不同，以 Yahoo Finance 最新可得交易日为准。财务数据来自 yfinance 实时快照。</p></div>
+</div>
+
+<div class="section">
+  <div class="label">全池一览 · 涨跌幅日报</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>代码</th><th>公司</th><th class="right">最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class='ticker'>SIVE.ST<div class='role'>CPO·CW激光光源</div></td>
+          <td class='name'>Sivers Semi 瑞典</td>
+          <td class='price'>SEK 76.15</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+8.48%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+36.10%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+1,679%</td>
+          <td class='date'>05-29</td>
+        </tr>
+        <tr>
+          <td class='ticker'>AXTI<div class='role'>InP衬底·光子供应链</div></td>
+          <td class='name'>AXT</td>
+          <td class='price'>US$115.70</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-5.76%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+20.52%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+590.33%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>SNDK<div class='role'>NAND闪存·类比参照</div></td>
+          <td class='name'>SanDisk</td>
+          <td class='price'>US$1,641.64</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+3.25%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+38.30%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+496.44%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>AAOI<div class='role'>光收发器·ELSFP</div></td>
+          <td class='name'>Applied Opto</td>
+          <td class='price'>US$169.02</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-6.01%</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-7.90%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+326.82%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>POET<div class='role'>CPO光引擎·收购链</div></td>
+          <td class='name'>POET Technologies</td>
+          <td class='price'>US$13.26</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-0.15%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+81.40%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+85.20%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>MRVL<div class='role'>CPO核心·英伟达20亿</div></td>
+          <td class='name'>Marvell</td>
+          <td class='price'>US$204.83</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+3.09%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+24.18%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+129.42%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>AVGO<div class='role'>CPO光学架构·巨头</div></td>
+          <td class='name'>Broadcom</td>
+          <td class='price'>US$426.58</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+1.12%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+1.26%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+22.97%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>LITE<div class='role'>InP晶圆·光通信</div></td>
+          <td class='name'>Lumentum</td>
+          <td class='price'>US$860.62</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-4.62%</td>
+          <td style='color:#dc2626;font-weight:700;white-space:nowrap'>▼-9.40%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+122.90%</td>
+          <td class='date'>05-28</td>
+        </tr>
+        <tr>
+          <td class='ticker'>RPI.L<div class='role'>边缘AI·树莓派</div></td>
+          <td class='name'>树莓派 伦敦</td>
+          <td class='price'>£833.50</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+4.84%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+27.84%</td>
+          <td style='color:#16a34a;font-weight:700;white-space:nowrap'>▲+179.14%</td>
+          <td class='date'>05-29</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">逐家详情</div>
+
+  <!-- AXTI -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">AXTI</div>
+        <div class="card-name">AXT, Inc.</div>
+        <div class="card-tag">InP 衬底 · 光子供应链基石</div>
+      </div>
+      <div class="card-quote">"如果 AXTI 能把垄断位置重新定价，未来有机会成为一家市值超过 $10B 的公司" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>AXT 是全球领先的磷化铟（InP）衬底制造商，处于 AI 光子供应链最上游。InP 衬底是高速光通信、CPO 外部光源和光子器件的底层材料——AI 数据中心对光互连需求越大，AXT 的位置越敏感。Serenity 在 Reddit 时期即以对 AXTI 的长篇分析一战成名（从 ~$12 一路涨至 $70），他将 AXTI 描述为"基本涵盖整个光子供应链"的公司。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$7.57B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">153.9x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">21.3%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$115.70</div>
+      <div class="card-price-row">
+        <span style="color:#dc2626;font-weight:700">1D: ▼-5.76%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+20.52%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+590.33%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SNDK -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">SNDK</div>
+        <div class="card-name">SanDisk</div>
+        <div class="card-tag">NAND 闪存 · 类比参照标的</div>
+      </div>
+      <div class="card-quote">"像小型版 $SNDK 一样，在市场重新理解它的位置后继续向上" — Serenity 对 AXTI 的类比</div>
+    </div>
+    <div class="card-intro">
+      <p>SanDisk 2025年从西部数据分拆重新独立上市，是全球 NAND 闪存主要供应商之一。Serenity 将其作为参照系来类比 AXTI 的重新定价路径——当一个被低估的垄断型公司在市场重新理解其战略位置时，股价可以发生剧烈重估。SanDisk 自身在高容量 NAND 和企业级 SSD 领域的持续放量也使其成为 AI 数据中心存储链条的受益者。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$243.1B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">9.3x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">56.0%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$1,641.64</div>
+      <div class="card-price-row">
+        <span style="color:#16a34a;font-weight:700">1D: ▲+3.25%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+38.30%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+496.44%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LITE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">LITE</div>
+        <div class="card-name">Lumentum Holdings</div>
+        <div class="card-tag">InP 晶圆 · 光通信器件</div>
+      </div>
+      <div class="card-quote">"三星晶圆代工和 $LITE 的 InP 晶圆厂处在供应链里完全不同的环节，不能拿来混着讲" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>Lumentum 是全球光通信器件和激光器龙头，覆盖从 InP 晶圆制造到光模块的完整环节。Serenity 在多处讨论中将 LITE 与 AXTI 放在同一供应链中比较，强调两者虽然都涉及 InP 晶圆但分别处于衬底材料（AXTI）和器件制造（LITE）的不同层级。Lumentum 在 AI 数据中心 800G/1.6T 光互连升级周期中处于核心受益位置。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$66.96B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">47.5x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">40.8%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$860.62</div>
+      <div class="card-price-row">
+        <span style="color:#dc2626;font-weight:700">1D: ▼-4.62%</span>
+        <span style="color:#dc2626;font-weight:700">MTD: ▼-9.40%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+122.90%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIVE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">SIVE.ST</div>
+        <div class="card-name">Sivers Semiconductors</div>
+        <div class="card-tag">CPO · CW 激光光源 · 当前最看好</div>
+      </div>
+      <div class="card-quote">"2026亏损$50M，2028年营收$500M，2029年$1B — 这就是巨大的市场空间" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>Sivers Semiconductors 是一家瑞典半导体公司，处于 Serenity 当前最看好的"CPO 外部光源"赛道。公司为 1.6T 共封装光学器件提供连续波（CW）激光光源。Serenity 判断 CPO 将在 2027-2028 年迎来需求爆发，并以私人名义买入公司 1% 股份。他将 AVGO/MRVL 对 SIVE 的潜在收购纳入推演：仅需 ~$30M 就可锁定 10-20% 股份，为价值 $1B 的 CPO 项目锁定上游光源。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">SEK 22.6B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val" style="color:#dc2626">亏损</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">73.5%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">SEK 76.15</div>
+      <div class="card-price-row">
+        <span style="color:#16a34a;font-weight:700">1D: ▲+8.48%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+36.10%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+1,679.21%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVGO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">AVGO</div>
+        <div class="card-name">Broadcom</div>
+        <div class="card-tag">CPO 光学架构 · 英伟达生态核心</div>
+      </div>
+      <div class="card-quote">"英伟达正在加速推进 CPO 架构，并把主要玩家拉进同一套标准里" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>Broadcom 是全球第二大 AI 芯片公司（仅次于英伟达），在 CPO 共封装光学架构中占据核心位置。Serenity 的判断逻辑是：英伟达向 Marvell/Celestial AI 的 $2B 投资，等于为 CPO 光学架构路线做了背书，而 Broadcom 作为该架构中的核心芯片+光学集成商，是整个 CPO 生态的关键受益者。AVGO同时覆盖交换芯片、DSP、光学引擎等多个 CPO 子模块。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$2.02T</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">23.2x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">76.7%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$426.58</div>
+      <div class="card-price-row">
+        <span style="color:#16a34a;font-weight:700">1D: ▲+1.12%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+1.26%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+22.97%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MRVL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">MRVL</div>
+        <div class="card-name">Marvell Technology</div>
+        <div class="card-tag">CPO 核心参与者 · 英伟达 $2B 投资背书</div>
+      </div>
+      <div class="card-quote">"Marvell 不只是传统半导体公司，更像英伟达光互连路线里的核心参与者" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>Marvell 在 Serenity 的 CPO 投资图谱中占据关键节点：英伟达的 $2B 投资被视为对 Marvell 和 Celestial AI 的 CPO 光学架构路线的强势背书。Serenity 的逻辑链条是 SIVE → Win → POET → Celestial → MRVL——Marvell 作为链条终点承接整个 CPO 光互连商业化的最大价值。公司自研数据中心硅光子平台已进入量产阶段。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$179.3B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">37.0x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">51.5%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$204.83</div>
+      <div class="card-price-row">
+        <span style="color:#16a34a;font-weight:700">1D: ▲+3.09%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+24.18%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+129.42%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POET -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">POET</div>
+        <div class="card-name">POET Technologies</div>
+        <div class="card-tag">CPO 光引擎 · 收购链关键节点</div>
+      </div>
+      <div class="card-quote">"$SIVE → Win → $POET → Celestial → $MRVL" — Serenity 的 CPO 收购链条推演</div>
+    </div>
+    <div class="card-intro">
+      <p>POET Technologies 是一家 CPO 光引擎公司，处于 Serenity 推演的 CPO 产业链收购链条的中游。公司的磷化铟基光引擎技术在 CPO 封装中承担光信号转换核心功能。Serenity 认为在英伟达推动 CPO 标准化的背景下，POET 可能成为从 SIVE（光源）到 MRVL（芯片集成）之间的关键收购标的或技术整合节点。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$2.29B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val" style="color:#dc2626">亏损</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">1.0%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$13.26</div>
+      <div class="card-price-row">
+        <span style="color:#dc2626;font-weight:700">1D: ▼-0.15%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+81.40%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+85.20%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AAOI -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">AAOI</div>
+        <div class="card-name">Applied Optoelectronics</div>
+        <div class="card-tag">光收发器 · ELSFP 外部光源</div>
+      </div>
+      <div class="card-quote">"光收发器业务收入会在 2027 年下半年放大 10 倍" — Serenity</div>
+    </div>
+    <div class="card-intro">
+      <p>Applied Optoelectronics 是光收发器（Transceiver）领域的核心标的，覆盖激光器设计、组装到销售的完整环节。Serenity 在 ~$84 附近大举买入，当时对应约 $6.6B 市值。AAOI 正在推进 ELSFP（External Laser Small Form-factor Pluggable）产品线，使其直接对接 CPO 外部光源需求。Serenity 承认一年周期内波动极高，但对其业务增速极为看好。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">$13.56B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">35.4x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">29.6%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">US$169.02</div>
+      <div class="card-price-row">
+        <span style="color:#dc2626;font-weight:700">1D: ▼-6.01%</span>
+        <span style="color:#dc2626;font-weight:700">MTD: ▼-7.90%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+326.82%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RPI -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left">
+        <div class="card-ticker">RPI.L</div>
+        <div class="card-name">Raspberry Pi 树莓派</div>
+        <div class="card-tag">边缘 AI · OpenClaw 囤货驱动</div>
+      </div>
+      <div class="card-quote">"做多树莓派：OpenClaw、Picoclaw、Nanobot 带来的囤货需求" — Serenity 2月交易笔记</div>
+    </div>
+    <div class="card-intro">
+      <p>Raspberry Pi 于 2024 年在伦敦交易所上市。Serenity 在 2 月提出一个独特的做多逻辑：OpenClaw、Picoclaw 等开源 AI agent 框架的爆发式增长驱动了大量树莓派硬件的囤货需求——国内电商平台一度疯抢，闲鱼二手价与一手持平。这个逻辑不是传统的半导体分析框架，而是基于边缘 AI 应用对低成本计算硬件的真实消耗。</p>
+    </div>
+    <div class="card-fin">
+      <div class="fin-box"><div class="fin-label">市值</div><div class="fin-val">£1.61B</div></div>
+      <div class="fin-box"><div class="fin-label">Fwd PE</div><div class="fin-val">74.0x</div></div>
+      <div class="fin-box"><div class="fin-label">毛利率</div><div class="fin-val">24.1%</div></div>
+    </div>
+    <div class="card-price">
+      <div class="card-price-val">£833.50</div>
+      <div class="card-price-row">
+        <span style="color:#16a34a;font-weight:700">1D: ▲+4.84%</span>
+        <span style="color:#16a34a;font-weight:700">MTD: ▲+27.84%</span>
+        <span style="color:#16a34a;font-weight:700">YTD: ▲+179.14%</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="conclusion">
+  <h2>⚠️ 免责声明</h2>
+  <p>本日报为自动化生成的投资数据参考，不构成任何具体投资建议。标的信息来源于 @0xKevin00 X 长文对 Serenity 公开内容的整理；财务数据来自 Yahoo Finance 实时快照，可能存在延迟。Serenity 的个人持仓和观点不代表本页立场。投资有风险，决策需谨慎。</p>
+</div>
+
+<div class="counter">👀 页面浏览量：<span id="counter-num">…</span></div>
+
+<div class="footer">
+  数据来源：Yahoo Finance（yfinance）。报告时间：2026年5月29日 20:35 HKT。<br>
+  © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+</div>
+
+</div></div></div>
+
+<script>
+(function(){
+  var s='serenity-tracker',
+      u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s),
+      el=document.getElementById('counter-num');
+  fetch(u)
+    .then(function(r){return r.json()})
+    .then(function(d){if(el)el.textContent=d.count.toLocaleString()})
+    .catch(function(){if(el)el.textContent='-'});
+  fetch(u,{method:'POST'})
+    .then(function(r){return r.json()})
+    .then(function(d){if(el)el.textContent=d.count.toLocaleString()})
+    .catch(function(){});
+})();
+</script>
+</body>
+</html>
