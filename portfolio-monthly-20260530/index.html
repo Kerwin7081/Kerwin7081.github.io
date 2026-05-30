@@ -227,7 +227,7 @@ var input=document.getElementById('gate-input');
 var err=document.getElementById('gate-error');
 if(sessionStorage.getItem('gate_ok')==='1'){gate.style.display='none';main.style.display='block';}
 input.addEventListener('input',function(){
-if(input.value==='k'){sessionStorage.setItem('gate_ok','1');gate.style.display='none';main.style.display='block';err.style.display='none';}
+if(input.value==='k'||input.value==='K'){sessionStorage.setItem('gate_ok','1');gate.style.display='none';main.style.display='block';err.style.display='none';}
 else if(input.value.length>=1&&input.value!=='k'){input.value='';err.style.display='block';setTimeout(function(){err.style.display='none';},2000);}
 });
 })();

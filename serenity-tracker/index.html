@@ -438,7 +438,7 @@
   var inp=document.getElementById('gate-input');
   var err=document.getElementById('gate-err');
   inp.addEventListener('input',function(){
-    if(inp.value==='k'){
+    if(inp.value==='k'||inp.value==='K'){
       sessionStorage.setItem('gate_ok','k');
       document.getElementById('gate-overlay').style.display='none';
       document.getElementById('gate-content').style.display='block';
