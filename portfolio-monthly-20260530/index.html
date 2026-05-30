@@ -67,7 +67,7 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 <div id="gate-content">
 <h2>🔒 门禁</h2>
 <p>请输入 k，方可显示完整内容</p>
-<input type="password" id="gate-input" placeholder="密码" autofocus>
+<input type="text" id="gate-input" maxlength="10" placeholder="密码" autofocus>
 <div id="gate-error">密码错误，请重试</div>
 </div>
 </div>
@@ -226,11 +226,9 @@ var main=document.getElementById('main-content');
 var input=document.getElementById('gate-input');
 var err=document.getElementById('gate-error');
 if(sessionStorage.getItem('gate_ok')==='1'){gate.style.display='none';main.style.display='block';}
-input.addEventListener('keydown',function(e){
-if(e.key==='Enter'){
+input.addEventListener('input',function(){
 if(input.value==='k'){sessionStorage.setItem('gate_ok','1');gate.style.display='none';main.style.display='block';err.style.display='none';}
-else{input.value='';input.placeholder='密码错误';err.style.display='block';setTimeout(function(){err.style.display='none';input.placeholder='密码';},2000);}
-}
+else if(input.value.length>=1&&input.value!=='k'){input.value='';err.style.display='block';setTimeout(function(){err.style.display='none';},2000);}
 });
 })();
 
