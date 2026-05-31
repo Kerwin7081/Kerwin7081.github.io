@@ -38,11 +38,18 @@
     .na { color:#9b9388; }
     .note, .warn { color:var(--muted); font-size:13px; line-height:1.65; }
     .warn { color:#9a3412; }
+    .profile-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .profile-card { border:1px solid var(--line); background:#fffdf8; border-radius:6px; padding:12px; }
+    .profile-head { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+    .profile-ticker { font-weight:900; color:var(--accent); }
+    .profile-name { color:var(--muted); font-size:13px; }
+    .profile-card p { margin:0; color:#37312a; font-size:14px; line-height:1.65; }
     .footer { margin-top:24px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.7; }
     @media (max-width: 720px) {
       .wrap { padding:14px 10px 28px; }
       h1 { font-size:26px; }
       .metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .profile-grid { grid-template-columns:1fr; }
       th, td { padding:8px 7px; font-size:13px; }
       table { min-width:690px; }
     }
@@ -61,7 +68,7 @@
       <div class="metric"><b>2026-05-29</b><span>价格数据截止</span></div>
       <div class="metric"><b>20/20</b><span>成功取数</span></div>
       <div class="metric"><b>9</b><span>Kerwin 组合标的</span></div>
-      <div class="metric"><b>12:42 HKT</b><span>生成时间</span></div>
+      <div class="metric"><b>12:54 HKT</b><span>生成时间</span></div>
     </div>
 
     <section class="section">
@@ -268,8 +275,155 @@
       
     </section>
 
+    <section class="section">
+      <h2>公司简介（按当前 MTD 排序）</h2>
+      <div class="profile-grid">
+        
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">MU ★</span>
+            <span class="profile-name">Micron Technology</span>
+          </div>
+          <p>Micron 是美国主要存储厂商，重点受益于 HBM、DDR5 和数据中心存储周期。它的弹性通常比逻辑芯片更强，因为存储价格周期会直接放大利润率变化。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">ALAB</span>
+            <span class="profile-name">Astera Labs</span>
+          </div>
+          <p>Astera Labs 聚焦 AI 服务器连接芯片，包括 PCIe/CXL retimer 和数据中心互连方案。它是 AI 集群互连瓶颈的高弹性标的，但估值对增长兑现非常敏感。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">AMD ★</span>
+            <span class="profile-name">Advanced Micro Devices</span>
+          </div>
+          <p>AMD 是 GPU、CPU 和数据中心加速器的主要挑战者，核心看 MI 系列放量和服务器 CPU 份额。它对 AI 叙事敏感，但真正的重估需要订单、毛利率和软件生态持续验证。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">QCOM ★</span>
+            <span class="profile-name">Qualcomm</span>
+          </div>
+          <p>Qualcomm 是移动 SoC 和端侧 AI 的核心公司，汽车、PC 和边缘设备是增长外延。它不像数据中心 GPU 那样直接，但代表 AI 从云端向终端扩散的半导体路径。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">MRVL ★</span>
+            <span class="profile-name">Marvell Technology</span>
+          </div>
+          <p>Marvell 是定制 ASIC、光通信 DSP、交换和数据中心连接的重要供应商。AI 集群规模越大，GPU 之外的网络和互连瓶颈越突出，MRVL 的产业位置越重要。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">LRCX</span>
+            <span class="profile-name">Lam Research</span>
+          </div>
+          <p>Lam Research 是刻蚀和薄膜沉积设备龙头，与存储、先进逻辑和封装扩产高度相关。HBM 和先进制程资本开支回升时，LRCX 往往是设备链的重要表达。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">INTC ★</span>
+            <span class="profile-name">Intel</span>
+          </div>
+          <p>Intel 正处在先进制程、代工和 x86 平台重建阶段，股价弹性来自转型预期而不只是当前利润。它在 SOXQ 中代表美国本土半导体制造回流和政策 beta，但执行风险仍然很高。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">AMAT</span>
+            <span class="profile-name">Applied Materials</span>
+          </div>
+          <p>Applied Materials 是半导体设备平台型公司，覆盖沉积、刻蚀、材料工程和先进封装相关环节。它是观察全球晶圆厂资本开支周期的核心代理之一。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">COHR ★</span>
+            <span class="profile-name">Coherent</span>
+          </div>
+          <p>Coherent 是光通信、激光器和材料平台公司，AI 数据中心高速光互连需求是关键增量。它在 SOXQ 中代表从芯片计算向光连接瓶颈扩散的投资线索。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">ASML</span>
+            <span class="profile-name">ASML</span>
+          </div>
+          <p>ASML 是 EUV 光刻机唯一供应商，是先进逻辑制程最稀缺的上游设备节点。它决定了全球先进制程扩产节奏，也是半导体产业链里最强的瓶颈资产之一。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">KLAC</span>
+            <span class="profile-name">KLA</span>
+          </div>
+          <p>KLA 是半导体检测和量测设备龙头，越先进的制程越需要更高检测强度。它的商业模式通常比部分设备股更稳，因为良率控制是先进制造不可绕开的环节。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">NXPI</span>
+            <span class="profile-name">NXP Semiconductors</span>
+          </div>
+          <p>NXP 主要覆盖汽车、工业、物联网和安全连接芯片。它不是 AI 数据中心核心股，但能反映汽车电子和工业半导体需求是否真正修复。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">TXN</span>
+            <span class="profile-name">Texas Instruments</span>
+          </div>
+          <p>Texas Instruments 是模拟芯片龙头，覆盖工业、汽车和电源管理。它的周期更贴近实体经济和工业需求，通常是观察半导体宽周期复苏质量的稳定样本。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">TER</span>
+            <span class="profile-name">Teradyne</span>
+          </div>
+          <p>Teradyne 是自动测试设备龙头，服务半导体测试、系统级测试和工业自动化。芯片复杂度提高会推升测试价值量，尤其在 AI 芯片和先进封装时代更重要。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">AVGO ★</span>
+            <span class="profile-name">Broadcom</span>
+          </div>
+          <p>Broadcom 同时覆盖 ASIC、交换芯片、网络连接和企业软件，是 AI 数据中心从计算走向网络化后的核心受益者。它在 SOXQ 中更像基础设施型龙头，盈利质量和订单能见度都高于多数纯周期半导体。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">NVDA ★</span>
+            <span class="profile-name">NVIDIA</span>
+          </div>
+          <p>NVIDIA 是 AI 加速器和 GPU 生态的核心锚，价值链从训练芯片延伸到网络、软件栈和整机系统。对 SOXQ 来说，它代表半导体指数里最直接的 AI 算力 beta，也是估值和资金情绪的关键风向标。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">TSM ★</span>
+            <span class="profile-name">Taiwan Semiconductor Manufacturing</span>
+          </div>
+          <p>TSMC 是全球先进制程代工核心，直接承接 NVIDIA、AMD、Broadcom 等 AI 芯片需求。它是 AI 半导体产业链现金流兑现最清晰的制造平台之一。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">ADI</span>
+            <span class="profile-name">Analog Devices</span>
+          </div>
+          <p>Analog Devices 是模拟与混合信号芯片龙头，服务工业、汽车、通信和医疗等长周期市场。它的表现更能体现传统半导体需求和工业资本开支的温度。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">MCHP</span>
+            <span class="profile-name">Microchip Technology</span>
+          </div>
+          <p>Microchip Technology 覆盖 MCU、模拟、电源和连接芯片，客户分布在工业、汽车和嵌入式系统。它更偏传统半导体周期，适合观察库存去化和工业需求回暖。</p>
+        </article>
+        <article class="profile-card">
+          <div class="profile-head">
+            <span class="profile-ticker">MPWR</span>
+            <span class="profile-name">Monolithic Power Systems</span>
+          </div>
+          <p>Monolithic Power Systems 专注高性能电源管理芯片，数据中心、汽车和工业是主要增量方向。AI 服务器功耗上升会抬高电源管理价值量，使 MPWR 具备较强的结构性成长属性。</p>
+        </article>
+      </div>
+    </section>
+
     <div class="footer">
-      本页由 Abba 自动生成，Enya 负责正式口径监督。生成日期：2026年5月31日 12:42 HKT。<br>
+      本页由 Abba 自动生成，Enya 负责正式口径监督。生成日期：2026年5月31日 12:54 HKT。<br>
       本文不构成严谨投资建议。严谨投资建议请与 Kerwin 联系。<br>
       Enya - 香港首个OpenClaw女性投顾Agent
     </div>
