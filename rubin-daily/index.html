@@ -39,6 +39,14 @@ p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px;font-family:Geor
 .footer{padding:16px 20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,'PingFang SC',sans-serif}
 tbody tr:nth-child(even){background:#fdfaf7}
 tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
+.gate-prompt{padding:0 20px 0;margin-bottom:16px;text-align:center;background:#fffdf9}
+.gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:24px 32px;box-shadow:0 4px 20px rgba(15,23,42,.04)}
+.gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}
+.gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite}
+.gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
+@keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}
+.gated-content{display:none}
+.gated-content.visible{display:block}
 @media(max-width:640px){
   .page{padding:0 2px 18px}
   .topbar{padding:18px 14px 14px}
@@ -46,7 +54,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
   .hero{padding:20px 14px 16px}
   .hero-title{font-size:20px}
   .section{padding:16px 12px}
-  .gate-prompt{padding:0 20px 0;margin-bottom:16px} .gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:24px 32px;box-shadow:0 4px 20px rgba(15,23,42,.04)} .gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em} .gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite} .gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)} @keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}} .gated-content{display:none} .gated-content.visible{display:block} .footer,.counter-wrap{font-size:10px}
+  .footer,.counter-wrap{font-size:10px}
 }
 </style>
 </head>
@@ -58,7 +66,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 <div class="topbar">
   <div class="top-kicker">KERWIN RESEARCH · AI INFRASTRUCTURE</div>
   <h1 class="top-title">Rubin 机柜拆解<br>投资观察池日报</h1>
-  <div class="top-date">日报发布时间：2026年6月1日 11:06 HKT</div>
+  <div class="top-date">日报发布时间：2026年6月1日 11:16 HKT</div>
   <div class="top-block">
     标的池来源：基于 Morgan Stanley 对 NVIDIA Vera Rubin / VR200 机柜相对 Blackwell / GB300 的 BOM 差异拆解。<br>
     本日报由 OpenClaw Abba 自动化生成：数据 → Yahoo Finance、HTML 渲染 → GitHub Pages、推送 → Telegram。
@@ -78,7 +86,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 <div class="hero">
   <div class="badge">2026 kerwin Rubin 拆解投资观察</div>
   <div class="hero-title">从 Blackwell 到 Rubin<br>AI 机柜价值扩散 · 6月1日</div>
-  <div class="hero-meta">2026年6月1日 11:06 HKT 自动更新 · 数据来源 Yahoo Finance · GPU 平台锚 NVIDIA</div>
+  <div class="hero-meta">2026年6月1日 11:16 HKT 自动更新 · 数据来源 Yahoo Finance · GPU 平台锚 NVIDIA</div>
 </div>
 
 <div class="section">
@@ -165,10 +173,10 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>000660.KS</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>SK hynix</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩2,372,000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+1.67%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+1.67%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+265.10%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩2,371,000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+1.63%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+1.63%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+264.94%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
@@ -185,10 +193,10 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>005930.KS</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Samsung 三星电子</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩346,000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+9.15%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+9.15%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+189.17%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩346,500</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+9.31%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+9.31%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+189.59%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
         </tbody>
@@ -220,20 +228,20 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>3037.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Unimicron 欣兴</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$1,060.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.47%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.47%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+381.82%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$1,050.000</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-0.47%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-0.47%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+377.27%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4958.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>ZDT 臻鼎-KY</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$554.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+7.57%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+7.57%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+290.14%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$549.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.60%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.60%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+286.62%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
@@ -250,29 +258,29 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>002916.SZ</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Shennan 深南电路</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥388.660</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-5.53%</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-5.53%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+68.33%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥386.600</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-6.03%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-6.03%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+67.44%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>300476.SZ</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>胜宏科技 A</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥350.090</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-5.00%</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-5.00%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+22.53%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥351.500</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-4.62%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-4.62%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+23.02%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>2476.HK</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>胜宏科技 H</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>HK$409.000</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.99%</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.99%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>HK$409.800</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.80%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.80%</td>
       <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.00%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
@@ -305,10 +313,10 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>009150.KS</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Samsung 三星电机</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩2,071,000</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-2.63%</td>
-      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-2.63%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+712.16%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>KR₩2,055,000</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.39%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-3.39%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+705.88%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
@@ -339,8 +347,83 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 
   <div style='margin:0 0 18px'>
     <div style='display:flex;align-items:center;gap:10px;margin-bottom:8px'>
-      <span style='display:inline-block;background:#9333ea;color:#fff;font:700 11px Arial,sans-serif;padding:3px 10px;border-radius:3px;letter-spacing:0.5px'>MLCC Materials</span>
-      <span style='font:600 13px Arial,sans-serif;color:#3d3229'>部件增幅 MLCC上游</span>
+      <span style='display:inline-block;background:#9333ea;color:#fff;font:700 11px Arial,sans-serif;padding:3px 10px;border-radius:3px;letter-spacing:0.5px'>MLCC Materials - BaTiO3</span>
+      <span style='font:600 13px Arial,sans-serif;color:#3d3229'>部件增幅 钛酸钡粉</span>
+    </div>
+    <div style='overflow-x:auto;border:1px solid #e5d9cc'>
+      <table style='width:100%;border-collapse:collapse;font:13px Arial,"PingFang SC",sans-serif;min-width:560px'>
+        <thead>
+        <tr style='background:#3d3229;color:#f5f0e8'>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.04em'>代码</th>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600'>公司</th>
+          <th style='padding:8px 10px;text-align:right;font-size:10px;font-weight:600'>最新价</th>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600'>1D</th>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600'>MTD</th>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600'>YTD</th>
+          <th style='padding:8px 10px;text-align:left;font-size:10px;font-weight:600'>数据日</th>
+        </tr>
+        </thead>
+        <tbody style='font-size:13px'>
+        
+    <tr>
+      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4092.T</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>★ Nippon Chemical 日本化学</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥5,560.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+14.17%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+14.17%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+104.77%</td>
+      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
+    </tr>
+
+    <tr>
+      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>300285.SZ</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Sinocera 国瓷材料</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥52.300</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.99%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.99%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+90.81%</td>
+      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
+    </tr>
+
+    <tr>
+      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4100.T</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Toda Kogyo 户田工业</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥2,140.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.94%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.94%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+86.09%</td>
+      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
+    </tr>
+
+    <tr>
+      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4078.T</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>★ Sakai Chemical 堺化学</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥4,940.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+16.51%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.00%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+58.82%</td>
+      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>05-29</td>
+    </tr>
+
+    <tr>
+      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4028.T</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>★ Ishihara 石原产业</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥3,425.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.85%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.85%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+28.84%</td>
+      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+  <div style='margin:0 0 18px'>
+    <div style='display:flex;align-items:center;gap:10px;margin-bottom:8px'>
+      <span style='display:inline-block;background:#6d28d9;color:#fff;font:700 11px Arial,sans-serif;padding:3px 10px;border-radius:3px;letter-spacing:0.5px'>MLCC Materials - Nickel</span>
+      <span style='font:600 13px Arial,sans-serif;color:#3d3229'>部件增幅 镍粉/镍电极粉</span>
     </div>
     <div style='overflow-x:auto;border:1px solid #e5d9cc'>
       <table style='width:100%;border-collapse:collapse;font:13px Arial,"PingFang SC",sans-serif;min-width:560px'>
@@ -368,53 +451,13 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     </tr>
 
     <tr>
-      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4092.T</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Nippon Chemical 日本化学</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥5,560.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+14.17%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+14.17%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+104.77%</td>
-      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
-    </tr>
-
-    <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>5016.T</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>JX Advanced Metals</td>
+      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>★ JX Advanced Metals</td>
       <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥3,875.000</td>
       <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-1.37%</td>
       <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-1.37%</td>
       <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+99.06%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
-    </tr>
-
-    <tr>
-      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>300285.SZ</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Sinocera 国瓷材料</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>¥51.840</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.09%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.09%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+89.13%</td>
-      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
-    </tr>
-
-    <tr>
-      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4100.T</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Toda Kogyo 户田工业</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥2,140.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.94%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.94%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+86.09%</td>
-      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
-    </tr>
-
-    <tr>
-      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4078.T</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Sakai Chemical 堺化学</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥4,940.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+16.51%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.00%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+58.82%</td>
-      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>05-29</td>
     </tr>
 
     <tr>
@@ -424,16 +467,6 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
       <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-1.02%</td>
       <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-1.02%</td>
       <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+44.05%</td>
-      <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
-    </tr>
-
-    <tr>
-      <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>4028.T</td>
-      <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Ishihara 石原产业</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>JP¥3,425.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.85%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+2.85%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+28.84%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
         </tbody>
@@ -530,10 +563,10 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>8046.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Nan Ya PCB 南电</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$915.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+7.90%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+7.90%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+279.67%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$907.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.96%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.96%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+276.35%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
@@ -575,30 +608,30 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>2308.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Delta 台达电</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$2,450.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.20%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+0.20%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+154.41%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$2,425.000</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-0.82%</td>
+      <td style='color:#dc2626;font-weight:700;font-size:13px;white-space:nowrap'>▼-0.82%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+151.82%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>3017.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>AVC 奇鋐</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$2,810.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.44%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.44%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+86.09%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$2,800.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.07%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.07%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+85.43%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
 
     <tr>
       <td style='font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap'>3653.TW</td>
       <td style='font:600 13px Arial,"PingFang SC",sans-serif;color:#1f1a17'>Jentech 健策</td>
-      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$3,755.000</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.92%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+5.92%</td>
-      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+36.79%</td>
+      <td style='font:700 13px Georgia,serif;color:#1f1a17;text-align:right;white-space:nowrap'>NT$3,760.000</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.06%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+6.06%</td>
+      <td style='color:#16a34a;font-weight:700;font-size:13px;white-space:nowrap'>▲+36.98%</td>
       <td style='font:11px Arial,sans-serif;color:#8a7769;white-space:nowrap'>06-01</td>
     </tr>
         </tbody>
@@ -679,6 +712,25 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 </div>
 
 <div class="section">
+  <div class="section-label">MLCC Materials 企业定位</div>
+  <p style='font-size:13px;color:#6f6258;margin-bottom:12px'>★ = 当前最核心跟踪企业。分组逻辑：钛酸钡粉用于 MLCC 介质层；镍粉/镍浆用于内部电极。</p>
+  <div class="callout">
+    <div class="callout-label">钛酸钡粉 / 介质粉体</div>
+    <p><strong>★ 4028.T Ishihara Sangyo</strong>：通过 Fuji Titanium 与 Murata 绑定，并参与 MF Material 扩产 MLCC 钛酸钡，是本轮材料上游映射最清晰的标的。</p>
+    <p><strong>★ 4092.T Nippon Chemical Industrial</strong>：BESPA BT 直接用于 MLCC 介质层，高纯度、窄粒径分布和 Ba/Ti 摩尔比稳定是高端 MLCC 的关键指标。</p>
+    <p><strong>★ 4078.T Sakai Chemical Industry</strong>：高纯介质粉体和水热合成路线，覆盖钛酸钡、钛酸锶、钡盐、二氧化钛，适合观察传统化工向电子陶瓷材料重估。</p>
+    <p><strong>4100.T Toda Kogyo</strong>：湿法钛酸钡粉体供应商，适合作为 MLCC 材料链补充观察，但需要拆分业务占比。</p>
+    <p><strong>300285.SZ 国瓷材料</strong>：国内钛酸钡、MLCC 配方粉和纳米粉体龙头之一，重点看国产替代与高端 AI 服务器客户穿透能力。</p>
+  </div>
+  <div class="callout">
+    <div class="callout-label">镍粉 / 镍电极粉</div>
+    <p><strong>★ 5016.T JX Advanced Metals</strong>：先进金属材料平台，覆盖镍粉、半导体靶材、电磁屏蔽膜等电子材料；镍粉方向最值得优先跟踪。</p>
+    <p><strong>5713.T Sumitomo Metal Mining</strong>：镍资源和金属材料体系完整，但公司体量大，MLCC 镍粉对利润弹性会被资源和冶炼业务稀释。</p>
+    <p><strong>5727.T Toho Titanium</strong>：金属粉体和 MLCC 电极粉历史相关标的，需持续核查 JX Advanced Metals 整合及交易状态。</p>
+  </div>
+</div>
+
+<div class="section">
   <div class="section-label">今日速览</div>
   <p>
     投资含义：Rubin 相对 Blackwell 的价值扩散路径是从 GPU 单点向 Memory、PCB、MLCC、Networking、ABF、电源与散热系统递进。
@@ -706,7 +758,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">…</span></div>
 
 <div class="footer">
-  数据来源：Yahoo Finance（yfinance）。自动生成时间：2026年6月1日 11:06 HKT。<br>
+  数据来源：Yahoo Finance（yfinance）。自动生成时间：2026年6月1日 11:16 HKT。<br>
   标的池来源：Rubin Rack Teardown 观察单（Morgan Stanley 拆解转述）。本报告不构成投资建议。<br>
   © Kerwin｜宏观对冲及 AI 精选组合研究｜OpenClaw Abba 自动化呈现
 </div>
