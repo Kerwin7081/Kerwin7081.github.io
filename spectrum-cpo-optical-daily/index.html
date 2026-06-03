@@ -68,13 +68,19 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 #gate-content input:focus { outline:none; border-color:#8a5b2b; }
 #gate-content .hint { font-size:12px; color:#999; margin-top:8px; }
 
-@media (max-width:600px) {
-  .container { padding:6px 8px; }
-  .header h1 { font-size:18px; }
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:8px 0; }
+@media (max-width:640px) {
+  .container { padding:4px 4px; }
+  .header { padding:18px 8px 8px; }
+  .header h1 { font-size:17px; }
   .pillar { min-width:100%; }
-  table { font-size:11px; }
+  .card { padding:12px 8px; }
+  table { font-size:10px; white-space:nowrap; }
   th, td { padding:4px 2px; }
+  th { font-size:9px; }
   .sym { font-size:10px; }
+  .price, .chg, .date { font-size:10px; }
+  .note { display:none; }
 }
 </style>
 </head>
@@ -132,7 +138,8 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 
   <h3>一、Vera Rubin NVL72 · GPU 主计算引擎</h3>
   <div class="subtitle">Rubin GPU · HBM4/HBM4e · CoWoS 先进封装 · NVLink 6 · 约占五机架中枢价值的 45%</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">NVDA</td><td>NVIDIA 英伟达 <span class="note">Rubin GPU 设计者 · 平台总锚</span></td><td class="price">US$222.82</td><td class="chg"><span class="down">▼-0.69%</span></td><td class="chg"><span class="up">▲+5.53%</span></td><td class="chg"><span class="up">▲+19.48%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">TSM</td><td>TSMC 台积电 <span class="note">CoWoS 先进封装 · Rubin GPU 制造</span></td><td class="price">US$446.69</td><td class="chg"><span class="up">▲+2.54%</span></td><td class="chg"><span class="up">▲+6.75%</span></td><td class="chg"><span class="up">▲+47.40%</span></td><td class="date">06-02</td></tr>
@@ -141,26 +148,32 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">MU</td><td>Micron 美光 <span class="note">HBM4e 追赶者 · DRAM 周期弹性</span></td><td class="price">US$1,064.10</td><td class="chg"><span class="up">▲+2.76%</span></td><td class="chg"><span class="up">▲+9.59%</span></td><td class="chg"><span class="up">▲+272.99%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">3711.TW</td><td>ASE 日月光 <span class="note">先进封装 · 测试 · SiP</span></td><td class="price">NT$622</td><td class="chg"><span class="up">▲+5.42%</span></td><td class="chg"><span class="up">▲+1.80%</span></td><td class="chg"><span class="up">▲+148.30%</span></td><td class="date">06-03</td></tr>
   </table>
+</div>
 
   <h3>二、Vera CPU Rack · Agentic AI 执行环境</h3>
   <div class="subtitle">Vera CPU · SOCAMM LPDDR5X · BlueField-4 · MGX 机架</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">2382.TW</td><td>Quanta 广达 <span class="note">Vera CPU 主板 ODM · MGX 机架</span></td><td class="price">NT$436</td><td class="chg"><span class="up">▲+8.86%</span></td><td class="chg"><span class="up">▲+28.61%</span></td><td class="chg"><span class="up">▲+60.29%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">3231.TW</td><td>Wistron 纬创 <span class="note">服务器 ODM · CPU 机架集成</span></td><td class="price">NT$195</td><td class="chg"><span class="up">▲+2.09%</span></td><td class="chg"><span class="up">▲+23.03%</span></td><td class="chg"><span class="up">▲+29.57%</span></td><td class="date">06-03</td></tr>
   </table>
+</div>
 
   <h3>三、Groq 3 LPX · 低延迟推理</h3>
   <div class="subtitle">LPU 推理加速 · 片上 SRAM · scale-up fabric · 液冷 1U tray</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">2449.TW</td><td>KYEC 京元电子 <span class="note">LPU 测试服务 · 低延迟芯片测试</span></td><td class="price">NT$320</td><td class="chg"><span class="up">▲+4.24%</span></td><td class="chg"><span class="down">▼-2.74%</span></td><td class="chg"><span class="up">▲+29.09%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">2308.TW</td><td>Delta 台达电 <span class="note">液冷 1U tray · 电源系统</span></td><td class="price">NT$2,440</td><td class="chg"><span class="up">▲+3.39%</span></td><td class="chg"><span class="down">▼-0.20%</span></td><td class="chg"><span class="up">▲+153.37%</span></td><td class="date">06-03</td></tr>
   </table>
+</div>
 
   <h3>四、Spectrum-6 SPX · AI 以太网与 CPO 光互联 🔥 增</h3>
   <div class="subtitle">Spectrum-6 ASIC · CPO 硅光 · 光引擎 · 连接器 · 【Rubin 最大新增量之一】Blackwell 无独立 SPX 机架</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">NVDA</td><td>NVIDIA 英伟达 <span class="note">Spectrum-6 ASIC · CPO 交换机设计者</span></td><td class="price">US$222.82</td><td class="chg"><span class="down">▼-0.69%</span></td><td class="chg"><span class="up">▲+5.53%</span></td><td class="chg"><span class="up">▲+19.48%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">COHR</td><td>Coherent <span class="note">CPO 光引擎 · 硅光子集成 · 激光器</span></td><td class="price">US$426.89</td><td class="chg"><span class="up">▲+17.63%</span></td><td class="chg"><span class="up">▲+18.10%</span></td><td class="chg"><span class="up">▲+131.29%</span></td><td class="date">06-02</td></tr>
@@ -172,10 +185,12 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">SIVE.ST</td><td>Sivers Semiconductors <span class="note">CPO 外置光源 · DFB 激光阵列 ⚡</span></td><td class="price">SEK97.45</td><td class="chg"><span class="up">▲+60.15%</span></td><td class="chg"><span class="up">▲+41.33%</span></td><td class="chg"><span class="up">▲+2245.93%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">AAOI</td><td>Applied Optoelectronics <span class="note">800G/1.6T 光收发器 · 放量股</span></td><td class="price">US$202.37</td><td class="chg"><span class="up">▲+8.99%</span></td><td class="chg"><span class="up">▲+27.75%</span></td><td class="chg"><span class="up">▲+480.52%</span></td><td class="date">06-02</td></tr>
   </table>
+</div>
 
   <h3>五、BlueField-4 STX · 上下文记忆存储层 🔥 增</h3>
   <div class="subtitle">BlueField-4 DPU · NVMe SSD · RDMA · KV cache 分层 · 【Rubin 最大新增量之二】Blackwell 无独立存储机架</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">WDC</td><td>Western Digital <span class="note">NVMe SSD · NAND 闪存</span></td><td class="price">US$563.10</td><td class="chg"><span class="up">▲+3.09%</span></td><td class="chg"><span class="up">▲+6.00%</span></td><td class="chg"><span class="up">▲+227.03%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">285A.T</td><td>Kioxia 铠侠 <span class="note">NAND 闪存 · SSD 方案 · 全球第二大 NAND</span></td><td class="price">JP¥79,690</td><td class="chg"><span class="up">▲+2.77%</span></td><td class="chg"><span class="up">▲+21.02%</span></td><td class="chg"><span class="up">▲+663.68%</span></td><td class="date">06-03</td></tr>
@@ -184,19 +199,23 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">NTAP</td><td>NetApp <span class="note">企业存储 · AI 数据管理 · STX 构建伙伴</span></td><td class="price">US$175.64</td><td class="chg"><span class="down">▼-2.26%</span></td><td class="chg"><span class="up">▲+0.77%</span></td><td class="chg"><span class="up">▲+65.66%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">SMCI</td><td>SuperMicro 超微 <span class="note">AI 服务器 · 存储机架 · STX 系统制造</span></td><td class="price">US$50.17</td><td class="chg"><span class="up">▲+7.02%</span></td><td class="chg"><span class="up">▲+8.85%</span></td><td class="chg"><span class="up">▲+71.40%</span></td><td class="date">06-02</td></tr>
   </table>
+</div>
 
   <h3>六、系统集成与散热（跨机架）</h3>
   <div class="subtitle">液冷 · 电源 · PCB · 背板 · ODM 全栈集成</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">2317.TW</td><td>Foxconn 鸿海 <span class="note">AI 服务器全栈 ODM · Rubin 主力代工</span></td><td class="price">NT$310</td><td class="chg"><span class="up">▲+2.82%</span></td><td class="chg"><span class="up">▲+7.27%</span></td><td class="chg"><span class="up">▲+34.49%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">2356.TW</td><td>Inventec 英业达 <span class="note">服务器 ODM · AI 机架集成</span></td><td class="price">NT$86</td><td class="chg"><span class="up">▲+7.32%</span></td><td class="chg"><span class="up">▲+23.22%</span></td><td class="chg"><span class="up">▲+101.63%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">4958.TW</td><td>ZDT 臻鼎-KY <span class="note">高阶 PCB · 消费+AI 双主线</span></td><td class="price">NT$510</td><td class="chg"><span class="down">▼-1.92%</span></td><td class="chg"><span class="down">▼-0.97%</span></td><td class="chg"><span class="up">▲+259.15%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">3037.TW</td><td>Unimicron 欣兴 <span class="note">PCB+ABF 平台龙头 · Midplane PCB</span></td><td class="price">NT$992</td><td class="chg"><span class="up">▲+1.74%</span></td><td class="chg"><span class="down">▼-5.97%</span></td><td class="chg"><span class="up">▲+350.91%</span></td><td class="date">06-03</td></tr>
   </table>
+</div>
 
   <h3 style="margin-top:16px;">🔥 1D 涨幅前五大</h3>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>#</th><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>所属</th></tr>
     <tr><td>#1</td><td class="sym">SIVE.ST</td><td>Sivers Semiconductors</td><td class="price">SEK97.45</td><td class="chg"><span class="up">▲+60.15%</span></td><td class="chg"><span class="up">▲+41.33%</span></td><td class="chg"><span class="up">▲+2245.93%</span></td><td class="date">五机架</td></tr>
     <tr><td>#2</td><td class="sym">HPE</td><td>HPE 惠普企业</td><td class="price">US$56.15</td><td class="chg"><span class="up">▲+19.47%</span></td><td class="chg"><span class="up">▲+30.46%</span></td><td class="chg"><span class="up">▲+135.27%</span></td><td class="date">五机架</td></tr>
@@ -205,10 +224,12 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td>#5</td><td class="sym">GLW</td><td>Corning 康宁</td><td class="price">US$200.40</td><td class="chg"><span class="up">▲+13.41%</span></td><td class="chg"><span class="up">▲+10.62%</span></td><td class="chg"><span class="up">▲+129.65%</span></td><td class="date">五机架+EUV</td></tr>
   </table>
 </div>
+</div>
 <div class="card">
   <h2>📊 FOTO ETF 持仓分析</h2>
   <div class="subtitle">Tuttle Capital Pure Play Photonics ETF · CBOE:FOTO · 截至 2026-05-29 · 纯光子/光通信主题 · 2026-05-28 新上市 · 9 只持股 + 现金</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">LITE</td><td>Lumentum</td><td class="weight">13.27%</td><td class="price">US$1,029.15</td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+20.37%</span></td><td class="chg"><span class="up">▲+179.21%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">IPGP</td><td>IPG Photonics</td><td class="weight">12.86%</td><td class="price">US$121.96</td><td class="chg"><span class="up">▲+5.90%</span></td><td class="chg"><span class="up">▲+6.50%</span></td><td class="chg"><span class="up">▲+70.34%</span></td><td class="date">06-02</td></tr>
@@ -222,10 +243,12 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">USD</td><td>U.S. Dollar（现金）</td><td class="weight">5.92%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   </table>
 </div>
+</div>
 <div class="card">
   <h2>📊 EUV ETF 持仓分析</h2>
   <div class="subtitle">Corgi Lithography & Semiconductor Photonics ETF · CBOE:EUV · 截至 2026-05-29 · 光刻+半导体光子学 · 前 10 大（权重合计 ~53%）· 总资产约 2.6 亿美元</div>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">TSM</td><td>TSMC 台积电</td><td class="weight">9.92%</td><td class="price">US$446.69</td><td class="chg"><span class="up">▲+2.54%</span></td><td class="chg"><span class="up">▲+6.75%</span></td><td class="chg"><span class="up">▲+47.40%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">ASML</td><td>ASML</td><td class="weight">8.36%</td><td class="price">US$1,705.37</td><td class="chg"><span class="up">▲+4.72%</span></td><td class="chg"><span class="up">▲+5.74%</span></td><td class="chg"><span class="up">▲+59.96%</span></td><td class="date">06-02</td></tr>
@@ -238,6 +261,7 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">COHR</td><td>Coherent</td><td class="weight">3.75%</td><td class="price">US$426.89</td><td class="chg"><span class="up">▲+17.63%</span></td><td class="chg"><span class="up">▲+18.10%</span></td><td class="chg"><span class="up">▲+131.29%</span></td><td class="date">06-02</td></tr>
     <tr><td class="sym">MTSI</td><td>MACOM Technology</td><td class="weight">3.24%</td><td class="price">US$382.35</td><td class="chg"><span class="up">▲+8.07%</span></td><td class="chg"><span class="up">▲+4.86%</span></td><td class="chg"><span class="up">▲+123.23%</span></td><td class="date">06-02</td></tr>
   </table>
+</div>
 </div>
 <div class="card">
   <h2>🔗 重叠分析：五机架 ↔ FOTO ↔ EUV</h2>
