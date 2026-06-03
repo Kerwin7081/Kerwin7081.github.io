@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spectrum-X CPO · 五机架光子跟踪日报 2026年06月03日 | Kerwin Research</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#fff1e5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1f1a17; line-height:1.6; }
+.container { max-width:900px; margin:0 auto; padding:10px 14px; }
+.header { text-align:center; padding:28px 14px 18px; }
+.header h3 { color:#8a5b2b; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+.header h1 { font-size:22px; font-weight:700; color:#3d3229; margin:0 0 6px; line-height:1.3; }
+.header .sub { font-size:13px; color:#8a5b2b; }
+.header .date { font-size:12px; color:#999; margin-top:4px; }
+
+.card { background:#fffaf4; border-radius:8px; padding:16px 14px; margin-bottom:14px; border:1px solid #dccdbf; }
+.card h2 { font-size:16px; color:#3d3229; margin-bottom:2px; }
+.card .subtitle { font-size:12px; color:#8a5b2b; margin-bottom:10px; }
+.card h3 { font-size:14px; color:#3d3229; margin:12px 0 8px; padding-bottom:4px; border-bottom:1px solid #dccdbf; }
+
+/* CPO news highlight */
+.cpo-alert { background:#fef9e7; border:1px solid #f9e79f; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+.cpo-alert h3 { color:#8a5b2b; font-size:14px; margin-bottom:6px; }
+.cpo-alert p { font-size:13px; margin-bottom:4px; color:#3d3229; }
+.cpo-alert .highlight { font-weight:600; color:#8a5b2b; }
+
+table { width:100%; border-collapse:collapse; font-size:12px; margin:8px 0; }
+th { background:#3d3229; color:#fffaf4; padding:6px 5px; text-align:left; font-weight:600; font-size:11px; white-space:nowrap; }
+th:first-child, td:first-child { padding-left:8px; }
+th:last-child, td:last-child { padding-right:8px; }
+td { padding:5px 4px; border-bottom:1px solid #dccdbf; vertical-align:middle; }
+tr:hover { background:#fdf5e6; }
+.sym { font-weight:600; font-size:11px; color:#3d3229; white-space:nowrap; }
+.price { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.chg { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; font-weight:500; }
+.date { text-align:center; font-size:10px; color:#999; white-space:nowrap; }
+.note { font-size:10px; color:#8a5b2b; }
+.up { color:#16a34a; }
+.down { color:#dc2626; }
+.flat { color:#999; }
+.weight { text-align:right; font-weight:600; color:#8a5b2b; }
+
+/* Overlap section */
+.overlap-grid { display:flex; flex-wrap:wrap; gap:10px; margin:10px 0; }
+.overlap-box { flex:1; min-width:200px; background:#fdf5e6; border-radius:6px; padding:10px 12px; border:1px solid #dccdbf; }
+.overlap-box h4 { font-size:12px; color:#3d3229; margin-bottom:6px; }
+.overlap-tag { display:inline-block; background:#8a5b2b; color:#fff; padding:2px 7px; border-radius:3px; font-size:11px; margin:2px 3px 2px 0; }
+.overlap-tag.both { background:#16a34a; }
+
+.footer { text-align:center; padding:20px 14px 30px; font-size:11px; color:#999; line-height:1.6; }
+.footer a { color:#8a5b2b; text-decoration:none; }
+hr { border:none; border-top:1px solid #dccdbf; margin:16px 0; }
+
+/* Summary */
+.summary { font-size:13px; color:#3d3229; line-height:1.7; }
+.summary strong { color:#8a5b2b; }
+
+/* Gate */
+#gate-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff1e5; z-index:9999; display:flex; align-items:center; justify-content:center; }
+#gate-content { text-align:center; }
+#gate-content input { padding:10px 16px; font-size:18px; border:2px solid #dccdbf; border-radius:6px; background:#fffaf4; color:#3d3229; text-align:center; width:120px; }
+#gate-content input:focus { outline:none; border-color:#8a5b2b; }
+#gate-content button { padding:10px 20px; font-size:16px; margin-top:10px; background:#8a5b2b; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+#gate-content .hint { font-size:12px; color:#999; margin-top:8px; }
+
+@media (max-width:600px) {
+  .container { padding:6px 8px; }
+  .header h1 { font-size:18px; }
+  table { font-size:11px; }
+  th, td { padding:4px 2px; }
+  .sym { font-size:10px; }
+}
+</style>
+</head>
+<body>
+
+<div id="gate-overlay">
+<div id="gate-content">
+  <p style="font-size:14px;color:#8a5b2b;margin-bottom:10px;">🔒 Kerwin Research · 请输入密码</p>
+  <input type="password" id="gate-input" placeholder="密码" autofocus>
+  <br>
+  <button onclick="checkGate()">进入</button>
+  <p class="hint">输入 k 进入</p>
+</div>
+</div>
+
+<div id="main-content" style="display:none;">
+
+<div class="container">
+
+<div class="header">
+  <h3>KERWIN RESEARCH · AI INFRASTRUCTURE</h3>
+  <h1>Spectrum-X CPO 光子 · 五机架拆解跟踪日报</h1>
+  <div class="sub">Rubin AI Factory 五类系统 · 光互联/CPO 专题 · FOTO & EUV ETF 持仓交叉</div>
+  <div class="date">日报生成时间：2026年06月03日 12:17 HKT · 数据源：Yahoo Finance</div>
+</div>
+
+<!-- CPO NEWS -->
+<div class="cpo-alert">
+  <h3>📡 核心催化：NVIDIA Spectrum-X 以太网光子技术已量产</h3>
+  <p>NVIDIA 宣布推出 <span class="highlight">Spectrum-X Photonics</span>——全球首款搭载 <span class="highlight">共封装光学器件（CPO）的 200Gb/s SerDes 以太网交换机</span>，面向百万 GPU AI 工厂量产。集成硅光子取代传统可插拔光学器件，<span class="highlight">每端口功耗降低约 5 倍</span>。CoreWeave、Lambda、Oracle Cloud 为首批采用者。</p>
+  <p style="margin-top:6px;"><strong>投资含义：</strong></p>
+  <p>① CPO 从路线图走入量产，验证了 Rubin 五机架中的 <strong>Spectrum-6 SPX 以太网层价值</strong>，不再是"远期期权"。</p>
+  <p>② 直接受益：<strong>COHR</strong>（CPO 光引擎与硅光子集成）、<strong>LITE</strong>（激光器与收发器）、<strong>FN</strong>（光模块代工与 CPO 封装）、<strong>AAOI</strong>（800G/1.6T 放量→CPO 路线）。</p>
+  <p>③ 高弹性期权：<strong>SIVE.ST</strong>（CPO 外置光源/DFB 激光阵列）——若 CPO 外置光源成为 AI 网络主线，弹性极高但需验证量产客户导入。</p>
+  <p>④ 间接拉动：<strong>APH/TEL</strong>（高速背板连接器）、<strong>GLW</strong>（特种光纤/玻璃基板），随 CPO 机架密度提升而受益。</p>
+  <p>⑤ 可插拔→CPO 不是替代，是演进：短期 800G/1.6T 可插拔需求仍旺盛（利好 AAOI/FN），中长期 CPO 硅光占比提升（利好 COHR/LITE/SIVE）。</p>
+</div>
+
+<!-- 5-RACK TRACKER -->
+<div class="card">
+  <h2>🏗️ 五机架拆解 · 光子/光互联 观察池</h2>
+  <div class="subtitle">基于 NVIDIA Vera Rubin 台北发布会五类机架系统拆解 · 与 SIVE/AAOI 专题关联</div>
+
+  <h3>Ethernet / CPO 光互联 🔥</h3>
+  <div class="subtitle">Spectrum-6 SPX · 五机架中最被低估的价值层 · Spectrum-X CPO 已量产</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">NVDA</td><td>NVIDIA 英伟达 <span class=note>平台锚 · Spectrum-6 ASIC 设计者</span></td><td class="price">US$222.82</td><td class="chg"><span class="down">▼-0.69%</span></td><td class="chg"><span class="up">▲+5.53%</span></td><td class="chg"><span class="up">▲+19.48%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">COHR</td><td>Coherent <span class=note>CPO 光引擎 · 激光器 · 收发器</span></td><td class="price">US$426.89</td><td class="chg"><span class="up">▲+17.63%</span></td><td class="chg"><span class="up">▲+18.10%</span></td><td class="chg"><span class="up">▲+131.29%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">LITE</td><td>Lumentum <span class=note>光模块 · 激光器 · 3D传感</span></td><td class="price">US$1,029.15</td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+20.37%</span></td><td class="chg"><span class="up">▲+179.21%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">GLW</td><td>Corning 康宁 <span class=note>特种光纤 · 玻璃基板 · 光连接</span></td><td class="price">US$200.40</td><td class="chg"><span class="up">▲+13.41%</span></td><td class="chg"><span class="up">▲+10.62%</span></td><td class="chg"><span class="up">▲+129.65%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">FN</td><td>Fabrinet <span class=note>光模块代工 · CPO 封装集成</span></td><td class="price">US$701.11</td><td class="chg"><span class="up">▲+12.65%</span></td><td class="chg"><span class="up">▲+7.18%</span></td><td class="chg"><span class="up">▲+54.00%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">APH</td><td>Amphenol 安费诺 <span class=note>高速连接器 · 背板互连</span></td><td class="price">US$148.40</td><td class="chg"><span class="up">▲+1.41%</span></td><td class="chg"><span class="down">▼-0.24%</span></td><td class="chg"><span class="up">▲+10.03%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">TEL</td><td>TE Connectivity <span class=note>连接器 · 线缆组件 · 传感器</span></td><td class="price">US$214.73</td><td class="chg"><span class="up">▲+1.72%</span></td><td class="chg"><span class="up">▲+0.62%</span></td><td class="chg"><span class="down">▼-4.96%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">SIVE.ST</td><td>Sivers Semiconductors <span class=note>CPO 外置光源 · DFB激光阵列 ⚡</span></td><td class="price">SEK97.45</td><td class="chg"><span class="up">▲+60.15%</span></td><td class="chg"><span class="up">▲+41.33%</span></td><td class="chg"><span class="up">▲+2245.93%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">AAOI</td><td>Applied Optoelectronics <span class=note>800G/1.6T 光收发器 · 放量股</span></td><td class="price">US$202.37</td><td class="chg"><span class="up">▲+8.99%</span></td><td class="chg"><span class="up">▲+27.75%</span></td><td class="chg"><span class="up">▲+480.52%</span></td><td class="date">06-02</td></tr>
+  </table>
+
+  <h3>GPU / HBM 主计算</h3>
+  <div class="subtitle">Vera Rubin NVL72 · 五机架中最大价值池</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">NVDA</td><td>NVIDIA 英伟达 <span class=note>Rubin GPU 设计者 · 平台锚</span></td><td class="price">US$222.82</td><td class="chg"><span class="down">▼-0.69%</span></td><td class="chg"><span class="up">▲+5.53%</span></td><td class="chg"><span class="up">▲+19.48%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">TSM</td><td>TSMC 台积电 <span class=note>CoWoS 先进封装 · Rubin GPU 制造</span></td><td class="price">US$446.69</td><td class="chg"><span class="up">▲+2.54%</span></td><td class="chg"><span class="up">▲+6.75%</span></td><td class="chg"><span class="up">▲+47.40%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">000660.KS</td><td>SK hynix <span class=note>HBM4/HBM4e 核心供应商</span></td><td class="price">KR₩2,360,000</td><td class="chg"><span class="down">▼-0.13%</span></td><td class="chg"><span class="up">▲+1.16%</span></td><td class="chg"><span class="up">▲+263.25%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">005930.KS</td><td>Samsung 三星电子 <span class=note>HBM4 · 1c DRAM · 代工</span></td><td class="price">KR₩360,500</td><td class="chg"><span class="up">▲+3.30%</span></td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+201.29%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">MU</td><td>Micron 美光 <span class=note>HBM4e 追赶者 · 存储周期弹性</span></td><td class="price">US$1,064.10</td><td class="chg"><span class="up">▲+2.76%</span></td><td class="chg"><span class="up">▲+9.59%</span></td><td class="chg"><span class="up">▲+272.99%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">3711.TW</td><td>ASE 日月光 <span class=note>先进封装 · 测试 · SiP</span></td><td class="price">NT$622</td><td class="chg"><span class="up">▲+5.42%</span></td><td class="chg"><span class="up">▲+1.80%</span></td><td class="chg"><span class="up">▲+148.30%</span></td><td class="date">06-03</td></tr>
+  </table>
+
+  <h3>CPU / SOCAMM 执行环境</h3>
+  <div class="subtitle">Vera CPU Rack · Agentic AI 的 CPU 底座</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">2382.TW</td><td>Quanta 广达 <span class=note>Vera CPU 主板 ODM · MGX 机架</span></td><td class="price">NT$436</td><td class="chg"><span class="up">▲+8.86%</span></td><td class="chg"><span class="up">▲+28.61%</span></td><td class="chg"><span class="up">▲+60.29%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">3231.TW</td><td>Wistron 纬创 <span class=note>服务器 ODM · CPU 机架集成</span></td><td class="price">NT$195</td><td class="chg"><span class="up">▲+2.09%</span></td><td class="chg"><span class="up">▲+23.03%</span></td><td class="chg"><span class="up">▲+29.57%</span></td><td class="date">06-03</td></tr>
+  </table>
+
+  <h3>LPU / SRAM 低延迟推理</h3>
+  <div class="subtitle">Groq 3 LPX · 与 GPU 分工的确定性推理引擎</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">2449.TW</td><td>KYEC 京元电子 <span class=note>LPU 测试服务 · 低延迟芯片测试</span></td><td class="price">NT$320</td><td class="chg"><span class="up">▲+4.24%</span></td><td class="chg"><span class="down">▼-2.74%</span></td><td class="chg"><span class="up">▲+29.09%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">2308.TW</td><td>Delta 台达电 <span class=note>液冷 1U tray · 电源系统</span></td><td class="price">NT$2,440</td><td class="chg"><span class="up">▲+3.39%</span></td><td class="chg"><span class="down">▼-0.20%</span></td><td class="chg"><span class="up">▲+153.37%</span></td><td class="date">06-03</td></tr>
+  </table>
+
+  <h3>DPU / 上下文存储</h3>
+  <div class="subtitle">BlueField-4 STX · KV cache 分层 · NAND 进入推理经济</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">WDC</td><td>Western Digital <span class=note>NVMe SSD · NAND 闪存</span></td><td class="price">US$563.10</td><td class="chg"><span class="up">▲+3.09%</span></td><td class="chg"><span class="up">▲+6.00%</span></td><td class="chg"><span class="up">▲+227.03%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">285A.T</td><td>Kioxia 铠侠 <span class=note>NAND 闪存 · SSD 方案</span></td><td class="price">JP¥79,690</td><td class="chg"><span class="up">▲+2.77%</span></td><td class="chg"><span class="up">▲+21.02%</span></td><td class="chg"><span class="up">▲+663.68%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">DELL</td><td>Dell 戴尔 <span class=note>企业存储 · AI 服务器集成</span></td><td class="price">US$435.31</td><td class="chg"><span class="down">▼-6.58%</span></td><td class="chg"><span class="up">▲+3.42%</span></td><td class="chg"><span class="up">▲+248.40%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">HPE</td><td>HPE 惠普企业 <span class=note>AI 服务器 · 存储方案</span></td><td class="price">US$56.15</td><td class="chg"><span class="up">▲+19.47%</span></td><td class="chg"><span class="up">▲+30.46%</span></td><td class="chg"><span class="up">▲+135.27%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">NTAP</td><td>NetApp <span class=note>企业存储 · AI 数据管理</span></td><td class="price">US$175.64</td><td class="chg"><span class="down">▼-2.26%</span></td><td class="chg"><span class="up">▲+0.77%</span></td><td class="chg"><span class="up">▲+65.66%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">SMCI</td><td>SuperMicro 超微 <span class=note>AI 服务器 · 存储机架集成</span></td><td class="price">US$50.17</td><td class="chg"><span class="up">▲+7.02%</span></td><td class="chg"><span class="up">▲+8.85%</span></td><td class="chg"><span class="up">▲+71.40%</span></td><td class="date">06-02</td></tr>
+  </table>
+
+  <h3>系统集成与散热</h3>
+  <div class="subtitle">液冷 · 电源 · PCB · 背板 · ODM</div>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">2317.TW</td><td>Foxconn 鸿海 <span class=note>AI 服务器全栈 ODM · GB300/Rubin</span></td><td class="price">NT$310</td><td class="chg"><span class="up">▲+2.82%</span></td><td class="chg"><span class="up">▲+7.27%</span></td><td class="chg"><span class="up">▲+34.49%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">2356.TW</td><td>Inventec 英业达 <span class=note>服务器 ODM · AI 机架集成</span></td><td class="price">NT$86</td><td class="chg"><span class="up">▲+7.32%</span></td><td class="chg"><span class="up">▲+23.22%</span></td><td class="chg"><span class="up">▲+101.63%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">4958.TW</td><td>ZDT 臻鼎-KY <span class=note>高阶 PCB · 消费+AI 双主线</span></td><td class="price">NT$510</td><td class="chg"><span class="down">▼-1.92%</span></td><td class="chg"><span class="down">▼-0.97%</span></td><td class="chg"><span class="up">▲+259.15%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">3037.TW</td><td>Unimicron 欣兴 <span class=note>PCB+ABF 平台 · Midplane 确定性</span></td><td class="price">NT$992</td><td class="chg"><span class="up">▲+1.74%</span></td><td class="chg"><span class="down">▼-5.97%</span></td><td class="chg"><span class="up">▲+350.91%</span></td><td class="date">06-03</td></tr>
+  </table>
+
+</div>
+
+<!-- FOTO ETF -->
+<div class="card">
+  <h2>📊 FOTO ETF 持仓分析</h2>
+  <div class="subtitle">Tuttle Capital Pure Play Photonics ETF · CBOE:FOTO · 截至2026-05-29 · 纯光子/光通信主题</div>
+  <p style="font-size:11px;color:#999;margin-bottom:8px;">FOTO 为2026年5月28日新上市ETF，目前公布持仓为前10大（含现金），权重合计 ~94%。以下展示全部已披露持股。</p>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">LITE</td><td>Lumentum</td><td class="weight">13.27%</td><td class="price">US$1,029.15</td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+20.37%</span></td><td class="chg"><span class="up">▲+179.21%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">IPGP</td><td>IPG Photonics</td><td class="weight">12.86%</td><td class="price">US$121.96</td><td class="chg"><span class="up">▲+5.90%</span></td><td class="chg"><span class="up">▲+6.50%</span></td><td class="chg"><span class="up">▲+70.34%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">CIEN</td><td>Ciena</td><td class="weight">10.42%</td><td class="price">US$627.00</td><td class="chg"><span class="up">▲+10.08%</span></td><td class="chg"><span class="up">▲+8.06%</span></td><td class="chg"><span class="up">▲+168.10%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">COHR</td><td>Coherent</td><td class="weight">10.04%</td><td class="price">US$426.89</td><td class="chg"><span class="up">▲+17.63%</span></td><td class="chg"><span class="up">▲+18.10%</span></td><td class="chg"><span class="up">▲+131.29%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">FN</td><td>Fabrinet</td><td class="weight">9.88%</td><td class="price">US$701.11</td><td class="chg"><span class="up">▲+12.65%</span></td><td class="chg"><span class="up">▲+7.18%</span></td><td class="chg"><span class="up">▲+54.00%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">LASR</td><td>nLIGHT</td><td class="weight">9.47%</td><td class="price">US$76.36</td><td class="chg"><span class="up">▲+8.19%</span></td><td class="chg"><span class="up">▲+3.02%</span></td><td class="chg"><span class="up">▲+103.57%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">AAOI</td><td>Applied Optoelectronics</td><td class="weight">7.05%</td><td class="price">US$202.37</td><td class="chg"><span class="up">▲+8.99%</span></td><td class="chg"><span class="up">▲+27.75%</span></td><td class="chg"><span class="up">▲+480.52%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">VIAV</td><td>Viavi Solutions</td><td class="weight">5.87%</td><td class="price">US$52.88</td><td class="chg"><span class="up">▲+11.35%</span></td><td class="chg"><span class="up">▲+8.90%</span></td><td class="chg"><span class="up">▲+196.75%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">MKSI</td><td>MKS Instruments</td><td class="weight">3.44%</td><td class="price">US$331.36</td><td class="chg"><span class="up">▲+4.33%</span></td><td class="chg"><span class="up">▲+2.19%</span></td><td class="chg"><span class="up">▲+107.56%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">USD</td><td>U.S. Dollar (现金)</td><td class="weight">5.92%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  </table>
+  <p style="font-size:11px;color:#999;margin-top:6px;">FOTO 为主动管理型 ETF，Tuttle Capital 管理。专注光子学产业链：激光器、光收发器、硅光子、特种晶圆及代工产能。当前 1D 涨幅主要受 Spectrum-X CPO 新闻催化。</p>
+</div>
+
+<!-- EUV ETF -->
+<div class="card">
+  <h2>📊 EUV ETF 持仓分析</h2>
+  <div class="subtitle">Corgi Lithography & Semiconductor Photonics ETF · CBOE:EUV · 截至2026-05-29 · 光刻+半导体光子学主题</div>
+  <p style="font-size:11px;color:#999;margin-bottom:8px;">EUV 为2026年5月新上市ETF，覆盖光刻系统→激光器→光学元件→硅光子全价值链。以下展示前10大持仓（权重合计约53%，基金持有更多仓位未完整披露）。</p>
+  <table>
+    <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
+    <tr><td class="sym">TSM</td><td>TSMC 台积电</td><td class="weight">9.92%</td><td class="price">US$446.69</td><td class="chg"><span class="up">▲+2.54%</span></td><td class="chg"><span class="up">▲+6.75%</span></td><td class="chg"><span class="up">▲+47.40%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">ASML</td><td>ASML</td><td class="weight">8.36%</td><td class="price">US$1,705.37</td><td class="chg"><span class="up">▲+4.72%</span></td><td class="chg"><span class="up">▲+5.74%</span></td><td class="chg"><span class="up">▲+59.96%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">LRCX</td><td>Lam Research</td><td class="weight">5.42%</td><td class="price">US$334.41</td><td class="chg"><span class="up">▲+5.45%</span></td><td class="chg"><span class="up">▲+5.10%</span></td><td class="chg"><span class="up">▲+95.59%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">AMAT</td><td>Applied Materials</td><td class="weight">5.00%</td><td class="price">US$490.05</td><td class="chg"><span class="up">▲+6.96%</span></td><td class="chg"><span class="up">▲+8.89%</span></td><td class="chg"><span class="up">▲+91.16%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">GLW</td><td>Corning 康宁</td><td class="weight">4.70%</td><td class="price">US$200.40</td><td class="chg"><span class="up">▲+13.41%</span></td><td class="chg"><span class="up">▲+10.62%</span></td><td class="chg"><span class="up">▲+129.65%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">CIEN</td><td>Ciena</td><td class="weight">4.30%</td><td class="price">US$627.00</td><td class="chg"><span class="up">▲+10.08%</span></td><td class="chg"><span class="up">▲+8.06%</span></td><td class="chg"><span class="up">▲+168.10%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">KLAC</td><td>KLA Corp</td><td class="weight">4.27%</td><td class="price">US$2,045.20</td><td class="chg"><span class="up">▲+5.42%</span></td><td class="chg"><span class="up">▲+6.43%</span></td><td class="chg"><span class="up">▲+68.75%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">LITE</td><td>Lumentum</td><td class="weight">3.80%</td><td class="price">US$1,029.15</td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+20.37%</span></td><td class="chg"><span class="up">▲+179.21%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">COHR</td><td>Coherent</td><td class="weight">3.75%</td><td class="price">US$426.89</td><td class="chg"><span class="up">▲+17.63%</span></td><td class="chg"><span class="up">▲+18.10%</span></td><td class="chg"><span class="up">▲+131.29%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">MTSI</td><td>MACOM Technology</td><td class="weight">3.24%</td><td class="price">US$382.35</td><td class="chg"><span class="up">▲+8.07%</span></td><td class="chg"><span class="up">▲+4.86%</span></td><td class="chg"><span class="up">▲+123.23%</span></td><td class="date">06-02</td></tr>
+  </table>
+  <p style="font-size:11px;color:#999;margin-top:6px;">EUV 由 Corgi Funds 管理，定位横跨光刻设备（ASML/TSM/LRCX/AMAT/KLAC）与光子学（LITE/COHR/CIEN/MTSI/GLW）。基金总资产约 2.6 亿美元。</p>
+</div>
+
+<!-- OVERLAP -->
+<div class="card">
+  <h2>🔗 重叠分析</h2>
+  <div class="subtitle">五机架拆解标的 × FOTO × EUV 的交叉映射</div>
+  
+  <div class="overlap-grid">
+    <div class="overlap-box">
+      <h4>五机架 ∩ FOTO（4只重叠）</h4>
+      <span class="overlap-tag">AAOI</span>
+      <span class="overlap-tag">COHR</span>
+      <span class="overlap-tag">FN</span>
+      <span class="overlap-tag">LITE</span>
+      <p style="font-size:10px;color:#999;margin-top:4px;">COHR·LITE·FN·AAOI 均为 Spectrum-6 SPX/CPO 核心映射，也是 FOTO 前十大持仓。五机架拆解与 FOTO 主题高度重合。</p>
+    </div>
+    <div class="overlap-box">
+      <h4>五机架 ∩ EUV（4只重叠）</h4>
+      <span class="overlap-tag">COHR</span>
+      <span class="overlap-tag">GLW</span>
+      <span class="overlap-tag">LITE</span>
+      <span class="overlap-tag">TSM</span>
+      <p style="font-size:10px;color:#999;margin-top:4px;">TSM 是 Rubin GPU 制造核心，GLW/COHR/LITE 是 CPO 光互联供应商。EUV 通过光刻+光子学双主线覆盖。</p>
+    </div>
+    <div class="overlap-box">
+      <h4>FOTO ∩ EUV（4只重叠）</h4>
+      <span class="overlap-tag ">CIEN</span>
+      <span class="overlap-tag both">COHR</span>
+      <span class="overlap-tag both">LITE</span>
+      <p style="font-size:10px;color:#999;margin-top:4px;">LITE·COHR 是两只 ETF 的最大公约项——分别是 FOTO #1/#4 和 EUV #8/#9 持仓。CIEN·GLW 为次要重叠。绿色标记=同时在三方出现。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 1D Top 5 -->
+<div class="card">
+  <h2>🔥 1D 涨幅前五大</h2>
+  <div class="subtitle">五机架 + ETF 持仓池中今日表现最强</div>
+  <table>
+    <tr><th>排名</th><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>所属</th></tr>    <tr>
+      <td>#1</td>
+      <td class="sym">SIVE.ST</td>
+      <td>Sivers Semiconductors</td>
+      <td class="price">SEK97.45</td>
+      <td class="chg"><span class="up">▲+60.15%</span></td>
+      <td class="chg"><span class="up">▲+41.33%</span></td>
+      <td class="chg"><span class="up">▲+2245.93%</span></td>
+      <td class="date">五机架</td>
+    </tr>
+    <tr>
+      <td>#2</td>
+      <td class="sym">HPE</td>
+      <td>HPE 惠普企业</td>
+      <td class="price">US$56.15</td>
+      <td class="chg"><span class="up">▲+19.47%</span></td>
+      <td class="chg"><span class="up">▲+30.46%</span></td>
+      <td class="chg"><span class="up">▲+135.27%</span></td>
+      <td class="date">五机架</td>
+    </tr>
+    <tr>
+      <td>#3</td>
+      <td class="sym">COHR</td>
+      <td>Coherent</td>
+      <td class="price">US$426.89</td>
+      <td class="chg"><span class="up">▲+17.63%</span></td>
+      <td class="chg"><span class="up">▲+18.10%</span></td>
+      <td class="chg"><span class="up">▲+131.29%</span></td>
+      <td class="date">五机架+FOTO+EUV</td>
+    </tr>
+    <tr>
+      <td>#4</td>
+      <td class="sym">LITE</td>
+      <td>Lumentum</td>
+      <td class="price">US$1,029.15</td>
+      <td class="chg"><span class="up">▲+13.72%</span></td>
+      <td class="chg"><span class="up">▲+20.37%</span></td>
+      <td class="chg"><span class="up">▲+179.21%</span></td>
+      <td class="date">五机架+FOTO+EUV</td>
+    </tr>
+    <tr>
+      <td>#5</td>
+      <td class="sym">GLW</td>
+      <td>Corning 康宁</td>
+      <td class="price">US$200.40</td>
+      <td class="chg"><span class="up">▲+13.41%</span></td>
+      <td class="chg"><span class="up">▲+10.62%</span></td>
+      <td class="chg"><span class="up">▲+129.65%</span></td>
+      <td class="date">五机架+EUV</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <h2>📝 一句话摘要</h2>
+  <div class="summary">
+    <strong>Spectrum-X CPO 量产验证了 Rubin 五机架中"以太网/CPO 光互联层"的投资逻辑从路线图走向交付。</strong>
+    COHR(+17.6%)、LITE(+13.7%)、FN(+12.7%)、GLW(+13.4%)、SIVE(+60.2%) 今日集体爆发，FOTO ETF(+10.8%) 和 EUV ETF(+8.7%) 同步大涨。
+    五机架拆解池与 FOTO 重叠 4 只（COHR/LITE/FN/AAOI），与 EUV 重叠 4 只（TSM/GLW/COHR/LITE）。
+    最大认知差仍在 <strong>CPO 硅光外置光源</strong>（SIVE.ST）和 <strong>CPO 光引擎量产</strong>（COHR），而短期确定性来自 800G/1.6T 放量（AAOI/FN）。
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <hr>
+  <p>本日报由 <strong>OpenClaw Abba</strong> 自动化生成 · 数据源：Yahoo Finance（yfinance）</p>
+  <p>标的池来源：<a href="/nvidia-rubin-five-racks-sive-aaoi/">英伟达 AI Factory：五个机架拆解</a> · FOTO/EUV 持仓数据：TradingView</p>
+  <p>⚠️ 本文为投资研究参考，不构成具体投资建议。数据可能存在延迟或口径差异，以交易所官方数据为准。</p>
+  <p>© Kerwin｜宏观对冲及 AI 精选组合研究｜Enya.Clawd 自动化呈现</p>
+</div>
+
+</div><!-- container -->
+</div><!-- main-content -->
+
+<script>
+function checkGate() {
+  var pw = document.getElementById('gate-input').value;
+  if (pw === 'k') {
+    sessionStorage.setItem('gate_ok', '1');
+    document.getElementById('gate-overlay').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+  } else {
+    document.getElementById('gate-input').style.borderColor = '#dc2626';
+    setTimeout(function(){ document.getElementById('gate-input').style.borderColor = '#dccdbf'; }, 600);
+  }
+}
+// Check on load
+if (sessionStorage.getItem('gate_ok') === '1') {
+  document.getElementById('gate-overlay').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
+// Enter key
+document.getElementById('gate-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') checkGate();
+});
+</script>
+
+</body>
+</html>
