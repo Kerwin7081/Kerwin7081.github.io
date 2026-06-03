@@ -3,30 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>五机架拆解跟踪日报 2026年06月03日 | Kerwin Research</title>
+<title>Vera Rubin 五机架跟踪日报 2026年06月03日 | Kerwin Research</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#fff1e5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1f1a17; line-height:1.6; }
-.container { max-width:900px; margin:0 auto; padding:10px 14px; }
-.header { text-align:center; padding:24px 14px 14px; }
+.container { max-width:920px; margin:0 auto; padding:10px 14px; }
+.header { text-align:center; padding:24px 14px 10px; }
 .header h3 { color:#8a5b2b; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
 .header h1 { font-size:22px; font-weight:700; color:#3d3229; margin:0 0 4px; line-height:1.3; }
 .header .sub { font-size:13px; color:#8a5b2b; }
 .header .date { font-size:12px; color:#999; margin-top:4px; }
 
-.main-link { text-align:center; padding:4px 14px 14px; }
+.main-link { text-align:center; padding:4px 14px 12px; }
 .main-link a { display:inline-block; background:#3d3229; color:#fffaf4; padding:7px 18px; border-radius:5px; text-decoration:none; font-size:12px; font-weight:600; }
 .main-link a:hover { background:#8a5b2b; }
+
+/* Two-pillar intro */
+.pillars { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
+.pillar { flex:1; min-width:280px; border-radius:8px; padding:16px 18px; }
+.pillar-opt { background:#f0f7ff; border:1.5px solid #93c5fd; }
+.pillar-stor { background:#f0fdf4; border:1.5px solid #86efac; }
+.pillar h2 { font-size:15px; margin-bottom:4px; }
+.pillar-opt h2 { color:#1e40af; }
+.pillar-stor h2 { color:#166534; }
+.pillar .tag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:.08em; padding:2px 8px; border-radius:3px; margin-bottom:8px; }
+.pillar-opt .tag { background:#dbeafe; color:#1e40af; }
+.pillar-stor .tag { background:#dcfce7; color:#166534; }
+.pillar p { font-size:12px; color:#3d3229; line-height:1.65; margin-bottom:4px; }
+.pillar .src { font-size:10px; color:#999; margin-top:6px; }
 
 .card { background:#fffaf4; border-radius:8px; padding:16px 14px; margin-bottom:14px; border:1px solid #dccdbf; }
 .card h2 { font-size:16px; color:#3d3229; margin-bottom:2px; }
 .card .subtitle { font-size:12px; color:#8a5b2b; margin-bottom:10px; }
 .card h3 { font-size:14px; color:#3d3229; margin:12px 0 8px; padding-bottom:4px; border-bottom:1px solid #dccdbf; }
-
-.cpo-alert { background:#fef9e7; border:1px solid #f9e79f; border-radius:8px; padding:12px 14px; margin-bottom:14px; }
-.cpo-alert h3 { color:#8a5b2b; font-size:14px; margin-bottom:4px; }
-.cpo-alert p { font-size:12px; margin-bottom:3px; color:#3d3229; line-height:1.6; }
-.cpo-alert .highlight { font-weight:600; color:#8a5b2b; }
 
 table { width:100%; border-collapse:collapse; font-size:12px; margin:8px 0; }
 th { background:#3d3229; color:#fffaf4; padding:6px 5px; text-align:left; font-weight:600; font-size:11px; white-space:nowrap; }
@@ -39,9 +48,7 @@ tr:hover { background:#fdf5e6; }
 .chg { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; font-weight:500; }
 .date { text-align:center; font-size:10px; color:#999; white-space:nowrap; }
 .note { font-size:10px; color:#8a5b2b; }
-.up { color:#16a34a; }
-.down { color:#dc2626; }
-.flat { color:#999; }
+.up { color:#16a34a; } .down { color:#dc2626; } .flat { color:#999; }
 .weight { text-align:right; font-weight:600; color:#8a5b2b; }
 .overlap-grid { display:flex; flex-wrap:wrap; gap:10px; margin:10px 0; }
 .overlap-box { flex:1; min-width:200px; background:#fdf5e6; border-radius:6px; padding:10px 12px; border:1px solid #dccdbf; }
@@ -59,12 +66,12 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 #gate-content { text-align:center; }
 #gate-content input { padding:10px 16px; font-size:18px; border:2px solid #dccdbf; border-radius:6px; background:#fffaf4; color:#3d3229; text-align:center; width:120px; }
 #gate-content input:focus { outline:none; border-color:#8a5b2b; }
-#gate-content button { padding:10px 20px; font-size:16px; margin-top:10px; background:#8a5b2b; color:#fff; border:none; border-radius:6px; cursor:pointer; }
 #gate-content .hint { font-size:12px; color:#999; margin-top:8px; }
 
 @media (max-width:600px) {
   .container { padding:6px 8px; }
   .header h1 { font-size:18px; }
+  .pillar { min-width:100%; }
   table { font-size:11px; }
   th, td { padding:4px 2px; }
   .sym { font-size:10px; }
@@ -76,10 +83,8 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 <div id="gate-overlay">
 <div id="gate-content">
   <p style="font-size:14px;color:#8a5b2b;margin-bottom:10px;">🔒 Kerwin Research · 请输入密码</p>
-  <input type="password" id="gate-input" placeholder="密码" autofocus>
-  <br>
-  <button onclick="checkGate()">进入</button>
-  <p class="hint">输入 k 进入</p>
+  <input type="text" id="gate-input" placeholder="输入 k" autofocus maxlength="1">
+  <p class="hint">输入 k（不分大小写，无需回车）</p>
 </div>
 </div>
 
@@ -91,24 +96,39 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
   <h3>KERWIN RESEARCH · AI INFRASTRUCTURE</h3>
   <h1>Vera Rubin 五机架拆解 · 跟踪日报</h1>
   <div class="sub">NVL72 · Vera CPU · Groq 3 LPX · Spectrum-6 SPX · BlueField-4 STX</div>
-  <div class="date">日报生成时间：2026年06月03日 12:31 HKT · 数据源：Yahoo Finance</div>
+  <div class="date">日报生成时间：2026年06月03日 13:02 HKT · 数据源：Yahoo Finance · FOTO / EUV 持仓：TradingView</div>
 </div>
 
 <div class="main-link">
   <a href="/nvidia-rubin-five-racks-sive-aaoi/">← 返回主文章：英伟达 AI Factory：五个机架拆解（含出厂价推演、供应链地图、SIVE/AAOI 关联度）</a>
 </div>
 
-<!-- CPO NEWS - TODAY'S CATALYST -->
-<div class="cpo-alert">
-  <h3>📡 今日核心催化：NVIDIA Spectrum-X 以太网光子技术量产（CPO/硅光）</h3>
-  <p>NVIDIA 推出 <span class="highlight">Spectrum-X Photonics</span>——全球首款搭载 <span class="highlight">共封装光学器件（CPO）的 200Gb/s SerDes 以太网交换机</span>，面向百万 GPU AI 工厂量产；<span class="highlight">每端口功耗降低约 5 倍</span>。CoreWeave、Lambda、Oracle Cloud 为首批采用者。</p>
-  <p style="margin-top:4px;"><strong>对五机架的影响：</strong>直接验证第四层 <strong>Spectrum-6 SPX</strong> 的投资逻辑从路线图走向交付。CPO 硅光受益链：COHR（光引擎）→ LITE（激光器）→ FN（封装集成）→ AAOI（800G/1.6T 放量）→ SIVE.ST（外置光源期权）。也间接拉动第五层 BlueField-4 STX（存储需要 RDMA 网络）和第六层系统集成（PCB/背板密度提升）。</p>
+<!-- TWO-PILLAR INTRO: STX + SPX as the two biggest new additions -->
+<div class="pillars">
+  <div class="pillar pillar-opt">
+    <div class="tag">Rubin 新增量之一 · 光</div>
+    <h2>NVIDIA Spectrum-X Photonics · CPO 硅光以太网</h2>
+    <p><strong>定位：</strong>Rubin 五机架中独立出来的以太网/CPO 光互联机架。Blackwell 时代没有独立 SPX 机架——这是 Rubin 架构级别的增量。NVIDIA 将其定义为"百万 GPU AI 工厂的横向扩展 fabric"。</p>
+    <p><strong>技术突破：</strong>全球首款搭载共封装光学器件（CPO）的 200Gb/s SerDes 以太网交换机，以集成硅光子取代传统可插拔光学器件，每端口功耗降低约 5 倍，AI uptime 提升 5 倍，部署速度提升 1.3 倍。</p>
+    <p><strong>产业意义：</strong>CPO 从路线图走入量产，意味着光互联成为 AI 工厂的独立基础设施层。CoreWeave、Lambda、Oracle Cloud 为首批采用者。NVIDIA 通过自研 Spectrum-6 ASIC + CPO 将网络层垂直整合，对传统交换机/光模块产业链构成结构性重塑。</p>
+    <p><strong>投资映射：</strong>COHR（光引擎）、LITE（激光器）、FN（封装集成）、AAOI（光收发器放量）、SIVE.ST（CPO 外置光源高弹性期权）、GLW（特种光纤/玻璃基板）、APH/TEL（高速连接器）。</p>
+    <p class="src">来源：NVIDIA 官方新闻稿、SiliconANGLE、NVIDIA Silicon Photonics 产品页</p>
+  </div>
+  <div class="pillar pillar-stor">
+    <div class="tag">Rubin 新增量之二 · 存储</div>
+    <h2>NVIDIA BlueField-4 STX · Agentic AI 上下文存储</h2>
+    <p><strong>定位：</strong>Rubin 五机架中首次独立出来的存储/上下文记忆机架。Blackwell 时代存储只是"后台设备"——Rubin 将存储提升为与 GPU 并列的 POD 级基础设施层。NVIDIA 将其定义为"agentic AI 的安全存储控制面"。</p>
+    <p><strong>技术突破：</strong>BlueField-4 DPU 在硅层面执行安全策略，实现运行时威胁检测速度比现有无代理方案快 1000 倍，网络/文件访问策略执行速度达 800Gb/s。核心功能：K-V cache 上下文分层存储、零信任文件访问（DOCA Vault）、agent 行为可观测性（DOCA Argus）、多租户网络隔离（DOCA Flow）。</p>
+    <p><strong>产业意义：</strong>将 NAND/SSD 从"后台数据存储"推入"推理 token 经济"——KV cache 不再占用昂贵 HBM，而是分层卸载到 NVMe SSD + RDMA 网络。存储制造商（WDC、Kioxia）、存储系统商（DELL、HPE、NTAP）、数据平台（DDN、VAST Data、WEKA、MinIO）全线进入 AI 推理价值链。</p>
+    <p><strong>投资映射：</strong>WDC（NVMe SSD）、285A.T Kioxia（NAND 闪存）、DELL/HPE/NTAP（企业存储+STX 平台构建）、SMCI（存储机架系统集成）。生态系统内标的：DDN、VAST Data、WEKA（均为私有）。</p>
+    <p class="src">来源：NVIDIA Newsroom、CryptoBriefing、SiliconANGLE</p>
+  </div>
 </div>
 
 <!-- LAYERS -->
 <div class="card">
   <h2>🏗️ 五机架拆解 · 标的行情</h2>
-  <div class="subtitle">基于 NVIDIA Vera Rubin 台北发布会五类系统 · 按主文章出厂价中枢降序排列 · 1D/MTD/YTD</div>
+  <div class="subtitle">基于 NVIDIA Vera Rubin 台北发布会五类系统 · 按主文章出厂价中枢降序 · 标注 🔥增 = Rubin 相对 Blackwell 的新增独立机架</div>
 
   <h3>一、Vera Rubin NVL72 · GPU 主计算引擎</h3>
   <div class="subtitle">Rubin GPU · HBM4/HBM4e · CoWoS 先进封装 · NVLink 6 · 约占五机架中枢价值的 45%</div>
@@ -138,8 +158,8 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">2308.TW</td><td>Delta 台达电 <span class="note">液冷 1U tray · 电源系统</span></td><td class="price">NT$2,440</td><td class="chg"><span class="up">▲+3.39%</span></td><td class="chg"><span class="down">▼-0.20%</span></td><td class="chg"><span class="up">▲+153.37%</span></td><td class="date">06-03</td></tr>
   </table>
 
-  <h3>四、Spectrum-6 SPX · AI 以太网与 CPO 光互联 🔥</h3>
-  <div class="subtitle">Spectrum-6 ASIC · CPO/硅光 · 光引擎 · 连接器 · 今日核心催化：Spectrum-X Photonics 量产</div>
+  <h3>四、Spectrum-6 SPX · AI 以太网与 CPO 光互联 🔥 增</h3>
+  <div class="subtitle">Spectrum-6 ASIC · CPO 硅光 · 光引擎 · 连接器 · 【Rubin 最大新增量之一】Blackwell 无独立 SPX 机架</div>
   <table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">NVDA</td><td>NVIDIA 英伟达 <span class="note">Spectrum-6 ASIC · CPO 交换机设计者</span></td><td class="price">US$222.82</td><td class="chg"><span class="down">▼-0.69%</span></td><td class="chg"><span class="up">▲+5.53%</span></td><td class="chg"><span class="up">▲+19.48%</span></td><td class="date">06-02</td></tr>
@@ -153,34 +173,29 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">AAOI</td><td>Applied Optoelectronics <span class="note">800G/1.6T 光收发器 · 放量股</span></td><td class="price">US$202.37</td><td class="chg"><span class="up">▲+8.99%</span></td><td class="chg"><span class="up">▲+27.75%</span></td><td class="chg"><span class="up">▲+480.52%</span></td><td class="date">06-02</td></tr>
   </table>
 
-  <h3>五、BlueField-4 STX · 上下文记忆存储层</h3>
-  <div class="subtitle">BlueField-4 DPU · NVMe SSD · RDMA · KV cache 分层存储</div>
+  <h3>五、BlueField-4 STX · 上下文记忆存储层 🔥 增</h3>
+  <div class="subtitle">BlueField-4 DPU · NVMe SSD · RDMA · KV cache 分层 · 【Rubin 最大新增量之二】Blackwell 无独立存储机架</div>
   <table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">WDC</td><td>Western Digital <span class="note">NVMe SSD · NAND 闪存</span></td><td class="price">US$563.10</td><td class="chg"><span class="up">▲+3.09%</span></td><td class="chg"><span class="up">▲+6.00%</span></td><td class="chg"><span class="up">▲+227.03%</span></td><td class="date">06-02</td></tr>
-    <tr><td class="sym">285A.T</td><td>Kioxia 铠侠 <span class="note">NAND 闪存 · SSD 方案</span></td><td class="price">JP¥79,690</td><td class="chg"><span class="up">▲+2.77%</span></td><td class="chg"><span class="up">▲+21.02%</span></td><td class="chg"><span class="up">▲+663.68%</span></td><td class="date">06-03</td></tr>
-    <tr><td class="sym">DELL</td><td>Dell 戴尔 <span class="note">企业存储 · AI 服务器集成</span></td><td class="price">US$435.31</td><td class="chg"><span class="down">▼-6.58%</span></td><td class="chg"><span class="up">▲+3.42%</span></td><td class="chg"><span class="up">▲+248.40%</span></td><td class="date">06-02</td></tr>
-    <tr><td class="sym">HPE</td><td>HPE 惠普企业 <span class="note">AI 服务器 · 存储方案</span></td><td class="price">US$56.15</td><td class="chg"><span class="up">▲+19.47%</span></td><td class="chg"><span class="up">▲+30.46%</span></td><td class="chg"><span class="up">▲+135.27%</span></td><td class="date">06-02</td></tr>
-    <tr><td class="sym">NTAP</td><td>NetApp <span class="note">企业存储 · AI 数据管理</span></td><td class="price">US$175.64</td><td class="chg"><span class="down">▼-2.26%</span></td><td class="chg"><span class="up">▲+0.77%</span></td><td class="chg"><span class="up">▲+65.66%</span></td><td class="date">06-02</td></tr>
-    <tr><td class="sym">SMCI</td><td>SuperMicro 超微 <span class="note">AI 服务器 · 存储机架集成</span></td><td class="price">US$50.17</td><td class="chg"><span class="up">▲+7.02%</span></td><td class="chg"><span class="up">▲+8.85%</span></td><td class="chg"><span class="up">▲+71.40%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">285A.T</td><td>Kioxia 铠侠 <span class="note">NAND 闪存 · SSD 方案 · 全球第二大 NAND</span></td><td class="price">JP¥79,690</td><td class="chg"><span class="up">▲+2.77%</span></td><td class="chg"><span class="up">▲+21.02%</span></td><td class="chg"><span class="up">▲+663.68%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">DELL</td><td>Dell 戴尔 <span class="note">企业存储 · AI 服务器集成 · STX 平台合作</span></td><td class="price">US$435.31</td><td class="chg"><span class="down">▼-6.58%</span></td><td class="chg"><span class="up">▲+3.42%</span></td><td class="chg"><span class="up">▲+248.40%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">HPE</td><td>HPE 惠普企业 <span class="note">AI 服务器 · 存储方案 · STX 生态系统</span></td><td class="price">US$56.15</td><td class="chg"><span class="up">▲+19.47%</span></td><td class="chg"><span class="up">▲+30.46%</span></td><td class="chg"><span class="up">▲+135.27%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">NTAP</td><td>NetApp <span class="note">企业存储 · AI 数据管理 · STX 构建伙伴</span></td><td class="price">US$175.64</td><td class="chg"><span class="down">▼-2.26%</span></td><td class="chg"><span class="up">▲+0.77%</span></td><td class="chg"><span class="up">▲+65.66%</span></td><td class="date">06-02</td></tr>
+    <tr><td class="sym">SMCI</td><td>SuperMicro 超微 <span class="note">AI 服务器 · 存储机架 · STX 系统制造</span></td><td class="price">US$50.17</td><td class="chg"><span class="up">▲+7.02%</span></td><td class="chg"><span class="up">▲+8.85%</span></td><td class="chg"><span class="up">▲+71.40%</span></td><td class="date">06-02</td></tr>
   </table>
 
   <h3>六、系统集成与散热（跨机架）</h3>
   <div class="subtitle">液冷 · 电源 · PCB · 背板 · ODM 全栈集成</div>
   <table>
     <tr><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
-    <tr><td class="sym">2317.TW</td><td>Foxconn 鸿海 <span class="note">AI 服务器全栈 ODM · GB300/Rubin</span></td><td class="price">NT$310</td><td class="chg"><span class="up">▲+2.82%</span></td><td class="chg"><span class="up">▲+7.27%</span></td><td class="chg"><span class="up">▲+34.49%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">2317.TW</td><td>Foxconn 鸿海 <span class="note">AI 服务器全栈 ODM · Rubin 主力代工</span></td><td class="price">NT$310</td><td class="chg"><span class="up">▲+2.82%</span></td><td class="chg"><span class="up">▲+7.27%</span></td><td class="chg"><span class="up">▲+34.49%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">2356.TW</td><td>Inventec 英业达 <span class="note">服务器 ODM · AI 机架集成</span></td><td class="price">NT$86</td><td class="chg"><span class="up">▲+7.32%</span></td><td class="chg"><span class="up">▲+23.22%</span></td><td class="chg"><span class="up">▲+101.63%</span></td><td class="date">06-03</td></tr>
     <tr><td class="sym">4958.TW</td><td>ZDT 臻鼎-KY <span class="note">高阶 PCB · 消费+AI 双主线</span></td><td class="price">NT$510</td><td class="chg"><span class="down">▼-1.92%</span></td><td class="chg"><span class="down">▼-0.97%</span></td><td class="chg"><span class="up">▲+259.15%</span></td><td class="date">06-03</td></tr>
-    <tr><td class="sym">3037.TW</td><td>Unimicron 欣兴 <span class="note">PCB+ABF 平台龙头 · Midplane</span></td><td class="price">NT$992</td><td class="chg"><span class="up">▲+1.74%</span></td><td class="chg"><span class="down">▼-5.97%</span></td><td class="chg"><span class="up">▲+350.91%</span></td><td class="date">06-03</td></tr>
+    <tr><td class="sym">3037.TW</td><td>Unimicron 欣兴 <span class="note">PCB+ABF 平台龙头 · Midplane PCB</span></td><td class="price">NT$992</td><td class="chg"><span class="up">▲+1.74%</span></td><td class="chg"><span class="down">▼-5.97%</span></td><td class="chg"><span class="up">▲+350.91%</span></td><td class="date">06-03</td></tr>
   </table>
 
-</div>
-
-<!-- 1D TOP 5 -->
-<div class="card">
-  <h2>🔥 1D 涨幅前五大</h2>
-  <div class="subtitle">五机架 + ETF 池中今日表现最强</div>
+  <h3 style="margin-top:16px;">🔥 1D 涨幅前五大</h3>
   <table>
     <tr><th>#</th><th>代码</th><th>公司</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>所属</th></tr>
     <tr><td>#1</td><td class="sym">SIVE.ST</td><td>Sivers Semiconductors</td><td class="price">SEK97.45</td><td class="chg"><span class="up">▲+60.15%</span></td><td class="chg"><span class="up">▲+41.33%</span></td><td class="chg"><span class="up">▲+2245.93%</span></td><td class="date">五机架</td></tr>
@@ -190,12 +205,9 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td>#5</td><td class="sym">GLW</td><td>Corning 康宁</td><td class="price">US$200.40</td><td class="chg"><span class="up">▲+13.41%</span></td><td class="chg"><span class="up">▲+10.62%</span></td><td class="chg"><span class="up">▲+129.65%</span></td><td class="date">五机架+EUV</td></tr>
   </table>
 </div>
-
-<!-- FOTO -->
 <div class="card">
   <h2>📊 FOTO ETF 持仓分析</h2>
-  <div class="subtitle">Tuttle Capital Pure Play Photonics ETF · CBOE:FOTO · 截至2026-05-29 · 纯光子/光通信主题 · 2026-05-28 新上市</div>
-  <p style="font-size:11px;color:#999;margin-bottom:8px;">共 9 只持股 + 现金。权重合计 ~94%。专注光子学产业链：激光器、光收发器、硅光子、特种晶圆及代工。</p>
+  <div class="subtitle">Tuttle Capital Pure Play Photonics ETF · CBOE:FOTO · 截至 2026-05-29 · 纯光子/光通信主题 · 2026-05-28 新上市 · 9 只持股 + 现金</div>
   <table>
     <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">LITE</td><td>Lumentum</td><td class="weight">13.27%</td><td class="price">US$1,029.15</td><td class="chg"><span class="up">▲+13.72%</span></td><td class="chg"><span class="up">▲+20.37%</span></td><td class="chg"><span class="up">▲+179.21%</span></td><td class="date">06-02</td></tr>
@@ -210,12 +222,9 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">USD</td><td>U.S. Dollar（现金）</td><td class="weight">5.92%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   </table>
 </div>
-
-<!-- EUV -->
 <div class="card">
   <h2>📊 EUV ETF 持仓分析</h2>
-  <div class="subtitle">Corgi Lithography & Semiconductor Photonics ETF · CBOE:EUV · 截至2026-05-29 · 光刻+半导体光子学 · 2026-05 新上市</div>
-  <p style="font-size:11px;color:#999;margin-bottom:8px;">以下为前 10 大持仓（权重合计约 53%）。覆盖光刻设备→激光器→光学元件→硅光子全价值链。总资产约 2.6 亿美元。</p>
+  <div class="subtitle">Corgi Lithography & Semiconductor Photonics ETF · CBOE:EUV · 截至 2026-05-29 · 光刻+半导体光子学 · 前 10 大（权重合计 ~53%）· 总资产约 2.6 亿美元</div>
   <table>
     <tr><th>代码</th><th>公司</th><th>权重</th><th>最新价</th><th>1D</th><th>MTD</th><th>YTD</th><th>数据日</th></tr>
     <tr><td class="sym">TSM</td><td>TSMC 台积电</td><td class="weight">9.92%</td><td class="price">US$446.69</td><td class="chg"><span class="up">▲+2.54%</span></td><td class="chg"><span class="up">▲+6.75%</span></td><td class="chg"><span class="up">▲+47.40%</span></td><td class="date">06-02</td></tr>
@@ -230,8 +239,6 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     <tr><td class="sym">MTSI</td><td>MACOM Technology</td><td class="weight">3.24%</td><td class="price">US$382.35</td><td class="chg"><span class="up">▲+8.07%</span></td><td class="chg"><span class="up">▲+4.86%</span></td><td class="chg"><span class="up">▲+123.23%</span></td><td class="date">06-02</td></tr>
   </table>
 </div>
-
-<!-- OVERLAP -->
 <div class="card">
   <h2>🔗 重叠分析：五机架 ↔ FOTO ↔ EUV</h2>
   <div class="subtitle">交叉映射 · 绿色 = 三方共同持有</div>
@@ -261,21 +268,19 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
     </div>
   </div>
 </div>
-
-<!-- SUMMARY -->
 <div class="card">
   <h2>📝 一句话摘要</h2>
   <div class="summary">
-    <p>Rubin 五机架跟踪日报 <strong>2026-06-03</strong>：今日主线是 <strong>Spectrum-X CPO 量产催化</strong>，直接带动第四层 Spectrum-6 SPX 标的集体爆发——SIVE +60.2%、COHR +17.6%、LITE +13.7%、GLW +13.4%、FN +12.7%、AAOI +9.0%。FOTO ETF 昨日+10.8%，EUV ETF 昨日+8.7%。其他四层表现平稳：NVL72 GPU 层 NVDA -0.7%（平台锚震荡），Vera CPU 层 ODM +2~9%，Groq 3 LPX 层 +3~4%，BlueField-4 STX 层分化（HPE +19.5% 存储服务器需求拉动，DELL -6.6% 财报后回调）。</p>
-    <p style="margin-top:6px;">五机架拆解池与 FOTO 重叠 <strong>COHR/LITE/FN/AAOI</strong>（全在 SPX 层），与 EUV 重叠 <strong>TSM/GLW/COHR/LITE</strong>（跨 NVL72+SPX 两层）。CPO 从路线图进入量产，标志着 Rubin 时代的价值扩散方向从 GPU/HBM 单点，进入"以太网/光互联"第二主线。</p>
+    <p>Rubin 五机架跟踪日报 <strong>2026年06月03日</strong>：今日核心看点是 <strong>Spectrum-X CPO 量产</strong> 与 <strong>BlueField-4 STX 生态发布</strong>——这是 Rubin 相对 Blackwell 最大的两个结构性新增量："光"让网络层从成本项变成价值创造层，"存储"让 NVMe/NAND 从后台设备进入推理 token 经济的核心路径。</p>
+    <p style="margin-top:6px;">SPX/CPO 层今日集体爆发：SIVE +60.2%、COHR +17.6%、LITE +13.7%、GLW +13.4%、FN +12.7%、AAOI +9.0%。STX 存储层分化：HPE +19.5%（存储服务器+STX 生态双重拉动）、WDC +3.1%、Kioxia +2.6%、DELL -6.6%（财报回调）、NTAP -2.3%。NVL72 GPU 层锚 NVDA -0.7%。FOTO +10.8%、EUV +8.7%。</p>
   </div>
 </div>
 
 <div class="footer">
   <hr>
-  <p>本日报由 <strong>OpenClaw Abba</strong> 自动化生成 · 数据源：Yahoo Finance（yfinance） · FOTO/EUV 持仓：TradingView</p>
-  <p>标的池来源：<a href="/nvidia-rubin-five-racks-sive-aaoi/">英伟达 AI Factory：五个机架拆解</a>（含出厂价推演、供应链地图）</p>
-  <p>⚠️ 本文为投资研究参考，不构成具体投资建议。</p>
+  <p>本日报由 <strong>OpenClaw Abba</strong> 自动化生成 · 数据源：Yahoo Finance（yfinance）</p>
+  <p>标的池来源：<a href="/nvidia-rubin-five-racks-sive-aaoi/">英伟达 AI Factory：五个机架拆解</a> · FOTO / EUV 持仓：TradingView</p>
+  <p>⚠️ 本文为投资研究参考，不构成具体投资建议。数据可能存在延迟或口径差异。</p>
   <p>© Kerwin｜宏观对冲及 AI 精选组合研究｜Enya.Clawd 自动化呈现</p>
 </div>
 
@@ -283,24 +288,23 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 </div>
 
 <script>
-function checkGate() {
-  var pw = document.getElementById('gate-input').value;
-  if (pw === 'k') {
-    sessionStorage.setItem('gate_ok', '1');
-    document.getElementById('gate-overlay').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-  } else {
-    document.getElementById('gate-input').style.borderColor = '#dc2626';
-    setTimeout(function(){ document.getElementById('gate-input').style.borderColor = '#dccdbf'; }, 600);
+(function(){
+  var input = document.getElementById('gate-input');
+  var overlay = document.getElementById('gate-overlay');
+  var main = document.getElementById('main-content');
+  if (sessionStorage.getItem('gate_ok') === '1') {
+    overlay.style.display = 'none';
+    main.style.display = 'block';
+    return;
   }
-}
-if (sessionStorage.getItem('gate_ok') === '1') {
-  document.getElementById('gate-overlay').style.display = 'none';
-  document.getElementById('main-content').style.display = 'block';
-}
-document.getElementById('gate-input').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') checkGate();
-});
+  input.addEventListener('input', function() {
+    if (this.value.toLowerCase() === 'k') {
+      sessionStorage.setItem('gate_ok', '1');
+      overlay.style.display = 'none';
+      main.style.display = 'block';
+    }
+  });
+})();
 </script>
 
 </body>
