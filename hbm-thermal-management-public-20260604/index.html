@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBM PHY 与散热瓶颈：从逻辑底片到混合键合</title>
+<meta name="description" content="HBM4、PHY、逻辑底片、散热与混合键合的产业链专题，解释技术瓶颈如何映射到存储、台积电、设备和材料环节。">
+<!-- pv-counter data-page-slug=hbm-thermal-management-public-20260604 -->
+<style>
+:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--blue:#2563eb;--up:#16a34a;--down:#dc2626;--warn:#92400e;--gold:#8a5b2b;--date:#8b4513}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Microsoft YaHei',serif;font-size:14px;line-height:1.85}
+a{color:var(--gold)}
+.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
+.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
+.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
+.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
+.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
+.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero-sub{color:#7b4f24;font:14px/1.7 Arial,Helvetica,sans-serif;margin-bottom:6px}
+.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
+.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}
+.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}
+p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
+ul{padding-left:18px;margin:8px 0 12px;color:#3d3229}
+li{margin:6px 0}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}
+.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}
+.stat-value{font:700 26px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}
+.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;border-collapse:collapse;font:13px Arial,'PingFang SC',sans-serif;min-width:560px}
+thead tr{background:#3d3229;color:#f5f0e8}
+thead th{padding:10px 12px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
+.tag{display:inline-block;font:700 11px Arial,sans-serif;color:#fff;background:#8a5b2b;border-radius:3px;padding:2px 6px;margin-right:4px}
+.ok{color:var(--up);font-weight:700}.watch{color:var(--warn);font-weight:700}.risk{color:var(--down);font-weight:700}
+.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}
+.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}
+.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}
+.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
+@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px}.top-block{font-size:12px}.hero{padding:28px 16px 24px}.hero-title{font-size:25px}.section{padding:22px 16px}.section h2{font-size:20px}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-grid{grid-template-columns:1fr}.stat-value{font-size:24px}td,th{font-size:11px;padding:7px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
+</style>
+</head>
+<body data-page-slug="hbm-thermal-management-public-20260604">
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">HBM PHY 与散热瓶颈<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年6月4日</div>
+    <div class="top-block">本文由 Kerwin 团队与 Enya.Clawd 联合呈现，聚焦 AI 基础设施、半导体封装与产业链投资映射。<br>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
+      <div class="hero-title">HBM 带宽继续上行<br>真正约束转向热管理与封装</div>
+      <div class="hero-sub">从 PHY、逻辑底片、热阻到混合键合，重新理解 HBM4/HBM5 的产业链卡点</div>
+      <div class="hero-meta">产业链专题研究 · 数据截至 2026年6月4日</div>
+    </div>
+    <nav class="nav">
+      <a href="#take">三句话</a><a href="#check">规格口径</a><a href="#computex">台北新规格</a><a href="#concept">概念</a><a href="#thermal">散热</a><a href="#roadmap">路线</a><a href="#invest">投资映射</a><a href="#stocks">核心股票</a><a href="#sources">来源</a>
+    </nav>
+
+    <div class="section" id="take">
+      <div class="section-label">EXECUTIVE TAKE</div>
+      <h2>先给非技术客户的三句话</h2>
+      <p>第一，HBM 不是普通内存升级，而是 AI 芯片旁边的一组超宽、超近、超热的立体内存塔。它让 GPU/ASIC 更快拿到数据，但也把电气连接、封装高度和散热都推到物理极限。</p>
+      <p>第二，HBM4 的核心变化不是简单“更高频”，而是把接口位宽从 HBM3/3E 的 1024-bit 扩到 2048-bit，并把通道数翻倍到 32 个；JEDEC 标准口径是最高 8Gb/s、单堆栈最高约 2TB/s。</p>
+      <p>第三，投资上不要只盯存储三巨头。更值得跟踪的是：谁掌握逻辑底片/先进封装，谁能把混合键合做到量产经济性，谁供应高导热材料、键合设备、液冷和散热结构。</p>
+      <div class="callout"><div class="callout-label">核心判断</div><p>HBM 的中期瓶颈正在从“有没有产能”转向“热能不能搬出去、良率能不能守住”。短期量产仍偏向 MR-MUF / TC-NCF / 微凸点等成熟路径；中期 HBM4E/HBM5 若要继续堆层、降功耗、提高 I/O 密度，混合键合和更强的热管理会成为关键变量。</p></div>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value">2048-bit</div><div class="stat-label">HBM4 标准接口位宽；为 HBM3/3E 的两倍</div></div>
+        <div class="stat-cell"><div class="stat-value">~2TB/s</div><div class="stat-label">JEDEC 口径：8Gb/s × 2048-bit 单堆栈带宽</div></div>
+        <div class="stat-cell"><div class="stat-value">32</div><div class="stat-label">HBM4 独立通道数；HBM3 为 16 个</div></div>
+        <div class="stat-cell"><div class="stat-value">22.8%-47%</div><div class="stat-label">研究综述中混合键合热阻改善区间，取决于结构与工艺</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="check">
+      <div class="section-label">SPEC CHECK</div>
+      <h2>关键规格与投资口径</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>议题</th><th>正式口径</th><th>为什么重要</th></tr></thead>
+        <tbody>
+          <tr><td>HBM4 带宽</td><td>JEDEC 标准为最高 8Gb/s、2048-bit，总带宽最高约 2TB/s。更高带宽应视为厂商路线或后续扩展假设。</td><td>区分已发布标准与未来路线，避免误判量产节奏。</td></tr>
+          <tr><td>HBM4 封装路线</td><td>SK hynix 更明确延续 MR-MUF；三星公开路线更积极讨论混合键合；Micron/TSMC base die 合作与 HBM4E 信息需要单列观察。</td><td>不同厂商工艺路线分化，是份额重排的核心变量。</td></tr>
+          <tr><td>逻辑底片</td><td>标准 HBM4 / 定制 HBM4E 逻辑底片更多引入 foundry 逻辑工艺与 IP，但不同产品和客户路线不会完全一致。</td><td>台积电受益方向成立，但核心在定制化与先进封装参与度，而非简单“一刀切”。</td></tr>
+          <tr><td>混合键合</td><td>混合键合确实改善热阻、厚度和 I/O 密度，但量产良率、设备节拍、污染控制和成本仍是约束。</td><td>技术方向明确，不等于商业节奏已经完全确定。</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="section" id="computex">
+      <div class="section-label">COMPUTEX 2026 UPDATE</div>
+      <h2>台北新规格：HBM4E 把热管理推到台前</h2>
+      <p>2026 年 6 月台北 Computex 上，三星公开展示 HBM4E 晶圆与芯片，并首次展示 HBM5 架构样模。这组信息的重要性不在于“又多一个 HBM 型号”，而在于它把下一代 HBM 的竞争焦点说得很清楚：带宽继续上行之后，真正的护城河转向 base die、D2D PHY、热路径和封装稳定性。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>型号 / 路线</th><th>公开规格</th><th>热管理含义</th></tr></thead>
+        <tbody>
+          <tr><td>Samsung HBM4E</td><td>1c DRAM core die + Samsung Foundry 4nm base die；稳定支持 14Gbps/pin，未来可扩至 16Gbps/pin；最高约 4TB/s 带宽；容量配置约 32GB-64GB；已开始样品出货。</td><td>带宽从 HBM4 标准口径继续上行，base die 与 D2D PHY 的功耗密度同步上升，单靠“更宽接口”已经不够，必须引入更明确的热路径设计。</td></tr>
+          <tr><td>Samsung HBM5 mock-up</td><td>Computex 首次公开 HBM5 架构样模；规划采用 2nm base die；行业报道指向 12 层、16 层、20 层堆栈配置，量产时间仍以 2028 年前后作为报道口径。</td><td>堆栈层数继续增加，热量从“局部工程问题”变成“架构约束”。HBM5 若进入 16-Hi / 20-Hi，热阻、翘曲、良率和散热路径会共同决定可量产性。</td></tr>
+          <tr><td>HPB（Heat Path Block）</td><td>三星公布的热管理架构，在 D2D PHY 区域增加独立热传导路径；公司称已在 HBM4E 上完成验证，计划在 HBM5 阶段扩大采用。</td><td>D2D PHY 是 base die 的主要热源之一。HPB 的出现说明下一代 HBM 不再只是存储密度竞赛，而是“高速传输 + 热管理 + 封装稳定性”的系统工程。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><div class="callout-label">为什么这会强化热管理主线</div><p>HBM4E 把每针速度推向 14-16Gbps，HBM5 又准备更高层数和更先进 base die。信号越快、堆栈越高、base die 越复杂，D2D PHY 的热流密度越难被忽略。也就是说，带宽上行不是削弱散热问题，而是在更高功率密度下放大散热问题。</p></div>
+    </div>
+
+    <div class="section" id="concept">
+      <div class="section-label">BASIC CONCEPTS</div>
+      <h2>PHY 和逻辑底片到底是什么</h2>
+      <p>PHY 是 Physical Layer，直译为物理层接口。对 HBM 来说，它不是一个抽象软件词，而是一大片真实电路：负责把 GPU/ASIC 与 HBM 堆栈之间的超宽并行信号可靠送出去、收回来。</p>
+      <h3>主控侧 PHY：GPU/ASIC 边缘的高价值海岸线</h3>
+      <p>HBM 接口通常位于 GPU/ASIC 裸片边缘。位宽越宽，边缘面积占用越大，芯片布局越受约束。HBM4 把接口位宽扩到 2048-bit，本质是在用更宽的高速公路替代更高的车速，降低部分高频发热压力。</p>
+      <h3>存储侧逻辑底片：HBM 堆栈底部的大脑</h3>
+      <p>HBM 堆栈底部有 base die / logic die，承担控制逻辑、I/O、PHY、测试与电源管理等功能。进入 HBM4/HBM4E 后，逻辑底片复杂度上升，部分定制 HBM 方案会把更多控制与接口功能放进 base die，并引入台积电、GUC、Rambus 等 foundry/IP 生态。</p>
+      <div class="callout"><div class="callout-label">通俗理解</div><p>如果 GPU 是工厂，HBM 是紧贴工厂的立体仓库，PHY 就是工厂和仓库之间的装卸口与高速闸机，base die 是仓库底部的调度中心。AI 算力越大，装卸口越宽，调度中心越复杂，热也越难处理。</p></div>
+    </div>
+
+    <div class="section" id="thermal">
+      <div class="section-label">THERMAL BOTTLENECK</div>
+      <h2>为什么散热成为 HBM 的硬瓶颈</h2>
+      <p>HBM 是三维堆栈。热量不再只是从一颗平面芯片向上散出去，而是要穿过多层 DRAM、微凸点、underfill、TSV、热界面材料和散热盖。层数越高，界面越多，纵向热阻越难忽略。</p>
+      <p>更麻烦的是，发热最集中的逻辑底片通常在堆栈底部，旁边就是 GPU/ASIC 的热点区域；而最有效的散热路径往往在顶部。也就是说，热源离冷源远，中间还隔着多层材料界面。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>热问题</th><th>影响</th><th>产业链受益点</th></tr></thead>
+        <tbody>
+          <tr><td>纵向热阻累积</td><td>层数上升后，热点更难排出，影响可靠性和良率。</td><td>混合键合、热 TSV、高导热 TIM、薄化材料。</td></tr>
+          <tr><td>base die 热流密度上升</td><td>控制逻辑和 I/O 更复杂，局部热点增加。</td><td>逻辑工艺、版图热优化、定制 HBM IP。</td></tr>
+          <tr><td>GPU 与 HBM 热耦合</td><td>HBM 不只是自己发热，还吃 GPU 封装内的热环境。</td><td>CoWoS、EMIB、散热盖、冷板、direct-to-chip 液冷。</td></tr>
+          <tr><td>温度不均</td><td>侵蚀时序余量，抬高误码和降频概率。</td><td>温度传感器、动态调度、电源管理、可靠性测试。</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="section" id="roadmap">
+      <div class="section-label">ROADMAP</div>
+      <h2>HBM4 到 HBM5：技术路线应分三段看</h2>
+      <h3>第一段：HBM4 先解决标准化和量产</h3>
+      <p>HBM4 的标准抓手是 2048-bit、32 通道、最高 8Gb/s 与最高约 2TB/s 单堆栈带宽。短期重点不是炫技，而是让 NVIDIA、AMD、Broadcom、Google TPU、Amazon Trainium 等客户在可控成本和良率下拿到足够带宽。</p>
+      <h3>第二段：HBM4E / 定制 HBM 推动 base die 复杂化</h3>
+      <p>定制 HBM 的价值在于让客户不只买“标准内存”，而是把控制、接口、功耗、可靠性与 AI 加速器架构一起优化。这里台积电与 IP 厂商的参与度会上升，但不同存储厂和客户路线不会完全一样。</p>
+      <h3>第三段：HBM5 才可能让混合键合变成主流答案</h3>
+      <p>混合键合取消传统微凸点，用铜-铜与介电层直接键合，理论上能降低互连高度和界面热阻，提高 I/O 密度。但它不是“立刻替代”的技术：工艺洁净度、键合对准、低温退火、设备节拍和返修难度，都会决定放量速度。</p>
+    </div>
+
+    <div class="section" id="invest">
+      <div class="section-label">INVESTMENT MAP</div>
+      <h2>投资映射：从“谁卖 HBM”转向“谁解决热和连接”</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>环节</th><th>代表公司 / 方向</th><th>投资含义</th></tr></thead>
+        <tbody>
+          <tr><td>存储厂</td><td>SK hynix、Samsung、Micron；组合相关：000660.KS、005930.KS、MU、SMSN.IL</td><td>需求强，但要看客户认证、良率、价格与 capex 节奏。SK hynix 领先优势与三星追赶变量需持续跟踪。</td></tr>
+          <tr><td>逻辑底片 / 先进封装</td><td>TSMC / GUC / CoWoS 生态；组合相关：TSM</td><td>定制 HBM 与 AI 加速器封装耦合加深，台积电不只是代工 GPU，也可能吃到 base die 与封装复杂化红利。</td></tr>
+          <tr><td>键合设备</td><td>BESI、ASMPT、AMAT、LRCX 等</td><td>混合键合若放量，设备弹性大；但订单兑现会滞后于技术验证，不能按单一新闻追价。</td></tr>
+          <tr><td>材料 / 散热</td><td>高导热 TIM、铜键合、晶圆薄化、液冷、冷板、均热板</td><td>“卖铲人”逻辑更稳，但公司筛选要看客户认证和毛利率，不是所有材料厂都能进入 AI 封装链。</td></tr>
+          <tr><td>AI 系统客户</td><td>NVIDIA、AMD、Broadcom、Google、Amazon 等</td><td>HBM 瓶颈决定 AI 芯片交付节奏。HBM 供应改善会利好加速器出货，但也可能带来更高封装与散热成本。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><div class="callout-label">组合含义</div><p>对 Kerwin 宏观对冲及 AI 精选组合而言，HBM 主线不是单点押注内存价格，而是围绕 AI 资本开支链条寻找更高确定性的瓶颈资产：存储、台积电先进封装、键合设备、高导热材料、液冷和电力基础设施需要放在同一张图里比较。</p></div>
+    </div>
+
+    <div class="section" id="stocks">
+      <div class="section-label">CORE STOCKS</div>
+      <h2>核心股票表现（1D / MTD / YTD）</h2>
+      <p>下表只选取本文直接关联度最高的股票：存储、台积电/先进封装、键合设备，以及材料/散热链条。涨跌幅单位均为百分比，价格为各自交易市场本币或交易货币。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>代码</th><th>名称</th><th>链条位置</th><th>最新价</th><th>数据日</th><th>1D</th><th>MTD</th><th>YTD</th></tr></thead>
+        <tbody>
+          <tr><td>000660.KS</td><td>SK hynix</td><td>HBM 供应商</td><td>2,360,000</td><td>2026-06-02</td><td>-0.1%</td><td>+1.2%</td><td>+262.5%</td></tr>
+          <tr><td>005930.KS</td><td>Samsung Elec.</td><td>HBM / Foundry / 封装</td><td>360,500</td><td>2026-06-02</td><td>+3.3%</td><td>+13.7%</td><td>+200.7%</td></tr>
+          <tr><td>MU</td><td>Micron</td><td>HBM 供应商</td><td>1,079.57</td><td>2026-06-03</td><td>+1.5%</td><td>+11.2%</td><td>+278.3%</td></tr>
+          <tr><td>SMSN.IL</td><td>Samsung GDR</td><td>Samsung 海外交易载体</td><td>5,905.00</td><td>2026-06-02</td><td>+2.9%</td><td>+10.7%</td><td>+185.8%</td></tr>
+          <tr><td>TSM</td><td>TSMC</td><td>Base die / CoWoS</td><td>436.69</td><td>2026-06-03</td><td>-2.2%</td><td>+4.4%</td><td>+43.7%</td></tr>
+          <tr><td>AMAT</td><td>Applied Materials</td><td>封装 / 半导体设备</td><td>500.77</td><td>2026-06-03</td><td>+2.2%</td><td>+11.3%</td><td>+94.9%</td></tr>
+          <tr><td>LRCX</td><td>Lam Research</td><td>低温键合 / 设备变量</td><td>343.71</td><td>2026-06-03</td><td>+2.8%</td><td>+8.0%</td><td>+100.8%</td></tr>
+          <tr><td>BESI.AS</td><td>BESI</td><td>混合键合设备</td><td>286.20</td><td>2026-06-02</td><td>+2.9%</td><td>+0.6%</td><td>+114.0%</td></tr>
+          <tr><td>0522.HK</td><td>ASMPT</td><td>先进封装设备</td><td>186.80</td><td>2026-06-03</td><td>+1.1%</td><td>-3.7%</td><td>+140.4%</td></tr>
+          <tr><td>GLW</td><td>Corning</td><td>玻璃 / 光互连材料</td><td>200.76</td><td>2026-06-03</td><td>+0.2%</td><td>+10.8%</td><td>+129.3%</td></tr>
+          <tr><td>COHR</td><td>Coherent</td><td>光通信 / 材料</td><td>417.43</td><td>2026-06-03</td><td>-2.2%</td><td>+15.5%</td><td>+126.2%</td></tr>
+          <tr><td>VRT</td><td>Vertiv</td><td>液冷 / 数据中心热管理</td><td>331.44</td><td>2026-06-03</td><td>-0.9%</td><td>+5.0%</td><td>+104.6%</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><div class="callout-label">统计口径</div><p>数据源为 yfinance 日线未复权收盘价。1D 为最新收盘价相对上一交易日收盘价；MTD 起点为 2026年5月29日收盘价；YTD 起点为 2025年12月31日收盘价。跨市场交易日不同：美股多数截至 2026年6月3日，韩股与 BESI 截至 2026年6月2日，港股 ASMPT 截至 2026年6月3日。</p></div>
+    </div>
+
+    <div class="section" id="sources">
+      <div class="section-label">SOURCES</div>
+      <h2>主要来源与口径</h2>
+      <ul>
+        <li>JEDEC，JESD270-4 HBM4 Standard 新闻稿，2025年4月16日：HBM4 2048-bit、最高 8Gb/s、最高约 2TB/s、32 通道。</li>
+        <li>Korea Herald、TrendForce、TechNews，2026年6月2日 Computex 2026 报道：Samsung HBM4E、HBM5 样模、HPB 热通路模块、2nm base die 规划。</li>
+        <li>TrendForce、Tom's Hardware、SemiEngineering、MDPI Electronics 2025 HBM hybrid bonding thermal review：混合键合、热阻改善、HBM4/HBM4E 量产节奏。</li>
+        <li>TSMC / GUC / Rambus / Siemens EDA 公开资料与行业报道：HBM4/HBM4E base die、custom HBM 与 foundry/IP 参与度。</li>
+        <li>Trading Economics / FRED 口径：用于 10 年期美债收益率区间判断。本文采用约数，不作为交易报价。</li>
+      </ul>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语</h2>
+      <p>HBM 的竞争正在从“谁能堆更多层”变成“谁能在更小空间里稳定搬走更多热”。短期看 SK hynix 的量产领先和存储周期弹性；中期看三星、Micron、台积电及封装设备材料链能否把混合键合、定制 base die 和热管理做成可规模复制的商业能力。对组合而言，这不是一个单纯内存价格故事，而是 AI 基建瓶颈资产的再定价。</p>
+    </div>
+
+    <div class="section" id="related">
+      <div class="section-label">RELATED READING</div>
+      <h2>相关阅读</h2>
+      <p>HBM 解决的是堆栈内部的热与连接。若放回 AI 芯片系统和数据中心基础设施中理解，可继续参考以下专题：</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>文章</th><th>为什么相关</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td>封装即制程：混合键合 × 玻璃基板 × HBM测试</td><td>先进封装专题，系统解释封装为何接过摩尔定律的接力棒，并覆盖混合键合、玻璃基板、HBM 测试、CoWoS vs EMIB。</td><td><a href="/advanced-packaging-hybrid-bonding-2026/">打开专题</a></td></tr>
+          <tr><td>CoWoS 与 ASIC 产业链专题</td><td>解释 HBM 如何与 AI 加速器、CoWoS、定制 ASIC 绑定，是理解台积电先进封装瓶颈的延伸阅读。</td><td><a href="/cowos-asic-2026/">打开专题</a></td></tr>
+          <tr><td>AI 数据中心连接与光通信链条</td><td>HBM 解决芯片内/封装内带宽，光通信与 CPO 解决机柜和数据中心级互联，两者共同决定 AI 集群效率。</td><td><a href="/ai-datacenter-connectivity-20260512/">打开专题</a></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="footer">本文为投资研究参考，不构成具体投资建议。统计口径：技术规格与行业资料截至 2026年6月4日；利率引用截至 2026年6月3日前后；文中“估算/目标/路线”均不等同于已量产规格。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+  </div>
+</div></div>
+<div class="footer-back"><a href="/">← 返回首页</a></div>
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+<script>
+(function(){
+  var slugVal='hbm-thermal-management-public-20260604';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
