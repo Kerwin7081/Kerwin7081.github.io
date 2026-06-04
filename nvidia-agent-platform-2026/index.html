@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NVIDIA Agent 平台战略：从芯片到 Claw Agent 的五层演进｜Kerwin 研究</title>
+<!-- pv-counter data-page-slug=nvidia-agent-platform-2026 -->
+<style>
+:root{
+  --bg:#fff1e5;
+  --paper:#fffaf4;
+  --panel:#fdfaf5;
+  --ink:#1f1a17;
+  --muted:#6f6258;
+  --line:#dccdbf;
+  --gold:#8a5b2b;
+  --table-head:#3d3229;
+  --up:#16a34a;
+  --down:#dc2626;
+  --blue:#2563eb;
+  --warn:#92400e;
+  --date:#8b4513;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font:14px/1.85 Arial,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
+.back{
+  max-width:780px;
+  margin:0 auto;
+  padding:6px 16px 0;
+}
+.back a{
+  display:inline-block;
+  font-family:Arial,'PingFang SC',sans-serif;
+  font-size:12px;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:700;
+  padding:3px 10px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--paper);
+}
+.page{
+  max-width:780px;
+  margin:0 auto;
+  padding:10px 10px 28px;
+}
+.shell{
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+.wrap{
+  max-width:700px;
+  margin:0 auto;
+  background:#fff;
+}
+.topbar{
+  background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);
+  padding:18px 22px 14px;
+  border-top:8px solid #111;
+  border-bottom:1px solid #111;
+}
+.top-kicker{
+  font:700 11px/1.2 Arial,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#8a7769;
+  margin-bottom:8px;
+}
+.top-title{
+  font-size:34px;
+  font-weight:700;
+  line-height:1.12;
+  margin:0 0 6px;
+  color:#16110d;
+}
+.top-date{
+  font-size:13px;
+  color:var(--date);
+  line-height:1.6;
+  font-weight:600;
+}
+.top-block{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  font-size:13px;
+  line-height:1.8;
+  color:#4b413a;
+  font-family:Arial,Helvetica,sans-serif;
+}
+.hero{
+  background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);
+  padding:34px 24px 28px;
+  text-align:center;
+  border-bottom:1px solid #ead7c9;
+}
+.badge{
+  display:inline-block;
+  background:#f7efe6;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:5px 14px;
+  color:var(--gold);
+  font:700 11px Arial,sans-serif;
+  letter-spacing:1px;
+  margin-bottom:18px;
+}
+.hero-title{
+  color:#16110d;
+  font-size:30px;
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:10px;
+}
+.hero-sub{
+  color:#7b4f24;
+  font:14px Arial,Helvetica,sans-serif;
+  margin-bottom:6px;
+}
+.hero-meta{
+  color:#9a3412;
+  font:700 12px Arial,Helvetica,sans-serif;
+}
+.nav{
+  display:flex;
+  overflow-x:auto;
+  background:#fcf5ee;
+  border-bottom:1px solid var(--line);
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  flex-shrink:0;
+  padding:11px 14px;
+  font:600 12px Arial,sans-serif;
+  color:#7a685a;
+  text-decoration:none;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{color:var(--ink);border-color:var(--gold)}
+.section{
+  padding:26px 20px;
+  border-bottom:1px solid #efe3d7;
+}
+.section-label{
+  font:700 10px Arial,sans-serif;
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.section h2{
+  font:700 22px/1.35 Georgia,'Times New Roman','Noto Serif SC',serif;
+  margin:0 0 14px;
+  color:#16110d;
+}
+.section h3{
+  font:700 17px/1.4 Georgia,'Times New Roman','Noto Serif SC',serif;
+  margin:18px 0 10px;
+  color:#2d2419;
+  padding-bottom:8px;
+  border-bottom:1px solid #e7ddd3;
+}
+p{
+  font-size:14px;
+  line-height:1.85;
+  color:#3d3229;
+  margin:0 0 12px;
+}
+.callout{
+  border:1px solid #e7ddd3;
+  border-left:4px solid var(--gold);
+  padding:18px 20px;
+  margin:16px 0;
+  background:var(--panel);
+  font-size:13px;
+  line-height:1.8;
+  color:#5c3d1e;
+}
+.callout-label{
+  font:700 10px Arial,sans-serif;
+  letter-spacing:.15em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.alert{
+  background:#fff7ed;
+  border-left:3px solid #c77728;
+  border-radius:4px;
+  padding:14px 16px;
+  margin:16px 0;
+  font-size:13px;
+  color:#6b3f15;
+}
+.alert-label{
+  font:700 10px Arial,sans-serif;
+  letter-spacing:.15em;
+  color:#9a3412;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.table-wrap{
+  overflow-x:auto;
+  margin:16px 0;
+  border:1px solid #e5d9cc;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font:13px Arial,sans-serif;
+  min-width:500px;
+}
+thead tr{background:var(--table-head);color:#f5f0e8}
+thead th{
+  padding:10px 14px;
+  text-align:left;
+  font-weight:600;
+  letter-spacing:.04em;
+  font-size:11px;
+}
+tbody tr:nth-child(even){background:#fdfaf7}
+tbody td{
+  padding:10px 14px;
+  border-bottom:1px solid #e5d9cc;
+  color:#3d3229;
+  line-height:1.5;
+  vertical-align:top;
+}
+.flow{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin:16px 0;
+}
+.flow-box{
+  background:#f5f0e8;
+  color:#3d3229;
+  padding:12px 16px;
+  font:13px Arial,sans-serif;
+  line-height:1.5;
+  border:1px solid #e5ddd3;
+  border-radius:4px;
+}
+.flow-box.alt{background:#eaf0f7;border-color:#c8d6e5}
+.flow-box.light{background:#f0f4e8;border-color:#d0dcc0}
+.flow-box.accent{background:#fef5f0;border-color:#e8c8b0}
+.flow-arrow{
+  text-align:center;
+  font-size:18px;
+  color:#b8a590;
+  padding:2px 0;
+  line-height:1;
+}
+.stat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:16px 0;
+}
+.stat-cell{
+  background:var(--panel);
+  border:1px solid #e7ddd3;
+  padding:18px 16px;
+  text-align:center;
+}
+.stat-value{
+  font:700 28px Georgia,'Times New Roman',serif;
+  color:#16110d;
+  line-height:1.1;
+  margin-bottom:6px;
+}
+.stat-value.up{color:var(--up)}
+.stat-value.down{color:var(--down)}
+.stat-value.blue{color:var(--blue)}
+.stat-value.gold{color:var(--gold)}
+.stat-label{
+  font:12px Arial,sans-serif;
+  color:var(--muted);
+  line-height:1.4;
+}
+.path-grid{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  margin:16px 0;
+}
+.path-item{
+  display:flex;
+  gap:16px;
+  padding:16px;
+  background:var(--panel);
+  border:1px solid #e7ddd3;
+  border-radius:6px;
+}
+.path-num{
+  font:700 32px Georgia,serif;
+  color:var(--gold);
+  line-height:1;
+  flex-shrink:0;
+  width:38px;
+}
+.path-title{
+  font:600 13px Arial,sans-serif;
+  color:#5c3d1e;
+  letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.path-desc{
+  font-size:13px;
+  line-height:1.7;
+  color:#6b5d53;
+  margin:0;
+}
+.ticker{
+  min-width:64px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  background:#f7efe6;
+  color:var(--gold);
+  border-radius:4px;
+  font:800 15px Arial,sans-serif;
+  letter-spacing:.06em;
+  flex-shrink:0;
+}
+.tag{
+  display:inline-block;
+  padding:2px 7px;
+  font-size:10px;
+  font-weight:700;
+  border-radius:2px;
+}
+.tag.green{background:#dcfce7;color:#166534}
+.tag.red{background:#fee2e2;color:#991b1b}
+.tag.amber{background:#fef3c7;color:#92400e}
+.tag.grey{background:#f0ede8;color:#6f6258}
+.timeline{
+  margin:16px 0;
+  position:relative;
+  padding-left:28px;
+  border-left:2px solid #e0d5c5;
+}
+.timeline-item{margin-bottom:20px;position:relative}
+.timeline-item::before{
+  content:'';
+  position:absolute;
+  left:-34px;
+  top:4px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--gold);
+  border:2px solid #fff;
+  box-shadow:0 0 0 2px var(--gold);
+}
+.timeline-date{
+  font:11px 'Courier New',monospace;
+  color:var(--gold);
+  letter-spacing:.06em;
+  margin-bottom:3px;
+}
+.timeline-content{
+  font:13px Arial,sans-serif;
+  color:#4b3826;
+  line-height:1.6;
+}
+.conclusion{
+  background:var(--ink);
+  padding:28px 20px;
+  border-bottom:1px solid #111;
+}
+.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}
+.conclusion p{color:#e8d5b8}
+.footer{
+  padding:20px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.8;
+  border-top:1px solid #e7ddd3;
+  background:#fbf7f1;
+  font-family:Arial,Helvetica,sans-serif;
+}
+.counter-wrap{
+  text-align:center;
+  padding:12px 0 4px;
+  font-size:11px;
+  color:var(--muted);
+}
+/* Gate Overlay */
+#gate-overlay{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+#gate-content{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:40px 32px;
+  text-align:center;
+  max-width:360px;
+  width:90%;
+  box-shadow:0 10px 30px rgba(15,23,42,.08);
+}
+#gate-content h2{
+  font:700 20px Georgia,serif;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+#gate-content p{
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+#gate-input{
+  width:100%;
+  padding:10px 14px;
+  border:2px solid var(--line);
+  border-radius:4px;
+  font-size:16px;
+  text-align:center;
+  background:var(--paper);
+  color:var(--ink);
+  outline:none;
+  transition:border-color .2s;
+}
+#gate-input:focus{border-color:var(--gold)}
+#gate-input.error{border-color:var(--down)}
+@media(max-width:640px){
+  body{font-size:14px;line-height:1.82}
+  .page{padding:0 4px 20px}
+  .back{padding:6px 10px 0}
+  .back a{font-size:12px;padding:4px 10px}
+  .topbar{padding:16px 16px 12px}
+  .top-title{font-size:26px;line-height:1.14}
+  .top-date{font-size:13px}
+  .top-block{font-size:12px;line-height:1.75}
+  .hero{padding:28px 16px 24px}
+  .hero-title{font-size:26px;line-height:1.18}
+  .hero-sub{font-size:13px}
+  .hero-meta{font-size:12px}
+  .nav a{padding:10px 12px;font-size:12px}
+  .section{padding:22px 16px}
+  .section h2{font-size:20px;line-height:1.34}
+  .section h3{font-size:16px}
+  p{font-size:14px;line-height:1.82}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .stat-value{font-size:24px}
+  td,th{font-size:11px;padding:6px 8px}
+  .path-item{gap:12px;padding:14px}
+  .path-num{font-size:28px;width:30px}
+  .ticker{min-width:54px;height:30px;font-size:13px}
+  .footer,.counter-wrap{font-size:11px;line-height:1.75}
+}
+</style>
+</head>
+<body>
+<!-- Gate -->
+<div id="gate-overlay">
+  <div id="gate-content">
+    <h2>🔐 请输入访问密码</h2>
+    <p>输入密码即可访问本页面</p>
+    <input type="text" id="gate-input" placeholder="密码" autocomplete="off">
+  </div>
+</div>
+
+<div class="back"><a href="/">← 返回首页</a></div>
+
+<div class="page">
+<div class="shell">
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+  <h1 class="top-title">NVIDIA Agent 平台战略<br>研究简报</h1>
+  <div class="top-date">报告日期：2026年6月4日</div>
+  <div class="top-block">
+    本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>
+    底层 AI 模型：GPT-5.4 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="badge">2026 NVIDIA Agentic AI 专题</div>
+  <div class="hero-title">从芯片到 Claw Agent：<br>NVIDIA 五层平台战略的纵向闭环</div>
+  <div class="hero-sub">GTC Taipei / COMPUTEX 2026 × Microsoft Build 2026 整合解读</div>
+  <div class="hero-meta">2026年6月4日 · 专题研究报告</div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="#overview">全景</a>
+  <a href="#windows">Windows × OpenClaw</a>
+  <a href="#scout">Microsoft Scout</a>
+  <a href="#computex">COMPUTEX NemoClaw</a>
+  <a href="#industrial">EDA 案例</a>
+  <a href="#nemotron">Nemotron 3 Ultra</a>
+  <a href="#invest">投资含义</a>
+  <a href="#conclusion">结语</a>
+</nav>
+
+<div class="wrap">
+
+<!-- Section 1: Overview -->
+<div class="section" id="overview">
+  <div class="section-label">全景 · 五层战略</div>
+  <h2>NVIDIA 从芯片商到 AI 平台公司的跃迁</h2>
+  <p>
+    2026年6月，Jensen Huang 在 COMPUTEX Taipei 的主旨演讲中明确宣告：<strong>NVIDIA 不再只是一家芯片公司，而是一家全栈 AI 平台公司</strong>。这个定位转变的关键抓手，是 NVIDIA 提出的五层 AI 平台战略。
+  </p>
+  <div class="flow">
+    <div class="flow-box"><strong>第一层：HARDWARE</strong> — Rubin Ultra、RTX Spark、Vera CPU、DGX Spark</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt"><strong>第二层：SYSTEMS</strong> — DGX Station、DGX Cloud、Jetson 边缘计算</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light"><strong>第三层：SOFTWARE</strong> — CUDA-X 加速库、OpenShell 安全运行时</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box accent"><strong>第四层：MODELS</strong> — Nemotron 3 系列（Nano / Super / Ultra）、Cosmos 3</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box" style="background:#fdf4ea;border-color:#e8c8b0"><strong>第五层：AGENTS</strong> — NemoClaw Blueprints + Agent Toolkit</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-value gold">5,000万+</div>
+      <div class="stat-label">Nemotron 模型下载量</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value gold">100,000+</div>
+      <div class="stat-label">生产环境运行的 Agent</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value gold">2,500+</div>
+      <div class="stat-label">企业用 Nemotron 构建</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value gold">$1,500亿/年</div>
+      <div class="stat-label">NVIDIA 对台湾生态投资</div>
+    </div>
+  </div>
+
+  <p>
+    <strong>核心逻辑：</strong>芯片不是终点，系统不是终点，模型不是终点——<strong>Agent 才是 AI 工厂的最终交付物</strong>。NVIDIA 正在用第五层（Agent 层）把整个硬件 → 系统 → 软件 → 模型栈一次性锁死，让企业客户从芯片到 Agent 全链条依赖 NVIDIA 平台。
+  </p>
+</div>
+
+<!-- Section 2: Windows × OpenClaw -->
+<div class="section" id="windows">
+  <div class="section-label">Microsoft Build 2026 · 重大合作</div>
+  <h2>Windows × OpenClaw 正式合作</h2>
+
+  <div class="callout">
+    <div class="callout-label">核心事件</div>
+    <p>2026年6月2日，Microsoft Build 2026 大会上，微软宣布：<br>
+    <strong>1. OpenClaw on Windows 进入 Preview</strong>——OpenClaw 节点和网关通过 MXC（Microsoft Execution Containers）在 Windows 上安全运行。<br>
+    <strong>2. 全新 Windows Companion App</strong>——一键配置 Claw 或连接已有实例。<br>
+    <strong>3. NVIDIA OpenShell 登陆 Windows</strong>——基于 MXC 构建，内核级安全沙箱。</p>
+  </div>
+
+  <h3>MXC：Windows 的 AI Agent 沙箱</h3>
+  <p>
+    Microsoft 为 AI Agent 专门设计的 <strong>Execution Containers（MXC）</strong> 是此次合作的技术底座。它提供 OS 级别的 Agent 执行隔离：代码执行、文件访问、网络交互——全部在沙箱内受限运行。结合 Defender、Entra、Intune、Purview 等企业安全产品，IT 团队可以实现对本地 Agent 的全面约束和审计。
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>层级</th><th>Windows</th><th>NVIDIA 贡献</th></tr></thead>
+      <tbody>
+        <tr><td>硬件</td><td>RTX Spark PC（Grace+Blackwell, 128GB, 1PFLOPS）</td><td>Grace+Blackwell 超级芯片</td></tr>
+        <tr><td>操作系统</td><td>Windows 11 + MXC 容器</td><td>—</td></tr>
+        <tr><td>安全运行时</td><td>MXC 内核隔离</td><td>OpenShell 策略引擎（YAML 声明式）</td></tr>
+        <tr><td>Agent 框架</td><td>OpenClaw / Hermes Agent（官方支持）</td><td>NemoClaw Blueprints</td></tr>
+        <tr><td>模型推理</td><td>Windows AI APIs</td><td>Nemotron 3 Ultra（550B/55B 活跃）</td></tr>
+        <tr><td>企业管控</td><td>Defender + Entra + Intune + Purview</td><td>OpenShell 审计追踪</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>合作生态：</strong>微软明确将 OpenClaw、Hermes、Manus、OpenAI、NVIDIA 五家列为 Windows Agent 平台的核心合作伙伴。OpenClaw 是其中唯一的开源 Agent 框架。
+  </p>
+</div>
+
+<!-- Section 3: Microsoft Scout -->
+<div class="section" id="scout">
+  <div class="section-label">产品落地 · OpenClaw 最大商业化信号</div>
+  <h2>Microsoft Scout：由 OpenClaw 驱动的常驻个人 Agent</h2>
+
+  <div class="callout">
+    <div class="callout-label">重磅</div>
+    <p>
+      <strong>Microsoft Scout</strong> 是微软在 Build 2026 发布的旗舰级个人 AI Agent 产品，定位为"work 场景的 always-on personal agent"。<br><br>
+      <strong>底层技术栈：OpenClaw 开源项目。</strong>微软官方原话——"It is powered by OpenClaw open-source technology, reflecting our commitment to building with the community while extending capabilities for the enterprise."
+    </p>
+  </div>
+
+  <h3>Scout 的定位与能力</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="path-num">01</div>
+      <div>
+        <div class="path-title">常驻运行，非一问一答</div>
+        <p class="path-desc">Scout 是一个 Claw 类型的 Agent，持续在后台运行，自主执行任务、适应障碍、主动汇报。不像 Copilot 那样等待用户提问。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">02</div>
+      <div>
+        <div class="path-title">企业级安全管控</div>
+        <p class="path-desc">内置 Defender、Entra、Intune、Purview 保护。运行在 MXC 隔离沙箱内。IT 管理员可以配置文件/网络/应用的访问策略。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">03</div>
+      <div>
+        <div class="path-title">跨 Microsoft 365 深度集成</div>
+        <p class="path-desc">内置连接 Outlook、Teams、SharePoint、OneDrive 等 M365 生态。可以跨应用调度任务、汇总信息、生成报告。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">04</div>
+      <div>
+        <div class="path-title">技能可扩展（Agent Skills）</div>
+        <p class="path-desc">开发者可以向 Scout 添加自定义技能（Skills），扩展其能力边界。与 NemoClaw 蓝图和 CUDA-X 技能库兼容。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-label">对 OpenClaw 生态的里程碑意义</div>
+    <p>这是开源 AI Agent 框架首次被 Microsoft 作为旗舰级个人 Agent 产品的底层引擎。<br>
+    这意味着：① OpenClaw 从社区项目进入企业级生产环境 ② 微软背书等于数亿 Windows 用户的潜在分发渠道 ③ NemoClaw + OpenShell + Windows MXC = 企业 Agent 标准栈初步成形。</p>
+  </div>
+</div>
+
+<!-- Section 4: COMPUTEX NemoClaw -->
+<div class="section" id="computex">
+  <div class="section-label">COMPUTEX 2026 · 规模化落地</div>
+  <h2>NemoClaw：从 3 月 GTC 发布到 6 月工业化投产</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>维度</th><th>GTC San Jose（3月）</th><th>COMPUTEX Taipei（6月）</th></tr></thead>
+      <tbody>
+        <tr><td>状态</td><td>发布 / Alpha</td><td><span class="tag green">规模化落地</span></td></tr>
+        <tr><td>硬件支持</td><td>DGX Spark 初代</td><td>DGX Spark 新固件 + <strong>Jetson 全系</strong></td></tr>
+        <tr><td>模型</td><td>Nemotron 3 Super</td><td><strong>Nemotron 3 Ultra</strong>（5x 推理速度）</td></tr>
+        <tr><td>部署体验</td><td>开发者手动配置</td><td><strong>开箱即跑</strong>（DGX Spark 数分钟）、Jetson 一句话部署</td></tr>
+        <tr><td>生态</td><td>4 家 EDA 厂商宣布</td><td>4 家 Demo 上展厅 + Flexcompute / Luminary</td></tr>
+        <tr><td>覆盖范围</td><td>服务器</td><td><strong>服务器 → 工作站 → 边缘 → PC</strong></td></tr>
+        <tr><td>Agent 数</td><td>未披露</td><td><strong>100,000+ 生产 Agent</strong></td></tr>
+        <tr><td>关键新增</td><td>—</td><td>Jetson 物理世界 Agent、Build-a-Claw 动手体验、Windows OpenShell 合作</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>NemoClaw 四层架构</h3>
+  <div class="flow">
+    <div class="flow-box"><strong>Agent Harness 层</strong> — OpenClaw / Hermes Agent（二选一）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box alt"><strong>Model Router + NeMo Libraries</strong> — 自动路由最优 Nemotron 模型 + 定制微调</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box light"><strong>OpenShell 沙箱运行时</strong> — 内核级隔离 / YAML 策略 / 热重载 / 审计追踪</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box accent"><strong>CUDA-X 领域技能库</strong> — EDA / CAE / 物理仿真 / 分子动力学加速</div>
+  </div>
+
+  <h3>本次 COMPUTEX 六大新增</h3>
+  <div class="path-grid">
+    <div class="path-item">
+      <div class="path-num">01</div>
+      <div>
+        <div class="path-title">NemoClaw 登陆 Jetson（物理世界 Agent）</div>
+        <p class="path-desc">JetPack 7.2 + CUDA 13 + Yocto + 一句话部署。Jetson Orin（241 TOPS）、Thor（MIG）。机器人、工业检测、产线自动化、医疗设备。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">02</div>
+      <div>
+        <div class="path-title">DGX Spark 开箱即跑</div>
+        <p class="path-desc">拆箱 → Ubuntu 桌面 → Agent 运行，数分钟内完成。新精简版 NemoClaw installer。多节点集群支持。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">03</div>
+      <div>
+        <div class="path-title">Build-a-Claw 动手体验</div>
+        <p class="path-desc">从 GTC San Jose 移至 Taipei。开发者配置 Persona + Skills + Schedule，离开时带一个可运行的 Claw。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">04</div>
+      <div>
+        <div class="path-title">Agent Toolkit 正式对外</div>
+        <p class="path-desc">NemoClaw Blueprints + Nemotron + OpenShell + CUDA-X，开源四合一。降低 90% 开发门槛。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">05</div>
+      <div>
+        <div class="path-title">RTX Spark PC</div>
+        <p class="path-desc">Grace+Blackwell 超级芯片、128GB 统一内存、1 Petaflop。与微软三年合作"重新发明 PC"。专门跑 OpenClaw / Hermes Agent。</p>
+      </div>
+    </div>
+    <div class="path-item">
+      <div class="path-num">06</div>
+      <div>
+        <div class="path-title">Industrial AI Engineers 展厅 Demo</div>
+        <p class="path-desc">Cadence / Synopsys / Siemens / Dassault 四家现场展示 NemoClaw 驱动的自主 AI 工程师。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: EDA Cases -->
+<div class="section" id="industrial">
+  <div class="section-label">案例 · 四家工业软件巨头如何使用 NemoClaw</div>
+  <h2>自主 AI 工程师：从数周到数小时</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>公司</th><th>Agent 名称</th><th>应用场景</th><th>驱动工具</th><th>效率提升</th><th>商业化阶段</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="ticker">CDNS</div></td>
+          <td>自主 RTL 工程师</td>
+          <td>数字电路 RTL 设计 + 验证</td>
+          <td>Cadence ChipStack</td>
+          <td><span class="tag green">数周→数小时</span></td>
+          <td>GTC Taipei Keynote Demo</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">SNPS</div></td>
+          <td>Ansys Icepak Agent</td>
+          <td>GPU 电子散热：Mesh→仿真→优化</td>
+          <td>Ansys Icepak（CFD 热仿真）</td>
+          <td><span class="tag green">迭代自动化</span></td>
+          <td>COMPUTEX 展台 Demo</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">Siemens</div></td>
+          <td>Fuse EDA AI Agent</td>
+          <td>半导体 / 3D IC / PCB 系统设计</td>
+          <td>多工具跨域编排</td>
+          <td><span class="tag green">多工具协同</span></td>
+          <td>产品化中</td>
+        </tr>
+        <tr>
+          <td>Dassault</td>
+          <td>3DEXPERIENCE Agentic</td>
+          <td>工业 CAD/CAE 全链：设计→仿真→制造</td>
+          <td>3DEXPERIENCE 平台</td>
+          <td><span class="tag green">全流程自动化</span></td>
+          <td>产品化中</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cadence：自主 RTL 工程师</h3>
+  <p>接收设计规格 → <strong>自主生成 RTL 代码</strong> → 调用 ChipStack 仿真 → 验证结果 → <strong>发现问题自动迭代修改</strong> → 输出验证报告。全程不需要人工干预。RTL 验证从数周压缩到数小时，Jensen Huang 在 GTC Taipei Keynote 上现场演示。</p>
+
+  <h3>Synopsys：Ansys Icepak 散热优化 <span class="tag amber">投资标的</span></h3>
+  <p>Synopsys 利用 Ansys 收购获得的 CFD 热仿真能力，将 <strong>Ansys Icepak 嵌入 NemoClaw Agent</strong>，自动化 GPU 电子散热的全流程：网格划分 → 热仿真 → 设计迭代优化。是 Synopsys 端到端 Agent 工程流程的首个可见成果。SNPS 在 3 月 GTC 即宣布与 NVIDIA 深度合作推进 Agent 化。</p>
+
+  <h3>Siemens：Fuse EDA 跨工具编排</h3>
+  <p>Siemens 将 NemoClaw + OpenShell 集成到自研的 Fuse EDA AI Agent 中，一个 Claw 同时驱动多个 Siemens EDA 工具，覆盖芯片、3D IC、PCB 全栈设计。<strong>核心差异化在于多工具协同编排</strong>——Agent 自主规划工作流并在工具间切换。</p>
+
+  <h3>初创公司：Flexcompute 的 CPO 设计</h3>
+  <p>Flexcompute 使用 NemoClaw + OpenShell 做<strong>共封装光学（CPO）多物理场设计</strong>——同时跑光学 + 电学 + 热学仿真，一夜之间探索数千种设计变体。<strong>NVIDIA 自身就在用 Flexcompute 做光学和光子器件设计</strong>。这直接关联到 NVIDIA 投资的 Ayar Labs（CPO 硬件）和持仓的 Lumentum / Coherent（光学供应链）。</p>
+</div>
+
+<!-- Section 6: Nemotron 3 Ultra -->
+<div class="section" id="nemotron">
+  <div class="section-label">模型 · Agent 的大脑</div>
+  <h2>Nemotron 3 Ultra：专为 Claw Agent 优化的旗舰模型</h2>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-value blue">550B</div>
+      <div class="stat-label">总参数（55B 活跃/token）</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value up">300+</div>
+      <div class="stat-label">tokens/sec（5x Qwen3.5）</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value gold">91%</div>
+      <div class="stat-label">复杂多步 Agent 任务完成率</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value blue">48.0</div>
+      <div class="stat-label">Intelligence Index（美国开源第一）</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>规格</th><th>详情</th></tr></thead>
+      <tbody>
+        <tr><td>架构</td><td>Hybrid Mamba-Transformer MoE</td></tr>
+        <tr><td>上下文窗口</td><td>最高 1M tokens</td></tr>
+        <tr><td>训练精度</td><td>NVFP4（4-bit）on Blackwell</td></tr>
+        <tr><td>关键技术</td><td>LatentMoE、Multi-Token Prediction（MTP）</td></tr>
+        <tr><td>推理成本</td><td>比竞品低 30%</td></tr>
+        <tr><td>推理速度</td><td>比 GPT-OSS-120B 快 2.2x</td></tr>
+        <tr><td>定位</td><td>长周期自主执行（小时/天级 Agent 任务）</td></tr>
+        <tr><td>可用时间</td><td>Q2-Q3 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Nemotron 3 Ultra 是 NVIDIA 目前最大最强的开源权重模型，<strong>专为自主 Agent 负载设计</strong>。91% 的复杂多步任务完成率意味着它可以真正替代人工在长周期工作流中的决策环节。结合 NemoClaw Blueprints，企业可以在自有 DGX 硬件上部署私有化的 Ultra 级 Agent，完全零云依赖。
+  </p>
+</div>
+
+<!-- Section 7: Investment Implications -->
+<div class="section" id="invest">
+  <div class="section-label">投资含义</div>
+  <h2>Agent 平台战略的产业链传导</h2>
+
+  <h3>一、直接受益的公开市场标的</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>标的</th><th>关联逻辑</th><th>催化剂</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="ticker">NVDA</div></td>
+          <td>Agent 平台化锁定企业全栈（芯片→系统→软件→模型→Agent），从硬件一次性收入转为平台持续性绑定</td>
+          <td>100,000+ 生产 Agent、Scout 采用 OpenClaw、Jetson 物理 Agent</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">SNPS</div></td>
+          <td>Ansys Icepak Agent 在 COMPUTEX 展台 Demo，NemoClaw 全栈绑定。Ansys 多物理场差异化 vs Cadence</td>
+          <td>COMPUTEX Demo、Q2/Q3 商业化落地节奏</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">CDNS</div></td>
+          <td>自主 RTL 工程师，Keynote 级曝光。ChipStack 全工具链锁定</td>
+          <td>GTC Taipei Keynote Demo</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">MSFT</div></td>
+          <td>Windows Agent 平台化 + Scout 产品 + RTX Spark PC 独家合作。重新发明 PC 叙事</td>
+          <td>Build 2026、Scout 正式推出时间线</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">MRVL</div></td>
+          <td>更多 Agent = 更多数据中心 = 更多定制芯片和网络需求</td>
+          <td>NVIDIA 持仓、数据中心网络升级</td>
+        </tr>
+        <tr>
+          <td><div class="ticker">COHR</div></td>
+          <td>Agent 规模化拉动光互连需求。CPO/光子学是 NVIDIA Agent 硬件栈的关键一环</td>
+          <td>NVIDIA 持仓、光学供应链锁定</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>二、私有公司投资链</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>公司</th><th>领域</th><th>NVIDIA 参与</th><th>Agent 关联</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>OpenClaw</td>
+          <td>开源 Agent 框架</td>
+          <td>NemoClaw 官方 Harness + Microsoft Scout 底层引擎</td>
+          <td>Agent 平台的"操作系统"</td>
+        </tr>
+        <tr>
+          <td>Ayar Labs</td>
+          <td>共封装光学（CPO）</td>
+          <td>$5亿 Series E 参投 + NVLink Fusion 生态</td>
+          <td>Agent 规模化→数据中心→光互连</td>
+        </tr>
+        <tr>
+          <td>Kumo AI</td>
+          <td>结构化数据预测 AI</td>
+          <td>≥$4亿全资收购</td>
+          <td>AI Foundry 软件栈补充</td>
+        </tr>
+        <tr>
+          <td>Flexcompute</td>
+          <td>CPO 多物理场 CAE</td>
+          <td>自用其技术做光子设计</td>
+          <td>NemoClaw 驱动光学设计 Agent</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>三、平台锁定效应三阶段</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">第一阶段（已实现）</div>
+      <div class="timeline-content">NemoClaw + OpenShell 成为企业 Agent 安全标准。EDA 四巨头全部绑定。Windows MXC + OpenShell 形成 PC 端 Agent 安全基座。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">第二阶段（进行中）</div>
+      <div class="timeline-content">Microsoft Scout 借助 OpenClaw 覆盖数亿 Windows 用户。NemoClaw + Jetson 将 Agent 扩展到物理世界。DGX 硬件锁 Model → Agent 链。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">第三阶段（未来 12-24 个月）</div>
+      <div class="timeline-content">企业如果从芯片到 Agent 全栈依赖 NVIDIA，迁移成本极高。100万+ Agent 运行在 NemoClaw + Nemotron 组合上 = 每年数十亿美元的模型推理和平台收入。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Conclusion -->
+<div class="conclusion" id="conclusion">
+  <h2>结语</h2>
+  <p>
+    NVIDIA 的 Agent 平台战略是一个设计精巧的纵向锁定：用免费的 NemoClaw Blueprints 降低开发门槛 → 用 OpenShell 建立安全信任 → 用 Nemotron 模型提供推理引擎 → 最终让企业客户的所有 Agent 工作负载绑定在 NVIDIA 的硬件-系统-软件-模型四层基础设施之上。<br><br>
+    OpenClaw 被微软选为 Scout 的底层引擎，标志着开源 Agent 框架正式进入亿级用户分发渠道。<br><br>
+    <strong>最重要的判断：</strong>Agent 不是 NVIDIA 的副业，而是 Jensen Huang 明确宣告的第五层——即五层战略的最终交付物。这意味着未来 NVIDIA 的 CapEx、并购、生态合作和产品路线图，都将围绕 Agent 层做纵向整合。
+  </p>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  本文为投资研究参考，不构成具体投资建议。数据来源：NVIDIA GTC Taipei 官网、Microsoft Build 2026 官方博客、NVIDIA Newsroom、Windows Developer Blog、Microsoft 365 Blog、Ayar Labs 官方新闻稿、The Information、Fortune。<br>
+  数据截至 2026 年 6 月 4 日。<br>
+  © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+</div>
+
+<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+
+</div><!-- .wrap -->
+</div><!-- .shell -->
+</div><!-- .page -->
+
+<div class="back"><a href="/">← 返回首页</a></div>
+
+<script>
+// Gate logic
+(function(){
+  var GATE_PW = 'k';
+  if (sessionStorage.getItem('gate_ok') === '1') {
+    var el = document.getElementById('gate-overlay');
+    if (el) el.style.display = 'none';
+    return;
+  }
+  var input = document.getElementById('gate-input');
+  if (!input) return;
+  input.addEventListener('input', function(){
+    var v = input.value.trim();
+    if (v.toLowerCase() === GATE_PW) {
+      sessionStorage.setItem('gate_ok', '1');
+      var overlay = document.getElementById('gate-overlay');
+      if (overlay) overlay.style.display = 'none';
+    }
+  });
+  input.focus();
+})();
+
+// Counter
+(function(){
+  var slugVal = 'nvidia-agent-platform-2026';
+  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
+  var el = document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){ if(el) el.textContent = '-'; });
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){});
+})();
+</script>
+</body>
+</html>
