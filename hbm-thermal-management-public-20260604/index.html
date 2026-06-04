@@ -77,7 +77,7 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
       <div class="hero-meta">产业链专题研究 · 数据截至 2026年6月4日</div>
     </div>
     <nav class="nav">
-      <a href="#take">三句话</a><a href="#check">规格口径</a><a href="#computex">台北新规格</a><a href="#concept">概念</a><a href="#thermal">散热</a><a href="#roadmap">路线</a><a href="#invest">投资映射</a><a href="#stocks">核心股票</a><a href="#sources">来源</a>
+      <a href="#take">三句话</a><a href="#check">规格口径</a><a href="#computex">台北新规格</a><a href="#concept">概念</a><a href="#thermal">散热</a><a href="#roadmap">路线</a><a href="#invest">投资映射</a><a href="#thermal-companies">热管理企业</a><a href="#stocks">核心股票</a><a href="#sources">来源</a>
     </nav>
 
     <div class="section" id="take">
@@ -171,11 +171,27 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
           <tr><td>存储厂</td><td>SK hynix、Samsung、Micron；组合相关：000660.KS、005930.KS、MU、SMSN.IL</td><td>需求强，但要看客户认证、良率、价格与 capex 节奏。SK hynix 领先优势与三星追赶变量需持续跟踪。</td></tr>
           <tr><td>逻辑底片 / 先进封装</td><td>TSMC / GUC / CoWoS 生态；组合相关：TSM</td><td>定制 HBM 与 AI 加速器封装耦合加深，台积电不只是代工 GPU，也可能吃到 base die 与封装复杂化红利。</td></tr>
           <tr><td>键合设备</td><td>BESI、ASMPT、AMAT、LRCX 等</td><td>混合键合若放量，设备弹性大；但订单兑现会滞后于技术验证，不能按单一新闻追价。</td></tr>
-          <tr><td>材料 / 散热</td><td>高导热 TIM、铜键合、晶圆薄化、液冷、冷板、均热板</td><td>“卖铲人”逻辑更稳，但公司筛选要看客户认证和毛利率，不是所有材料厂都能进入 AI 封装链。</td></tr>
+          <tr><td>材料 / 散热</td><td>Shin-Etsu、Resonac、DuPont、Henkel、Indium、Honeywell、DISCO、Tokyo Seimitsu、Delta、Auras、AVC、Vertiv、nVent、Modine、CoolIT、Boyd 等</td><td>“卖铲人”逻辑更稳，但公司筛选要看客户认证、毛利率和量产节奏，不是所有材料/散热厂都能进入 AI 封装链。</td></tr>
           <tr><td>AI 系统客户</td><td>NVIDIA、AMD、Broadcom、Google、Amazon 等</td><td>HBM 瓶颈决定 AI 芯片交付节奏。HBM 供应改善会利好加速器出货，但也可能带来更高封装与散热成本。</td></tr>
         </tbody>
       </table></div>
       <div class="callout"><div class="callout-label">组合含义</div><p>对 Kerwin 宏观对冲及 AI 精选组合而言，HBM 主线不是单点押注内存价格，而是围绕 AI 资本开支链条寻找更高确定性的瓶颈资产：存储、台积电先进封装、键合设备、高导热材料、液冷和电力基础设施需要放在同一张图里比较。</p></div>
+    </div>
+
+    <div class="section" id="thermal-companies">
+      <div class="section-label">THERMAL SUPPLY CHAIN</div>
+      <h2>热管理与材料核心企业地图</h2>
+      <p>HBM5 之后，热管理不只是服务器机柜问题，也进入 HBM 堆栈、base die、D2D PHY、晶圆薄化和封装材料层。下面这些公司更接近“热与连接瓶颈”的直接受益环节。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>环节</th><th>核心企业</th><th>关注点</th></tr></thead>
+        <tbody>
+          <tr><td>高导热 TIM / 封装材料</td><td>Shin-Etsu Chemical（4063.T）、Resonac（4004.T）、DuPont（DD）、Henkel（HEN3.DE）、Indium（私有）、Honeywell（HON）</td><td>高导热界面材料、underfill、封装胶材、热稳定材料。关键是能否进入 HBM / CoWoS / AI 加速器封装认证链。</td></tr>
+          <tr><td>铜键合 / 混合键合设备</td><td>BESI（BESI.AS）、ASMPT（0522.HK）、EV Group（私有）、SUSS MicroTec（SMHN.DE）、Applied Materials（AMAT）、Lam Research（LRCX）</td><td>混合键合需要高精度对准、表面处理、低温键合和污染控制。设备订单通常滞后于客户工艺验证。</td></tr>
+          <tr><td>晶圆薄化 / 切割 / 研磨</td><td>DISCO（6146.T）、Tokyo Seimitsu / Accretech（7729.T）</td><td>HBM 堆栈继续变高，晶圆薄化、切割、研磨与良率控制的重要性上升，是先进封装的基础工序。</td></tr>
+          <tr><td>液冷 / 冷板 / 机柜热管理</td><td>Vertiv（VRT）、Delta Electronics（2308.TW）、nVent（NVT）、Modine（MOD）、CoolIT（私有）、Boyd（私有）、Supermicro（SMCI）</td><td>HBM 热问题最终会传导到 GPU 模组、主板、机柜与数据中心级冷却。冷板、CDU、direct-to-chip 液冷和系统集成是主要观察点。</td></tr>
+          <tr><td>均热板 / 热管 / 散热模组</td><td>Auras Technology（3324.TWO）、Asia Vital Components / AVC（3017.TW）、Nidec（6594.T）、Delta Electronics（2308.TW）</td><td>从服务器散热模组、均热板到风扇/泵/热管理系统，受益于 AI 机柜功率密度持续上行。</td></tr>
+        </tbody>
+      </table></div>
     </div>
 
     <div class="section" id="stocks">
@@ -197,9 +213,20 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
           <tr><td>GLW</td><td>Corning</td><td>玻璃 / 光互连材料</td><td>200.76</td><td>2026-06-03</td><td>+0.2%</td><td>+10.8%</td><td>+129.3%</td></tr>
           <tr><td>COHR</td><td>Coherent</td><td>光通信 / 材料</td><td>417.43</td><td>2026-06-03</td><td>-2.2%</td><td>+15.5%</td><td>+126.2%</td></tr>
           <tr><td>VRT</td><td>Vertiv</td><td>液冷 / 数据中心热管理</td><td>331.44</td><td>2026-06-03</td><td>-0.9%</td><td>+5.0%</td><td>+104.6%</td></tr>
+          <tr><td>4063.T</td><td>Shin-Etsu</td><td>TIM / 封装材料</td><td>7,575</td><td>2026-06-04</td><td>-3.0%</td><td>-2.4%</td><td>+55.4%</td></tr>
+          <tr><td>4004.T</td><td>Resonac</td><td>封装材料 / 胶材</td><td>18,250</td><td>2026-06-04</td><td>-2.4%</td><td>-2.5%</td><td>+179.7%</td></tr>
+          <tr><td>DD</td><td>DuPont</td><td>电子材料 / TIM</td><td>47.97</td><td>2026-06-03</td><td>-1.4%</td><td>-0.9%</td><td>+19.3%</td></tr>
+          <tr><td>6146.T</td><td>DISCO</td><td>晶圆薄化 / 切割</td><td>70,480</td><td>2026-06-04</td><td>+2.6%</td><td>+8.3%</td><td>+46.3%</td></tr>
+          <tr><td>7729.T</td><td>Tokyo Seimitsu</td><td>晶圆研磨 / 量测</td><td>17,845</td><td>2026-06-04</td><td>+0.7%</td><td>+2.6%</td><td>+60.7%</td></tr>
+          <tr><td>2308.TW</td><td>Delta Electronics</td><td>液冷 / 电源 / 热管理</td><td>2,455</td><td>2026-06-03</td><td>+4.0%</td><td>+0.4%</td><td>+154.9%</td></tr>
+          <tr><td>3324.TWO</td><td>Auras</td><td>均热板 / 散热模组</td><td>1,280</td><td>2026-06-03</td><td>+9.9%</td><td>+20.2%</td><td>+26.7%</td></tr>
+          <tr><td>3017.TW</td><td>AVC</td><td>散热模组 / 风冷液冷</td><td>2,855</td><td>2026-06-03</td><td>+5.7%</td><td>+7.1%</td><td>+89.1%</td></tr>
+          <tr><td>NVT</td><td>nVent</td><td>液冷 / 电气热管理</td><td>176.39</td><td>2026-06-03</td><td>+1.7%</td><td>+5.6%</td><td>+73.0%</td></tr>
+          <tr><td>MOD</td><td>Modine</td><td>冷板 / 数据中心冷却</td><td>302.03</td><td>2026-06-03</td><td>-1.6%</td><td>+8.3%</td><td>+126.2%</td></tr>
+          <tr><td>SMCI</td><td>Supermicro</td><td>AI 服务器 / 液冷集成</td><td>47.42</td><td>2026-06-03</td><td>-5.5%</td><td>+2.9%</td><td>+62.0%</td></tr>
         </tbody>
       </table></div>
-      <div class="callout"><div class="callout-label">统计口径</div><p>数据源为 yfinance 日线未复权收盘价。1D 为最新收盘价相对上一交易日收盘价；MTD 起点为 2026年5月29日收盘价；YTD 起点为 2025年12月31日收盘价。跨市场交易日不同：美股多数截至 2026年6月3日，韩股与 BESI 截至 2026年6月2日，港股 ASMPT 截至 2026年6月3日。</p></div>
+      <div class="callout"><div class="callout-label">统计口径</div><p>数据源为 yfinance 日线未复权收盘价。1D 为最新收盘价相对上一交易日收盘价；MTD 起点为 2026年5月29日收盘价；YTD 起点为 2025年12月31日收盘价。跨市场交易日不同：日本市场部分标的截至 2026年6月4日，美股多数截至 2026年6月3日，韩股与 BESI 截至 2026年6月2日，台湾与港股多数截至 2026年6月3日。</p></div>
     </div>
 
     <div class="section" id="sources">
