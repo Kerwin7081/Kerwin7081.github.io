@@ -77,7 +77,7 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
       <div class="hero-meta">产业链专题研究 · 数据截至 2026年6月4日</div>
     </div>
     <nav class="nav">
-      <a href="#take">三句话</a><a href="#check">规格口径</a><a href="#concept">概念</a><a href="#thermal">散热</a><a href="#roadmap">路线</a><a href="#invest">投资映射</a><a href="#stocks">核心股票</a><a href="#kerwin">五层框架</a><a href="#sources">来源</a>
+      <a href="#take">三句话</a><a href="#check">规格口径</a><a href="#computex">台北新规格</a><a href="#concept">概念</a><a href="#thermal">散热</a><a href="#roadmap">路线</a><a href="#invest">投资映射</a><a href="#stocks">核心股票</a><a href="#kerwin">五层框架</a><a href="#sources">来源</a>
     </nav>
 
     <div class="section" id="take">
@@ -107,6 +107,21 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
           <tr><td>混合键合</td><td>混合键合确实改善热阻、厚度和 I/O 密度，但量产良率、设备节拍、污染控制和成本仍是约束。</td><td>技术方向明确，不等于商业节奏已经完全确定。</td></tr>
         </tbody>
       </table></div>
+    </div>
+
+    <div class="section" id="computex">
+      <div class="section-label">COMPUTEX 2026 UPDATE</div>
+      <h2>台北新规格：HBM4E 把热管理推到台前</h2>
+      <p>2026 年 6 月台北 Computex 上，三星公开展示 HBM4E 晶圆与芯片，并首次展示 HBM5 架构样模。这组信息的重要性不在于“又多一个 HBM 型号”，而在于它把下一代 HBM 的竞争焦点说得很清楚：带宽继续上行之后，真正的护城河转向 base die、D2D PHY、热路径和封装稳定性。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>型号 / 路线</th><th>公开规格</th><th>热管理含义</th></tr></thead>
+        <tbody>
+          <tr><td>Samsung HBM4E</td><td>1c DRAM core die + Samsung Foundry 4nm base die；稳定支持 14Gbps/pin，未来可扩至 16Gbps/pin；最高约 4TB/s 带宽；容量配置约 32GB-64GB；已开始样品出货。</td><td>带宽从 HBM4 标准口径继续上行，base die 与 D2D PHY 的功耗密度同步上升，单靠“更宽接口”已经不够，必须引入更明确的热路径设计。</td></tr>
+          <tr><td>Samsung HBM5 mock-up</td><td>Computex 首次公开 HBM5 架构样模；规划采用 2nm base die；行业报道指向 12 层、16 层、20 层堆栈配置，量产时间仍以 2028 年前后作为报道口径。</td><td>堆栈层数继续增加，热量从“局部工程问题”变成“架构约束”。HBM5 若进入 16-Hi / 20-Hi，热阻、翘曲、良率和散热路径会共同决定可量产性。</td></tr>
+          <tr><td>HPB（Heat Path Block）</td><td>三星公布的热管理架构，在 D2D PHY 区域增加独立热传导路径；公司称已在 HBM4E 上完成验证，计划在 HBM5 阶段扩大采用。</td><td>D2D PHY 是 base die 的主要热源之一。HPB 的出现说明下一代 HBM 不再只是存储密度竞赛，而是“高速传输 + 热管理 + 封装稳定性”的系统工程。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="callout"><div class="callout-label">为什么这会强化热管理主线</div><p>HBM4E 把每针速度推向 14-16Gbps，HBM5 又准备更高层数和更先进 base die。信号越快、堆栈越高、base die 越复杂，D2D PHY 的热流密度越难被忽略。也就是说，带宽上行不是削弱散热问题，而是在更高功率密度下放大散热问题。</p></div>
     </div>
 
     <div class="section" id="concept">
@@ -207,6 +222,7 @@ tbody td{padding:10px 12px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-he
       <h2>主要来源与口径</h2>
       <ul>
         <li>JEDEC，JESD270-4 HBM4 Standard 新闻稿，2025年4月16日：HBM4 2048-bit、最高 8Gb/s、最高约 2TB/s、32 通道。</li>
+        <li>Korea Herald、TrendForce、TechNews，2026年6月2日 Computex 2026 报道：Samsung HBM4E、HBM5 样模、HPB 热通路模块、2nm base die 规划。</li>
         <li>TrendForce、Tom's Hardware、SemiEngineering、MDPI Electronics 2025 HBM hybrid bonding thermal review：混合键合、热阻改善、HBM4/HBM4E 量产节奏。</li>
         <li>TSMC / GUC / Rambus / Siemens EDA 公开资料与行业报道：HBM4/HBM4E base die、custom HBM 与 foundry/IP 参与度。</li>
         <li>Trading Economics / FRED 口径：用于 10 年期美债收益率区间判断。本文采用约数，不作为交易报价。</li>
