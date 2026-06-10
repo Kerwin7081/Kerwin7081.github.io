@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>方块世界 · BlockCraft</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { width:100%; height:100%; overflow:hidden; background:#000; font-family:"PingFang SC","Microsoft YaHei",sans-serif; touch-action:none; }
+  #game { position:fixed; inset:0; }
+  canvas { display:block; }
+
+  /* ---------- HUD ---------- */
+  #crosshair { position:fixed; left:50%; top:50%; width:22px; height:22px; transform:translate(-50%,-50%); pointer-events:none; z-index:5; }
+  #crosshair:before,#crosshair:after { content:""; position:absolute; background:rgba(255,255,255,.85); mix-blend-mode:difference; }
+  #crosshair:before { left:50%; top:0; width:2px; height:100%; transform:translateX(-50%); }
+  #crosshair:after { top:50%; left:0; height:2px; width:100%; transform:translateY(-50%); }
+
+  #hotbar { position:fixed; left:50%; bottom:12px; transform:translateX(-50%); display:flex; gap:4px; z-index:9; }
+  @media (max-width:640px){
+    .slot { width:34px; height:34px; border-radius:5px; }
+    .slot canvas { width:25px; height:25px; }
+    .slot .num { display:none; }
+    #hotbar { bottom:8px; gap:3px; }
+  }
+  .slot { width:46px; height:46px; border:2px solid rgba(0,0,0,.55); background:rgba(30,30,30,.55); border-radius:6px;
+          display:flex; align-items:center; justify-content:center; position:relative; cursor:pointer; }
+  .slot.active { border-color:#fff; box-shadow:0 0 0 2px rgba(255,255,255,.5), 0 0 14px rgba(255,255,255,.35); background:rgba(60,60,60,.7); }
+  .slot canvas { width:34px; height:34px; image-rendering:pixelated; border-radius:3px; }
+  .slot .num { position:absolute; top:1px; left:4px; font-size:10px; color:rgba(255,255,255,.75); text-shadow:0 1px 2px #000; }
+  .slot .label { position:absolute; bottom:-16px; left:50%; transform:translateX(-50%); font-size:10px; color:#fff; text-shadow:0 1px 2px #000; white-space:nowrap; opacity:0; transition:opacity .15s; }
+  .slot.active .label { opacity:1; }
+
+  #info { position:fixed; top:10px; left:10px; color:#fff; font-size:12px; text-shadow:0 1px 2px #000; z-index:5; line-height:1.7; pointer-events:none; opacity:.9; }
+  #clock { position:fixed; top:10px; right:10px; color:#fff; font-size:13px; text-shadow:0 1px 3px #000; z-index:5; pointer-events:none; display:flex; align-items:center; gap:6px; }
+  #toast { position:fixed; left:50%; top:18%; transform:translateX(-50%); color:#fff; font-size:15px; text-shadow:0 1px 4px #000;
+           background:rgba(0,0,0,.45); padding:8px 18px; border-radius:20px; opacity:0; transition:opacity .3s; z-index:8; pointer-events:none; }
+
+  /* ---------- 移动端控件 ---------- */
+  #joyZone { position:fixed; left:0; bottom:0; width:45%; height:55%; z-index:7; display:none; }
+  #joyBase { position:absolute; width:110px; height:110px; border-radius:50%; background:rgba(255,255,255,.12); border:2px solid rgba(255,255,255,.25); display:none; }
+  #joyStick { position:absolute; width:50px; height:50px; border-radius:50%; background:rgba(255,255,255,.35); border:2px solid rgba(255,255,255,.5); display:none; }
+  .mbtn { position:fixed; width:62px; height:62px; border-radius:50%; background:rgba(255,255,255,.16); border:2px solid rgba(255,255,255,.35);
+          color:#fff; font-size:13px; font-weight:600; display:none; align-items:center; justify-content:center; z-index:7;
+          text-shadow:0 1px 2px #000; user-select:none; flex-direction:column; }
+  .mbtn:active { background:rgba(255,255,255,.4); }
+  #btnJump { right:24px; bottom:96px; }
+  #btnMine { right:104px; bottom:160px; background:rgba(220,80,60,.3); }
+  #btnPlace { right:24px; bottom:188px; background:rgba(80,180,90,.3); }
+  #btnFly  { right:110px; bottom:78px; width:52px; height:52px; font-size:11px; }
+  .mbtn .ico { font-size:20px; line-height:1; }
+
+  /* ---------- 开始/暂停界面 ---------- */
+  #overlay { position:fixed; inset:0; background:linear-gradient(180deg,#1a2b3d 0%,#0d1622 100%); z-index:20;
+             display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-align:center; padding:20px; }
+  #overlay.hidden { display:none; }
+  #overlay h1 { font-size:42px; letter-spacing:6px; margin-bottom:6px; color:#9fd66a; text-shadow:3px 3px 0 #3a5a23, 0 0 30px rgba(159,214,106,.35); font-weight:900; }
+  #overlay .sub { font-size:13px; color:#9fb4cc; margin-bottom:26px; letter-spacing:2px; }
+  #startBtn { font-size:20px; padding:14px 56px; border:none; border-radius:10px; cursor:pointer; font-weight:700; letter-spacing:4px;
+              background:linear-gradient(180deg,#8bc34a,#5a8a2e); color:#fff; box-shadow:0 5px 0 #3a5a1e, 0 8px 20px rgba(0,0,0,.5); }
+  #startBtn:active { transform:translateY(3px); box-shadow:0 2px 0 #3a5a1e; }
+  .help { margin-top:28px; font-size:13px; color:#cfe3f5; line-height:2.1; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+          border-radius:12px; padding:14px 22px; max-width:420px; }
+  .help b { color:#ffd76a; }
+  .key { display:inline-block; background:#2c3e50; border:1px solid #56708a; border-bottom-width:3px; border-radius:5px; padding:0 7px; font-size:12px; margin:0 2px; }
+  #genBar { width:240px; height:8px; background:rgba(255,255,255,.12); border-radius:4px; margin-top:22px; overflow:hidden; display:none; }
+  #genFill { height:100%; width:0%; background:#8bc34a; transition:width .2s; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="crosshair" style="display:none"></div>
+
+<div id="info" style="display:none"></div>
+<div id="clock" style="display:none"><span id="clockIco">☀️</span><span id="clockTxt"></span></div>
+<div id="toast"></div>
+<div id="hotbar" style="display:none"></div>
+
+<div id="joyZone"></div>
+<div id="joyBase"></div>
+<div id="joyStick"></div>
+<div class="mbtn" id="btnJump"><span class="ico">⬆</span>跳</div>
+<div class="mbtn" id="btnMine"><span class="ico">⛏</span>挖</div>
+<div class="mbtn" id="btnPlace"><span class="ico">🧱</span>放</div>
+<div class="mbtn" id="btnFly"><span class="ico">🕊</span>飞行</div>
+
+<div id="overlay">
+  <h1>方 块 世 界</h1>
+  <div class="sub">BLOCKCRAFT · 高级生存创造版</div>
+  <button id="startBtn">开 始 游 戏</button>
+  <div id="genBar"><div id="genFill"></div></div>
+  <div class="help" id="helpDesktop">
+    <b>电脑操作</b><br>
+    <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span> 移动 ·
+    <span class="key">空格</span> 跳跃(双击=飞行) · <span class="key">Shift</span> 下降<br>
+    <b>鼠标左键</b> 挖掘 · <b>右键</b> 放置 · <span class="key">1</span>~<span class="key">9</span>/滚轮 选方块<br>
+    <span class="key">Esc</span> 暂停 · 进入水中可以游泳浮起
+  </div>
+  <div class="help" id="helpMobile" style="display:none">
+    <b>触屏操作</b><br>
+    左侧摇杆移动 · 右侧滑动转视角<br>
+    <b>⛏ 挖</b> 挖掘准星处方块 · <b>🧱 放</b> 放置方块<br>
+    <b>⬆</b> 跳跃 · <b>🕊</b> 开关飞行(飞行中:点按⬆=上升,快速双击并按住⬆=下降)<br>
+    点击底部物品栏切换手中方块
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+"use strict";
+/* =========================================================
+   方块世界 BlockCraft —— 单文件高级版体素游戏
+   程序化地形 / 洞穴 / 树木 / 雪山 / 水体 / 昼夜循环
+   挖掘建造 / 飞行 / 游泳 / 粒子 / 音效 / 触屏支持
+========================================================= */
+
+// ---------- 基本配置 ----------
+const SX = 96, SY = 48, SZ = 96;       // 世界尺寸
+const CHUNK = 16;                       // 区块宽
+const WATER_LEVEL = 12;
+const DAY_LENGTH = 300;                 // 一昼夜 5 分钟
+const IS_TOUCH = ('ontouchstart' in window) && navigator.maxTouchPoints > 0;
+
+// ---------- 方块定义 ----------
+const AIR = 0;
+const B = {
+  GRASS:1, DIRT:2, STONE:3, WOOD:4, LEAVES:5, SAND:6, WATER:7,
+  PLANK:8, GLASS:9, BRICK:10, SNOW:11, COBBLE:12, GLOW:13
+};
+// tiles: [顶,底,侧] 对应贴图编号
+const BLOCK_DEF = {
+  [B.GRASS]:  { name:"草方块", tiles:[0,2,1] },
+  [B.DIRT]:   { name:"泥土",   tiles:[2,2,2] },
+  [B.STONE]:  { name:"石头",   tiles:[3,3,3] },
+  [B.WOOD]:   { name:"原木",   tiles:[5,5,4] },
+  [B.LEAVES]: { name:"树叶",   tiles:[6,6,6] },
+  [B.SAND]:   { name:"沙子",   tiles:[7,7,7] },
+  [B.WATER]:  { name:"水",     tiles:[8,8,8], transparent:true, liquid:true },
+  [B.PLANK]:  { name:"木板",   tiles:[9,9,9] },
+  [B.GLASS]:  { name:"玻璃",   tiles:[10,10,10], transparent:true },
+  [B.BRICK]:  { name:"红砖",   tiles:[11,11,11] },
+  [B.SNOW]:   { name:"雪地",   tiles:[12,2,13] },
+  [B.COBBLE]: { name:"圆石",   tiles:[14,14,14] },
+  [B.GLOW]:   { name:"萤石",   tiles:[15,15,15] },
+};
+const isSolid = id => id !== AIR && id !== B.WATER;
+const isOpaque = id => id !== AIR && !(BLOCK_DEF[id] && BLOCK_DEF[id].transparent);
+
+// 物品栏(9格)
+const HOTBAR = [B.GRASS, B.DIRT, B.STONE, B.WOOD, B.PLANK, B.GLASS, B.BRICK, B.GLOW, B.SAND];
+let hotIndex = 0;
+
+// ---------- 噪声 ----------
+let SEED = (Math.random()*1e9)|0;
+function hash2(x,y){ let n = x*374761393 + y*668265263 + SEED*69069; n=(n^(n>>13))*1274126177; n=n^(n>>16); return (n&0x7fffffff)/0x7fffffff; }
+function hash3(x,y,z){ let n = x*374761393 + y*668265263 + z*2147483647 + SEED*40503; n=(n^(n>>13))*1274126177; n=n^(n>>16); return (n&0x7fffffff)/0x7fffffff; }
+const smooth = t => t*t*(3-2*t);
+function noise2(x,y){
+  const xi=Math.floor(x), yi=Math.floor(y), xf=x-xi, yf=y-yi;
+  const a=hash2(xi,yi), b=hash2(xi+1,yi), c=hash2(xi,yi+1), d=hash2(xi+1,yi+1);
+  const u=smooth(xf), v=smooth(yf);
+  return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v;
+}
+function fbm2(x,y,oct){
+  let v=0, amp=.5, f=1;
+  for(let i=0;i<oct;i++){ v+=noise2(x*f,y*f)*amp; f*=2; amp*=.5; }
+  return v;
+}
+function noise3(x,y,z){
+  const xi=Math.floor(x), yi=Math.floor(y), zi=Math.floor(z);
+  const xf=x-xi, yf=y-yi, zf=z-zi;
+  const u=smooth(xf), v=smooth(yf), w=smooth(zf);
+  function lerp(a,b,t){return a+(b-a)*t;}
+  const c000=hash3(xi,yi,zi),     c100=hash3(xi+1,yi,zi),
+        c010=hash3(xi,yi+1,zi),   c110=hash3(xi+1,yi+1,zi),
+        c001=hash3(xi,yi,zi+1),   c101=hash3(xi+1,yi,zi+1),
+        c011=hash3(xi,yi+1,zi+1), c111=hash3(xi+1,yi+1,zi+1);
+  return lerp(lerp(lerp(c000,c100,u),lerp(c010,c110,u),v),
+              lerp(lerp(c001,c101,u),lerp(c011,c111,u),v), w);
+}
+
+// ---------- 世界数据 ----------
+const world = new Uint8Array(SX*SY*SZ);
+const idx = (x,y,z) => x + z*SX + y*SX*SZ;
+function getBlock(x,y,z){
+  if(x<0||x>=SX||y<0||y>=SY||z<0||z>=SZ) return AIR;
+  return world[idx(x,y,z)];
+}
+function setBlockData(x,y,z,id){
+  if(x<0||x>=SX||y<0||y>=SY||z<0||z>=SZ) return;
+  world[idx(x,y,z)] = id;
+}
+
+function generateWorld(){
+  const heightMap = new Int16Array(SX*SZ);
+  for(let x=0;x<SX;x++) for(let z=0;z<SZ;z++){
+    const n = fbm2(x*0.035, z*0.035, 4);
+    const mountain = Math.pow(Math.max(0, fbm2(x*0.015+100, z*0.015+100, 3)-0.45), 1.6)*55;
+    let h = Math.floor(8 + n*14 + mountain);
+    h = Math.max(3, Math.min(SY-8, h));
+    heightMap[x+z*SX] = h;
+    for(let y=0;y<=h;y++){
+      let id;
+      if(y===h){
+        if(h >= 30) id = B.SNOW;
+        else if(h <= WATER_LEVEL+1) id = B.SAND;
+        else id = B.GRASS;
+      } else if(y >= h-3) id = (h<=WATER_LEVEL+1) ? B.SAND : B.DIRT;
+      else id = B.STONE;
+      setBlockData(x,y,z,id);
+    }
+    // 水
+    for(let y=h+1;y<=WATER_LEVEL;y++) setBlockData(x,y,z,B.WATER);
+  }
+  // 洞穴
+  for(let x=1;x<SX-1;x++) for(let z=1;z<SZ-1;z++){
+    const h = heightMap[x+z*SX];
+    for(let y=3;y<h-3;y++){
+      if(noise3(x*0.10, y*0.10, z*0.10) > 0.68) setBlockData(x,y,z,AIR);
+    }
+  }
+  // 树
+  for(let i=0;i<170;i++){
+    const x = 3+((hash2(i,7)* (SX-6))|0), z = 3+((hash2(i,13)*(SZ-6))|0);
+    const h = heightMap[x+z*SX];
+    if(getBlock(x,h,z)!==B.GRASS || h+7>=SY) continue;
+    const th = 4 + ((hash2(i,29)*3)|0);
+    for(let y=1;y<=th;y++) setBlockData(x,h+y,z,B.WOOD);
+    for(let dx=-2;dx<=2;dx++) for(let dz=-2;dz<=2;dz++) for(let dy=th-1;dy<=th+2;dy++){
+      const r = Math.abs(dx)+Math.abs(dz)+(dy-th+1)*0.7;
+      if(r<=3.4 && hash3(x+dx,h+dy,z+dz)>0.12 && getBlock(x+dx,h+dy,z+dz)===AIR)
+        setBlockData(x+dx,h+dy,z+dz,B.LEAVES);
+    }
+  }
+  return heightMap;
+}
+
+// ---------- 纹理图集(Canvas 程序化生成) ----------
+function makeAtlas(){
+  const T=16, COLS=8, ROWS=2;
+  const cv = document.createElement('canvas');
+  cv.width=T*COLS; cv.height=T*ROWS;
+  const g = cv.getContext('2d');
+  let rs = 12345;
+  const rnd = () => (rs = (rs*16807)%2147483647)/2147483647;
+  function fill(tile, base, vary, fn){
+    const tx=(tile%COLS)*T, ty=Math.floor(tile/COLS)*T;
+    for(let px=0;px<T;px++) for(let py=0;py<T;py++){
+      let [r,gc,b] = base;
+      const v = (rnd()-0.5)*2*vary;
+      r+=v; gc+=v; b+=v;
+      if(fn){ const o=fn(px,py,r,gc,b); if(o){[r,gc,b]=o;} }
+      g.fillStyle=`rgb(${r|0},${gc|0},${b|0})`;
+      g.fillRect(tx+px,ty+py,1,1);
+    }
+  }
+  fill(0,[106,170,70],14);                                    // 草顶
+  fill(1,[134,96,67],12,(x,y,r,gc,b)=> y<3+(x%3===0?1:0) ? [98,160,66+ (x%2)*8] : null); // 草侧
+  fill(2,[134,96,67],13);                                     // 泥土
+  fill(3,[125,125,125],11);                                   // 石头
+  fill(4,[102,81,50],8,(x,y,r,gc,b)=> (x%4===0)?[r-18,gc-15,b-10]:null);  // 原木侧
+  fill(5,[152,123,73],8,(x,y,r,gc,b)=>{ const d=Math.max(Math.abs(x-7.5),Math.abs(y-7.5)); return (d%3<1)?[r-25,gc-20,b-12]:null; }); // 原木顶
+  fill(6,[58,124,48],18,(x,y,r,gc,b)=> hashPix(x,y)>0.86?[r-30,gc-30,b-20]:null); // 树叶
+  function hashPix(x,y){ return (((x*73856093 ^ y*19349663)>>>0) % 1000)/1000; }
+  fill(7,[219,206,160],10);                                   // 沙
+  fill(8,[52,110,200],10,(x,y,r,gc,b)=> (y+x)%8<2?[r+15,gc+20,b+25]:null); // 水
+  fill(9,[181,148,92],7,(x,y,r,gc,b)=> (y%4===3)?[r-30,gc-26,b-18] : ((y%8<4? x===7 : x===15||x===0)?[r-22,gc-18,b-12]:null)); // 木板
+  fill(10,[205,230,240],4,(x,y,r,gc,b)=>{ if(x===0||y===0||x===15||y===15) return [150,190,205]; if((x+y)%9===0) return [235,248,252]; return null; }); // 玻璃
+  fill(11,[150,70,58],9,(x,y,r,gc,b)=>{ const row=Math.floor(y/4); const off=row%2?4:0; if(y%4===3||((x+off)%8===7)) return [200,196,190]; return null; }); // 砖
+  fill(12,[238,242,246],6);                                   // 雪顶
+  fill(13,[134,96,67],10,(x,y,r,gc,b)=> y<4?[238,242,246]:null); // 雪侧
+  fill(14,[110,110,112],14,(x,y,r,gc,b)=>{ const cx=(x%8)-4, cy=(y%8)-4; return (cx*cx+cy*cy>14)?[r-22,gc-22,b-22]:null; }); // 圆石
+  fill(15,[240,205,110],18,(x,y,r,gc,b)=> hashPix(x*3,y*5)>0.8?[255,235,170]:null); // 萤石
+  const tex = new THREE.CanvasTexture(cv);
+  tex.magFilter = THREE.NearestFilter;
+  tex.minFilter = THREE.NearestFilter;
+  return {tex, cv, T, COLS, ROWS};
+}
+
+// ---------- 渲染 ----------
+const container = document.getElementById('game');
+const renderer = new THREE.WebGLRenderer({ antialias:false, powerPreference:'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x87ceeb, 40, 150);
+const camera = new THREE.PerspectiveCamera(72, window.innerWidth/window.innerHeight, 0.08, 400);
+
+const hemi = new THREE.HemisphereLight(0xcfe8ff, 0x6b5a43, 0.85);
+scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 0.9);
+sun.position.set(60, 100, 30);
+scene.add(sun);
+
+const atlas = makeAtlas();
+const matOpaque = new THREE.MeshLambertMaterial({ map:atlas.tex, vertexColors:true });
+const matTrans  = new THREE.MeshLambertMaterial({ map:atlas.tex, vertexColors:true, transparent:true, opacity:0.72, depthWrite:false, side:THREE.DoubleSide });
+
+// 太阳/月亮
+const sunMesh = new THREE.Mesh(new THREE.PlaneGeometry(12,12), new THREE.MeshBasicMaterial({color:0xffe9a8, fog:false}));
+const moonMesh = new THREE.Mesh(new THREE.PlaneGeometry(8,8), new THREE.MeshBasicMaterial({color:0xdfe8ff, fog:false}));
+scene.add(sunMesh, moonMesh);
+
+// 云
+const cloudGroup = new THREE.Group();
+const cloudMat = new THREE.MeshLambertMaterial({color:0xffffff, transparent:true, opacity:0.85});
+for(let i=0;i<22;i++){
+  const w=6+Math.random()*16, d=4+Math.random()*10;
+  const c = new THREE.Mesh(new THREE.BoxGeometry(w,1.2,d), cloudMat);
+  c.position.set(Math.random()*SX*1.6-SX*0.3, 42+Math.random()*6, Math.random()*SZ*1.6-SZ*0.3);
+  cloudGroup.add(c);
+}
+scene.add(cloudGroup);
+
+// 选中方块高亮
+const selBox = new THREE.LineSegments(
+  new THREE.EdgesGeometry(new THREE.BoxGeometry(1.002,1.002,1.002)),
+  new THREE.LineBasicMaterial({color:0x000000, transparent:true, opacity:0.6})
+);
+selBox.visible=false; scene.add(selBox);
+
+// ---------- 区块网格 ----------
+const FACES = [
+  { dir:[-1,0,0], shade:0.72, corners:[ {p:[0,1,0],uv:[0,1]},{p:[0,0,0],uv:[0,0]},{p:[0,1,1],uv:[1,1]},{p:[0,0,1],uv:[1,0]} ]},
+  { dir:[ 1,0,0], shade:0.72, corners:[ {p:[1,1,1],uv:[0,1]},{p:[1,0,1],uv:[0,0]},{p:[1,1,0],uv:[1,1]},{p:[1,0,0],uv:[1,0]} ]},
+  { dir:[0,-1,0], shade:0.50, corners:[ {p:[1,0,1],uv:[1,0]},{p:[0,0,1],uv:[0,0]},{p:[1,0,0],uv:[1,1]},{p:[0,0,0],uv:[0,1]} ]},
+  { dir:[0, 1,0], shade:1.00, corners:[ {p:[0,1,1],uv:[1,1]},{p:[1,1,1],uv:[0,1]},{p:[0,1,0],uv:[1,0]},{p:[1,1,0],uv:[0,0]} ]},
+  { dir:[0,0,-1], shade:0.82, corners:[ {p:[1,0,0],uv:[0,0]},{p:[0,0,0],uv:[1,0]},{p:[1,1,0],uv:[0,1]},{p:[0,1,0],uv:[1,1]} ]},
+  { dir:[0,0, 1], shade:0.82, corners:[ {p:[0,0,1],uv:[0,0]},{p:[1,0,1],uv:[1,0]},{p:[0,1,1],uv:[0,1]},{p:[1,1,1],uv:[1,1]} ]},
+];
+const NCX = SX/CHUNK, NCZ = SZ/CHUNK;
+const chunkMeshes = {};   // key cx_cz -> {opaque, trans}
+
+function tileUV(tile){
+  const u0 = (tile % atlas.COLS)/atlas.COLS + 0.0015;
+  const u1 = (tile % atlas.COLS + 1)/atlas.COLS - 0.0015;
+  const row = Math.floor(tile/atlas.COLS);
+  const v1 = 1 - row/atlas.ROWS - 0.003;
+  const v0 = 1 - (row+1)/atlas.ROWS + 0.003;
+  return [u0,v0,u1,v1];
+}
+
+function buildChunk(cx,cz){
+  const key = cx+'_'+cz;
+  const old = chunkMeshes[key];
+  if(old){
+    scene.remove(old.opaque, old.trans);
+    old.opaque.geometry.dispose(); old.trans.geometry.dispose();
+  }
+  const sets = { o:{pos:[],nor:[],uv:[],col:[],ind:[]}, t:{pos:[],nor:[],uv:[],col:[],ind:[]} };
+  const x0=cx*CHUNK, z0=cz*CHUNK;
+  for(let x=x0;x<x0+CHUNK;x++) for(let z=z0;z<z0+CHUNK;z++) for(let y=0;y<SY;y++){
+    const id = world[idx(x,y,z)];
+    if(id===AIR) continue;
+    const def = BLOCK_DEF[id];
+    const isWater = id===B.WATER;
+    const target = def.transparent ? sets.t : sets.o;
+    for(const f of FACES){
+      const nx=x+f.dir[0], ny=y+f.dir[1], nz=z+f.dir[2];
+      const nb = getBlock(nx,ny,nz);
+      let show;
+      if(isWater) show = (nb===AIR);
+      else if(def.transparent) show = (nb===AIR || (nb!==id && !isOpaque(nb)));
+      else show = !isOpaque(nb);
+      if(!show) continue;
+      const tile = f.dir[1]===1 ? def.tiles[0] : f.dir[1]===-1 ? def.tiles[1] : def.tiles[2];
+      const [u0,v0,u1,v1] = tileUV(tile);
+      const base = target.pos.length/3;
+      for(const c of f.corners){
+        let py = y + c.p[1];
+        if(isWater && c.p[1]===1 && getBlock(x,y+1,z)!==B.WATER) py -= 0.12; // 水面略低
+        target.pos.push(x+c.p[0], py, z+c.p[2]);
+        target.nor.push(...f.dir);
+        target.uv.push(c.uv[0]?u1:u0, c.uv[1]?v1:v0);
+        target.col.push(f.shade, f.shade, f.shade);
+      }
+      target.ind.push(base,base+1,base+2, base+2,base+1,base+3);
+    }
+  }
+  function toMesh(s, mat){
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(s.pos,3));
+    geo.setAttribute('normal',   new THREE.Float32BufferAttribute(s.nor,3));
+    geo.setAttribute('uv',       new THREE.Float32BufferAttribute(s.uv,2));
+    geo.setAttribute('color',    new THREE.Float32BufferAttribute(s.col,3));
+    geo.setIndex(s.ind);
+    const m = new THREE.Mesh(geo, mat);
+    m.frustumCulled = true;
+    return m;
+  }
+  const opaque = toMesh(sets.o, matOpaque);
+  const trans  = toMesh(sets.t, matTrans);
+  scene.add(opaque, trans);
+  chunkMeshes[key] = {opaque, trans};
+}
+
+function rebuildAt(x,z){
+  const cx = Math.floor(x/CHUNK), cz = Math.floor(z/CHUNK);
+  const list = [[cx,cz]];
+  if(x%CHUNK===0 && cx>0) list.push([cx-1,cz]);
+  if(x%CHUNK===CHUNK-1 && cx<NCX-1) list.push([cx+1,cz]);
+  if(z%CHUNK===0 && cz>0) list.push([cx,cz-1]);
+  if(z%CHUNK===CHUNK-1 && cz<NCZ-1) list.push([cx,cz+1]);
+  for(const [a,b] of list) buildChunk(a,b);
+}
+
+// ---------- 玩家 ----------
+const player = {
+  pos: new THREE.Vector3(SX/2+0.5, SY-2, SZ/2+0.5),
+  vel: new THREE.Vector3(),
+  yaw: Math.PI*0.25, pitch: -0.1,
+  onGround: false, flying: false,
+  W: 0.3, H: 1.8, EYE: 1.62
+};
+function inWater(){
+  const p = player.pos;
+  return getBlock(Math.floor(p.x), Math.floor(p.y+0.9), Math.floor(p.z)) === B.WATER;
+}
+function eyeInWater(){
+  const p = player.pos;
+  return getBlock(Math.floor(p.x), Math.floor(p.y+player.EYE), Math.floor(p.z)) === B.WATER;
+}
+function collideAxis(axis, amount){
+  const p = player.pos;
+  p[axis] += amount;
+  const minX=Math.floor(p.x-player.W), maxX=Math.floor(p.x+player.W);
+  const minY=Math.floor(p.y),          maxY=Math.floor(p.y+player.H);
+  const minZ=Math.floor(p.z-player.W), maxZ=Math.floor(p.z+player.W);
+  for(let x=minX;x<=maxX;x++) for(let y=minY;y<=maxY;y++) for(let z=minZ;z<=maxZ;z++){
+    const solid = (y<0) ? true : isSolid(getBlock(x,y,z));
+    if(!solid) continue;
+    if(axis==='x'){ p.x = amount>0 ? x-player.W-0.001 : x+1+player.W+0.001; player.vel.x=0; }
+    if(axis==='z'){ p.z = amount>0 ? z-player.W-0.001 : z+1+player.W+0.001; player.vel.z=0; }
+    if(axis==='y'){
+      if(amount>0){ p.y = y-player.H-0.001; player.vel.y=0; }
+      else { p.y = y+1+0.001; player.vel.y=0; player.onGround=true; }
+    }
+    return;
+  }
+  if(axis==='y' && amount<0) player.onGround=false;
+}
+function playerIntersects(bx,by,bz){
+  const p=player.pos;
+  return bx+1 > p.x-player.W && bx < p.x+player.W &&
+         bz+1 > p.z-player.W && bz < p.z+player.W &&
+         by+1 > p.y && by < p.y+player.H;
+}
+
+// ---------- 射线(DDA) ----------
+function raycast(maxDist){
+  const o = camera.position, d = new THREE.Vector3();
+  camera.getWorldDirection(d);
+  let x=Math.floor(o.x), y=Math.floor(o.y), z=Math.floor(o.z);
+  const stepX=Math.sign(d.x)||1, stepY=Math.sign(d.y)||1, stepZ=Math.sign(d.z)||1;
+  const tDX=Math.abs(1/(d.x||1e-9)), tDY=Math.abs(1/(d.y||1e-9)), tDZ=Math.abs(1/(d.z||1e-9));
+  let tX=(stepX>0 ? (x+1-o.x) : (o.x-x))*tDX;
+  let tY=(stepY>0 ? (y+1-o.y) : (o.y-y))*tDY;
+  let tZ=(stepZ>0 ? (z+1-o.z) : (o.z-z))*tDZ;
+  let face=[0,0,0], t=0;
+  while(t<=maxDist){
+    const id = getBlock(x,y,z);
+    if(id!==AIR && id!==B.WATER) return {x,y,z,id,face};
+    if(tX<tY && tX<tZ){ x+=stepX; t=tX; tX+=tDX; face=[-stepX,0,0]; }
+    else if(tY<tZ){ y+=stepY; t=tY; tY+=tDY; face=[0,-stepY,0]; }
+    else { z+=stepZ; t=tZ; tZ+=tDZ; face=[0,0,-stepZ]; }
+  }
+  return null;
+}
+
+// ---------- 粒子 ----------
+const particles = [];
+const partGeo = new THREE.BoxGeometry(0.13,0.13,0.13);
+function spawnParticles(x,y,z,tile){
+  const tx=(tile%atlas.COLS)*atlas.T+8, ty=Math.floor(tile/atlas.COLS)*atlas.T+8;
+  const d = atlas.cv.getContext('2d').getImageData(tx,ty,1,1).data;
+  const col = new THREE.Color(d[0]/255,d[1]/255,d[2]/255);
+  for(let i=0;i<10;i++){
+    const m = new THREE.Mesh(partGeo, new THREE.MeshLambertMaterial({color:col}));
+    m.position.set(x+0.5+(Math.random()-0.5)*0.6, y+0.5+(Math.random()-0.5)*0.6, z+0.5+(Math.random()-0.5)*0.6);
+    m.userData.vel = new THREE.Vector3((Math.random()-0.5)*3.4, Math.random()*4+1.2, (Math.random()-0.5)*3.4);
+    m.userData.life = 0.7+Math.random()*0.4;
+    scene.add(m); particles.push(m);
+  }
+}
+function updateParticles(dt){
+  for(let i=particles.length-1;i>=0;i--){
+    const p = particles[i];
+    p.userData.life -= dt;
+    p.userData.vel.y -= 12*dt;
+    p.position.addScaledVector(p.userData.vel, dt);
+    p.scale.setScalar(Math.max(0.05, p.userData.life));
+    if(p.userData.life<=0){ scene.remove(p); p.material.dispose(); particles.splice(i,1); }
+  }
+}
+
+// ---------- 音效 ----------
+let actx = null;
+function sfx(type){
+  try{
+    if(!actx) actx = new (window.AudioContext||window.webkitAudioContext)();
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.connect(g); g.connect(actx.destination);
+    const now = actx.currentTime;
+    if(type==='break'){ o.type='square'; o.frequency.setValueAtTime(190,now); o.frequency.exponentialRampToValueAtTime(70,now+0.09); g.gain.setValueAtTime(0.10,now); }
+    else if(type==='place'){ o.type='triangle'; o.frequency.setValueAtTime(330,now); o.frequency.exponentialRampToValueAtTime(220,now+0.07); g.gain.setValueAtTime(0.10,now); }
+    else { o.type='sine'; o.frequency.setValueAtTime(520,now); g.gain.setValueAtTime(0.06,now); }
+    g.gain.exponentialRampToValueAtTime(0.001, now+0.12);
+    o.start(now); o.stop(now+0.13);
+  }catch(e){}
+}
+
+// ---------- 挖掘 / 放置 ----------
+function mine(){
+  const hit = raycast(6);
+  if(!hit || hit.y<=0) return; // 基岩层不可挖
+  const def = BLOCK_DEF[hit.id];
+  spawnParticles(hit.x,hit.y,hit.z, def.tiles[2]);
+  setBlockData(hit.x,hit.y,hit.z, AIR);
+  // 上方若是水则流下来一格(简化)
+  if(getBlock(hit.x,hit.y+1,hit.z)===B.WATER) setBlockData(hit.x,hit.y,z,B.WATER);
+  rebuildAt(hit.x,hit.z);
+  sfx('break');
+}
+function place(){
+  const hit = raycast(6);
+  if(!hit) return;
+  const x=hit.x+hit.face[0], y=hit.y+hit.face[1], z=hit.z+hit.face[2];
+  if(y<0||y>=SY) return;
+  const cur = getBlock(x,y,z);
+  if(cur!==AIR && cur!==B.WATER) return;
+  if(playerIntersects(x,y,z)) return;
+  setBlockData(x,y,z, HOTBAR[hotIndex]);
+  rebuildAt(x,z);
+  sfx('place');
+}
+
+// ---------- 输入 ----------
+const keys = {};
+let lastSpace = 0;
+let pointerLocked = false;
+const moveInput = {x:0, z:0};   // 摇杆
+
+document.addEventListener('keydown', e=>{
+  keys[e.code]=true;
+  if(e.code==='Space'){
+    e.preventDefault();
+    const now = performance.now();
+    if(now-lastSpace<280){ toggleFly(); }
+    lastSpace=now;
+  }
+  if(e.code.startsWith('Digit')){
+    const n = +e.code.slice(5);
+    if(n>=1 && n<=9){ hotIndex=n-1; updateHotbar(); }
+  }
+  if(e.code==='KeyF') toggleFly();
+});
+document.addEventListener('keyup', e=> keys[e.code]=false);
+document.addEventListener('wheel', e=>{
+  if(!playing) return;
+  hotIndex = (hotIndex + (e.deltaY>0?1:-1) + 9) % 9;
+  updateHotbar();
+});
+
+function toggleFly(){
+  player.flying = !player.flying;
+  player.vel.set(0,0,0);
+  toast(player.flying ? '🕊 飞行模式开启' : '🚶 飞行模式关闭');
+}
+
+renderer.domElement.addEventListener('mousedown', e=>{
+  if(IS_TOUCH || !playing) return;
+  if(!pointerLocked){ renderer.domElement.requestPointerLock(); return; }
+  if(e.button===0) mine();
+  if(e.button===2) place();
+});
+document.addEventListener('contextmenu', e=> e.preventDefault());
+document.addEventListener('pointerlockchange', ()=>{
+  pointerLocked = document.pointerLockElement === renderer.domElement;
+  if(!pointerLocked && playing && !IS_TOUCH) showPause();
+});
+document.addEventListener('mousemove', e=>{
+  if(!pointerLocked) return;
+  player.yaw   -= e.movementX*0.0023;
+  player.pitch -= e.movementY*0.0023;
+  player.pitch = Math.max(-1.55, Math.min(1.55, player.pitch));
+});
+
+// ---------- 触屏 ----------
+const joyZone=document.getElementById('joyZone'), joyBase=document.getElementById('joyBase'), joyStick=document.getElementById('joyStick');
+let joyId=null, joyOrigin={x:0,y:0};
+let lookId=null, lookLast={x:0,y:0};
+
+if(IS_TOUCH){
+  document.getElementById('helpDesktop').style.display='none';
+  document.getElementById('helpMobile').style.display='block';
+
+  joyZone.style.display='block';
+  joyZone.addEventListener('touchstart', e=>{
+    const t=e.changedTouches[0];
+    joyId=t.identifier; joyOrigin={x:t.clientX,y:t.clientY};
+    joyBase.style.display=joyStick.style.display='block';
+    joyBase.style.left=(t.clientX-55)+'px'; joyBase.style.top=(t.clientY-55)+'px';
+    joyStick.style.left=(t.clientX-25)+'px'; joyStick.style.top=(t.clientY-25)+'px';
+    e.preventDefault();
+  },{passive:false});
+  joyZone.addEventListener('touchmove', e=>{
+    for(const t of e.changedTouches){
+      if(t.identifier!==joyId) continue;
+      let dx=t.clientX-joyOrigin.x, dy=t.clientY-joyOrigin.y;
+      const len=Math.hypot(dx,dy), max=55;
+      if(len>max){ dx*=max/len; dy*=max/len; }
+      joyStick.style.left=(joyOrigin.x+dx-25)+'px'; joyStick.style.top=(joyOrigin.y+dy-25)+'px';
+      moveInput.x=dx/max; moveInput.z=dy/max;
+    }
+    e.preventDefault();
+  },{passive:false});
+  const joyEnd = e=>{
+    for(const t of e.changedTouches){
+      if(t.identifier!==joyId) continue;
+      joyId=null; moveInput.x=moveInput.z=0;
+      joyBase.style.display=joyStick.style.display='none';
+    }
+  };
+  joyZone.addEventListener('touchend', joyEnd);
+  joyZone.addEventListener('touchcancel', joyEnd);
+
+  // 右侧视角
+  renderer.domElement.addEventListener('touchstart', e=>{
+    for(const t of e.changedTouches){
+      if(t.clientX > window.innerWidth*0.45 && lookId===null){
+        lookId=t.identifier; lookLast={x:t.clientX,y:t.clientY};
+      }
+    }
+  },{passive:true});
+  renderer.domElement.addEventListener('touchmove', e=>{
+    for(const t of e.changedTouches){
+      if(t.identifier!==lookId) continue;
+      player.yaw   -= (t.clientX-lookLast.x)*0.0046;
+      player.pitch -= (t.clientY-lookLast.y)*0.0046;
+      player.pitch = Math.max(-1.55, Math.min(1.55, player.pitch));
+      lookLast={x:t.clientX,y:t.clientY};
+    }
+    e.preventDefault();
+  },{passive:false});
+  const lookEnd = e=>{ for(const t of e.changedTouches){ if(t.identifier===lookId) lookId=null; } };
+  renderer.domElement.addEventListener('touchend', lookEnd);
+  renderer.domElement.addEventListener('touchcancel', lookEnd);
+
+  const bind=(id,fn,repeat)=>{
+    const el=document.getElementById(id);
+    el.style.display='flex';
+    let timer=null;
+    el.addEventListener('touchstart', e=>{
+      e.preventDefault(); fn();
+      if(repeat) timer=setInterval(fn, 240);
+    },{passive:false});
+    const stop=()=>{ if(timer){clearInterval(timer); timer=null;} };
+    el.addEventListener('touchend', stop);
+    el.addEventListener('touchcancel', stop);
+    return el;
+  };
+  bind('btnMine', mine, true);
+  bind('btnPlace', place, false);
+  bind('btnFly', toggleFly, false);
+  const jumpEl=document.getElementById('btnJump');
+  jumpEl.style.display='flex';
+  jumpEl.addEventListener('touchstart', e=>{ e.preventDefault(); keys['Space']=true; },{passive:false});
+  jumpEl.addEventListener('touchend', ()=> keys['Space']=false);
+  jumpEl.addEventListener('touchcancel', ()=> keys['Space']=false);
+  // 飞行时长按"挖"旁边——简化:飞行时双指触底降?直接用:飞行中按住跳=升,放开自然悬停;再加 Shift 等价 → 双击跳=降一段
+  let lastJumpTap=0;
+  jumpEl.addEventListener('touchstart', ()=>{
+    const now=performance.now();
+    if(player.flying && now-lastJumpTap<300) keys['ShiftLeft']=true;
+    lastJumpTap=now;
+  });
+  jumpEl.addEventListener('touchend', ()=> keys['ShiftLeft']=false);
+}
+
+// ---------- UI ----------
+const hotbarEl = document.getElementById('hotbar');
+function buildHotbar(){
+  hotbarEl.innerHTML='';
+  HOTBAR.forEach((id,i)=>{
+    const slot=document.createElement('div');
+    slot.className='slot'+(i===hotIndex?' active':'');
+    const cv=document.createElement('canvas'); cv.width=16; cv.height=16;
+    const tile=BLOCK_DEF[id].tiles[2];
+    cv.getContext('2d').drawImage(atlas.cv,(tile%atlas.COLS)*16,Math.floor(tile/atlas.COLS)*16,16,16,0,0,16,16);
+    const num=document.createElement('span'); num.className='num'; num.textContent=i+1;
+    const lab=document.createElement('span'); lab.className='label'; lab.textContent=BLOCK_DEF[id].name;
+    slot.append(cv,num,lab);
+    slot.addEventListener('pointerdown', e=>{ e.stopPropagation(); hotIndex=i; updateHotbar(); });
+    hotbarEl.appendChild(slot);
+  });
+}
+function updateHotbar(){
+  [...hotbarEl.children].forEach((s,i)=> s.classList.toggle('active', i===hotIndex));
+}
+let toastTimer=null;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.opacity=1;
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=> t.style.opacity=0, 1600);
+}
+
+// ---------- 昼夜 ----------
+let dayTime = 0.30; // 0~1,0.25=正午
+function updateDayNight(dt){
+  dayTime = (dayTime + dt/DAY_LENGTH) % 1;
+  const ang = dayTime*Math.PI*2;
+  const sunY = Math.sin(ang), sunX = Math.cos(ang);
+  const c = camera.position;
+  sun.position.set(c.x+sunX*80, sunY*100, c.z+30);
+  sunMesh.position.set(c.x+sunX*180, sunY*180, c.z+40);
+  moonMesh.position.set(c.x-sunX*180, -sunY*180, c.z-40);
+  sunMesh.lookAt(c); moonMesh.lookAt(c);
+  const day = Math.max(0, Math.min(1, sunY*2.2+0.25));
+  sun.intensity = 0.15 + day*0.85;
+  hemi.intensity = 0.25 + day*0.65;
+  const skyDay = new THREE.Color(0x87ceeb), skyNight = new THREE.Color(0x0a1226);
+  const sky = skyNight.clone().lerp(skyDay, day);
+  if(eyeInWater()){ sky.setRGB(sky.r*0.25, sky.g*0.45, sky.b*0.9); scene.fog.near=4; scene.fog.far=28; }
+  else { scene.fog.near=40; scene.fog.far=150; }
+  scene.background = sky;
+  scene.fog.color = sky;
+  const hours = Math.floor(((dayTime+0.0)*24+6)%24), mins = Math.floor((dayTime*24*60)%60);
+  document.getElementById('clockTxt').textContent = String(hours).padStart(2,'0')+':'+String(mins).padStart(2,'0');
+  document.getElementById('clockIco').textContent = day>0.35 ? '☀️' : '🌙';
+}
+
+// ---------- 主循环 ----------
+let playing=false, lastT=performance.now(), fps=0, fpsAcc=0, fpsN=0;
+function tick(){
+  requestAnimationFrame(tick);
+  const now = performance.now();
+  let dt = Math.min(0.05, (now-lastT)/1000);
+  lastT = now;
+  if(!playing){ renderer.render(scene,camera); return; }
+
+  // 输入向量
+  let mx = moveInput.x, mz = moveInput.z;
+  if(keys['KeyW']) mz-=1; if(keys['KeyS']) mz+=1;
+  if(keys['KeyA']) mx-=1; if(keys['KeyD']) mx+=1;
+  const ml = Math.hypot(mx,mz); if(ml>1){ mx/=ml; mz/=ml; }
+  const sin=Math.sin(player.yaw), cos=Math.cos(player.yaw);
+  const wx =  mx*cos + mz*sin;     // 世界坐标 X
+  const wz = -mx*sin + mz*cos;     // 世界坐标 Z
+
+  const water = inWater();
+  const speed = player.flying ? 12 : (water ? 3.2 : 5.6);
+
+  if(player.flying){
+    player.vel.x = wx*speed; player.vel.z = wz*speed;
+    player.vel.y = (keys['Space']?speed*0.8:0) + (keys['ShiftLeft']||keys['ShiftRight']?-speed*0.8:0);
+  } else {
+    player.vel.x = wx*speed; player.vel.z = wz*speed;
+    if(water){
+      player.vel.y += -6*dt;
+      if(keys['Space']) player.vel.y = Math.min(player.vel.y+22*dt, 3.5);
+      player.vel.y = Math.max(player.vel.y, -2.5);
+    } else {
+      player.vel.y -= 26*dt;
+      if(keys['Space'] && player.onGround){ player.vel.y = 8.6; player.onGround=false; }
+    }
+  }
+  collideAxis('x', player.vel.x*dt);
+  collideAxis('z', player.vel.z*dt);
+  collideAxis('y', player.vel.y*dt);
+  if(player.flying && player.onGround){} // 落地不退出飞行,自由
+
+  // 掉出世界重生
+  if(player.pos.y < -12){ player.pos.set(SX/2+0.5, SY-2, SZ/2+0.5); player.vel.set(0,0,0); toast('🌀 重新出生'); }
+
+  // 相机
+  camera.position.set(player.pos.x, player.pos.y+player.EYE, player.pos.z);
+  camera.rotation.order='YXZ';
+  camera.rotation.y = player.yaw;
+  camera.rotation.x = player.pitch;
+
+  // 准星目标
+  const hit = raycast(6);
+  if(hit){ selBox.visible=true; selBox.position.set(hit.x+0.5,hit.y+0.5,hit.z+0.5); }
+  else selBox.visible=false;
+
+  cloudGroup.position.x += dt*0.7;
+  if(cloudGroup.position.x > SX) cloudGroup.position.x = -SX*0.5;
+
+  updateParticles(dt);
+  updateDayNight(dt);
+
+  fpsAcc+=dt; fpsN++;
+  if(fpsAcc>0.5){ fps=Math.round(fpsN/fpsAcc); fpsAcc=0; fpsN=0;
+    document.getElementById('info').innerHTML =
+      `坐标 ${player.pos.x.toFixed(0)}, ${player.pos.y.toFixed(0)}, ${player.pos.z.toFixed(0)}<br>` +
+      `${fps} FPS${player.flying?' · 🕊飞行中':''}${water?' · 🌊水中':''}`;
+  }
+  renderer.render(scene,camera);
+}
+
+// ---------- 启动 ----------
+const overlay=document.getElementById('overlay'), startBtn=document.getElementById('startBtn');
+let worldReady=false;
+function showPause(){
+  playing=false;
+  overlay.classList.remove('hidden');
+  startBtn.textContent='继 续 游 戏';
+}
+startBtn.addEventListener('click', ()=>{
+  sfx('ui');
+  if(!worldReady){
+    startBtn.disabled=true; startBtn.textContent='生成世界中…';
+    document.getElementById('genBar').style.display='block';
+    setTimeout(()=>{
+      generateWorld();
+      document.getElementById('genFill').style.width='55%';
+      setTimeout(()=>{
+        for(let cx=0;cx<NCX;cx++) for(let cz=0;cz<NCZ;cz++) buildChunk(cx,cz);
+        // 出生点放到地表
+        let sy=SY-1; while(sy>0 && getBlock(SX/2|0, sy-1, SZ/2|0)===AIR) sy--;
+        player.pos.set(SX/2+0.5, Math.max(sy, WATER_LEVEL+1)+0.2, SZ/2+0.5);
+        document.getElementById('genFill').style.width='100%';
+        worldReady=true;
+        startBtn.disabled=false;
+        enterGame();
+      }, 30);
+    }, 50);
+  } else enterGame();
+});
+function enterGame(){
+  overlay.classList.add('hidden');
+  document.getElementById('genBar').style.display='none';
+  ['crosshair','hotbar','info','clock'].forEach(id=> document.getElementById(id).style.display = id==='hotbar'?'flex': id==='clock'?'flex':'block');
+  buildHotbar();
+  playing=true;
+  lastT=performance.now();
+  if(!IS_TOUCH) renderer.domElement.requestPointerLock();
+}
+window.addEventListener('resize', ()=>{
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+tick();
+</script>
+</body>
+</html>
