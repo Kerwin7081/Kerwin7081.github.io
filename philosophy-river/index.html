@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哲学长河 · 从古希腊到当代的西方哲学地图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --marble:#f4f2ec;        /* 雅典大理石 */
+  --paper:#fbfaf6;         /* 卡片纸面 */
+  --ink:#1d2433;           /* 墨蓝黑 */
+  --aegean:#23527c;        /* 爱琴海蓝 */
+  --ochre:#a97e2f;         /* 赭金 */
+  --wine:#7c3a48;          /* 酒红（19世纪） */
+  --olive:#5c6b4f;         /* 橄榄绿（20世纪） */
+  --muted:#6b6f78;
+  --line:#d9d4c7;
+  --rail:3px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--marble);
+  color:var(--ink);
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:400;
+  line-height:1.85;
+  font-size:16px;
+}
+::selection{background:var(--ochre);color:#fff;}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  padding:96px 24px 72px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(35,82,124,.10), transparent 60%),
+    var(--marble);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+}
+.hero .greek{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+  letter-spacing:.55em;
+  text-transform:uppercase;
+  color:var(--ochre);
+  margin-bottom:28px;
+}
+.hero h1{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(38px,7vw,68px);
+  letter-spacing:.06em;
+  line-height:1.25;
+}
+.hero h1 .thin{font-weight:400;}
+.hero .sub{
+  margin:26px auto 0;
+  max-width:620px;
+  color:var(--muted);
+  font-size:16.5px;
+}
+.hero .span-years{
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  margin-top:40px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;
+  letter-spacing:.18em;
+  color:var(--aegean);
+}
+.hero .span-years::before,
+.hero .span-years::after{
+  content:"";
+  width:64px;height:1px;background:var(--ochre);
+}
+.hero-cols{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:54px;
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* ---------- 阅读指南 ---------- */
+.howto{
+  max-width:880px;
+  margin:0 auto;
+  padding:56px 24px 8px;
+}
+.howto p{color:#3c4250;font-size:16px;margin-bottom:14px;}
+.howto .key{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:4px solid var(--ochre);
+  padding:20px 24px;
+  margin-top:24px;
+  font-size:15.5px;
+}
+.howto .key b{color:var(--aegean);}
+
+/* ---------- 时间轴主体 ---------- */
+.river{
+  position:relative;
+  max-width:1020px;
+  margin:48px auto 0;
+  padding:0 24px 80px;
+}
+.river::before{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  left:calc(24px + 70px);
+  width:var(--rail);
+  background:linear-gradient(180deg,
+    var(--ochre) 0%, var(--ochre) 22%,
+    #5d4a7a 27%, #5d4a7a 36%,
+    var(--aegean) 41%, var(--aegean) 62%,
+    var(--wine) 66%, var(--wine) 78%,
+    var(--olive) 82%, var(--olive) 100%);
+  border-radius:3px;
+  opacity:.85;
+}
+.era{
+  position:relative;
+  padding-left:128px;
+  margin-bottom:96px;
+}
+.era-node{
+  position:absolute;
+  left:46px;
+  top:6px;
+  width:51px;height:51px;
+  border-radius:50%;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:11.5px;
+  font-weight:600;
+  text-align:center;
+  line-height:1.2;
+  z-index:2;
+  box-shadow:0 0 0 6px var(--marble);
+}
+.era[data-c="gold"] .era-node{border-color:var(--ochre);color:var(--ochre);}
+.era[data-c="purple"] .era-node{border-color:#5d4a7a;color:#5d4a7a;}
+.era[data-c="blue"] .era-node{border-color:var(--aegean);color:var(--aegean);}
+.era[data-c="wine"] .era-node{border-color:var(--wine);color:var(--wine);}
+.era[data-c="olive"] .era-node{border-color:var(--olive);color:var(--olive);}
+
+.era-head{margin-bottom:10px;}
+.era-head .latin{
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.era-head h2{
+  font-family:'Noto Serif SC',serif;
+  font-weight:700;
+  font-size:clamp(26px,4vw,34px);
+  letter-spacing:.04em;
+  margin-top:4px;
+}
+.era[data-c="gold"] h2{color:#8a6520;}
+.era[data-c="purple"] h2{color:#4e3d68;}
+.era[data-c="blue"] h2{color:#1d4569;}
+.era[data-c="wine"] h2{color:#6d3140;}
+.era[data-c="olive"] h2{color:#49563e;}
+.era-head .era-years{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;
+  letter-spacing:.12em;
+  color:var(--ochre);
+  margin-top:2px;
+}
+.era-intro{
+  color:#3c4250;
+  max-width:760px;
+  margin:14px 0 30px;
+  font-size:16px;
+}
+
+/* ---------- 流派卡片 ---------- */
+.school{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:34px 36px 30px;
+  margin-bottom:34px;
+  box-shadow:0 1px 0 rgba(29,36,51,.04), 0 10px 30px -24px rgba(29,36,51,.25);
+}
+.school-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:18px;
+}
+.school-head h3{
+  font-family:'Noto Serif SC',serif;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:.05em;
+}
+.school-head .tag{
+  font-size:12.5px;
+  letter-spacing:.1em;
+  color:var(--paper);
+  background:var(--aegean);
+  padding:2px 10px;
+  border-radius:2px;
+}
+.era[data-c="gold"] .tag{background:var(--ochre);}
+.era[data-c="purple"] .tag{background:#5d4a7a;}
+.era[data-c="wine"] .tag{background:var(--wine);}
+.era[data-c="olive"] .tag{background:var(--olive);}
+.oneliner{
+  font-family:'Noto Serif SC',serif;
+  font-size:17px;
+  color:var(--aegean);
+  margin-bottom:14px;
+}
+.oneliner::before{content:"一句话：";color:var(--ochre);font-size:14px;letter-spacing:.1em;margin-right:6px;}
+.school > p{margin-bottom:13px;color:#2c3242;}
+.analogy{
+  background:#f2efe6;
+  border-left:3px solid var(--ochre);
+  padding:14px 18px;
+  margin:18px 0;
+  font-size:15px;
+  color:#4a4334;
+}
+.analogy b{color:#8a6520;}
+
+/* ---------- 哲学家条目 ---------- */
+.phil{
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:24px;
+  padding:22px 0;
+  border-top:1px dashed var(--line);
+}
+.phil:first-of-type{border-top:none;}
+.coin{
+  width:88px;height:88px;
+  border-radius:50%;
+  position:relative;
+  background:
+    radial-gradient(circle at 32% 28%, #ece5d2, #d8cba6 55%, #b89d62 100%);
+  border:1px solid #a98e54;
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,.35), inset 0 0 18px rgba(120,90,30,.35), 0 3px 8px -3px rgba(29,36,51,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  font-weight:600;
+  color:#6e5523;
+  text-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+.coin::after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border-radius:50%;
+  border:1px dotted rgba(110,85,35,.55);
+}
+.coin small{
+  position:absolute;
+  bottom:13px;
+  font-size:8.5px;
+  letter-spacing:.18em;
+  color:#7d6228;
+}
+.phil-body h4{
+  font-family:'Noto Serif SC',serif;
+  font-size:18.5px;
+  font-weight:700;
+}
+.phil-body .meta{
+  font-size:13px;
+  color:var(--muted);
+  letter-spacing:.04em;
+  margin-bottom:8px;
+}
+.phil-body p{font-size:15.5px;color:#2c3242;margin-bottom:10px;}
+.quote{
+  font-family:'Noto Serif SC',serif;
+  font-size:15px;
+  color:var(--aegean);
+  border-left:2px solid var(--aegean);
+  padding-left:14px;
+  margin-top:6px;
+}
+.quote span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;font-family:'Noto Sans SC',sans-serif;}
+
+/* ---------- 示意图容器 ---------- */
+.figure{
+  margin:26px 0;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:22px 20px 14px;
+  text-align:center;
+}
+.figure svg{max-width:100%;height:auto;}
+.figure figcaption{
+  font-size:13.5px;
+  color:var(--muted);
+  margin-top:10px;
+  letter-spacing:.04em;
+}
+
+/* ---------- 结尾 ---------- */
+.coda{
+  max-width:880px;
+  margin:0 auto;
+  padding:24px 24px 100px;
+}
+.coda h2{
+  font-family:'Noto Serif SC',serif;
+  font-size:28px;
+  text-align:center;
+  margin-bottom:8px;
+}
+.coda .latin{
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:.4em;
+  font-size:13px;
+  color:var(--ochre);
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+.coda p{margin-bottom:14px;color:#2c3242;}
+.coda .final{
+  margin-top:36px;
+  background:var(--ink);
+  color:#e9e6dc;
+  padding:30px 32px;
+  font-family:'Noto Serif SC',serif;
+  font-size:16.5px;
+  line-height:2;
+}
+.coda .final b{color:#d9b86a;}
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 24px 50px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+@media (max-width:720px){
+  .river::before{left:calc(24px + 20px);}
+  .era{padding-left:62px;}
+  .era-node{left:-2px;width:44px;height:44px;font-size:10px;}
+  .school{padding:24px 20px;}
+  .phil{grid-template-columns:64px 1fr;gap:16px;}
+  .coin{width:60px;height:60px;font-size:24px;}
+  .coin small{display:none;}
+}
+@media (prefers-reduced-motion:no-preference){
+  .school{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="greek">ΦΙΛΟΣΟΦΙΑ · 爱智之学</div>
+  <h1>哲学长河<br><span class="thin" style="font-size:.45em;letter-spacing:.2em;">从古希腊到当代的西方思想地图</span></h1>
+  <p class="sub">两千六百年来，人类一直在问同样几个问题：世界由什么构成？我们如何知道自己知道？什么是好的生活？这一页，带你沿着时间之河，看清每一个流派在回答哪个问题、为什么这样回答。</p>
+  <div class="span-years">c. 600 BCE — 21st Century</div>
+  <svg class="hero-cols" viewBox="0 0 1200 54" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="none" stroke="#b9a878" stroke-width="1.2" opacity=".8">
+      <path d="M80 54 V20 M92 54 V20 M104 54 V20 M74 20 H110 M70 14 H114"/>
+      <path d="M580 54 V20 M592 54 V20 M604 54 V20 M574 20 H610 M570 14 H614"/>
+      <path d="M1080 54 V20 M1092 54 V20 M1104 54 V20 M1074 20 H1110 M1070 14 H1114"/>
+    </g>
+  </svg>
+</header>
+
+<!-- ============ 阅读指南 ============ -->
+<section class="howto">
+  <p>哲学史不是一堆孤立的「名人名言」，而是一场<b>持续两千多年的接力辩论</b>：每个流派都是在回应、修正或推翻前一个流派。看懂了「谁在反驳谁」，哲学史就从一团乱麻变成一条清晰的河流。</p>
+  <div class="key">
+    贯穿全史的三大问题——<b>① 本体论：</b>世界的本质是什么？<b>② 认识论：</b>我们如何获得可靠的知识？<b>③ 伦理学：</b>人应当如何生活？<br>
+    古希腊人三个都问；中世纪把答案交给上帝；近代哲学的主战场转向第②问；19 世纪之后，第③问以最激烈的方式重新归来。记住这条主线，下面的每一站都会各归其位。
+  </div>
+</section>
+
+<div class="river">
+<!-- ============ ERA 1：前苏格拉底 ============ -->
+<section class="era" data-c="gold">
+  <div class="era-node">前6世纪</div>
+  <div class="era-head">
+    <div class="latin">The Presocratics</div>
+    <h2>前苏格拉底时期 · 哲学的黎明</h2>
+    <div class="era-years">约公元前 624 — 前 400 年 · 小亚细亚与南意大利</div>
+  </div>
+  <p class="era-intro">在爱琴海沿岸富庶的商业城邦里，一群人第一次决定<b>不用神话解释世界</b>。「宙斯发怒所以打雷」被换成了「世界背后有一个可以被理性把握的本原（arche）」——这个转身，就是西方哲学的诞生。他们的问题只有一个：<b>万物由什么构成？</b></p>
+
+  <div class="school">
+    <div class="school-head"><h3>米利都学派</h3><span class="tag">自然哲学</span></div>
+    <p class="oneliner">世界不是众神的戏台，而是一个有「本原」的自然系统。</p>
+    <div class="phil">
+      <div class="coin">Θ<small>THALES</small></div>
+      <div class="phil-body">
+        <h4>泰勒斯 Thales</h4>
+        <div class="meta">约前 624 — 前 546 · 米利都 · 公认的「西方哲学第一人」</div>
+        <p>他的答案是「<b>水是万物的本原</b>」。这个答案今天看当然是错的，但<b>提问的方式</b>是革命性的：他假设杂多的世界背后有统一的原理，且这个原理可以靠观察和推理找到，而不必求助神谕。科学和哲学共同的起点就在这里。</p>
+        <p>有趣的注脚：据亚里士多德记载，泰勒斯曾通过观察气候预测橄榄会大丰收，提前低价租下当地全部榨油机，丰收时高价转租获利——这大概是史上第一笔有记录的「期权交易」。他想证明的是：哲学家不是不会赚钱，只是志不在此。</p>
+        <div class="quote">「水是最好的。」<span>——泰勒斯（转引自亚里士多德《形而上学》）</span></div>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">Α<small>ANAXIMANDER</small></div>
+      <div class="phil-body">
+        <h4>阿那克西曼德 Anaximander</h4>
+        <div class="meta">约前 610 — 前 546 · 泰勒斯的学生</div>
+        <p>他不满意「水」这个答案：水本身也是万物之一，怎么能解释万物？于是他提出本原是「<b>无定者（apeiron）</b>」——一种无边界、无规定性的东西。这是人类第一次用一个<b>抽象概念</b>而非具体物质来解释世界，抽象思维由此开张。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>赫拉克利特 vs 巴门尼德</h3><span class="tag">哲学史第一场大辩论</span></div>
+    <p class="oneliner">世界的本质是「变」还是「不变」？这场争论贯穿了之后两千年。</p>
+    <div class="phil">
+      <div class="coin">Η<small>HERACLITUS</small></div>
+      <div class="phil-body">
+        <h4>赫拉克利特 Heraclitus</h4>
+        <div class="meta">约前 540 — 前 480 · 以弗所 · 绰号「晦涩者」「哭泣的哲学家」</div>
+        <p>立场：<b>一切皆流，无物常驻</b>。世界的本质就是变化本身，像一团「永恒的活火」，按一定分寸燃烧、按一定分寸熄灭。但变化不是混乱——背后有一个尺度和规律，他称之为「<b>逻各斯（Logos）</b>」。这个词后来成了「逻辑」（logic）的词源。</p>
+        <p>他还强调<b>对立面的统一</b>：没有下坡就没有上坡，没有疾病就显不出健康，冲突（战争）是万物之父。黑格尔的辩证法，两千三百年后会沿着这条线复活。</p>
+        <div class="quote">「人不能两次踏入同一条河流。」<span>——河还是那条河的名字，但河水已不是原来的河水，你也不是原来的你</span></div>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">Π<small>PARMENIDES</small></div>
+      <div class="phil-body">
+        <h4>巴门尼德 Parmenides</h4>
+        <div class="meta">约前 515 — 前 445 · 埃利亚（南意大利）· 埃利亚学派创始人</div>
+        <p>针锋相对的立场：<b>变化是幻觉，「存在」永恒不变</b>。他的推理纯靠逻辑：「存在」存在，「非存在」不存在；变化意味着某物从「不存在」变成「存在」，而「非存在」根本不存在，所以变化在逻辑上不可能。感官告诉你万物在变？那是感官在骗你，<b>只有理性可信</b>。</p>
+        <p>这个结论违背一切日常经验，却第一次确立了一个影响深远的原则：<b>当逻辑与感官冲突时，跟着逻辑走</b>。理性主义传统的种子就此埋下。他的学生芝诺为了护师，提出了著名的「阿基里斯追不上乌龟」等悖论。</p>
+      </div>
+    </div>
+    <div class="analogy"><b>通俗版：</b>赫拉克利特看市场，看到的是价格永不停歇的波动本身；巴门尼德看市场，认为波动是噪音，背后那个不变的「价值」才是真实。一个盯着 K 线，一个盯着内在价值——哲学史第一场辩论，气质上已经很像交易员与价值投资者之争。</div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>毕达哥拉斯学派 与 原子论</h3><span class="tag">数与原子</span></div>
+    <p class="oneliner">两个超前两千年的天才猜想：世界的本质是数学结构；万物由不可分的微粒构成。</p>
+    <div class="phil">
+      <div class="coin">Ψ<small>PYTHAGORAS</small></div>
+      <div class="phil-body">
+        <h4>毕达哥拉斯 Pythagoras</h4>
+        <div class="meta">约前 570 — 前 495 · 萨摩斯岛 · 半是数学家，半是教主</div>
+        <p>「<b>万物皆数</b>」。他发现琴弦长度成简单整数比时发出和谐音程，由此相信宇宙的底层是数学关系与和谐比例。这个直觉惊人地正确——今天的物理学正是用数学方程描述世界。他创立的教团兼修数学与灵魂净化，相信灵魂轮回，禁止吃豆子（原因至今成谜）。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">Δ<small>DEMOCRITUS</small></div>
+      <div class="phil-body">
+        <h4>德谟克利特 Democritus</h4>
+        <div class="meta">约前 460 — 前 370 · 阿布德拉 · 绰号「笑着的哲学家」</div>
+        <p>「<b>万物由原子和虚空构成</b>」。原子（atomos，意为「不可分割」）在虚空中运动、碰撞、组合，构成万物；灵魂也是原子，没有来世。这是一套彻底的<b>唯物主义</b>世界观，比道尔顿的原子论早了两千两百年。他也巧妙调和了那场大辩论：原子本身不变（巴门尼德对），原子的组合永远在变（赫拉克利特也对）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERA 2：古典时期 ============ -->
+<section class="era" data-c="gold">
+  <div class="era-node">前5世纪</div>
+  <div class="era-head">
+    <div class="latin">The Classical Age of Athens</div>
+    <h2>雅典古典时期 · 哲学的巅峰</h2>
+    <div class="era-years">约公元前 450 — 前 322 年 · 雅典</div>
+  </div>
+  <p class="era-intro">波斯战争后的雅典：民主制、海上贸易、帝国财富。在公民大会和法庭上，<b>会说话就是权力</b>。哲学的目光由此从自然转向人本身——怀特海后来说，整个西方哲学史「不过是给柏拉图作的一系列脚注」，而这一切始于一个在街头拦住路人提问的老人。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>智者学派</h3><span class="tag">相对主义</span></div>
+    <p class="oneliner">真理因人而异，重要的不是真理，而是说服力。</p>
+    <p>智者（Sophists）是史上第一批<b>收费教师</b>，向雅典青年传授修辞与辩论术——民主社会的刚需技能。代表人物<b>普罗泰戈拉</b>（约前 490—前 420）留下名言「<b>人是万物的尺度</b>」：风对你是冷的、对我是暖的，都对；不存在客观真理，只有各人的感受与立场。</p>
+    <p>这是哲学史上第一波<b>相对主义与怀疑主义</b>。它解放了思想（真理不被祭司垄断），但也有危险的一面：如果没有真理，那辩论就只剩输赢，正义就只是强者的说辞。正是对这种倾向的不安，把苏格拉底推上了历史舞台。</p>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>苏格拉底</h3><span class="tag">哲学的殉道者</span></div>
+    <p class="oneliner">未经省察的人生不值得过。</p>
+    <div class="phil">
+      <div class="coin">Σ<small>SOCRATES</small></div>
+      <div class="phil-body">
+        <h4>苏格拉底 Socrates</h4>
+        <div class="meta">前 469 — 前 399 · 雅典 · 一生未写一字，事迹由柏拉图记录</div>
+        <p>他相貌丑陋、赤脚、终日在市集上拦住将军、政客、工匠，问一些看似简单的问题：「什么是勇敢？」「什么是正义？」对方给出定义，他便用追问揭示其中的矛盾，直到对方承认自己其实并不懂——这就是「<b>苏格拉底方法</b>」（产婆术）：他不灌输答案，只帮人「接生」出自己内心的真知，并戳破自以为是。</p>
+        <p>针对智者的相对主义，他坚信<b>客观的善与正义是存在的</b>，并且「美德即知识」：人作恶是因为无知，没有人明知是恶还故意去做。德尔斐神谕称他是全希腊最聪明的人，他的解释是：「<b>我唯一知道的，就是我一无所知</b>——而别人连自己无知都不知道。」</p>
+        <p>前 399 年，雅典以「腐蚀青年、不敬城邦之神」判他死刑。朋友安排他越狱，他拒绝：既然一生受惠于城邦法律，就不能在法律不利于自己时逃跑。饮下毒堇汁前，他与弟子从容讨论灵魂不朽。<b>这场死亡把哲学从一门学问变成了一种人格典范</b>，其震撼力被比作哲学史的「受难日」。</p>
+        <div class="quote">「未经省察的人生不值得过。」<span>——申辩庭上的最后陈词，柏拉图《申辩篇》</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>柏拉图</h3><span class="tag">理念论 · 客观唯心主义源头</span></div>
+    <p class="oneliner">我们看见的世界只是影子，真实的世界是永恒完美的「理念世界」。</p>
+    <div class="phil">
+      <div class="coin">Π<small>PLATO</small></div>
+      <div class="phil-body">
+        <h4>柏拉图 Plato</h4>
+        <div class="meta">前 427 — 前 347 · 雅典 · 苏格拉底的学生，创办「学园」（Academy，延续约 900 年）</div>
+        <p>老师之死让 28 岁的柏拉图对民主政治彻底幻灭，也让他毕生追问：在一个连苏格拉底都会被处死的世界里，正义与真理到底安放在哪里？他的回答是<b>理念论</b>：感官世界中的万物都不完美、都会朽坏，但「圆」的理念、「美」的理念、「正义」的理念是完美而永恒的。<b>具体事物只是理念的摹本</b>——你画的每个圆都不够圆，但你心中知道什么是完美的圆，那个「完美的圆」就住在理念世界里。</p>
+        <p>知识从何而来？灵魂在降生前曾居于理念世界，学习不过是「<b>回忆</b>」。政治上，他在《理想国》中设计了由「哲学王」统治的等级社会——一个深刻而危险的构想，后世从乌托邦主义到精英政治都能在此找到源头。</p>
+        <div class="quote">「除非哲学家成为王，或者王成为哲学家，否则城邦的灾难不会停止。」<span>——《理想国》</span></div>
+      </div>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 700 250" role="img" aria-label="洞穴寓言示意图">
+        <defs>
+          <linearGradient id="cave" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2b2620"/><stop offset="1" stop-color="#5a4d3a"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="430" height="250" fill="url(#cave)"/>
+        <rect x="430" y="0" width="270" height="250" fill="#f7edd6"/>
+        <circle cx="640" cy="48" r="26" fill="#e9b949"/>
+        <g stroke="#e9b949" stroke-width="2"><line x1="640" y1="6" x2="640" y2="16"/><line x1="600" y1="20" x2="608" y2="28"/><line x1="672" y1="28" x2="680" y2="20"/></g>
+        <text x="565" y="120" font-size="13" fill="#7a5c1d" font-family="Noto Sans SC">理念世界（太阳＝善的理念）</text>
+        <!-- 火与囚徒 -->
+        <path d="M300 150 q10 -28 0 -44 q22 12 16 44 z" fill="#d97b29"/>
+        <rect x="288" y="150" width="40" height="8" fill="#6e5530"/>
+        <text x="276" y="178" font-size="12" fill="#e8dcc0" font-family="Noto Sans SC">火堆</text>
+        <g fill="#cbbfa4">
+          <circle cx="96" cy="128" r="10"/><rect x="88" y="138" width="16" height="34"/>
+          <circle cx="136" cy="128" r="10"/><rect x="128" y="138" width="16" height="34"/>
+        </g>
+        <text x="74" y="196" font-size="12" fill="#e8dcc0" font-family="Noto Sans SC">被锁住的囚徒</text>
+        <!-- 影子墙 -->
+        <rect x="20" y="40" width="10" height="180" fill="#15110c"/>
+        <g fill="#000" opacity=".75">
+          <ellipse cx="25" cy="92" rx="4" ry="16"/>
+          <ellipse cx="25" cy="140" rx="4" ry="20"/>
+        </g>
+        <text x="40" y="58" font-size="12" fill="#e8dcc0" font-family="Noto Sans SC">墙上的影子＝我们以为的「现实」</text>
+        <!-- 走出洞穴的人 -->
+        <g fill="#23527c"><circle cx="468" cy="150" r="10"/><rect x="460" y="160" width="16" height="36"/></g>
+        <text x="446" y="216" font-size="12" fill="#23527c" font-family="Noto Sans SC">挣脱者＝哲学家</text>
+        <path d="M340 180 q70 -30 110 -16" stroke="#23527c" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#23527c"/></marker></defs>
+      </svg>
+      <figcaption>《理想国》第七卷·洞穴寓言：囚徒一生只见过火光投在墙上的影子，便以为影子就是世界本身。挣脱锁链、走出洞穴看见太阳的人，就是哲学家——而他回到洞中讲述真相时，往往会被囚徒们嘲笑甚至杀死（影射苏格拉底之死）。</figcaption>
+    </figure>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>亚里士多德</h3><span class="tag">百科全书式的奠基者</span></div>
+    <p class="oneliner">真实就在眼前的世界里——去观察、分类、寻找事物的原因与目的。</p>
+    <div class="phil">
+      <div class="coin">Α<small>ARISTOTLE</small></div>
+      <div class="phil-body">
+        <h4>亚里士多德 Aristotle</h4>
+        <div class="meta">前 384 — 前 322 · 斯塔基拉 · 柏拉图的学生、亚历山大大帝的老师，创办「吕克昂」学园</div>
+        <p>「吾爱吾师，吾更爱真理。」他在学园待了二十年，最终却反掉了老师最核心的主张：<b>不存在脱离具体事物的理念世界</b>。「马的理念」不在天上，就在一匹匹真实的马之中——形式与质料不可分离。哲学的目光由此从仰望天空拉回大地：与其冥想完美的圆，不如去解剖一条鱼。拉斐尔名画《雅典学院》正中央，柏拉图手指向天，亚里士多德掌心向地，一个手势道尽两人分歧。</p>
+        <p>他几乎单枪匹马创立了<b>逻辑学</b>（三段论）、<b>物理学、生物学、政治学、诗学、伦理学</b>的学科框架，是人类历史上最后一个「知道当时全部知识」的人。伦理学上他提出<b>「中道」</b>：美德是两个极端之间的恰当位置——勇敢介于鲁莽与怯懦之间，慷慨介于挥霍与吝啬之间；幸福（eudaimonia）不是快感，而是<b>在理性指引下把人的潜能充分实现的一生</b>。</p>
+        <p>他的著作经阿拉伯学者保存转译，在中世纪被尊为「哲学家」（不必提名字的那一位），统治欧洲思想一千多年——以至于后来的科学革命，首先就是一场「推翻亚里士多德」的革命。</p>
+        <div class="quote">「人是天生的政治（城邦）动物。」<span>——《政治学》：离开共同体，人无法成为完整的人</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERA 3：希腊化时期 ============ -->
+<section class="era" data-c="gold">
+  <div class="era-node">前300</div>
+  <div class="era-head">
+    <div class="latin">Hellenistic Philosophy</div>
+    <h2>希腊化时期 · 哲学成为生活的药方</h2>
+    <div class="era-years">约公元前 323 — 公元 180 年 · 从雅典到罗马</div>
+  </div>
+  <p class="era-intro">亚历山大死后帝国崩解，城邦时代终结，个人在动荡的大帝国里渺小如尘。哲学的问题随之变得切身：<b>在一个你无法控制的世界里，如何获得内心的安宁？</b>四大学派给出了四张药方——它们与其说是理论，不如说是四种「心理操作系统」，至今仍在被安装使用。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>犬儒学派</h3><span class="tag">药方：扔掉一切</span></div>
+    <p class="oneliner">幸福来自把需求降到最低——文明、财富、名声都是枷锁。</p>
+    <div class="phil">
+      <div class="coin">Κ<small>DIOGENES</small></div>
+      <div class="phil-body">
+        <h4>第欧根尼 Diogenes</h4>
+        <div class="meta">约前 412 — 前 323 · 锡诺普 · 住在一个大陶缸里</div>
+        <p>他身体力行「像狗一样生活」（犬儒之名由此而来）：乞食、露宿、当众做一切事，用行为艺术嘲讽社会习俗的虚伪。看见小孩用手捧水喝，他扔掉了自己唯一的碗。亚历山大大帝慕名来访，问能为他做点什么，他答：「<b>请让开，别挡住我的阳光。</b>」亚历山大叹道：「我若不是亚历山大，便愿是第欧根尼。」</p>
+        <p>白天提灯笼在街上走，说在「找一个真正的人」。犬儒主义的内核并非今天「cynical」一词的冷嘲，而是一种极端的自由宣言：<b>对外物无所求的人，才真正无所畏惧。</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>伊壁鸠鲁学派</h3><span class="tag">药方：精明地享受</span></div>
+    <p class="oneliner">快乐是善——但真正的快乐是平静，而不是放纵。</p>
+    <div class="phil">
+      <div class="coin">Ε<small>EPICURUS</small></div>
+      <div class="phil-body">
+        <h4>伊壁鸠鲁 Epicurus</h4>
+        <div class="meta">前 341 — 前 270 · 萨摩斯 · 在雅典买下「花园」与朋友共同生活</div>
+        <p>历史上被黑得最惨的哲学家：「伊壁鸠鲁主义」如今意指奢靡享乐，而他本人吃的是面包、奶酪和水。他说的快乐是「<b>身体无痛苦、灵魂无纷扰（ataraxia）</b>」：欲望分三类——自然且必要的（食物、友谊）要满足，自然但不必要的（美食）可浅尝，既不自然也不必要的（名声、权力、无限财富）应远离，因为它们带来的焦虑远超快乐。<b>快乐的算法是做减法。</b></p>
+        <p>他继承德谟克利特的原子论，目的非常实际：既然灵魂是原子、死后即散，那么「死亡与我们无关——我们存在时死亡不在，死亡来临时我们已不在」，恐惧死亡是不理性的。</p>
+        <div class="quote">「谁不知足，谁就不会幸福，纵使他是世界之主。」<span>——伊壁鸠鲁残篇</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>斯多葛学派</h3><span class="tag">药方：分清能控与不能控</span></div>
+    <p class="oneliner">外部世界你控制不了，你能控制的只有自己的判断与反应——把全部精力放在后者上。</p>
+    <p>由<b>芝诺</b>（前 334—前 262）创立于雅典的「画廊」（Stoa，学派因此得名），后来成为罗马帝国的精神支柱，三位代表恰好覆盖整个社会光谱：奴隶<b>爱比克泰德</b>、政治家<b>塞涅卡</b>、皇帝<b>马可·奥勒留</b>——同一套哲学，对奴隶和皇帝同样有效，这本身就是它的最佳广告。</p>
+    <div class="phil">
+      <div class="coin">Ε<small>EPICTETUS</small></div>
+      <div class="phil-body">
+        <h4>爱比克泰德 Epictetus</h4>
+        <div class="meta">约 55 — 135 · 生为奴隶，瘸腿（据传被主人打断）</div>
+        <p>核心教导是著名的「<b>控制二分法</b>」：有些事取决于我们（判断、欲望、行动），有些事不取决于我们（身体、财产、名声、他人的看法）。痛苦的根源，是对不取决于我们的事物动了执念。「<b>困扰人的不是事情本身，而是人对事情的看法。</b>」——现代认知行为疗法（CBT）的创始人公开承认，整套疗法就是从这句话发展出来的。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">Μ<small>AURELIUS</small></div>
+      <div class="phil-body">
+        <h4>马可·奥勒留 Marcus Aurelius</h4>
+        <div class="meta">121 — 180 · 罗马皇帝 · 「帝王哲学家」</div>
+        <p>在瘟疫、战争与边境征途中，他用希腊文给自己写下私人笔记，从未打算发表——这就是《<b>沉思录</b>》。一个手握世界最高权力的人，每天提醒自己：权力会腐蚀，赞美是空响，生命短暂，唯一要紧的是此刻按理性与德性行事。「你遇见的一切都会过去；宇宙是变化，人生是看法。」</p>
+        <div class="quote">「不能掌控情绪的人，命运替他掌控。」<span>——《沉思录》大意；这本两千年前的私人日记至今仍是机构投资圈传阅率最高的书之一</span></div>
+      </div>
+    </div>
+    <div class="analogy"><b>通俗版：</b>斯多葛主义本质上是一套<b>风险管理哲学</b>：市场涨跌、他人评价＝不可控变量，不预测、不执念；研究质量、仓位纪律、情绪反应＝可控变量，全部精力押在这里。「premeditatio malorum」（预想厄运）就是古罗马版的压力测试——先在脑中演练最坏情形，真来了就不会恐慌性操作。</div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>怀疑学派</h3><span class="tag">药方：停止判断</span></div>
+    <p class="oneliner">既然任何论断都有同样有力的反方，不如悬置判断，焦虑自然消失。</p>
+    <p><b>皮浪</b>（约前 360—前 270）曾随亚历山大远征印度。他主张：对任何「事物本质如何」的问题，正反双方的论证总是势均力敌，因此明智的做法是「<b>悬置判断（epoché）</b>」——不说「这是好的」，只说「这对我显得是好的」。放弃了对确定性的执念，内心的平静（ataraxia）反而随之而来。这套温和的认知谦逊，将在两千年后由休谟和现代科学方法论以全新形态复活：<b>科学的本质，正是把一切结论都当作「暂时未被推翻的假说」。</b></p>
+  </div>
+</section>
+
+<!-- ============ ERA 4：中世纪 ============ -->
+<section class="era" data-c="purple">
+  <div class="era-node">400年</div>
+  <div class="era-head">
+    <div class="latin">Medieval Philosophy</div>
+    <h2>中世纪 · 哲学成为神学的婢女</h2>
+    <div class="era-years">约公元 400 — 1400 年 · 修道院与大学</div>
+  </div>
+  <p class="era-intro">罗马帝国崩溃，基督教接管了欧洲的精神世界。此后一千年，哲学的核心任务变成：<b>用希腊人留下的理性工具，论证和理解信仰</b>。这听起来像思想的低谷，但「信仰与理性能否兼容」这个张力，恰恰逼出了极精密的逻辑训练——并催生了大学这个机构本身。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>教父哲学</h3><span class="tag">柏拉图 + 基督教</span></div>
+    <p class="oneliner">真理不在外部世界，而在向内反省的灵魂之中。</p>
+    <div class="phil">
+      <div class="coin">Α<small>AUGUSTINE</small></div>
+      <div class="phil-body">
+        <h4>奥古斯丁 Augustine of Hippo</h4>
+        <div class="meta">354 — 430 · 北非希波主教 · 著《忏悔录》《上帝之城》</div>
+        <p>年轻时纵情声色（他自己祷告说：「主啊，赐我贞洁吧——但不是现在」），33 岁皈依后成为基督教最重要的思想家。他把柏拉图的理念世界改写为上帝的心灵，把「洞穴之外的太阳」改写为神的光照。《忏悔录》是<b>西方第一部深度自我剖析的自传</b>——「内心世界」作为一个值得探索的领域，可以说是他发明的。</p>
+        <p>他对「时间是什么」的追问（「无人问我，我很清楚；有人问我，我便茫然」）、对自由意志与恶的来源的分析，至今仍是哲学课的标准教材。他还留下一个惊人的先声：「即使我在怀疑，我在怀疑这件事本身是确定的」——笛卡尔的「我思故我在」，一千二百年前已有底稿。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>经院哲学</h3><span class="tag">亚里士多德 + 基督教</span></div>
+    <p class="oneliner">信仰与理性并不冲突——理性可以一路论证到上帝门口。</p>
+    <div class="phil">
+      <div class="coin">Τ<small>AQUINAS</small></div>
+      <div class="phil-body">
+        <h4>托马斯·阿奎那 Thomas Aquinas</h4>
+        <div class="meta">1225 — 1274 · 意大利 · 道明会修士，绰号「哑牛」，著《神学大全》</div>
+        <p>12 世纪，亚里士多德著作经阿拉伯世界回流欧洲，其纯理性的世界观对教会构成巨大冲击。阿奎那的历史功绩是完成了一场大和解：<b>把亚里士多德整套体系嫁接进基督教神学</b>。他提出证明上帝存在的「五路论证」（如：万物运动必有第一推动者），主张真理只有一个，理性与启示是通向它的两条路。《神学大全》以「提出问题→列出反方→给出回应」的格式写成，本身就是一座逻辑训练的丰碑。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">Ω<small>OCKHAM</small></div>
+      <div class="phil-body">
+        <h4>奥卡姆的威廉 William of Ockham</h4>
+        <div class="meta">约 1287 — 1347 · 英格兰 · 方济各会修士</div>
+        <p>经院哲学的「内部爆破手」。他的「<b>奥卡姆剃刀</b>」——如无必要，勿增实体——主张解释应当尽可能简洁，剃掉一切多余的假设。他进一步认为信仰之事无法被理性证明，应当与哲学分开。这一刀下去，看似在捍卫信仰的纯粹，实际上<b>把理性从神学中解放了出来</b>：科学革命的地基，由一位修士悄悄铺好。</p>
+      </div>
+    </div>
+    <div class="analogy"><b>通俗版：</b>奥卡姆剃刀至今是研究工作的第一性原则：两个模型解释力相同，选参数更少的那个；一个投资逻辑需要五层假设同时成立才能兑现，它大概率不如只需一层假设的逻辑可靠。</div>
+  </div>
+</section>
+
+<!-- ============ ERA 5：理性主义 ============ -->
+<section class="era" data-c="blue">
+  <div class="era-node">1600</div>
+  <div class="era-head">
+    <div class="latin">Rationalism</div>
+    <h2>近代理性主义 · 我思故我在</h2>
+    <div class="era-years">约 1600 — 1716 年 · 欧洲大陆</div>
+  </div>
+  <p class="era-intro">哥白尼、伽利略相继证明：教会和亚里士多德都可能错得离谱。一切权威轰然动摇之后，最紧迫的问题变成认识论：<b>到底还有什么知识是绝对可靠的？从哪里重新开始？</b>大陆理性主义的回答：从理性自身开始——像几何学一样，从不可怀疑的公理出发，推演出整个世界。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>笛卡尔</h3><span class="tag">近代哲学之父</span></div>
+    <p class="oneliner">把一切都怀疑一遍，剩下那个怀疑不掉的，就是新地基。</p>
+    <div class="phil">
+      <div class="coin">D<small>DESCARTES</small></div>
+      <div class="phil-body">
+        <h4>勒内·笛卡尔 René Descartes</h4>
+        <div class="meta">1596 — 1650 · 法国 · 数学家（发明解析几何与坐标系）、雇佣兵、晚睡爱好者</div>
+        <p>他的方法是「<b>普遍怀疑</b>」：感官会骗人（怀疑掉）；我可能在做梦（外部世界怀疑掉）；甚至可能有个恶魔在系统性地欺骗我，连数学都不可信（全部怀疑掉）。但就在彻底的废墟上，他发现一样东西无法怀疑——<b>「我在怀疑」这件事本身</b>。怀疑就是思考，思考必有思考者：「<b>我思，故我在</b>（Cogito, ergo sum）」。这是近代哲学的第一块基石，也完成了一次历史性转向：哲学的出发点从「世界/上帝」变成了「我」，<b>主体性时代开始了</b>。</p>
+        <p>代价是他留下的「<b>身心二元论</b>」难题：心灵（思维）与身体（物质）是两种完全不同的实体，那它们如何互动？这个「鬼魂如何推动机器」的问题纠缠哲学四百年，至今仍是心灵哲学与 AI 意识争论的核心。</p>
+        <div class="quote">「我思，故我在。」<span>——《方法谈》1637；怀疑到极限处发现的第一个确定性</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>斯宾诺莎 与 莱布尼茨</h3><span class="tag">体系的巅峰</span></div>
+    <p class="oneliner">用几何学的方式推演宇宙：一个说神即自然，一个说这是所有可能世界中最好的。</p>
+    <div class="phil">
+      <div class="coin">S<small>SPINOZA</small></div>
+      <div class="phil-body">
+        <h4>斯宾诺莎 Baruch Spinoza</h4>
+        <div class="meta">1632 — 1677 · 阿姆斯特丹 · 被犹太社区开除教籍，终生以磨镜片为生</div>
+        <p>他的《伦理学》完全按欧几里得几何格式写成：定义、公理、命题、证明。结论惊世骇俗：<b>神即自然（Deus sive Natura）</b>——不存在世界之外的人格神，神就是无限的自然本身及其法则；万物（包括你的每个念头）都按必然性发生，<b>自由不是为所欲为，而是理解必然</b>。他因此被同时代人骂作无神论者，又被后人称为「醉心于神的人」。爱因斯坦被问及是否信神时回答：「我信斯宾诺莎的神。」</p>
+        <p>他拒绝海德堡大学教职以保全思想自由，淡泊到拒绝富商朋友的遗产。罗素说：在人格的高贵上，斯宾诺莎是所有大哲学家中的第一名。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">L<small>LEIBNIZ</small></div>
+      <div class="phil-body">
+        <h4>莱布尼茨 Gottfried Leibniz</h4>
+        <div class="meta">1646 — 1716 · 德国 · 与牛顿各自独立发明微积分，发明二进制</div>
+        <p>史上最后的全才之一：数学、法学、外交、工程、汉学（他研究过《易经》卦象与二进制的对应）。哲学上他提出宇宙由无数「<b>单子</b>」构成——不可分的精神性单元，彼此不互动，却被上帝「预定和谐」地同步，像无数只出厂时就校准好的钟表。他还提出此世界是「<b>所有可能世界中最好的</b>」——伏尔泰后来在《老实人》中把这句话嘲讽了整整一本书。但剥去神学外衣，「可能世界」是当代逻辑学的标准工具，而他「让推理变成计算」的梦想，正是今天计算机与 AI 的远祖。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERA 6：经验主义 ============ -->
+<section class="era" data-c="blue">
+  <div class="era-node">1690</div>
+  <div class="era-head">
+    <div class="latin">British Empiricism</div>
+    <h2>英国经验主义 · 一切知识来自经验</h2>
+    <div class="era-years">约 1689 — 1776 年 · 英伦三岛</div>
+  </div>
+  <p class="era-intro">海峡对岸的英国人对大陆式的宏大演绎体系深表怀疑：凭什么坐在炉边「思」一下就能推出宇宙？他们的口号是：<b>心灵生来是一块白板，一切知识都来自感官经验</b>。这条路线诚实而彻底——彻底到最后把自己也拆了。洛克、贝克莱、休谟三代人，像一场不断加注的逻辑实验。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>洛克 → 贝克莱 → 休谟</h3><span class="tag">三步走向深渊</span></div>
+    <p class="oneliner">第一步：知识来自经验；第二步：那物质还存在吗；第三步：连因果和自我也保不住了。</p>
+    <div class="phil">
+      <div class="coin">L<small>LOCKE</small></div>
+      <div class="phil-body">
+        <h4>约翰·洛克 John Locke</h4>
+        <div class="meta">1632 — 1704 · 英格兰 · 医生、辉格党理论家</div>
+        <p>「<b>白板说</b>」：人出生时心灵空无一物，观念全部来自经验——没有天赋观念，没有前世回忆。政治哲学上他影响更大：人人天然拥有<b>生命、自由、财产</b>的权利，政府的合法性来自被统治者的同意，政府违约则人民有权革命。《美国独立宣言》几乎是洛克的复述，他是<b>自由主义的开山祖师</b>。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">B<small>BERKELEY</small></div>
+      <div class="phil-body">
+        <h4>乔治·贝克莱 George Berkeley</h4>
+        <div class="meta">1685 — 1753 · 爱尔兰 · 主教（加州伯克利市以他命名）</div>
+        <p>他把经验主义推到惊人的下一步：你说知识全来自感官经验？那你从未经验过「物质本身」，你经验到的永远只是颜色、声音、触感这些<b>知觉</b>。所以——「<b>存在就是被感知</b>（esse est percipi）」，根本不存在感知之外的物质世界！没人看月亮时月亮还在吗？在，因为上帝一直在看。这个论证听起来荒谬却极难反驳，约翰逊博士踢着石头喊「我这样驳斥他」，其实完全没驳到点上。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">H<small>HUME</small></div>
+      <div class="phil-body">
+        <h4>大卫·休谟 David Hume</h4>
+        <div class="meta">1711 — 1776 · 苏格兰爱丁堡 · 史学家、外交官，生前以《英国史》闻名</div>
+        <p>经验主义的终局玩家，温和的性格配上哲学史上最具破坏力的论证。<b>因果律</b>：你看到太阳晒、石头热，但你从未「看到」二者之间的必然联系——你看到的只是先后相继；「因果」不过是心理习惯。<b>归纳法</b>：太阳升起一万次，逻辑上也保证不了明天还会升起（「休谟问题」至今无解，金融业每天都在重温：历史回测再漂亮也不构成未来的保证）。<b>自我</b>：向内反省，你只能找到一束流动的知觉，找不到那个恒常的「我」。</p>
+        <p>他还划下著名的「<b>是与应当</b>」鸿沟：从事实命题永远推不出价值命题——「自然如此」不等于「应当如此」。至此，经验主义把因果、归纳、自我、外部世界全部拆解，知识大厦只剩废墟。据康德自述，正是休谟「把我从独断论的迷梦中惊醒」。</p>
+        <div class="quote">「理性是、并且应当只是激情的奴隶。」<span>——《人性论》：推动人行动的从来是情感，理性只负责计算路径——行为金融学的哲学远祖</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>启蒙运动</h3><span class="tag">哲学走上街头</span></div>
+    <p class="oneliner">敢于运用你自己的理性——向迷信、特权与专制开战。</p>
+    <p>18 世纪的法国，哲学从书斋走进沙龙与小册子。<b>伏尔泰</b>（1694—1778）以毒舌捍卫宗教宽容与言论自由，毕生战斗口号是「粉碎卑鄙无耻（指迷信与教会专横）」；<b>孟德斯鸠</b>提出三权分立；<b>卢梭</b>（1712—1778）则唱出反调：科学与文明未必使人更好，「人生而自由，却无往不在枷锁之中」，合法的政治秩序只能建立在<b>社会契约与公意</b>之上——这句话点燃了法国大革命，也同时被自由民主与集体主义两个方向各自认领。启蒙运动是哲学影响现实世界的巅峰时刻：美国宪法与法国《人权宣言》，就是它的落地文件。</p>
+  </div>
+</section>
+
+<!-- ============ ERA 7：德国古典哲学 ============ -->
+<section class="era" data-c="blue">
+  <div class="era-node">1781</div>
+  <div class="era-head">
+    <div class="latin">German Idealism</div>
+    <h2>德国古典哲学 · 哲学史的喜马拉雅</h2>
+    <div class="era-years">1781 — 1831 年 · 哥尼斯堡与柏林</div>
+  </div>
+  <p class="era-intro">理性主义说知识来自理性，经验主义把知识拆到只剩废墟。两条路都走死了。这时，东普鲁士小城里一位一生未出远门、散步准时到邻居用来对表的教授，完成了哲学史上最大的一次综合。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>康德</h3><span class="tag">认识论的哥白尼革命</span></div>
+    <p class="oneliner">不是心灵去符合世界，而是世界（作为现象）符合心灵的认知结构。</p>
+    <div class="phil">
+      <div class="coin">K<small>KANT</small></div>
+      <div class="phil-body">
+        <h4>伊曼努尔·康德 Immanuel Kant</h4>
+        <div class="meta">1724 — 1804 · 哥尼斯堡 · 三大《批判》：纯粹理性、实践理性、判断力</div>
+        <p>他的和解方案石破天惊：休谟说得对，因果性确实不在经验「之中」——因为它在我们的认知装置「之上」。<b>时间、空间、因果是心灵自带的「出厂格式」</b>，一切经验都必须先经过这套格式的加工才能被我们认识。所以科学知识是可靠的（在现象界普遍必然有效），但我们永远只能认识被加工后的「现象」，无法认识「<b>物自体</b>」（世界本来的样子）。这就是认识论的「哥白尼革命」：知识的客观性，奠基于主体的结构。</p>
+        <p>伦理学上他同样立下丰碑——「<b>定言命令</b>」：只按那些你愿意它成为普世法则的准则行动；并且<b>永远把人当作目的，绝不仅仅当作手段</b>。道德不看后果、不靠上帝奖惩，纯粹出于对理性法则的敬重。现代人权观念的哲学地基，一半在洛克，一半在这里。</p>
+        <div class="quote">「有两样东西，愈思考愈觉敬畏：头顶的星空，与心中的道德律。」<span>——《实践理性批判》结语，刻在他的墓碑上</span></div>
+      </div>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 700 230" role="img" aria-label="康德认识论示意图">
+        <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#23527c"/></marker></defs>
+        <!-- 物自体 -->
+        <g>
+          <circle cx="92" cy="112" r="56" fill="#e8e4d8" stroke="#9a917d" stroke-dasharray="6 5" stroke-width="2"/>
+          <text x="92" y="106" text-anchor="middle" font-size="15" fill="#6b6353" font-family="Noto Serif SC" font-weight="700">物自体</text>
+          <text x="92" y="128" text-anchor="middle" font-size="11.5" fill="#8b8270" font-family="Noto Sans SC">世界本身 · 不可知</text>
+        </g>
+        <path d="M156 112 H236" stroke="#23527c" stroke-width="2.5" marker-end="url(#ar2)"/>
+        <text x="196" y="100" text-anchor="middle" font-size="11.5" fill="#23527c" font-family="Noto Sans SC">刺激感官</text>
+        <!-- 认知装置 -->
+        <g>
+          <rect x="244" y="50" width="212" height="124" rx="8" fill="#23527c"/>
+          <text x="350" y="84" text-anchor="middle" font-size="15" fill="#f5f3ec" font-family="Noto Serif SC" font-weight="700">心灵的「出厂格式」</text>
+          <text x="350" y="112" text-anchor="middle" font-size="12.5" fill="#cdd9e6" font-family="Noto Sans SC">时间 · 空间（感性直观形式）</text>
+          <text x="350" y="134" text-anchor="middle" font-size="12.5" fill="#cdd9e6" font-family="Noto Sans SC">因果性等十二范畴（知性）</text>
+          <text x="350" y="160" text-anchor="middle" font-size="11" fill="#9db4c9" font-family="Noto Sans SC">—— 所有经验的必经滤镜 ——</text>
+        </g>
+        <path d="M460 112 H540" stroke="#23527c" stroke-width="2.5" marker-end="url(#ar2)"/>
+        <text x="500" y="100" text-anchor="middle" font-size="11.5" fill="#23527c" font-family="Noto Sans SC">加工成形</text>
+        <!-- 现象界 -->
+        <g>
+          <circle cx="610" cy="112" r="56" fill="#fdf6e3" stroke="#a97e2f" stroke-width="2.5"/>
+          <text x="610" y="106" text-anchor="middle" font-size="15" fill="#8a6520" font-family="Noto Serif SC" font-weight="700">现象界</text>
+          <text x="610" y="128" text-anchor="middle" font-size="11.5" fill="#a98a4a" font-family="Noto Sans SC">我们经验的世界</text>
+        </g>
+        <text x="350" y="214" text-anchor="middle" font-size="12.5" fill="#6b6f78" font-family="Noto Sans SC">科学在「现象界」内普遍有效；「物自体」永远在认知边界之外</text>
+      </svg>
+      <figcaption>康德的「哥白尼革命」：我们从未直接认识世界本身——所见的一切都已被心灵的先天结构（时间、空间、因果）格式化。知识可靠，但有边界。</figcaption>
+    </figure>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>黑格尔</h3><span class="tag">辩证法 · 体系哲学的终点</span></div>
+    <p class="oneliner">真理不是一个静止的答案，而是矛盾不断展开、扬弃、上升的全过程。</p>
+    <div class="phil">
+      <div class="coin">H<small>HEGEL</small></div>
+      <div class="phil-body">
+        <h4>黑格尔 G. W. F. Hegel</h4>
+        <div class="meta">1770 — 1831 · 斯图加特 / 柏林大学 · 著《精神现象学》《逻辑学》</div>
+        <p>康德留下的「物自体」让他不能忍：认知的边界本身既然能被思考，就已经被跨越了。他的方案是把<b>整个宇宙和全部历史理解为「绝对精神」自我认识的过程</b>：精神通过矛盾运动展开自身——一个立场（正题）暴露出内在矛盾（反题），在更高层次上被「扬弃」并保留合理内核（合题），如此螺旋上升。历史不是乱糟糟的事件堆，而是<b>自由意识的进步史</b>：从东方的「一人自由」，到希腊的「少数人自由」，再到现代的「人人自由」。他看着拿破仑骑马穿过耶拿城，写下「我看见了骑在马背上的世界精神」。</p>
+        <p>黑格尔体系是西方哲学最后一座「解释一切」的大厦。他死后大厦立即裂成两半：老年黑格尔派守护体系与国家，<b>青年黑格尔派只取辩证法这把刀</b>——其中一位叫卡尔·马克思。而 19 世纪后续几乎所有重要哲学家（叔本华、克尔凯郭尔、尼采、实证主义者），都是以「反黑格尔」起家的。</p>
+      </div>
+    </div>
+    <figure class="figure">
+      <svg viewBox="0 0 700 200" role="img" aria-label="黑格尔辩证法示意图">
+        <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#7c3a48"/></marker></defs>
+        <g font-family="Noto Serif SC" font-weight="700" text-anchor="middle">
+          <rect x="60" y="130" width="130" height="44" rx="4" fill="#fdf6e3" stroke="#a97e2f" stroke-width="2"/>
+          <text x="125" y="158" font-size="15" fill="#8a6520">正题 These</text>
+          <rect x="280" y="130" width="130" height="44" rx="4" fill="#f5e8ea" stroke="#7c3a48" stroke-width="2"/>
+          <text x="345" y="158" font-size="15" fill="#7c3a48">反题 Antithese</text>
+          <rect x="490" y="36" width="150" height="44" rx="4" fill="#e8eef5" stroke="#23527c" stroke-width="2.5"/>
+          <text x="565" y="64" font-size="15" fill="#1d4569">合题 Synthese</text>
+        </g>
+        <path d="M192 152 H276" stroke="#7c3a48" stroke-width="2" marker-end="url(#ar3)"/>
+        <text x="234" y="142" text-anchor="middle" font-size="11.5" fill="#7c3a48" font-family="Noto Sans SC">暴露矛盾</text>
+        <path d="M412 142 Q470 110 488 70" stroke="#23527c" stroke-width="2" fill="none" marker-end="url(#ar2)"/>
+        <path d="M150 128 Q300 30 486 50" stroke="#23527c" stroke-width="2" fill="none" stroke-dasharray="6 5" marker-end="url(#ar2)"/>
+        <text x="320" y="46" text-anchor="middle" font-size="12" fill="#23527c" font-family="Noto Sans SC">「扬弃」：否定中保留合理内核，螺旋上升</text>
+        <text x="350" y="192" text-anchor="middle" font-size="12.5" fill="#6b6f78" font-family="Noto Sans SC">每个合题又成为新的正题——历史与思想就在这个循环中前进</text>
+      </svg>
+      <figcaption>辩证法三段式（正—反—合是后人提炼的简化表述，但准确抓住了精髓）。例：君主专制（正）→ 大革命的绝对自由（反）→ 法治宪政国家（合）。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ ERA 8：19世纪的反叛 ============ -->
+<section class="era" data-c="wine">
+  <div class="era-node">1840</div>
+  <div class="era-head">
+    <div class="latin">The 19th Century Revolt</div>
+    <h2>19 世纪 · 对体系的总反叛</h2>
+    <div class="era-years">约 1818 — 1900 年 · 体系崩塌，个体与意志登场</div>
+  </div>
+  <p class="era-intro">黑格尔说一切都是理性的展开？19 世纪的天才们集体翻桌：驱动世界的根本不是理性——是<b>盲目的意志</b>（叔本华）、是<b>个体的生存抉择</b>（克尔凯郭尔）、是<b>权力意志</b>（尼采）、是<b>经济利益与阶级斗争</b>（马克思）。哲学从讲堂跌入人间，开始处理痛苦、焦虑、欲望与不平等。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>叔本华</h3><span class="tag">唯意志论 · 悲观主义</span></div>
+    <p class="oneliner">世界的本质是一股盲目挣扎的「意志」，人生注定在痛苦与无聊之间摆荡。</p>
+    <div class="phil">
+      <div class="coin">S<small>SCHOPENHAUER</small></div>
+      <div class="phil-body">
+        <h4>叔本华 Arthur Schopenhauer</h4>
+        <div class="meta">1788 — 1860 · 但泽 · 著《作为意志和表象的世界》，与贵宾犬相伴终老</div>
+        <p>他给康德的「物自体」填上了答案：那个不可知的世界本身，就是<b>意志</b>——一股无目的、永不满足的盲目冲动，在万物中涌动（石头下落、植物生长、人的欲望，本质同一）。欲望满足前是痛苦，满足后是无聊，「人生就像钟摆，在痛苦与无聊之间摆动」。解脱之道：艺术（尤其音乐）能让人短暂跳出意志的奴役；更彻底的是佛教式的弃绝——他是第一位认真吸收印度哲学的西方大哲。</p>
+        <p>他曾故意把课排在黑格尔同一时段，结果教室空无一人，从此终生毒舌黑格尔为「江湖骗子」。直到晚年，厌倦了革命与体系的欧洲才突然读懂了他。尼采、瓦格纳、弗洛伊德（「本我」几乎就是「意志」的临床版）、托尔斯泰，都是他的精神后裔。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>克尔凯郭尔</h3><span class="tag">存在主义之父</span></div>
+    <p class="oneliner">真理是主观的——重要的不是宇宙体系，而是「我」如何抉择此生。</p>
+    <div class="phil">
+      <div class="coin">K<small>KIERKEGAARD</small></div>
+      <div class="phil-body">
+        <h4>索伦·克尔凯郭尔 Søren Kierkegaard</h4>
+        <div class="meta">1813 — 1855 · 哥本哈根 · 解除婚约、化名写作、与全城媒体为敌的忧郁才子</div>
+        <p>他对黑格尔的讽刺一针见血：建造了解释整个宇宙的水晶宫殿，自己却住在旁边的狗窝里——<b>体系解释一切，唯独帮不了正在焦虑和绝望中抉择的那个具体的人</b>。他把人生分为三个层级：审美阶段（追逐快感，终归空虚）→ 伦理阶段（承担责任，仍有局限）→ 宗教阶段（凭「信仰的一跃」面对荒谬）。每次跃迁都不靠论证，靠的是<b>充满恐惧与战栗的个人抉择</b>。「焦虑是自由的眩晕」——他对焦虑和绝望的剖析，比心理学早了半个多世纪，存在主义由此得名。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>尼采</h3><span class="tag">重估一切价值</span></div>
+    <p class="oneliner">上帝死了——旧价值的地基塌了，人必须自己成为价值的创造者。</p>
+    <div class="phil">
+      <div class="coin">N<small>NIETZSCHE</small></div>
+      <div class="phil-body">
+        <h4>弗里德里希·尼采 Friedrich Nietzsche</h4>
+        <div class="meta">1844 — 1900 · 普鲁士 · 24 岁任巴塞尔大学教授，45 岁精神崩溃</div>
+        <p>「<b>上帝死了</b>」不是欢呼而是诊断：科学与启蒙瓦解了基督教信仰，可整个欧洲的道德、意义、价值体系全都地基在它上面——地基塌了，<b>虚无主义</b>的洪水将至，而世人尚未察觉。他的应对不是退回信仰，而是向前：「<b>重估一切价值</b>」。他区分了「主人道德」（肯定生命、强健、创造）与「奴隶道德」（由怨恨发明的谦卑与同情，弱者对强者的精神报复），追问我们习以为常的「善恶」究竟是谁、出于什么利益定义的——这种「谱系学」式的怀疑，后来成为福柯等人的标准武器。</p>
+        <p>他理想中的「<b>超人</b>（Übermensch）」不是支配他人的强者，而是<b>自己立法、自己创造价值的人</b>；检验标准是「永恒轮回」：假如此生将一模一样地无限重复，你是否仍愿意对它说「是」？能说是，便是对命运之爱（amor fati）。他妹妹后来篡改其遗稿、将他包装给纳粹，是哲学史上最恶劣的歪曲之一——尼采本人鄙视反犹主义和德意志民族主义，为此与妹妹决裂。</p>
+        <div class="quote">「一个人知道自己为什么而活，就可以忍受任何一种生活。」<span>——《偶像的黄昏》</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>马克思</h3><span class="tag">历史唯物主义</span></div>
+    <p class="oneliner">不是意识决定存在，而是社会存在决定意识；哲学的任务不是解释世界，而是改变世界。</p>
+    <div class="phil">
+      <div class="coin">M<small>MARX</small></div>
+      <div class="phil-body">
+        <h4>卡尔·马克思 Karl Marx</h4>
+        <div class="meta">1818 — 1883 · 特里尔 / 伦敦 · 与恩格斯合著《共产党宣言》，著《资本论》</div>
+        <p>他把黑格尔的辩证法「头脚倒置」过来：推动历史的不是精神，而是<b>物质生产方式</b>。生产力发展到一定阶段，会与旧的生产关系冲突，社会革命随之而来——历史是阶级斗争史。他对资本主义的分析（剩余价值、<b>异化</b>劳动：工人与自己的劳动产品、劳动过程乃至人的本质相疏离、周期性危机、全球化扩张的内在必然）至今仍是理解现代经济绕不开的参照系，无论你接受还是反对他的结论。</p>
+        <p>没有哪位哲学家像他这样直接重塑了 20 世纪的世界版图。其学说在实践中的命运与巨大争议，本身成了「思想如何改变世界、又如何被世界改变」的最大案例。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>功利主义 与 实用主义</h3><span class="tag">英美务实路线</span></div>
+    <p class="oneliner">别争论形而上学了——看后果、看效用、看现金价值。</p>
+    <div class="phil">
+      <div class="coin">B<small>BENTHAM·MILL</small></div>
+      <div class="phil-body">
+        <h4>边沁 与 密尔 Bentham &amp; Mill</h4>
+        <div class="meta">边沁 1748—1832 · 密尔 1806—1873 · 英国</div>
+        <p><b>边沁</b>把伦理学变成算术：正确的行为就是带来「<b>最大多数人的最大幸福</b>」的行为，快乐与痛苦原则上可以计算加总。<b>密尔</b>修正了这套过于粗糙的算法：快乐有质的高下，「做不满足的苏格拉底，胜过做满足的猪」。他的《论自由》立下自由主义的金线——「<b>伤害原则</b>」：只要不伤害他人，社会无权干涉个人的任何选择。今天所有公共政策的成本收益分析、乃至「电车难题」的全部争论，都在功利主义划定的场地上进行。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">J<small>JAMES·DEWEY</small></div>
+      <div class="phil-body">
+        <h4>皮尔士、詹姆斯、杜威 — 美国实用主义</h4>
+        <div class="meta">皮尔士 1839—1914 · 詹姆斯 1842—1910 · 杜威 1859—1952</div>
+        <p>美国对哲学的原创贡献。核心主张：<b>观念的意义在于它的实际效果，真理是「行得通」的信念</b>——信念是行动的工具，要在实践中接受检验、随时修正，像假说一样持有。詹姆斯把它用于心理学与宗教经验，杜威把它变成「做中学」的教育革命与民主理论。这种「把一切信念当作可修正的工具」的气质，正是科学方法与创业精神共享的认识论——也是为什么有人说实用主义是「写进美国操作系统里的哲学」。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERA 9：20世纪（一）大陆传统 ============ -->
+<section class="era" data-c="olive">
+  <div class="era-node">1900</div>
+  <div class="era-head">
+    <div class="latin">Phenomenology &amp; Existentialism</div>
+    <h2>20 世纪（上）· 现象学与存在主义</h2>
+    <div class="era-years">约 1900 — 1960 年 · 德国与法国（大陆哲学）</div>
+  </div>
+  <p class="era-intro">两次世界大战把「理性必然进步」的信念炸成废墟。欧洲大陆的哲学转向追问：剥除一切理论预设之后，<b>人的经验本身是什么样的？在一个没有给定意义的世界里，人如何存在？</b></p>
+
+  <div class="school">
+    <div class="school-head"><h3>现象学</h3><span class="tag">回到事情本身</span></div>
+    <p class="oneliner">悬置一切理论成见，如实描述意识中显现的经验本身。</p>
+    <p><b>胡塞尔</b>（1859—1938）创立的方法论：先把「外部世界是否客观存在」这类问题放进括号（悬置），纯粹描述经验如何在意识中显现——比如「看见一只杯子」时，意识总是「<b>关于</b>某物的意识」（意向性）。这套看似抽象的方法成了 20 世纪大陆哲学的共同工具箱，他的学生海德格尔用它撬开了更大的问题。</p>
+    <div class="phil">
+      <div class="coin">H<small>HEIDEGGER</small></div>
+      <div class="phil-body">
+        <h4>马丁·海德格尔 Martin Heidegger</h4>
+        <div class="meta">1889 — 1976 · 德国 · 著《存在与时间》；因纳粹时期任弗莱堡校长并入党，留下永久污点</div>
+        <p>他指责整个西方哲学两千年来问错了问题：都在研究各种「存在者」，却遗忘了「<b>存在本身</b>」意味着什么。人是唯一会追问存在的存在者，他称之为「<b>此在（Dasein）</b>」：此在总是已经被「抛」入一个世界、一段历史，没有预先给定的本质，必须在时间中筹划自己。多数人逃进「常人」的平均状态里随大流地活；唯有直面「<b>向死而生</b>」——清醒地承认死亡使一切可能性成为有限的——人才会从沉沦中惊醒，本真地抉择此生。他对技术时代「一切存在者都被当作待开发资源」的批判，在 AI 时代读来愈发刺骨。其人晚节与其思想深度之间的巨大裂缝，是哲学史最沉重的一桩公案。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>存在主义</h3><span class="tag">存在先于本质</span></div>
+    <p class="oneliner">人没有出厂设定的本质——你被判定为自由，必须自己定义自己，并承担全部责任。</p>
+    <div class="phil">
+      <div class="coin">S<small>SARTRE</small></div>
+      <div class="phil-body">
+        <h4>让-保罗·萨特 Jean-Paul Sartre</h4>
+        <div class="meta">1905 — 1980 · 巴黎 · 著《存在与虚无》；1964 年拒领诺贝尔文学奖</div>
+        <p>「<b>存在先于本质</b>」：裁纸刀先有图纸（本质）后被制造，人却相反——先存在于世，再通过一次次选择定义自己是谁。没有上帝、没有人性模板替你背书，「<b>人被判处自由</b>」：连「不选择」也是一种选择。声称「我没办法，环境如此」是「<b>自欺</b>」——把自己降格为物。战后巴黎，存在主义从哲学溢出为整整一代人的生活方式：爵士酒馆、黑色高领衫、左岸咖啡馆。他与波伏娃的开放式终身伴侣关系本身就是一场存在主义实验。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">B<small>BEAUVOIR</small></div>
+      <div class="phil-body">
+        <h4>西蒙娜·德·波伏娃 Simone de Beauvoir</h4>
+        <div class="meta">1908 — 1986 · 巴黎 · 著《第二性》</div>
+        <p>她把存在主义的解剖刀转向性别：「<b>女人不是天生的，而是被造就的。</b>」——「女性气质」不是自然本质，而是社会把女性塑造成男性的「他者」的漫长工程。《第二性》（1949）以哲学的严格性完成了这一论证，成为现代女性主义的奠基文本，其影响早已溢出哲学，重塑了 20 世纪后半叶的社会现实。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">C<small>CAMUS</small></div>
+      <div class="phil-body">
+        <h4>阿尔贝·加缪 Albert Camus</h4>
+        <div class="meta">1913 — 1960 · 阿尔及利亚 · 1957 年诺贝尔文学奖，44 岁；死于车祸，46 岁</div>
+        <p>他的起点是「<b>荒谬</b>」：人渴求意义，宇宙报以沉默——荒谬就诞生在这场错配里。出路有三：自杀（取消提问者）、信仰（取消问题，他称为「哲学性自杀」）、或者他的选择——<b>带着清醒「反抗」着活</b>。西西弗斯被罚永远推石上山，石头永远滚落；但加缪说，当西西弗斯走下山、清醒地直视自己的命运而不屈服时，「应当想象西西弗斯是幸福的」。不许诺救赎、只给出尊严——这是 20 世纪最朴素也最坚硬的人生哲学。</p>
+        <div class="quote">「在隆冬，我终于知道，我身上有一个不可战胜的夏天。」<span>——《重返蒂巴萨》</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERA 10：20世纪（二）分析传统 ============ -->
+<section class="era" data-c="olive">
+  <div class="era-node">1920</div>
+  <div class="era-head">
+    <div class="latin">Analytic Philosophy</div>
+    <h2>20 世纪（下）· 分析哲学</h2>
+    <div class="era-years">约 1900 年至今 · 英美（剑桥、维也纳、美国）</div>
+  </div>
+  <p class="era-intro">与大陆传统并行的另一条路线断言：两千年来的哲学难题，多半是<b>语言使用混乱制造的假问题</b>。把语言用逻辑的手术刀解剖清楚，许多「深刻问题」会自动消失。这条路线严谨如数学，统治了英美大学的哲学系，并意外地为计算机科学接生。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>逻辑分析的奠基</h3><span class="tag">弗雷格 · 罗素</span></div>
+    <p class="oneliner">把日常语言翻译成精确的逻辑形式，假问题自动现形。</p>
+    <p><b>弗雷格</b>（1848—1925）发明现代数理逻辑，<b>罗素</b>（1872—1970）与怀特海合著《数学原理》试图把全部数学还原为逻辑，并用「摹状词理论」示范了如何用逻辑分析消解哲学难题。罗素一生横跨逻辑、和平运动与大众写作（《西方哲学史》为他赢得诺贝尔文学奖），还以「罗素悖论」动摇了数学基础——这场基础危机辗转催生了哥德尔定理与图灵机：<b>分析哲学的家谱里，写着计算机的出生证明</b>。</p>
+    <div class="phil">
+      <div class="coin">W<small>WITTGENSTEIN</small></div>
+      <div class="phil-body">
+        <h4>路德维希·维特根斯坦 Ludwig Wittgenstein</h4>
+        <div class="meta">1889 — 1951 · 维也纳 / 剑桥 · 钢铁巨富之子，散尽家财；一人创造两套哲学</div>
+        <p><b>前期</b>《逻辑哲学论》（一战战壕中写成）：语言是世界的逻辑图像，能说清的都能说清，伦理、美、人生意义在语言界限之外——「<b>对于不可言说的，必须保持沉默</b>」。他认为哲学问题已全部解决，跑去奥地利山村当小学老师。</p>
+        <p><b>后期</b>《哲学研究》：推翻自己。语言的意义不在于「图像对应」，而在于<b>使用</b>——语言是嵌在生活形式中的无数「<b>语言游戏</b>」，词语像工具箱里的工具，意义即用法。哲学病的病根，是把一种语言游戏的语法错用到另一种上（比如把「心灵」当成「房间里的物体」来谈论）。哲学的任务是治疗：「给捕蝇瓶里的苍蝇指出飞出去的路。」一人独占哲学史两个重要流派的源头，仅此一例。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">P<small>POPPER</small></div>
+      <div class="phil-body">
+        <h4>卡尔·波普尔 Karl Popper</h4>
+        <div class="meta">1902 — 1994 · 维也纳 / 伦敦政经学院 · 著《科学发现的逻辑》《开放社会及其敌人》</div>
+        <p>针对休谟的归纳难题，他给出 20 世纪最有影响的科学哲学方案：科学理论永远无法被「证实」，只能被「<b>证伪</b>」——再多白天鹅也证明不了「天鹅皆白」，一只黑天鹅就能推翻它。因此科学与伪科学的分界线是：<b>敢于做出可能被推翻的明确预测</b>。处处都能自圆其说、永远不会错的理论（他点名占星术等），恰恰因此不是科学。政治哲学上，《开放社会及其敌人》追溯柏拉图—黑格尔—马克思的「历史决定论」谱系，论证乌托邦蓝图工程通向封闭社会，主张「零敲碎打的社会工程」。索罗斯是他的学生，「反身性」理论与基金之名（量子/开放社会基金会）皆源于此——<b>「我可能是错的」作为方法论，从哲学课堂走进了交易席位</b>。</p>
+      </div>
+    </div>
+    <div class="analogy"><b>通俗版：</b>波普尔留给投资研究的纪律是反向的：建仓逻辑写下来的那一刻，先写「什么信号出现说明我错了」。一个无法被证伪的投资叙事（涨了印证故事、跌了说是黄金坑）不是研究，是信仰。</div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>维也纳学派 与 语言转向之后</h3><span class="tag">逻辑实证主义及其瓦解</span></div>
+    <p class="oneliner">命题要么可被经验验证，要么是逻辑/数学，否则没有认知意义——这把刀最后割到了自己。</p>
+    <p>1920 年代聚集在维也纳的科学家与哲学家（石里克、<b>卡尔纳普</b>等）提出「<b>可验证性原则</b>」，宣判形而上学、神学命题「无意义」，雄心是把哲学改造成科学的逻辑分析。但这条原则自身既非经验可验证、又非逻辑真理——按自己的标准自己也无意义。加上<b>蒯因</b>（《经验主义的两个教条》）与后期维特根斯坦的批判，运动在 1950 年代瓦解。但它的遗产巨大：分析的严格标准、科学哲学这门学科、以及哲学与逻辑学/语言学/计算机科学的持久联盟，都由此而来。</p>
+  </div>
+</section>
+
+<!-- ============ ERA 11：批判理论与后现代 ============ -->
+<section class="era" data-c="olive">
+  <div class="era-node">1950</div>
+  <div class="era-head">
+    <div class="latin">Critical Theory &amp; Postmodernism</div>
+    <h2>战后 · 批判理论与后现代</h2>
+    <div class="era-years">约 1944 — 1990 年代 · 法兰克福与巴黎</div>
+  </div>
+  <p class="era-intro">奥斯维辛之后，欧洲思想界的核心问题变成：<b>启蒙与理性，怎么会通向集中营？</b>一批思想家开始系统性地审讯「理性」「进步」「真理」这些启蒙时代的勋章——怀疑它们同时也是权力的工具。</p>
+
+  <div class="school">
+    <div class="school-head"><h3>法兰克福学派</h3><span class="tag">批判理论</span></div>
+    <p class="oneliner">启蒙的理性蜕变成了「工具理性」——只问效率、不问目的，于是高效地服务于任何目的，包括灾难。</p>
+    <p><b>霍克海默与阿多诺</b>在《启蒙辩证法》（1944）中提出：宰制自然的理性最终转向宰制人本身。他们创造了「<b>文化工业</b>」概念——流水线生产的娱乐让大众在「自由时间」里继续被标准化、被安抚，丧失批判能力（写在短视频时代之前八十年）。第二代的<b>哈贝马斯</b>（1929— ）转向建设性方案：工具理性之外还有「交往理性」，真理与正当性应在不受权力扭曲的公共讨论中形成——他对「公共领域」的研究，是今天讨论媒体、舆论与民主质量的理论底座。</p>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>后现代 / 后结构主义</h3><span class="tag">怀疑一切宏大叙事</span></div>
+    <p class="oneliner">「真理」「知识」「常识」都有制造史——追查它们是被谁、如何、为了什么建构出来的。</p>
+    <div class="phil">
+      <div class="coin">F<small>FOUCAULT</small></div>
+      <div class="phil-body">
+        <h4>米歇尔·福柯 Michel Foucault</h4>
+        <div class="meta">1926 — 1984 · 法国 · 著《疯癫与文明》《规训与惩罚》《性史》</div>
+        <p>他用尼采式的「谱系学」考古一个个不证自明的概念：「疯癫」「疾病」「犯罪」「性」的边界在不同时代被完全不同地划定——划界的权力藏在医院、监狱、学校的日常制度里。核心命题：<b>权力与知识互相生产</b>（谁有权定义「正常」，谁就掌握最深的权力）；现代权力不再靠砍头示众，而是靠考试、档案、监控、规范让人「自我规训」——他以边沁设计的全景敞视监狱（Panopticon）为喻：当你不确定是否被注视时，你会主动表现得像被注视着。这个比喻在算法推荐与数据监控的时代，几乎成了字面描述。</p>
+      </div>
+    </div>
+    <div class="phil">
+      <div class="coin">D<small>DERRIDA</small></div>
+      <div class="phil-body">
+        <h4>雅克·德里达 Jacques Derrida</h4>
+        <div class="meta">1930 — 2004 · 阿尔及利亚出生 · 「解构」之父</div>
+        <p>「<b>解构</b>」并非「拆毁一切」的虚无口号，而是一种精读策略：西方思想总是靠成对的等级概念运转（言语/文字、理性/情感、中心/边缘、男/女），每对中前者被默认优越。解构就是钻进文本内部，证明被压制的一方其实是优越一方成立的前提——等级随即松动。这套方法溢出哲学，重塑了文学批评、法学、建筑与性别研究。后现代思潮整体上是一剂强力解毒剂：解除对一切「唯一真理」的迷信；但药效过头的副作用——「怎么说都行」的真相虚无主义——也成为当代「后真相」困境的思想伏笔之一。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="school">
+    <div class="school-head"><h3>当代政治哲学</h3><span class="tag">正义重回中心</span></div>
+    <p class="oneliner">假如你不知道自己会投胎成谁，你愿意社会按什么规则运行？</p>
+    <div class="phil">
+      <div class="coin">R<small>RAWLS</small></div>
+      <div class="phil-body">
+        <h4>约翰·罗尔斯 John Rawls</h4>
+        <div class="meta">1921 — 2002 · 哈佛 · 著《正义论》（1971），单枪匹马复兴了政治哲学</div>
+        <p>他设计了哲学史上最优雅的思想实验「<b>无知之幕</b>」：请你在不知道自己将出生为富是穷、聪慧或平庸、健康或残障、何种族裔性别的前提下，选择社会的基本规则。理性的人会选：① 人人平等的基本自由；② 不平等只有在<b>最有利于境况最差者</b>、且机会向所有人公平开放时才被允许（差别原则）。<b>诺齐克</b>随即从右翼回应（只要财产来路正当，再大的不平等也正义；「最小国家」之外皆为越权），两人的论战至今仍是全球关于税收、福利、再分配之争的哲学母本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /river -->
+
+<!-- ============ 结语 ============ -->
+<section class="coda">
+  <div class="latin">Sapere Aude · 敢于求知</div>
+  <h2>合上地图：这条河流向哪里</h2>
+  <p style="margin-top:18px;">回望全程，哲学史的主线其实异常清晰：<b>古希腊人</b>发明了「用理性解释世界」这件事本身；<b>中世纪</b>用理性侍奉信仰，却暗中磨利了逻辑之刀；<b>近代</b>把战场移到「我们如何知道」，理性主义与经验主义双双走到极限后，<b>康德</b>划定了理性的边界，<b>黑格尔</b>建成最后的体系大厦；<b>19 世纪</b>意志、生存、权力、资本轮番起义；<b>20 世纪</b>分成两路——大陆哲学追问存在与意义，分析哲学解剖语言与逻辑，并在世纪末于政治哲学与心灵哲学（意识难题、AI 能否思考——图灵之问正是哲学问题）重新合流。</p>
+  <p>而今天的前沿问题，几乎全是旧问题换上新衣：AI 是否可能有意识？——笛卡尔的心身问题。算法时代的自我规训？——福柯的全景监狱。基因编辑与「人的本质」？——存在先于本质。大模型的「知识」算不算知识？——柏拉图对「真信念＋理由」的定义又被搬上桌面。<b>哲学从不提供最终答案，它提供的是问题的精确形状，和两千六百年来最聪明的头脑试错留下的完整地图。</b></p>
+  <div class="final">
+    <b>给投资人的一条暗线：</b>这部哲学史也可以读成一部「认知风险管理史」——苏格拉底的「自知无知」是对过度自信的永恒对冲；休谟提醒你历史归纳不构成未来保证；康德说所有数据都先经过你自带滤镜的加工；波普尔要求每个论点预先写下证伪条件；斯多葛学派则负责仓位波动时的心态管理。<b>两千六百年的哲学，一半在教人如何思考，另一半在教人如何与不确定性共处</b>——而这恰好是这个行业的全部。
+  </div>
+</section>
+
+<footer>
+  哲学长河 · ΦΙΛΟΣΟΦΙΑ — 从泰勒斯到罗尔斯，约 2600 年 · 仅为通识导览，流派取舍难免有所简化
+</footer>
+
+</body>
+</html>
