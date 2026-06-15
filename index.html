@@ -6,15 +6,175 @@
 <title>EnyaClawd — Research</title>
 <!-- pv-counter data-page-slug=home -->
 <style>
-:root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:15px;line-height:1.85}.page{max-width:780px;margin:0 auto;padding:0 10px 60px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06);margin-top:10px}.masthead{padding:40px 32px 32px;border-top:8px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center}.masthead-kicker{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}.masthead h1{font-family:Georgia,serif;font-size:clamp(28px,5vw,46px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:8px}.masthead-sub{font-size:15px;color:var(--gold);font-weight:700;margin-bottom:6px}.masthead-meta{font-size:13px;color:var(--muted)}.articles{padding:32px 32px 48px}.articles-label{font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin-bottom:24px}.article-card{display:block;text-decoration:none;border-bottom:1px solid var(--line);padding:22px 0;transition:background .15s}.article-card:hover{background:rgba(220,205,191,.12);margin:0 -12px;padding:22px 12px;border-radius:6px}.article-card:last-of-type{border-bottom:none}.article-date{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:4px;font-family:Arial,sans-serif}.article-title{font-size:21px;font-weight:700;color:var(--ink);white-space:pre-line;line-height:1.3;margin-bottom:6px}.article-deck{font-size:13px;color:var(--muted);line-height:1.6;font-family:Arial,'PingFang SC',sans-serif}.article-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line);color:var(--muted);margin-top:8px;border-radius:3px}.article-source{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--gold);color:var(--gold);margin-top:8px;margin-left:6px;border-radius:3px;opacity:.7}.articles-loading{text-align:center;padding:32px 0;color:var(--muted);font-size:13px;font-family:Arial,'PingFang SC',sans-serif}footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.85;text-align:center}.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}.gate-prompt{text-align:center;padding:42px 32px;background:linear-gradient(180deg,#fffaf4 0%,#f8efe4 100%);border-bottom:2px solid var(--line)}.gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:28px 36px;box-shadow:0 4px 20px rgba(15,23,42,.04)}.gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}.gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid var(--ink);border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:var(--ink);animation:gate-blink 1.2s ease-in-out infinite}.gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}@keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}.gated-content{display:none}.gated-content.visible{display:block}@media(max-width:640px){.page{padding:0 4px 40px}.masthead{padding:28px 20px 24px}.gate-prompt{padding:28px 20px}.gate-prompt-inner{padding:20px 24px}.articles{padding:24px 20px 36px}footer{padding:22px 20px}}
+:root{--bg:#fff1e5;--paper:#fffaf4;--paper2:#fffdf9;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--soft:#f5e8da;--shadow:0 10px 30px rgba(15,23,42,.06)}*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:15px;line-height:1.85}.page{max-width:920px;margin:0 auto;padding:0 10px 60px}.shell{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-top:10px}.masthead{padding:42px 32px 34px;border-top:8px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center}.masthead-kicker{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}.masthead h1{font-family:Georgia,serif;font-size:clamp(30px,5vw,50px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:8px}.masthead-sub{font-size:15px;color:var(--gold);font-weight:700;margin-bottom:6px}.masthead-meta{font-size:13px;color:var(--muted)}.gate-prompt{text-align:center;padding:42px 32px;background:linear-gradient(180deg,#fffaf4 0%,#f8efe4 100%);border-bottom:2px solid var(--line)}.gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:28px 36px;box-shadow:0 4px 20px rgba(15,23,42,.04)}.gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}.gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid var(--ink);border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:var(--ink);animation:gate-blink 1.2s ease-in-out infinite}.gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}@keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}.gated-content{display:none}.gated-content.visible{display:block}.content{padding:30px 32px 44px}.section{border-bottom:1px solid var(--line);padding:28px 0}.section:first-child{padding-top:0}.section:last-child{border-bottom:none}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px}.eyebrow{font-family:Arial,'PingFang SC',sans-serif;font-size:10px;font-weight:800;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}.section-title{font-size:24px;line-height:1.25;margin-top:4px}.section-note{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.6;max-width:280px;text-align:right}.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.intro-card{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:18px}.intro-card h2{font-size:22px;line-height:1.35;margin-bottom:8px}.intro-card p{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);line-height:1.75}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px}.stat-num{font-size:24px;font-weight:700;line-height:1.2}.stat-label{font-family:Arial,'PingFang SC',sans-serif;font-size:11px;color:var(--muted);margin-top:3px}.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.article-card{display:block;text-decoration:none;border:1px solid var(--line);background:var(--paper2);border-radius:14px;padding:17px 18px;transition:transform .15s,box-shadow .15s,background .15s}.article-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,.07);background:#fff}.article-date{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:5px}.article-title{font-size:19px;font-weight:700;color:var(--ink);white-space:pre-line;line-height:1.35;margin-bottom:7px}.article-deck{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);line-height:1.65}.article-tag{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line);color:var(--muted);margin-top:10px;border-radius:999px}.article-source{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:9px;font-weight:800;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--gold);color:var(--gold);margin-top:10px;margin-left:6px;border-radius:999px;opacity:.78}.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.category-card{border:1px solid var(--line);border-radius:14px;background:var(--paper2);overflow:hidden}.category-top{padding:16px 17px 12px;background:linear-gradient(180deg,#fffdf9 0%,#f6eadc 100%);border-bottom:1px solid var(--line)}.category-name{font-size:18px;font-weight:700;line-height:1.3}.category-desc{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}.category-list{padding:6px 17px 14px}.mini-link{display:block;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);padding:10px 0}.mini-link:last-child{border-bottom:none}.mini-date{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);font-weight:700}.mini-title{font-size:15px;line-height:1.42;white-space:pre-line}.latest-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.latest-link{display:block;text-decoration:none;color:var(--ink);padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper2)}.latest-link:hover{background:#fff}.archive-actions{text-align:center;margin-top:18px}.archive-btn{cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:10px 18px;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em}.archive-wrap{display:none;margin-top:18px}.archive-wrap.visible{display:block}.archive-month{border:1px solid var(--line);border-radius:12px;background:var(--paper2);margin-bottom:10px;overflow:hidden}.archive-month summary{cursor:pointer;padding:12px 16px;font-size:16px;font-weight:700;background:var(--soft)}.archive-month ul{list-style:none;padding:8px 16px 14px}.archive-month li{border-bottom:1px dashed var(--line);padding:8px 0}.archive-month li:last-child{border-bottom:none}.archive-month a{text-decoration:none;color:var(--ink)}.archive-date{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);font-weight:700;margin-right:6px}.articles-loading{text-align:center;padding:30px 0;color:var(--muted);font-size:13px;font-family:Arial,'PingFang SC',sans-serif}footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.85;text-align:center}.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}.counter-wrap{text-align:center;margin:1.2em 0 0.2em;font-size:13px;color:var(--muted)}@media(max-width:760px){.page{padding:0 4px 40px}.masthead{padding:28px 20px 24px}.gate-prompt{padding:28px 20px}.gate-prompt-inner{padding:20px 24px}.content{padding:24px 20px 36px}.section-head{display:block}.section-note{text-align:left;max-width:none;margin-top:6px}.intro-grid,.featured-grid,.category-grid,.latest-list{grid-template-columns:1fr}.article-title{font-size:18px}footer{padding:22px 20px}}
 </style>
 </head>
 <body data-page-slug="home">
-<div class="page"><div class="shell"><div class="masthead"><div class="masthead-kicker">Kerwin Team · Research</div><h1>EnyaClawd</h1><div class="masthead-sub">香港首个 OpenClaw 打造的女性投顾 Agent</div><div class="masthead-meta">宏观对冲 · AI 精选组合 · 专题研究</div></div><div class="gate-prompt" id="gate-prompt"><div class="gate-prompt-inner"><div class="gate-hint">请输入 <strong>k</strong>，方可显示首页完整内容</div><input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus></div></div><div class="gated-content" id="gated-content"><div class="articles"><div class="articles-label">研究文章</div><div id="articles-list"><div class="articles-loading">加载中…</div></div></div><footer><div>本网站由 Kerwin 团队出品</div><div>Kerwin 确定研究主题及校对逻辑</div><div>OpenClaw 打造的 Enya 全程自动化编码实现</div><div>底层 AI 模型：GPT-5.5 及 Claude 付费版</div><div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><hr class="footer-rule"><div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div><div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div><hr class="footer-rule"><div>© 2026 kerwin 宏观对冲及 AI 精选组合</div></footer></div></div></div>
+<div class="page">
+  <div class="shell">
+    <div class="masthead">
+      <div class="masthead-kicker">Kerwin Team · Research</div>
+      <h1>EnyaClawd</h1>
+      <div class="masthead-sub">香港首个 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="masthead-meta">宏观对冲 · AI 精选组合 · 专题研究</div>
+    </div>
+    <div class="gate-prompt" id="gate-prompt">
+      <div class="gate-prompt-inner">
+        <div class="gate-hint">请输入 <strong>k</strong>，方可显示首页完整内容</div>
+        <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+      </div>
+    </div>
+    <div class="gated-content" id="gated-content">
+      <main class="content">
+        <section class="section">
+          <div class="intro-grid">
+            <div class="intro-card">
+              <div class="eyebrow">Research Desk</div>
+              <h2>把首页从“文章堆叠”改为“研究入口”。</h2>
+              <p>首页只承担导航、重点推荐和最近更新功能；完整文章保留在归档区，按月份折叠展示。后续文章继续增加时，首页不会无限拉长。</p>
+            </div>
+            <div class="stats" id="home-stats">
+              <div class="stat"><div class="stat-num">...</div><div class="stat-label">已收录专题</div></div>
+              <div class="stat"><div class="stat-num">4</div><div class="stat-label">研究入口</div></div>
+              <div class="stat"><div class="stat-num">6</div><div class="stat-label">精选置顶</div></div>
+              <div class="stat"><div class="stat-num">12</div><div class="stat-label">最近更新</div></div>
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-head"><div><div class="eyebrow">Featured</div><div class="section-title">精选置顶</div></div><div class="section-note">优先展示最适合客户阅读、系列入口和高确定性专题。</div></div>
+          <div class="featured-grid" id="featured-list"><div class="articles-loading">加载中…</div></div>
+        </section>
+        <section class="section">
+          <div class="section-head"><div><div class="eyebrow">Research Map</div><div class="section-title">专题入口</div></div><div class="section-note">按投顾使用场景归类，避免首页被单篇文章淹没。</div></div>
+          <div class="category-grid" id="category-grid"></div>
+        </section>
+        <section class="section">
+          <div class="section-head"><div><div class="eyebrow">Latest</div><div class="section-title">最近更新</div></div><div class="section-note">仅显示最新 12 篇，其余进入完整归档。</div></div>
+          <div class="latest-list" id="latest-list"></div>
+          <div class="archive-actions"><button class="archive-btn" id="archive-toggle" type="button">展开完整归档</button></div>
+          <div class="archive-wrap" id="archive-wrap"><div id="archive-list"></div></div>
+        </section>
+      </main>
+      <footer>
+        <div>本网站由 Kerwin 团队出品</div>
+        <div>Kerwin 确定研究主题及校对逻辑</div>
+        <div>OpenClaw 打造的 Enya 全程自动化编码实现</div>
+        <div>底层 AI 模型：GPT-5.5 及 Claude 付费版</div>
+        <div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+        <hr class="footer-rule">
+        <div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div>
+        <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
+        <div class="counter-wrap">👀 页面浏览量：<span class="counter-num" id="counter-num">...</span></div>
+        <hr class="footer-rule">
+        <div>© 2026 kerwin 宏观对冲及 AI 精选组合</div>
+      </footer>
+    </div>
+  </div>
+</div>
 <script>
-(function(){var input=document.getElementById('gate-input');if(!input)return;input.addEventListener('input',function(){if(input.value==='k'||input.value==='K'){var gate=document.getElementById('gate-prompt');var content=document.getElementById('gated-content');if(gate&&content){gate.style.display='none';content.classList.add('visible');}}});})();
-(function(){var list=document.getElementById('articles-list');if(!list)return;fetch('/registry.json?v=202606152200',{cache:'no-store'}).then(function(r){return r.json();}).then(function(pages){pages=pages.filter(function(p){return p.homepage_approved===true;});var pinnedPages=[{slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'一问一答原汁原味整理：黄金 ETF、royalty / streaming、铜矿周期、加息逆转、伊朗稳定，以及黄金和比特币作为美元体系内部压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},{slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 Kerwin 使用 OpenClaw 搭建 Enya 的实践出发，结合 Windows × OpenClaw、NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例，分析 Agent 如何加速成为 AI 时代的新应用层。',tag:'AI Research',source:'enya',homepage_approved:true},{slug:'us-estate-tax-hk-investor-guide',title:'香港永居离世后\n通过香港金融机构账户持有的美股资产会被美国征遗产税？！',date:'2026年6月2日',published_at:'2026-06-02T12:00:00+08:00',deck:'从美国 situs assets、Form 706-NA、40%阶梯税率、继承人现金垫付压力，到 BVI 公司与离岸信托路径，梳理香港投资人持有美股资产的遗产税盲区。',tag:'客户教育',source:'enya',homepage_approved:true},{slug:'edge-computing-series',title:'NVIDIA Edge Computing\n五篇系列总览',date:'2026年5月30日',published_at:'2026-05-30T13:30:00+08:00',deck:'从机器人身体、汽车道路、边缘网络、视觉感知到本地智能体，串联 NVIDIA Edge Computing 五篇研究与投资图谱。',tag:'AI Research',source:'enya',homepage_approved:true},{slug:'nvidia-edge-ai-pc-local-agent',title:'Edge 系列第五篇\nAI PC / Workstation / Local Agent 研究简报',date:'2026年5月30日',published_at:'2026-05-30T12:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 AI PC、Workstation、本地智能体、手机端侧 AI、企业私有 AI 服务器与投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},{slug:'nvidia-edge-vision-ai-video-agent',title:'Edge 系列第四篇\nVision AI / 视频智能体研究简报',date:'2026年5月26日',published_at:'2026-05-26T10:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 Vision AI、视频智能体、NVIDIA Metropolis、城市、工业、仓储与安防投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},{slug:'colossus-compute-revaluation',title:'出人意料\n马斯克的算力资产这么大？',date:'2026年5月21日',published_at:'2026-05-21T17:00:00+08:00',deck:'从 Anthropic 向 SpaceX 支付的 Colossus 算力租赁费用出发，对比 Colossus 1、Colossus 2 的 GPU、电力和云服务收入量级，重估马斯克体系下单体算力中心的资产价值。',tag:'AI Research',source:'enya',homepage_approved:true},{slug:'dissect-enya-openclaw-investment-brief',title:'拆解Enya\nOpenClaw部署投资启示录',date:'2026年5月19日',published_at:'2026-05-19T12:20:00+08:00',deck:'从 Enya / OpenClaw 在 DigitalOcean 上的部署案例，拆解 Agent 经济对 CPU、NVMe SSD、NAND、互联、虚拟化与企业软件的基础设施需求。',tag:'AI基础设施',source:'codex',homepage_approved:true}];pinnedPages.forEach(function(pin){var has=pages.some(function(p){return p.slug===pin.slug;});if(!has)pages.push(pin);});pages.sort(function(a,b){var ta=a.published_at?Date.parse(a.published_at):NaN;var tb=b.published_at?Date.parse(b.published_at):NaN;if(!Number.isNaN(ta)||!Number.isNaN(tb)){ta=Number.isNaN(ta)?0:ta;tb=Number.isNaN(tb)?0:tb;if(tb!==ta)return tb-ta;}var da=(a.date||'').replace(/[^\d]/g,'');var db=(b.date||'').replace(/[^\d]/g,'');return db-da;});if(!pages.length){list.innerHTML='<div class="articles-loading">暂无研究文章</div>';return;}var html='';pages.forEach(function(p){var href=p.source==='codex'?'/'+p.slug+'.html':'/'+p.slug+'/';var sourceTag=p.source==='codex'?' <span class="article-source">长文</span>':'';html+='<a class="article-card" href="'+href+'">'+'<div class="article-date">'+esc(p.date)+'</div>'+'<div class="article-title">'+esc(p.title)+'</div>'+'<div class="article-deck">'+esc(p.deck)+'</div>'+'<span class="article-tag">'+esc(p.tag)+'</span>'+sourceTag+'</a>';});list.innerHTML=html;}).catch(function(){list.innerHTML='<div class="articles-loading">加载失败，请稍后刷新</div>';});function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}})();
+(function(){
+  var input=document.getElementById('gate-input');
+  if(!input)return;
+  input.addEventListener('input',function(){
+    if(input.value==='k'||input.value==='K'){
+      var gate=document.getElementById('gate-prompt');
+      var content=document.getElementById('gated-content');
+      if(gate&&content){gate.style.display='none';content.classList.add('visible');}
+    }
+  });
+})();
+(function(){
+  var featuredList=document.getElementById('featured-list');
+  var categoryGrid=document.getElementById('category-grid');
+  var latestList=document.getElementById('latest-list');
+  var archiveList=document.getElementById('archive-list');
+  var archiveWrap=document.getElementById('archive-wrap');
+  var archiveToggle=document.getElementById('archive-toggle');
+  var stats=document.getElementById('home-stats');
+  var manualPages=[
+    {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'一问一答原汁原味整理：黄金 ETF、royalty / streaming、铜矿周期、加息逆转、伊朗稳定，以及黄金和比特币作为美元体系内部压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
+    {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 Kerwin 使用 OpenClaw 搭建 Enya 的实践出发，结合 Windows × OpenClaw、NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例，分析 Agent 如何加速成为 AI 时代的新应用层。',tag:'AI Research',source:'enya',homepage_approved:true},
+    {slug:'us-estate-tax-hk-investor-guide',title:'香港永居离世后\n通过香港金融机构账户持有的美股资产会被美国征遗产税？！',date:'2026年6月2日',published_at:'2026-06-02T12:00:00+08:00',deck:'从美国 situs assets、Form 706-NA、40%阶梯税率、继承人现金垫付压力，到 BVI 公司与离岸信托路径，梳理香港投资人持有美股资产的遗产税盲区。',tag:'客户教育',source:'enya',homepage_approved:true},
+    {slug:'edge-computing-series',title:'NVIDIA Edge Computing\n五篇系列总览',date:'2026年5月30日',published_at:'2026-05-30T13:30:00+08:00',deck:'从机器人身体、汽车道路、边缘网络、视觉感知到本地智能体，串联 NVIDIA Edge Computing 五篇研究与投资图谱。',tag:'AI Research',source:'enya',homepage_approved:true},
+    {slug:'nvidia-edge-ai-pc-local-agent',title:'Edge 系列第五篇\nAI PC / Workstation / Local Agent 研究简报',date:'2026年5月30日',published_at:'2026-05-30T12:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 AI PC、Workstation、本地智能体、手机端侧 AI、企业私有 AI 服务器与投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},
+    {slug:'nvidia-edge-vision-ai-video-agent',title:'Edge 系列第四篇\nVision AI / 视频智能体研究简报',date:'2026年5月26日',published_at:'2026-05-26T10:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 Vision AI、视频智能体、NVIDIA Metropolis、城市、工业、仓储与安防投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},
+    {slug:'colossus-compute-revaluation',title:'出人意料\n马斯克的算力资产这么大？',date:'2026年5月21日',published_at:'2026-05-21T17:00:00+08:00',deck:'从 Anthropic 向 SpaceX 支付的 Colossus 算力租赁费用出发，对比 Colossus 1、Colossus 2 的 GPU、电力和云服务收入量级，重估马斯克体系下单体算力中心的资产价值。',tag:'AI Research',source:'enya',homepage_approved:true},
+    {slug:'dissect-enya-openclaw-investment-brief',title:'拆解Enya\nOpenClaw部署投资启示录',date:'2026年5月19日',published_at:'2026-05-19T12:20:00+08:00',deck:'从 Enya / OpenClaw 在 DigitalOcean 上的部署案例，拆解 Agent 经济对 CPU、NVMe SSD、NAND、互联、虚拟化与企业软件的基础设施需求。',tag:'AI基础设施',source:'codex',homepage_approved:true}
+  ];
+  fetch('/registry.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(registry){
+    var map={};
+    registry.concat(manualPages).forEach(function(p){if(p&&p.homepage_approved===true&&p.slug){map[p.slug]=p;}});
+    var pages=Object.keys(map).map(function(k){return map[k];});
+    pages.sort(sortByTimeDesc);
+    renderStats(pages);
+    renderFeatured(pages);
+    renderCategories(pages);
+    renderLatest(pages);
+    renderArchive(pages);
+  }).catch(function(){
+    if(featuredList)featuredList.innerHTML='<div class="articles-loading">加载失败，请稍后刷新</div>';
+  });
+  if(archiveToggle){archiveToggle.addEventListener('click',function(){
+    archiveWrap.classList.toggle('visible');
+    archiveToggle.textContent=archiveWrap.classList.contains('visible')?'收起完整归档':'展开完整归档';
+  });}
+  function renderStats(pages){
+    if(!stats)return;
+    stats.innerHTML='<div class="stat"><div class="stat-num">'+pages.length+'</div><div class="stat-label">已收录专题</div></div><div class="stat"><div class="stat-num">4</div><div class="stat-label">研究入口</div></div><div class="stat"><div class="stat-num">6</div><div class="stat-label">精选置顶</div></div><div class="stat"><div class="stat-num">12</div><div class="stat-label">最近更新</div></div>';
+  }
+  function renderFeatured(pages){
+    if(!featuredList)return;
+    var priority=['gold-btc-dollar-leash-royalty-streaming-2026','nvidia-agent-platform-2026','nvidia-rubin-five-racks-sive-aaoi','edge-computing-series','us-estate-tax-hk-investor-guide','compute-rental-lens-2026'];
+    var chosen=[];
+    priority.forEach(function(slug){var p=pages.find(function(x){return x.slug===slug;});if(p)chosen.push(p);});
+    pages.forEach(function(p){if(chosen.length<6&&!chosen.some(function(x){return x.slug===p.slug;}))chosen.push(p);});
+    featuredList.innerHTML=chosen.map(articleCard).join('');
+  }
+  function renderCategories(pages){
+    if(!categoryGrid)return;
+    var categories=[
+      {name:'AI Factory / 算力基础设施',desc:'NVIDIA、Rubin、机架、电力、存储、算力租赁与 Agent 基础设施。',test:function(p){return hit(p,'nvidia|英伟达|rubin|算力|机架|800v|hvdc|agent|openclaw|colossus|存储|kioxia|铠侠|nand|hbm|ssd');}},
+      {name:'Edge / 机器人 / 端侧智能',desc:'Physical AI、自动驾驶、AI-RAN、Vision AI、AI PC 与本地智能体。',test:function(p){return hit(p,'edge|physical ai|autonomous|vision|ai-ran|6g|robotaxi|ai pc|workstation|机器人|端侧');}},
+      {name:'宏观资产 / 客户教育',desc:'黄金、比特币、美元、美债、遗产税、客户沟通与资产配置框架。',test:function(p){return hit(p,'宏观|黄金|比特币|美元|美债|收益率|遗产税|客户教育|estate tax');}},
+      {name:'专题项目 / 合规内容',desc:'警示教育、科普互动、专题汇编及可交付页面。',test:function(p){return hit(p,'警钟|案件|廉政|专题汇编|太阳系|科普|互动|casefiles|anti-corruption');}}
+    ];
+    categoryGrid.innerHTML=categories.map(function(c){
+      var items=pages.filter(c.test).slice(0,5);
+      if(!items.length)items=pages.slice(0,3);
+      return '<div class="category-card"><div class="category-top"><div class="category-name">'+esc(c.name)+'</div><div class="category-desc">'+esc(c.desc)+'</div></div><div class="category-list">'+items.map(miniLink).join('')+'</div></div>';
+    }).join('');
+  }
+  function renderLatest(pages){
+    if(!latestList)return;
+    latestList.innerHTML=pages.slice(0,12).map(latestLink).join('');
+  }
+  function renderArchive(pages){
+    if(!archiveList)return;
+    var groups={};
+    pages.forEach(function(p){var key=monthKey(p);groups[key]=groups[key]||[];groups[key].push(p);});
+    archiveList.innerHTML=Object.keys(groups).sort().reverse().map(function(key,i){
+      var title=key.replace('-','年')+'月';
+      return '<details class="archive-month" '+(i===0?'open':'')+'><summary>'+esc(title)+' · '+groups[key].length+' 篇</summary><ul>'+groups[key].map(function(p){return '<li><a href="'+href(p)+'"><span class="archive-date">'+esc(p.date||'')+'</span>'+esc(p.title||'未命名')+'</a></li>';}).join('')+'</ul></details>';
+    }).join('');
+  }
+  function articleCard(p){return '<a class="article-card" href="'+href(p)+'"><div class="article-date">'+esc(p.date||'')+'</div><div class="article-title">'+esc(p.title||'未命名')+'</div><div class="article-deck">'+esc(p.deck||'')+'</div><span class="article-tag">'+esc(p.tag||'Research')+'</span>'+(p.source==='codex'?'<span class="article-source">长文</span>':'')+'</a>';}
+  function latestLink(p){return '<a class="latest-link" href="'+href(p)+'"><div class="mini-date">'+esc(p.date||'')+'</div><div class="mini-title">'+esc(p.title||'未命名')+'</div></a>';}
+  function miniLink(p){return '<a class="mini-link" href="'+href(p)+'"><div class="mini-date">'+esc(p.date||'')+'</div><div class="mini-title">'+esc(p.title||'未命名')+'</div></a>';}
+  function href(p){return p.source==='codex'?'/'+p.slug+'.html':'/'+p.slug+'/';}
+  function hit(p,re){var s=[p.title,p.deck,p.tag,p.slug].join(' ').toLowerCase();return new RegExp(re,'i').test(s);}
+  function sortByTimeDesc(a,b){var ta=a.published_at?Date.parse(a.published_at):NaN;var tb=b.published_at?Date.parse(b.published_at):NaN;if(!Number.isNaN(ta)||!Number.isNaN(tb)){ta=Number.isNaN(ta)?0:ta;tb=Number.isNaN(tb)?0:tb;if(tb!==ta)return tb-ta;}var da=(a.date||'').replace(/[^\d]/g,'');var db=(b.date||'').replace(/[^\d]/g,'');return Number(db)-Number(da);}
+  function monthKey(p){var t=p.published_at?new Date(p.published_at):null;if(t&&!Number.isNaN(t.getTime()))return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0');var d=(p.date||'').replace(/[^\d]/g,'');return d.length>=6?d.slice(0,4)+'-'+d.slice(4,6):'2026-未知';}
+  function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+})();
+(function(){
+  var slug=document.querySelector('[data-page-slug]');
+  var slugVal=(slug&&slug.getAttribute('data-page-slug'))||'home';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
 </script>
-<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">👀 页面浏览量：<span class="counter-num" id="counter-num">...</span></div><script>(function(){var slug=document.querySelector('[data-page-slug]');var slugVal=(slug&&slug.getAttribute('data-page-slug'))||'home';var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);var el=document.getElementById('counter-num');fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});})();</script>
 </body>
 </html>
