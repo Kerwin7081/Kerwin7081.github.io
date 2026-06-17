@@ -67,7 +67,7 @@ body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',
   if(sessionStorage.getItem('gate_ok_semi2')){ov.style.display='none';return}
   inp.addEventListener('keydown',function(e){
     if(e.key==='Enter'){
-      if(inp.value==='k'){sessionStorage.setItem('gate_ok_semi2','1');ov.style.display='none'}
+      if(inp.value.toLowerCase()==='k'){sessionStorage.setItem('gate_ok_semi2','1');ov.style.display='none'}
       else{err.style.display='block';inp.value='';setTimeout(function(){err.style.display='none'},1500)}
     }
   })
