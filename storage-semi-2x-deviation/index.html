@@ -8,42 +8,36 @@
 :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--table-head:#3d3229;--up:#16a34a;--down:#dc2626;--date:#8b4513}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',serif;color:var(--ink);font-size:14px;line-height:1.85}
-.back{max-width:900px;margin:0 auto;padding:6px 16px 0}
+.back{max-width:980px;margin:0 auto;padding:6px 16px 0}
 .back a{display:inline-block;font-family:Arial,sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
-.page{max-width:900px;margin:0 auto;padding:10px 10px 28px}
+.page{max-width:980px;margin:0 auto;padding:10px 4px 28px}
 .shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
-.wrap{max-width:860px;margin:0 auto;background:#fff}
+.wrap{max-width:960px;margin:0 auto;background:#fff}
 .topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
 .top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
-.top-title{font-size:30px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
+.top-title{font-size:28px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
 .top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600;font-family:Arial,sans-serif}
 .top-block{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,sans-serif}
-.section{padding:20px 16px;border-bottom:1px solid #efe3d7}
-.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-.month-block{border:1px solid #e5d9cc;margin-bottom:18px;background:#fff}
-.month-header{font-size:20px;font-weight:700;color:#16110d;padding:12px 16px;background:var(--table-head);color:#f5f0e8;font-family:Georgia,serif}
-.inner-tbl{width:100%;border-collapse:collapse;font:11px Arial,"PingFang SC",sans-serif}
-.inner-tbl thead tr{background:#f5efe5}
-.inner-tbl th{padding:4px 6px;text-align:left;font-size:10px;font-weight:600;color:#6f6258;white-space:nowrap;border-bottom:1px solid #dccdbf}
-.inner-tbl th:last-child{text-align:right}
-.inner-tbl td{padding:3px 6px;border-bottom:1px solid #efe3d7;vertical-align:middle}
-.inner-tbl tbody tr:nth-child(even){background:#fdfaf7}
-.inner-tbl tbody tr:hover{background:#fdf5ec}
-.dev-section{border-top:1px solid #e5d9cc;padding:10px 14px;background:var(--panel)}
-.dev-label{font:700 10px Arial,sans-serif;color:#92400e;letter-spacing:.08em;margin-bottom:6px}
-.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:14px 16px;margin:12px 0;background:#fdfaf5;font-size:13px}
+.section{padding:16px 12px;border-bottom:1px solid #efe3d7}
+.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.main-tbl{border-collapse:collapse;font:11px Arial,"PingFang SC",sans-serif;min-width:900px}
+.main-tbl thead th{background:var(--table-head);color:#f5f0e8;padding:6px 4px;text-align:center;font-size:10px;font-weight:600;white-space:nowrap;position:sticky;top:0;z-index:1}
+.main-tbl thead th.month-col{font-size:13px;letter-spacing:.04em}
+.main-tbl thead th.sub-col{font-size:10px;font-weight:400;color:#d5c9b5}
+.main-tbl tbody td{border-bottom:1px solid #efe3d7}
+.main-tbl tbody tr:hover td{background:#fdf5ec}
+.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:14px 16px;margin:10px 0;background:#fdfaf5;font-size:13px}
 .callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:6px}
 .conclusion{background:#1f1a17;padding:20px 16px}
 .conclusion h2{color:#f5f0e8;font-size:16px;font-weight:700;margin-bottom:10px}
 .conclusion p,.conclusion li{color:#e8d5b8;font-size:12px;line-height:1.7;font-family:Arial,sans-serif;margin:0 0 6px}
 .footer{padding:14px 16px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,sans-serif}
-.note{font-size:11px;color:#8a7769;margin-top:8px;font-family:Arial,sans-serif}
 @media(max-width:640px){
   .page{padding:0 2px 16px}
   .topbar{padding:14px 12px 10px}
-  .top-title{font-size:22px}
-  .section{padding:14px 8px}
-  .month-header{font-size:17px;padding:10px 12px}
+  .top-title{font-size:20px}
+  .section{padding:12px 6px}
 }
 </style>
 </head>
@@ -53,10 +47,8 @@ body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',
 <div id="gate-content" style="background:var(--paper);border:1px solid var(--line);padding:32px 28px;text-align:center;max-width:320px;width:90%;box-shadow:0 10px 40px rgba(15,23,42,.08)">
 <div style="font-size:36px;margin-bottom:12px">🔒</div>
 <div style="font:700 16px Georgia,serif;color:var(--ink);margin-bottom:6px">Kerwin Research</div>
-<div style="font-size:12px;color:var(--muted);margin-bottom:16px">请输入密码以继续</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:16px">输入 K 打开网页</div>
 <input id="gate-input" type="password" placeholder="输入K打开网页" style="width:100%;padding:10px 12px;border:1px solid var(--line);font-size:14px;font-family:Arial,sans-serif;text-align:center;outline:none;background:#fff" autofocus>
-<div style="font-size:11px;color:#8a7769;margin-top:4px">输入 K 打开网页</div>
-<div id="gate-error" style="color:var(--down);font-size:12px;margin-top:4px;display:none">密码不正确</div>
 </div></div>
 
 <script>
@@ -74,291 +66,62 @@ body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',
 <div class="page"><div class="shell">
 <div class="topbar">
   <div class="top-kicker">KERWIN TEAM PRESENTS</div>
-  <h1 class="top-title">存储半导体<br>正股 vs 2x 杠杆 ETF<br>月度偏差分析</h1>
+  <h1 class="top-title">存储半导体 正股 vs 2x 杠杆 ETF<br>月度偏差分析</h1>
   <div class="top-date">2026年1月 — 6月 · 报告日期 2026年6月17日</div>
   <div class="top-block">
-    三星 · SK海力士 · 美光 · SanDisk 四大存储半导体正股，及对应 5 只 2x 杠杆 ETF（港股/美股）。
-    每月两列并排展示：左侧正股，右侧 2x ETF，下方附偏差分析。<br>
-    数据来源：Yahoo Finance。
+    三星 · SK海力士 · 美光 · SanDisk 四大存储半导体，及对应 5 只 2x ETF（港股/美股）<br>
+    每月拆为正股 / ETF 两列，Δ = ETF 实际 − 简单 2x 期望（pp）。数据来源：Yahoo Finance。
   </div>
 </div>
 
 <div class="wrap">
-
 <div class="section">
-  <div class="section-label">月度详情 · 正股 / ETF 并排对比</div>
-  
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +33.86%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +39.63%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +41.78%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +139.88%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +74.28%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +73.26%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +81.60%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +91.11%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#999;text-align:right">—</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 5.5pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +67.7%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +74.3%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+6.56pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +67.7%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +73.3%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+5.54pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +79.3%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +81.6%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+2.34pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +83.6%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +91.1%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+7.55pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px;color:#999">SanDisk → SNDU</td><td colspan="3" style="color:#999">—</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
+  <div class="section-label">月度正股 & ETF 涨跌 · 偏差分析</div>
+  <div class="tbl-scroll">
+  <table class="main-tbl">
+  <thead>
+    <tr>
+      <th style="min-width:80px;text-align:left;padding-left:10px"></th>
+      <th class="month-col" colspan="2">Jan</th><th class="month-col" colspan="2">Feb</th><th class="month-col" colspan="2">Mar</th><th class="month-col" colspan="2">Apr</th><th class="month-col" colspan="2">May</th><th class="month-col" colspan="2">Jun</th>
+    </tr>
+    <tr>
+      <th style="text-align:left;padding-left:10px">配对</th>
+      <th class="sub-col">正股</th><th class="sub-col">ETF</th><th class="sub-col">正股</th><th class="sub-col">ETF</th><th class="sub-col">正股</th><th class="sub-col">ETF</th><th class="sub-col">正股</th><th class="sub-col">ETF</th><th class="sub-col">正股</th><th class="sub-col">ETF</th><th class="sub-col">正股</th><th class="sub-col">ETF</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:4px 10px;border-right:2px solid var(--line);min-width:80px">Samsung → 7747</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+33.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+74.3%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+34.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+79.5%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626;border-left:1px dotted #e5d9cc">▼-22.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-47.4%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+31.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+67.5%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+43.8%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+92.0%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+5.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+2.0%</td></tr>
+<tr style="font-size:10px;background:#fdfaf5"><td style="color:#92400e;padding:2px 10px;border-right:2px solid var(--line)">Δ</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+6.6pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+9.7pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-2.1pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+3.8pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+4.5pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-9.8pp</td></tr>
+<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:4px 10px;border-right:2px solid var(--line);min-width:80px">Samsung → 9747</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+33.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+73.3%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+34.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+79.5%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626;border-left:1px dotted #e5d9cc">▼-22.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-47.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+31.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+68.7%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+43.8%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+91.8%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+5.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+2.1%</td></tr>
+<tr style="font-size:10px;background:#fdfaf5"><td style="color:#92400e;padding:2px 10px;border-right:2px solid var(--line)">Δ</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+5.5pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+9.7pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-2.6pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+5.0pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+4.3pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-9.7pp</td></tr>
+<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:4px 10px;border-right:2px solid var(--line);min-width:80px">SK Hynix → 7709</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+39.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+81.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+16.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+34.3%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626;border-left:1px dotted #e5d9cc">▼-23.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-48.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+59.4%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+134.2%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+81.5%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+189.2%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+3.4%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-4.6%</td></tr>
+<tr style="font-size:10px;background:#fdfaf5"><td style="color:#92400e;padding:2px 10px;border-right:2px solid var(--line)">Δ</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+2.3pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+0.4pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-1.0pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+15.5pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+26.3pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-11.4pp</td></tr>
+<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:4px 10px;border-right:2px solid var(--line);min-width:80px">Micron → MUU</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+41.8%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+91.1%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626;border-left:1px dotted #e5d9cc">▼-0.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-5.3%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626;border-left:1px dotted #e5d9cc">▼-18.0%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-37.0%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+53.1%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+124.9%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+87.8%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+220.1%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+5.1%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+2.3%</td></tr>
+<tr style="font-size:10px;background:#fdfaf5"><td style="color:#92400e;padding:2px 10px;border-right:2px solid var(--line)">Δ</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+7.5pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-4.1pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-1.0pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+18.7pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+44.6pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-7.9pp</td></tr>
+<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:4px 10px;border-right:2px solid var(--line);min-width:80px">SanDisk → SNDU</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+139.9%</td><td style="text-align:right;color:#999">—</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+10.3%</td><td style="text-align:right;color:#999">—</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+-0.0%</td><td style="text-align:right;color:#999">—</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+72.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+179.3%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+54.6%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a">▲+116.0%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16a34a;border-left:1px dotted #e5d9cc">▲+17.5%</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#dc2626">▼-56.4%</td></tr>
+<tr style="font-size:10px;background:#fdfaf5"><td style="color:#92400e;padding:2px 10px;border-right:2px solid var(--line)">Δ</td><td colspan="2" style="text-align:right;color:#999;border-left:1px dotted #e5d9cc">—</td><td colspan="2" style="text-align:right;color:#999;border-left:1px dotted #e5d9cc">—</td><td colspan="2" style="text-align:right;color:#999;border-left:1px dotted #e5d9cc">—</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+34.2pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#16a34a;font-weight:600;border-left:1px dotted #e5d9cc">+6.8pp</td><td colspan="2" style="text-align:right;padding:1px 6px;color:#dc2626;font-weight:600;border-left:1px dotted #e5d9cc">-91.4pp</td></tr>
 
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +34.89%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +16.94%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -0.60%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +10.26%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +79.48%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +79.46%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +34.26%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -5.28%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#999;text-align:right">—</td></tr>
-</tbody>
-      </table>
-    </div>
+  </tbody>
+  </table>
   </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 6.0pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +69.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +79.5%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+9.70pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +69.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +79.5%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+9.68pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +33.9%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +34.3%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+0.38pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: -1.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -5.3%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-4.08pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px;color:#999">SanDisk → SNDU</td><td colspan="3" style="color:#999">—</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
-
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -22.61%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -23.94%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -18.04%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +-0.00%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -47.36%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -47.87%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -48.87%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -37.04%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#999;text-align:right">—</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 1.7pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: -45.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -47.4%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-2.14pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: -45.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -47.9%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-2.65pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: -47.9%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -48.9%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-0.99pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: -36.1%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -37.0%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-0.96pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px;color:#999">SanDisk → SNDU</td><td colspan="3" style="color:#999">—</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
-
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +31.88%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +59.36%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +53.08%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +72.59%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +67.53%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +68.72%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +134.25%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +124.90%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +179.34%</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 15.4pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +63.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +67.5%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+3.77pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +63.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +68.7%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+4.96pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +118.7%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +134.2%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+15.53pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +106.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +124.9%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+18.74pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SanDisk → SNDU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +145.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +179.3%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+34.16pp</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
-
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +43.76%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +81.45%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +87.76%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +54.58%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +92.05%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +91.84%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +189.18%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +220.11%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +115.99%</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 17.3pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +87.5%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +92.0%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+4.53pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +87.5%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +91.8%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+4.32pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +162.9%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +189.2%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+26.28pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +175.5%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +220.1%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+44.59pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SanDisk → SNDU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +109.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +116.0%</td><td style="color:#16a34a;font-weight:700;text-align:right;padding:3px 6px">+6.83pp</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
-
-<div class="month-block">
-  <div class="month-header">SanDisk → SNDU</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">正股</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">005930</td><td style="padding:3px 6px;font-size:12px">Samsung</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +5.91%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">000660</td><td style="padding:3px 6px;font-size:12px">SK Hynix</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +3.43%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MU</td><td style="padding:3px 6px;font-size:12px">Micron</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +5.12%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDK</td><td style="padding:3px 6px;font-size:12px">SanDisk</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +17.50%</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div style="flex:1;min-width:280px">
-      <div style="font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:1px;margin-bottom:6px">2x 杠杆 ETF</div>
-      <table class="inner-tbl">
-        <thead><tr><th style="width:50px">代码</th><th>名称</th><th style="width:80px">涨跌</th></tr></thead>
-        <tbody><tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +1.98%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">9747</td><td style="padding:3px 6px;font-size:12px">Samsung 2x USD</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +2.13%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">7709</td><td style="padding:3px 6px;font-size:12px">SK Hynix 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -4.58%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">MUU</td><td style="padding:3px 6px;font-size:12px">Micron 2x</td><td style="color:#16a34a;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▲ +2.34%</td></tr>
-<tr><td style="font:700 12px Arial,sans-serif;color:#8a5b2b;white-space:nowrap;padding:3px 8px">SNDU</td><td style="padding:3px 6px;font-size:12px">SanDisk 2x</td><td style="color:#dc2626;font-weight:700;text-align:right;white-space:nowrap;padding:3px 6px">▼ -56.36%</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
-  <div class="dev-section">
-    <div class="dev-label">偏差 (ETF 实际 vs 简单 2x) · 本月均值|Δ| = 26.0pp</div>
-    <table class="inner-tbl">
-      <thead><tr><th>配对</th><th style="width:70px">简单2x</th><th style="width:70px">ETF实际</th><th style="width:60px">Δ</th></tr></thead>
-      <tbody><tr><td style="font-size:12px;padding:2px 8px">Samsung → 7747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +11.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +2.0%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-9.84pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Samsung → 9747</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +11.8%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +2.1%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-9.69pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SK Hynix → 7709</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +6.9%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -4.6%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-11.44pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">Micron → MUU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +10.2%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: +2.3%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-7.90pp</td></tr>
-<tr><td style="font-size:12px;padding:2px 8px">SanDisk → SNDU</td><td style="text-align:right;font-size:12px;padding:2px 6px">2x: +35.0%</td><td style="text-align:right;font-size:12px;padding:2px 6px">ETF: -56.4%</td><td style="color:#dc2626;font-weight:700;text-align:right;padding:3px 6px">-91.36pp</td></tr>
-</tbody>
-    </table>
-  </div>
-</div>
-
+  <div style="font-size:11px;color:#8a7769;margin-top:8px">SNDU (SanDisk 2x) 于 2026-03-12 挂牌，此前无数据。Δ = ETF实际涨跌 − (正股涨跌×2)，正=ETF跑赢，负=ETF跑输。数据截至 2026-06-16 收盘。</div>
 </div>
 
 <div class="section">
   <div class="section-label">核心发现</div>
-
   <div class="callout">
-    <div class="callout-label">1 — 4月：单边趋势月 = ETF 超额受益</div>
-    <p>1月、2月、4月、5月，正股持续上涨（月涨 +17%~+88%），所有 2x ETF 均<b>跑赢</b>简单 2x 期望，复利正向叠加效应充分释放。<br>
-    5月 Micron → MUU 最突出：正股 +87.8%，ETF +220.1%（超额 +44.6pp）。</p>
+    <div class="callout-label">趋势月（1/2/4/5月）：ETF 超额受益</div>
+    <p>单边上涨月份，每日复利正向叠加 → 所有 2x ETF 跑赢简单 2x 期望。5月 Micron→MUU +44.6pp 最为突出。</p>
   </div>
-
   <div class="callout">
-    <div class="callout-label">3月、6月：震荡/下跌 = ETF 加速亏损</div>
-    <p>3月单边下跌（-18%~-24%）和 6月剧烈 V 型震荡中，所有 ETF 均跑输。6月 SNDU 极端：正股 +17.5% 但 ETF <b>-56.4%</b>（偏差 -91pp），为样本中最大单月偏差。</p>
-  </div>
-
-  <div class="callout">
-    <div class="callout-label">港股 2x ETF 追踪弱于美股</div>
-    <p>CSOP 系列（7747/9747/7709）受韩元/港币汇率、韩股-港股收盘时差、ETF 折溢价三重影响，系统性偏差大于美股 MUU。</p>
+    <div class="callout-label">震荡月（3/6月）：ETF 加速亏损</div>
+    <p>3月单边下跌 & 6月 V 型震荡 → 所有 ETF 跑输。6月 SanDisk→SNDU 极端：正股 +17.5%，ETF -56.4%（Δ=-91.4pp）。</p>
   </div>
 </div>
 
 <div class="conclusion">
   <h2>⚠️ 免责声明</h2>
-  <p>本分析为自动化生成的市场数据观察，不构成任何具体投资建议。杠杆 ETF 存在波动衰减、汇率风险、流动性风险等多重风险，不适合长期持有。数据来源于 Yahoo Finance，可能存在延迟或复权口径差异。投资决策应以交易所官方数据及完整研究框架为准。</p>
+  <p>本分析为自动化生成的市场数据观察，不构成任何具体投资建议。杠杆 ETF 存在波动衰减、汇率风险、流动性风险等多重风险，不适合长期持有。数据来源于 Yahoo Finance，可能存在延迟或复权口径差异。</p>
 </div>
 
 <div class="footer">
