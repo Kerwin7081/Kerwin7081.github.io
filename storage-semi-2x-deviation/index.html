@@ -63,13 +63,9 @@ body{background:var(--bg);font-family:Georgia,'Times New Roman','Noto Serif SC',
 (function(){
   var ov=document.getElementById('gate-overlay');
   var inp=document.getElementById('gate-input');
-  var err=document.getElementById('gate-error');
   if(sessionStorage.getItem('gate_ok_semi2')){ov.style.display='none';return}
-  inp.addEventListener('keydown',function(e){
-    if(e.key==='Enter'){
-      if(inp.value.toLowerCase()==='k'){sessionStorage.setItem('gate_ok_semi2','1');ov.style.display='none'}
-      else{err.style.display='block';inp.value='';setTimeout(function(){err.style.display='none'},1500)}
-    }
+  inp.addEventListener('input',function(){
+    if(inp.value.toLowerCase()==='k'){sessionStorage.setItem('gate_ok_semi2','1');ov.style.display='none'}
   })
 })();
 </script>
