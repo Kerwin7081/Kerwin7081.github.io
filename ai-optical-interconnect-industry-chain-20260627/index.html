@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 光互联产业链全景：从 Mesh 到 1.6T、CPO 与光子封装</title>
-<meta name="description" content="以 Gemini 对话附件为底稿，完整保留 Mesh、Starlink、xAI、Sivers、Jabil、GF、Ayar Labs、TFLN、硅光、CPO、ELSFP、COUPE、镓锗、中国自动化制造与医疗传感等讨论点，重构 AI 光互联产业链全景。">
+<meta name="description" content="本文从 SpaceX/马斯克体系收购 Mesh 作为切入点，梳理 AI 光互联产业链：1.6T 光模块、CPO、ELSFP、硅光、TFLN、Sivers 光源、Celestial AI、Marvell 并购、自动化制造与投资图谱。">
 <!-- pv-counter data-page-slug=ai-optical-interconnect-industry-chain-20260627 -->
 <style>
 :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--deep:#241b14;--soft:#f7eadc;--green:#216e4e;--red:#9f2f2f;--blue:#245985;--shadow:0 10px 30px rgba(15,23,42,.07)}
@@ -15,54 +15,47 @@
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell">
   <div class="topbar">
-    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <div class="top-kicker">KERWIN INVESTMENT RESEARCH</div>
     <div class="top-title">AI 光互联产业链全景</div>
     <div class="top-sub">从 Mesh、1.6T 光模块，到 CPO、ELSFP、COUPE 与光子封装</div>
-    <div class="top-date">报告发布日期：2026年6月27日</div>
-    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。本文依据用户与 Gemini 的完整对话附件重构，保留原讨论中的 Mesh、Starlink、xAI、Sivers、Jabil、GF、Ayar Labs、TFLN、硅光、CPO、ELSFP、COUPE、镓锗、中国自动化制造、医疗传感等支线，同时用公开资料补充和校正。</div>
+    <div class="top-date">报告发布日期：2026年6月27日 · 修订版</div>
+    <div class="top-block">本文为 Kerwin 投顾视角下的 AI 光互联产业链研究。我们关注的不是单一光模块行情，而是 AI 工厂扩容后，网络、功耗、光源、材料、封装、制造良率和供应链安全共同驱动的系统级产业迁移。</div>
   </div>
 
   <section class="hero">
     <div class="hero-grid">
       <div>
         <div class="badge">OPTICAL INTERCONNECT · AI INFRASTRUCTURE</div>
-        <h1>光互联不是光模块的单点行情，而是 AI 工厂从铜走向光的系统级迁移。</h1>
-        <p>附件的讨论主线已经覆盖了当前光互联最关键的技术关键词，但原文是对话式展开，存在重复、跳跃、夸张判断和若干待核实表述。本文不删减原讨论点，而是把它重排为一张从需求、网络、芯片、模块、光源、材料、封装、制造设备到投资标的的全景图。</p>
-        <p>判断标准很简单：只要一个环节能提高 GPU 利用率、降低 AI 集群通信功耗、减少布线复杂度、提升 1.6T/3.2T 良率，它就属于光互联产业链的一部分。</p>
+        <h1>从 SpaceX/马斯克体系收购 Mesh 切入，重新梳理光互联产业链。</h1>
+        <p>公开交易记录显示，收购方为 Elon Musk，标的为 Mesh Optical Technologies。由于 Mesh 的技术血缘、创始团队叙事和潜在应用场景均与 SpaceX、Starlink、xAI 和 Tesla 体系存在强关联，本文以“SpaceX/马斯克体系收购 Mesh”作为切入点，试图回答一个更大的问题：AI 工厂从铜互联走向光互联后，产业链价值会如何重新分配。</p>
+        <p>本文不把 Mesh 简化成一家光模块公司，也不把光互联简化成 800G/1.6T 出货周期。真正的研究对象，是从 GPU 集群通信墙、交换芯片、光模块、DSP/SerDes、激光器、硅光、TFLN、CPO、ELSFP、自动化封装，到 Marvell 并购 Celestial AI 所代表的光子互联平台化趋势。</p>
       </div>
       <div class="verdict">
-        <h2>现有内容是否足够总览光互联产业链？</h2>
-        <p>结论：已经覆盖主干，但需要补上五块。</p>
-        <p>一是系统网络层，二是 DSP/SerDes 电芯片层，三是连接器、光纤和测试设备，四是自动化制造设备，五是事实校验层。补齐后，附件可升级为较完整的光互联产业链总览。</p>
+        <h2>核心判断</h2>
+        <p>短期看 800G/1.6T 光模块交付；中期看激光器、DSP/SerDes、LPO/LRO 与硅光良率；长期看 CPO、ELSFP、COUPE、SCALE、Photonic Fabric 与 Optical I/O。Mesh 与 Celestial AI 的意义在于：光互联正从模块产业，进入系统和封装平台竞争。</p>
       </div>
     </div>
     <div class="stat-grid">
       <div class="stat"><div class="stat-num">1.6T</div><div class="stat-label">当前 AI 光模块核心升级节点</div></div>
       <div class="stat"><div class="stat-num">CPO</div><div class="stat-label">交换芯片侧的下一代架构</div></div>
       <div class="stat"><div class="stat-num">ELSFP</div><div class="stat-label">外部激光源与可维护性方案</div></div>
-      <div class="stat"><div class="stat-num">TFLN</div><div class="stat-label">高性能调制器潜在材料路线</div></div>
+      <div class="stat"><div class="stat-num">$3.25B</div><div class="stat-label">Marvell 收购 Celestial AI 的交易规模</div></div>
     </div>
   </section>
 
   <nav class="nav">
-    <a href="#verdict">总览校正</a><a href="#chain">产业链全图</a><a href="#demand">通信墙</a><a href="#mesh">Mesh</a><a href="#module">1.6T 模块</a><a href="#system">系统权力</a><a href="#materials">材料</a><a href="#cpo">CPO/ELSFP</a><a href="#sivers">Sivers</a><a href="#china">中国链</a><a href="#automation">自动化制造</a><a href="#sensing">医疗传感</a><a href="#investment">投资图谱</a><a href="#sources">资料来源</a>
+    <a href="#verdict">研究结论</a><a href="#chain">产业链全图</a><a href="#demand">通信墙</a><a href="#mesh">Mesh</a><a href="#mesh-sivers">Mesh/Sivers 推演</a><a href="#module">1.6T 模块</a><a href="#system">系统权力</a><a href="#materials">材料</a><a href="#cpo">CPO/ELSFP</a><a href="#sivers">Sivers</a><a href="#celestial">Celestial/Marvell</a><a href="#china">中国链</a><a href="#automation">自动化制造</a><a href="#sensing">医疗传感</a><a href="#investment">投资图谱</a><a href="#sources">资料来源</a>
   </nav>
 
   <section class="section" id="verdict">
-    <div class="section-label">00 · CONTENT AUDIT</div>
-    <h2>先判断附件质量：主线有价值，但要降噪和补层</h2>
-    <p>附件的价值在于，它没有只停留在“光模块涨价”这种二级市场话术，而是把 Mesh、Starlink 激光链路、xAI Colossus、NVIDIA 网络、TSMC COUPE、Sivers 光源、TFLN、镓锗和中国制造自动化放在同一张图里讨论。这种视角是对的。</p>
-    <p>问题也明显：原文有大量“终局”“垄断”“卡死”“降维打击”等强判断，适合做叙事，不适合直接作为研究结论。本文的处理方式是：主题全部保留，事实逐项核查，叙事降调为假设或观察。</p>
-    <div class="table-wrap"><table><thead><tr><th>附件原主题</th><th>是否保留</th><th>处理方式</th></tr></thead><tbody>
-      <tr><td>FTC 批准 Elon Musk 收购 Mesh</td><td class="ok">保留</td><td>有 FTC 早期终止审查记录，作为确定事实。</td></tr>
-      <tr><td>Mesh Alpha C1 1.6T 光收发器</td><td class="ok">保留</td><td>Mesh 官网披露 1.6T 与 800G OSFP 产品，作为核心切入点。</td></tr>
-      <tr><td>Starlink 激光链路与数据中心光互联的血缘关系</td><td class="ok">保留</td><td>保留工程类比，同时强调自由空间激光通信与光纤互联不是同一产品。</td></tr>
-      <tr><td>xAI、Tesla Dojo、SpaceX 的马斯克闭环</td><td class="watch">保留为推演</td><td>可以作为战略动机，不写成已经落地的供应链事实。</td></tr>
-      <tr><td>TFLN、硅光、InP、CPO、ELSFP、COUPE</td><td class="ok">保留</td><td>这些是光互联当前最核心的技术词，全部纳入产业链。</td></tr>
-      <tr><td>Sivers、Jabil、GF、Ayar Labs</td><td class="ok">保留</td><td>Sivers 是附件第二主角，作为上游光源与开放光引擎生态重点展开。</td></tr>
-      <tr><td>镓锗出口管制、中国 TFLN 和光模块厂</td><td class="watch">保留并降调</td><td>保留供应链风险，不采用中文网站作为信源，具体市占率需进一步用公告和海外资料核查。</td></tr>
-      <tr><td>Apple Watch 无创血糖、医疗传感</td><td class="watch">保留为远期期权</td><td>不作为 Sivers 主估值逻辑，放在激光传感外延。</td></tr>
-      <tr><td>“显微镜女工”、机械臂替代、胶水热胀冷缩</td><td class="ok">保留并修正措辞</td><td>改写为熟练光学对准操作员、主动对准设备、固化收缩与热管理良率问题。</td></tr>
+    <div class="section-label">00 · INVESTMENT VIEW</div>
+    <h2>研究结论：光互联正在从“模块交付”升级为“系统封装竞争”</h2>
+    <p>AI 光互联的第一层逻辑是 800G 和 1.6T 光模块放量，第二层逻辑是 DSP、SerDes、激光器和硅光芯片的价值上移，第三层逻辑是 CPO、ELSFP 和 Optical I/O 进入系统封装。Mesh、Sivers、Celestial AI、Ayar Labs、Lightmatter 这些公司处在不同环节，但都指向同一个方向：AI 集群需要更高带宽、更低功耗、更低延迟和更高可靠性的光连接。</p>
+    <div class="table-wrap"><table><thead><tr><th>判断</th><th>含义</th><th>投资观察</th></tr></thead><tbody>
+      <tr><td>Mesh 是战略信号</td><td>马斯克体系开始把光互联视为 AI 基础设施控制点。</td><td>关注 1.6T 光收发器、自动化封装和内部需求闭环。</td></tr>
+      <tr><td>Sivers 是光源弹性点</td><td>DFB/CW 激光器和多波长光源可能进入 LRO、CPO、Optical I/O。</td><td>关注 Jabil、GF、Ayar 生态，但不能把潜在客户写成确定订单。</td></tr>
+      <tr><td>Celestial AI 是平台化信号</td><td>Photonic Fabric 把光互联从网络边缘推进到芯片和内存连接。</td><td>Marvell 收购后，光子互联成为定制 ASIC、CPO、scale-up switching 的核心补强。</td></tr>
+      <tr><td>中国链仍有交付优势</td><td>模块制造、无源器件、部分 TFLN 和海外产能仍重要。</td><td>需要区分交付能力、技术壁垒和地缘风险。</td></tr>
     </tbody></table></div>
   </section>
 
@@ -73,7 +66,7 @@
       <div class="node"><b>需求端：</b>大模型训练、推理、自动驾驶、搜索推荐、云数据中心、HPC。</div><div class="arrow">↓</div>
       <div class="node"><b>算力端：</b>GPU、TPU、ASIC、XPU、HBM、CPU、DPU、NVMe SSD。</div><div class="arrow">↓</div>
       <div class="node"><b>网络系统层：</b>InfiniBand、Ethernet、NVLink、Spectrum-X、Switch ASIC、NIC、DPU。</div><div class="arrow">↓</div>
-      <div class="node"><b>互联形态：</b>DAC、AEC、400G、800G、1.6T、3.2T、LPO、LRO、TRO、CPO、Optical I/O。</div><div class="arrow">↓</div>
+      <div class="node"><b>互联形态：</b>DAC、AEC、400G、800G、1.6T、3.2T、LPO、LRO、TRO、CPO、Photonic Fabric、Optical I/O。</div><div class="arrow">↓</div>
       <div class="node"><b>光模块与光引擎：</b>OSFP、QSFP-DD、DR/FR/LR、LRO 模块、CPO 光引擎。</div><div class="arrow">↓</div>
       <div class="node"><b>电芯片层：</b>DSP、Retimer、CDR、Driver、TIA、SerDes、PAM4。</div><div class="arrow">↓</div>
       <div class="node"><b>光芯片层：</b>DFB、EML、VCSEL、CW Laser、MZM、PD、PIC。</div><div class="arrow">↓</div>
@@ -81,197 +74,187 @@
       <div class="node"><b>封装制造：</b>Flip Chip、Active Alignment、CPO、COUPE、SCALE、ELSFP、光纤耦合、固晶胶、TEC。</div><div class="arrow">↓</div>
       <div class="node"><b>基础设施：</b>光纤、连接器、透镜、隔离器、测试设备、BERT、探针台、自动化固晶机。</div>
     </div></div>
-    <p>这张图的重点是：光互联不只是“光模块厂的订单”，而是 AI 网络从系统层到材料层的重新分工。短期收入在可插拔模块，中期壁垒在 DSP、激光器和硅光，长期利润池会向 CPO、光 I/O、先进封装和系统平台集中。</p>
   </section>
 
   <section class="section" id="demand">
     <div class="section-label">02 · DEMAND</div>
     <h2>需求端：AI 集群撞上“通信墙”</h2>
-    <p>AI 训练和推理不是只堆 GPU。GPU 越贵，互联越重要，因为昂贵芯片等待通信同步，本质上就是资本开支利用率下降。附件中“铜线瓶颈、功耗、延迟、GPU 等待”的讨论是成立的，应扩展成“AI 集群通信墙”。</p>
+    <p>AI 训练和推理不是只堆 GPU。GPU 越贵，互联越重要，因为昂贵芯片等待通信同步，本质上就是资本开支利用率下降。光互联的价值来自更高带宽、更低损耗、更低延迟、更低功耗和更简单的集群布线。</p>
     <div class="grid-3">
       <div class="card"><h3>Scale-up</h3><p>单节点、单机柜或近距离芯片互联。过去更多依赖铜缆、NVLink、板级互联，未来可能引入更深层光 I/O。</p></div>
       <div class="card"><h3>Scale-out</h3><p>机柜间、集群间互联。800G 与 1.6T 光模块是最直接的放量环节，也是当前最容易进入财务报表的主线。</p></div>
       <div class="card"><h3>Scale-across</h3><p>数据中心之间互联。长距离相干光、DCI、OCS、WDM 与网络调度的重要性上升。</p></div>
     </div>
-    <div class="callout"><strong>投资含义：</strong>AI 光互联的需求不是传统互联网带宽增长，而是 GPU 利用率、功耗约束和集群扩展性的共同结果。AI 模型越大，通信效率的经济价值越高。</div>
   </section>
 
   <section class="section" id="mesh">
     <div class="section-label">03 · MESH / MUSK</div>
-    <h2>Mesh：马斯克收购的真正信号</h2>
+    <h2>Mesh：马斯克体系收购背后的战略信号</h2>
     <p>FTC 记录显示，Elon Musk 收购 Mesh Optical Technologies Corporation 的交易已获得早期终止审查批准。Mesh 官网介绍 Alpha C1 为面向 hyperscale computing 的 1.6T 与 800G OSFP 光互联产品，核心卖点是把电信号线性转换成光信号，并改善功耗、延迟和可靠性。</p>
-    <p>这说明附件开头的核心事实可以保留：Mesh 不是普通光模块故事，它是马斯克体系把“网络互联”视为战略资产的信号。</p>
-    <h3>Starlink 激光链路与数据中心光互联的关系</h3>
+    <p>这说明 Mesh 不应只被看作普通光模块创业公司。它更像一个切口，反映马斯克体系对 AI 数据中心互联、Starlink 激光通信经验、xAI 训练集群和 Tesla 自动驾驶训练基础设施的综合控制需求。</p>
     <div class="table-wrap"><table><thead><tr><th>维度</th><th>Starlink 激光交叉链路</th><th>数据中心光互联</th><th>判断</th></tr></thead><tbody>
       <tr><td>介质</td><td>自由空间、真空或近真空环境</td><td>光纤、连接器、机柜布线</td><td>物理环境不同</td></tr>
       <tr><td>距离</td><td>卫星间长距离</td><td>机柜内、机柜间、数据中心间</td><td>应用尺度不同</td></tr>
       <tr><td>难点</td><td>捕获、瞄准、追踪、抗振动</td><td>微型化、低功耗、低成本、良率</td><td>工程约束不同</td></tr>
       <tr><td>共性</td><td>高速调制、光电转换、可靠性工程</td><td>高速调制、光电转换、可靠性工程</td><td>方法论可迁移</td></tr>
     </tbody></table></div>
-    <h3>马斯克闭环应如何表达</h3>
-    <p>附件中把 Mesh 与 xAI Colossus、Tesla Dojo、SpaceX Starlink 串成闭环，这个方向可以保留，但必须区分事实与推演。</p>
-    <ul>
-      <li><span class="ok">事实：</span>Mesh 被马斯克收购，Alpha C1 指向 1.6T/800G 光互联。</li>
-      <li><span class="watch">合理推演：</span>xAI 大规模 AI 集群、Tesla 自动驾驶训练、SpaceX 激光通信都可能受益于低功耗高速互联能力。</li>
-      <li><span class="risk">不能写死：</span>Colossus 2 已全面采用 Mesh，Tesla Dojo 已采用 Mesh，SpaceX 下一代星链已反向导入 Mesh，这些都缺少公开证据。</li>
-    </ul>
+  </section>
+
+  <section class="section" id="mesh-sivers">
+    <div class="section-label">04 · MESH / SIVERS HYPOTHESIS</div>
+    <h2>Mesh 是否可能采购 Sivers 激光器？只能作为产业链推演，不能作为事实</h2>
+    <p>原页面此前没有明确展开这一推演。补充后的判断是：Mesh 作为 1.6T/800G 光互联产品公司，理论上需要高可靠性激光源、调制器、探测器、电芯片、封装材料和自动化制造能力。Sivers 的核心能力在 DFB 激光器、多波长激光阵列和 CW 光源，且已与 Jabil、GlobalFoundries、Ayar Labs 等开放光引擎生态发生联系，因此“Mesh 未来可能评估或采购类似 Sivers 的激光源”在产业逻辑上成立。</p>
+    <p>但必须强调：截至本文发布，没有公开证据显示 Mesh 已经向 Sivers 采购激光器，也没有公开合同证明 Sivers 进入 Mesh 或 xAI 供应链。因此正式写法应为：</p>
+    <div class="quote">若 Mesh 采取外部激光源或混合集成路线，其上游需要高可靠性 CW/DFB 激光器。Sivers、Lumentum、Coherent、Broadcom 等公司都可能处在候选供应池中。Sivers 的差异化在于多波长 DFB 激光阵列、与 Jabil 的 1.6T LRO 合作、与 GF SCALE 光引擎平台的连接，以及 Ayar Labs 外部光源生态。但这属于供应链推演，不是已确认订单。</div>
+    <div class="table-wrap"><table><thead><tr><th>推演步骤</th><th>逻辑</th><th>可信度</th></tr></thead><tbody>
+      <tr><td>Mesh 需要高性能光源</td><td>1.6T 光互联必须依赖稳定激光器或外部连续光源。</td><td class="ok">高</td></tr>
+      <tr><td>Sivers 是潜在候选</td><td>Sivers 已公开参与 DFB 激光器、1.6T LRO、GF SCALE、Ayar 光源生态。</td><td class="watch">中高</td></tr>
+      <tr><td>Mesh 可能采购 Sivers</td><td>两者技术位置互补，但无公开合同。</td><td class="watch">中</td></tr>
+      <tr><td>Sivers 已进入马斯克供应链</td><td>目前缺少公开证据。</td><td class="risk">低，不能写成结论</td></tr>
+    </tbody></table></div>
   </section>
 
   <section class="section" id="module">
-    <div class="section-label">04 · 1.6T MODULE</div>
+    <div class="section-label">05 · 1.6T MODULE</div>
     <h2>1.6T 光模块：当前最现实的收入兑现层</h2>
-    <p>短期投资最容易兑现的是 800G 向 1.6T 的升级。LightCounting 指出，Ethernet optical transceiver 销售额 2024 年翻倍，2025 年继续增长约 70%，并预计 2026 年有足够产能使光收发器销售继续翻倍。这表明 AI 光模块已经从主题预期进入产能与交付周期。</p>
+    <p>短期投资最容易兑现的是 800G 向 1.6T 的升级。AI 光模块已经从主题预期进入产能与交付周期。传统 DSP 光模块仍是主流，但功耗和成本压力推动 LPO、LRO、TRO 和 CPO 加速发展。</p>
     <div class="table-wrap"><table><thead><tr><th>形态</th><th>位置</th><th>关键器件</th><th>代表公司</th></tr></thead><tbody>
       <tr><td>800G 可插拔</td><td>当前 AI 集群主流放量</td><td>DSP、Driver、TIA、激光器、硅光 PIC、光纤连接</td><td>Coherent、Lumentum、中际旭创、新易盛、Eoptolink、AAOI</td></tr>
       <tr><td>1.6T 可插拔</td><td>2025 至 2027 年关键升级</td><td>200G/lane、PAM4、3nm DSP、OSFP、硅光、InP 激光器</td><td>Mesh、Coherent、Lumentum、Marvell、Broadcom、中国模块厂</td></tr>
       <tr><td>LPO / LRO / TRO</td><td>降低功耗与延迟</td><td>弱化或移动 DSP，要求系统级调试能力</td><td>Sivers + Jabil、Lumentum、Coherent、Marvell 生态</td></tr>
       <tr><td>CPO / NPO</td><td>下一代交换芯片侧架构</td><td>光引擎、外部光源、先进封装、光纤耦合</td><td>NVIDIA、Broadcom、TSMC、GF、Ayar Labs、Sivers</td></tr>
     </tbody></table></div>
-    <h3>DSP、LPO、LRO 的功耗战</h3>
-    <p>传统高速光模块依赖 DSP 修复信号失真，优点是兼容性与稳定性较好，缺点是功耗和成本较高。LPO、LRO、TRO 的核心是减少模块内部 DSP 负担，把部分信号处理交给系统或采用线性化方案。Marvell 的 1.6T PAM4 DSP 仍是传统高性能路线代表；Sivers 与 Jabil 的 1.6T LRO 合作则代表降功耗路线。</p>
   </section>
 
   <section class="section" id="system">
-    <div class="section-label">05 · SYSTEM POWER</div>
+    <div class="section-label">06 · SYSTEM POWER</div>
     <h2>系统权力：真正掌握议价权的是网络芯片和平台公司</h2>
     <p>光模块厂收入弹性强，但产业链定价权更上层。AI 光互联最终服务于交换芯片、网卡、DPU、GPU 集群调度和云厂网络架构。NVIDIA、Broadcom、Marvell、Cisco、Arista 才是系统级规则制定者。</p>
     <div class="table-wrap"><table><thead><tr><th>公司</th><th>位置</th><th>光互联含义</th></tr></thead><tbody>
       <tr><td>NVIDIA</td><td>GPU、NIC、DPU、InfiniBand、Ethernet、Spectrum-X、CPO</td><td>通过 GPU + 网络 + 软件把 AI 工厂打包成系统。</td></tr>
       <tr><td>Broadcom</td><td>Switch ASIC、SerDes、DSP、CPO</td><td>Bailly 与 Tomahawk 体系显示其 CPO 与以太网交换芯片实力。</td></tr>
-      <tr><td>Marvell</td><td>PAM4 DSP、SerDes、DPU、定制硅</td><td>站在光模块电芯片价值池核心，1.6T Ara DSP 是典型案例。</td></tr>
+      <tr><td>Marvell</td><td>PAM4 DSP、SerDes、DPU、custom ASIC、Photonic Fabric</td><td>从 Inphi、Innovium 到 Celestial AI，Marvell 正把电互联、光 DSP、交换和光子 fabric 串成平台。</td></tr>
       <tr><td>Cisco / Arista</td><td>网络系统与交换设备</td><td>受益 AI Ethernet 网络扩容，同时面对 NVIDIA Spectrum-X 竞争。</td></tr>
     </tbody></table></div>
-    <div class="callout"><strong>校正：</strong>附件中“英伟达全面光化 NVLink”这类表述需要降调。公开信息更稳妥的结论是，CPO 先落地在网络交换芯片侧，GPU 主体互联大规模光化仍需可靠性、成本、服务化能力验证。</div>
   </section>
 
   <section class="section" id="materials">
-    <div class="section-label">06 · MATERIALS</div>
+    <div class="section-label">07 · MATERIALS</div>
     <h2>材料路线：硅光是主路，InP 是光源核心，TFLN 是性能期权</h2>
     <div class="grid-3">
       <div class="card"><h3>Silicon Photonics</h3><p>优势是 CMOS 兼容、规模化制造、与先进封装协同。短中期是 800G、1.6T、CPO 光引擎的核心平台之一。短板是硅不擅长发光，通常需要外部或异质集成激光源。</p></div>
       <div class="card"><h3>InP</h3><p>磷化铟适合激光器、探测器和高速光电器件。DFB、EML、CW laser 等光源环节高度依赖 III-V 族材料和长期工艺配方。</p></div>
-      <div class="card"><h3>TFLN</h3><p>薄膜铌酸锂的电光效应强，适合高速、低损耗、低驱动电压调制器。它是 1.6T 后半程和 3.2T 的潜在高性能路线，但量产良率、成本和封装仍需跟踪。</p></div>
+      <div class="card"><h3>TFLN</h3><p>薄膜铌酸锂的电光效应强，适合高速、低损耗、低驱动电压调制器。它是 1.6T 后半程和 3.2T 的潜在高性能路线。</p></div>
     </div>
-    <h3>TFLN 与硅光的真实关系</h3>
-    <p>附件把 TFLN 称为“梦幻材质”，这个描述保留为技术想象，但不能忽视硅光的量产优势。更准确的判断是：硅光负责规模化与成本路径，TFLN 负责追求更高带宽和更低功耗的性能突破，InP 继续在激光器和 III-V 光电器件中保持关键位置。</p>
-    <h3>镓、锗与地缘供应链</h3>
-    <p>镓、锗与 III-V 半导体供应链相关，出口管制会影响欧美半导体、光电器件和防务电子产业。USGS 曾评估，中国若全面禁止镓、锗出口，可能对美国 GDP 造成数十亿美元级别冲击。本文将镓锗作为供应链风险纳入，而不把某一比例或“几个月内断供”写成确定结论。</p>
+    <p>更准确的判断是：硅光负责规模化与成本路径，TFLN 负责追求更高带宽和更低功耗的性能突破，InP 继续在激光器和 III-V 光电器件中保持关键位置。</p>
   </section>
 
   <section class="section" id="cpo">
-    <div class="section-label">07 · CPO / ELSFP / COUPE</div>
-    <h2>CPO 不是把“光模块贴上去”这么简单，而是系统架构变化</h2>
+    <div class="section-label">08 · CPO / ELSFP / COUPE</div>
+    <h2>CPO 不是把“光模块贴上去”，而是系统架构变化</h2>
     <p>传统可插拔模块的优势是可维护、生态成熟、成本路径清晰。痛点是高速电信号必须从 ASIC 走到前面板，距离越长，损耗、功耗和补偿越高。CPO 的方向是把光引擎靠近 Switch ASIC 或未来 XPU，减少电信号传输距离，提高带宽密度和能效。</p>
     <div class="grid-2">
       <div class="card"><h3>传统可插拔</h3><p>Switch ASIC 或 GPU，经 PCB 铜线连接到前面板光模块，再进入光纤。适合维护和大规模替换，短期仍是主流。</p></div>
       <div class="card"><h3>CPO</h3><p>光引擎进入芯片封装或靠近 ASIC，电连接从十几厘米缩短到毫米级甚至更短。代价是热、良率、维修和标准化难度上升。</p></div>
     </div>
-    <h3>ELSFP：把最怕热的“灯泡”留在外面</h3>
-    <p>附件中“把灯泡挂在外面”的比喻很准确。CPO 把调制和探测光引擎靠近 ASIC，但激光器怕热且需要可替换。OIF 的 ELSFP 标准就是为外部激光源设计的前面板可插拔形态，向系统内部的光引擎提供连续波光源。</p>
-    <h3>TSMC COUPE 与 GF SCALE</h3>
-    <p>COUPE 代表 TSMC 对光电异构集成的封装路线，目标是缩短 EIC 与 PIC 的耦合距离，降低损耗并支持硅光晶圆级系统集成。GF SCALE 则代表开放式硅光和光引擎平台的另一条路线。附件把台积电与英伟达看成封闭阵营、把 GF + Sivers + Ayar 看成开放联盟，这个叙事可以保留，但应理解为商业范式差异，不是绝对阵营划分。</p>
+    <p>ELSFP 的意义在于把最怕热、最需要维护的激光源留在前面板外部，让系统内部的 CPO 光引擎负责调制和探测。COUPE 与 GF SCALE 则代表光电异构封装从概念进入产业平台。</p>
   </section>
 
   <section class="section" id="sivers">
-    <div class="section-label">08 · SIVERS</div>
-    <h2>Sivers：附件中的第二主角，应定位为“光源与光引擎生态位”</h2>
-    <p>附件把 Sivers 比喻为“卖灯泡”的企业。这个比喻可以保留，但更专业的表达是：Sivers 位于 DFB 激光器、多波长激光阵列和 CW 光源环节，为 1.6T LRO、CPO、ELSFP 和 Optical I/O 提供上游光源能力之一。</p>
+    <div class="section-label">09 · SIVERS</div>
+    <h2>Sivers：光源与光引擎生态位</h2>
+    <p>Sivers 应定位为 DFB 激光器、多波长激光阵列和 CW 光源公司，而不是简单的“光模块公司”。它的价值在于可能向 1.6T LRO、CPO、ELSFP 和 Optical I/O 等多个场景供光。</p>
     <div class="table-wrap"><table><thead><tr><th>关系</th><th>含义</th><th>研究价值</th></tr></thead><tbody>
       <tr><td>Sivers + Jabil</td><td>Jabil 计划使用 Sivers DFB 激光器开发 1.6T LRO 模块。</td><td>验证 Sivers 从光源进入 AI 数据中心模块生态。</td></tr>
       <tr><td>Sivers + GF SCALE</td><td>Sivers 激光阵列支持 GlobalFoundries 硅光平台和 SCALE optical engine。</td><td>说明其不只服务可插拔模块，也可能进入 CPO / 光引擎路线。</td></tr>
       <tr><td>Sivers + Ayar Labs</td><td>Ayar Labs 的外部光源和 optical I/O 需要稳定多波长光源。</td><td>光 I/O 进入封装时，上游 CW 光源价值上升。</td></tr>
       <tr><td>Sivers Wireless</td><td>毫米波、SATCOM、beamforming 芯片。</td><td>与 Mesh 的 Starlink 叙事形成技术共鸣，但业务链条不同。</td></tr>
     </tbody></table></div>
-    <p>需要注意的是，Sivers 不是唯一光源公司。Broadcom、Lumentum、Coherent、MACOM 等都在激光器、光芯片或高速模拟链路中有重要位置。Sivers 的吸引力在于小市值、高弹性、AI 光源叙事和 SATCOM 复合标签，但它的风险也更高，需跟踪订单、毛利率、产能、客户认证和现金流。</p>
+  </section>
+
+  <section class="section" id="celestial">
+    <div class="section-label">10 · CELESTIAL AI / MARVELL</div>
+    <h2>Celestial AI：被 Marvell 收购的意义，不是“又一家光子创业公司”</h2>
+    <p>原页面此前只把 Celestial AI 放在光 I/O 创新公司列表中，没有展开。修订后应单独成章。Celestial AI 的核心技术是 Photonic Fabric，即用光子互联改善 AI 芯片、内存和系统之间的数据搬运。它关注的不是传统交换机前面板光模块，而是把光连接推进到 XPU、HBM、DDR、共享内存和 scale-up fabric 的体系内。</p>
+    <p>Marvell 于 2025 年 12 月宣布以约 32.5 亿美元收购 Celestial AI。Reuters 报道称，交易包括 10 亿美元现金和 27.2 百万股 Marvell 股票，Celestial 技术将用于 Marvell 下一代 photonics-related infrastructure products；Marvell 预计 Celestial 从 fiscal 2028 下半年开始贡献有意义收入，fiscal 2028 第四季度年化收入 run-rate 达 5 亿美元，fiscal 2029 第四季度翻倍至 10 亿美元。Reuters 还报道，与该交易相关，Amazon 获得与 Photonic Fabric 产品采购挂钩的 Marvell 股票认股权证。</p>
+    <h3>为什么这笔并购重要</h3>
+    <div class="table-wrap"><table><thead><tr><th>意义</th><th>解释</th><th>对应 Marvell 位置</th></tr></thead><tbody>
+      <tr><td>补齐光子互联平台</td><td>Marvell 已有 Inphi 光 DSP、PAM4 DSP、SerDes、custom ASIC 和交换资产，Celestial 补上 Photonic Fabric。</td><td>从模块电芯片走向系统互联平台。</td></tr>
+      <tr><td>强化 scale-up</td><td>AI 竞争从 scale-out 网络进入 scale-up 芯片间、芯片与内存间互联，Celestial 的方向正好切入这一层。</td><td>对抗 Broadcom 与 NVIDIA 的系统级控制力。</td></tr>
+      <tr><td>连接 hyperscaler</td><td>Amazon warrant 说明 Celestial/Marvell 的 Photonic Fabric 有云厂需求牵引。</td><td>提升 Marvell 在 AWS、Microsoft 等 custom silicon 客户中的战略位置。</td></tr>
+      <tr><td>改变估值叙事</td><td>Marvell 不再只是光 DSP 或 ASIC 供应商，而是具备电互联、光互联、交换和定制计算平台的整合者。</td><td>MRVL 的长期估值逻辑更接近 AI connectivity platform。</td></tr>
+    </tbody></table></div>
+    <div class="callout"><strong>Kerwin 判断：</strong>Celestial 被 Marvell 并购，说明光互联的终局不止是可插拔模块，也不止是 CPO 交换机。下一阶段竞争会进入“芯片、内存、交换与光子 fabric”的一体化架构。它会强化 Marvell 与 Broadcom、NVIDIA 在 AI 基础设施互联层的竞争。</div>
   </section>
 
   <section class="section" id="china">
-    <div class="section-label">09 · CHINA SUPPLY CHAIN</div>
-    <h2>中国链：不能删，但要把“供应链优势”和“技术壁垒”分开</h2>
-    <p>附件用了较多篇幅讨论中国光模块、TFLN、镓锗、天通股份、光库科技、中际旭创、新易盛、华工科技、光迅科技、天孚通信等。这部分必须保留，因为全球 AI 光模块交付与中国供应链密切相关。</p>
-    <div class="table-wrap"><table><thead><tr><th>环节</th><th>附件讨论公司</th><th>应如何研究</th></tr></thead><tbody>
-      <tr><td>高速光模块</td><td>中际旭创、新易盛、华工科技、光迅科技</td><td>重点看 800G/1.6T 客户认证、海外产能、毛利率、良率、北美客户集中度。</td></tr>
-      <tr><td>光器件与无源器件</td><td>天孚通信、光迅科技、光库科技</td><td>重点看激光器、调制器、隔离器、连接器、FAU、透镜、耦合件。</td></tr>
-      <tr><td>TFLN 与铌酸锂</td><td>光库科技、天通股份、福晶科技</td><td>重点看量产良率、晶圆尺寸、调制器出货、海外客户送样与收入占比。</td></tr>
-      <tr><td>关键矿物</td><td>镓、锗、铟、铌酸锂材料</td><td>作为地缘供应链风险，不用单一市占率夸大结论。</td></tr>
-      <tr><td>海外制造</td><td>泰国、马来西亚等基地</td><td>看客户去风险要求、设备复制能力、自动化程度和当地运营能力。</td></tr>
+    <div class="section-label">11 · CHINA SUPPLY CHAIN</div>
+    <h2>中国链：交付优势、制造能力和地缘风险并存</h2>
+    <p>中国光模块和光器件公司仍是全球交付体系的重要组成。研究时必须区分三件事：一是模块交付能力，二是上游光芯片与材料壁垒，三是北美客户、海外产能和关键矿物管制带来的地缘风险。</p>
+    <div class="table-wrap"><table><thead><tr><th>环节</th><th>代表公司</th><th>应如何研究</th></tr></thead><tbody>
+      <tr><td>高速光模块</td><td>中际旭创、新易盛、华工科技、光迅科技</td><td>看 800G/1.6T 客户认证、海外产能、毛利率、良率、北美客户集中度。</td></tr>
+      <tr><td>光器件与无源器件</td><td>天孚通信、光迅科技、光库科技</td><td>看隔离器、连接器、FAU、透镜、耦合件、调制器等。</td></tr>
+      <tr><td>TFLN 与铌酸锂</td><td>光库科技、天通股份、福晶科技</td><td>看量产良率、晶圆尺寸、调制器出货、海外客户送样与收入占比。</td></tr>
+      <tr><td>关键矿物</td><td>镓、锗、铟、铌酸锂材料</td><td>作为供应链风险纳入，不用单一比例夸大结论。</td></tr>
     </tbody></table></div>
-    <div class="callout"><strong>资料处理原则：</strong>本文保留中国公司和中国供应链讨论，但外部资料不采用中文网站作信源。附件中出现的中文搜索结果残留，不作为本文事实依据。</div>
   </section>
 
   <section class="section" id="automation">
-    <div class="section-label">10 · MANUFACTURING</div>
-    <h2>自动化制造：从“熟练人工对准”走向机器视觉和主动对准</h2>
-    <p>附件后段讨论了传统光模块制造依赖显微镜下人工对准，以及 Mesh、台积电和中国厂商都在推动自动化。这一段非常重要，因为 1.6T 的真正瓶颈不只在设计，还在制造良率。</p>
-    <p>原文中“显微镜女工”的说法容易带有刻板化，应改写为“熟练光学对准操作员”。在光模块封装中，把光纤 9 微米级纤芯、激光器、调制器、透镜和硅光芯片精准耦合，是极高难度的工程问题。人工经验曾长期有价值，但 1.6T 之后，机器视觉、主动式光学寻优、自动固晶、倒装芯片键合的重要性明显上升。</p>
-    <h3>自动化制造的关键设备</h3>
-    <div class="grid-3">
-      <div class="card"><h3>机器视觉</h3><p>识别芯片、光纤、透镜与焊盘位置，进行亚像素级定位。</p></div>
-      <div class="card"><h3>主动对准</h3><p>边通光边调节位置，以光功率最大化为目标寻找最佳耦合点。</p></div>
-      <div class="card"><h3>倒装键合</h3><p>将光芯片与电芯片在微米级位置上结合，提高封装密度和一致性。</p></div>
-    </div>
-    <h3>1.6T 的最后工程难题</h3>
+    <div class="section-label">12 · MANUFACTURING</div>
+    <h2>自动化制造：从熟练人工对准走向机器视觉和主动对准</h2>
+    <p>1.6T 的真正瓶颈不只在设计，还在制造良率。光纤 9 微米级纤芯、激光器、调制器、透镜和硅光芯片的耦合，需要极高精度。过去依赖熟练光学对准操作员，未来会更多依赖机器视觉、主动对准、自动固晶、倒装芯片键合和在线测试。</p>
     <ul>
       <li><strong>固化收缩：</strong>环氧树脂或 UV 胶固化时会产生微小位移，影响光纤耦合效率。</li>
       <li><strong>热胀冷缩：</strong>AI 数据中心高热密度环境下，材料热膨胀系数差异会导致光路偏移。</li>
       <li><strong>热管理：</strong>光芯片、电芯片和激光器越靠近，散热和 TEC 控制越复杂。</li>
       <li><strong>良率爬坡：</strong>1.6T 对对准、焊接、测试、返修能力提出更高要求。</li>
-      <li><strong>海外复制：</strong>中国模块厂若把产线迁往东南亚，需要复制的不只是工人，而是设备、工艺、工程师和质量系统。</li>
+      <li><strong>海外复制：</strong>中国模块厂迁往东南亚，需要复制设备、工艺、工程师和质量系统。</li>
     </ul>
   </section>
 
   <section class="section" id="sensing">
-    <div class="section-label">11 · SENSING OPTION</div>
+    <div class="section-label">13 · SENSING OPTION</div>
     <h2>医疗传感：保留为远期期权，不放入主估值逻辑</h2>
-    <p>附件讨论了激光光谱学、无创血糖、Apple Watch 传闻和 Sivers 激光器的 sensing 外延。这一支线不应该删除，因为激光器、PIC、短波红外与光谱检测确实可以外溢到医疗和消费电子传感。</p>
-    <p>但它不能成为当前主逻辑。无创血糖是长期难题，临床验证、算法校准、皮肤差异、监管审批和量产成本都很难。更稳妥的写法是：Sivers 的激光器能力可能具有 sensing 外延，但 Apple Watch 供应链传闻不能作为投资结论。</p>
+    <p>激光光谱学、无创血糖和消费电子传感是光源技术的远期外延。Sivers、Lumentum、Coherent 等激光器能力可向 sensing 拓展，但无创血糖仍面临临床验证、算法校准、皮肤差异、监管审批和量产成本问题。相关传闻不能作为当前主估值逻辑。</p>
   </section>
 
   <section class="section" id="investment">
-    <div class="section-label">12 · INVESTMENT MAP</div>
+    <div class="section-label">14 · INVESTMENT MAP</div>
     <h2>投资图谱：短期看模块，中期看光芯片，长期看封装与系统</h2>
     <div class="table-wrap"><table><thead><tr><th>周期</th><th>主线</th><th>代表环节</th><th>代表公司</th></tr></thead><tbody>
       <tr><td>短期</td><td>800G / 1.6T 光模块放量</td><td>可插拔模块、DSP、激光器、硅光、连接器</td><td>COHR、LITE、AAOI、MRVL、AVGO、中际旭创、新易盛、天孚通信</td></tr>
       <tr><td>中期</td><td>LPO / LRO / TRO 降功耗</td><td>线性光模块、高线性模拟链路、DFB 激光器、系统级调试</td><td>Sivers、Jabil、Lumentum、Coherent、Marvell、Credo</td></tr>
       <tr><td>中长期</td><td>CPO 与 ELSFP</td><td>交换芯片、光引擎、外部光源、CPO 连接器</td><td>NVIDIA、Broadcom、TSMC、GF、Sivers、Lumentum、Coherent、Molex、TE、Senko、Corning</td></tr>
-      <tr><td>长期</td><td>Optical I/O 进入封装</td><td>光 I/O chiplet、COUPE、SCALE、硅光代工</td><td>Ayar Labs、Lightmatter、Celestial AI、TSMC、GF、Broadcom、Marvell</td></tr>
-      <tr><td>远期期权</td><td>医疗传感与光谱检测</td><td>NIR/SWIR 激光、PIC sensing、算法</td><td>Sivers、Lumentum、Coherent、Rockley 类公司和消费电子生态</td></tr>
+      <tr><td>长期</td><td>Photonic Fabric / Optical I/O</td><td>芯片与内存互联、光 I/O chiplet、COUPE、SCALE、硅光代工</td><td>Marvell/Celestial AI、Ayar Labs、Lightmatter、TSMC、GF、Broadcom</td></tr>
+      <tr><td>远期期权</td><td>医疗传感与光谱检测</td><td>NIR/SWIR 激光、PIC sensing、算法</td><td>Sivers、Lumentum、Coherent 和消费电子生态</td></tr>
     </tbody></table></div>
-    <h3>最重要的跟踪指标</h3>
-    <div class="grid-3">
-      <div class="card"><h3>订单与认证</h3><p>800G/1.6T 客户认证、北美云厂份额、NVIDIA 或 Broadcom 生态进入情况。</p></div>
-      <div class="card"><h3>功耗与良率</h3><p>每 bit 功耗、LRO/LPO 稳定性、CPO 光引擎良率、封装返修率。</p></div>
-      <div class="card"><h3>产能与材料</h3><p>InP 激光器产能、TFLN 晶圆良率、硅光代工产能、镓锗供应政策。</p></div>
-    </div>
     <div class="quote">最终判断：光互联的投资顺序不是“谁最会讲光子故事”，而是“谁先进入客户系统、谁能量产、谁能降低功耗、谁能守住良率”。</div>
   </section>
 
   <section class="section" id="sources">
-    <div class="section-label">13 · SOURCE AUDIT</div>
-    <h2>事实核查与资料来源</h2>
-    <p>本文把附件作为内部底稿，不把附件中的所有表述直接当作事实。外部核查仅使用官方、公司、行业机构、科研或国际媒体资料，不采用中文网站作为信源。</p>
+    <div class="section-label">15 · SOURCE AUDIT</div>
+    <h2>资料来源</h2>
+    <p>外部核查仅使用官方、公司、行业机构、科研或国际媒体资料，不采用中文网站作为信源。</p>
     <ol class="source-list">
       <li><a href="https://www.ftc.gov/legal-library/browse/early-termination-notices/20261601" target="_blank" rel="noopener">FTC Early Termination Notice: Elon Musk / Mesh Optical Technologies Corporation</a></li>
       <li><a href="https://www.meshoptical.com/alpha-c1" target="_blank" rel="noopener">Mesh Optical: Alpha C1 1.6T and 800G OSFP optical interconnect</a></li>
       <li><a href="https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Spectrum-X-Photonics-Co-Packaged-Optics-Networking-Switches-to-Scale-AI-Factories-to-Millions-of-GPUs/default.aspx" target="_blank" rel="noopener">NVIDIA Spectrum-X Photonics CPO announcement</a></li>
-      <li><a href="https://www.reuters.com/technology/nvidia-ceo-says-power-saving-optical-chip-tech-will-need-wait-wider-use-2025-03-19/" target="_blank" rel="noopener">Reuters: NVIDIA CEO on limits and timing of optical chip technology</a></li>
       <li><a href="https://www.broadcom.com/company/news/product-releases/61946" target="_blank" rel="noopener">Broadcom Bailly 51.2Tbps CPO Ethernet switch</a></li>
       <li><a href="https://www.oiforum.com/wp-content/uploads/OIF-ELSFP-02.0.pdf" target="_blank" rel="noopener">OIF ELSFP Implementation Agreement</a></li>
       <li><a href="https://research.tsmc.com/english/research/interconnect/publish-time-1.html" target="_blank" rel="noopener">TSMC research: COUPE integration scheme</a></li>
       <li><a href="https://www.sivers-semiconductors.com/press/sivers-semiconductors-collaborates-with-jabil-on-energy-efficient-1-6t-pluggable-optical-transceiver-module/" target="_blank" rel="noopener">Sivers + Jabil 1.6T LRO collaboration</a></li>
       <li><a href="https://www.sivers-semiconductors.com/press/sivers-globalfoundries-advance-ai-data-center-optical-solutions/" target="_blank" rel="noopener">Sivers + GlobalFoundries SCALE optical engine collaboration</a></li>
       <li><a href="https://www.marvell.com/company/newsroom/marvell-unveils-industrys-first-3nm-1-6tbps-pam4-interconnect-platform.html" target="_blank" rel="noopener">Marvell Ara 3nm 1.6T PAM4 DSP platform</a></li>
+      <li><a href="https://www.reuters.com/technology/chipmaker-marvell-forecasts-fourth-quarter-revenue-above-estimates-2025-12-02/" target="_blank" rel="noopener">Reuters: Marvell to buy Celestial AI for $3.25 billion</a></li>
+      <li><a href="https://arxiv.org/abs/2507.14000" target="_blank" rel="noopener">Celestial AI paper: Photonic Fabric Platform for AI Accelerators</a></li>
       <li><a href="https://www.lightcounting.com/newsletter/en/march-2026-ethernet-optics-382" target="_blank" rel="noopener">LightCounting March 2026 Ethernet optics outlook</a></li>
       <li><a href="https://www.usgs.gov/news/national-news-release/usgs-critical-minerals-study-bans-gallium-and-germanium-exports-could" target="_blank" rel="noopener">USGS study on gallium and germanium export disruption</a></li>
-      <li><a href="https://www.reuters.com/technology/artificial-intelligence/lightmatter-releases-new-photonics-technology-ai-chips-2025-04-01/" target="_blank" rel="noopener">Reuters: Lightmatter photonics technology for AI chips</a></li>
     </ol>
   </section>
 
   <section class="conclusion">
     <h2>结论：这是一条从“模块”走向“系统封装”的长期产业链</h2>
-    <p>附件已有足够好的主题覆盖度，但原始形态更像一组连续问答。本文补齐网络系统、DSP/SerDes、连接器、测试设备和制造自动化后，可以作为较完整的 AI 光互联产业链总览。</p>
-    <p>短期最能兑现收入的是 800G/1.6T 光模块；中期真正影响利润率的是 DSP、激光器、硅光、LRO/LPO 和制造良率；长期最有产业权力的是 CPO、ELSFP、COUPE、SCALE、Optical I/O 与系统平台公司。</p>
-    <p>Mesh 的价值在于战略信号，Sivers 的价值在于上游光源弹性，中国链的价值在于交付和制造，NVIDIA、Broadcom、Marvell、TSMC、GF 的价值在于系统和封装定义权。</p>
+    <p>Mesh 的价值在于战略信号，Sivers 的价值在于上游光源弹性，Celestial AI 的价值在于把光互联推向芯片与内存之间的 Photonic Fabric，中国链的价值在于交付和制造，NVIDIA、Broadcom、Marvell、TSMC、GF 的价值在于系统和封装定义权。</p>
   </section>
 
   <footer class="footer">
