@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="从一个9 vCPU工作沙箱出发，拆解Agent时代CPU、内存、存储、网络与机柜级AI基础设施的产业逻辑、厂商格局和投资映射。">
+<meta name="theme-color" content="#fff1e5">
+<title>Agent不是只吃GPU：CPU、内存与存储的再定价｜Kerwin Research</title>
+<!-- pv-counter data-page-slug=agent-compute-infrastructure -->
+<style>
+:root{
+  --bg:#fff1e5;--paper:#fffaf4;--paper2:#fffdf9;--ink:#1f1a17;--muted:#6f6258;
+  --line:#dccdbf;--blue:#2563eb;--navy:#153f50;--up:#16a34a;--down:#dc2626;
+  --warn:#92400e;--gold:#8a5b2b;--date:#8b4513;--red:#b42335;--dark:#201c19;
+  --serif:Georgia,'Times New Roman','Noto Serif SC','Songti SC',serif;
+  --sans:Arial,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:52px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:14px;line-height:1.85}
+a{color:inherit}
+.back{max-width:780px;margin:0 auto;padding:6px 16px 0}
+.back a{display:inline-block;padding:3px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--gold);font:700 12px var(--sans);text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
+.shell{overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
+.wrap{max-width:700px;margin:0 auto;background:#fff}
+.topbar{padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111;background:linear-gradient(180deg,#fff8f0,#fffaf4)}
+.top-kicker{margin-bottom:8px;color:#8a7769;font:700 11px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.top-title{margin:0 0 6px;color:#16110d;font:700 34px/1.12 var(--serif)}
+.top-date{color:var(--date);font:600 13px/1.6 var(--sans)}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);color:#4b413a;font:13px/1.8 var(--sans)}
+.hero{position:relative;overflow:hidden;padding:34px 24px 28px;border-bottom:1px solid #111;color:#fff;background:radial-gradient(circle at 85% 18%,rgba(180,35,53,.32),transparent 33%),linear-gradient(125deg,#171412 0%,#29211c 58%,#0d3545 100%)}
+.hero:after{content:"";position:absolute;right:-80px;top:-105px;width:240px;height:240px;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 0 34px rgba(255,255,255,.025)}
+.badge{position:relative;z-index:1;display:inline-block;margin-bottom:18px;padding:5px 14px;border:1px solid rgba(255,255,255,.24);border-radius:20px;color:#f4b5bd;background:rgba(255,255,255,.06);font:700 11px var(--sans);letter-spacing:1px}
+.hero-title{position:relative;z-index:1;margin-bottom:10px;color:#fff;font:700 30px/1.2 var(--serif)}
+.hero-title span{display:block;margin-top:8px;color:#f5c7b9;font-size:22px;line-height:1.32}
+.hero-sub{position:relative;z-index:1;max-width:620px;margin-bottom:18px;color:#d8d0ca;font:14px/1.85 var(--sans)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.12fr .88fr;gap:14px;align-items:stretch}
+.hero-thesis{padding:17px 18px;border-left:4px solid #e24f61;background:rgba(255,255,255,.07)}
+.hero-thesis b{display:block;margin-bottom:6px;color:#f4a8b1;font:700 10px var(--sans);letter-spacing:.12em}
+.hero-thesis strong{display:block;font:700 20px/1.45 var(--serif)}
+.terminal{padding:15px 16px;border:1px solid rgba(255,255,255,.18);background:rgba(2,10,13,.62);font-family:var(--mono)}
+.terminal-label{margin-bottom:9px;color:#78c9d8;font-size:8px;letter-spacing:.09em}
+.terminal-line{display:grid;grid-template-columns:70px 1fr;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:9px}
+.terminal-line span{color:#84979d}.terminal-line b{color:#f8f3ed;font-weight:600}
+.hero-meta{position:relative;z-index:1;margin-top:16px;color:#f1a4ad;font:700 11px var(--sans)}
+.nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);background:#fcf5ee;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;padding:11px 14px;border-bottom:2px solid transparent;color:#7a685a;font:600 12px var(--sans);text-decoration:none;white-space:nowrap}
+.nav a:hover{color:var(--ink);border-color:var(--gold)}
+.section{padding:26px 20px;border-bottom:1px solid #efe3d7}
+.section-label{margin-bottom:14px;color:var(--gold);font:700 10px var(--sans);letter-spacing:2px;text-transform:uppercase}
+.section h2{margin:0 0 14px;color:#16110d;font:700 22px/1.35 var(--serif)}
+.section h3{margin:18px 0 10px;padding-bottom:8px;border-bottom:1px solid #e7ddd3;color:#2d2419;font:700 17px/1.4 var(--serif)}
+p{margin:0 0 12px;color:#3d3229;font-size:14px;line-height:1.85}
+.lead{font-size:15px;color:#51443a}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
+.stat-cell{padding:16px 9px;border:1px solid #e7ddd3;background:#fdfaf5;text-align:center}
+.stat-value{margin-bottom:6px;color:#16110d;font:700 24px/1.1 var(--serif)}
+.stat-value.red{color:var(--red)}.stat-value.blue{color:var(--navy)}.stat-value.gold{color:var(--gold)}.stat-value.green{color:var(--up)}
+.stat-label{color:var(--muted);font:11px/1.45 var(--sans)}
+.callout{margin:16px 0;padding:18px 20px;border:1px solid #e7ddd3;border-left:4px solid var(--gold);background:#fdfaf5;color:#5c3d1e;font:13px/1.8 var(--sans)}
+.callout-label{margin-bottom:8px;color:var(--gold);font:700 10px var(--sans);letter-spacing:.15em;text-transform:uppercase}
+.callout p{margin:0;color:#5c3d1e;font:13px/1.8 var(--sans)}
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:16px 0}
+.thesis-card{min-height:175px;padding:18px;border:1px solid var(--line);border-top:4px solid var(--red);background:#fae7e1}
+.thesis-card:nth-child(2){border-top-color:var(--navy);background:#e7f0f3}.thesis-card:nth-child(3){border-top-color:var(--gold);color:#fff;background:#27231f}
+.thesis-card b{display:block;opacity:.34;font:800 25px var(--mono)}
+.thesis-card strong{display:block;margin:24px 0 8px;font:700 16px var(--serif)}
+.thesis-card p{margin:0;color:#625953;font:12px/1.7 var(--sans)}.thesis-card:nth-child(3) p{color:#cfc5bd}
+.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.evidence-card{padding:17px;border:1px solid var(--line);border-left:4px solid var(--up);background:var(--paper2)}
+.evidence-card.inference{border-left-color:var(--gold)}.evidence-card.unknown{grid-column:1/-1;border-left-color:var(--down)}
+.evidence-tag{color:#786f68;font:800 9px var(--sans);letter-spacing:.09em;text-transform:uppercase}
+.evidence-card strong{display:block;margin:7px 0 8px;font:700 15px var(--serif)}
+.evidence-card ul{margin:0;padding-left:17px;color:#615851;font:12px/1.75 var(--sans)}
+.cpu-card{display:grid;grid-template-columns:150px 1fr;gap:18px;margin:16px 0;padding:20px;color:#fff;background:#15313c}
+.cpu-chip{min-height:128px;padding:19px 10px;display:flex;flex-direction:column;justify-content:center;border:1px solid #6692a1;background:radial-gradient(circle at 50% 35%,#20566a,#11272f 70%);text-align:center}
+.cpu-chip span{color:#9ed0dc;font:700 10px var(--mono)}.cpu-chip strong{margin:6px 0;color:#fff;font:900 37px/1 var(--mono)}.cpu-chip small{color:#7aa3af;font:600 7px var(--mono)}
+.cpu-copy h3{margin:0 0 8px;padding:0;border:0;color:#fff}.cpu-copy p{color:#c5d3d6;font:12px/1.75 var(--sans)}
+.caution{padding:10px 12px;border:1px solid rgba(255,255,255,.17);background:rgba(0,0,0,.18);color:#e2d3c9;font:10px/1.65 var(--sans)}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}
+table{width:100%;min-width:620px;border-collapse:collapse;font:12px var(--sans)}
+thead tr{color:#f5f0e8;background:#3d3229}thead th{padding:10px 12px;text-align:left;font-size:10px;letter-spacing:.04em}
+tbody tr:nth-child(even){background:#fdfaf7}tbody td,tbody th{padding:10px 12px;border-right:1px solid #e5d9cc;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.55;text-align:left;vertical-align:top}
+tbody th{color:#663326;background:#fff3e8}.dark-table tbody tr:nth-child(even){background:#292521}.dark-table tbody tr:nth-child(odd){background:#211e1b}.dark-table tbody td,.dark-table tbody th{border-color:#49423c;color:#d2c8c0}.dark-table tbody th{color:#ffb7bf;background:#171412}.dark-table a{color:#ffb7bf;text-decoration:none}.dark-table strong{color:#fff}
+.status{display:inline-block;margin-bottom:5px;padding:2px 6px;border:1px solid rgba(180,35,53,.35);color:#9b1d2d;background:#fbe4e7;font:700 8px var(--sans)}
+.flow{display:flex;flex-direction:column;margin:16px 0}
+.flow-box{padding:12px 16px;border:1px solid #e5ddd3;border-radius:4px;background:#f5f0e8;color:#3d3229;font:13px/1.55 var(--sans)}
+.flow-box.alt{border-color:#c8d6e5;background:#eaf0f7}.flow-box.light{border-color:#d0dcc0;background:#f0f4e8}.flow-box.accent{border-color:#e8c8b0;background:#fef5f0}.flow-box.dark{border-color:#333;background:#25211e;color:#f5ece6}
+.flow-box b{display:inline-block;width:94px;color:var(--gold);font-size:10px;letter-spacing:.08em}.flow-arrow{padding:2px 0;color:#b8a590;font-size:18px;line-height:1;text-align:center}
+.resource-grid{display:grid;grid-template-columns:repeat(5,1fr);margin:16px 0;border:1px solid var(--line)}
+.resource{min-height:165px;padding:15px 13px;border-right:1px solid var(--line);background:#fff}.resource:last-child{border:0}
+.resource span{color:var(--red);font:800 9px var(--sans);letter-spacing:.06em}.resource:nth-child(2) span{color:var(--navy)}.resource:nth-child(3) span{color:var(--gold)}.resource:nth-child(4) span{color:var(--up)}.resource:nth-child(5) span{color:#6c2e72}
+.resource strong{display:block;margin:25px 0 8px;font:700 15px var(--serif)}.resource p{margin:0;color:var(--muted);font:10px/1.6 var(--sans)}
+.dark-section{color:#eee8e2;background:#211e1b}.dark-section .section-label{color:#f08d98}.dark-section h2{color:#fff}.dark-section>p{color:#b7aea7}
+.winner-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:16px 0}
+.winner{padding:16px;border-top:3px solid #675d55;background:#2b2723}.winner:nth-child(2){border-color:var(--red)}.winner:nth-child(3){border-color:var(--gold)}.winner:nth-child(4){border-color:#4f8799}
+.winner span{display:block;color:#90867e;font:700 8px var(--sans)}.winner strong{display:block;margin:10px 0 7px;color:#fff;font:700 15px var(--serif)}.winner p{margin:0;color:#b2a8a0;font:10px/1.65 var(--sans)}
+.timeline{position:relative;margin:16px 0;padding-left:24px;border-left:2px solid #5b5148}
+.timeline-item{position:relative;display:grid;grid-template-columns:95px 1fr;gap:12px;margin-bottom:17px}
+.timeline-item:before{content:"";position:absolute;left:-30px;top:5px;width:9px;height:9px;border:2px solid #211e1b;border-radius:50%;background:#ee6574;box-shadow:0 0 0 1px #ee6574}
+.timeline-date{color:#d89f52;font:10px var(--mono)}.timeline-content{color:#c8beb6;font:12px/1.6 var(--sans)}.timeline-content strong{color:#fff}
+.memory-pyramid{display:grid;gap:6px;margin:16px 0}
+.pyramid{margin:auto;padding:13px 16px;display:grid;grid-template-columns:190px 1fr;gap:15px;color:#fff;font:11px/1.55 var(--sans)}
+.pyramid b{font:700 11px var(--mono)}.pyramid span{opacity:.88}.p1{width:63%;background:#6c2e72}.p2{width:75%;background:var(--navy)}.p3{width:88%;background:#9c651d}.p4{width:100%;background:#514b46}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.path-item{display:flex;gap:12px;padding:15px;border:1px solid #e7ddd3;border-radius:6px;background:#fdfaf5}
+.path-num{flex-shrink:0;width:29px;color:var(--gold);font:700 25px/1 var(--serif)}
+.path-title{margin-bottom:5px;color:#5c3d1e;font:600 12px var(--sans)}.path-desc{margin:0;color:#6b5d53;font:11px/1.65 var(--sans)}
+.scale{display:grid;grid-template-columns:1fr;gap:0;margin:16px 0}.scale-row{display:grid;grid-template-columns:72px 120px 1fr;gap:13px;padding:12px 14px;border:1px solid #bfd0d5;border-bottom:0;background:#f7fbfc}.scale-row:last-child{border-bottom:1px solid #bfd0d5;color:#fff;background:var(--navy)}
+.scale-row b{color:#678693;font:800 9px var(--mono)}.scale-row strong{font:700 14px var(--serif)}.scale-row span{color:#61767d;font:10px/1.6 var(--sans)}.scale-row:last-child b,.scale-row:last-child span{color:#b9d9e3}
+.formula{margin:16px 0;padding:22px;color:#fff;background:#162f39}.formula span{display:block;color:#8fbfce;font:800 9px var(--sans);letter-spacing:.08em}.formula strong{display:block;margin:12px 0 8px;font:700 18px/1.5 var(--serif)}.formula p{margin:0;color:#9db3ba;font:11px/1.7 var(--sans)}
+.ticker-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:16px 0}
+.ticker-item{display:flex;gap:11px;align-items:flex-start;padding:13px;border:1px solid #e7ddd3;background:#fdfaf5}
+.ticker{min-width:64px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line);border-radius:4px;background:#f7efe6;color:var(--gold);font:800 13px var(--sans);letter-spacing:.04em}
+.ticker-copy strong{display:block;color:#4f3824;font:700 11px var(--sans)}.ticker-copy span{display:block;margin-top:4px;color:var(--muted);font:10px/1.55 var(--sans)}
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.watch{padding:17px;border-top:4px solid var(--up);background:#eaf2ed}.watch.risk{border-color:var(--down);background:#f8e6e3}.watch strong{display:block;margin-bottom:8px;font:700 14px var(--serif)}.watch ul{margin:0;padding-left:17px;color:#56635b;font:11px/1.75 var(--sans)}.watch.risk ul{color:#765a57}
+.conclusion{padding:28px 20px;border-bottom:1px solid #111;background:linear-gradient(120deg,#1f1a17,#4a1d25)}.conclusion h2{margin:0 0 14px;color:#f5f0e8;font:700 22px/1.4 var(--serif)}.conclusion p{color:#e8d5b8}.conclusion b{color:#ffb3bb}
+.source-list{margin:16px 0 0;padding:0;list-style:none;border-top:2px solid #403a35}.source-list li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 2px;border-bottom:1px solid #cdbfb3;font:11px/1.5 var(--sans)}.source-list a{color:var(--gold);font-weight:700;text-decoration:none}.source-list em{color:var(--muted);font-style:normal;font-size:10px}
+.footer{padding:20px;border-top:1px solid #e7ddd3;background:#fbf7f1;color:var(--muted);font:11px/1.8 var(--sans)}
+.footer-links{display:flex;justify-content:space-between;gap:12px;margin-top:12px}.footer a{color:var(--gold);font-weight:700;text-decoration:none}
+.counter-wrap{margin:12px 0 2px;text-align:center;color:var(--muted);font:11px var(--sans)}
+@media(max-width:640px){
+  body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.back{padding:6px 10px 0}.back a{padding:4px 10px}
+  .topbar{padding:16px 16px 12px}.top-title{font-size:26px}.top-block{font-size:12px;line-height:1.75}.hero{padding:26px 16px 23px}.hero-title{font-size:26px}.hero-title span{font-size:19px}.hero-sub{font-size:13px}.hero-grid{grid-template-columns:1fr}.section{padding:22px 16px}.section h2{font-size:20px}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}
+  .stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:24px}.thesis-grid,.evidence-grid,.path-grid,.ticker-grid,.watch-grid{grid-template-columns:1fr}.evidence-card.unknown{grid-column:auto}.cpu-card{grid-template-columns:1fr}.cpu-chip{width:170px;margin:auto}.resource-grid{grid-template-columns:1fr 1fr}.resource{border-bottom:1px solid var(--line)}.resource:nth-child(2n){border-right:0}.resource:last-child{grid-column:1/-1}.winner-grid{grid-template-columns:1fr}.pyramid{width:100%;grid-template-columns:1fr;gap:4px}.scale-row{grid-template-columns:60px 95px 1fr}.timeline-item{grid-template-columns:76px 1fr}.source-list li{grid-template-columns:1fr;gap:4px}.footer,.counter-wrap{font-size:11px;line-height:1.75}
+}
+@media print{body{background:#fff}.back,.nav{display:none}.page{max-width:none;padding:0}.shell{box-shadow:none}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="back"><a href="/">← 返回首页</a></div>
+<div class="page"><div class="shell">
+  <div class="topbar">
+    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+    <h1 class="top-title">Agent时代的计算底座<br>研究简报</h1>
+    <div class="top-date">报告发布日期：2026年7月15日</div>
+    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
+  </div>
+  <div class="wrap">
+    <div class="hero" id="top">
+      <div class="badge">2026 KERWIN · AI INFRASTRUCTURE</div>
+      <div class="hero-title">Agent 不是只吃 GPU<span>从一个虚拟沙箱，看 CPU、内存与存储的再定价</span></div>
+      <div class="hero-sub">当 AI 从“回答问题”走向“执行工作”，瓶颈就从模型推理扩散到编排、工具、数据与持久状态。一次真实的 Codex 工作任务，提供了一个可观察、但必须谨慎外推的微型样本。</div>
+      <div class="hero-grid">
+        <div class="hero-thesis"><b>ONE-LINE THESIS</b><strong>GPU 决定模型能“想”多快；CPU、内存、存储和网络决定 Agent 能“做”多快。</strong></div>
+        <div class="terminal">
+          <div class="terminal-label">LIVE OBSERVATION / WORK SANDBOX</div>
+          <div class="terminal-line"><span>ARCH</span><b>x86_64</b></div>
+          <div class="terminal-line"><span>CPU</span><b>9 vCPU</b></div>
+          <div class="terminal-line"><span>HOST</span><b>AMD EPYC 9V74</b></div>
+          <div class="terminal-line"><span>MEMORY</span><b>15 GiB / no swap</b></div>
+          <div class="terminal-line"><span>DISK</span><b>64 GB virtual block</b></div>
+          <div class="terminal-line"><span>GPU</span><b>not exposed</b></div>
+        </div>
+      </div>
+      <div class="hero-meta">2026年7月15日 · Agent 计算基础设施专题</div>
+    </div>
+
+    <nav class="nav" aria-label="专题章节">
+      <a href="#thesis">核心判断</a><a href="#sample">沙箱样本</a><a href="#loop">执行闭环</a><a href="#cpu">CPU格局</a><a href="#memory">内存存储</a><a href="#compare">比较框架</a><a href="#investment">投资映射</a><a href="#sources">来源</a>
+    </nav>
+
+    <div class="section" id="thesis">
+      <div class="section-label">01 · Executive takeaway</div>
+      <h2>CPU 不是重新取代 GPU，而是重新进入系统关键路径</h2>
+      <p class="lead">传统聊天是一次输入、一次推理、一次输出；Agent 会反复规划、调用工具、执行代码、检索数据并验证结果。模型推理可以在远端 GPU 集群完成，但浏览器、Python、Git、文件、数据库和 API 等“手脚”仍需要通用计算。</p>
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-value red">9</div><div class="stat-label">当前沙箱可见 vCPU</div></div>
+        <div class="stat-cell"><div class="stat-value blue">15 GiB</div><div class="stat-label">工具与状态工作内存</div></div>
+        <div class="stat-cell"><div class="stat-value gold">64 GB</div><div class="stat-label">虚拟块设备容量</div></div>
+        <div class="stat-cell"><div class="stat-value green">0</div><div class="stat-label">本地暴露 GPU</div></div>
+      </div>
+      <div class="thesis-grid">
+        <div class="thesis-card"><b>01</b><strong>推理与执行分离</strong><p>大模型生成决策，执行层负责代码、浏览器、文件、权限、网络和重试。</p></div>
+        <div class="thesis-card"><b>02</b><strong>上下文变成系统状态</strong><p>并发进程、依赖、仓库、缓存与中间产物持续占用 RAM 与存储。</p></div>
+        <div class="thesis-card"><b>03</b><strong>比较单位升至机柜</strong><p>核心数与 FLOPS 都不够，最终要看完整任务的吞吐、尾延迟和成本。</p></div>
+      </div>
+      <div class="callout"><div class="callout-label">投资者应先理解的价值</div><p>Agent 不是一个“更会聊天的软件”，而是一组长期运行或按任务生成的计算进程。它把 AI 资本开支从 GPU 单点，扩散到 CPU、DDR/LPDDR、NVMe、网络、虚拟化、对象存储、电力与散热；但收益不会平均分配，只有能降低完整任务成本的环节才真正获得定价权。</p></div>
+    </div>
+
+    <div class="section" id="sample">
+      <div class="section-label">02 · The sample</div>
+      <h2>一个 9 vCPU 沙箱，究竟能说明什么？</h2>
+      <p>它不是全球 Agent 基础设施的统计样本，却是一个很好的机制观察点：同一项 AI 工作同时依赖远端模型与本地执行环境。关键是把事实、推断和未知严格分开。</p>
+      <div class="evidence-grid">
+        <div class="evidence-card"><div class="evidence-tag">可直接观测</div><strong>任务型虚拟工作机</strong><ul><li>KVM / x86_64 虚拟化特征</li><li>9 个可见 vCPU，约 15GiB RAM</li><li>无 Swap，64GB 虚拟块设备</li><li>没有暴露 NVIDIA GPU</li></ul></div>
+        <div class="evidence-card inference"><div class="evidence-tag">合理推断</div><strong>来自大型资源池的切片</strong><ul><li>vCPU 更像配额，而非独占芯片</li><li>模型推理与工具执行可能分层</li><li>CPU 标签指向云级大宿主机</li></ul></div>
+        <div class="evidence-card unknown"><div class="evidence-tag">无法从沙箱确认</div><strong>云厂商、地域与调度策略</strong><ul><li>看不到物理宿主机、超售比例、NUMA 映射、实际云厂商、机房位置，也无法观察平台给不同客户配置资源的内部规则。</li></ul></div>
+      </div>
+      <div class="cpu-card">
+        <div class="cpu-chip"><span>AMD EPYC</span><strong>9V74</strong><small>CLOUD-OPTIMIZED HOST SKU</small></div>
+        <div class="cpu-copy"><h3>9V74 标签透露了什么？</h3><p>Microsoft 官方文档把 EPYC 9V74 用于 Azure Dasv6 Dedicated Host：80 个物理核心、144 个可用 vCPU、768GiB RAM。当前沙箱只看到其中 9 个 vCPU，形态上符合“大宿主机切片”。</p><div class="caution"><b>边界：</b>型号高度相符不等于平台归属已被证明；不能据此确认当前环境一定运行在 Azure，也不能判断地域。</div></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>观察层</th><th>Codex 工作沙箱</th><th>Enya / OpenClaw on DigitalOcean</th><th>AI 工厂 CPU 机柜</th></tr></thead>
+        <tbody>
+          <tr><th>核心角色</th><td>按任务提供隔离执行环境</td><td>用户持续拥有的 Agent 控制面</td><td>并发沙箱、数据服务与 GPU 主机</td></tr>
+          <tr><th>已知配置</th><td>9 vCPU / 15GiB / 64GB / 无 GPU</td><td>2 vCPU / 4GB / 新加坡 / Ubuntu</td><td>数千至数万 CPU 核心，配合 GPU、DPU 与高速网络</td></tr>
+          <tr><th>生命周期</th><td>任务型、平台管理</td><td>长期运行、用户管理</td><td>7×24 小时、高利用率生产</td></tr>
+          <tr><th>最关键资源</th><td>CPU 并发、RAM、临时磁盘、网络</td><td>稳定性、持久状态、备份、成本</td><td>每核带宽、机架功耗、尾延迟、GPU 利用率</td></tr>
+          <tr><th>共同本质</th><td colspan="3">都把 Agent 拆成软件进程、运行时状态、文件、网络连接和受控工具；规模不同，资源逻辑相同。</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="section" id="loop">
+      <div class="section-label">03 · The Agent loop</div>
+      <h2>Agent 为什么重新放大 CPU、内存和存储？</h2>
+      <p>Agent 是一个持续反馈环。每多一轮工具调用，就新增一次调度、一次状态读写和一次潜在尾延迟。任何一个环节变慢，都会让昂贵的模型或 GPU 等待。</p>
+      <div class="flow">
+        <div class="flow-box"><b>01 · PLAN</b>规划：任务拆分、模型路由、权限与安全策略</div><div class="flow-arrow">↓</div>
+        <div class="flow-box alt"><b>02 · THINK</b>推理：GPU / NPU 生成下一步决策</div><div class="flow-arrow">↓</div>
+        <div class="flow-box light"><b>03 · ACT</b>执行：CPU 驱动代码、浏览器、API、数据库与文件</div><div class="flow-arrow">↓</div>
+        <div class="flow-box accent"><b>04 · RETRIEVE</b>取数：内存、NVMe、对象存储与网络提供状态</div><div class="flow-arrow">↓</div>
+        <div class="flow-box dark"><b>05 · VERIFY</b>验证、测试、风控、重试，再回到规划</div>
+      </div>
+      <div class="resource-grid">
+        <div class="resource"><span>CPU</span><strong>执行与编排</strong><p>Python/JS、编译、浏览器、加解密、数据库与隔离。</p></div>
+        <div class="resource"><span>MEMORY</span><strong>工作状态</strong><p>并发进程、网页、数据帧、缓存与中间状态。</p></div>
+        <div class="resource"><span>STORAGE</span><strong>持久与复现</strong><p>仓库、依赖、索引、日志、产物和检查点。</p></div>
+        <div class="resource"><span>NETWORK</span><strong>跨域连接</strong><p>模型 API、SaaS、数据库、对象存储与多 Agent。</p></div>
+        <div class="resource"><span>GPU / NPU</span><strong>模型推理</strong><p>Transformer、视觉、语音和高密度矩阵计算。</p></div>
+      </div>
+      <div class="callout"><div class="callout-label">不要混淆两种“内存”</div><p>模型上下文与 KV Cache 通常位于推理服务的 GPU/HBM 或服务器内存；这个工作沙箱的 15GiB RAM 主要承载工具、代码、网页、数据和执行状态。二者都重要，但由不同基础设施层负责。</p></div>
+    </div>
+
+    <div class="section dark-section" id="cpu">
+      <div class="section-label">04 · CPU landscape</div>
+      <h2>六家公司不是在做同一颗 CPU，而是在争夺 Agent 系统的不同控制点</h2>
+      <p>Intel、AMD 守通用计算；NVIDIA 把 CPU 纳入 AI 工厂；Qualcomm、MediaTek 争夺端侧 Agent；Arm 既提供底层 IP，又进入成品服务器 CPU。</p>
+      <div class="table-wrap"><table class="dark-table">
+        <thead><tr><th>厂商</th><th>代表产品</th><th>主战场</th><th>Agent 设计抓手</th><th>状态与判断</th></tr></thead>
+        <tbody>
+          <tr><th><a href="https://www.intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html" target="_blank" rel="noreferrer">Intel ↗</a></th><td><strong>Xeon 6+ / Core Ultra Series 3</strong></td><td>x86 云端 + PC</td><td>P-core / E-core 分线；18A；高密度容器；应用级能耗遥测</td><td><span class="status">Xeon 6+ 已量产</span><br>兼容性与企业渠道最强，以核心密度守云端基本盘。</td></tr>
+          <tr><th><a href="https://www.amd.com/en/products/processors/server/epyc/9005-series.html" target="_blank" rel="noreferrer">AMD ↗</a></th><td><strong>EPYC 9005 / Venice / Ryzen AI</strong></td><td>x86 云端到端侧</td><td>Chiplet、高核心密度、SMT、内存带宽与统一内存</td><td><span class="status">9005 量产；Venice 爬坡</span><br>当前最均衡的通用 Agent CPU 路线。</td></tr>
+          <tr><th><a href="https://www.nvidia.com/en-us/data-center/vera-cpu/" target="_blank" rel="noreferrer">NVIDIA ↗</a></th><td><strong>Vera / Vera Rubin / RTX Spark</strong></td><td>AI 工厂 + 个人 Agent</td><td>88 核 Olympus、1.2TB/s LPDDR5X、1.8TB/s CPU–GPU 一致性互联</td><td><span class="status">Vera 生产中</span><br>CPU 的任务是缩短执行环并提高 GPU 利用率。</td></tr>
+          <tr><th><a href="https://www.arm.com/products/cloud-datacenter/arm-agi-cpu" target="_blank" rel="noreferrer">Arm ↗</a></th><td><strong>AGI CPU / Lumex C1</strong></td><td>底层 IP + 成品服务器 CPU</td><td>136 核、DDR5-8800、PCIe 6 / CXL 3；端侧 SME2</td><td><span class="status">AGI CPU 开放订购</span><br>从卖图纸走向卖硅片，扩大价值量也改变生态关系。</td></tr>
+          <tr><th><a href="https://www.qualcomm.com/news/releases/2026/06/qualcomm-unveils-comprehensive-data-center-roadmap-for-the-agent" target="_blank" rel="noreferrer">Qualcomm ↗</a></th><td><strong>X2 Elite / 8 Elite Gen 5 / C1000</strong></td><td>端侧为主，远期云端</td><td>Oryon、80 TOPS NPU、始终在线；服务器规划 250+ 核</td><td><span class="status">端侧量产；C1000 预计 2028</span><br>服务器是高弹性但低确定性的远期选择权。</td></tr>
+          <tr><th><a href="https://www.mediatek.com/dimensity-9500" target="_blank" rel="noreferrer">MediaTek ↗</a></th><td><strong>Dimensity 9500 / RTX Spark 共研</strong></td><td>手机、边缘与定制 SoC</td><td>Arm C1 全大核、NPU 990、连接与功耗；参与 NVIDIA SoC</td><td><span class="status">手机量产；RTX Spark 秋季</span><br>价值在端侧规模和高效 SoC，而非正面竞逐服务器。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="winner-grid">
+        <div class="winner"><span>近期通用基本盘</span><strong>AMD EPYC × Intel Xeon</strong><p>软件兼容、云与企业渠道决定近期收入确定性。</p></div>
+        <div class="winner"><span>系统设计最激进</span><strong>NVIDIA Vera</strong><p>高带宽内存与一致性互联，直接优化 Agent 执行环。</p></div>
+        <div class="winner"><span>架构变化最大</span><strong>Arm AGI CPU</strong><p>从 IP 授权进入成品硅片，提高价值量，也带来渠道张力。</p></div>
+        <div class="winner"><span>端侧规模入口</span><strong>Qualcomm × MediaTek</strong><p>手机与 PC 上的隐私、持续感知和跨应用 Agent。</p></div>
+      </div>
+      <h3 style="color:#fff;border-color:#4b443d">Intel Xeon：服务器平台代际</h3>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-date">2017–2021</div><div class="timeline-content"><strong>Skylake → Cascade / Cooper Lake</strong><br>Xeon Scalable 建立平台化命名。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2021–2024</div><div class="timeline-content"><strong>Ice Lake → Sapphire / Emerald Rapids</strong><br>制程、HBM 与加速指令演进。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2024–2025</div><div class="timeline-content"><strong>Xeon 6：Sierra Forest / Granite Rapids</strong><br>E-core 密度与 P-core 性能正式分线。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2026</div><div class="timeline-content"><strong>Xeon 6+：Clearwater Forest</strong><br>18A、最高 288 E-core，面向云原生与 Agent 密度。</div></div>
+      </div>
+      <h3 style="color:#fff;border-color:#4b443d">AMD EPYC：从重返服务器到 Chiplet 主线</h3>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-date">2017</div><div class="timeline-content"><strong>EPYC 7001 Naples / Zen</strong><br>AMD 重返服务器。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2019</div><div class="timeline-content"><strong>EPYC 7002 Rome / Zen 2</strong><br>Chiplet 与 64 核打开份额突破口。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2021</div><div class="timeline-content"><strong>EPYC 7003 Milan / Zen 3</strong><br>单核性能与企业成熟度提升。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2022–2023</div><div class="timeline-content"><strong>EPYC 9004 Genoa / Bergamo / Siena</strong><br>Zen 4、Zen 4c、DDR5 与 PCIe 5。</div></div>
+        <div class="timeline-item"><div class="timeline-date">2024–2026</div><div class="timeline-content"><strong>EPYC 9005 Turin → Venice</strong><br>192 核走向 256 核，并补强至约 1.6TB/s 内存带宽。</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="memory">
+      <div class="section-label">05 · Memory & storage</div>
+      <h2>第二条主线：不是只要更多内存，而是要更靠近计算、更可持续的状态</h2>
+      <p>并发 Agent 的成本常常不是模型权重本身，而是大量分散、不断变化的执行状态。容量、带宽、延迟、IOPS 与持久性必须一起看。</p>
+      <div class="memory-pyramid">
+        <div class="pyramid p1"><b>HBM / GPU Memory</b><span>模型权重、激活与 KV Cache · 带宽最高、成本最高</span></div>
+        <div class="pyramid p2"><b>DDR / LPDDR / SOCAMM</b><span>CPU 工作集、并发状态 · 容量与每核带宽重新成为卖点</span></div>
+        <div class="pyramid p3"><b>NVMe / Local SSD</b><span>依赖、仓库、向量索引、缓存与检查点 · 看 IOPS 与耐久</span></div>
+        <div class="pyramid p4"><b>Object / Persistent Storage</b><span>长期记忆、日志、数据集、审计与备份 · 看持久性与吞吐成本</span></div>
+      </div>
+      <div class="path-grid">
+        <div class="path-item"><div class="path-num">01</div><div><div class="path-title">容量：能同时保留多少状态？</div><p class="path-desc">关注 GB / Agent、可用内存、OOM 率和并发沙箱密度。</p></div></div>
+        <div class="path-item"><div class="path-num">02</div><div><div class="path-title">带宽：核心能否持续被喂饱？</div><p class="path-desc">关注 GB/s / core、满载 IPC、NUMA 与 CPU–GPU 搬运。</p></div></div>
+        <div class="path-item"><div class="path-num">03</div><div><div class="path-title">延迟：一步动作要等多久？</div><p class="path-desc">连续几十至几百步后，P95/P99 与随机 I/O 会被放大。</p></div></div>
+        <div class="path-item"><div class="path-num">04</div><div><div class="path-title">持久性：重启后能否继续？</div><p class="path-desc">关注 RPO/RTO、快照、写入耐久、日志和审计责任。</p></div></div>
+      </div>
+    </div>
+
+    <div class="section" id="compare" style="background:#eaf1f3">
+      <div class="section-label">06 · How to compare</div>
+      <h2>CPU 的比较单位，正在从“芯片参数”升级为“Agent 任务经济性”</h2>
+      <p>GPU 已经从单卡 FLOPS 走到 NVL72 整机柜；CPU 也必须从核心与 GHz，走向插槽、服务器、机柜与完整任务。不同 CPU 的峰值数字只有在相同软件、内存、功耗和 SLA 条件下才有可比性。</p>
+      <div class="scale">
+        <div class="scale-row"><b>LEVEL 1</b><strong>单核</strong><span>IPC · 频率 · 分支预测 · 缓存 · 向量指令</span></div>
+        <div class="scale-row"><b>LEVEL 2</b><strong>单插槽</strong><span>核心/线程 · 内存通道 · I/O · TDP · 安全隔离</span></div>
+        <div class="scale-row"><b>LEVEL 3</b><strong>服务器</strong><span>NUMA · GPU 挂载 · 内存容量 · NIC / SSD · 可维护性</span></div>
+        <div class="scale-row"><b>LEVEL 4</b><strong>机柜</strong><span>核心密度 · kW · 冷却 · 网络 · GPU 利用率</span></div>
+        <div class="scale-row"><b>LEVEL 5</b><strong>业务结果</strong><span>完成任务/美元 · P99 时延 · Agent/机柜 · 能耗/任务</span></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>指标</th><th>回答的问题</th><th>Agent时代重要性</th></tr></thead>
+        <tbody>
+          <tr><th>持续单线程性能</th><td>一项工具调用、编译或 Python 步骤多快结束？</td><td>★★★★★</td></tr>
+          <tr><th>每核内存带宽</th><td>增加核心后，是否因抢内存而失速？</td><td>★★★★★</td></tr>
+          <tr><th>P95 / P99 步骤延迟</th><td>多轮 Agent 链条最慢环节有多慢？</td><td>★★★★★</td></tr>
+          <tr><th>Agent / 沙箱并发密度</th><td>同一服务器或机柜能运行多少隔离环境？</td><td>★★★★★</td></tr>
+          <tr><th>CPU–XPU 一致性带宽</th><td>数据搬运是否让昂贵加速器等待？</td><td>★★★★☆</td></tr>
+          <tr><th>每任务能耗与机柜功率</th><td>持续 Agent 负载的电力与冷却成本？</td><td>★★★★★</td></tr>
+          <tr><th>迁移与运维成本</th><td>x86 / Arm、CUDA / ROCm 切换要付出什么？</td><td>★★★★☆</td></tr>
+        </tbody>
+      </table></div>
+      <div class="formula"><span>AGENT 基础设施的简化投资公式</span><strong>有效任务产出 = 模型推理速度 × GPU 利用率 × CPU 执行效率 × 状态供给能力 ÷ 单任务总成本</strong><p>任何一个乘数接近零，堆更多 GPU 都无法产生同等比例的业务价值。</p></div>
+    </div>
+
+    <div class="section" id="investment">
+      <div class="section-label">07 · Investment map</div>
+      <h2>投资启示：Agent 把 AI 基础设施从“GPU 单点行情”扩展为系统级资本开支</h2>
+      <p>这不意味着所有 CPU、内存和存储公司都会同等受益。真正的价值捕获取决于产品是否进入高利用率 Agent 系统，以及能否把技术优势转化为更低的每任务成本。</p>
+      <div class="ticker-grid">
+        <div class="ticker-item"><div class="ticker">AMD</div><div class="ticker-copy"><strong>通用服务器 CPU 的进攻者</strong><span>看 EPYC 份额、Venice 量产、每核带宽与云实例采用。</span></div></div>
+        <div class="ticker-item"><div class="ticker">INTC</div><div class="ticker-copy"><strong>x86 企业基本盘与密度路线</strong><span>看 Xeon 6+、18A 良率、E-core 云负载与平台复苏。</span></div></div>
+        <div class="ticker-item"><div class="ticker">NVDA</div><div class="ticker-copy"><strong>从 GPU 到整机柜控制面</strong><span>看 Vera–Rubin 导入、CPU–GPU 绑定率与机柜任务吞吐。</span></div></div>
+        <div class="ticker-item"><div class="ticker">ARM</div><div class="ticker-copy"><strong>IP 版税向成品服务器 CPU 延伸</strong><span>看 AGI CPU 客户、生态冲突与 Arm 云端份额。</span></div></div>
+        <div class="ticker-item"><div class="ticker">QCOM</div><div class="ticker-copy"><strong>端侧 Agent 与服务器远期选择权</strong><span>近期看 PC/手机 NPU，远期看 C1000 兑现节奏。</span></div></div>
+        <div class="ticker-item"><div class="ticker">2454.TW</div><div class="ticker-copy"><strong>MediaTek：端侧规模与定制 SoC</strong><span>看旗舰份额、NVIDIA 共研成果与边缘 AI 价值量。</span></div></div>
+        <div class="ticker-item"><div class="ticker">MU</div><div class="ticker-copy"><strong>HBM 之外的服务器内存增量</strong><span>看 DDR5、LPDDR/SOCAMM、HBM 与每服务器容量。</span></div></div>
+        <div class="ticker-item"><div class="ticker">VRT</div><div class="ticker-copy"><strong>系统瓶颈延伸至电力与散热</strong><span>看高密度机柜、液冷渗透和数据中心交付能力。</span></div></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>资本开支层</th><th>需求机制</th><th>最有用的领先指标</th></tr></thead>
+        <tbody>
+          <tr><th>CPU / 系统</th><td>并发沙箱、浏览器、代码、数据库与 GPU 喂数</td><td>Agent/机柜、每核带宽、GPU 空转率、任务/美元</td></tr>
+          <tr><th>内存</th><td>工作集、KV/缓存、并发状态与数据搬运</td><td>GB/服务器、GB/s/核、HBM/DDR 合约价与利用率</td></tr>
+          <tr><th>NVMe / 对象存储</th><td>仓库、索引、长期记忆、日志、产物与审计</td><td>随机 IOPS、写入量、对象存储增速、快照/恢复频率</td></tr>
+          <tr><th>网络 / DPU / 光互联</th><td>分布式推理、多 Agent、数据与安全隔离</td><td>东西向流量、NIC 速率、DPU 渗透、光端口出货</td></tr>
+          <tr><th>电力 / 散热</th><td>高密度 CPU + GPU 机柜的部署约束</td><td>机柜 kW、液冷附着率、交付周期与电力可用率</td></tr>
+        </tbody>
+      </table></div>
+      <div class="watch-grid">
+        <div class="watch"><strong>值得持续跟踪的验证信号</strong><ul><li>云厂商披露 Agent 沙箱、CPU 实例或推理服务真实利用率</li><li>Vera、Arm AGI 与 Venice 获得大规模 OEM / 云部署</li><li>每核内存带宽持续上升，LPDDR / SOCAMM 进入更多平台</li><li>企业 Agent 上线后，CPU、数据库、对象存储与网络开支同步增加</li><li>衡量口径由 TOPS / FLOPS 转向任务/美元与端到端 SLA</li></ul></div>
+        <div class="watch risk"><strong>可能证伪逻辑的风险</strong><ul><li>Agent 调用量增长，但共享、压缩或缓存使 CPU 增量很弱</li><li>执行被 SaaS 平台吸收，企业无需自建基础设施</li><li>专用加速器吞并编排与数据处理，通用 CPU 价值量下降</li><li>生态迁移慢，使 Arm / 新架构停留在少数超大客户</li><li>电力、内存或网络成为更强瓶颈，CPU 升级无法转化为吞吐</li></ul></div>
+      </div>
+    </div>
+
+    <div class="conclusion" id="conclusion">
+      <h2>结语：Agent 时代不是“CPU 回归”这么简单，而是整个计算栈重新被计价。</h2>
+      <p>这个 9 vCPU 沙箱只能证明机制，不能证明市场规模；但机制很清楚：当 AI 开始浏览、编码、取数、交易、验证和长期运行，GPU 之外的每一层都会进入关键路径。</p>
+      <p><b>投资者下一步不应只问“谁的核心最多”，而应问：谁能让一个完整 Agent 任务以最低成本、更低尾延迟和更高可靠性完成？</b></p>
+    </div>
+
+    <div class="section" id="sources">
+      <div class="section-label">08 · Sources & boundaries</div>
+      <h2>资料来源与研究边界</h2>
+      <p>跨厂商性能数字多为各公司自测，测试对象与系统配置不统一。本专题用它们解释设计方向，不把厂商倍数直接视为可横比的投资结论。</p>
+      <ol class="source-list">
+        <li><span>本次沙箱现场观测</span><em>lscpu、free、df 与设备检查 · 2026-07-15</em></li>
+        <li><span>Microsoft Azure：EPYC 9V74 Dedicated Host</span><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-host-general-purpose-skus" target="_blank" rel="noreferrer">原始资料 ↗</a></li>
+        <li><span>Intel Xeon 6+</span><a href="https://www.intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>AMD EPYC 9005</span><a href="https://www.amd.com/en/products/processors/server/epyc/9005-series.html" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>AMD Venice 生产爬坡</span><a href="https://www.amd.com/en/newsroom/press-releases/2026-5-20-amd-announces-production-ramp-of-next-generation-a.html" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>NVIDIA Vera CPU</span><a href="https://www.nvidia.com/en-us/data-center/vera-cpu/" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>Arm AGI CPU</span><a href="https://www.arm.com/products/cloud-datacenter/arm-agi-cpu" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>Qualcomm Dragonfly C1000</span><a href="https://www.qualcomm.com/news/releases/2026/06/qualcomm-unveils-comprehensive-data-center-roadmap-for-the-agent" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>MediaTek Dimensity 9500</span><a href="https://www.mediatek.com/dimensity-9500" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+        <li><span>NVIDIA × MediaTek RTX Spark</span><a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark" target="_blank" rel="noreferrer">官方资料 ↗</a></li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      本文为投资研究参考，不构成具体投资建议。数据截至 2026 年 7 月 15 日；产品时间表以厂商后续量产与客户部署为准。<br>
+      © Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现
+      <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+      <div class="footer-links"><a href="/">← 返回首页</a><a href="#top">返回顶部 ↑</a></div>
+    </div>
+  </div>
+</div></div>
+<script>
+(function(){
+  var slugVal='agent-compute-infrastructure';
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
+  var el=document.getElementById('counter-num');
+  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
+  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+})();
+</script>
+</body>
+</html>
