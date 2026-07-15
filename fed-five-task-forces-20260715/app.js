@@ -1,5 +1,4 @@
 (function(){
-const extraStyle=document.createElement("link");extraStyle.rel="stylesheet";extraStyle.href="./enhancements.css";document.head.appendChild(extraStyle);
 const D=window.FED_DATA,esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const img=(m,mini=false)=>`<div class="${mini?'mini-photo':'portrait-wrap'}"><img class="${mini?'':'portrait'}" src="${esc(m.photo)}" alt="${mini?'':esc(m.cn+' '+m.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="fallback">${esc(m.i)}</span></div>`;
 const links=m=>m.links.map(x=>`<a class="source-link" href="${esc(x[1])}" target="_blank" rel="noopener noreferrer">${esc(x[0])} ↗</a>`).join("");
@@ -9,10 +8,6 @@ const groupSection=g=>`<section class="section" id="${esc(g.id)}"><div class="se
 document.getElementById("group-map").innerHTML=D.groups.map(mapCard).join("");
 document.getElementById("group-sections").innerHTML=D.groups.map(groupSection).join("");
 document.getElementById("main-sources").innerHTML=D.mainSources.map(x=>`<li><a href="${esc(x[1])}" target="_blank" rel="noopener noreferrer">${esc(x[0])} ↗</a></li>`).join("");
-const topSub=document.querySelector('.top-sub');
-if(topSub){topSub.innerHTML='<span class="subtitle-line">从沟通、资产负债表、数据、AI生产率到通胀框架</span><span class="subtitle-line">观察沃什时代的政策重构入口</span>';}
-const marketStack=document.querySelector('.market-stack');
-if(marketStack){marketStack.insertAdjacentHTML('afterend',`<div class="market-snapshots"><div class="market-snapshots-title">POLYMARKET · 利率预期如何被事件合约表达</div><div class="market-shot-grid"><a class="market-shot" href="https://polymarket.com/zh/event/fed-rate-hike-by" target="_blank" rel="noopener noreferrer"><img src="./polymarket-hike-snapshot.svg" alt="Polymarket 美联储加息时间合约页面快照" loading="lazy"><b>Fed rate hike by...?</b><span>把“最早何次会议加息”拆成多个可交易结果</span></a><a class="market-shot" href="https://polymarket.com/zh/event/how-many-fed-rate-cuts-in-2026" target="_blank" rel="noopener noreferrer"><img src="./polymarket-cuts-snapshot.svg" alt="Polymarket 2026年美联储降息次数合约页面快照" loading="lazy"><b>2026年美联储降息多少次？</b><span>把全年累计降息次数转换为概率分布</span></a></div><div class="snapshot-note">页面快照按2026年7月15日公开盘口数据重绘以适配移动端；概率和交易量会持续变化，点击图片查看实时合约。</div></div>`);}
 const el=document.getElementById("counter-num"),u="https://enyaclawd-counter.kerwin-finance.workers.dev?page="+encodeURIComponent(D.slug);
 fetch(u).then(r=>r.json()).then(d=>{if(el)el.textContent=Number(d.count||0).toLocaleString()}).catch(()=>{if(el)el.textContent="-"});
 fetch(u,{method:"POST"}).then(r=>r.json()).then(d=>{if(el)el.textContent=Number(d.count||0).toLocaleString()}).catch(()=>{});
