@@ -1,4 +1,5 @@
 (function(){
+const extraStyle=document.createElement("link");extraStyle.rel="stylesheet";extraStyle.href="./enhancements.css";document.head.appendChild(extraStyle);
 const D=window.FED_DATA,esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const img=(m,mini=false)=>`<div class="${mini?'mini-photo':'portrait-wrap'}"><img class="${mini?'':'portrait'}" src="${esc(m.photo)}" alt="${mini?'':esc(m.cn+' '+m.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="fallback">${esc(m.i)}</span></div>`;
 const links=m=>m.links.map(x=>`<a class="source-link" href="${esc(x[1])}" target="_blank" rel="noopener noreferrer">${esc(x[0])} ↗</a>`).join("");
