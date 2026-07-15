@@ -45,6 +45,15 @@ a{color:inherit}
 .terminal-line{display:grid;grid-template-columns:70px 1fr;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:9px}
 .terminal-line span{color:#84979d}.terminal-line b{color:#f8f3ed;font-weight:600}
 .hero-meta{position:relative;z-index:1;margin-top:16px;color:#f1a4ad;font:700 11px var(--sans)}
+.hero-meta a{color:#ffd4d9;text-decoration:none;border-bottom:1px solid rgba(255,212,217,.48)}
+.origin-story{padding:21px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff8ef,#fffdf9)}
+.origin-kicker{margin-bottom:8px;color:var(--red);font:800 9px var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.origin-story h2{margin:0 0 9px;color:#251c17;font:700 19px/1.4 var(--serif)}
+.origin-story>p{margin:0;color:#5e5147;font:12px/1.75 var(--sans)}
+.origin-chain{display:grid;grid-template-columns:1fr 19px 1fr 19px 1fr 19px 1fr;align-items:stretch;margin-top:15px}
+.origin-node{padding:11px 9px;border:1px solid #dfd2c6;background:#fff;text-align:center;text-decoration:none}
+.origin-node.link{border-color:#a8a3ee;background:#f3f1ff}.origin-node b{display:block;margin-bottom:4px;color:#443b35;font:700 11px/1.4 var(--sans)}.origin-node.link b{color:#5148b3}.origin-node span{display:block;color:var(--muted);font:9px/1.45 var(--sans)}
+.origin-arrow{display:grid;place-items:center;color:var(--gold);font:700 15px var(--sans)}
 .nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);background:#fcf5ee;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
 .nav a{flex-shrink:0;padding:11px 14px;border-bottom:2px solid transparent;color:#7a685a;font:600 12px var(--sans);text-decoration:none;white-space:nowrap}
@@ -124,7 +133,7 @@ tbody th{color:#663326;background:#fff3e8}.dark-table tbody tr:nth-child(even){b
 .counter-wrap{margin:12px 0 2px;text-align:center;color:var(--muted);font:11px var(--sans)}
 @media(max-width:640px){
   body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.back{padding:6px 10px 0}.back a{padding:4px 10px}
-  .topbar{padding:16px 16px 12px}.top-title{font-size:26px}.top-block{font-size:12px;line-height:1.75}.hero{padding:26px 16px 23px}.hero-title{font-size:26px}.hero-title span{font-size:19px}.hero-sub{font-size:13px}.hero-grid{grid-template-columns:1fr}.section{padding:22px 16px}.section h2{font-size:20px}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}
+  .topbar{padding:16px 16px 12px}.top-title{font-size:26px}.top-block{font-size:12px;line-height:1.75}.hero{padding:26px 16px 23px}.hero-title{font-size:26px}.hero-title span{font-size:19px}.hero-sub{font-size:13px}.hero-grid{grid-template-columns:1fr}.origin-story{padding:19px 16px}.origin-chain{grid-template-columns:1fr;gap:5px}.origin-arrow{transform:rotate(90deg)}.section{padding:22px 16px}.section h2{font-size:20px}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}
   .stat-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:24px}.thesis-grid,.evidence-grid,.path-grid,.ticker-grid,.watch-grid{grid-template-columns:1fr}.evidence-card.unknown{grid-column:auto}.cpu-card{grid-template-columns:1fr}.cpu-chip{width:170px;margin:auto}.resource-grid{grid-template-columns:1fr 1fr}.resource{border-bottom:1px solid var(--line)}.resource:nth-child(2n){border-right:0}.resource:last-child{grid-column:1/-1}.winner-grid{grid-template-columns:1fr}.pyramid{width:100%;grid-template-columns:1fr;gap:4px}.scale-row{grid-template-columns:60px 95px 1fr}.timeline-item{grid-template-columns:76px 1fr}.source-list li{grid-template-columns:1fr;gap:4px}.footer,.counter-wrap{font-size:11px;line-height:1.75}
 }
 @media print{body{background:#fff}.back,.nav{display:none}.page{max-width:none;padding:0}.shell{box-shadow:none}.section{break-inside:avoid}}
@@ -143,7 +152,7 @@ tbody th{color:#663326;background:#fff3e8}.dark-table tbody tr:nth-child(even){b
     <div class="hero" id="top">
       <div class="badge">2026 KERWIN · AI INFRASTRUCTURE</div>
       <div class="hero-title">Agent 不是只吃 GPU<span>从一个虚拟沙箱，看 CPU、内存与存储的再定价</span></div>
-      <div class="hero-sub">当 AI 从“回答问题”走向“执行工作”，瓶颈就从模型推理扩散到编排、工具、数据与持久状态。一次真实的 Codex 工作任务，提供了一个可观察、但必须谨慎外推的微型样本。</div>
+      <div class="hero-sub">本专题源自我们委托 GPT Work 制作《Stripe 支付生态全景》的真实过程：为了完成这项长篇研究任务，Work 获得了一个带虚拟 CPU、内存与磁盘的独立沙箱。由此我们追问——当 AI 不只是回答，而是检索、编码、核验并发布网页时，究竟需要怎样的计算底座？</div>
       <div class="hero-grid">
         <div class="hero-thesis"><b>ONE-LINE THESIS</b><strong>GPU 决定模型能“想”多快；CPU、内存、存储和网络决定 Agent 能“做”多快。</strong></div>
         <div class="terminal">
@@ -156,8 +165,20 @@ tbody th{color:#663326;background:#fff3e8}.dark-table tbody tr:nth-child(even){b
           <div class="terminal-line"><span>GPU</span><b>not exposed</b></div>
         </div>
       </div>
-      <div class="hero-meta">2026年7月15日 · Agent 计算基础设施专题</div>
+      <div class="hero-meta">2026年7月15日 · Agent 计算基础设施专题 · <a href="/stripe-payment-ecosystem-2026/">研究起点：Stripe 支付生态全景 ↗</a></div>
     </div>
+
+    <aside class="origin-story" aria-label="本专题的研究起点">
+      <div class="origin-kicker">RESEARCH ORIGIN · 两个专题如何相连</div>
+      <h2>这篇 Agent 基础设施研究，是从 Stripe 专题里“长出来”的</h2>
+      <p>我们先把 Stripe 的传统支付、稳定币与 Agent 支付交给 GPT Work 做全景梳理；在观察 Work 如何完成检索、写作、编码、构建与发布时，看见了它背后的执行沙箱及 9 vCPU、15GiB 内存、64GB 虚拟磁盘。Stripe 是研究对象，GPT Work 是执行者，沙箱是执行现场，而本篇就是由这个现场延伸出的基础设施研究。</p>
+      <div class="origin-chain">
+        <a class="origin-node link" href="/stripe-payment-ecosystem-2026/"><b>Stripe 支付专题</b><span>传统支付 · 稳定币 · Agent支付</span></a><div class="origin-arrow">→</div>
+        <div class="origin-node"><b>GPT Work 接单</b><span>检索 · 分析 · 编码 · 发布</span></div><div class="origin-arrow">→</div>
+        <div class="origin-node"><b>虚拟沙箱执行</b><span>9 vCPU · 15GiB · 64GB</span></div><div class="origin-arrow">→</div>
+        <div class="origin-node"><b>本篇研究</b><span>CPU · 内存 · 存储再定价</span></div>
+      </div>
+    </aside>
 
     <nav class="nav" aria-label="专题章节">
       <a href="#thesis">核心判断</a><a href="#sample">沙箱样本</a><a href="#loop">执行闭环</a><a href="#cpu">CPU格局</a><a href="#memory">内存存储</a><a href="#compare">比较框架</a><a href="#investment">投资映射</a><a href="#sources">来源</a>
