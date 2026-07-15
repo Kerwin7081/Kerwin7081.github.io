@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#091126" />
+    <meta name="description" content="笑笑的方块世界：一款支持手机、平板与 QQ 浏览器的月樱主题 3D 方块沙盒游戏。" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>笑笑的方块世界｜月樱谷</title>
+    <!-- pv-counter data-page-slug=xiaoxiao-block-world -->
+    <script type="module" crossorigin src="/xiaoxiao-block-world/assets/index-CMGBkS_d.js"></script>
+    <link rel="stylesheet" crossorigin href="/xiaoxiao-block-world/assets/style-BIj6JXYa.css">
+  </head>
+  <body>
+    <div id="site-corner" aria-label="网站导航与浏览量">
+      <a href="/">← 返回 Enyaclawd</a>
+      <span>👀 <b id="counter-num">...</b></span>
+    </div>
+    <div id="root"></div>
+    <style>
+      #site-corner{position:fixed;z-index:60;top:max(10px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(7,12,29,.68);color:#dfe5f4;font:600 10px/1.2 Arial,"PingFang SC",sans-serif;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .2s}
+      #site-corner a{color:#f3c477;text-decoration:none}#site-corner b{font-variant-numeric:tabular-nums}.game-active #site-corner{opacity:0;pointer-events:none}.qq-browser #site-corner{background:rgba(7,12,29,.94);backdrop-filter:none;-webkit-backdrop-filter:none}
+      @media(max-width:720px){#site-corner{top:max(8px,env(safe-area-inset-top));right:max(8px,env(safe-area-inset-right));padding:6px 9px;font-size:9px}}
+    </style>
+    <script>
+      (function(){
+        document.addEventListener('click',function(event){
+          var node=event.target;
+          while(node&&node!==document.body){
+            if((' '+String(node.className)+' ').indexOf(' primary-start ')>-1){document.body.className+=' game-active';break;}
+            node=node.parentNode;
+          }
+        });
+        var el=document.getElementById('counter-num');
+        var url='https://enyaclawd-counter.kerwin-finance.workers.dev?page=xiaoxiao-block-world';
+        fetch(url,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=Number(d.count||0).toLocaleString();}).catch(function(){if(el)el.textContent='·';});
+      })();
+    </script>
+  </body>
+</html>
