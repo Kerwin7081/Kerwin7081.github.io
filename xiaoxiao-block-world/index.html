@@ -10,8 +10,9 @@
     <!-- pv-counter data-page-slug=xiaoxiao-block-world -->
     <script type="module" crossorigin src="/xiaoxiao-block-world/assets/index-CMGBkS_d.js"></script>
     <link rel="stylesheet" crossorigin href="/xiaoxiao-block-world/assets/style-BIj6JXYa.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718">
+</head>
+  <body class="kw-experience">
     <div id="site-corner" aria-label="网站导航与浏览量">
       <a href="/">← 返回 Enyaclawd</a>
       <span>👀 <b id="counter-num">...</b></span>
@@ -36,5 +37,6 @@
         fetch(url,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=Number(d.count||0).toLocaleString();}).catch(function(){if(el)el.textContent='·';});
       })();
     </script>
-  </body>
+    <script defer src="/assets/kerwin-system-v2.js?v=20260718"></script>
+</body>
 </html>
