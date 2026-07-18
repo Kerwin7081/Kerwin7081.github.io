@@ -78,7 +78,7 @@ footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,
       <div class="masthead-kicker">Kerwin Team · Research</div>
       <h1>EnyaClawd</h1>
       <div class="masthead-sub">宏观资产与 AI 产业链研究档案</div>
-      <div class="masthead-meta">Macro Hedging · AI Infrastructure · Client Education</div>
+      <div class="masthead-meta">Macro Hedging · AI Infrastructure · Digital Finance · Client Education</div>
     </div>
     <div class="gate-prompt" id="gate-prompt">
       <div class="gate-prompt-inner">
@@ -92,10 +92,11 @@ footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,
           <div class="hero">
             <div class="hero-main">
               <div class="eyebrow">EnyaClawd Research Hub</div>
-              <h2 class="hero-title">从宏观压力到 AI 产业链，把可交易的长期线索整理成研究地图。</h2>
-              <p class="hero-copy">这里收录 Kerwin 团队围绕美元利率、黄金、比特币、AI 算力基础设施、存储、互联、Edge Computing、Agent 与客户教育专题形成的研究文章。首页优先呈现核心主线，完整内容可在下方归档中检索。</p>
+              <h2 class="hero-title">从宏观压力到 AI 产业链与数字金融，把可交易的长期线索整理成研究地图。</h2>
+              <p class="hero-copy">这里收录 Kerwin 团队围绕美元利率、黄金、比特币、数字金融市场结构、AI 算力基础设施、存储、互联、Edge Computing、Agent 与客户教育专题形成的研究文章。首页优先呈现核心主线，完整内容可在下方归档中检索。</p>
               <div class="hero-tags">
                 <span class="hero-tag">黄金与比特币</span>
+                <span class="hero-tag">数字金融与 RWA</span>
                 <span class="hero-tag">AI Factory</span>
                 <span class="hero-tag">存储与互联</span>
                 <span class="hero-tag">Edge Computing</span>
@@ -115,7 +116,7 @@ footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,
           <div class="featured-grid" id="featured-list"><div class="articles-loading">加载中…</div></div>
         </section>
         <section class="section">
-          <div class="section-head"><div><div class="eyebrow">Research Map</div><div class="section-title">研究主线</div></div><div class="section-note">围绕资产配置、AI 基础设施、端侧智能和专题项目建立长期跟踪入口。</div></div>
+          <div class="section-head"><div><div class="eyebrow">Research Map</div><div class="section-title">研究主线</div></div><div class="section-note">围绕资产配置、数字金融、AI 基础设施、端侧智能和专题项目建立长期跟踪入口。</div></div>
           <div class="category-grid" id="category-grid"></div>
         </section>
         <section class="section">
@@ -194,7 +195,7 @@ footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,
   }
   function renderFeatured(pages){
     if(!featuredList)return;
-    var priority=['gold-btc-dollar-leash-royalty-streaming-2026','nvidia-agent-platform-2026','nvidia-rubin-five-racks-sive-aaoi','edge-computing-series','us-estate-tax-hk-investor-guide','compute-rental-lens-2026'];
+    var priority=['hyperliquid-financial-market-infrastructure-20260718','us-ai-semiconductor-reshoring-memory-fabs-20260717','global-financial-ai-adoption-capex-2026','stripe-payment-ecosystem-2026','gold-btc-dollar-leash-royalty-streaming-2026','nvidia-agent-platform-2026'];
     var chosen=[];
     priority.forEach(function(slug){var p=pages.find(function(x){return x.slug===slug;});if(p)chosen.push(p);});
     pages.forEach(function(p){if(chosen.length<6&&!chosen.some(function(x){return x.slug===p.slug;}))chosen.push(p);});
@@ -205,7 +206,7 @@ footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,
     var categories=[
       {name:'AI Factory / 算力基础设施',desc:'NVIDIA、Rubin、机架、电力、存储、算力租赁与 Agent 基础设施。',test:function(p){return hit(p,'nvidia|英伟达|rubin|算力|机架|800v|hvdc|agent|openclaw|colossus|存储|kioxia|铠侠|nand|hbm|ssd');}},
       {name:'Edge / 机器人 / 端侧智能',desc:'Physical AI、自动驾驶、AI-RAN、Vision AI、AI PC 与本地智能体。',test:function(p){return hit(p,'edge|physical ai|autonomous|vision|ai-ran|6g|robotaxi|ai pc|workstation|机器人|端侧');}},
-      {name:'宏观资产 / 客户教育',desc:'黄金、比特币、美元、美债、遗产税、客户沟通与资产配置框架。',test:function(p){return hit(p,'宏观|黄金|比特币|美元|美债|收益率|遗产税|客户教育|estate tax');}},
+      {name:'宏观资产 / 数字金融',desc:'黄金、比特币、美元、美债、稳定币、RWA、市场结构与客户资产配置。',test:function(p){return hit(p,'宏观|黄金|比特币|美元|美债|收益率|稳定币|rwa|hyperliquid|hype|永续|交易所|市场结构|支付|fintech|遗产税|客户教育|estate tax');}},
       {name:'专题项目 / 合规内容',desc:'警示教育、科普互动、专题汇编及可交付页面。',test:function(p){return hit(p,'警钟|案件|廉政|专题汇编|太阳系|科普|互动|casefiles|anti-corruption');}}
     ];
     categoryGrid.innerHTML=categories.map(function(c){
