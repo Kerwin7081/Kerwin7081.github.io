@@ -131,8 +131,9 @@ tbody td b{font-weight:700} .hi{color:#8a5b2b;font-weight:700}
   .range .lab{width:66px}
 }
 </style>
+  <link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718">
 </head>
-<body>
+<body class="kw-research">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page">
 <div class="shell">
@@ -443,5 +444,6 @@ tbody td b{font-weight:700} .hi{color:#8a5b2b;font-weight:700}
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){});
 })();
 </script>
+  <script defer src="/assets/kerwin-system-v2.js?v=20260718"></script>
 </body>
 </html>
