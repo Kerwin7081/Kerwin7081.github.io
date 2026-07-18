@@ -1,250 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EnyaClawd — Research Hub</title>
-<!-- pv-counter data-page-slug=home -->
-<style>
-:root{
-  --bg:#fff1e5;
-  --paper:#fffaf4;
-  --paper2:#fffdf9;
-  --ink:#1f1a17;
-  --muted:#6f6258;
-  --line:#dccdbf;
-  --gold:#8a5b2b;
-  --soft:#f5e8da;
-  --deep:#2a211b;
-  --shadow:0 10px 30px rgba(15,23,42,.06);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;font-size:15px;line-height:1.85}
-a{color:inherit}
-.page{max-width:960px;margin:0 auto;padding:0 10px 60px}
-.shell{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-top:10px}
-.masthead{padding:44px 32px 36px;border-top:8px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;background:linear-gradient(180deg,#fffdf9 0%,#fff4e8 100%)}
-.masthead-kicker{font-family:Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
-.masthead h1{font-family:Georgia,serif;font-size:clamp(31px,5vw,52px);font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:8px}
-.masthead-sub{font-size:16px;color:var(--gold);font-weight:700;margin-bottom:6px}
-.masthead-meta{font-size:13px;color:var(--muted)}
-.gate-prompt{text-align:center;padding:42px 32px;background:linear-gradient(180deg,#fffaf4 0%,#f8efe4 100%);border-bottom:2px solid var(--line)}
-.gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:28px 36px;box-shadow:0 4px 20px rgba(15,23,42,.04)}
-.gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}
-.gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid var(--ink);border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:var(--ink);animation:gate-blink 1.2s ease-in-out infinite}
-.gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
-@keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}
-.gated-content{display:none}.gated-content.visible{display:block}
-.content{padding:32px 34px 46px}
-.section{border-bottom:1px solid var(--line);padding:30px 0}.section:first-child{padding-top:0}.section:last-child{border-bottom:none}
-.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;align-items:stretch}
-.hero-main{background:var(--paper2);border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px;position:relative;overflow:hidden}
-.hero-main:after{content:"";position:absolute;right:-50px;top:-60px;width:180px;height:180px;border:1px solid rgba(138,91,43,.22);border-radius:50%}
-.eyebrow{font-family:Arial,'PingFang SC',sans-serif;font-size:10px;font-weight:800;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
-.hero-title{font-size:clamp(25px,4vw,38px);line-height:1.22;margin:10px 0 12px;letter-spacing:.01em}
-.hero-copy{font-family:Arial,'PingFang SC',sans-serif;font-size:14px;color:var(--muted);line-height:1.85;max-width:620px}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.hero-tag{font-family:Arial,'PingFang SC',sans-serif;font-size:11px;font-weight:800;color:var(--gold);border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:5px 10px}
-.hero-side{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:15px 14px;min-height:88px}
-.stat-num{font-size:25px;font-weight:700;line-height:1.2}.stat-label{font-family:Arial,'PingFang SC',sans-serif;font-size:11px;color:var(--muted);margin-top:5px;line-height:1.4}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px}
-.section-title{font-size:24px;line-height:1.25;margin-top:4px}.section-note{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.6;max-width:310px;text-align:right}
-.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.article-card{display:block;text-decoration:none;border:1px solid var(--line);background:var(--paper2);border-radius:14px;padding:18px 18px;transition:transform .15s,box-shadow .15s,background .15s}
-.article-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,.07);background:#fff}
-.article-date{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:5px}
-.article-title{font-size:19px;font-weight:700;color:var(--ink);white-space:pre-line;line-height:1.35;margin-bottom:7px}
-.article-deck{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);line-height:1.65}
-.article-tag{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--line);color:var(--muted);margin-top:10px;border-radius:999px}
-.article-source{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:9px;font-weight:800;letter-spacing:.08em;padding:2px 6px;border:1px solid var(--gold);color:var(--gold);margin-top:10px;margin-left:6px;border-radius:999px;opacity:.78}
-.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.category-card{border:1px solid var(--line);border-radius:14px;background:var(--paper2);overflow:hidden}
-.category-top{padding:17px 17px 13px;background:linear-gradient(180deg,#fffdf9 0%,#f6eadc 100%);border-bottom:1px solid var(--line)}
-.category-name{font-size:18px;font-weight:700;line-height:1.3}.category-desc{font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}
-.category-list{padding:6px 17px 14px}.mini-link{display:block;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);padding:10px 0}.mini-link:last-child{border-bottom:none}.mini-date{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);font-weight:700}.mini-title{font-size:15px;line-height:1.42;white-space:pre-line}
-.latest-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.latest-link{display:block;text-decoration:none;color:var(--ink);padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper2)}.latest-link:hover{background:#fff}
-.archive-actions{text-align:center;margin-top:18px}.archive-btn{cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:10px 18px;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em}.archive-wrap{display:none;margin-top:18px}.archive-wrap.visible{display:block}
-.archive-month{border:1px solid var(--line);border-radius:12px;background:var(--paper2);margin-bottom:10px;overflow:hidden}.archive-month summary{cursor:pointer;padding:12px 16px;font-size:16px;font-weight:700;background:var(--soft)}.archive-month ul{list-style:none;padding:8px 16px 14px}.archive-month li{border-bottom:1px dashed var(--line);padding:8px 0}.archive-month li:last-child{border-bottom:none}.archive-month a{text-decoration:none;color:var(--ink)}.archive-date{font-family:Arial,sans-serif;font-size:10px;color:var(--gold);font-weight:700;margin-right:6px}
-.articles-loading{text-align:center;padding:30px 0;color:var(--muted);font-size:13px;font-family:Arial,'PingFang SC',sans-serif}
-footer{padding:28px 32px 24px;border-top:2px solid var(--ink);font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--muted);line-height:1.85;text-align:center}.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}.counter-wrap{text-align:center;margin:1.2em 0 0.2em;font-size:13px;color:var(--muted)}
-@media(max-width:820px){.page{padding:0 4px 40px}.masthead{padding:28px 20px 24px}.gate-prompt{padding:28px 20px}.gate-prompt-inner{padding:20px 24px}.content{padding:24px 20px 36px}.hero,.featured-grid,.category-grid,.latest-list{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr 1fr}.section-head{display:block}.section-note{text-align:left;max-width:none;margin-top:6px}.article-title{font-size:18px}footer{padding:22px 20px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07110f">
+  <meta name="description" content="EnyaClawd 是 Kerwin 的宏观资产、AI 产业链与数字金融研究档案。">
+  <title>EnyaClawd · Kerwin Research</title>
+  <!-- pv-counter data-page-slug=home -->
+  <link rel="stylesheet" href="/assets/kerwin-home-v2.css?v=20260718">
+  <script defer src="/assets/kerwin-home-v2.js?v=20260718"></script>
 </head>
 <body data-page-slug="home">
-<div class="page">
-  <div class="shell">
-    <div class="masthead">
-      <div class="masthead-kicker">Kerwin Team · Research</div>
-      <h1>EnyaClawd</h1>
-      <div class="masthead-sub">宏观资产与 AI 产业链研究档案</div>
-      <div class="masthead-meta">Macro Hedging · AI Infrastructure · Digital Finance · Client Education</div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/" aria-label="EnyaClawd 首页">
+        <span class="brand__mark">E</span>
+        <span class="brand__name">EnyaClawd<small>Kerwin Research</small></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#featured">精选</a>
+        <a href="#map">研究地图</a>
+        <a href="#latest">全部专题</a>
+        <a href="#enya">关于 Enya</a>
+        <a class="nav-cta" href="#latest">进入研究库</a>
+      </nav>
     </div>
-    <div class="gate-prompt" id="gate-prompt">
-      <div class="gate-prompt-inner">
-        <div class="gate-hint">请输入 <strong>k</strong>，进入研究首页</div>
-        <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <div class="eyebrow">Independent Research · Hong Kong</div>
+          <h1>把复杂世界，整理成一张<em>投资地图</em>。</h1>
+          <p class="hero__lead">从宏观利率、黄金与数字资产，到 AI 算力、半导体、存储、光互联与 Agent。EnyaClawd 持续追踪变量之间的因果关系，把新闻、产业链与资产价格放进同一套研究坐标。</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#featured">阅读重点专题 <span>↓</span></a>
+            <a class="button" href="#map">浏览研究地图 <span>↗</span></a>
+          </div>
+          <div class="hero__meta" aria-label="站点数据">
+            <div class="hero-stat"><strong id="stat-reports">...</strong><span>Published Reports</span></div>
+            <div class="hero-stat"><strong id="stat-themes">5</strong><span>Research Axes</span></div>
+            <div class="hero-stat"><strong id="stat-updated">...</strong><span>Latest Update</span></div>
+          </div>
+        </div>
+        <div class="radar" aria-label="EnyaClawd 研究雷达示意图">
+          <div class="radar__grid"></div><div class="radar__axis-x"></div><div class="radar__axis-y"></div>
+          <div class="radar__core">Enya<small>Research Core</small></div>
+          <div class="radar-node radar-node--1">AI Factory<span>Compute · Power</span></div>
+          <div class="radar-node radar-node--2">Digital Finance<span>RWA · Market Structure</span></div>
+          <div class="radar-node radar-node--3">Semiconductors<span>Memory · Optical</span></div>
+          <div class="radar-node radar-node--4">Macro Assets<span>Rates · Gold · Copper</span></div>
+          <div class="radar-node radar-node--5">Companies<span>Strategy · Valuation</span></div>
+          <div class="radar__status"><span><i class="pulse"></i>Research system active</span><span>HKT · 2026</span></div>
+        </div>
       </div>
+    </section>
+
+    <div class="ticker-strip">
+      <div class="container ticker-strip__inner"><span class="ticker-label">Latest Signals</span><div class="ticker-items" id="ticker-items"><span class="ticker-item">载入研究目录…</span></div></div>
     </div>
-    <div class="gated-content" id="gated-content">
-      <main class="content">
-        <section class="section">
-          <div class="hero">
-            <div class="hero-main">
-              <div class="eyebrow">EnyaClawd Research Hub</div>
-              <h2 class="hero-title">从宏观压力到 AI 产业链与数字金融，把可交易的长期线索整理成研究地图。</h2>
-              <p class="hero-copy">这里收录 Kerwin 团队围绕美元利率、黄金、比特币、数字金融市场结构、AI 算力基础设施、存储、互联、Edge Computing、Agent 与客户教育专题形成的研究文章。首页优先呈现核心主线，完整内容可在下方归档中检索。</p>
-              <div class="hero-tags">
-                <span class="hero-tag">黄金与比特币</span>
-                <span class="hero-tag">数字金融与 RWA</span>
-                <span class="hero-tag">AI Factory</span>
-                <span class="hero-tag">存储与互联</span>
-                <span class="hero-tag">Edge Computing</span>
-                <span class="hero-tag">客户教育</span>
-              </div>
+
+    <section class="section section--paper" id="featured">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Featured Research</div><h2 class="section-title">本期重点研究</h2></div>
+          <p class="section-note">首页只保留最值得优先阅读的主线。每篇专题都应给出核心判断、因果链、可视化证据、风险边界和后续跟踪变量。</p>
+        </div>
+        <div class="featured">
+          <article class="feature-main" id="feature-main"><div class="feature-main__content">载入中…</div></article>
+          <div class="feature-side" id="feature-side"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Research Architecture</div><h2 class="section-title">五条长期研究主线</h2></div>
+          <p class="section-note">按产业链与资产逻辑组织内容，减少页面堆叠。一个专题可以跨越多条主线，但必须有明确的主坐标。</p>
+        </div>
+        <div class="themes" id="themes"></div>
+      </div>
+    </section>
+
+    <section class="section section--paper" id="latest">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Research Library</div><h2 class="section-title">全部研究专题</h2></div>
+          <p class="section-note">可以按主线筛选，也可以直接搜索公司、资产、技术或关键词。默认按最新发布日期排序。</p>
+        </div>
+        <div class="archive-tools">
+          <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="搜索 Hyperliquid、NVIDIA、黄金、RWA…" autocomplete="off" aria-label="搜索研究专题"></label>
+          <div class="filters" aria-label="专题筛选">
+            <button class="filter is-active" type="button" data-filter="all">全部</button>
+            <button class="filter" type="button" data-filter="ai">AI 系统</button>
+            <button class="filter" type="button" data-filter="digital">数字金融</button>
+            <button class="filter" type="button" data-filter="macro">宏观资产</button>
+            <button class="filter" type="button" data-filter="companies">公司研究</button>
+            <button class="filter" type="button" data-filter="explore">实验教育</button>
+          </div>
+        </div>
+        <div class="article-grid" id="article-grid"><div class="empty">正在载入研究目录…</div></div>
+        <div class="load-more"><button class="button" id="load-more" type="button">加载更多专题</button></div>
+      </div>
+    </section>
+
+    <section class="section" id="enya">
+      <div class="container">
+        <div class="brand-story">
+          <div class="brand-story__inner">
+            <div>
+              <div class="eyebrow">The Research Agent</div>
+              <h2>EnyaClawd</h2>
+              <div class="brand-story__tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+              <p class="brand-story__copy">EnyaClawd 是 Kerwin 的研究与呈现系统。它服务于持续跟踪、专题深挖和客户沟通，把资料搜集、结构化分析、可视化和网页交付连接为一条工作流。</p>
             </div>
-            <div class="hero-side" id="home-stats">
-              <div class="stat"><div class="stat-num">...</div><div class="stat-label">研究专题</div></div>
-              <div class="stat"><div class="stat-num">4</div><div class="stat-label">核心主线</div></div>
-              <div class="stat"><div class="stat-num">6</div><div class="stat-label">重点推荐</div></div>
-              <div class="stat"><div class="stat-num">12</div><div class="stat-label">最新更新</div></div>
+            <div class="brand-story__roles">
+              <div class="role"><b>Kerwin</b><span>确定研究主题、投资逻辑、判断边界与最终校对。</span></div>
+              <div class="role"><b>Enya</b><span>组织证据、串联因果、构建交互可视化并持续维护专题。</span></div>
+              <div class="role"><b>OpenClaw × Frontier Models</b><span>承担自动化执行、编码和多模型研究基础设施。</span></div>
             </div>
           </div>
-        </section>
-        <section class="section">
-          <div class="section-head"><div><div class="eyebrow">Featured</div><div class="section-title">重点推荐</div></div><div class="section-note">适合优先阅读的研究专题、系列总览与客户沟通素材。</div></div>
-          <div class="featured-grid" id="featured-list"><div class="articles-loading">加载中…</div></div>
-        </section>
-        <section class="section">
-          <div class="section-head"><div><div class="eyebrow">Research Map</div><div class="section-title">研究主线</div></div><div class="section-note">围绕资产配置、数字金融、AI 基础设施、端侧智能和专题项目建立长期跟踪入口。</div></div>
-          <div class="category-grid" id="category-grid"></div>
-        </section>
-        <section class="section">
-          <div class="section-head"><div><div class="eyebrow">Latest</div><div class="section-title">最近更新</div></div><div class="section-note">按发布时间展示最新文章，更多内容可进入完整归档。</div></div>
-          <div class="latest-list" id="latest-list"></div>
-          <div class="archive-actions"><button class="archive-btn" id="archive-toggle" type="button">查看完整归档</button></div>
-          <div class="archive-wrap" id="archive-wrap"><div id="archive-list"></div></div>
-        </section>
-      </main>
-      <footer>
-        <div>本网站由 Kerwin 团队出品</div>
-        <div>Kerwin 确定研究主题及校对逻辑</div>
-        <div>OpenClaw 打造的 Enya 全程自动化编码实现</div>
-        <div>底层 AI 模型：GPT-5.5 及 Claude 付费版</div>
-        <div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
-        <hr class="footer-rule">
-        <div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div>
-        <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
-        <div class="counter-wrap">👀 页面浏览量：<span class="counter-num" id="counter-num">...</span></div>
-        <hr class="footer-rule">
-        <div>© 2026 kerwin 宏观对冲及 AI 精选组合</div>
-      </footer>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div><div class="footer__brand">EnyaClawd · Kerwin Research</div><p>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。严谨投资建议请与 Kerwin 联系。© 2026 Kerwin 宏观对冲及 AI 精选组合。</p></div>
+      <div class="counter">页面浏览量<b id="counter-num">...</b></div>
     </div>
-  </div>
-</div>
-<script>
-(function(){
-  var input=document.getElementById('gate-input');
-  if(!input)return;
-  input.addEventListener('input',function(){
-    if(input.value==='k'||input.value==='K'){
-      var gate=document.getElementById('gate-prompt');
-      var content=document.getElementById('gated-content');
-      if(gate&&content){gate.style.display='none';content.classList.add('visible');}
-    }
-  });
-})();
-(function(){
-  var featuredList=document.getElementById('featured-list');
-  var categoryGrid=document.getElementById('category-grid');
-  var latestList=document.getElementById('latest-list');
-  var archiveList=document.getElementById('archive-list');
-  var archiveWrap=document.getElementById('archive-wrap');
-  var archiveToggle=document.getElementById('archive-toggle');
-  var stats=document.getElementById('home-stats');
-  var manualPages=[
-    {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'一问一答原汁原味整理：黄金 ETF、royalty / streaming、铜矿周期、加息逆转、伊朗稳定，以及黄金和比特币作为美元体系内部压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
-    {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 Kerwin 使用 OpenClaw 搭建 Enya 的实践出发，结合 Windows × OpenClaw、NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例，分析 Agent 如何加速成为 AI 时代的新应用层。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'us-estate-tax-hk-investor-guide',title:'香港永居离世后\n通过香港金融机构账户持有的美股资产会被美国征遗产税？！',date:'2026年6月2日',published_at:'2026-06-02T12:00:00+08:00',deck:'从美国 situs assets、Form 706-NA、40%阶梯税率、继承人现金垫付压力，到 BVI 公司与离岸信托路径，梳理香港投资人持有美股资产的遗产税盲区。',tag:'客户教育',source:'enya',homepage_approved:true},
-    {slug:'edge-computing-series',title:'NVIDIA Edge Computing\n五篇系列总览',date:'2026年5月30日',published_at:'2026-05-30T13:30:00+08:00',deck:'从机器人身体、汽车道路、边缘网络、视觉感知到本地智能体，串联 NVIDIA Edge Computing 五篇研究与投资图谱。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'nvidia-edge-ai-pc-local-agent',title:'Edge 系列第五篇\nAI PC / Workstation / Local Agent 研究简报',date:'2026年5月30日',published_at:'2026-05-30T12:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 AI PC、Workstation、本地智能体、手机端侧 AI、企业私有 AI 服务器与投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'nvidia-edge-vision-ai-video-agent',title:'Edge 系列第四篇\nVision AI / 视频智能体研究简报',date:'2026年5月26日',published_at:'2026-05-26T10:30:00+08:00',deck:'从英伟达 Edge Computing 框架出发，拆解 Vision AI、视频智能体、NVIDIA Metropolis、城市、工业、仓储与安防投资机会。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'colossus-compute-revaluation',title:'出人意料\n马斯克的算力资产这么大？',date:'2026年5月21日',published_at:'2026-05-21T17:00:00+08:00',deck:'从 Anthropic 向 SpaceX 支付的 Colossus 算力租赁费用出发，对比 Colossus 1、Colossus 2 的 GPU、电力和云服务收入量级，重估马斯克体系下单体算力中心的资产价值。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'dissect-enya-openclaw-investment-brief',title:'拆解Enya\nOpenClaw部署投资启示录',date:'2026年5月19日',published_at:'2026-05-19T12:20:00+08:00',deck:'从 Enya / OpenClaw 在 DigitalOcean 上的部署案例，拆解 Agent 经济对 CPU、NVMe SSD、NAND、互联、虚拟化与企业软件的基础设施需求。',tag:'AI基础设施',source:'codex',homepage_approved:true}
-  ];
-  fetch('/registry.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(registry){
-    var map={};
-    registry.concat(manualPages).forEach(function(p){if(p&&p.homepage_approved===true&&p.slug){map[p.slug]=p;}});
-    var pages=Object.keys(map).map(function(k){return map[k];});
-    pages.sort(sortByTimeDesc);
-    renderStats(pages);
-    renderFeatured(pages);
-    renderCategories(pages);
-    renderLatest(pages);
-    renderArchive(pages);
-  }).catch(function(){
-    if(featuredList)featuredList.innerHTML='<div class="articles-loading">加载失败，请稍后刷新</div>';
-  });
-  if(archiveToggle){archiveToggle.addEventListener('click',function(){
-    archiveWrap.classList.toggle('visible');
-    archiveToggle.textContent=archiveWrap.classList.contains('visible')?'收起完整归档':'查看完整归档';
-  });}
-  function renderStats(pages){
-    if(!stats)return;
-    stats.innerHTML='<div class="stat"><div class="stat-num">'+pages.length+'</div><div class="stat-label">研究专题</div></div><div class="stat"><div class="stat-num">4</div><div class="stat-label">核心主线</div></div><div class="stat"><div class="stat-num">6</div><div class="stat-label">重点推荐</div></div><div class="stat"><div class="stat-num">12</div><div class="stat-label">最新更新</div></div>';
-  }
-  function renderFeatured(pages){
-    if(!featuredList)return;
-    var priority=['hyperliquid-financial-market-infrastructure-20260718','us-ai-semiconductor-reshoring-memory-fabs-20260717','global-financial-ai-adoption-capex-2026','stripe-payment-ecosystem-2026','gold-btc-dollar-leash-royalty-streaming-2026','nvidia-agent-platform-2026'];
-    var chosen=[];
-    priority.forEach(function(slug){var p=pages.find(function(x){return x.slug===slug;});if(p)chosen.push(p);});
-    pages.forEach(function(p){if(chosen.length<6&&!chosen.some(function(x){return x.slug===p.slug;}))chosen.push(p);});
-    featuredList.innerHTML=chosen.map(articleCard).join('');
-  }
-  function renderCategories(pages){
-    if(!categoryGrid)return;
-    var categories=[
-      {name:'AI Factory / 算力基础设施',desc:'NVIDIA、Rubin、机架、电力、存储、算力租赁与 Agent 基础设施。',test:function(p){return hit(p,'nvidia|英伟达|rubin|算力|机架|800v|hvdc|agent|openclaw|colossus|存储|kioxia|铠侠|nand|hbm|ssd');}},
-      {name:'Edge / 机器人 / 端侧智能',desc:'Physical AI、自动驾驶、AI-RAN、Vision AI、AI PC 与本地智能体。',test:function(p){return hit(p,'edge|physical ai|autonomous|vision|ai-ran|6g|robotaxi|ai pc|workstation|机器人|端侧');}},
-      {name:'宏观资产 / 数字金融',desc:'黄金、比特币、美元、美债、稳定币、RWA、市场结构与客户资产配置。',test:function(p){return hit(p,'宏观|黄金|比特币|美元|美债|收益率|稳定币|rwa|hyperliquid|hype|永续|交易所|市场结构|支付|fintech|遗产税|客户教育|estate tax');}},
-      {name:'专题项目 / 合规内容',desc:'警示教育、科普互动、专题汇编及可交付页面。',test:function(p){return hit(p,'警钟|案件|廉政|专题汇编|太阳系|科普|互动|casefiles|anti-corruption');}}
-    ];
-    categoryGrid.innerHTML=categories.map(function(c){
-      var items=pages.filter(c.test).slice(0,5);
-      if(!items.length)items=pages.slice(0,3);
-      return '<div class="category-card"><div class="category-top"><div class="category-name">'+esc(c.name)+'</div><div class="category-desc">'+esc(c.desc)+'</div></div><div class="category-list">'+items.map(miniLink).join('')+'</div></div>';
-    }).join('');
-  }
-  function renderLatest(pages){
-    if(!latestList)return;
-    latestList.innerHTML=pages.slice(0,12).map(latestLink).join('');
-  }
-  function renderArchive(pages){
-    if(!archiveList)return;
-    var groups={};
-    pages.forEach(function(p){var key=monthKey(p);groups[key]=groups[key]||[];groups[key].push(p);});
-    archiveList.innerHTML=Object.keys(groups).sort().reverse().map(function(key,i){
-      var title=key.replace('-','年')+'月';
-      return '<details class="archive-month" '+(i===0?'open':'')+'><summary>'+esc(title)+' · '+groups[key].length+' 篇</summary><ul>'+groups[key].map(function(p){return '<li><a href="'+href(p)+'"><span class="archive-date">'+esc(p.date||'')+'</span>'+esc(p.title||'未命名')+'</a></li>';}).join('')+'</ul></details>';
-    }).join('');
-  }
-  function articleCard(p){return '<a class="article-card" href="'+href(p)+'"><div class="article-date">'+esc(p.date||'')+'</div><div class="article-title">'+esc(p.title||'未命名')+'</div><div class="article-deck">'+esc(p.deck||'')+'</div><span class="article-tag">'+esc(p.tag||'Research')+'</span>'+(p.source==='codex'?'<span class="article-source">长文</span>':'')+'</a>';}
-  function latestLink(p){return '<a class="latest-link" href="'+href(p)+'"><div class="mini-date">'+esc(p.date||'')+'</div><div class="mini-title">'+esc(p.title||'未命名')+'</div></a>';}
-  function miniLink(p){return '<a class="mini-link" href="'+href(p)+'"><div class="mini-date">'+esc(p.date||'')+'</div><div class="mini-title">'+esc(p.title||'未命名')+'</div></a>';}
-  function href(p){return p.source==='codex'?'/'+p.slug+'.html':'/'+p.slug+'/';}
-  function hit(p,re){var s=[p.title,p.deck,p.tag,p.slug].join(' ').toLowerCase();return new RegExp(re,'i').test(s);}
-  function sortByTimeDesc(a,b){var ta=a.published_at?Date.parse(a.published_at):NaN;var tb=b.published_at?Date.parse(b.published_at):NaN;if(!Number.isNaN(ta)||!Number.isNaN(tb)){ta=Number.isNaN(ta)?0:ta;tb=Number.isNaN(tb)?0:tb;if(tb!==ta)return tb-ta;}var da=(a.date||'').replace(/[^\d]/g,'');var db=(b.date||'').replace(/[^\d]/g,'');return Number(db)-Number(da);}
-  function monthKey(p){var t=p.published_at?new Date(p.published_at):null;if(t&&!Number.isNaN(t.getTime()))return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0');var d=(p.date||'').replace(/[^\d]/g,'');return d.length>=6?d.slice(0,4)+'-'+d.slice(4,6):'2026-未知';}
-  function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
-})();
-(function(){
-  var slug=document.querySelector('[data-page-slug]');
-  var slugVal=(slug&&slug.getAttribute('data-page-slug'))||'home';
-  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
-  var el=document.getElementById('counter-num');
-  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
-  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
-})();
-</script>
+  </footer>
 </body>
 </html>
