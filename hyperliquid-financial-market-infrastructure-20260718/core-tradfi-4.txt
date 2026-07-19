@@ -1,0 +1,97 @@
+ <div class="glossary-tabs">
+  <button class="on" data-term="wallet">钱包</button><button data-term="usdc">USDC</button><button data-term="perp">永续合约</button><button data-term="oracle">预言机</button><button data-term="funding">资金费率</button><button data-term="liquidation">强制平仓</button>
+ </div>
+ <div class="glossary-box" id="glossary-box"></div>
+</section>
+
+<section class="section" id="compare">
+ <div class="label">03 · CENTRALIZED VS ONCHAIN</div>
+ <h2>中心化交易所与链上交易所，差别主要在“谁记账、谁托管、谁能核验”</h2>
+ <div class="compare">
+  <div class="compare-side">
+   <h3>传统券商／中心化交易所</h3>
+   <div class="compare-row"><b>账户</b><span>平台建立客户账户</span></div>
+   <div class="compare-row"><b>资产控制</b><span>平台或托管机构控制</span></div>
+   <div class="compare-row"><b>交易账本</b><span>平台内部数据库</span></div>
+   <div class="compare-row"><b>清算</b><span>交易所、清算所、经纪商分层完成</span></div>
+   <div class="compare-row"><b>透明度</b><span>客户主要依靠监管和审计</span></div>
+  </div>
+  <div class="compare-mid">VS</div>
+  <div class="compare-side">
+   <h3>Hyperliquid 式链上市场</h3>
+   <div class="compare-row"><b>账户</b><span>钱包地址和签名权限</span></div>
+   <div class="compare-row"><b>资产控制</b><span>用户掌握钱包钥匙，保证金进入协议</span></div>
+   <div class="compare-row"><b>交易账本</b><span>订单、仓位、清算可在链上核验</span></div>
+   <div class="compare-row"><b>清算</b><span>由协议规则和验证者网络执行</span></div>
+   <div class="compare-row"><b>透明度</b><span>更可验证，但治理、预言机和接口仍有信用依赖</span></div>
+  </div>
+ </div>
+ <div class="call red"><strong>常见误区：</strong>去中心化不等于没有中心，也不等于没有人为治理。Hyperliquid 的验证者、核心开发团队、第三方预言机和前端都仍然影响市场运行。</div>
+</section>
+
+<section class="section" id="perp">
+ <div class="label">04 · WHAT IS A PERPETUAL</div>
+ <h2>永续合约：一张没有到期日、用资金费率自动“续期”的期货</h2>
+ <div class="perp-diagram">
+  <div class="perp-card">
+   <h3>为什么需要资金费率</h3>
+   <p>传统期货到期后会向现货价格收敛。永续合约没有到期日，因此系统让多空双方定期互相付款，把合约价格拉回参考价格附近。</p>
+   <div class="anchor"><div class="spot">参考价格／现货</div><div class="spring">⇄</div><div class="perp">永续合约价格</div></div>
+   <p class="small">合约高于参考价时，通常多头向空头付费；低于参考价时，通常空头向多头付费。</p>
+  </div>
+  <div class="perp-card">
+   <h3>它与股票的关键差别</h3>
+   <ul style="padding-left:20px">
+    <li>没有股东权利、分红与投票权。</li>
+    <li>持仓需要保证金，可能被强制平仓。</li>
+    <li>长期持有会持续支付或收取资金费率。</li>
+    <li>盈亏以 USDC 现金结算，不交付股票。</li>
+   </ul>
+  </div>
+ </div>
+ <div class="call blue"><strong>可类比为：</strong>融资融券、股指期货和差价合约的某些特征，被压缩到一张没有到期日的合约里。</div>
+</section>
+
+<section class="section" id="company">
+ <div class="label">05 · COMPANY ARC</div>
+ <h2>Hyperliquid 为什么能成为现象级公司</h2>
+ <p class="lead">它没有先讲宏大的区块链故事，而是从交易员最具体的痛点切入：中心化交易所托管风险、链上交易速度慢、订单簿深度不足和产品上架受平台控制。</p>
+ <div class="timeline">
+  <div class="timeline-buttons">
+   <button class="on" data-t="t1">2022 · 起点</button><button data-t="t2">2023 · 产品验证</button><button data-t="t3">2024 · 网络化</button><button data-t="t4">2025 · 压力测试</button><button data-t="t5">2026 · 外溢传统金融</button>
+  </div>
+  <div class="timeline-detail" id="timeline-detail"></div>
+ </div>
+ <div class="grid3" style="margin-top:14px">
+  <div class="card"><div class="icon">PRODUCT FIRST</div><h3>先有交易，再有代币</h3><p>产品、流动性和收入形成后才发行 HYPE，降低“先融资、后找场景”的错配。</p></div>
+  <div class="card"><div class="icon">VERTICAL STACK</div><h3>把交易与清算做在一条链</h3><p>专用基础设施减少跨系统摩擦，体验接近中心化交易所。</p></div>
+  <div class="card"><div class="icon">OPEN LISTING</div><h3>把产品上架权开放给第三方</h3><p>HIP-3 让 Trade.xyz 等团队可以创建新市场，长鑫合约由此出现。</p></div>
+ </div>
+</section>
+
+<section class="section" id="roles">
+ <div class="label">06 · WHO DOES WHAT</div>
+ <h2>长鑫合约不是 Hyperliquid 一家公司完成的</h2>
+ <p class="lead">理解生态分工，是传统金融人士避免误判的关键。Hyperliquid 提供“交易所与清算底座”，Trade.xyz 负责创建和运营具体合约。</p>
+ <div class="roles">
+  <div class="role"><b>长鑫存储</b><span>被观察的公司，本身未必参与或授权合约</span></div>
+  <div class="role"><b>Trade.xyz</b><span>定义 CXMT 合约、预言机、杠杆和结算规则</span></div>
+  <div class="role primary"><b>Hyperliquid</b><span>提供订单簿、保证金、撮合、清算和链上记录</span></div>
+  <div class="role"><b>USDC／USDH</b><span>作为数字美元保证金和结算资产</span></div>
+  <div class="role"><b>投资者</b><span>用钱包下单，承担价格、资金费率和清算风险</span></div>
+ </div>
+ <div class="call"><strong>类比传统金融：</strong>长鑫是参考标的，Trade.xyz 像产品设计与上市运营方，Hyperliquid 像交易所加清算所，USDC 像保证金货币。</div>
+</section>
+
+<section class="section" id="cxmt">
+ <div class="label">07 · CXMT PRACTICAL CASE</div>
+ <h2>长鑫存储合约：传统投资者现在究竟可以怎样使用</h2>
+ <div class="cxmt-hero">
+  <div class="cxmt-main">
+   <h3>它解决了什么问题</h3>
+   <p>长鑫在科创板上市，境外投资者很难直接参与 IPO 配售。Trade.xyz 因此创建了一张以长鑫预期股价为参考的链上永续合约，让全球投资者可以提前表达看多或看空观点。</p>
+   <div class="price-layers">
+    <div class="price-layer"><b>A股发行价</b><span>人民币计价，代表真实股票发行条件</span></div>
+    <div class="price-layer"><b>链上合约价</b><span>美元计价的合成价格，由订单簿与预言机共同影响</span></div>
+    <div class="price-layer"><b>隐含估值</b><span>需要结合合约单位、股份数量和汇率重新计算</span></div>
+   </div>
