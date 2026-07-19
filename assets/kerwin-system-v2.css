@@ -131,6 +131,9 @@ body.kw-research .hero-title { font-family: var(--kw-serif); letter-spacing: -.0
 .kw-progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--kw-mint), var(--kw-copper)); }
 
 body.kw-research > .back { display: none !important; }
+body.kw-research #gate-overlay,
+body.kw-research .gate-prompt { display: none !important; }
+body.kw-research .gated-content { display: block !important; }
 body.kw-research > .page,
 body.kw-research .page {
   width: min(1180px, calc(100% - 28px)) !important;
