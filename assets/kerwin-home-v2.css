@@ -134,6 +134,7 @@ button { cursor: pointer; }
 .access-gate__field {
   display: grid;
   grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
   border-bottom: 2px solid var(--ft-ink);
 }
 .access-gate__field input {
@@ -147,15 +148,14 @@ button { cursor: pointer; }
   font: 600 20px/1 var(--serif);
 }
 .access-gate__field:focus-within { border-color: var(--green-2); }
-.access-gate__field button {
-  padding: 0 17px;
-  color: var(--ft-paper);
-  background: var(--green);
-  border: 0;
-  font-size: 11px;
-  font-weight: 700;
+.access-gate__auto {
+  padding-left: 14px;
+  color: var(--green);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
 }
-.access-gate__field button:hover { background: var(--green-2); }
 .access-gate__error {
   min-height: 18px;
   margin: 8px 0 0;
@@ -336,7 +336,7 @@ button { cursor: pointer; }
   content: "";
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 50%;
   border: 1px solid rgba(16,63,53,.25);
   border-radius: 50%;
   transform: translate(-50%,-50%);
@@ -357,12 +357,12 @@ button { cursor: pointer; }
   position: absolute;
   background: rgba(16,63,53,.22);
 }
-.radar__axis-x { width: 100%; height: 1px; top: 48%; }
+.radar__axis-x { width: 100%; height: 1px; top: 50%; }
 .radar__axis-y { width: 1px; height: 100%; left: 50%; }
 .radar__core {
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 50%;
   z-index: 2;
   width: 132px;
   height: 132px;
@@ -815,6 +815,14 @@ button { cursor: pointer; }
   font-size: 12px;
   line-height: 1.8;
 }
+.brand-story__models {
+  max-width: 650px;
+  margin: 14px 0 0;
+  color: #f5e8dc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
 .brand-story__roles {
   border-top: 1px solid rgba(255,241,229,.45);
 }
@@ -887,9 +895,9 @@ button { cursor: pointer; }
   .access-gate__seal { width: 128px; height: 128px; font-size: 21px; }
   .access-gate__seal small { font-size: 7px; }
   .access-gate__copy h1 { font-size: 34px; }
-  .access-gate__field { grid-template-columns: 1fr; border-bottom: 0; }
-  .access-gate__field input { border-bottom: 2px solid var(--ft-ink); }
-  .access-gate__field button { min-height: 44px; margin-top: 10px; }
+  .access-gate__field { grid-template-columns: minmax(0,1fr) auto; border-bottom: 2px solid var(--ft-ink); }
+  .access-gate__field input { border-bottom: 0; }
+  .access-gate__auto { padding-left: 10px; font-size: 7px; }
   .site-header { height: 62px; }
   .brand__mark { width: 31px; height: 31px; }
   .brand__name { font-size: 17px; }
