@@ -1,0 +1,80 @@
+   <div class="call red"><strong>第一条纪律：</strong>不能把 8.66 元人民币的 IPO 发行价与链上美元合约价格直接比较。必须先确认每张合约代表多少“参考股份”、预言机定义和上市后的切换方式。</div>
+  </div>
+  <aside class="cxmt-side">
+   <h3>三种实际用途</h3>
+   <ul>
+    <li><strong>价格观察：</strong>不下单，只看价格、成交量、未平仓量和资金费率，判断境外资金情绪。</li>
+    <li><strong>方向交易：</strong>认为 IPO 后上涨则做多，认为情绪过热则做空。</li>
+    <li><strong>实验性对冲：</strong>已有或预计获得 A 股敞口时，用小规模空头降低上市初期下跌风险，但存在明显基差风险。</li>
+   </ul>
+  </aside>
+ </div>
+
+ <h3>一名传统投资者的具体操作顺序</h3>
+ <div class="steps">
+  <div class="step"><b>先读合约说明</b><span>确认 ticker、合约单位、预言机、最高杠杆、资金费率、停牌和上市后结算规则。读不懂则不交易。</span></div>
+  <div class="step"><b>确认自身是否可以参与</b><span>平台会限制部分地区和客户类别。必须遵守所在地法律、机构合规要求和平台条款。</span></div>
+  <div class="step"><b>准备少量 USDC</b><span>USDC 是保证金和盈亏结算单位。转账网络选错或钱包权限丢失均可能造成损失。</span></div>
+  <div class="step"><b>选择逐仓保证金</b><span>HIP-3 市场采用独立保证金。将风险限制在该仓位，避免影响其他资产。</span></div>
+  <div class="step"><b>先用 1 倍名义敞口理解产品</b><span>不要把“可以使用杠杆”理解为“应该使用杠杆”。先观察滑点、资金费率和价格锚定。</span></div>
+  <div class="step"><b>制定上市节点退出规则</b><span>上市前、定价日、首日开盘和预言机切换都可能产生跳价。提前定义平仓条件。</span></div>
+ </div>
+
+ <div class="use-tabs">
+  <button class="on" data-use="observe">用途一：只观察</button><button data-use="direction">用途二：方向交易</button><button data-use="hedge">用途三：对冲／相对价值</button>
+ </div>
+ <div class="use-box" id="use-box"></div>
+
+ <div class="calculator">
+  <h3>CXMT 合约盈亏试算器 <span class="tag amber">假设示例，不是实时行情</span></h3>
+  <p class="small muted">线性合约近似计算：方向盈亏 = 数量 × 价格变化；资金费率成本 = 名义本金 × 小时资金费率 × 持有小时。未计交易手续费、滑点与清算。</p>
+  <div class="calc-grid">
+   <div class="field"><label>方向</label><select id="side"><option value="1">做多</option><option value="-1">做空</option></select></div>
+   <div class="field"><label>入场价 USD</label><input id="entry" type="number" value="10" step="0.01"></div>
+   <div class="field"><label>退出价 USD</label><input id="exit" type="number" value="12" step="0.01"></div>
+   <div class="field"><label>合约数量</label><input id="qty" type="number" value="100" step="1"></div>
+   <div class="field"><label>每小时资金费率 %</label><input id="funding" type="number" value="0.002" step="0.001"></div>
+   <div class="field"><label>持有小时</label><input id="hours" type="number" value="72" step="1"></div>
+  </div>
+  <div class="calc-result">
+   <div class="result"><b id="notional">$1,000</b><span>入场名义本金</span></div>
+   <div class="result"><b id="directionPnl">+$200</b><span>方向盈亏</span></div>
+   <div class="result"><b id="fundingCost">-$1.44</b><span>假设资金费率成本</span></div>
+   <div class="result"><b id="netPnl">+$198.56</b><span>简化净盈亏</span></div>
+  </div>
+ </div>
+
+ <h3>不同投资者可以怎么用</h3>
+ <div class="scenario-table"><table>
+  <thead><tr><th>投资者情景</th><th>可执行方式</th><th>真正押注的变量</th><th>主要风险</th></tr></thead>
+  <tbody>
+   <tr><td><span class="tag blue">观察者</span><br>想了解境外对长鑫的看法</td><td>不交易，记录合约价格、OI、成交量和资金费率</td><td>全球资金对 IPO 定价和存储周期的情绪</td><td>薄市场价格可能被少数大户扭曲</td></tr>
+   <tr><td><span class="tag green">看多者</span><br>认为国内 DRAM 替代价值被低估</td><td>小规模 1× 做多，事先设定最大损失和上市节点退出</td><td>上市后价格高于链上预期</td><td>资金费率、跳价、预言机和流动性风险</td></tr>
+   <tr><td><span class="tag red">看空者</span><br>认为 IPO 情绪透支</td><td>做空合约，控制规模，避免低流动性下无限加仓</td><td>上市后估值回落或链上溢价收敛</td><td>逼空、资金费率、仓位上限和强平</td></tr>
+   <tr><td><span class="tag amber">获配／持股者</span><br>担心首日下跌</td><td>按“可验证的合约单位”建立部分空头，作为不完全对冲</td><td>A股现货下跌与链上合约同步</td><td>汇率、基差、交易时段和单位映射不一致</td></tr>
+   <tr><td><span class="tag blue">产业投资者</span><br>想表达中国存储相对强弱</td><td>长 CXMT、短 MU 等相对价值组合，仅限专业账户实验</td><td>中国存储估值相对全球同业的变化</td><td>两个市场不同币种、不同交易时间和不同风险因子</td></tr>
+  </tbody>
+ </table></div>
+ <div class="source-note">CXMT 合约由 Trade.xyz 基于 Hyperliquid HIP-3 部署。其上市前价格属于合成预期价格，并不代表持有长鑫股票。示例盈亏采用抽象价格，非实时行情。</div>
+</section>
+
+<section class="section" id="cases">
+ <div class="label">08 · WHY THE MARKET WAS IMPRESSED</div>
+ <h2>五个具体案例，理解 Hyperliquid 为什么“出圈”</h2>
+ <div class="case-tabs">
+  <button class="on" data-case="spacex">SpaceX 上市前</button><button data-case="oil">周末原油</button><button data-case="airdrop">HYPE 空投</button><button data-case="jelly">JELLY 风险事件</button><button data-case="whale">鲸鱼仓位直播</button>
+ </div>
+ <div class="case-layout">
+  <div class="case-visual" id="case-visual"></div>
+  <div class="case-box" id="case-box"></div>
+ </div>
+</section>
+
+<section class="section" id="economics">
+ <div class="label">09 · MONEY & DISTRIBUTION</div>
+ <h2>Hyperliquid争夺的不只是交易手续费，还有“数字美元存款”的利息收入</h2>
+ <p class="lead">传统券商的客户现金会形成利息收入。链上世界也一样：投资者把 USDC 放在交易平台作为保证金，USDC 发行人持有的国债和现金储备会产生收益。谁掌握交易流量，谁就有能力谈判这笔收益如何分配。</p>
+ <div class="money-map">
+  <div class="money-node"><b>投资者资金</b><span>购买或存入 USDC／USDH</span></div>
+  <div class="money-node"><b>交易保证金</b><span>停留在 Hyperliquid 生态</span></div>
+  <div class="money-node"><b>储备资产</b><span>现金、短期美债等产生利息</span></div>
