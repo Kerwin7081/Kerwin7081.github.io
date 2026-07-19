@@ -1,6 +1,42 @@
 (function () {
   'use strict';
 
+  var body = document.body;
+  var gate = document.getElementById('access-gate');
+  var accessForm = document.getElementById('access-form');
+  var accessKey = document.getElementById('access-key');
+  var accessError = document.getElementById('access-error');
+
+  function grantAccess() {
+    body.classList.remove('access-pending');
+    body.classList.add('access-granted');
+    if (gate) gate.setAttribute('aria-hidden', 'true');
+  }
+
+  try {
+    if (sessionStorage.getItem('kerwin-research-access') === '1') grantAccess();
+  } catch (error) {}
+
+  if (accessForm) {
+    accessForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (String(accessKey && accessKey.value || '').trim().toLowerCase() === 'k') {
+        try { sessionStorage.setItem('kerwin-research-access', '1'); } catch (error) {}
+        grantAccess();
+        document.querySelector('.site-header a, main a, main button')?.focus();
+      } else {
+        if (accessError) accessError.textContent = '访问口令不正确，请重新输入。';
+        if (accessKey) {
+          accessKey.value = '';
+          accessKey.focus();
+        }
+      }
+    });
+    setTimeout(function () {
+      if (!body.classList.contains('access-granted') && accessKey) accessKey.focus();
+    }, 60);
+  }
+
   var legacyPages = [
     {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'黄金 ETF、royalty / streaming、铜矿周期、加息逆转，以及黄金和比特币作为美元体系压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
     {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 OpenClaw 实践出发，串联 NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例。',tag:'AI Research',source:'enya',homepage_approved:true},
