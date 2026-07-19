@@ -4,35 +4,26 @@
 </section>
 
 <section class="section" id="sources">
- <div class="label">14 · SOURCES & METHODOLOGY</div>
- <h2>主要信源</h2>
- <p>协议机制优先采用 Hyperliquid 与 Trade.xyz 官方文档；传统市场布局采用 CME、CFTC、Circle、Kalshi 与 Interactive Brokers 官方资料；CXMT事件采用 Bloomberg 报道。本文区分事实、产品规则、示例计算与研究判断。</p>
+ <div class="label">15 · SOURCES & METHODOLOGY</div><h2>主要信源</h2>
+ <p>协议机制、实时行情和AQAv2收益分享优先采用 Hyperliquid 官方文档与公告；Trade.xyz采用其官方文档和法律条款；CXMT发行信息采用Reuters，产品机制采用Trade.xyz及链上数据；Circle商业模式采用其SEC文件。页面中的实时行情通过官方API获取，接口异常时使用带日期的历史快照。</p>
  <div class="source-list">
   <a href="https://hyperliquid.gitbook.io/hyperliquid-docs" target="_blank" rel="noopener">Hyperliquid 官方文档：协议、订单簿、保证金、清算和费用</a>
   <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals" target="_blank" rel="noopener">Hyperliquid：HIP-3 第三方部署永续合约</a>
-  <a href="https://docs.trade.xyz/" target="_blank" rel="noopener">Trade.xyz：XYZ架构、预言机、标记价格与资金费率</a>
-  <a href="https://news.bloomberglaw.com/business-and-practice/crypto-market-offers-pre-ipo-bets-on-chinese-chipmaker-cxmt" target="_blank" rel="noopener">Bloomberg：CXMT Pre-IPO 永续合约</a>
-  <a href="https://www.circle.com/es/blog/circle-expands-support-for-usdc-on-hyperliquid" target="_blank" rel="noopener">Circle：USDC 与 Hyperliquid aligned quote asset</a>
-  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/aligned-quote-assets" target="_blank" rel="noopener">Hyperliquid：Aligned stablecoin 与储备收益分享</a>
-  <a href="https://docs.usdh.com/usdh/overview" target="_blank" rel="noopener">USDH：储备结构与生态收益分配</a>
-  <a href="https://www.cmegroup.com/media-room/press-releases/2026/6/01/cme_group_announceslaunchof247cryptocurrencyfuturesandoptionstra.html" target="_blank" rel="noopener">CME：2026年上线24×7加密期货与期权</a>
-  <a href="https://news.kalshi.com/p/kalshi-launches-perpetual-futures-america" target="_blank" rel="noopener">Kalshi：美国受监管永续合约布局</a>
-  <a href="https://www.interactivebrokers.com/en/general/about/mediaRelations/5-14-26.php" target="_blank" rel="noopener">Interactive Brokers：聚合Kalshi、CME与ForecastEx预测市场</a>
+  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint" target="_blank" rel="noopener">Hyperliquid Info API：实时市场元数据、行情上下文与K线</a>
+  <a href="https://docs.trade.xyz/" target="_blank" rel="noopener">Trade.xyz 官方文档：XYZ架构、预言机、标记价格与资金费率</a>
+  <a href="https://trade.xyz/terms" target="_blank" rel="noopener">Trade.xyz 条款：XYZ Ltd、非托管界面、地区限制与责任边界</a>
+  <a href="https://news.bloomberglaw.com/business-and-practice/crypto-market-offers-pre-ipo-bets-on-chinese-chipmaker-cxmt" target="_blank" rel="noopener">Bloomberg：Trade.xyz推出CXMT上市前永续合约</a>
+  <a href="https://www.reuters.com/world/asia-pacific/china-memory-chipmaker-cxmt-expects-raise-579-billion-yuan-ipo-2026-07-14/" target="_blank" rel="noopener">Reuters：CXMT发行价、发行估值和上市安排</a>
+  <a href="https://t.me/s/hyperliquid_announcements" target="_blank" rel="noopener">Hyperliquid官方公告：AQAv2约90%成本调整后储备收益分享</a>
+  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/aligned-quote-assets" target="_blank" rel="noopener">Hyperliquid：Aligned Quote Asset机制与基础收益分享规则</a>
+  <a href="https://www.circle.com/es/blog/circle-expands-support-for-usdc-on-hyperliquid" target="_blank" rel="noopener">Circle：担任Hyperliquid USDC技术部署方</a>
+  <a href="https://www.coinbase.com/blog/coinbase-to-become-official-treasury-deployer-for-usdc-on-hyperliquid" target="_blank" rel="noopener">Coinbase：担任USDC资金管理部署方及约50亿美元生态规模</a>
+  <a href="https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm" target="_blank" rel="noopener">Circle 2025年10-K：储备收入占总收入96%</a>
  </div>
 </section>
 
-<div class="enya-brand" role="contentinfo" aria-label="Enya品牌信息">
- <div class="enya-brand-name">Enya</div>
- <div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
- <div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
- <div class="enya-brand-copy">本网站由 Kerwin 团队出品<br>Kerwin 确定研究主题及校对逻辑<br>OpenClaw 打造的 Enya 全程自动化编码实现</div>
-</div>
-<div class="footer">
- <div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div>
- <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
- <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
- <div>© 2026 kerwin 宏观对冲及 AI 精选组合</div>
-</div>
+<div class="enya-brand" role="contentinfo" aria-label="Enya品牌信息"><div class="enya-brand-name">Enya</div><div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><div class="enya-brand-copy">本网站由 Kerwin 团队出品<br>Kerwin 确定研究主题及校对逻辑<br>OpenClaw 打造的 Enya 全程自动化编码实现</div></div>
+<div class="footer"><div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div><div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div><div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div><div>© 2026 kerwin 宏观对冲及 AI 精选组合</div></div>
 </div></div>
 <script>
 const glossary={
