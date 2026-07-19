@@ -3,19 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#07110f">
+  <meta name="theme-color" content="#fff1e5">
   <meta name="description" content="EnyaClawd 是 Kerwin 的宏观资产、AI 产业链与数字金融研究档案。">
   <title>EnyaClawd · Kerwin Research</title>
   <!-- pv-counter data-page-slug=home -->
-  <link rel="stylesheet" href="/assets/kerwin-home-v2.css?v=20260718">
-  <script defer src="/assets/kerwin-home-v2.js?v=20260718"></script>
+  <link rel="stylesheet" href="/assets/kerwin-home-v2.css?v=20260718ft">
+  <script defer src="/assets/kerwin-home-v2.js?v=20260718ft"></script>
 </head>
-<body data-page-slug="home">
+<body class="access-pending" data-page-slug="home">
+  <aside class="access-gate" id="access-gate" aria-labelledby="gate-title">
+    <div class="access-gate__paper">
+      <div class="access-gate__masthead"><span>Independent Investment Research</span><span>Hong Kong · Private Access</span></div>
+      <div class="access-gate__body">
+        <div class="access-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
+        <div class="access-gate__copy">
+          <div class="eyebrow">Reader Access</div>
+          <h1 id="gate-title">Kerwin Research Hub</h1>
+          <p>宏观、AI 产业链、数字金融与公司研究的私人档案。请输入访问口令进入。</p>
+          <form class="access-gate__form" id="access-form">
+            <label for="access-key">Access key</label>
+            <div class="access-gate__field">
+              <input id="access-key" name="access-key" type="password" inputmode="text" autocomplete="current-password" aria-describedby="access-error">
+              <button type="submit">进入研究主页</button>
+            </div>
+            <p class="access-gate__error" id="access-error" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+      <div class="access-gate__foot"><span>EnyaClawd Research System</span><span>For research and education only</span></div>
+    </div>
+  </aside>
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="/" aria-label="EnyaClawd 首页">
-        <span class="brand__mark">E</span>
-        <span class="brand__name">EnyaClawd<small>Kerwin Research</small></span>
+        <span class="brand__mark">K</span>
+        <span class="brand__name">EnyaClawd<small>Kerwin Research Hub</small></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
         <a href="#featured">精选</a>
@@ -46,19 +68,19 @@
         </div>
         <div class="radar" aria-label="EnyaClawd 研究雷达示意图">
           <div class="radar__grid"></div><div class="radar__axis-x"></div><div class="radar__axis-y"></div>
-          <div class="radar__core">Enya<small>Research Core</small></div>
+          <div class="radar__core"><span>Kerwin</span><small>Research Hub</small></div>
           <div class="radar-node radar-node--1">AI Factory<span>Compute · Power</span></div>
           <div class="radar-node radar-node--2">Digital Finance<span>RWA · Market Structure</span></div>
           <div class="radar-node radar-node--3">Semiconductors<span>Memory · Optical</span></div>
           <div class="radar-node radar-node--4">Macro Assets<span>Rates · Gold · Copper</span></div>
           <div class="radar-node radar-node--5">Companies<span>Strategy · Valuation</span></div>
-          <div class="radar__status"><span><i class="pulse"></i>Research system active</span><span>HKT · 2026</span></div>
+          <div class="radar__status"><span><i class="pulse"></i>Editorial research desk</span><span>HKT · 2026</span></div>
         </div>
       </div>
     </section>
 
     <div class="ticker-strip">
-      <div class="container ticker-strip__inner"><span class="ticker-label">Latest Signals</span><div class="ticker-items" id="ticker-items"><span class="ticker-item">载入研究目录…</span></div></div>
+      <div class="container ticker-strip__inner"><span class="ticker-label">Research Briefing</span><div class="ticker-items" id="ticker-items"><span class="ticker-item">载入研究目录…</span></div></div>
     </div>
 
     <section class="section section--paper" id="featured">
@@ -129,7 +151,7 @@
 
   <footer class="footer">
     <div class="container footer__grid">
-      <div><div class="footer__brand">EnyaClawd · Kerwin Research</div><p>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。严谨投资建议请与 Kerwin 联系。© 2026 Kerwin 宏观对冲及 AI 精选组合。</p></div>
+      <div><div class="footer__brand">EnyaClawd · Kerwin Research Hub</div><p>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。严谨投资建议请与 Kerwin 联系。© 2026 Kerwin 宏观对冲及 AI 精选组合。</p></div>
       <div class="counter">页面浏览量<b id="counter-num">...</b></div>
     </div>
   </footer>
