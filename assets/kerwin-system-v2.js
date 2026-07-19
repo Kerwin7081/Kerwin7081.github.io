@@ -6,6 +6,7 @@
   var path = location.pathname.toLowerCase();
   var isExperience = body.classList.contains('kw-experience') || /xiaoxiao-block-world|blockcraft-game|solar-system-3d-explorer/.test(path);
 
+  installDarkSurfaceContrast();
   body.classList.add(isExperience ? 'kw-experience' : 'kw-research');
   normalizeLegacyGates();
   installAccessGate();
@@ -210,6 +211,158 @@
     } catch (error) {
       // Storage can be unavailable in constrained in-app browsers; the gate does not depend on it.
     }
+  }
+
+  function installDarkSurfaceContrast() {
+    var lightText = '#fffaf5';
+    var originals = typeof WeakMap === 'function' ? new WeakMap() : null;
+    var queuedRoots = [];
+    var scheduled = false;
+
+    function parseColor(value) {
+      var text = String(value || '').trim().toLowerCase();
+      if (!text || text === 'transparent') return { r: 0, g: 0, b: 0, a: 0 };
+      var match = text.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:\s*[,/]\s*([\d.]+%?))?\s*\)/);
+      if (!match) {
+        var hex = text.match(/#([0-9a-f]{3,8})\b/i);
+        if (!hex) return null;
+        var hexValue = hex[1];
+        if (hexValue.length === 3 || hexValue.length === 4) hexValue = hexValue.replace(/./g, function (digit) { return digit + digit; });
+        if (hexValue.length !== 6 && hexValue.length !== 8) return null;
+        return {
+          r: parseInt(hexValue.slice(0, 2), 16),
+          g: parseInt(hexValue.slice(2, 4), 16),
+          b: parseInt(hexValue.slice(4, 6), 16),
+          a: hexValue.length === 8 ? parseInt(hexValue.slice(6, 8), 16) / 255 : 1
+        };
+      }
+      return {
+        r: Number(match[1]),
+        g: Number(match[2]),
+        b: Number(match[3]),
+        a: match[4] ? (/%$/.test(match[4]) ? Number(match[4].slice(0, -1)) / 100 : Number(match[4])) : 1
+      };
+    }
+
+    function relativeLuminance(color) {
+      function channel(value) {
+        value /= 255;
+        return value <= 0.04045 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
+      }
+      return 0.2126 * channel(color.r) + 0.7152 * channel(color.g) + 0.0722 * channel(color.b);
+    }
+
+    function contrastRatio(first, second) {
+      var a = relativeLuminance(first);
+      var b = relativeLuminance(second);
+      return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+    }
+
+    function backgroundColors(element) {
+      var node = element;
+      while (node && node.nodeType === 1) {
+        var style = getComputedStyle(node);
+        var image = String(style.backgroundImage || '');
+        var tokens = image.match(/rgba?\([^)]*\)|#[0-9a-f]{3,8}\b/gi) || [];
+        var colors = [];
+        for (var i = 0; i < tokens.length; i += 1) {
+          var stop = parseColor(tokens[i]);
+          if (stop && stop.a >= 0.72) colors.push(stop);
+        }
+        var solid = parseColor(style.backgroundColor);
+        if (solid && solid.a >= 0.72) colors.push(solid);
+        if (colors.length) return colors;
+        node = node.parentElement;
+      }
+      return [{ r: 255, g: 255, b: 255, a: 1 }];
+    }
+
+    function carriesText(element) {
+      if (/^(INPUT|TEXTAREA|BUTTON|SELECT|OPTION)$/.test(element.tagName)) return true;
+      for (var i = 0; i < element.childNodes.length; i += 1) {
+        var child = element.childNodes[i];
+        if (child.nodeType === 3 && String(child.nodeValue || '').trim()) return true;
+      }
+      return false;
+    }
+
+    function restoreOriginal(element) {
+      if (!originals || !originals.has(element)) return;
+      var original = originals.get(element);
+      if (original.value) element.style.setProperty('color', original.value, original.priority);
+      else element.style.removeProperty('color');
+      element.removeAttribute('data-kw-contrast-fixed');
+    }
+
+    function applyLightText(element) {
+      if (originals && !originals.has(element)) {
+        originals.set(element, {
+          value: element.style.getPropertyValue('color'),
+          priority: element.style.getPropertyPriority('color')
+        });
+      }
+      element.style.setProperty('color', lightText, 'important');
+      element.setAttribute('data-kw-contrast-fixed', 'true');
+    }
+
+    function inspect(element) {
+      if (!element || element.nodeType !== 1 || !carriesText(element)) return;
+      if (/^(SCRIPT|STYLE|NOSCRIPT|TEMPLATE)$/.test(element.tagName)) return;
+      restoreOriginal(element);
+      var style = getComputedStyle(element);
+      if (style.display === 'none' || Number(style.opacity || 1) === 0) return;
+      var foreground = parseColor(style.color);
+      if (!foreground || foreground.a < 0.7) return;
+      var backgrounds = backgroundColors(element);
+      var needsFix = false;
+      for (var i = 0; i < backgrounds.length; i += 1) {
+        var background = backgrounds[i];
+        if (relativeLuminance(background) <= 0.18 && contrastRatio(foreground, background) < 4.5) {
+          needsFix = true;
+          break;
+        }
+      }
+      if (needsFix) applyLightText(element);
+      else if (originals) originals.delete(element);
+    }
+
+    function scan(root) {
+      if (!root || root.nodeType !== 1) return;
+      inspect(root);
+      var elements = root.querySelectorAll('*');
+      for (var i = 0; i < elements.length; i += 1) inspect(elements[i]);
+    }
+
+    function flush() {
+      scheduled = false;
+      var roots = queuedRoots.slice();
+      queuedRoots.length = 0;
+      for (var i = 0; i < roots.length; i += 1) scan(roots[i]);
+    }
+
+    function requestScan(root) {
+      root = root && root.nodeType === 1 ? root : body;
+      for (var i = 0; i < queuedRoots.length; i += 1) {
+        if (queuedRoots[i] === root || queuedRoots[i].contains(root)) return;
+      }
+      queuedRoots.push(root);
+      if (scheduled) return;
+      scheduled = true;
+      (window.requestAnimationFrame || function (callback) { return setTimeout(callback, 16); })(flush);
+    }
+
+    if (window.MutationObserver) {
+      new MutationObserver(function (records) {
+        for (var i = 0; i < records.length; i += 1) {
+          var record = records[i];
+          if (record.type === 'attributes') requestScan(record.target);
+          for (var j = 0; j < record.addedNodes.length; j += 1) requestScan(record.addedNodes[j]);
+        }
+      }).observe(body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] });
+    }
+    addEventListener('load', function () { requestScan(body); });
+    addEventListener('resize', function () { requestScan(body); }, { passive: true });
+    requestScan(body);
   }
 
   function escapeHtml(value) {

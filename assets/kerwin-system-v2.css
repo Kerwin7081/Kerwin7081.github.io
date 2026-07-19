@@ -734,3 +734,14 @@ body.kw-gate-granted .kw-access-gate { display: none !important; }
   .kw-access-gate__title { font-size: clamp(25px,8vw,33px); }
   .kw-access-gate__copy > p { font-size: 12px; }
 }
+
+/* Runtime WCAG guard for legacy dark surfaces. */
+html body [data-kw-contrast-fixed="true"]::before,
+html body [data-kw-contrast-fixed="true"]::after {
+  color: inherit !important;
+}
+html body input[data-kw-contrast-fixed="true"]::placeholder,
+html body textarea[data-kw-contrast-fixed="true"]::placeholder {
+  color: #f5e8dc !important;
+  opacity: 1;
+}

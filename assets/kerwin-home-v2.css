@@ -940,6 +940,17 @@ button { cursor: pointer; }
   .counter { text-align: left; }
 }
 
+/* Runtime WCAG guard for dark editorial surfaces and generated cards. */
+html body [data-kw-contrast-fixed="true"]::before,
+html body [data-kw-contrast-fixed="true"]::after {
+  color: inherit !important;
+}
+html body input[data-kw-contrast-fixed="true"]::placeholder,
+html body textarea[data-kw-contrast-fixed="true"]::placeholder {
+  color: #f5e8dc !important;
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
