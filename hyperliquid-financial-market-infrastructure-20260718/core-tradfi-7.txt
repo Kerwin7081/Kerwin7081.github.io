@@ -1,0 +1,51 @@
+  <div class="battle"><b>预测市场与分发渠道</b><span>Polymarket、Kalshi、IBKR、Robinhood、钱包与AI Agent争夺高频流量。</span></div>
+ </div>
+ <div class="call gold"><strong>第二期的核心问题：</strong>Hyperliquid的护城河究竟是交易技术、流动性、HYPE经济、Builder生态，还是它已经取得的用户心智与订单流入口？</div>
+</section>
+
+<section class="section" id="sources">
+ <div class="label">14 · SOURCES & METHODOLOGY</div>
+ <h2>主要信源</h2>
+ <p>协议机制优先采用 Hyperliquid 与 Trade.xyz 官方文档；传统市场布局采用 CME、CFTC、Circle、Kalshi 与 Interactive Brokers 官方资料；CXMT事件采用 Bloomberg 报道。本文区分事实、产品规则、示例计算与研究判断。</p>
+ <div class="source-list">
+  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs" target="_blank" rel="noopener">Hyperliquid 官方文档：协议、订单簿、保证金、清算和费用</a>
+  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals" target="_blank" rel="noopener">Hyperliquid：HIP-3 第三方部署永续合约</a>
+  <a href="https://docs.trade.xyz/" target="_blank" rel="noopener">Trade.xyz：XYZ架构、预言机、标记价格与资金费率</a>
+  <a href="https://news.bloomberglaw.com/business-and-practice/crypto-market-offers-pre-ipo-bets-on-chinese-chipmaker-cxmt" target="_blank" rel="noopener">Bloomberg：CXMT Pre-IPO 永续合约</a>
+  <a href="https://www.circle.com/es/blog/circle-expands-support-for-usdc-on-hyperliquid" target="_blank" rel="noopener">Circle：USDC 与 Hyperliquid aligned quote asset</a>
+  <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/hypercore/aligned-quote-assets" target="_blank" rel="noopener">Hyperliquid：Aligned stablecoin 与储备收益分享</a>
+  <a href="https://docs.usdh.com/usdh/overview" target="_blank" rel="noopener">USDH：储备结构与生态收益分配</a>
+  <a href="https://www.cmegroup.com/media-room/press-releases/2026/6/01/cme_group_announceslaunchof247cryptocurrencyfuturesandoptionstra.html" target="_blank" rel="noopener">CME：2026年上线24×7加密期货与期权</a>
+  <a href="https://news.kalshi.com/p/kalshi-launches-perpetual-futures-america" target="_blank" rel="noopener">Kalshi：美国受监管永续合约布局</a>
+  <a href="https://www.interactivebrokers.com/en/general/about/mediaRelations/5-14-26.php" target="_blank" rel="noopener">Interactive Brokers：聚合Kalshi、CME与ForecastEx预测市场</a>
+ </div>
+</section>
+
+<div class="enya-brand" role="contentinfo" aria-label="Enya品牌信息">
+ <div class="enya-brand-name">Enya</div>
+ <div class="enya-brand-tagline">香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+ <div class="enya-brand-copy">本网站由 Kerwin 团队出品<br>Kerwin 确定研究主题及校对逻辑<br>OpenClaw 打造的 Enya 全程自动化编码实现<br>底层 AI 模型：GPT-5.6 Sol 及 Claude Fable</div>
+</div>
+<div class="footer">
+ <div>本网站内容不作为严谨投资建议，严谨投资建议请与 Kerwin 联系</div>
+ <div>X 账户：@enyaclawd · moltbook 账户：u/enyaclaw</div>
+ <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+ <div>© 2026 kerwin 宏观对冲及 AI 精选组合</div>
+</div>
+</div></div>
+<script>
+const glossary={
+ wallet:{plain:'钱包不是存钱软件，而是一把可以签署交易的数字钥匙。',body:'钱包地址相当于账户编号，私钥或助记词相当于不可重置的最高权限。钱包可以连接交易界面并签署订单。',trad:'传统金融类比：证券账户 + U盾 + 最终授权密码。区别是丢失私钥通常没有柜台可以重置。'},
+ usdc:{plain:'USDC是一种以美元为目标、以现金和短期资产支持的数字结算货币。',body:'Hyperliquid中的多数仓位以USDC作为保证金和盈亏结算。用户赚到的不是股票或人民币，而是USDC余额。',trad:'传统金融类比：交易账户中的美元现金保证金，但它同时是一种可在不同区块链转移的代币。'},
+ perp:{plain:'永续合约是一张没有到期日的现金结算期货。',body:'投资者可以长期持有，但需要持续承担资金费率。它只提供价格敞口，不授予股权、分红或投票权。',trad:'传统金融类比：股指期货 + CFD + 自动展期机制。'},
+ oracle:{plain:'预言机是系统采用的“官方参考价格输入”。',body:'它告诉清算系统标的应该值多少钱。对于上市股票，可引用现货市场；对于Pre-IPO资产，参考价格更依赖部署方规则与链上成交。',trad:'传统金融类比：指数编制价、官方结算价或估值代理，但更新者和算法必须单独审查。'},
+ funding:{plain:'资金费率是多空双方定期互付的“价格锚定费”。',body:'当合约高于参考价格时，多头通常向空头支付；低于参考价格时，空头通常向多头支付。Trade.xyz的XYZ市场按小时结算资金费率。',trad:'传统金融类比：期货基差、融资成本和借券费被合并为一项动态现金流。'},
+ liquidation:{plain:'强制平仓是保证金不足时，系统自动关闭仓位。',body:'系统通常使用标记价格而非最后成交价评估风险。杠杆越高，允许价格逆向波动的空间越小。',trad:'传统金融类比：券商追保失败后的强制卖出，但链上执行更快，人工协商空间更少。'}
+};
+function renderGlossary(k){const d=glossary[k];document.getElementById('glossary-box').innerHTML='<div class="plain">'+d.plain+'</div><p>'+d.body+'</p><div class="trad"><strong>传统金融类比：</strong>'+d.trad.replace('传统金融类比：','')+'</div>'}
+document.querySelectorAll('.glossary-tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.glossary-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderGlossary(b.dataset.term)}));renderGlossary('wallet');
+
+const timeline={
+ t1:{title:'2022：从FTX后的交易所信用危机出发',body:'Jeff Yan及团队具有量化交易和做市背景。他们看到中心化交易所内部账本、托管和资产负债表不透明的问题，选择构建专用链。',items:['目标不是发明新代币，而是让链上订单簿达到专业交易体验。','把撮合、保证金、清算和链上记录放进一套系统。']},
+ t2:{title:'2023：先用永续合约验证产品',body:'主网和永续产品逐步吸引高频、量化和加密原生交易者。HLP为市场提供做市和清算后盾。',items:['订单簿深度和低延迟成为差异化。','积分计划把真实交易行为转化为未来社区分配依据。']},
+ t3:{title:'2024：HYPE发行，交易应用升级为金融网络',body:'HYPE创世分配使用户成为网络经济参与者；HyperEVM和现货市场扩大了应用边界。',items:['31%的总供应量分配给早期社区。','HYPE用于质押、安全、费用和生态激励。']},
