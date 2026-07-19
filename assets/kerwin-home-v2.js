@@ -6,36 +6,51 @@
   var accessForm = document.getElementById('access-form');
   var accessKey = document.getElementById('access-key');
   var accessError = document.getElementById('access-error');
+  var gateUnlocking = false;
+  var clearTimer = 0;
 
   function grantAccess() {
-    body.classList.remove('access-pending');
-    body.classList.add('access-granted');
-    if (gate) gate.setAttribute('aria-hidden', 'true');
+    if (gateUnlocking) return;
+    gateUnlocking = true;
+    if (clearTimer) clearTimeout(clearTimer);
+    if (accessError) accessError.textContent = '正在展开研究主页…';
+    if (gate) gate.classList.add('is-unlocking');
+    setTimeout(function () {
+      body.classList.remove('access-pending');
+      body.classList.add('access-granted');
+      if (gate) gate.setAttribute('aria-hidden', 'true');
+      var firstFocus = document.querySelector('.site-header a, main a, main button');
+      if (firstFocus) firstFocus.focus();
+    }, 140);
   }
 
-  try {
-    if (sessionStorage.getItem('kerwin-research-access') === '1') grantAccess();
-  } catch (error) {}
-
-  if (accessForm) {
-    accessForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      if (String(accessKey && accessKey.value || '').trim().toLowerCase() === 'k') {
-        try { sessionStorage.setItem('kerwin-research-access', '1'); } catch (error) {}
-        grantAccess();
-        var firstFocus = document.querySelector('.site-header a, main a, main button');
-        if (firstFocus) firstFocus.focus();
-      } else {
-        if (accessError) accessError.textContent = '访问口令不正确，请重新输入。';
-        if (accessKey) {
+  function checkAccess() {
+    var value = String(accessKey && accessKey.value || '').trim().toLowerCase();
+    if (value === 'k') {
+      grantAccess();
+      return;
+    }
+    if (value && accessError) {
+      accessError.textContent = '请输入 “k”，大小写均可。';
+      if (clearTimer) clearTimeout(clearTimer);
+      clearTimer = setTimeout(function () {
+        if (!gateUnlocking && accessKey) {
           accessKey.value = '';
           accessKey.focus();
         }
-      }
+      }, 260);
+    }
+  }
+
+  if (accessKey) {
+    accessKey.addEventListener('input', checkAccess);
+    setTimeout(function () { if (!gateUnlocking) accessKey.focus(); }, 60);
+  }
+  if (accessForm) {
+    accessForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      checkAccess();
     });
-    setTimeout(function () {
-      if (!body.classList.contains('access-granted') && accessKey) accessKey.focus();
-    }, 60);
   }
 
   var legacyPages = [
