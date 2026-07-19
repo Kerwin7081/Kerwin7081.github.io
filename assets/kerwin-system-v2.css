@@ -515,10 +515,10 @@ body.kw-research footer {
 }
 
 /* Shared interactive entry gate */
-body.kw-research.kw-gate-pending,
-body.kw-experience.kw-gate-pending { overflow: hidden !important; }
-body.kw-research.kw-gate-pending > *:not(.kw-access-gate):not(script):not(style),
-body.kw-experience.kw-gate-pending > *:not(.kw-access-gate):not(script):not(style) {
+body.kw-research:not(.kw-gate-granted),
+body.kw-experience:not(.kw-gate-granted) { overflow: hidden !important; }
+body.kw-research:not(.kw-gate-granted) > *:not(.kw-access-gate):not(script):not(style),
+body.kw-experience:not(.kw-gate-granted) > *:not(.kw-access-gate):not(script):not(style) {
   visibility: hidden !important;
 }
 body.kw-gate-granted .kw-access-gate { display: none !important; }
