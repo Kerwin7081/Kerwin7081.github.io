@@ -6,8 +6,10 @@
   var body = document.body;
   if (!body) return;
 
+  body.classList.add(isExperience ? 'kw-experience' : 'kw-research');
+  installAccessGate();
+
   if (isExperience) {
-    body.classList.add('kw-experience');
     if (!document.getElementById('site-corner')) {
       var exp = document.createElement('a');
       exp.className = 'kw-experience-link';
@@ -17,8 +19,6 @@
     }
     return;
   }
-
-  body.classList.add('kw-research');
 
   var title = (document.querySelector('h1, .title, .top-title') || {}).textContent || document.title;
   title = title.replace(/\s+/g, ' ').trim();
@@ -47,6 +47,7 @@
     brand.innerHTML =
       '<div class="enya-brand-name">EnyaClawd</div>' +
       '<div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>' +
+      '<div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>' +
       '<div class="enya-brand-copy">Kerwin 确定研究主题、投资逻辑与最终校对；Enya 负责资料组织、可视化呈现与持续更新。我们希望把复杂产业链压缩成能被理解、被验证、被持续跟踪的研究地图。</div>';
     var footer = document.querySelector('footer, .footer');
     var shell = document.querySelector('.shell') || body;
@@ -60,6 +61,14 @@
       tagline.className = 'enya-brand-tagline';
       tagline.textContent = 'Enya：香港首个由 OpenClaw 打造的女性投顾 Agent';
       brand.appendChild(tagline);
+    }
+    var modelLine = brand.querySelector('.enya-brand-models');
+    if (!modelLine) {
+      modelLine = document.createElement('div');
+      modelLine.className = 'enya-brand-models';
+      modelLine.textContent = '底层模型：GPT 5.6 Sol 及 Claude Fable 付费版';
+      if (tagline.nextSibling) brand.insertBefore(modelLine, tagline.nextSibling);
+      else brand.appendChild(modelLine);
     }
   }
 
@@ -88,6 +97,84 @@
   document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
     link.rel = 'noopener noreferrer';
   });
+
+  function installAccessGate() {
+    body.classList.remove('kw-gate-granted');
+    body.classList.add('kw-gate-pending');
+
+    var gate = document.createElement('aside');
+    gate.className = 'kw-access-gate';
+    gate.setAttribute('aria-label', '页面访问互动');
+    var pageTitle = String(document.title || 'Kerwin Research').split(/[｜|]/)[0].trim();
+    gate.innerHTML =
+      '<div class="kw-access-gate__paper">' +
+        '<div class="kw-access-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>' +
+        '<div class="kw-access-gate__body">' +
+          '<div class="kw-access-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>' +
+          '<div class="kw-access-gate__copy">' +
+            '<div class="kw-access-gate__kicker">Reader Access</div>' +
+            '<div class="kw-access-gate__title">' + escapeHtml(pageTitle) + '</div>' +
+            '<p>输入 “k” 即可显示，不分大小写。键入后自动进入，无需回车。</p>' +
+            '<form class="kw-access-gate__form">' +
+              '<label for="kw-access-key">输入 k 即可显示</label>' +
+              '<div class="kw-access-gate__field">' +
+                '<input id="kw-access-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-access-status">' +
+                '<span>Auto enter</span>' +
+              '</div>' +
+              '<p class="kw-access-gate__status" id="kw-access-status" role="status" aria-live="polite">大小写均可</p>' +
+            '</form>' +
+          '</div>' +
+        '</div>' +
+        '<div class="kw-access-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>' +
+      '</div>';
+    body.insertBefore(gate, body.firstChild);
+
+    var form = gate.querySelector('form');
+    var input = gate.querySelector('input');
+    var status = gate.querySelector('.kw-access-gate__status');
+    var unlocking = false;
+    var clearTimer = 0;
+
+    function openPage() {
+      if (unlocking) return;
+      unlocking = true;
+      if (clearTimer) clearTimeout(clearTimer);
+      gate.classList.add('is-unlocking');
+      status.textContent = '正在展开页面…';
+      setTimeout(function () {
+        body.classList.remove('kw-gate-pending');
+        body.classList.add('kw-gate-granted');
+        gate.setAttribute('aria-hidden', 'true');
+        var firstFocus = document.querySelector('.kw-site-rail a, .kw-experience-link, main a, main button');
+        if (firstFocus) firstFocus.focus();
+      }, 140);
+    }
+
+    function checkInput() {
+      var value = String(input.value || '').trim().toLowerCase();
+      if (value === 'k') {
+        openPage();
+        return;
+      }
+      if (value) {
+        status.textContent = '请输入 “k”，大小写均可。';
+        if (clearTimer) clearTimeout(clearTimer);
+        clearTimer = setTimeout(function () {
+          if (!unlocking) {
+            input.value = '';
+            input.focus();
+          }
+        }, 260);
+      }
+    }
+
+    input.addEventListener('input', checkInput);
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      checkInput();
+    });
+    setTimeout(function () { if (!unlocking) input.focus(); }, 60);
+  }
 
   function escapeHtml(value) {
     var node = document.createElement('div');
