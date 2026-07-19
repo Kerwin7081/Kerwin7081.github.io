@@ -1,80 +1,41 @@
    <div class="call red"><strong>第一条纪律：</strong>不能把 8.66 元人民币的 IPO 发行价与链上美元合约价格直接比较。必须先确认每张合约代表多少“参考股份”、预言机定义和上市后的切换方式。</div>
   </div>
-  <aside class="cxmt-side">
-   <h3>三种实际用途</h3>
-   <ul>
-    <li><strong>价格观察：</strong>不下单，只看价格、成交量、未平仓量和资金费率，判断境外资金情绪。</li>
-    <li><strong>方向交易：</strong>认为 IPO 后上涨则做多，认为情绪过热则做空。</li>
-    <li><strong>实验性对冲：</strong>已有或预计获得 A 股敞口时，用小规模空头降低上市初期下跌风险，但存在明显基差风险。</li>
-   </ul>
-  </aside>
+  <aside class="cxmt-side"><h3>三种实际用途</h3><ul><li><strong>价格观察：</strong>不下单，只看价格、成交量、未平仓量和资金费率，判断境外资金情绪。</li><li><strong>方向交易：</strong>认为 IPO 后上涨则做多，认为情绪过热则做空。</li><li><strong>实验性对冲：</strong>已有或预计获得 A 股敞口时，用小规模空头降低上市初期下跌风险，但存在明显基差风险。</li></ul></aside>
  </div>
+
+ <h3>当前链上行情快照</h3>
+ <p>下面的“行情截图”直接调用 Hyperliquid 官方 Info API。页面打开时会读取 XYZ DEX 中的 <code>xyz:CXMT</code> 标记价格、24小时成交额、未平仓量、资金费率和预言机价格，并尝试绘制最近24小时小时线。接口不可用时，显示2026年7月17日的公开链上快照。</p>
+ <div class="live-shot" aria-label="CXMT实时行情截图">
+  <div class="live-shot-head"><span><i class="live-dot"></i>TRADE[XYZ] · xyz:CXMT · USDC PERPETUAL</span><span id="live-status">正在连接 Hyperliquid API</span></div>
+  <svg class="market-svg" id="cxmt-market-shot" viewBox="0 0 980 430" role="img" aria-labelledby="cxmt-shot-title cxmt-shot-desc">
+   <title id="cxmt-shot-title">CXMT链上永续合约行情快照</title><desc id="cxmt-shot-desc">显示CXMT标记价格、涨跌幅、成交量、未平仓量、资金费率及24小时走势图。</desc>
+   <rect width="980" height="430" fill="#101d18"/><g stroke="#284137" stroke-width="1" opacity=".8"><line x1="40" y1="120" x2="940" y2="120"/><line x1="40" y1="195" x2="940" y2="195"/><line x1="40" y1="270" x2="940" y2="270"/><line x1="40" y1="345" x2="940" y2="345"/></g>
+   <text x="42" y="48" fill="#9cb6ac" font-family="Arial" font-size="14">MARK PRICE</text><text id="svg-mark" x="42" y="95" fill="#ffffff" font-family="Georgia" font-size="42" font-weight="700">$7.11</text><text id="svg-change" x="220" y="92" fill="#62d6ad" font-family="Arial" font-size="18" font-weight="700">LIVE</text>
+   <text x="620" y="48" fill="#9cb6ac" font-family="Arial" font-size="13">24H VOLUME</text><text id="svg-volume" x="620" y="78" fill="#ffffff" font-family="Arial" font-size="24" font-weight="700">$13.42M</text>
+   <text x="780" y="48" fill="#9cb6ac" font-family="Arial" font-size="13">OPEN INTEREST</text><text id="svg-oi" x="780" y="78" fill="#ffffff" font-family="Arial" font-size="24" font-weight="700">$27.14M</text>
+   <path id="svg-area" d="M45 300 L100 286 L150 294 L205 265 L260 275 L315 242 L370 254 L425 220 L480 238 L535 202 L590 218 L645 175 L700 190 L755 155 L810 172 L865 142 L930 158 L930 345 L45 345 Z" fill="rgba(55,198,160,.10)"/>
+   <polyline id="svg-line" points="45,300 100,286 150,294 205,265 260,275 315,242 370,254 425,220 480,238 535,202 590,218 645,175 700,190 755,155 810,172 865,142 930,158" fill="none" stroke="#4bd19f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+   <g font-family="Arial" font-size="12" fill="#9cb6ac"><text x="42" y="385">ORACLE</text><text id="svg-oracle" x="102" y="385" fill="#fff">$7.11</text><text x="230" y="385">FUNDING / HR</text><text id="svg-funding" x="335" y="385" fill="#fff">0.0000%</text><text x="500" y="385">MAX LEVERAGE</text><text x="610" y="385" fill="#fff">5×</text><text id="svg-time" x="940" y="385" fill="#9cb6ac" text-anchor="end">Fallback · 2026-07-17 UTC</text></g>
+  </svg>
+  <div class="live-shot-foot"><span>数据：Hyperliquid官方API · dex = xyz · metaAndAssetCtxs / candleSnapshot</span><span>动态行情只用于市场观察，不构成可成交报价保证</span></div>
+ </div>
+ <div class="call blue"><strong>如何读这张图：</strong>价格上涨需要同时观察成交额和未平仓量。成交活跃但OI下降，可能是平仓和换手；价格、成交量与OI同步上升，才更接近持续建立方向仓位。资金费率显示拥挤度和持仓成本，不能单独当作看多或看空信号。</div>
 
  <h3>一名传统投资者的具体操作顺序</h3>
- <div class="steps">
-  <div class="step"><b>先读合约说明</b><span>确认 ticker、合约单位、预言机、最高杠杆、资金费率、停牌和上市后结算规则。读不懂则不交易。</span></div>
-  <div class="step"><b>确认自身是否可以参与</b><span>平台会限制部分地区和客户类别。必须遵守所在地法律、机构合规要求和平台条款。</span></div>
-  <div class="step"><b>准备少量 USDC</b><span>USDC 是保证金和盈亏结算单位。转账网络选错或钱包权限丢失均可能造成损失。</span></div>
-  <div class="step"><b>选择逐仓保证金</b><span>HIP-3 市场采用独立保证金。将风险限制在该仓位，避免影响其他资产。</span></div>
-  <div class="step"><b>先用 1 倍名义敞口理解产品</b><span>不要把“可以使用杠杆”理解为“应该使用杠杆”。先观察滑点、资金费率和价格锚定。</span></div>
-  <div class="step"><b>制定上市节点退出规则</b><span>上市前、定价日、首日开盘和预言机切换都可能产生跳价。提前定义平仓条件。</span></div>
- </div>
-
- <div class="use-tabs">
-  <button class="on" data-use="observe">用途一：只观察</button><button data-use="direction">用途二：方向交易</button><button data-use="hedge">用途三：对冲／相对价值</button>
- </div>
- <div class="use-box" id="use-box"></div>
-
- <div class="calculator">
-  <h3>CXMT 合约盈亏试算器 <span class="tag amber">假设示例，不是实时行情</span></h3>
-  <p class="small muted">线性合约近似计算：方向盈亏 = 数量 × 价格变化；资金费率成本 = 名义本金 × 小时资金费率 × 持有小时。未计交易手续费、滑点与清算。</p>
-  <div class="calc-grid">
-   <div class="field"><label>方向</label><select id="side"><option value="1">做多</option><option value="-1">做空</option></select></div>
-   <div class="field"><label>入场价 USD</label><input id="entry" type="number" value="10" step="0.01"></div>
-   <div class="field"><label>退出价 USD</label><input id="exit" type="number" value="12" step="0.01"></div>
-   <div class="field"><label>合约数量</label><input id="qty" type="number" value="100" step="1"></div>
-   <div class="field"><label>每小时资金费率 %</label><input id="funding" type="number" value="0.002" step="0.001"></div>
-   <div class="field"><label>持有小时</label><input id="hours" type="number" value="72" step="1"></div>
-  </div>
-  <div class="calc-result">
-   <div class="result"><b id="notional">$1,000</b><span>入场名义本金</span></div>
-   <div class="result"><b id="directionPnl">+$200</b><span>方向盈亏</span></div>
-   <div class="result"><b id="fundingCost">-$1.44</b><span>假设资金费率成本</span></div>
-   <div class="result"><b id="netPnl">+$198.56</b><span>简化净盈亏</span></div>
-  </div>
- </div>
-
+ <div class="steps"><div class="step"><b>先读合约说明</b><span>确认 ticker、合约单位、预言机、最高杠杆、资金费率、停牌和上市后结算规则。读不懂则不交易。</span></div><div class="step"><b>确认自身是否可以参与</b><span>平台会限制部分地区和客户类别。必须遵守所在地法律、机构合规要求和平台条款。</span></div><div class="step"><b>准备少量 USDC</b><span>USDC 是保证金和盈亏结算单位。转账网络选错或钱包权限丢失均可能造成损失。</span></div><div class="step"><b>选择逐仓保证金</b><span>HIP-3 市场采用独立保证金。将风险限制在该仓位，避免影响其他资产。</span></div><div class="step"><b>先用 1 倍名义敞口理解产品</b><span>不要把“可以使用杠杆”理解为“应该使用杠杆”。先观察滑点、资金费率和价格锚定。</span></div><div class="step"><b>制定上市节点退出规则</b><span>上市前、定价日、首日开盘和预言机切换都可能产生跳价。提前定义平仓条件。</span></div></div>
+ <div class="use-tabs"><button class="on" data-use="observe">用途一：只观察</button><button data-use="direction">用途二：方向交易</button><button data-use="hedge">用途三：对冲／相对价值</button></div><div class="use-box" id="use-box"></div>
+ <div class="calculator"><h3>CXMT 合约盈亏试算器 <span class="tag amber">假设示例，不是实时行情</span></h3><p class="small muted">线性合约近似计算：方向盈亏 = 数量 × 价格变化；资金费率成本 = 名义本金 × 小时资金费率 × 持有小时。未计交易手续费、滑点与清算。</p><div class="calc-grid"><div class="field"><label>方向</label><select id="side"><option value="1">做多</option><option value="-1">做空</option></select></div><div class="field"><label>入场价 USD</label><input id="entry" type="number" value="7.11" step="0.01"></div><div class="field"><label>退出价 USD</label><input id="exit" type="number" value="8" step="0.01"></div><div class="field"><label>合约数量</label><input id="qty" type="number" value="100" step="1"></div><div class="field"><label>每小时资金费率 %</label><input id="funding" type="number" value="0.002" step="0.001"></div><div class="field"><label>持有小时</label><input id="hours" type="number" value="72" step="1"></div></div><div class="calc-result"><div class="result"><b id="notional">$711</b><span>入场名义本金</span></div><div class="result"><b id="directionPnl">+$89</b><span>方向盈亏</span></div><div class="result"><b id="fundingCost">-$1.02</b><span>假设资金费率成本</span></div><div class="result"><b id="netPnl">+$87.98</b><span>简化净盈亏</span></div></div></div>
  <h3>不同投资者可以怎么用</h3>
- <div class="scenario-table"><table>
-  <thead><tr><th>投资者情景</th><th>可执行方式</th><th>真正押注的变量</th><th>主要风险</th></tr></thead>
-  <tbody>
-   <tr><td><span class="tag blue">观察者</span><br>想了解境外对长鑫的看法</td><td>不交易，记录合约价格、OI、成交量和资金费率</td><td>全球资金对 IPO 定价和存储周期的情绪</td><td>薄市场价格可能被少数大户扭曲</td></tr>
-   <tr><td><span class="tag green">看多者</span><br>认为国内 DRAM 替代价值被低估</td><td>小规模 1× 做多，事先设定最大损失和上市节点退出</td><td>上市后价格高于链上预期</td><td>资金费率、跳价、预言机和流动性风险</td></tr>
-   <tr><td><span class="tag red">看空者</span><br>认为 IPO 情绪透支</td><td>做空合约，控制规模，避免低流动性下无限加仓</td><td>上市后估值回落或链上溢价收敛</td><td>逼空、资金费率、仓位上限和强平</td></tr>
-   <tr><td><span class="tag amber">获配／持股者</span><br>担心首日下跌</td><td>按“可验证的合约单位”建立部分空头，作为不完全对冲</td><td>A股现货下跌与链上合约同步</td><td>汇率、基差、交易时段和单位映射不一致</td></tr>
-   <tr><td><span class="tag blue">产业投资者</span><br>想表达中国存储相对强弱</td><td>长 CXMT、短 MU 等相对价值组合，仅限专业账户实验</td><td>中国存储估值相对全球同业的变化</td><td>两个市场不同币种、不同交易时间和不同风险因子</td></tr>
-  </tbody>
- </table></div>
- <div class="source-note">CXMT 合约由 Trade.xyz 基于 Hyperliquid HIP-3 部署。其上市前价格属于合成预期价格，并不代表持有长鑫股票。示例盈亏采用抽象价格，非实时行情。</div>
+ <div class="scenario-table"><table><thead><tr><th>投资者情景</th><th>可执行方式</th><th>真正押注的变量</th><th>主要风险</th></tr></thead><tbody><tr><td><span class="tag blue">观察者</span><br>想了解境外对长鑫的看法</td><td>不交易，记录合约价格、OI、成交量和资金费率</td><td>全球资金对 IPO 定价和存储周期的情绪</td><td>薄市场价格可能被少数大户扭曲</td></tr><tr><td><span class="tag green">看多者</span><br>认为国内 DRAM 替代价值被低估</td><td>小规模 1× 做多，事先设定最大损失和上市节点退出</td><td>上市后价格高于链上预期</td><td>资金费率、跳价、预言机和流动性风险</td></tr><tr><td><span class="tag red">看空者</span><br>认为 IPO 情绪透支</td><td>做空合约，控制规模，避免低流动性下无限加仓</td><td>上市后估值回落或链上溢价收敛</td><td>逼空、资金费率、仓位上限和强平</td></tr><tr><td><span class="tag amber">获配／持股者</span><br>担心首日下跌</td><td>按“可验证的合约单位”建立部分空头，作为不完全对冲</td><td>A股现货下跌与链上合约同步</td><td>汇率、基差、交易时段和单位映射不一致</td></tr><tr><td><span class="tag blue">产业投资者</span><br>想表达中国存储相对强弱</td><td>长 CXMT、短 MU 等相对价值组合，仅限专业账户实验</td><td>中国存储估值相对全球同业的变化</td><td>两个市场不同币种、不同交易时间和不同风险因子</td></tr></tbody></table></div>
+ <div class="source-note">CXMT 合约由 Trade.xyz 基于 Hyperliquid HIP-3 部署。其上市前价格属于合成预期价格，并不代表持有长鑫股票。静态备用快照采用2026年7月17日公开链上数据，实时数据以页面API返回为准。</div>
 </section>
 
 <section class="section" id="cases">
- <div class="label">08 · WHY THE MARKET WAS IMPRESSED</div>
- <h2>五个具体案例，理解 Hyperliquid 为什么“出圈”</h2>
- <div class="case-tabs">
-  <button class="on" data-case="spacex">SpaceX 上市前</button><button data-case="oil">周末原油</button><button data-case="airdrop">HYPE 空投</button><button data-case="jelly">JELLY 风险事件</button><button data-case="whale">鲸鱼仓位直播</button>
- </div>
- <div class="case-layout">
-  <div class="case-visual" id="case-visual"></div>
-  <div class="case-box" id="case-box"></div>
- </div>
+ <div class="label">09 · WHY THE MARKET WAS IMPRESSED</div><h2>五个具体案例，理解 Hyperliquid 为什么“出圈”</h2><div class="case-tabs"><button class="on" data-case="spacex">SpaceX 上市前</button><button data-case="oil">周末原油</button><button data-case="airdrop">HYPE 空投</button><button data-case="jelly">JELLY 风险事件</button><button data-case="whale">鲸鱼仓位直播</button></div><div class="case-layout"><div class="case-visual" id="case-visual"></div><div class="case-box" id="case-box"></div></div>
 </section>
 
 <section class="section" id="economics">
- <div class="label">09 · MONEY & DISTRIBUTION</div>
+ <div class="label">10 · MONEY & DISTRIBUTION</div>
  <h2>Hyperliquid争夺的不只是交易手续费，还有“数字美元存款”的利息收入</h2>
  <p class="lead">传统券商的客户现金会形成利息收入。链上世界也一样：投资者把 USDC 放在交易平台作为保证金，USDC 发行人持有的国债和现金储备会产生收益。谁掌握交易流量，谁就有能力谈判这笔收益如何分配。</p>
- <div class="money-map">
-  <div class="money-node"><b>投资者资金</b><span>购买或存入 USDC／USDH</span></div>
-  <div class="money-node"><b>交易保证金</b><span>停留在 Hyperliquid 生态</span></div>
-  <div class="money-node"><b>储备资产</b><span>现金、短期美债等产生利息</span></div>
+ <div class="money-map"><div class="money-node"><b>投资者资金</b><span>购买或存入 USDC／USDH</span></div><div class="money-node"><b>交易保证金</b><span>停留在 Hyperliquid 生态</span></div><div class="money-node"><b>储备资产</b><span>现金、短期美债等产生利息</span></div>
