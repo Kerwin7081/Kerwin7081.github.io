@@ -3,15 +3,13 @@
 };
 function renderTimeline(k){const d=timeline[k];document.getElementById('timeline-detail').innerHTML='<h3>'+d.title+'</h3><p>'+d.body+'</p><ul>'+d.items.map(x=>'<li>'+x+'</li>').join('')+'</ul>'}
 document.querySelectorAll('.timeline-buttons button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.timeline-buttons button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderTimeline(b.dataset.t)}));renderTimeline('t1');
-
 const uses={
  observe:{title:'用途一：把它当作“境外灰市温度计”',body:'最稳妥的使用方式是不交易。每天记录CXMT链上价格、成交量、未平仓量和资金费率，并与IPO公告、A股同业、Micron及SK海力士表现对照。',items:['价格上涨但OI不增，可能只是短期成交。','价格和OI同时上升，说明有持续资金建立方向仓位。','资金费率极高，说明多头拥挤，后续回报需要覆盖持有成本。']},
- direction:{title:'用途二：用小规模名义本金表达方向观点',body:'假设合约价格为10美元，买入100单位，名义本金为1,000美元。上涨至12美元，方向盈亏约为+200 USDC；跌至8美元，约为-200 USDC。',items:['先采用1倍名义敞口，避免把产品理解错误放大为清算损失。','设置最大亏损和时间止损，尤其是上市和预言机切换前。','将资金费率、手续费和滑点纳入总成本。']},
+ direction:{title:'用途二：用小规模名义本金表达方向观点',body:'页面会自动把实时标记价填入试算器。投资者可输入退出价、数量、资金费率和持有时间，观察方向盈亏与持有成本。',items:['先采用1倍名义敞口，避免把产品理解错误放大为清算损失。','设置最大亏损和时间止损，尤其是上市和预言机切换前。','将资金费率、手续费和滑点纳入总成本。']},
  hedge:{title:'用途三：不完全对冲或相对价值实验',body:'已获得A股配售或持有相关敞口的专业投资者，可以用小规模CXMT空头降低上市初期下跌风险；也可以构建长CXMT、短MU等相对价值组合。',items:['必须确认合约单位，不能仅按显示价格对冲。','人民币、美元、交易时段与价格锚不同，属于代理对冲。','若最终没有获得A股配售，原本的对冲会变成裸空头。']}
 };
 function renderUse(k){const d=uses[k];document.getElementById('use-box').innerHTML='<h3>'+d.title+'</h3><p>'+d.body+'</p><ul style="padding-left:20px;margin-top:8px">'+d.items.map(x=>'<li>'+x+'</li>').join('')+'</ul>'}
 document.querySelectorAll('.use-tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.use-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderUse(b.dataset.use)}));renderUse('observe');
-
 const cases={
  spacex:{big:'IPO前',mini:'没有股权，也能形成公开价格',title:'SpaceX：把投行灰市变成全球公开订单簿',points:['Trade.xyz在正式上市前创建SpaceX永续合约。','全球投资者可全天候做多或做空，但不持有SpaceX股份。','价格、成交量和OI成为承销商与投资者可观察的新信号。'],lesson:'传统金融含义：Pre-IPO询价不再只存在于投行电话和私募二级市场。'},
  oil:{big:'24×7',mini:'传统原油期货周末闭市，链上继续交易',title:'周末原油：抢占闭市时段的边际定价权',points:['地缘事件周末发生时，传统期货无法立即交易。','链上原油永续让投资者即时表达风险观点。','周一开盘前，市场已经形成一个可参考的价格。'],lesson:'传统金融含义：链上市场未必取代CME或ICE，但可能先成为夜间和周末的价格信号。'},
@@ -21,12 +19,22 @@ const cases={
 };
 function renderCase(k){const d=cases[k];document.getElementById('case-visual').innerHTML='<div><div class="big">'+d.big+'</div><div class="mini">'+d.mini+'</div></div>';document.getElementById('case-box').innerHTML='<h3>'+d.title+'</h3><ul>'+d.points.map(x=>'<li>'+x+'</li>').join('')+'</ul><div class="call">'+d.lesson+'</div>'}
 document.querySelectorAll('.case-tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.case-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderCase(b.dataset.case)}));renderCase('spacex');
-
 function money(v){const sign=v>0?'+':v<0?'-':'';return sign+'$'+Math.abs(v).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
 function calc(){const side=Number(document.getElementById('side').value),entry=Number(document.getElementById('entry').value)||0,exit=Number(document.getElementById('exit').value)||0,qty=Number(document.getElementById('qty').value)||0,f=Number(document.getElementById('funding').value)||0,h=Number(document.getElementById('hours').value)||0;const notional=entry*qty,dir=side*(exit-entry)*qty,cost=notional*(f/100)*h,net=dir-cost;document.getElementById('notional').textContent='$'+notional.toLocaleString(undefined,{maximumFractionDigits:2});document.getElementById('directionPnl').textContent=money(dir);document.getElementById('fundingCost').textContent=money(-cost);document.getElementById('netPnl').textContent=money(net)}
 ['side','entry','exit','qty','funding','hours'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
-
+function fmtM(v){if(!Number.isFinite(v))return '—';if(Math.abs(v)>=1e9)return '$'+(v/1e9).toFixed(2)+'B';if(Math.abs(v)>=1e6)return '$'+(v/1e6).toFixed(2)+'M';if(Math.abs(v)>=1e3)return '$'+(v/1e3).toFixed(1)+'K';return '$'+v.toFixed(2)}
+function setText(id,value){const el=document.getElementById(id);if(el)el.textContent=value}
+function drawCandles(candles){if(!candles||candles.length<2)return;const vals=candles.map(c=>Number(c.c)).filter(Number.isFinite);if(vals.length<2)return;const min=Math.min(...vals),max=Math.max(...vals),span=Math.max(.0001,max-min),x0=45,x1=930,y0=335,y1=130;const pts=vals.map((v,i)=>{const x=x0+(x1-x0)*(i/(vals.length-1));const y=y0-(y0-y1)*((v-min)/span);return x.toFixed(1)+','+y.toFixed(1)}).join(' ');const line=document.getElementById('svg-line'),area=document.getElementById('svg-area');if(line)line.setAttribute('points',pts);if(area)area.setAttribute('d','M'+pts.replaceAll(' ',', L')+' L930 345 L45 345 Z')}
+async function loadCxmt(){
+ try{
+  const r=await fetch('https://api.hyperliquid.xyz/info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'metaAndAssetCtxs',dex:'xyz'})});if(!r.ok)throw new Error('market');const data=await r.json(),meta=data[0],ctxs=data[1],idx=meta.universe.findIndex(x=>x.name==='xyz:CXMT'||x.name==='CXMT');if(idx<0)throw new Error('symbol');const c=ctxs[idx],mark=Number(c.markPx),prev=Number(c.prevDayPx),oracle=Number(c.oraclePx),funding=Number(c.funding),vol=Number(c.dayNtlVlm),oi=Number(c.openInterest)*mark,chg=prev>0?(mark/prev-1)*100:NaN;
+  setText('svg-mark','$'+mark.toFixed(4));setText('svg-change',(chg>=0?'+':'')+(Number.isFinite(chg)?chg.toFixed(2):'—')+'%');setText('svg-volume',fmtM(vol));setText('svg-oi',fmtM(oi));setText('svg-oracle',Number.isFinite(oracle)?'$'+oracle.toFixed(4):'—');setText('svg-funding',Number.isFinite(funding)?(funding*100).toFixed(5)+'%':'—');setText('svg-time',new Date().toLocaleString('zh-CN',{hour12:false,timeZone:'Asia/Hong_Kong'})+' HKT');setText('live-status','Hyperliquid API 实时');
+  const ch=document.getElementById('svg-change');if(ch)ch.setAttribute('fill',chg>=0?'#62d6ad':'#ef8d82');const entry=document.getElementById('entry');if(entry)entry.value=mark.toFixed(2);calc();
+  const end=Date.now(),start=end-24*60*60*1000;const cr=await fetch('https://api.hyperliquid.xyz/info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'candleSnapshot',req:{coin:'xyz:CXMT',interval:'1h',startTime:start,endTime:end}})});if(cr.ok)drawCandles(await cr.json());
+ }catch(e){setText('live-status','API 暂不可用 · 显示2026-07-17快照');}
+}
+loadCxmt();
 (function(){var slugVal=document.body.getAttribute('data-page-slug')||'hyperliquid-financial-market-infrastructure-20260718';var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);var el=document.getElementById('counter-num');fetch(counterUrl).then(r=>r.json()).then(d=>{if(el)el.textContent=d.count.toLocaleString()}).catch(()=>{if(el)el.textContent='-'});fetch(counterUrl,{method:'POST'}).then(r=>r.json()).then(d=>{if(el)el.textContent=d.count.toLocaleString()}).catch(()=>{})})();
 </script>
-<script defer src="/assets/kerwin-system-v2.js?v=20260718gate"></script>
+<script defer src="/assets/kerwin-system-v2.js?v=20260719gate2"></script>
 </body></html>
