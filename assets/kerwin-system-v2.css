@@ -497,6 +497,27 @@ body.kw-research footer {
   background: var(--kw-mint-deep);
   border-color: var(--kw-mint-deep);
 }
+.kw-static-home-route,
+.kw-static-disclaimer {
+  display: block;
+  width: min(1120px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 14px 20px;
+  color: var(--kw-muted) !important;
+  background: var(--kw-surface);
+  border: 1px solid var(--kw-line);
+  font: 700 11px/1.6 Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-decoration: none;
+}
+.kw-static-home-route {
+  color: var(--kw-mint-deep) !important;
+  border-bottom: 0;
+}
+.kw-static-disclaimer {
+  margin-bottom: 24px;
+  border-top: 0;
+  font-weight: 400;
+}
 @media (max-width: 760px) {
   body.kw-research { padding-top: 56px !important; }
   .kw-site-rail { height: 56px; }
@@ -512,6 +533,8 @@ body.kw-research footer {
   body.kw-research .top-title,
   body.kw-research .hero-title { font-size: clamp(29px,9vw,38px) !important; }
   body.kw-research .section { padding: 27px 18px !important; }
+  .kw-static-home-route,
+  .kw-static-disclaimer { width: calc(100% - 10px); padding: 12px 14px; }
 }
 
 /* Shared interactive entry gate */

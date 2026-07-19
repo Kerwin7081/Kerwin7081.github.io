@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Serenity 观察池日报 2026年5月29日 | Kerwin Research</title>
+<meta name="description" content="Serenity 观察池日报 2026年5月29日 | Kerwin Research：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <style>
-#gate-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#1a1410;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
+#kw-legacy-gate-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#1a1410;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif}
 #gate-box{text-align:center;padding:40px}
 #gate-box h2{color:#f5f0e8;font-size:22px;margin:0 0 8px;font-weight:400;letter-spacing:2px}
 #gate-box p{color:#c4a97d;font-size:13px;margin:0 0 20px;font-family:Arial,sans-serif}
@@ -42,13 +43,15 @@
 .counter,.footer{padding:12px 20px;background:#fbf7f1;border-top:1px solid #efe3d7;font:11px/1.8 Arial,'PingFang SC',sans-serif;color:#6f6258;text-align:center} .footer{text-align:left}
 @media(max-width:640px){.page{padding:0 2px 18px} .topbar{padding:18px 14px 14px} h1{font-size:22px} .hero{padding:20px 14px} .hero-title{font-size:18px} .section{padding:16px 12px} table{font-size:12px;min-width:500px} td{padding:8px 8px} .card-header{padding:12px 14px} .card-intro{padding:12px 14px} .card-fin{padding:8px 14px;gap:14px} .card-price{padding:8px 14px;gap:10px}}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
-<div id="gate-overlay">
+<body class="kw-research">
+<div id="kw-legacy-gate-overlay">
   <div id="gate-box">
     <h2>🔒</h2>
     <p>请输入 k，方可显示完整内容</p>
-    <input type="password" id="gate-input" maxlength="10" autofocus>
+    <input type="password" id="kw-legacy-gate-input" maxlength="10" autofocus>
     <div id="gate-err"></div>
   </div>
 </div>
@@ -432,15 +435,15 @@
 <script>
 (function(){
   if(sessionStorage.getItem('gate_ok')==='k'){
-    document.getElementById('gate-overlay').style.display='none';
+    document.getElementById('kw-legacy-gate-overlay').style.display='none';
     document.getElementById('gate-content').style.display='block';
   }
-  var inp=document.getElementById('gate-input');
+  var inp=document.getElementById('kw-legacy-gate-input');
   var err=document.getElementById('gate-err');
   inp.addEventListener('input',function(){
     if(inp.value==='k'||inp.value==='K'){
       sessionStorage.setItem('gate_ok','k');
-      document.getElementById('gate-overlay').style.display='none';
+      document.getElementById('kw-legacy-gate-overlay').style.display='none';
       document.getElementById('gate-content').style.display='block';
       err.style.display='none';
     }else if(inp.value.length>=1&&inp.value!=='k'){
@@ -458,5 +461,7 @@
   fetch(u,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){});
 })();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

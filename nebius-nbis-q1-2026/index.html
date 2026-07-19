@@ -94,8 +94,10 @@ td.up{color:var(--up);font-weight:700}td.down{color:var(--down);font-weight:700}
   .footer,.counter-wrap{font-size:11px;line-height:1.75}
 }
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body data-page-slug="nebius-nbis-q1-2026">
+<body data-page-slug="nebius-nbis-q1-2026" class="kw-research">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell">
 
@@ -443,5 +445,7 @@ td.up{color:var(--up);font-weight:700}td.down{color:var(--down);font-weight:700}
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
 })();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

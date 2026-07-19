@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kerwin 月度组合跟踪 — 2026年5月</title>
+<meta name="description" content="Kerwin 月度组合跟踪 — 2026年5月：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <!-- kerwin-portfolio-report-template v1 -->
 <!-- pv-counter data-page-slug=portfolio-monthly-2026-05-12 -->
 <style>
@@ -48,8 +49,10 @@ tr:last-child td{border-bottom:none}
 footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px 18px;font-size:12px;color:var(--muted);line-height:1.85;text-align:center}
 .footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
+<body class="kw-research">
 <div class="page"><div class="shell">
 <div class="topbar">
 <a href="https://enyaclawd.com/" class="home-link">← 首页</a>
@@ -104,4 +107,8 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
 })();
 </script>
+
+<a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body></html>

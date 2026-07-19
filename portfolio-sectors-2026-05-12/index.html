@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kerwin 组合跟踪 — 按细分行业分类</title>
+<meta name="description" content="Kerwin 组合跟踪 — 按细分行业分类：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <!-- kerwin-portfolio-report-template v1 -->
 <!-- pv-counter data-page-slug=portfolio-sectors-2026-05-12 -->
 <style>
@@ -47,8 +48,10 @@ tr:last-child td{border-bottom:none}
 footer{background:var(--paper);border-top:2px solid var(--ink);padding:20px 20px 16px;font-size:11px;color:var(--muted);line-height:1.85;text-align:center}
 .footer-rule{border:none;border-top:1px solid var(--line);margin:12px 0}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
+<body class="kw-research">
 <div style="max-width:780px;margin:0 auto;padding:6px 16px 0;"><a href="/" style="display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid #dccdbf;border-radius:4px;background:#fffaf4;">← 返回首页</a></div>
 <div class="page"><div class="shell"><div class="wrap" style="max-width:820px;margin:0 auto;background:#fff">
 
@@ -286,5 +289,7 @@ X 账户：@enyaclawd<br>
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
 })();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

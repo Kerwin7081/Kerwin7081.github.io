@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{PAGE_TITLE}}</title>
+<meta name="description" content="{{PAGE_TITLE}}：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <!-- pv-counter data-page-slug={{PAGE_SLUG}} -->
 <style>
 :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--up:#16a34a;--down:#dc2626;--gold:#b8860b;--sector-bg:#f5f2eb}
@@ -20,8 +21,10 @@ body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roma
 footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px 18px;font-size:12px;color:var(--muted);line-height:1.85;text-align:center}.footer-rule{border:none;border-top:1px solid var(--line);margin:14px 0}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
 @media(max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:28px}.home-link{position:static;display:inline-block;margin-top:10px}.grid{display:block}.mod{border-right:none!important}.hero-title{font-size:26px}}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
+<body class="kw-research">
 <div class="page"><div class="shell">
 <div class="topbar">
 <a href="https://enyaclawd.com/" class="home-link">← 首页</a>
@@ -63,5 +66,11 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
 })();
 </script>
+
+<a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>
+
+<div class="kw-static-disclaimer">免责声明：本页内容仅用于投资研究与教育，不构成任何证券买卖建议。</div>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

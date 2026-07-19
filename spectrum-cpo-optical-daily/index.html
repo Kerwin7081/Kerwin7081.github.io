@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vera Rubin 五机架跟踪日报 2026年06月03日 | Kerwin Research</title>
+<meta name="description" content="Vera Rubin 五机架跟踪日报 2026年06月03日 | Kerwin Research：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#fff1e5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:#1f1a17; line-height:1.6; }
@@ -62,7 +63,7 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 .summary strong { color:#8a5b2b; }
 
 /* Gate */
-#gate-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff1e5; z-index:9999; display:flex; align-items:center; justify-content:center; }
+#kw-legacy-gate-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff1e5; z-index:9999; display:flex; align-items:center; justify-content:center; }
 #gate-content { text-align:center; }
 #gate-content input { padding:10px 16px; font-size:18px; border:2px solid #dccdbf; border-radius:6px; background:#fffaf4; color:#3d3229; text-align:center; width:120px; }
 #gate-content input:focus { outline:none; border-color:#8a5b2b; }
@@ -83,13 +84,15 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
   .note { display:none; }
 }
 </style>
-</head>
-<body>
 
-<div id="gate-overlay">
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
+</head>
+<body class="kw-research">
+
+<div id="kw-legacy-gate-overlay">
 <div id="gate-content">
   <p style="font-size:14px;color:#8a5b2b;margin-bottom:10px;">🔒 Kerwin Research · 请输入密码</p>
-  <input type="text" id="gate-input" placeholder="输入 k" autofocus maxlength="1">
+  <input type="text" id="kw-legacy-gate-input" placeholder="输入 k" autofocus maxlength="1">
   <p class="hint">输入 k（不分大小写，无需回车）</p>
 </div>
 </div>
@@ -327,8 +330,8 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 
 <script>
 (function(){
-  var input = document.getElementById('gate-input');
-  var overlay = document.getElementById('gate-overlay');
+  var input = document.getElementById('kw-legacy-gate-input');
+  var overlay = document.getElementById('kw-legacy-gate-overlay');
   var main = document.getElementById('main-content');
   if (sessionStorage.getItem('gate_ok') === '1') {
     overlay.style.display = 'none';
@@ -345,5 +348,9 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 })();
 </script>
 
+
+<a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

@@ -53,19 +53,21 @@ tr:last-child td{border-bottom:0}
 .gate-prompt{max-width:860px;margin:0 auto 12px;padding:22px 20px;text-align:center;background:var(--panel);border-left:1px solid var(--line);border-right:1px solid var(--line)}
 .gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:24px 32px;box-shadow:0 4px 20px rgba(15,23,42,.04)}
 .gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}
-.gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--panel);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite}
-.gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
+.kw-legacy-gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--panel);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite}
+.kw-legacy-gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
 @keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}
 .gated-content{display:none}
 .gated-content.visible{display:block}
 @media(max-width:760px){.wrap{padding:20px 10px 40px}h1{font-size:27px}.grid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.bar-row{grid-template-columns:88px 1fr 56px}th,td{padding:8px 7px;font-size:12px}}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body data-page-slug="rubin-rack-teardown-20260523">
+<body data-page-slug="rubin-rack-teardown-20260523" class="kw-research">
 <div class="gate-prompt" id="gate-prompt">
   <div class="gate-prompt-inner">
-    <div class="gate-hint">请输入 <strong>k</strong>，方可显示完整内容</div>
-    <input autofocus class="gate-input-box" id="gate-input" maxlength="1" placeholder="_" type="text">
+    <div class="gate-hint">请输入 <strong>k / K</strong>，方可显示完整内容</div>
+    <input autofocus class="kw-legacy-gate-input-box" id="kw-legacy-gate-input" maxlength="1" placeholder="_" type="text">
   </div>
 </div>
 <div class="gated-content" id="gated-content">
@@ -267,7 +269,7 @@ tr:last-child td{border-bottom:0}
 </div>
 <script>
 (function(){
-  var input=document.getElementById('gate-input');
+  var input=document.getElementById('kw-legacy-gate-input');
   if(!input)return;
   input.addEventListener('input',function(){
     if(input.value==='k'||input.value==='K'){
@@ -288,5 +290,9 @@ tr:last-child td{border-bottom:0}
   try{fetch(u,{mode:'no-cors'}).catch(function(){});}catch(e){}
 })();
 </script>
+
+<a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

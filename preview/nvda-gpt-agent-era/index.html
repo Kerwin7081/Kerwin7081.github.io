@@ -43,8 +43,10 @@ a{color:inherit}
 .footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
 @media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.path-num{font-size:28px;width:30px}.ticker{min-width:54px;height:30px;font-size:13px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body data-page-slug="nvda-gpt-agent-era">
+<body data-page-slug="nvda-gpt-agent-era" class="kw-research">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell">
 <div class="topbar">
@@ -185,7 +187,7 @@ a{color:inherit}
 
 <!-- IMAGE: Enya self-introduction screenshot -->
 <figure style="margin:16px 0;text-align:center">
-  <img src="images/enya-intro.jpg" alt="Enya自我介绍 — 香港首个OpenClaw女性投顾Agent" style="max-width:100%;border:1px solid var(--line);border-radius:4px" loading="lazy">
+  <img src="/nvda-gpt-agent-era/images/enya-intro.jpg" alt="Enya自我介绍 — 香港首个OpenClaw女性投顾Agent" style="max-width:100%;border:1px solid var(--line);border-radius:4px" loading="lazy">
   <figcaption style="font:11px Arial,sans-serif;color:var(--muted);margin-top:6px">▲ Enya 自我介绍：香港首个由 OpenClaw 打造的女性投顾 Agent，2026 年 2 月 14 日正式上线</figcaption>
 </figure>
 
@@ -376,5 +378,7 @@ a{color:inherit}
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){ if(el) el.textContent = d.count.toLocaleString(); }).catch(function(){});
 })();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

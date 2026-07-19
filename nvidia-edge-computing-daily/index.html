@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>NVIDIA Edge Computing 观察跟踪日报 7月18日 | Kerwin Research</title>
+<meta name="description" content="NVIDIA Edge Computing 观察跟踪日报 7月18日 | Kerwin Research：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
   <style>
     :root{--bg:#fff1e5;--paper:#fffaf4;--ink:#1f1a17;--muted:#6f6258;--line:#dccdbf;--gold:#8a5b2b;--date:#8b4513;--up:#16a34a;--down:#dc2626}
     *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman','Noto Serif SC',serif;line-height:1.78}
@@ -27,14 +28,16 @@
     .gate-prompt{padding:24px 20px 28px;text-align:center;background:#fffdf9;border-bottom:1px solid #efe3d7}
     .gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:24px 32px;box-shadow:0 4px 20px rgba(15,23,42,.04)}
     .gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em}
-    .gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite}
-    .gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
+    .kw-legacy-gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid #1f1a17;border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:#1f1a17;animation:gate-blink 1.2s ease-in-out infinite}
+    .kw-legacy-gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12)}
     @keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18)}50%{box-shadow:0 0 0 8px rgba(31,26,23,0)}}
     .gated-content{display:none} .gated-content.visible{display:block}
     @media(max-width:640px){.page{padding:0 2px 18px}.topbar{padding:18px 14px}h1{font-size:23px}.hero{padding:18px 12px}.hero h2{font-size:20px}.section{padding:16px 10px}.stats{grid-template-columns:1fr}.notes-grid{grid-template-columns:1fr}}
   </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
+<body class="kw-research">
 <div class="back"><a href="/">返回首页</a> <a href="/edge-computing-series/">Edge 系列总览</a></div>
 <div class="page"><div class="shell">
   <div class="topbar">
@@ -45,8 +48,8 @@
   </div>
   <div class="gate-prompt" id="gate-prompt">
     <div class="gate-prompt-inner">
-      <div class="gate-hint">请输入 <strong>k</strong>，方可显示完整内容</div>
-      <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+      <div class="gate-hint">请输入 <strong>k / K</strong>，方可显示完整内容</div>
+      <input class="kw-legacy-gate-input-box" id="kw-legacy-gate-input" type="text" maxlength="1" placeholder="_" autofocus>
     </div>
   </div>
   <div class="gated-content" id="gated-content">
@@ -209,7 +212,7 @@
 </div></div>
 <script>
 (function(){
-  var input=document.getElementById('gate-input');
+  var input=document.getElementById('kw-legacy-gate-input');
   if(!input)return;
   input.addEventListener('input',function(){
     if(input.value==='k'||input.value==='K'){
@@ -230,5 +233,7 @@
   fetch(u,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){});
 })();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>

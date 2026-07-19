@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>方块世界 · BlockCraft</title>
+<meta name="description" content="方块世界 · BlockCraft：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html,body { width:100%; height:100%; overflow:hidden; background:#000; font-family:"PingFang SC","Microsoft YaHei",sans-serif; touch-action:none; }
@@ -66,8 +67,10 @@
   #genBar { width:240px; height:8px; background:rgba(255,255,255,.12); border-radius:4px; margin-top:22px; overflow:hidden; display:none; }
   #genFill { height:100%; width:0%; background:#8bc34a; transition:width .2s; }
 </style>
+
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
 </head>
-<body>
+<body class="kw-experience">
 <div id="game"></div>
 <div id="crosshair" style="display:none"></div>
 
@@ -846,5 +849,7 @@ window.addEventListener('resize', ()=>{
 });
 tick();
 </script>
+
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>
