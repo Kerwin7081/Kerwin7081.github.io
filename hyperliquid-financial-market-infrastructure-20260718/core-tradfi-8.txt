@@ -28,4 +28,5 @@ function calc(){const side=Number(document.getElementById('side').value),entry=N
 
 (function(){var slugVal=document.body.getAttribute('data-page-slug')||'hyperliquid-financial-market-infrastructure-20260718';var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);var el=document.getElementById('counter-num');fetch(counterUrl).then(r=>r.json()).then(d=>{if(el)el.textContent=d.count.toLocaleString()}).catch(()=>{if(el)el.textContent='-'});fetch(counterUrl,{method:'POST'}).then(r=>r.json()).then(d=>{if(el)el.textContent=d.count.toLocaleString()}).catch(()=>{})})();
 </script>
+<script defer src="/assets/kerwin-system-v2.js?v=20260718gate"></script>
 </body></html>
