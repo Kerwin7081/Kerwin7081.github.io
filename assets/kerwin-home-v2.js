@@ -23,7 +23,8 @@
       if (String(accessKey && accessKey.value || '').trim().toLowerCase() === 'k') {
         try { sessionStorage.setItem('kerwin-research-access', '1'); } catch (error) {}
         grantAccess();
-        document.querySelector('.site-header a, main a, main button')?.focus();
+        var firstFocus = document.querySelector('.site-header a, main a, main button');
+        if (firstFocus) firstFocus.focus();
       } else {
         if (accessError) accessError.textContent = '访问口令不正确，请重新输入。';
         if (accessKey) {
