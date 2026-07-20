@@ -1,0 +1,29 @@
+<section class="section" id="timeline">
+<div class="label">08 · FOUR-STAGE EVOLUTION</div><h2>Agent支付可能按四个阶段演进</h2><div class="timeline">
+<div class="phase" data-phase="1"><h3>人类授权，Agent代付</h3><p>Agent负责搜索和填写信息，用户在付款前确认。</p><ul><li>购物、订票、订阅管理</li><li>主要使用卡和支付令牌</li><li>消费者保护最重要</li></ul></div>
+<div class="phase" data-phase="2"><h3>Agent持有有限预算</h3><p>企业或个人给Agent预设小额预算，在规则内自动付款。</p><ul><li>软件、数据和办公采购</li><li>虚拟卡与稳定币并存</li><li>预算和白名单成为核心</li></ul></div>
+<div class="phase" data-phase="3"><h3>Agent经营并获得收入</h3><p>Agent不仅花钱，也出售内容、研究、数据和执行服务。</p><ul><li>机器对机器交易增加</li><li>形成小额经营现金流</li><li>平台开始争夺默认钱包</li></ul></div>
+<div class="phase" data-phase="4"><h3>自动资金路由</h3><p>Agent自动比较费用、速度、奖励、退款能力和司法辖区。</p><ul><li>支付通道后台化</li><li>入口和规则控制者议价上升</li><li>金融最优执行进入支付领域</li></ul></div>
+</div>
+</section>
+
+<section class="section" id="risks">
+<div class="label">09 · RISK AND CONTROL</div><h2>Agent能花钱以后，最重要的不是速度，而是失误能否被限制</h2>
+<div class="risk-grid"><div class="risk"><h3>错误理解任务</h3><p>Agent可能买错商品、选错日期或误解企业采购要求。</p></div><div class="risk"><h3>Prompt Injection（提示注入）</h3><p>恶意网页或内容可能诱导Agent偏离原任务并发起不必要付款。</p></div><div class="risk"><h3>身份与授权不清</h3><p>商户需要知道Agent代表谁、获得了什么权限、授权是否仍有效。</p></div><div class="risk"><h3>付款不可逆</h3><p>稳定币结算速度快，但错误付款和服务未交付时缺少天然退款机制。</p></div><div class="risk"><h3>多Agent连锁支出</h3><p>一个Agent调用另一个Agent，可能把单笔小额支出放大成复杂支付链。</p></div><div class="risk"><h3>合规与税务</h3><p>跨境、制裁、反洗钱、发票、会计归属和责任主体都需明确。</p></div></div>
+<h3>应当成为默认配置的八项控制</h3><div class="control-list"><div class="control"><b>金额上限</b><span>单笔、每日和每月预算限制。</span></div><div class="control"><b>用途限制</b><span>只允许特定费用类别。</span></div><div class="control"><b>商户白名单</b><span>只向批准商户或地址付款。</span></div><div class="control"><b>人工确认</b><span>高金额、高风险或异常交易暂停。</span></div><div class="control"><b>可撤销授权</b><span>用户和企业可以即时停止Agent。</span></div><div class="control"><b>分层钱包</b><span>把日常预算与核心资金隔离。</span></div><div class="control"><b>完整审计</b><span>记录任务、报价、授权、付款和交付。</span></div><div class="control"><b>争议机制</b><span>服务未交付时支持退款或托管。</span></div></div>
+</section>
+
+<section class="section" id="investment">
+<div class="label">10 · INVESTMENT MAPPING</div><h2>对上市公司和关键平台的投资含义</h2><div class="invest-grid">
+<div class="invest"><h3>Visa（V）</h3><p>核心价值不是简单处理卡交易，而是把可信Agent身份、全球商户受理和发卡行体系连接起来。</p><ul><li>Trusted Agent采用</li><li>Agentic Ready银行数量</li><li>Agent交易欺诈率与网络费率</li></ul></div>
+<div class="invest"><h3>Mastercard（MA）</h3><p>Agent Pay和机器支付服务把卡网络延伸到高频、小额和后台自动交易。</p><ul><li>AP4M合作伙伴与交易量</li><li>机器微支付的单位经济</li><li>与稳定币网络协同</li></ul></div>
+<div class="invest"><h3>Coinbase（COIN）</h3><p>x402和USDC让Coinbase争夺开发者、云Agent和机器结算入口。</p><ul><li>x402真实付费调用</li><li>AWS AgentCore采用</li><li>USDC平均余额与分销收益</li></ul></div>
+<div class="invest"><h3>PayPal（PYPL）</h3><p>优势在于钱包、消费者信任、商户和争议处理，而不是单一新协议。</p><ul><li>AI购物入口合作</li><li>Agent交易转化率</li><li>退款和Seller Protection成本</li></ul></div>
+<div class="invest"><h3>Alphabet（GOOGL）</h3><p>Google控制搜索、Shopping Graph和UCP，可能从商品发现、广告和支付协同中受益。</p><ul><li>UCP商户覆盖</li><li>Gemini和AI Mode购物转化</li><li>Google Pay在Agent结账中的份额</li></ul></div>
+<div class="invest"><h3>Amazon（AMZN）</h3><p>AWS可能成为企业Agent的运行和支付环境，把云资源、数据和付费内容统一结算。</p><ul><li>AgentCore Payments采用</li><li>AWS WAF付费内容规模</li><li>企业Agent预算留存</li></ul></div>
+<div class="invest"><h3>Stripe（非上市）</h3><p>Stripe同时布局商户、Link钱包、发卡、MPP和稳定币，最接近完整的Agent金融操作系统。</p><ul><li>Agentic Commerce Suite商户数</li><li>Link Agent Wallet采用</li><li>MPP与稳定币支付规模</li></ul></div>
+<div class="invest"><h3>OpenAI（非上市）</h3><p>OpenAI掌握用户意图和购物入口，能否把推荐转化为交易，是商业化的重要增量。</p><ul><li>ACP商户覆盖</li><li>ChatGPT购物转化率</li><li>商业收入与中立推荐边界</li></ul></div>
+<div class="invest"><h3>银行与发卡机构</h3><p>银行可能保留资金、信用和合规，但客户界面可能被模型和钱包平台上移。</p><ul><li>Agent专用账户与虚拟卡</li><li>授权和费用管理产品</li><li>是否被压缩为后台资金提供者</li></ul></div>
+</div>
+</section>
+
