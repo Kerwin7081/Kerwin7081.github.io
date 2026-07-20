@@ -1,0 +1,22 @@
+<section class="section" id="players">
+<div class="label">06 · WHO IS BUILDING THE DEFAULT ENTRY</div><h2>主要参与者争夺的并不是同一个层级</h2><p class="lead">下面用商业功能而不是技术协议分类。UCP、ACP、x402、MPP等名称只用于说明它们解决哪一段流程。</p>
+<div class="player-table"><table><thead><tr><th>参与者</th><th>主要控制点</th><th>代表动作</th><th>更可能获得的价值</th><th>核心短板</th></tr></thead><tbody>
+<tr><td><span class="tag green">OpenAI</span></td><td>用户意图与商品发现</td><td>Agentic Commerce Protocol，中文可称“智能体商业协议”；把商品发现和结账带入ChatGPT</td><td>客户入口、推荐与商业转化</td><td>需要商户、支付与售后伙伴</td></tr>
+<tr><td><span class="tag blue">Google</span></td><td>搜索、商品目录与购物流程</td><td>Universal Commerce Protocol，中文可称“通用商业协议”；连接目录、购物车、身份和结账</td><td>搜索流量、广告、支付与商户关系</td><td>需处理开放标准与自有平台之间的平衡</td></tr>
+<tr><td><span class="tag amber">Stripe</span></td><td>商户、钱包和支付编排</td><td>Link Agent Wallet、Agentic Commerce Suite与MPP（机器支付协议）</td><td>支付处理、商户软件、钱包与机器支付</td><td>主要服务商户，消费者入口弱于模型平台</td></tr>
+<tr><td><span class="tag purple">Coinbase</span></td><td>稳定币与机器微支付</td><td>x402让Agent按次购买API；与AWS AgentCore集成USDC支付</td><td>USDC分销、钱包、链上结算与开发者入口</td><td>消费者保护和传统商户受理仍弱</td></tr>
+<tr><td><span class="tag green">Visa</span></td><td>可信身份、卡网络和商户受理</td><td>Trusted Agent Protocol（可信Agent协议）及Agentic Ready计划</td><td>身份验证、网络费用、风控和全球受理</td><td>需要证明卡网络在微支付中的成本竞争力</td></tr>
+<tr><td><span class="tag red">Mastercard</span></td><td>授权、卡网络与机器支付</td><td>Agent Pay与Agent Pay for Machines，支持高频、极小额机器交易</td><td>网络、令牌、风控和机器支付编排</td><td>与开放稳定币网络存在价格竞争</td></tr>
+<tr><td><span class="tag blue">PayPal</span></td><td>钱包、商户与争议处理</td><td>延续Seller Protection，强调Agent发起交易仍可进入既有售后体系</td><td>钱包、商户受理、退款和消费者信任</td><td>需要在模型平台和新协议中保持默认位置</td></tr>
+<tr><td><span class="tag amber">AWS／云平台</span></td><td>企业Agent运行环境</td><td>AgentCore Payments及付费内容访问，把预算、合规和微支付嵌入云服务</td><td>云消费、开发者入口和企业工作流</td><td>可能被视为中立基础设施，直接金融变现受限</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="section" id="economics">
+<div class="label">07 · THE PROFIT POOL</div><h2>谁能从Agent支付中赚钱</h2><div class="econ">
+<div class="econ-side"><h3>一笔交易的利润分配</h3><div class="econ-flow"><div class="econ-row"><b>模型／入口平台</b><span>推荐、广告、导流或商业转化收入</span></div><div class="econ-row"><b>钱包与支付编排</b><span>授权、路由、账户和软件服务费</span></div><div class="econ-row"><b>卡网络／银行</b><span>网络、发卡、收单、外汇和风控收入</span></div><div class="econ-row"><b>稳定币发行人与渠道</b><span>储备收益、结算费和分销经济</span></div><div class="econ-row"><b>商户服务商</b><span>支付处理、税务、欺诈、退款和对账</span></div></div></div>
+<div class="econ-side"><h3>最容易被高估的变量</h3><p>Agent交易次数增加，并不等于每家公司的利润同比例增长。</p><ul style="padding-left:20px;margin-top:10px"><li>交易金额很小，传统费率可能不经济。</li><li>平台可能补贴早期采用。</li><li>稳定币发行人依赖平均沉淀余额，而不是交易次数。</li><li>入口平台可能要求支付公司和稳定币发行人分润。</li></ul><div class="call gold"><strong>核心：</strong>未来应同时看交易量、平均余额、每笔净收入和渠道分成。</div></div>
+</div>
+<div class="calculator"><h3>Agent经济量级试算器</h3><p class="small muted">这是商业规模演示，不是估值模型。假设每个Agent每月有一笔预算，平台从实际支付额中取得一定比例收入。</p><div class="calc-grid"><div class="field"><label>活跃Agent数量</label><input id="agents" type="number" value="100000" min="0"></div><div class="field"><label>每月预算 USD</label><input id="budget" type="number" value="50" min="0"></div><div class="field"><label>预算使用率 %</label><input id="usage" type="number" value="60" min="0" max="100"></div><div class="field"><label>平台净抽成 %</label><input id="take" type="number" value="0.6" min="0" step="0.1"></div><div class="field"><label>平均钱包余额 USD</label><input id="float" type="number" value="15" min="0"></div></div><div class="calc-result"><div class="result"><b id="monthly">$3.0M</b><span>月度支付额</span></div><div class="result"><b id="annual">$36.0M</b><span>年度支付额</span></div><div class="result"><b id="revenue">$216K</b><span>年度平台净收入</span></div><div class="result"><b id="balance">$1.5M</b><span>钱包沉淀余额</span></div></div></div>
+</section>
+
