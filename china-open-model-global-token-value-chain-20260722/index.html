@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中国开放模型出海：谁生产智能，谁生产 Token，谁拿走利润</title>
+<meta name="description" content="Kerwin投顾视角：从中国原厂模型、海外推理Provider到OpenRouter，拆解开放模型全球化后的成本、能力、收入归属与投资价值链。">
+<style>html,body{margin:0;min-height:100%;background:#fff1e5;color:#1f1a17;font-family:Arial,'PingFang SC','Microsoft YaHei',sans-serif}.loading{max-width:760px;margin:80px auto;padding:32px;text-align:center;background:#fffaf4;border:1px solid #dccdbf}.loading h1{font-family:Georgia,'Times New Roman',serif;font-size:28px}.loading p{color:#6f6258}</style>
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
+</head>
+<body class="kw-research">
+<div class="loading" id="loading"><h1>中国开放模型出海</h1><p>研究页面加载中…</p></div>
+<script>
+(async function(){
+  try{
+    var files=[];
+    for(var i=1;i<=5;i++) files.push('./core-'+i+'.txt?v=20260722a');
+    var responses=await Promise.all(files.map(function(url){return fetch(url,{cache:'no-store'});}));
+    responses.forEach(function(r){if(!r.ok) throw new Error('HTTP '+r.status);});
+    var parts=await Promise.all(responses.map(function(r){return r.text();}));
+    document.open();document.write(parts.join(''));document.close();
+  }catch(error){
+    document.getElementById('loading').innerHTML='<h1>页面加载失败</h1><p>请刷新页面重试。</p>';
+    console.error(error);
+  }
+})();
+</script>
+<a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>
+<div class="kw-static-disclaimer">免责声明：本页内容仅用于投资研究与教育，不构成任何证券买卖建议。</div>
+<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
+</body>
+</html>
