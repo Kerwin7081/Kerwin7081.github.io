@@ -34,15 +34,7 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </style>
 </head>
 <body>
-<div id="gate-overlay">
-<div id="gate-content">
-<h2>🔒 门禁</h2>
-<p>请输入 k，方可显示完整内容</p>
-<input type="text" id="gate-input" maxlength="10" autofocus>
-<div id="gate-error">密码错误，请重试</div>
-</div>
-</div>
-<div id="main-content" style="display:none">
+<div id="main-content">
 <div class="page"><div class="shell">
 <div class="topbar">
 <a href="https://enyaclawd.com/" class="home-link">← 首页</a>
@@ -214,26 +206,12 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </div>
 <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
 <script>
-// Gate password
-(function(){
-var gate=document.getElementById('gate-overlay');
-var main=document.getElementById('main-content');
-var input=document.getElementById('gate-input');
-var err=document.getElementById('gate-error');
-if(sessionStorage.getItem('gate_ok')==='1'){gate.style.display='none';main.style.display='block';}
-input.addEventListener('input',function(){
-if(input.value==='k'||input.value==='K'){sessionStorage.setItem('gate_ok','1');gate.style.display='none';main.style.display='block';err.style.display='none';}
-else if(input.value.length>=1&&input.value!=='k'&&input.value!=='K'){input.value='';err.style.display='block';setTimeout(function(){err.style.display='none';},2000);}
-});
-})();
-
 // Counter
   var slugVal='nvidia-portfolio-daily-20260722';
   var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
   var el=document.getElementById('counter-num');
   fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
   fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
-})();
 </script>
 </body>
 </html>
