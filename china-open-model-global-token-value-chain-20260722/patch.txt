@@ -1,0 +1,25 @@
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  if(nav&&!nav.querySelector('a[href="#modelcompare"]')){
+    var link=document.createElement('a');
+    link.href='#modelcompare';
+    link.textContent='五模型对比';
+    var before=nav.querySelector('a[href="#kimi"]');
+    nav.insertBefore(link,before||null);
+  }
+  var cells=document.querySelectorAll('.hero .stats .stat');
+  var items=[
+    ['18.9%','智谱开放平台及API<br>2025年毛利率'],
+    ['约50%','Fireworks<br>非审计毛利率估计'],
+    ['57.5倍','五模型最高与最低<br>输出Token标价差'],
+    ['26家','GLM 5.2<br>OpenRouter Provider数量']
+  ];
+  for(var i=0;i<cells.length&&i<items.length;i++){
+    var num=cells[i].querySelector('.num');
+    var lab=cells[i].querySelector('.lab');
+    if(num)num.textContent=items[i][0];
+    if(lab)lab.innerHTML=items[i][1];
+  }
+})();
+</script>
