@@ -34,7 +34,15 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </style>
 </head>
 <body>
-<div id="main-content">
+<div id="gate-overlay">
+<div id="gate-content">
+<h2>门禁</h2>
+<p>输入 K 即可显示完整内容；大小写均可，不需要回车。</p>
+<input type="text" id="gate-input" maxlength="8" autofocus>
+<div id="gate-error">口令不匹配，请输入 K。</div>
+</div>
+</div>
+<div id="main-content" style="display:none">
 <div class="page"><div class="shell">
 <div class="topbar">
 <a href="https://enyaclawd.com/" class="home-link">← 首页</a>
@@ -206,6 +214,35 @@ footer{background:var(--paper);border-top:2px solid var(--ink);padding:22px 28px
 </div>
 <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
 <script>
+// Gate password
+(function(){
+  var gate=document.getElementById('gate-overlay');
+  var main=document.getElementById('main-content');
+  var input=document.getElementById('gate-input');
+  var err=document.getElementById('gate-error');
+  var key='nvidia_portfolio_gate_ok';
+  function openGate(){
+    try{sessionStorage.setItem(key,'1');}catch(e){}
+    if(gate)gate.style.display='none';
+    if(main)main.style.display='block';
+    if(err)err.style.display='none';
+  }
+  try{if(sessionStorage.getItem(key)==='1')openGate();}catch(e){}
+  if(input){
+    input.addEventListener('input',function(){
+      if((input.value||'').trim().toLowerCase()==='k')openGate();
+      else if(input.value.length>0){
+        input.value='';
+        if(err){
+          err.style.display='block';
+          setTimeout(function(){err.style.display='none';},1200);
+        }
+      }
+    });
+    setTimeout(function(){input.focus();},50);
+  }
+})();
+
 // Counter
   var slugVal='nvidia-portfolio-daily-20260722';
   var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
