@@ -13,8 +13,14 @@
 <script>
 (async function(){
   try{
-    var files=[];
-    for(var i=1;i<=5;i++) files.push('./core-'+i+'.txt?v=20260722a');
+    var files=[
+      './core-1.txt?v=20260722b',
+      './core-2.txt?v=20260722b',
+      './core-3.txt?v=20260722b',
+      './core-4.txt?v=20260722b',
+      './patch.txt?v=20260722b',
+      './core-5.txt?v=20260722b'
+    ];
     var responses=await Promise.all(files.map(function(url){return fetch(url,{cache:'no-store'});}));
     responses.forEach(function(r){if(!r.ok) throw new Error('HTTP '+r.status);});
     var parts=await Promise.all(responses.map(function(r){return r.text();}));
