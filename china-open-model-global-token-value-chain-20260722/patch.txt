@@ -21,5 +21,15 @@
     if(num)num.textContent=items[i][0];
     if(lab)lab.innerHTML=items[i][1];
   }
+  document.addEventListener('DOMContentLoaded',function(){
+    var psNote=document.querySelector('.ps-chart .legend-note');
+    if(psNote&&!/汇率假设/.test(psNote.textContent)){
+      psNote.innerHTML+=' 粗略换算采用USD/HKD≈7.8、USD/CNY≈7.2；市场价值与汇率波动会使倍数变化。';
+    }
+    document.querySelectorAll('.sources a').forEach(function(a){
+      if(/quote_ci_basicdata\.php\?code=2513/.test(a.href)) a.href='https://content.etnet.com.hk/content/cpyrevamp/eng/stock_quote.php?code=02513';
+      if(/quote_ci_basicdata\.php\?code=100/.test(a.href)) a.href='https://content.etnet.com.hk/content/cpyrevamp/eng/stock_quote.php?code=00100';
+    });
+  });
 })();
 </script>
