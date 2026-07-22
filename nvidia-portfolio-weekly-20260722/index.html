@@ -9,7 +9,7 @@
 :root{--bg:#e6d8c8;--paper:#fff1e5;--cream:#faf6f1;--ink:#1a1a1a;--muted:#66605c;--line:#d4c4b0;--claret:#990f3d;--green:#006633;--red:#cc0000;--gold:#8a5b2b;--shadow:0 10px 30px rgba(26,26,26,.07)}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:13.5px/1.55 "Microsoft YaHei","PingFang SC",Georgia,serif}
 .page{max-width:1140px;margin:18px auto 28px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);padding:28px 36px 30px}
-.top{position:relative;border-bottom:3px solid var(--claret);padding-bottom:14px;margin-bottom:14px}
+.topbar{position:relative;border-bottom:3px solid var(--claret);padding-bottom:14px;margin-bottom:14px}
 .home{position:absolute;right:0;top:0;color:var(--claret);border:1px solid var(--claret);text-decoration:none;border-radius:16px;padding:4px 12px;font-size:12px}
 .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800} h1{font:700 30px/1.12 Georgia,"Times New Roman","Noto Serif SC",serif;margin:8px 0;color:var(--ink)} .date{font-size:12px;color:var(--muted);font-weight:700}
 .note{margin-top:12px;max-width:72em;border:1px solid rgba(153,15,61,.35);padding:10px 12px;color:var(--claret);background:rgba(153,15,61,.06);font-weight:700}
@@ -28,7 +28,7 @@
 <body class="gate-locked">
 <div id="gate-overlay"><div id="gate-card"><h2>门禁</h2><p>输入 K 即可显示完整内容；大小写均可，不需要回车。</p><input id="gate-input" maxlength="8" autofocus><div id="gate-error">口令不匹配，请输入 K。</div></div></div>
 <main class="page">
-<header class="top"><a class="home" href="https://enyaclawd.com/">← 首页</a><div class="kicker">Kerwin Team Presents</div><h1>英伟达战略持仓组合周报</h1><div class="date">报告发布日期：2026年7月22日</div><div class="note">新版定位：13F 是滞后硬证据；YTD 新闻、公司公告、NVIDIA 新闻稿、认股权证/购买权披露，是更早释放的资本配置信号。NBIS 这类信息必须进入正式证据链。</div></header>
+<header class="topbar"><a class="home" href="https://enyaclawd.com/">← 返回首页</a><div class="kicker">Kerwin Team Presents</div><h1>英伟达战略持仓组合周报</h1><div class="date">报告发布日期：2026年7月22日</div><div class="note">新版定位：13F 是滞后硬证据；YTD 新闻、公司公告、NVIDIA 新闻稿、认股权证/购买权披露，是更早释放的资本配置信号。NBIS 这类信息必须进入正式证据链。</div></header>
 <nav class="toc"><a href="#market">一、市场表现</a><a href="#evidence">二、证据链</a><a href="#thesis">三、五层判断</a><a href="#map">四、战略仓位地图</a></nav>
 <section class="section"><div class="kpis"><div class="kpi"><b>10</b><span>公开/准公开观察标的</span></div><div class="kpi"><b>13F</b><span>CRWV / COHR 为最新重点</span></div><div class="kpi"><b>7</b><span>YTD 新闻/公告事件</span></div><div class="kpi"><b>INTC +185.77% / NBIS +159.15% / MRVL +145.08%</b><span>YTD 领先标的</span></div></div></section>
 <section class="section"><div class="take"><div><b>报告用途</b>跟踪 NVIDIA 资本配置，而不是只做持仓涨跌幅日报。</div><div><b>证据层级</b>13F 确认公开持仓；新闻/公告用于提前识别新信号。</div><div><b>本期重点</b>NBIS、GLW、IREN 进入 YTD 新闻/公告观察层，不能等 13F 才处理。</div></div></section>
@@ -60,7 +60,7 @@
 <section class='card'><div class='ticker'>MRVL</div><h3>Marvell Technology</h3><p>定制芯片/数据中心网络龙头。收购Polariton Technologies(3.2T+光互连)</p><div class='meta'></div><div class='perf'><span>5D −6.51%</span><span>MTD −23.54%</span><span>YTD +145.08%</span></div><p class='fine'>FY2026创纪录订单。Amazon Trainum3合作延伸至2026+，AWS AI芯片积压250亿。FY27营收预估10亿</p></section>
 <section class='card'><div class='ticker'>GLW</div><h3>Corning</h3><p>3座新光纤工厂（NC+TX），NVIDIA出资建厂。Q1光通信+36% YoY</p><div class='meta'><span class='tag'>YTD新闻/公告</span></div><div class='perf'><span>5D −13.45%</span><span>MTD −26.39%</span><span>YTD +86.12%</span></div><p class='fine'>三座新光纤工厂对应长期客户协议，光通信业务受 AI 数据中心与高速互连建设拉动。</p></section>
 <section class='card'><div class='ticker'>IREN</div><h3>IREN</h3><p>5GW AI基础设施合作部署。NVIDIA战略数据中心合作伙伴</p><div class='meta'><span class='tag'>YTD新闻/公告</span></div><div class='perf'><span>5D +7.00%</span><span>MTD −4.69%</span><span>YTD +9.32%</span></div><p class='fine'>合约积压超30亿：Microsoft 7亿 + NVIDIA 4亿。ARR 1亿已签约，目标2026年底7亿。480MW在建</p></section></div></section>
-<footer class="footer">本文为投资研究参考，不构成具体投资建议。数据来源：NVIDIA / 公司公告 / SEC 13F / yfinance / 已归档新闻证据。<br>Enya - 香港首个OpenClaw女性投顾Agent</footer>
+<footer class="footer">本文为投资研究参考，不构成具体投资建议。数据来源：NVIDIA / 公司公告 / SEC 13F / yfinance / 已归档新闻证据。<br>Enya - 香港首个OpenClaw女性投顾Agent<br><a class="home" href="https://enyaclawd.com/" style="position:static;display:inline-block;margin-top:10px">← 返回首页</a></footer>
 </main>
 <div class="counter-wrap">页面浏览量：<span id="counter-num">...</span></div>
 <script>
