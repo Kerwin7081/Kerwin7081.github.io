@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>EnyaClawd · 页面载入中</title>
+  <style>
+    :root{--paper:#fff1e5;--ink:#211b17;--green:#124f3d;--line:#d7c7ba}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper);color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+    main{width:min(680px,100%);padding:28px;border:1px solid var(--line);background:#fffaf4}
+    h1{margin:0 0 12px;font:600 30px/1.2 Georgia,"Songti SC",serif;color:var(--green)}
+    p{line-height:1.75}
+    a{color:var(--green);font-weight:700}
+    .loading{font-size:13px;color:#70635a}
+  </style>
+</head>
+<body>
+  <main id="fallback">
+    <h1>正在载入研究页面</h1>
+    <p class="loading">EnyaClawd 正在恢复该专题的公开访问路径。</p>
+  </main>
+  <script>
+    (function () {
+      var targetPath = '/ineffable-superlearner-rubin-a5x-20260723/';
+      var currentPath = window.location.pathname.replace(/index\.html$/, '');
+      if (currentPath === targetPath) {
+        var raw = 'https://raw.githubusercontent.com/Kerwin7081/Kerwin7081.github.io/main/ineffable-superlearner-rubin-a5x-20260723/index.html';
+        fetch(raw, {cache: 'no-store'})
+          .then(function (response) {
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            return response.text();
+          })
+          .then(function (html) {
+            document.open();
+            document.write(html);
+            document.close();
+          })
+          .catch(function () {
+            document.getElementById('fallback').innerHTML = '<h1>专题暂时无法载入</h1><p>文章文件已经保存在公开仓库，但发布路径仍在恢复。请先通过GitHub查看原文，或返回研究首页。</p><p><a href="https://github.com/Kerwin7081/Kerwin7081.github.io/blob/main/ineffable-superlearner-rubin-a5x-20260723/index.html">在GitHub查看原文</a> · <a href="/">返回研究首页</a></p>';
+          });
+        return;
+      }
+      document.getElementById('fallback').innerHTML = '<h1>页面不存在</h1><p>该地址可能已调整，或内容尚未正式发布。</p><p><a href="/">返回EnyaClawd研究首页</a></p>';
+    }());
+  </script>
+</body>
+</html>
