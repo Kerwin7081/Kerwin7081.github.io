@@ -215,6 +215,7 @@
   }
 
   function isEarnings(p) {
+    if (/AI Industry Applications|AI Application Casebook/i.test([p.category,p.tag].join(' '))) return false;
     return /earnings|财报|电话会|业绩会|results call/i.test([p.category,p.tag,p.title,p.deck,p.slug].join(' '));
   }
 
