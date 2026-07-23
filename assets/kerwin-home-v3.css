@@ -1,0 +1,208 @@
+/* Kerwin Research homepage v3: event-driven earnings desk + long-horizon research library */
+
+.hero__grid { grid-template-columns: minmax(0,1.04fr) minmax(390px,.82fr); }
+.hero__lead { max-width: 720px; }
+.hero__actions .button:first-child { min-width: 162px; }
+
+.desk-board {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  color: var(--ft-paper);
+  background: var(--green);
+  border: 1px solid var(--ft-ink);
+  border-top-width: 7px;
+}
+.desk-board::before {
+  content: "";
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  right: -96px;
+  top: -96px;
+  border: 1px solid rgba(255,241,229,.19);
+  border-radius: 50%;
+  box-shadow: 0 0 0 70px rgba(255,241,229,.025), 0 0 0 140px rgba(255,241,229,.018);
+}
+.desk-board__mast {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,241,229,.27);
+  color: #c9d8d2;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.desk-board__body {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  padding: 26px 24px;
+}
+.desk-channel { min-height: 220px; padding: 20px; border: 1px solid rgba(255,241,229,.28); }
+.desk-channel + .desk-channel { border-left: 0; }
+.desk-channel__num { color: #d8a67f; font: 600 30px/1 var(--serif); }
+.desk-channel h2 { margin: 36px 0 9px; color: #fff8f0; font: 600 22px/1.12 var(--serif); }
+.desk-channel p { margin: 0; color: #c9d8d2; font-size: 10px; line-height: 1.72; }
+.desk-channel span { display: block; margin-top: 20px; color: #fff1e5; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.desk-board__foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 18px;
+  border-top: 1px solid rgba(255,241,229,.27);
+  color: #c9d8d2;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.desk-board__foot b { color: #fff8f0; }
+
+.earnings-section {
+  position: relative;
+  background: #f4e8dc;
+  border-block: 1px solid var(--ft-ink);
+}
+.earnings-section::before {
+  content: "EARNINGS DESK";
+  position: absolute;
+  right: max(22px, calc((100vw - var(--max))/2));
+  top: 24px;
+  color: rgba(16,63,53,.08);
+  font: 700 clamp(34px,6vw,76px)/1 var(--serif);
+  letter-spacing: -.04em;
+  pointer-events: none;
+}
+.earnings-heading-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 5px 9px;
+  color: var(--ft-paper);
+  background: var(--red);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.earnings-heading-badge i { width: 6px; height: 6px; border-radius: 50%; background: #fff8f0; }
+.earnings-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1.18fr) minmax(320px,.82fr);
+  gap: 20px;
+}
+.earnings-lead {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  padding: 31px;
+  color: var(--ft-paper);
+  background: #251f1c;
+  border-top: 7px solid var(--red);
+}
+.earnings-lead::after {
+  content: "";
+  position: absolute;
+  right: 28px;
+  top: 84px;
+  width: 148px;
+  height: 148px;
+  border: 1px solid rgba(255,241,229,.2);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 42px rgba(255,241,229,.025);
+}
+.earnings-lead__top,
+.earnings-item__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #c5b7ae;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.earnings-company { color: #f5b9b1; }
+.earnings-quarter { margin-top: 76px; color: #d9a579; font-size: 8px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.earnings-lead h3 { position: relative; z-index: 2; max-width: 660px; margin: 13px 0 13px; color: #fff8f0; font: 500 clamp(29px,3.5vw,43px)/1.08 var(--serif); letter-spacing: -.035em; white-space: pre-line; }
+.earnings-lead p { position: relative; z-index: 2; max-width: 700px; margin: 0; color: #d1c4bc; font-size: 12px; line-height: 1.78; }
+.earnings-lead__footer { margin-top: auto; display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid rgba(255,241,229,.24); color: #bfb1a7; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.earnings-lead__footer b { color: #fff8f0; }
+.earnings-list { display: grid; gap: 0; border-top: 7px solid var(--ft-ink); }
+.earnings-item {
+  position: relative;
+  min-height: 214px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 15px;
+  padding: 22px 20px;
+  border-bottom: 1px solid var(--ft-ink);
+  background: rgba(255,250,245,.42);
+  transition: background .18s ease;
+}
+.earnings-item:hover { background: var(--ft-ivory); }
+.earnings-item__index { color: var(--red); font: 600 24px/1 var(--serif); }
+.earnings-item h3 { margin: 12px 0 9px; font: 600 21px/1.15 var(--serif); letter-spacing: -.025em; white-space: pre-line; }
+.earnings-item p { margin: 0; color: var(--ft-muted); font-size: 10px; line-height: 1.65; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.earnings-item__arrow { position: absolute; right: 18px; bottom: 16px; color: var(--red); font-size: 18px; }
+.earnings-placeholder { min-height: 214px; display: flex; flex-direction: column; justify-content: center; padding: 24px; color: var(--ft-muted); border-bottom: 1px solid var(--ft-ink); }
+.earnings-placeholder b { color: var(--green); font: 600 19px/1.2 var(--serif); }
+.earnings-placeholder span { margin-top: 8px; font-size: 10px; line-height: 1.65; }
+.earnings-rules { display: grid; grid-template-columns: 160px repeat(4,1fr); margin-top: 20px; border: 1px solid var(--ft-line-dark); }
+.earnings-rules__title { padding: 16px; color: var(--ft-paper); background: var(--red); font: 600 15px/1.25 var(--serif); }
+.earnings-rule { padding: 15px 14px; border-left: 1px solid var(--ft-line); background: rgba(255,250,245,.5); }
+.earnings-rule b { display: block; color: var(--green); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.earnings-rule span { display: block; margin-top: 6px; color: var(--ft-muted); font-size: 9px; line-height: 1.5; }
+
+.feature-main { background: #163d34; }
+.section--paper#featured { background: var(--ft-ivory); }
+.theme-card h3 { margin-top: 42px; }
+.article--earnings { background: #fbefea; border-top: 3px solid var(--red); }
+.article--earnings .article__tag,
+.article--earnings .article__footer { color: var(--red); }
+.ticker-kind { color: #e8a79e; font-size: 7px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+
+@media (max-width: 980px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .desk-board { min-height: 390px; }
+  .earnings-layout { grid-template-columns: 1fr; }
+  .earnings-list { grid-template-columns: 1fr 1fr; }
+  .earnings-item { min-height: 230px; }
+  .earnings-rules { grid-template-columns: 1fr 1fr; }
+  .earnings-rules__title { grid-column: 1 / -1; }
+  .earnings-rule:nth-child(even) { border-left: 0; }
+}
+
+@media (max-width: 660px) {
+  .desk-board { min-height: 0; }
+  .desk-board__body { grid-template-columns: 1fr; padding: 18px; }
+  .desk-channel { min-height: 165px; }
+  .desk-channel + .desk-channel { border-left: 1px solid rgba(255,241,229,.28); border-top: 0; }
+  .desk-channel h2 { margin-top: 22px; }
+  .earnings-section::before { display: none; }
+  .earnings-layout { gap: 15px; }
+  .earnings-lead { min-height: 430px; padding: 24px 20px; }
+  .earnings-lead::after { width: 110px; height: 110px; right: 16px; top: 75px; }
+  .earnings-quarter { margin-top: 58px; }
+  .earnings-lead h3 { font-size: 30px; }
+  .earnings-lead__footer { flex-direction: column; gap: 8px; }
+  .earnings-list { grid-template-columns: 1fr; }
+  .earnings-item { min-height: 210px; }
+  .earnings-rules { grid-template-columns: 1fr; }
+  .earnings-rules__title { grid-column: auto; }
+  .earnings-rule { border-left: 0; border-top: 1px solid var(--ft-line); }
+}
