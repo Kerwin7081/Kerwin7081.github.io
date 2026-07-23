@@ -26,6 +26,70 @@ jobs:
       - name: Checkout current main branch
         uses: actions/checkout@v4
 
+      - name: Normalize legacy pages and repair contrast
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          import os
+
+          root = Path('.')
+          css_path = root / 'assets' / 'kerwin-system-v2.css'
+
+          if css_path.exists():
+              css = css_path.read_text(encoding='utf-8')
+              replacements = {
+                  'body.kw-research>.page,body.kw-research .page{width:min(var(--kw-reading),calc(100% - 28px)) !important;max-width:var(--kw-reading) !important;margin:22px auto 56px !important;padding:0 !important;}': '',
+                  'body.kw-research h1,body.kw-research .title,body.kw-research .top-title,body.kw-research .hero-title{max-width:780px;color:var(--kw-ink) !important;font-size:clamp(32px,4.4vw,48px) !important;line-height:1.06 !important;letter-spacing:-.035em !important;}': '',
+                  'body.kw-research .section h2{color:var(--kw-ink) !important;font-size:clamp(24px,3vw,34px) !important;line-height:1.16 !important;letter-spacing:-.025em !important;}': '',
+                  'body.kw-research .section h3{color:#332d29 !important;letter-spacing:-.015em !important;}': '',
+                  'body.kw-research .section p,body.kw-research .section li{color:#433c37;}': '',
+                  'body.kw-research .card,body.kw-research .stat,body.kw-research .stat-cell,body.kw-research .path-item,body.kw-research .risk,body.kw-research .impact,body.kw-research .val,body.kw-research .source-list a,body.kw-research .evidence-card,body.kw-research .truth,body.kw-research .signal-card,body.kw-research .map-card,body.kw-research .info,body.kw-research .loop-box{background:rgba(255,255,255,.34) !important;border-color:var(--kw-line) !important;border-radius:1px !important;box-shadow:none !important;}': '',
+                  'body.kw-research .card:hover{background:rgba(255,255,255,.62) !important;transform:none !important;box-shadow:none !important;}': '',
+                  'body.kw-research>.page,body.kw-research .page,body.kw-research .page.kw-wide{width:calc(100% - 10px) !important;max-width:none !important;margin:7px auto 38px !important;}': '',
+                  'body.kw-research h1,body.kw-research .title,body.kw-research .top-title,body.kw-research .hero-title{font-size:clamp(29px,9vw,38px) !important;}': ''
+              }
+              for old, new in replacements.items():
+                  css = css.replace(old, new)
+
+              guard = '''
+              /* Sitewide contrast guard: preserve each article's own component colors. */
+              :where(body.kw-research .dark,body.kw-research .is-dark,body.kw-research .dark-panel,body.kw-research .dark-card,body.kw-research .hero-thesis,body.kw-research .rack,body.kw-research .signal-intro,body.kw-research .feature-main,body.kw-research .earnings-lead,body.kw-research .desk-board,body.kw-research .kw-enya-brand){color:#fffaf5;}
+              :where(body.kw-research .dark,body.kw-research .is-dark,body.kw-research .dark-panel,body.kw-research .dark-card,body.kw-research .hero-thesis,body.kw-research .rack,body.kw-research .signal-intro,body.kw-research .feature-main,body.kw-research .earnings-lead,body.kw-research .desk-board,body.kw-research .kw-enya-brand) :where(h1,h2,h3,h4,h5,h6,p,li,span,strong,b,small,em,a,dt,dd,label){color:inherit;}
+              html body [data-kw-contrast-fixed="true"]{color:#fffaf5 !important;}
+              '''
+              css += guard.replace('\n', '')
+              css_path.write_text(css, encoding='utf-8')
+
+          css_tag = '<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260723contrast2">'
+          js_tag = '<script src="/assets/kerwin-system-v2.js?v=20260723contrast2"></script>'
+
+          for html_path in root.rglob('*.html'):
+              if '.git' in html_path.parts or html_path == root / 'index.html':
+                  continue
+              text = html_path.read_text(encoding='utf-8', errors='ignore')
+              changed = False
+              if 'kerwin-system-v2.css' not in text and '</head>' in text:
+                  text = text.replace('</head>', css_tag + '\n</head>', 1)
+                  changed = True
+              if 'kerwin-system-v2.js' not in text and '</body>' in text:
+                  text = text.replace('</body>', js_tag + '\n</body>', 1)
+                  changed = True
+              if changed:
+                  html_path.write_text(text, encoding='utf-8')
+
+          (root / 'deployment-status.json').write_text(
+              json.dumps({
+                  'deployment': 'github-actions',
+                  'commit': os.environ.get('GITHUB_SHA', ''),
+                  'visual_system': 'ft-warm-paper-forest-green-2026-07',
+                  'contrast_repair': '2026-07-23-2'
+              }, ensure_ascii=False, indent=2),
+              encoding='utf-8'
+          )
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
