@@ -40,4 +40,4 @@ The `v2` filename is retained for backward compatibility; it does not represent 
 
 ## Deployment
 
-The site is deployed from the `main` branch through GitHub Pages Actions. A successful repository commit must still be verified at the custom domain before being described as live.
+The site is deployed natively by GitHub Pages from the `main` branch and repository root. The root `.nojekyll` file disables Jekyll processing, and `CNAME` binds the custom domain. Every deployment must be verified at the custom domain before being described as live.
