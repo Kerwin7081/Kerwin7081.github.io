@@ -1,0 +1,30 @@
+# Private/internal content-production workflows do not belong in the public site repository.
+kerwin-web/
+kerwin-web*.zip
+skills/
+.agents/
+.claude/
+internal/
+private/
+drafts/
+private-notes/
+SKILL.md
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# Local development artifacts
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+venv/
