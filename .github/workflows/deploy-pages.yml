@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,6 +27,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Apply exact native-page repair
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          article = Path('ineffable-superlearner-rubin-a5x-20260723/index.html')
+          text = article.read_text(encoding='utf-8')
+          conflicting_link = '<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">\n'
+          if conflicting_link in text:
+              article.write_text(text.replace(conflicting_link, '', 1), encoding='utf-8')
+
+          for temporary_file in [Path('404.html'), Path('ineffable-superlearner-rubin-a5x-20260723.html')]:
+              if temporary_file.exists():
+                  temporary_file.unlink()
+          PY
+
+      - name: Persist repaired native source
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Repair Ineffable native page and remove temporary fallbacks"
+            git push origin HEAD:main
+          fi
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
