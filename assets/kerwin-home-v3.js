@@ -54,6 +54,7 @@
   }
 
   var legacyPages = [
+    {slug:'google-ai-industry-use-cases-20260723',title:'谷歌电话会折射出的AI行业应用图谱\n从搜索、广告到金融、制药、机器人与空间智能的24个落地案例',date:'2026年7月23日',published_at:'2026-07-23T21:30:00+08:00',deck:'从Alphabet 2026 Q2电话会出发，以条目式结构拆解24个AI实际应用案例，并补充Google官方客户案例、商业价值与投资映射。',tag:'AI Application Casebook',category:'AI Industry Applications',source:'enya',homepage_approved:true},
     {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'黄金 ETF、royalty / streaming、铜矿周期、加息逆转，以及黄金和比特币作为美元体系压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
     {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 OpenClaw 实践出发，串联 NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例。',tag:'AI Research',source:'enya',homepage_approved:true},
     {slug:'us-estate-tax-hk-investor-guide',title:'香港投资人持有美股的遗产税盲区',date:'2026年6月2日',published_at:'2026-06-02T12:00:00+08:00',deck:'从美国 situs assets、Form 706-NA、40%阶梯税率到离岸架构，梳理香港投资人的关键风险。',tag:'客户教育',source:'enya',homepage_approved:true},
@@ -65,7 +66,7 @@
   ];
 
   var themes = [
-    {id:'ai',number:'01',name:'AI 系统与算力',short:'AI Systems',desc:'GPU、机架、电力、存储、光互联、Agent 与边缘计算。',test:/nvidia|英伟达|ai |agent|算力|机架|gpu|edge|光互联|存储|hbm|nand|ssd|semiconductor|芯片|半导体|rubin|colossus/i},
+    {id:'ai',number:'01',name:'AI 系统与算力',short:'AI Systems',desc:'GPU、机架、电力、存储、光互联、Agent、行业应用与边缘计算。',test:/nvidia|英伟达|alphabet|google|gemini|ai |agent|算力|机架|gpu|edge|光互联|存储|hbm|nand|ssd|semiconductor|芯片|半导体|rubin|colossus|应用图谱/i},
     {id:'digital',number:'02',name:'数字金融与市场结构',short:'Digital Finance',desc:'加密资产、RWA、支付、稳定币与新一代交易基础设施。',test:/hyperliquid|hype|rwa|支付|stripe|digital asset|fintech|永续|交易所|比特币|稳定币/i},
     {id:'macro',number:'03',name:'宏观与真实资产',short:'Macro & Assets',desc:'利率、美元、黄金、铜、政策机构与跨资产配置框架。',test:/宏观|美联储|黄金|铜|美元|利率|fed|royalty|estate tax|遗产税/i},
     {id:'companies',number:'04',name:'公司与战略研究',short:'Companies',desc:'围绕产业链地位、资本开支、商业模式和估值的公司专题。',test:/alphabet|google|tesla|spacex|stripe|韩国|korea|financial ai|银行|公司|equity|三星|海力士|台积电|美国ai半导体/i},
@@ -138,7 +139,7 @@
 
   function renderFeatured() {
     var researchPages = allPages.filter(function (p) { return !isEarnings(p); });
-    var priority = ['ai-memory-hbm-nand-cmx-20260722','china-open-model-global-token-value-chain-20260722','stablecoin-profit-war-dollar-treasury-20260719'];
+    var priority = ['google-ai-industry-use-cases-20260723','ai-memory-hbm-nand-cmx-20260722','china-open-model-global-token-value-chain-20260722'];
     var chosen = priority.map(function (slug) { return researchPages.find(function (p) { return p.slug === slug; }); }).filter(Boolean);
     researchPages.forEach(function (p) { if (chosen.length < 3 && chosen.indexOf(p) < 0) chosen.push(p); });
     var main = document.getElementById('feature-main');
@@ -226,7 +227,7 @@
 
   function quarterLabel(p) {
     var match = String(p.title || '').match(/(20\d{2})\s*Q([1-4])/i);
-    return match ? match[1] + ' · SECOND QUARTER EARNINGS' : 'EARNINGS & MANAGEMENT CALL';
+    return match ? match[1] + ' · QUARTER ' + match[2] + ' EARNINGS' : 'EARNINGS & MANAGEMENT CALL';
   }
 
   function href(p) { return p.source === 'codex' ? '/' + p.slug + '.html' : '/' + p.slug + '/'; }
