@@ -18,7 +18,10 @@
   <script>
     fetch('https://raw.githubusercontent.com/Kerwin7081/Kerwin7081.github.io/main/ineffable-superlearner-rubin-a5x-20260723/index.html', {cache:'no-store'})
       .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
-      .then(function(html){document.open();document.write(html);document.close();})
+      .then(function(html){
+        html = html.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/assets\/kerwin-system-v2\.css[^"']*["']\s*\/?>/i, '');
+        document.open();document.write(html);document.close();
+      })
       .catch(function(){document.getElementById('loader').innerHTML='<h1>专题暂时无法载入</h1><p><a href="https://github.com/Kerwin7081/Kerwin7081.github.io/blob/main/ineffable-superlearner-rubin-a5x-20260723/index.html">在GitHub查看原文</a> · <a href="/">返回研究首页</a></p>';});
   </script>
 </body>
