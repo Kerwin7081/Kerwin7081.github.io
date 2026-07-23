@@ -33,6 +33,7 @@
             return response.text();
           })
           .then(function (html) {
+            html = html.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/assets\/kerwin-system-v2\.css[^"']*["']\s*\/?>/i, '');
             document.open();
             document.write(html);
             document.close();
