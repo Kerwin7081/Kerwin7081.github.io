@@ -1,3 +1,5 @@
+# Canonical public-site deployment.
+# Internal content-production skills and private research workflows are not stored in this repository.
 name: Deploy EnyaClawd to GitHub Pages
 
 on:
@@ -21,6 +23,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v6
