@@ -1,0 +1,200 @@
+name: Apply offshore trust VIE update once
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/apply-offshore-trust-vie-update-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-page:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out public website
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Patch article, metadata and registry
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          import re
+
+          page_path = Path('offshore-trust-tax-china-ipo-20260724/index.html')
+          meta_path = Path('offshore-trust-tax-china-ipo-20260724/meta.json')
+          registry_path = Path('registry.json')
+          page = page_path.read_text(encoding='utf-8')
+
+          def replace_once(old: str, new: str, label: str) -> None:
+              global page
+              count = page.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected one match, found {count}')
+              page = page.replace(old, new, 1)
+
+          replace_once(
+              '<meta name="description" content="Kerwin Research跨境财富管理专题：先展示财政部、税务总局公告2026年第21号官方公文原文与官网链接，再分析离岸信托税务归属、红筹IPO尽调及香港财富管理影响。">',
+              '<meta name="description" content="Kerwin Research跨境财富管理专题：先展示第21号公告官方原文，再分析离岸信托税务归属、港股存量红筹与VIE架构、赴港IPO尽调及香港财富管理影响。">',
+              'meta description'
+          )
+          replace_once(
+              '<meta property="og:description" content="官方公文原文、完整官网链接、装入即税、未分配收益年度归属、被动实体穿透、90日补报及港股IPO新增合规链。">',
+              '<meta property="og:description" content="官方公文原文、港股存量红筹与VIE普遍性、装入即税、未分配收益年度归属、90日补报及IPO新增合规链。">',
+              'og description'
+          )
+          replace_once(
+              '<div class="scope">广义财富管理专题：从中国税收居民身份、离岸信托和红筹IPO合规，延伸至香港居民持有美国资产时的税务长臂管辖。</div>',
+              '<div class="scope">广义财富管理专题：从中国税收居民身份、离岸信托、港股存量红筹与VIE架构、赴港IPO合规，延伸至香港居民持有美国资产时的税务长臂管辖。</div>',
+              'scope'
+          )
+          replace_once(
+              '<div class="verdict"><b>一句话判断</b><p>对于仍属于中国税收居民的创始人和高净值人士，利用境外受托人、BVI或Cayman持股层及“不分配”安排实现长期个人所得税递延的主通道，已被系统性封堵。信托仍保留传承、治理和资产保护功能，税务递延不宜继续作为核心卖点。</p></div>',
+              '<div class="verdict"><b>一句话判断</b><p>对于仍属于中国税收居民的创始人和高净值人士，过去常见的说法包括：“信托没有分配给我，或者只分给我一点点”“财产都在信托里，已经不是我的”“我只是受益人，不是股东”“收益还留在BVI或Cayman，没有汇回中国”“受托人在境外，与我个人无关”。这些说法曾被用于主张个人尚未取得所得，从而长期递延中国个人所得税。第21号公告通过装入、年度归属、被动实体穿透和视同分配规则，已系统性封堵这一主要空间。信托仍保留传承、治理和资产保护功能，税务递延不宜继续作为核心卖点。</p></div>',
+              'hero verdict'
+          )
+          replace_once(
+              '<nav class="nav"><a href="#official">官方原文</a><a href="#verdicts">核心结论</a><a href="#greyzone">旧灰区</a><a href="#rules">规则地图</a><a href="#example">税负示例</a><a href="#ipo">IPO链条</a><a href="#blocker">上市障碍</a><a href="#wealth">财富管理</a><a href="#actions">行动清单</a><a href="#series">延伸专题</a><a href="#sources">来源</a></nav>',
+              '<nav class="nav"><a href="#official">官方原文</a><a href="#verdicts">核心结论</a><a href="#greyzone">旧灰区</a><a href="#stock">存量红筹/VIE</a><a href="#rules">规则地图</a><a href="#example">税负示例</a><a href="#ipo">IPO链条</a><a href="#blocker">上市障碍</a><a href="#wealth">财富管理</a><a href="#actions">行动清单</a><a href="#series">延伸专题</a><a href="#sources">来源</a></nav>',
+              'navigation'
+          )
+          replace_once(
+              '<div class="verdict-item wide"><span class="label unresolved">执行变量</span><h3>地方征管口径仍会决定具体成本</h3><p>估值方法、历史资料缺失、外国税收抵免、过往年度追征范围和分期缴税申请，仍需结合配套征管实践及个案沟通。</p></div>',
+              '<div class="verdict-item wide"><span class="label inference">市场广度</span><h3>这不是少数新IPO项目的问题，存量港股股东也会被重新检查</h3><p>港股市场中，中国内地企业及境外注册、由内地股东控制的非H股企业占据核心位置。新规直接作用于个人股东的信托和相关境外实体，存量架构在分红、减持、贷款、身份迁移、继承及控制权变化时同样会触发核查。</p></div>',
+              'fifth executive verdict'
+          )
+
+          stock_section = '''
+<section class="section" id="stock">
+  <div class="section-label">03 · THE EXISTING HONG KONG STOCK UNIVERSE</div><h2>这不是少数家族的特殊问题：港股存量红筹与VIE具有广泛连接</h2>
+  <p class="intro">香港交易所的统计先说明市场广度。2025年底，内地企业占香港上市公司数量的58%、总市值的79%；2025年新上市公司中，内地企业占92%，相关IPO募资占全市场的85%。这组数据不等于每一家都采用离岸信托或VIE，但说明中国股东、境外注册发行人和跨境持股安排并非边缘现象。</p>
+  <div class="rule-grid">
+    <div class="rule-card"><div class="num">1,552</div><h3>内地企业上市公司</h3><p>占2025年底香港上市公司总数58%。HKEX口径同时包括H股与非H股内地企业。</p></div>
+    <div class="rule-card"><div class="num">79%</div><h3>香港市场总市值占比</h3><p>内地企业总市值约37.58万亿港元，是香港股票市场的主体。</p></div>
+    <div class="rule-card"><div class="num">33</div><h3>新上市非H股内地企业</h3><p>2025年109家内地企业新上市，其中33家注册于中国内地之外，由内地政府实体或个人控制。</p></div>
+  </div>
+  <div class="callout"><b>统计边界：</b>HKEX所称“非H股内地企业”，是注册在中国内地以外、由内地政府实体或个人控制的企业，过去分别常称红筹公司或内地民营企业。该分类说明离岸注册发行人的普遍性，但不能据此推断每一家都存在VIE或创始人信托。</div>
+  <div class="two-col">
+    <div class="panel"><h3>红筹或Cayman架构是什么</h3><p>它是资本与法律持股层。上市主体通常注册在Cayman等境外司法辖区，通过BVI或香港公司持有中国境内业务。创始人家族信托可能位于最上层，但不是每个红筹发行人都设有信托。</p><ul><li>解决境外融资、员工激励及上市主体安排。</li><li>股息、减持和回购首先发生在境外证券及持股层。</li><li>第21号公告重点追踪个人如何装入、控制及享有这些境外权益。</li></ul></div>
+    <div class="panel red"><h3>VIE是什么，与红筹并非同义</h3><p>VIE是境外上市集团通过一组合同控制境内运营公司的机制，常见于外资准入受限行业。红筹发行人可以直接股权控制境内子公司，也可以在部分业务使用VIE。</p><ul><li>VIE本身不是这次个人所得税公告的直接征税对象。</li><li>它增加了WFOE、境内运营公司和登记股东等控制关系。</li><li>当创始人信托、BVI、Cayman发行人和VIE叠加时，所得归属和实际控制证据链更长。</li></ul></div>
+  </div>
+  <div class="chain">
+    <div class="chain-node"><b>创始人或家族</b><span>中国税收居民身份、实际出资及经济利益</span></div>
+    <div class="chain-node"><b>离岸信托</b><span>委托人、受益人、保护人和受托人权利</span></div>
+    <div class="chain-node"><b>BVI持股公司</b><span>股息接收、股份减持、质押及资金留存</span></div>
+    <div class="chain-node"><b>Cayman发行人</b><span>香港上市股份、回购、配售及控制权</span></div>
+    <div class="chain-node"><b>香港公司或WFOE</b><span>直接持股或合同控制境内业务</span></div>
+    <div class="chain-node"><b>境内业务或VIE</b><span>经营资产、牌照、现金流与登记股东</span></div>
+  </div>
+  <h3>为什么存量上市公司也要重新检查</h3>
+  <div class="table-wrap"><table><thead><tr><th>存量事件</th><th>可能重新暴露的税务问题</th><th>财富管理及资本市场后果</th></tr></thead><tbody>
+    <tr><td>上市公司分红、创始人减持、配售或回购</td><td>信托或BVI/Cayman实体已经实现收益，即使未向个人正式分配，也可能发生年度归属。</td><td>需要重建成本、收益及境外税款，安排个人税款流动性。</td></tr>
+    <tr><td>信托贷款、担保、代付学费生活费或低价使用资产</td><td>“没有正式分钱”不再足够，实际经济利益可能被视同分配。</td><td>私人银行、受托人和客户经理需要持续识别个人用途。</td></tr>
+    <tr><td>股份质押、控制权变更、并购、私有化或退市</td><td>信托持股权属、实际控制和潜在欠税可能进入交易尽调。</td><td>可能影响清洁法律意见、交易对价、赔偿条款及交割安排。</td></tr>
+    <tr><td>移民、税收居民身份变化、死亡或家族承继</td><td>未税增值结清、受益权变化及历史收益申报会集中出现。</td><td>身份规划必须与信托账簿、遗产安排和税款融资同步。</td></tr>
+  </tbody></table></div>
+  <div class="callout copper"><b>Kerwin判断：</b>VIE合同并没有因为第21号公告而失效，红筹公司也不会因此自动改变上市地位。变化发生在最上层个人股东和家族信托：过去能够停留在“法律所有权属于受托人、收益没有分给个人”的问题，现在被改写为“谁装入、谁控制、谁受益、相关境外实体赚了什么、个人实际拿到了什么经济利益”。</div>
+</section>
+'''
+          marker = '<section class="section" id="rules">'
+          if page.count(marker) != 1:
+              raise SystemExit('rules insertion marker mismatch')
+          page = page.replace(marker, stock_section + '\n' + marker, 1)
+
+          for old, new, label in [
+              ('03 · THE NEW ATTRIBUTION MAP', '04 · THE NEW ATTRIBUTION MAP', 'rules number'),
+              ('04 · CASHLESS TAX LIABILITY', '05 · CASHLESS TAX LIABILITY', 'example number'),
+              ('05 · HONG KONG IPO COMPLIANCE CHAIN', '06 · HONG KONG IPO COMPLIANCE CHAIN', 'ipo number'),
+              ('06 · MANAGEABLE ISSUE OR HARD BLOCKER', '07 · MANAGEABLE ISSUE OR HARD BLOCKER', 'blocker number'),
+              ('07 · WEALTH MANAGEMENT RESET', '08 · WEALTH MANAGEMENT RESET', 'wealth number'),
+              ('08 · 90-DAY RESPONSE PLAN', '09 · 90-DAY RESPONSE PLAN', 'actions number'),
+              ('09 · CROSS-BORDER WEALTH MANAGEMENT SERIES', '10 · CROSS-BORDER WEALTH MANAGEMENT SERIES', 'series number'),
+              ('10 · SOURCES & BOUNDARIES', '11 · SOURCES & BOUNDARIES', 'sources number'),
+          ]:
+              replace_once(old, new, label)
+
+          replace_once(
+              '<div class="two-col"><div class="panel red"><h3>应当停止的旧卖点</h3><ul><li>不分配即可长期不缴中国个人所得税。</li><li>不可撤销信托天然与委托人税务分离。</li><li>增加一层BVI即可阻断所得归属。</li><li>取得外国护照即可自动退出中国税务。</li><li>通过贷款和报销代替分配即可规避纳税。</li></ul></div><div class="panel"><h3>仍然成立的长期价值</h3><ul><li>代际传承与分配纪律。</li><li>企业控制权和家族治理。</li><li>跨境遗产及认证程序安排。</li><li>未成年及特殊需要受益人保护。</li><li>婚姻、债权与家族成员风险隔离。</li></ul></div></div>',
+              '<div class="two-col"><div class="panel red"><h3>过去常见的客户说法或销售话术</h3><ul><li>“信托没有分配给我，税就与我无关。”</li><li>“财产已经放进信托，法律上不再是我的。”</li><li>“我只是受益人，不是股东，也没有控制公司。”</li><li>“钱都留在BVI或Cayman，没有汇回中国。”</li><li>“受托人在境外，信托所得不能算到我头上。”</li><li>“用信托贷款、代付学费或生活费，不算正式分配。”</li><li>“我有外国护照或香港永居，已经不是中国税收居民。”</li></ul></div><div class="panel"><h3>新规下需要改写的合规口径</h3><ul><li>信托是否正式分钱，不再是年度纳税归属的唯一判断。</li><li>法律所有权交给受托人，不等于税务所得归属自动消失。</li><li>“只是受益人”仍意味着需要识别受益权、控制权和实际经济利益。</li><li>收益是否汇回中国，不改变居民个人全球所得的基本逻辑。</li><li>BVI或Cayman层数不能替代真实经营实质和完整账簿。</li><li>贷款、担保、代付费用和低价使用资产可能构成视同分配。</li><li>外国身份需要结合住所、居住、家庭、经营和主要经济利益综合判断。</li></ul></div></div><div class="callout"><b>仍然可以成立的价值主张：</b>离岸信托继续服务于代际传承、企业控制权、家族治理、跨境遗产程序、未成年或特殊需要受益人保护，以及婚姻和债权风险隔离。今后的专业价值来自长期治理和合规管理，而不是一句“信托没有分给我”。</div>',
+              'wealth marketing language'
+          )
+
+          replace_once(
+              '<a href="https://www.hkex.com.hk/-/media/HKEX-Market/Listing/Rules-and-Guidance/Interpretation-and-Guidance/Guide-for-New-Listing-Applicants/chapter_6.pdf" target="_blank" rel="noopener">HKEX：Guide for New Listing Applicants, Chapter 6</a>',
+              '<a href="https://www.hkex.com.hk/-/media/HKEX-Market/Listing/Rules-and-Guidance/Interpretation-and-Guidance/Guide-for-New-Listing-Applicants/chapter_6.pdf" target="_blank" rel="noopener">HKEX：Guide for New Listing Applicants, Chapter 6</a>\n    <a href="https://www.hkex.com.hk/-/media/HKEX-Market/Market-Data/Statistics/Consolidated-Reports/Annual-Market-Statistics/2025FY-Annual-Market-Stat_Eng.pdf" target="_blank" rel="noopener">HKEX：2025 Annual Market Statistics，支持内地企业数量、市值、新上市及募资占比</a>\n    <a href="https://www.hkex.com.hk/Global/Exchange/FAQ/Getting-Started/Overview-of-the-listed-market?sc_lang=en" target="_blank" rel="noopener">HKEX：Overview of the Listed Market，支持非H股内地企业定义</a>\n    <a href="https://en-rules.hkex.com.hk/rulebook/18-other-topics" target="_blank" rel="noopener">HKEX Rulebook：Contractual Arrangements / VIE guidance</a>',
+              'HKEX sources'
+          )
+          replace_once(
+              '<footer class="footer"><strong>KERWIN RESEARCH HUB</strong><br>把复杂世界，整理成一张投资地图。<div class="brandline">由Enya自动化跟踪并排版呈现，Enya为香港首个OpenClaw架构打造的女性投顾Agent。<br>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版。本文仅用于研究与信息交流，不构成投资建议。</div><div class="counter">阅读计数：<b id="counter-num">·</b></div></footer>',
+              '<footer class="footer"><strong>KERWIN RESEARCH HUB</strong><br>把复杂世界，整理成一张投资地图。<div class="brandline">由Enya自动化跟踪并排版呈现。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。<br>Kerwin：确定研究主题、投资逻辑与最终校对。Enya：组织证据、可视化呈现与持续维护。<br>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版。本文仅用于研究与信息交流，不构成投资建议。</div><div class="counter">阅读计数：<b id="counter-num">·</b></div></footer>',
+              'canonical footer identity'
+          )
+
+          page_path.write_text(page, encoding='utf-8')
+
+          meta = json.loads(meta_path.read_text(encoding='utf-8'))
+          meta.update({
+              'title': '离岸信托税务穿透时代\n第21号公告、港股存量红筹与VIE如何重写财富管理',
+              'deck': '从官方第21号公告出发，拆解“信托没有分配给我”“财产都在信托里”“我只是受益人”等旧有说法为何失效，并结合HKEX 2025统计说明港股存量红筹、Cayman/BVI持股层与VIE架构的广泛联系，以及对存量股东、赴港IPO尽调和跨境财富管理的影响。',
+              'updated_at': '2026-07-24T23:40:00+08:00'
+          })
+          meta_path.write_text(json.dumps(meta, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+          registry = json.loads(registry_path.read_text(encoding='utf-8'))
+          matches = [item for item in registry if item.get('slug') == meta['slug']]
+          if len(matches) != 1:
+              raise SystemExit(f'registry slug expected once, found {len(matches)}')
+          matches[0].update({
+              'title': meta['title'],
+              'deck': meta['deck'],
+              'updated_at': meta['updated_at'],
+              'tag': meta['tag'],
+              'category': meta['category'],
+              'homepage_approved': True
+          })
+          registry_path.write_text(json.dumps(registry, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+          # Page-specific audit aligned with Kerwin Web v3.3.0 quality gates.
+          html = page_path.read_text(encoding='utf-8')
+          required = [
+              '<title', 'name="viewport"', 'name="description"',
+              '输入 “k” 即可显示', 'Enya：香港首个由 OpenClaw 打造的女性投顾 Agent',
+              '底层模型：GPT 5.6 Sol 及 Claude Fable 付费版', 'href="/"',
+              '不构成投资建议', 'id="stock"', '2025 Annual Market Statistics',
+              '/us-estate-tax-hk-investor-guide/'
+          ]
+          missing = [token for token in required if token not in html]
+          if missing:
+              raise SystemExit('audit missing: ' + ', '.join(missing))
+          if 'kerwin-system-v2.css' in html or 'kerwin-system-v2.js' in html:
+              raise SystemExit('article must remain self-contained and not attach frozen v2 assets')
+          if '<style' not in html or '</style>' not in html:
+              raise SystemExit('self-contained CSS missing')
+          if 'overflow-x:hidden' not in html or 'table-wrap' not in html:
+              raise SystemExit('mobile overflow protection missing')
+          if html.count('id="stock"') != 1:
+              raise SystemExit('stock section duplicate')
+          if len(re.findall(r'<a\b', re.search(r'<section class="section series".*?</section>', html, re.S).group(0))) > 3:
+              raise SystemExit('related research exceeds three links')
+          if meta.get('published_at') is None or meta.get('updated_at') is None:
+              raise SystemExit('dated metadata incomplete')
+          print('PASS: page identity, sources, navigation, mobile containment, metadata and related path')
+
+          Path('.github/workflows/apply-offshore-trust-vie-update-once.yml').unlink()
+          PY
+
+      - name: Commit audited content update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add offshore-trust-tax-china-ipo-20260724/index.html offshore-trust-tax-china-ipo-20260724/meta.json registry.json .github/workflows/apply-offshore-trust-vie-update-once.yml
+          git commit -m "expand offshore trust report with Hong Kong red-chip and VIE exposure"
+          git push origin HEAD:main
