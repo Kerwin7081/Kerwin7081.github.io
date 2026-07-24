@@ -1,0 +1,134 @@
+name: One-time Nokia Q2 editorial revision
+
+on:
+  push:
+    branches:
+      - revise/nokia-q2-2026-quality-20260724
+    paths:
+      - ".github/workflows/revise-nokia-q2-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  revise:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out isolated revision branch
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Apply exact article and metadata revisions
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          article = Path('nokia-q2-2026-earnings-call-20260724/index.html')
+          text = article.read_text(encoding='utf-8')
+
+          def replace_once(old: str, new: str, label: str) -> None:
+              global text
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected one match, found {count}')
+              text = text.replace(old, new, 1)
+
+          replace_once(
+              '<nav class="nav" aria-label="页面导航"><a href="#verdicts">结论</a><a href="#method">研究起点</a><a href="#results">财务质量</a><a href="#orders">订单质量</a><a href="#optical">光网络</a><a href="#ip">IP交换</a><a href="#airan">AI-RAN</a><a href="#cash">现金流</a><a href="#market">市场反应</a><a href="#mapping">产业映射</a><a href="#signals">信号灯</a><a href="#monitor">监测</a><a href="#sources">来源</a></nav>',
+              '<nav class="nav" aria-label="页面导航"><a href="#verdicts">核心结论</a><a href="#results">财务与订单</a><a href="#optical">Optical / IP</a><a href="#airan">AI-RAN</a><a href="#cash">现金流与市场</a><a href="#mapping">产业映射</a><a href="#monitor">监测与来源</a></nav>',
+              'navigation compression'
+          )
+
+          replace_once(
+              '.market-strip{display:grid;grid-template-columns:1fr 1fr;background:#251f1b;color:#f7eee7;margin:18px 0}.market-cell{padding:19px;border-right:1px solid rgba(255,255,255,.22)}.market-cell:last-child{border-right:0}.market-cell strong{display:block;font-family:Georgia,serif;font-size:29px;color:#fff}.market-cell span{font-size:11px;color:#d9cbc0}.source-list{border-top:1px solid var(--rule)}.source{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--rule)}.source-num{display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:900}.source a{font-weight:800;font-size:13px;word-break:break-word}.source small{display:block;font-size:11px;color:var(--muted);line-height:1.55;margin-top:3px}.related{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:16px}.related a{padding:15px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;font-family:Georgia,"Songti SC",serif;font-weight:700;line-height:1.45;background:#fff}',
+              '.market-strip{display:grid;grid-template-columns:1fr 1fr;background:#251f1b;color:#f7eee7;margin:18px 0}.market-cell{padding:19px;border-right:1px solid rgba(255,255,255,.22)}.market-cell:last-child{border-right:0}.market-cell strong{display:block;font-family:Georgia,serif;font-size:29px;color:#fff}.market-cell span{font-size:11px;color:#d9cbc0}.funnel{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:18px;background:#fff}.funnel-step{position:relative;min-height:132px;padding:16px 14px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}.funnel-step b{display:block;font-family:Georgia,"Songti SC",serif;font-size:16px;color:var(--green)}.funnel-step strong{display:block;margin-top:7px;font-family:Georgia,serif;font-size:24px;color:var(--ink)}.funnel-step span{display:block;margin-top:7px;font-size:10px;line-height:1.55;color:var(--muted)}.funnel-step:not(:last-child):after{content:"→";position:absolute;right:-9px;top:48px;z-index:2;width:18px;height:18px;display:grid;place-items:center;color:var(--copper);background:var(--ivory);font-weight:900}.valuation-note{margin-top:12px;font-size:12px;color:var(--muted)}.source-list{border-top:1px solid var(--rule)}.source{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--rule)}.source-num{display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:900}.source a{font-weight:800;font-size:13px;word-break:break-word}.source small{display:block;font-size:11px;color:var(--muted);line-height:1.55;margin-top:3px}.related{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule);margin-top:16px}.related a{padding:16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);text-decoration:none;background:#fff}.related-kicker{display:block;font-size:9px;letter-spacing:.12em;font-weight:900;color:var(--copper);text-transform:uppercase}.related-title{display:block;margin-top:7px;font-family:Georgia,"Songti SC",serif;font-size:16px;font-weight:700;line-height:1.4;color:var(--green)}.related-desc{display:block;margin-top:7px;font-size:11px;line-height:1.6;color:var(--muted)}',
+              'new visual components'
+          )
+
+          replace_once(
+              '@media(max-width:700px){.page{padding:0 4px;margin-top:7px}.site-route{padding-left:10px}.masthead,.hero,.section,.enya,.disclaimer,.footer{padding-left:18px;padding-right:18px}.mast-grid{grid-template-columns:1fr}.issue{text-align:left}.masthead h1{font-size:30px}.hero h2{font-size:29px}.hero .lead{font-size:15px}.key-stats{grid-template-columns:1fr 1fr}.verdict-grid,.split,.scenarios,.related{grid-template-columns:1fr}.verdict-item.wide{grid-column:auto}.method-chain{grid-template-columns:1fr}.method-node{min-height:auto;border-right:0;border-bottom:1px solid var(--green)}.method-node:last-child{border-bottom:0}.flow-node{grid-template-columns:1fr;gap:4px}.signal-board{grid-template-columns:1fr}.signal-col{border-right:0;border-bottom:1px solid var(--rule)}.signal-col:last-child{border-bottom:0}.market-strip{grid-template-columns:1fr}.market-cell{border-right:0;border-bottom:1px solid rgba(255,255,255,.22)}.market-cell:last-child{border-bottom:0}.related a{border-right:1px solid var(--rule)}}',
+              '@media(max-width:700px){.page{padding:0 4px;margin-top:7px}.site-route{padding-left:10px}.masthead,.hero,.section,.enya,.disclaimer,.footer{padding-left:18px;padding-right:18px}.mast-grid{grid-template-columns:1fr}.issue{text-align:left}.masthead h1{font-size:30px}.hero h2{font-size:29px}.hero .lead{font-size:15px}.key-stats{grid-template-columns:1fr 1fr}.verdict-grid,.split,.scenarios,.related,.funnel{grid-template-columns:1fr}.verdict-item.wide{grid-column:auto}.method-chain{grid-template-columns:1fr}.method-node{min-height:auto;border-right:0;border-bottom:1px solid var(--green)}.method-node:last-child{border-bottom:0}.flow-node{grid-template-columns:1fr;gap:4px}.signal-board{grid-template-columns:1fr}.signal-col{border-right:0;border-bottom:1px solid var(--rule)}.signal-col:last-child{border-bottom:0}.market-strip{grid-template-columns:1fr}.market-cell{border-right:0;border-bottom:1px solid rgba(255,255,255,.22)}.market-cell:last-child{border-bottom:0}.funnel-step{min-height:auto}.funnel-step:not(:last-child):after{content:"↓";right:calc(50% - 9px);top:auto;bottom:-10px}.related a{border-right:1px solid var(--rule)}}',
+              'mobile funnel layout'
+          )
+
+          replace_once(
+              '<div class="key-stat"><strong>−€732M</strong><span>Q2自由现金流<br>增长尚未转为现金</span></div></div></section>',
+              '<div class="key-stat"><strong>−€732M</strong><span>Q2自由现金流<br>增长尚未转为现金</span></div></div><div class="funnel" aria-label="订单到自由现金流传导"><div class="funnel-step"><b>订单确认</b><strong>€2.8B</strong><span>证明需求进入多年采购与产能锁定阶段。</span></div><div class="funnel-step"><b>未来12个月收入</b><strong>约€1.4B</strong><span>按管理层约50%的转化口径计算，并非全部立即确认。</span></div><div class="funnel-step"><b>经营利润</b><strong>取决于组合</strong><span>Optical规模效应、IP早期毛利率和交付效率共同决定。</span></div><div class="funnel-step"><b>自由现金流</b><strong>−€732M</strong><span>库存、应收、扩产及重组使订单尚未转化为股东现金。</span></div></div></section>',
+              'order-to-cash funnel'
+          )
+
+          replace_once(
+              '<h3>光网络负责规模，IP负责增量</h3>',
+              '<h3>当前光网络贡献主要规模，IP交换贡献新增设计胜出</h3>',
+              'verdict precision'
+          )
+
+          replace_once(
+              '<div class="callout"><b>证据规则：</b>财报、官方演示材料和管理层电话会原话列为A级证据；公司披露的未来性能与时间表列为管理层自报；产业链与市场定价解释列为Kerwin推断；未得到公司确认的供应商关系不写成事实。</div><div class="flow">',
+              '<div class="callout"><b>证据规则：</b>财报、官方演示材料和管理层电话会原话列为A级证据；公司披露的未来性能与时间表列为管理层自报；产业链与市场定价解释列为Kerwin推断；未得到公司确认的供应商关系不写成事实。</div><h3>Q1到Q2：投资问题已经变化</h3><div class="table-wrap"><table><thead><tr><th>指标</th><th>Q1 2026</th><th>Q2 2026</th><th>投资含义</th></tr></thead><tbody><tr><td>AI与云订单</td><td>€1.0B</td><td>€2.8B</td><td>需求明显加速，但大单具有季度波动性</td></tr><tr><td>AI与云销售增长</td><td>+49%</td><td>+105%</td><td>增长从验证阶段进入收入加速阶段</td></tr><tr><td>核心问题</td><td>客户是否采购</td><td>能否交付并转化现金</td><td>估值观察从需求验证转向供给、利润和FCF</td></tr></tbody></table></div><div class="flow">',
+              'quarter acceleration comparison'
+          )
+
+          replace_once(
+              '<h2>光网络是当前增长主引擎，InP产能决定上限</h2>',
+              '<h2>光网络是当前增长主引擎，InP、存储器与测试封装共同决定交付上限</h2>',
+              'optical constraint precision'
+          )
+
+          replace_once(
+              'IP Networks销售额6.79亿欧元，恒定汇率增长16%。',
+              'IP Networks销售额4.90亿欧元，恒定汇率增长16%。',
+              'IP Networks revenue correction'
+          )
+
+          replace_once(
+              '<section class="section" id="signals"><div class="section-label">11 · SIGNAL LIGHTS & FALSIFICATION</div>',
+              '<section class="section" id="valuation"><div class="section-label">11 · VALUATION FRAMEWORK</div><h2>不急于给单一目标价，先判断再评级需要什么</h2><div class="table-wrap"><table><thead><tr><th>估值维度</th><th>当前观察口径</th><th>再评级条件</th><th>去评级条件</th></tr></thead><tbody><tr><td>经营利润</td><td>2026年可比经营利润€2.1B至€2.6B，管理层定位略高于中点</td><td>Network Infrastructure利润率持续提升</td><td>产品组合或成本压力使利润率回落</td></tr><tr><td>现金流</td><td>FCF转化率指引55%至75%，当前倾向低端</td><td>库存与应收释放，Q4现金流明显修复</td><td>持续靠近或跌破55%下限</td></tr><tr><td>业务质量</td><td>AI与云订单和销售高速增长，但客户较集中</td><td>客户扩展、订单取消率低、收入转化稳定</td><td>大单延期、客户削减资本开支或集中度恶化</td></tr><tr><td>战略选择权</td><td>AI-RAN仍处试点与路线图阶段</td><td>试点转商用并披露TCO、功耗和收入证据</td><td>验证节点推迟或研发回报不足</td></tr></tbody></table></div><p class="valuation-note">估值结论必须与兑现路径绑定：技术受益、订单受益、收入受益、利润受益和估值受益不能合并为同一个判断。</p></section><section class="section" id="signals"><div class="section-label">12 · SIGNAL LIGHTS & FALSIFICATION</div>',
+              'valuation framework'
+          )
+
+          replace_once(
+              'Network Infrastructure毛利率提高240个基点。',
+              'Network Infrastructure毛利率提高170个基点，经营利润率提高240个基点。',
+              'NI margin basis-point correction'
+          )
+
+          replace_once('<div class="section-label">12 · 12–18 MONTH SCENARIOS</div>', '<div class="section-label">13 · 12–18 MONTH SCENARIOS</div>', 'scenario renumbering')
+          replace_once('<div class="section-label">13 · MONITORING DASHBOARD</div>', '<div class="section-label">14 · MONITORING DASHBOARD</div>', 'monitor renumbering')
+          replace_once('<div class="section-label">14 · PRIMARY SOURCES</div>', '<div class="section-label">15 · PRIMARY SOURCES</div>', 'source renumbering')
+
+          replace_once(
+              '电话会转录属于辅助来源，出现冲突时以官方财报和演示材料为准。PDF页面截图工具在本次研究中出现技术错误，因此图表数据采用官方PDF解析文本交叉核对。',
+              '电话会转录属于辅助来源，出现冲突时以官方财报和演示材料为准。图表及数据依据诺基亚官方财报、演示材料和电话会内容交叉核对。',
+              'remove internal tooling note'
+          )
+
+          replace_once(
+              '<h3>相关研究</h3><div class="related"><a href="/ai-optical-interconnect-industry-chain-20260627/">AI光互联产业链全景</a><a href="/nvidia-edge-ai-ran-6g/">AI-RAN与6G边缘网络</a><a href="/ineffable-superlearner-rubin-a5x-20260723/">Rubin A5X与下一代AI基础设施</a></div>',
+              '<h3>下一条研究路径</h3><div class="related"><a href="/ineffable-superlearner-rubin-a5x-20260723/"><span class="related-kicker">需求源头</span><span class="related-title">Rubin A5X与下一代AI基础设施</span><span class="related-desc">理解AI Factory为何需要更多跨机架、跨园区和跨数据中心网络。</span></a><a href="/ai-optical-interconnect-industry-chain-20260627/"><span class="related-kicker">近端产业链</span><span class="related-title">AI光互联产业链全景</span><span class="related-desc">沿Optical、DSP、InP、光模块和CPO继续追踪价值传导。</span></a><a href="/nvidia-edge-ai-ran-6g/"><span class="related-kicker">长期选择权</span><span class="related-title">AI-RAN与6G边缘网络</span><span class="related-desc">理解诺基亚与NVIDIA合作如何改变RAN的软件与硅片经济学。</span></a></div>',
+              'related research path'
+          )
+
+          article.write_text(text, encoding='utf-8')
+
+          meta_path = Path('nokia-q2-2026-earnings-call-20260724/meta.json')
+          meta = json.loads(meta_path.read_text(encoding='utf-8'))
+          meta['published_at'] = '2026-07-24T20:30:00+08:00'
+          meta['updated_at'] = '2026-07-24T21:30:00+08:00'
+          meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          Path('.github/workflows/revise-nokia-q2-once.yml').unlink()
+          PY
+
+      - name: Commit revised article only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Refine Nokia Q2 research content and presentation"
+          git push origin HEAD:revise/nokia-q2-2026-quality-20260724
