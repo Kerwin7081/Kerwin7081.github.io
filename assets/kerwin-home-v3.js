@@ -54,6 +54,7 @@
   }
 
   var legacyPages = [
+    {slug:'offshore-trust-tax-china-ipo-20260724',title:'离岸信托税务穿透时代\n第21号公告如何重写红筹IPO与财富管理',date:'2026年7月24日',published_at:'2026-07-24T17:45:00+08:00',deck:'第21号公告将离岸信托的税务连接点从境外受托人的法律身份，转向实际出资、控制、经济利益与中国税收居民身份；拆解装入即税、未分配年度归属、被动实体穿透、90日补报窗口及港股IPO尽调影响。',tag:'Cross-border Tax & IPO Compliance',category:'Wealth Management & Capital Markets',source:'enya',homepage_approved:true},
     {slug:'shadow-of-leverage-ai-gold-liquidation-20260724',title:'杠杆的影子\n从黄金闪崩到全球AI资产的24小时清算链',date:'2026年7月24日',published_at:'2026-07-24T12:20:00+08:00',deck:'复盘2026年2月黄金闪崩与7月全球科技资产回撤，拆解韩国融资盘、美国杠杆交易、日本高贝塔、中国局部去杠杆、美元、利率、黄金与国债的跨资产清算链。',tag:'Macro & Market Structure Research',category:'Macro & Market Structure Research',source:'enya',homepage_approved:true},
     {slug:'google-ai-industry-use-cases-20260723',title:'谷歌电话会折射出的AI行业应用图谱\n从搜索、广告到金融、制药、机器人与空间智能的24个落地案例',date:'2026年7月23日',published_at:'2026-07-23T21:30:00+08:00',deck:'从Alphabet 2026 Q2电话会出发，以条目式结构拆解24个AI实际应用案例，并补充Google官方客户案例、商业价值与投资映射。',tag:'AI Application Casebook',category:'AI Industry Applications',source:'enya',homepage_approved:true},
     {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'黄金 ETF、royalty / streaming、铜矿周期、加息逆转，以及黄金和比特币作为美元体系压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
@@ -69,7 +70,7 @@
   var themes = [
     {id:'ai',number:'01',name:'AI 系统与算力',short:'AI Systems',desc:'GPU、机架、电力、存储、光互联、Agent、行业应用与边缘计算。',test:/nvidia|英伟达|alphabet|google|gemini|ai |agent|算力|机架|gpu|edge|光互联|存储|hbm|nand|ssd|semiconductor|芯片|半导体|rubin|colossus|应用图谱/i},
     {id:'digital',number:'02',name:'数字金融与市场结构',short:'Digital Finance',desc:'加密资产、RWA、支付、稳定币与新一代交易基础设施。',test:/hyperliquid|hype|rwa|支付|stripe|digital asset|fintech|永续|交易所|比特币|稳定币/i},
-    {id:'macro',number:'03',name:'宏观与真实资产',short:'Macro & Assets',desc:'利率、美元、黄金、铜、政策机构与跨资产配置框架。',test:/宏观|美联储|黄金|铜|美元|利率|fed|royalty|estate tax|遗产税/i},
+    {id:'macro',number:'03',name:'宏观与真实资产',short:'Macro & Assets',desc:'利率、美元、黄金、铜、政策机构、税务与跨资产配置框架。',test:/宏观|美联储|黄金|铜|美元|利率|fed|royalty|estate tax|遗产税|离岸信托|税务|trust|ipo compliance/i},
     {id:'companies',number:'04',name:'公司与战略研究',short:'Companies',desc:'围绕产业链地位、资本开支、商业模式和估值的公司专题。',test:/alphabet|google|tesla|spacex|stripe|韩国|korea|financial ai|银行|公司|equity|三星|海力士|台积电|美国ai半导体/i},
     {id:'explore',number:'05',name:'实验与客户教育',short:'Explorations',desc:'把复杂概念变成地图、互动实验、科普工具和客户沟通素材。',test:/科普|互动|游戏|太阳系|警钟|案件|客户教育|block world|casefiles/i}
   ];
@@ -140,7 +141,7 @@
 
   function renderFeatured() {
     var researchPages = allPages.filter(function (p) { return !isEarnings(p); });
-    var priority = ['shadow-of-leverage-ai-gold-liquidation-20260724','ai-memory-hbm-nand-cmx-20260722','google-ai-industry-use-cases-20260723'];
+    var priority = ['offshore-trust-tax-china-ipo-20260724','shadow-of-leverage-ai-gold-liquidation-20260724','ai-memory-hbm-nand-cmx-20260722'];
     var chosen = priority.map(function (slug) { return researchPages.find(function (p) { return p.slug === slug; }); }).filter(Boolean);
     researchPages.forEach(function (p) { if (chosen.length < 3 && chosen.indexOf(p) < 0) chosen.push(p); });
     var main = document.getElementById('feature-main');
