@@ -54,6 +54,7 @@
   }
 
   var legacyPages = [
+    {slug:'shadow-of-leverage-ai-gold-liquidation-20260724',title:'杠杆的影子\n从黄金闪崩到全球AI资产的24小时清算链',date:'2026年7月24日',published_at:'2026-07-24T12:20:00+08:00',deck:'复盘2026年2月黄金闪崩与7月全球科技资产回撤，拆解韩国融资盘、美国杠杆交易、日本高贝塔、中国局部去杠杆、美元、利率、黄金与国债的跨资产清算链。',tag:'Macro & Market Structure Research',category:'Macro & Market Structure Research',source:'enya',homepage_approved:true},
     {slug:'google-ai-industry-use-cases-20260723',title:'谷歌电话会折射出的AI行业应用图谱\n从搜索、广告到金融、制药、机器人与空间智能的24个落地案例',date:'2026年7月23日',published_at:'2026-07-23T21:30:00+08:00',deck:'从Alphabet 2026 Q2电话会出发，以条目式结构拆解24个AI实际应用案例，并补充Google官方客户案例、商业价值与投资映射。',tag:'AI Application Casebook',category:'AI Industry Applications',source:'enya',homepage_approved:true},
     {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'黄金 ETF、royalty / streaming、铜矿周期、加息逆转，以及黄金和比特币作为美元体系压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
     {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 OpenClaw 实践出发，串联 NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例。',tag:'AI Research',source:'enya',homepage_approved:true},
@@ -139,7 +140,7 @@
 
   function renderFeatured() {
     var researchPages = allPages.filter(function (p) { return !isEarnings(p); });
-    var priority = ['google-ai-industry-use-cases-20260723','ai-memory-hbm-nand-cmx-20260722','china-open-model-global-token-value-chain-20260722'];
+    var priority = ['shadow-of-leverage-ai-gold-liquidation-20260724','ai-memory-hbm-nand-cmx-20260722','google-ai-industry-use-cases-20260723'];
     var chosen = priority.map(function (slug) { return researchPages.find(function (p) { return p.slug === slug; }); }).filter(Boolean);
     researchPages.forEach(function (p) { if (chosen.length < 3 && chosen.indexOf(p) < 0) chosen.push(p); });
     var main = document.getElementById('feature-main');
