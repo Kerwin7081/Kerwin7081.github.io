@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#103f35">
+<meta name="description" content="Kerwin Research Hub专题：从邓煜关于玻尔兹曼方程、波动动力学和长期相关性的数学工作出发，谨慎讨论预测市场、行为金融、社会治理，以及AI开源与闭源生态。">
+<title>从粒子、市场到AI生态｜邓煜的数学如何帮助我们理解复杂世界｜Kerwin Research Hub</title>
+<!-- pv-counter data-page-slug=yu-deng-complex-systems-markets-ai-20260724 -->
+<link rel="stylesheet" href="./style.css?v=20260725">
+</head>
+<body class="kw-research kw-v3">
+<div class="gate" id="gate" aria-labelledby="gate-title">
+ <div class="gate-paper">
+  <div class="gate-head"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
+  <div class="gate-body">
+   <div class="seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
+   <div>
+    <div class="kicker">Reader Access</div>
+    <h1 id="gate-title">从粒子、市场到AI生态</h1>
+    <p class="gate-copy">一篇关于微观互动、宏观秩序与跨学科边界的研究文章。</p>
+    <form class="gate-form" id="gate-form">
+     <label for="gate-key">输入 “k” 即可显示，不分大小写</label>
+     <div class="gate-field"><input id="gate-key" type="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false"><span class="gate-auto">Auto enter</span></div>
+     <p class="gate-error" id="gate-error" role="alert" aria-live="polite"></p>
+    </form>
+   </div>
+  </div>
+  <div class="gate-foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+ </div>
+</div>
+<header class="rail">
+ <div class="rail-inner">
+  <a class="brand" href="/"><span class="mark">K</span><span class="wordmark">EnyaClawd<small>Kerwin Research Hub</small></span></a>
+  <div class="context">Complex Systems · Markets · Society · AI Strategy · 2026年7月25日</div>
+  <div class="actions"><a class="rail-btn secondary" href="#sources">主要来源</a><a class="rail-btn" href="/">研究首页</a></div>
+ </div>
+ <div class="progress"><span id="progress"></span></div>
+</header>
+<main class="page"><div class="shell"><div class="wrap">
+<header class="cover">
+ <div class="kicker">KERWIN SIGNAL-CHAIN RESEARCH · COMPLEX SYSTEMS</div>
+ <h1>从粒子、市场到AI生态<br>邓煜的数学如何帮助我们理解复杂世界</h1>
+ <p class="thesis">真正重要的启发，不是把人、市场或AI简单地当作粒子，而是学会追问：微观主体如何互动，相关性如何积累，以及宏观规律究竟在什么条件和时间尺度下成立。</p>
+ <div class="meta"><span><b>报告发布日期</b> 2026年7月25日</span><span><b>研究快照</b> 2026年7月25日</span><span><b>作者</b> Kerwin</span></div>
+</header>
+<div class="scope">
+ <div><small>研究问题</small><b>数学物理的微观到宏观框架，能怎样帮助理解市场、社会与AI？</b></div>
+ <div><small>核心边界</small><b>跨学科内容属于方法论类比，不是邓煜本人的社会或AI主张</b></div>
+ <div><small>最终落点</small><b>尺度、独立性、相关性、反馈、时间与纠错</b></div>
+</div>
+<nav class="nav" aria-label="文章导航"><a href="#verdict">执行结论</a><a href="#math">数学本体</a><a href="#markets">预测市场</a><a href="#behavior">行为金融</a><a href="#society">社会治理</a><a href="#ai">AI生态</a><a href="#framework">统一框架</a></nav>
+<section class="section" id="verdict">
+ <div class="section-label">01 · EXECUTIVE VERDICT</div><h2>结论先行：邓煜给我们的首先是一套提问方式</h2>
+ <div class="boundary"><b>归因边界</b><p>邓煜的正式研究对象是偏微分方程、玻尔兹曼方程、波动动力学和非线性薛定谔方程。本文关于预测市场、国家治理和AI开源闭源的讨论，均为Kerwin/Enya基于复杂系统结构所作的跨学科类比。</p></div>
+ <div class="verdict">
+  <div class="verdict-row"><div class="num">01</div><div><b>个体不可预测，不代表整体不可描述。</b><span>宏观规律可能来自大量微观互动，但它不会自动成立，必须依赖明确的尺度、极限条件和误差控制。</span></div></div>
+  <div class="verdict-row"><div class="num">02</div><div><b>真正决定系统质量的，往往不是参与者数量，而是独立信息和独立路径的数量。</b><span>一万个账户、模型或机构若共享同一信息源，宏观上仍可能只有一种观点。</span></div></div>
+  <div class="verdict-row"><div class="num">03</div><div><b>长期相关性是预测失效和系统脆弱性的共同来源。</b><span>重复碰撞、共同融资、同一算法、同一训练数据和同一叙事，都可能让原本分散的主体逐渐同步。</span></div></div>
+  <div class="verdict-row"><div class="num">04</div><div><b>开源与闭源不是永久二选一。</b><span>开放生态扩大实验数量，闭源系统强化协调能力；长期格局更可能是分层共存和持续互相吸收。</span></div></div>
+ </div>
+</section>
+<section class="section" id="math">
+ <div class="section-label">02 · THE MATHEMATICS ITSELF</div><h2>先回到数学本体：邓煜究竟解决了什么</h2>
+ <p class="lead">国际数学联盟对邓煜的正式表彰集中在三组成果：从稀薄硬球动力学严格推导玻尔兹曼方程，从非线性色散系统推导波动动力学方程，以及对非线性薛定谔方程的概率方法研究。</p>
+ <div class="layer-map">
+  <div class="layer"><div class="layer-name">微观层</div><div class="layer-copy"><b>每个硬球按牛顿定律运动并发生弹性碰撞</b><span>描述对象是粒子位置、速度和完整碰撞历史。</span></div></div>
+  <div class="layer"><div class="layer-name">统计层</div><div class="layer-copy"><b>玻尔兹曼方程描述粒子分布如何随时间变化</b><span>研究重点从每个粒子的身份，转向位置与速度的统计分布。</span></div></div>
+  <div class="layer"><div class="layer-name">宏观层</div><div class="layer-copy"><b>欧拉方程和纳维－斯托克斯－傅里叶方程描述连续流体</b><span>温度、密度、压力和流速成为可观察的宏观变量。</span></div></div>
+ </div>
+ <h3>最难的部分：长期共同历史</h3>
+ <p>1975年的Lanford定理只能处理较短时间。时间一长，粒子会重逢、循环碰撞并形成复杂相关性。邓煜、Zaher Hani与马骁通过记录完整碰撞历史、构造组合对象并设计切割算法，把长期互动拆成可控制的片段，证明在相应条件下，这些相关性的总体影响仍可被控制。</p>
+ <div class="flow"><div class="flow-box"><span class="chip fact">Verified fact</span>初始粒子近似独立，按确定规则运动。</div><div class="arrow">↓</div><div class="flow-box alt">重复碰撞产生记忆、循环和统计相关性。</div><div class="arrow">↓</div><div class="flow-box">切割长期碰撞历史，逐段控制组合结构与误差。</div><div class="arrow">↓</div><div class="flow-box dark">在玻尔兹曼方程正则解存在的时间区间内，微观硬球系统仍可由宏观统计方程描述。</div></div>
+ <p class="micro">精确限制：该结果依赖硬球、稀薄气体极限、特定缩放关系和正则解等条件。它不是对所有复杂系统的普遍定理。</p>
+</section>
+<section class="section" id="markets">
+ <div class="section-label">03 · PREDICTION MARKETS</div><h2>预测市场：大量有噪声的判断，为什么有时能形成概率价格</h2>
+ <p class="lead"><span class="chip analogy">Cross-disciplinary analogy</span>预测市场可以被看作一个信息粒子系统：参与者携带不同信息、资金规模和风险偏好，通过买卖发生“碰撞”，最终形成一个宏观价格。</p>
+ <div class="table-wrap"><table><thead><tr><th>数学物理中的结构</th><th>预测市场中的对应观察</th><th>需要警惕的误读</th></tr></thead><tbody>
+  <tr><td>粒子或波</td><td>单个交易者、模型或信息源</td><td>人会学习、模仿和操纵，远比粒子复杂</td></tr><tr><td>碰撞</td><td>交易、观点交锋和价格反馈</td><td>交易并不保证信息真实</td></tr><tr><td>概率分布</td><td>仓位、订单流与信念分布</td><td>市场价格还包含流动性与风险溢价</td></tr><tr><td>宏观变量</td><td>隐含概率、成交量和波动率</td><td>价格不是未经条件修正的“真实概率”</td></tr>
+ </tbody></table></div>
+ <h3>市场有效的关键，不只是人数多</h3>
+ <div class="two-col"><div class="col"><h3>可能形成集体智慧</h3><ul><li>信息来源分散</li><li>个体误差相对独立</li><li>流动性与反向交易充分</li><li>判断错误需要承担真实成本</li><li>结算规则清晰</li></ul></div><div class="col"><h3>可能形成集体幻觉</h3><ul><li>所有人引用同一民调或同一AI模型</li><li>价格上涨反过来成为买入理由</li><li>大户持仓集中</li><li>流动性薄弱</li><li>同一条信息被媒体和交易重复计算</li></ul></div></div>
+ <p>因此，一万个账户并不等于一万份独立信息。预测市场最危险的时刻，可能是市场看上去非常有共识，实际却只是在重复同一个信号。</p>
+</section>
+<section class="section" id="behavior">
+ <div class="section-label">04 · BEHAVIORAL FINANCE</div><h2>行为金融：独立噪声可以抵消，共同偏差不会</h2>
+ <p class="lead">行为经济学解释个体为什么系统性犯错；复杂系统视角进一步追问，这些偏差进入互动网络后，会互相抵消，还是发生共振。</p>
+ <div class="table-wrap"><table><thead><tr><th>行为偏差</th><th>微观表现</th><th>宏观后果</th></tr></thead><tbody><tr><td>锚定</td><td>围绕最初民调、价格或估值调整</td><td>市场对新信息反应不足</td></tr><tr><td>从众</td><td>把价格变化理解为别人掌握信息</td><td>价格成为原因，形成反身性循环</td></tr><tr><td>确认偏误</td><td>持仓后只搜索支持自身判断的证据</td><td>拥挤交易和错误共识延长</td></tr><tr><td>损失厌恶</td><td>不愿止损、加仓摊低成本</td><td>脆弱仓位在压力下集中释放</td></tr><tr><td>小概率高估</td><td>偏爱戏剧化、彩票型结果</td><td>尾部合约和期权可能带有情绪溢价</td></tr></tbody></table></div>
+ <div class="boundary"><b>真正的分水岭</b><p>如果偏差相对独立，聚合机制可能净化噪声；如果偏差来自共同叙事、共同算法或共同融资结构，参与者越多，错误反而可能越稳定。</p></div>
+</section>
+<section class="section" id="society">
+ <div class="section-label">05 · SOCIETY AND GOVERNANCE</div><h2>社会与国家治理：这个类比能提供问题，但不能提供现成答案</h2>
+ <p class="lead"><span class="chip limit">Boundary</span>人不是硬球。人会理解规则、改变目标、组织联盟、争夺权力，也会因为预测本身而改变行为。因此，邓煜的数学不能直接推出某种政治制度或国家治理方案。</p>
+ <p>它仍然可以帮助我们提出四个更精确的问题：</p>
+ <div class="checklist"><div class="check"><div class="num">01</div><b>尺度是什么</b><span>个体、家庭、社区、城市和国家，需要不同的描述语言，不能直接用个体心理解释全部宏观结果。</span></div><div class="check"><div class="num">02</div><b>相关性有多强</b><span>社会成员是在独立行动，还是被同一信息系统、激励结构和身份叙事高度同步？</span></div><div class="check"><div class="num">03</div><b>反馈是否畅通</b><span>局部问题能否较早暴露，还是坏消息被过滤后长期积累，直到越过临界点？</span></div><div class="check"><div class="num">04</div><b>规律能维持多久</b><span>短期平静能否延伸到长期，还是路径依赖、代际变化和制度适应会改变原有关系？</span></div></div>
+ <p>从国家安全角度，真正需要关注的并非表面上是否“没有冲突”，而是冲突、错误与压力能否被发现、局部吸收和制度化修正。这个判断来自社会科学、控制论与风险管理，不能归因于邓煜。</p>
+</section>
+<section class="section" id="ai">
+ <div class="section-label">06 · OPEN AND CLOSED AI</div><h2>AI开源与闭源：竞争单位正在从模型变成生态</h2>
+ <p class="lead"><span class="chip analogy">Cross-disciplinary analogy</span>开源生态像大量并行微观实验，闭源体系像高度协调的集中式系统。谁更优，取决于任务尺度、算力成本、数据敏感度、部署环境和安全责任。</p>
+ <div class="two-col"><div class="col"><h3>开放权重生态的结构优势</h3><ul><li>扩大微调、蒸馏、量化和硬件适配的实验数量</li><li>支持本地与私有云部署</li><li>加快能力扩散与成本下降</li><li>形成跨公司、跨地区的开发者反馈</li></ul></div><div class="col"><h3>闭源前沿体系的结构优势</h3><ul><li>统一训练、推理、工具、安全和版本管理</li><li>承担大规模前沿训练成本</li><li>形成稳定API、企业服务和责任边界</li><li>能够跨层协调整套Agent系统</li></ul></div></div>
+ <h3>模型数量很多，不等于认知真正多样</h3>
+ <div class="flow"><div class="flow-box">同一个基础模型被大量微调、蒸馏和包装。</div><div class="arrow">↓</div><div class="flow-box alt">下游模型继续生成合成数据和网络内容。</div><div class="arrow">↓</div><div class="flow-box">下一代模型再次吸收这些机器生成材料。</div><div class="arrow">↓</div><div class="flow-box dark">表面模型数量增加，底层认知来源、错误模式和安全漏洞却可能趋同。</div></div>
+ <p>这与长期“共同碰撞历史”的类比最有价值。AI生态需要建立数据来源、模型谱系、蒸馏关系、版本记录和安全评测的可追溯账本。</p>
+ <h3>更可能出现的产业终局</h3>
+ <div class="table-wrap"><table><thead><tr><th>生态层次</th><th>主要角色</th><th>潜在价值来源</th></tr></thead><tbody><tr><td>闭源前沿模型</td><td>最大规模训练、复杂多模态、通用Agent平台</td><td>能力前沿、分发、可靠性和企业服务</td></tr><tr><td>开放权重模型</td><td>本地部署、行业微调、主权AI、边缘设备</td><td>控制权、定制、成本与生态扩散</td></tr><tr><td>共同基础设施</td><td>芯片、云、推理框架、路由、安全和评测</td><td>跨模型需求、规模经济与中立中间层</td></tr></tbody></table></div>
+ <p>OpenAI的gpt-oss与Google的Gemma说明，领先实验室本身也在同时经营闭源和开放权重产品线。现实竞争正在从“开源对闭源”转向“怎样组合不同开放程度的系统”。</p>
+</section>
+<section class="section" id="framework">
+ <div class="section-label">07 · UNIFIED FRAMEWORK</div><h2>一套可复用的复杂系统判断框架</h2>
+ <p class="lead">无论面对预测市场、金融资产、国家治理还是AI生态，都可以连续追问六个问题。</p>
+ <div class="checklist"><div class="check"><div class="num">01</div><b>尺度</b><span>当前讨论的是个体、网络、中间层，还是宏观系统？换一个尺度，结论是否仍成立？</span></div><div class="check"><div class="num">02</div><b>独立性</b><span>参与者是否拥有真正不同的信息、数据、模型与激励？</span></div><div class="check"><div class="num">03</div><b>相关性</b><span>哪些共同来源、重复互动和资金约束正在让系统同步？</span></div><div class="check"><div class="num">04</div><b>反馈</b><span>宏观价格、规则或算法会不会反过来改变微观行为？</span></div><div class="check"><div class="num">05</div><b>时间</b><span>短期有效的关系，在长期共同历史积累后是否仍然有效？</span></div><div class="check"><div class="num">06</div><b>纠错</b><span>错误能否局部暴露、隔离和修正，还是会通过网络扩散成系统性故障？</span></div></div>
+ <div class="investment"><h3>Kerwin投顾解读</h3><ol><li><b>投资研究不能只看“谁的模型最强”。</b>更重要的是判断模型能力怎样通过开发者、算力、数据、推理平台和应用转化为宏观收入与利润。</li><li><b>开放生态最大的资产是独立试验数量，最大的风险是底层同源。</b>下载量、模型数量和Agent数量必须与真实的数据、架构和信息多样性分开观察。</li><li><b>闭源生态最大的资产是协调，最大的风险是单点依赖。</b>当企业工作流、API、云和安全策略集中到少数平台，系统效率和系统脆弱性会同时上升。</li><li><b>价值池可能继续向中间层迁移。</b>模型能力趋于商品化后，专有数据、推理基础设施、路由、安全、企业分发和真实世界执行接口更可能获得持续定价权。</li></ol></div>
+</section>
+<section class="section" id="sources">
+ <div class="section-label">08 · PRIMARY SOURCES</div><h2>主要来源与证据边界</h2>
+ <div class="sources">
+  <div class="source"><strong>01</strong><div><a href="https://www.mathunion.org/imu-awards/fields-medal/fields-medals-2026" target="_blank" rel="noopener noreferrer">International Mathematical Union：Fields Medals 2026</a><span>支持邓煜的正式获奖理由与研究范围。</span></div></div>
+  <div class="source"><strong>02</strong><div><a href="https://news.uchicago.edu/story/uchicago-prof-yu-deng-receives-fields-medal-highest-honor-mathematics" target="_blank" rel="noopener noreferrer">University of Chicago：Yu Deng receives Fields Medal</a><span>支持长期相关性、切割算法与Hilbert第六问题特定方案的通俗说明。</span></div></div>
+  <div class="source"><strong>03</strong><div><a href="https://arxiv.org/abs/2408.07818" target="_blank" rel="noopener noreferrer">Deng, Hani & Ma：Long time derivation of the Boltzmann equation</a><span>支持硬球动力学到玻尔兹曼方程的长时间严格推导。</span></div></div>
+  <div class="source"><strong>04</strong><div><a href="https://arxiv.org/abs/2503.01800" target="_blank" rel="noopener noreferrer">Deng, Hani & Ma：Hilbert's sixth problem</a><span>支持经由玻尔兹曼理论推导欧拉和纳维－斯托克斯－傅里叶方程的具体方案。</span></div></div>
+  <div class="source"><strong>05</strong><div><a href="https://arxiv.org/abs/2110.04565" target="_blank" rel="noopener noreferrer">Deng & Hani：Propagation of chaos in wave kinetic theory</a><span>支持波动动力学中的独立性传播与高阶统计研究。</span></div></div>
+  <div class="source"><strong>06</strong><div><a href="https://openai.com/open-models/" target="_blank" rel="noopener noreferrer">OpenAI：Open models</a><span>支持开放权重模型可本地运行、定制和采用Apache 2.0许可的现状。</span></div></div>
+  <div class="source"><strong>07</strong><div><a href="https://ai.google.dev/gemma/docs" target="_blank" rel="noopener noreferrer">Google AI for Developers：Gemma models</a><span>支持Google同时经营Gemini闭源产品与Gemma开放模型生态。</span></div></div>
+  <div class="source"><strong>08</strong><div><a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener noreferrer">Open Source Initiative：Open Source AI Definition 1.0</a><span>用于区分“开放权重”与更完整的“开源AI”概念。</span></div></div>
+ </div>
+ <p class="micro">网页中的社会治理、行为金融和AI产业判断属于跨学科分析。引用数学论文旨在提供结构性启发，不表示相关论文验证了这些社会科学结论。</p>
+</section>
+<section class="section"><div class="section-label">09 · CAUSAL READING PATH</div><h2>下一条研究路径</h2><div class="related"><a href="/hyperliquid-series-2-competitive-encirclement-20260719/"><small>01 · Market Structure</small><b>围猎 Hyperliquid</b><span>从预测市场、永续合约和入口竞争继续观察信息、流动性与制度结构。</span></a><a href="/china-open-model-global-token-value-chain-20260722/"><small>02 · Model Economics</small><b>中国开放模型出海</b><span>进一步拆解开放模型、推理Provider和Token利润链。</span></a><a href="/agent-compute-infrastructure/"><small>03 · Infrastructure</small><b>Agent不是只吃GPU</b><span>观察宏观AI需求怎样向CPU、内存、存储和网络传导。</span></a></div></section>
+<section class="enya"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">把复杂世界，整理成一张投资地图。本文以数学成果为起点，严格区分经验证事实、跨学科类比与Kerwin投顾判断。</p><div class="roles"><div class="role"><b>Kerwin</b><span>负责选题、跨市场投资逻辑、类比边界与最终审阅。</span></div><div class="role"><b>Enya</b><span>负责公开证据整理、结构化写作、网页视觉呈现与后续维护。</span></div></div></section>
+<footer class="footer"><div class="footer-line"><span>免责声明：本文仅用于研究与信息交流，不构成投资、法律或公共政策建议。</span><a href="/">← 返回 EnyaClawd 研究首页</a></div><div>Published 2026-07-25 · Kerwin Research Hub · Hong Kong</div></footer>
+</div></div></main>
+<button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
+<script>
+(function(){
+ var gate=document.getElementById('gate'),form=document.getElementById('gate-form'),input=document.getElementById('gate-key'),error=document.getElementById('gate-error');
+ function unlock(){gate.classList.add('fade');setTimeout(function(){document.body.classList.add('gate-open');window.scrollTo(0,0)},150)}
+ function verify(){var value=(input.value||'').toLowerCase();if(value==='k'){error.textContent='';unlock()}else if(value){error.textContent='请输入 k 或 K';input.select()}}
+ input.addEventListener('input',verify);form.addEventListener('submit',function(e){e.preventDefault();verify()});setTimeout(function(){input.focus()},120);
+ var bar=document.getElementById('progress'),top=document.getElementById('top');
+ function update(){var max=document.documentElement.scrollHeight-window.innerHeight;var ratio=max>0?window.scrollY/max:0;bar.style.width=(ratio*100)+'%';top.classList.toggle('show',window.scrollY>520)}
+ window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});update();
+})();
+</script>
+</body>
+</html>
