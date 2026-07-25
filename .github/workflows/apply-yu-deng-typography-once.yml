@@ -1,0 +1,126 @@
+name: Apply Yu Deng typography revision once
+
+on:
+  push:
+    branches:
+      - agent/enlarge-yu-deng-typography
+    paths:
+      - .github/workflows/apply-yu-deng-typography-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out typography branch
+        uses: actions/checkout@v6
+        with:
+          ref: agent/enlarge-yu-deng-typography
+          fetch-depth: 0
+
+      - name: Enlarge article typography
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+
+          page_path = Path('yu-deng-complex-systems-markets-ai-20260724/index.html')
+          meta_path = Path('yu-deng-complex-systems-markets-ai-20260724/meta.json')
+          workflow_path = Path('.github/workflows/apply-yu-deng-typography-once.yml')
+
+          text = page_path.read_text(encoding='utf-8')
+          marker = '/* Kerwin readability revision · 2026-07-26'
+          if marker in text:
+              raise SystemExit('typography revision already applied')
+
+          override = r'''
+          /* Kerwin readability revision · 2026-07-26
+             Enlarges long-form reading text while preserving the FT 3.3 hierarchy. */
+          body{font-size:17px;line-height:1.88}
+          .gate-head,.gate-foot{font-size:10px}
+          .seal small{font-size:11px}
+          .kicker,.section-label{font-size:11px}
+          .gate-copy{font-size:15px}
+          .gate-form label{font-size:12px}
+          .gate-auto{font-size:11px}
+          .gate-error{font-size:13px}
+          .wordmark small{font-size:10px}
+          .context{font-size:13px}
+          .rail-btn{font-size:12px}
+          .meta{font-size:13px}
+          .scope small{font-size:11px}
+          .scope b{font-size:14px}
+          .nav a{font-size:13px}
+          .section h2{font-size:clamp(28px,4vw,36px)}
+          .section h3{font-size:21px}
+          .lead{font-size:18px}
+          .micro{font-size:14px}
+          .boundary p{font-size:15px}
+          .evidence-item b{font-size:18px}
+          .evidence-item span{font-size:14px}
+          .verdict-row b{font-size:18px}
+          .verdict-row span{font-size:15px}
+          .layer-name{font-size:12px}
+          .layer-copy b{font-size:17px}
+          .layer-copy span{font-size:14px}
+          .flow-box{font-size:15px}
+          table{font-size:15px}
+          th{font-size:13px}
+          .chip{font-size:11px}
+          .ref{font-size:12px}
+          .col li{font-size:15px}
+          .check b{font-size:17px}
+          .check span{font-size:14px}
+          .investment li{font-size:16px}
+          .source a{font-size:16px}
+          .source span{font-size:14px}
+          .related small{font-size:11px}
+          .related b{font-size:17px}
+          .related span{font-size:13px}
+          .enya-model{font-size:13px}
+          .enya-copy{font-size:15px}
+          .role b{font-size:17px}
+          .role span{font-size:14px}
+          .footer{font-size:13px}
+          @media(max-width:520px){
+            body{font-size:16px;line-height:1.86}
+            .section h2{font-size:29px}
+            .section h3{font-size:20px}
+            .lead{font-size:17px}
+            .micro{font-size:13px}
+            .nav a{font-size:12px}
+            table{font-size:14px}
+            th{font-size:12px}
+            .scope b{font-size:14px}
+          }
+          '''
+
+          if text.count('</style>') != 1:
+              raise SystemExit('unexpected style block count')
+          text = text.replace('</style>', override + '\n</style>', 1)
+          text = text.replace(
+              'content="2026-07-25T22:10:00+08:00"',
+              'content="2026-07-26T06:05:00+08:00"',
+              1,
+          )
+          page_path.write_text(text, encoding='utf-8')
+
+          meta = json.loads(meta_path.read_text(encoding='utf-8'))
+          meta['updated_at'] = '2026-07-26T06:05:00+08:00'
+          meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          workflow_path.unlink()
+          PY
+
+      - name: Commit typography revision
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add yu-deng-complex-systems-markets-ai-20260724/index.html yu-deng-complex-systems-markets-ai-20260724/meta.json .github/workflows/apply-yu-deng-typography-once.yml
+          git commit -m "increase Yu Deng article typography for readability"
+          git push origin HEAD:agent/enlarge-yu-deng-typography
