@@ -173,6 +173,70 @@ class ChangedPageAuditTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn("duplicate slug", result.stdout)
 
+    def test_accepts_explicit_legacy_public_path(self) -> None:
+        self.write("legacy-topic.html", MINIMAL_HTML)
+        base = self.commit("add historical legacy page")
+        entry = {
+            "slug": "legacy-topic",
+            "title": "Legacy",
+            "date": "2026年7月26日",
+            "deck": "Test",
+            "tag": "Test",
+            "source": "codex",
+            "homepage_approved": True,
+            "published_at": "2026-07-26T15:00:00+08:00",
+            "path": "/legacy-topic.html",
+        }
+        self.write("registry.json", json.dumps([entry]))
+        head = self.commit("add explicit legacy route")
+
+        result = self.run_guard(base, head)
+
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_rejects_duplicate_featured_rank(self) -> None:
+        base = self.git("rev-parse", "HEAD")
+        entries = []
+        for slug in ("legacy", "second"):
+            self.write(f"{slug}/index.html", MINIMAL_HTML)
+            entries.append(
+                {
+                    "slug": slug,
+                    "title": slug,
+                    "date": "2026年7月26日",
+                    "deck": "Test",
+                    "tag": "Test",
+                    "source": "enya",
+                    "homepage_approved": True,
+                    "published_at": "2026-07-26T15:00:00+08:00",
+                    "featured_rank": 1,
+                }
+            )
+        self.write("registry.json", json.dumps(entries))
+        head = self.commit("add duplicate featured rank")
+
+        result = self.run_guard(base, head)
+
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("duplicate featured_rank", result.stdout)
+
+    def test_rejects_hardcoded_homepage_content_fallback(self) -> None:
+        self.write(
+            "assets/kerwin-home-v3.js",
+            "var current = true;\nArray.isArray(registry);\np.featured_rank;\np.path;\n",
+        )
+        base = self.commit("add current homepage loader")
+        self.write(
+            "assets/kerwin-home-v3.js",
+            "var legacyPages = [];\nArray.isArray(registry);\np.featured_rank;\np.path;\n",
+        )
+        head = self.commit("restore duplicate fallback")
+
+        result = self.run_guard(base, head)
+
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("obsolete loader logic remains", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()
