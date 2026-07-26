@@ -38,6 +38,24 @@ Homepage registration is maintained in `registry.json`. Every production entry s
 - Future FT warm-paper shared assets must use new `kerwin-system-v3.*` paths and be tested on a preview branch before any page migration.
 - Do not overwrite public v2 files during ordinary article publishing.
 
+## Pull request release guard
+
+The `Audit changed pages` workflow runs on every pull request. It:
+
+- audits only added or modified production HTML, plus the page associated with changed metadata;
+- validates changed JSON and the registry when applicable;
+- rejects new files under `preview/`, `previews/`, `publish/` and `staging/`;
+- rejects changes to the frozen `kerwin-system-v2` compatibility assets;
+- leaves unchanged historical pages outside the pull request scope.
+
+Run the same selector locally with:
+
+```bash
+python3 tools/audit_changed_pages.py --root . --base <base-sha> --head <head-sha>
+```
+
+The selector delegates page-level checks to `tools/audit_pages.py`.
+
 ## Safe publication checklist
 
 1. Create or update the article and its metadata.
