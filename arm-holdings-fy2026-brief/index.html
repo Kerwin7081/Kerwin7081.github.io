@@ -1,260 +1,460 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARM Holdings 研究简报</title>
-<meta name="description" content="ARM Holdings 研究简报：EnyaClawd · Kerwin Research 结构化研究与可视化页面。">
-<meta name="cache-bust" content="1778469558756591611">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff1e5">
+<meta name="description" content="Kerwin投顾视角：ARM Holdings FY2026研究简报，拆解IP授权、Armv9、CSS、AGI CPU、盈利与自由现金流的战略转型。">
+<title>ARM Holdings FY2026｜从架构收费站到生产芯片｜Kerwin Research</title>
+<!-- pv-counter data-page-slug=arm-holdings-fy2026-brief -->
 <style>
 :root{
-  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
-  --blue:#2563eb; --deep:#0a1628; --up:#16a34a; --warn:#92400e;
+  --bg:#e6d8cb;--paper:#fffaf5;--ink:#262220;--muted:#746b65;--line:#cdbfb3;
+  --green:#103f35;--green2:#1f5a4d;--green-soft:#dce8e2;
+  --blue:#315f7c;--blue-soft:#e6eef4;--amber:#9a5c38;--amber-soft:#f7e7d8;
+  --red:#9f332b;--red-soft:#f7e5e2;--shadow:0 12px 34px rgba(38,34,32,.08)
 }
 *{box-sizing:border-box}
-body{margin:0;padding:0;background:var(--bg);font-family:Georgia,'Times New Roman','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:var(--ink)}
-.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
-.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
-.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
-.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
-.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
-.top-date{font-size:13px;color:#8b4513;line-height:1.6;font-weight:600}
-.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
-@media (max-width:640px){.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:28px}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:17px/1.88 Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  overflow-wrap:anywhere
+}
+a{color:var(--green)}
+.back-top{max-width:880px;margin:0 auto;padding:7px 14px 0}
+.back-top a{
+  min-height:40px;display:inline-flex;align-items:center;padding:4px 10px;
+  border:1px solid var(--line);border-radius:1px;background:var(--paper);
+  color:#8a5b2b;font-size:12px;font-weight:800;text-decoration:none
+}
+.page{max-width:880px;margin:0 auto;padding:9px 9px 34px}
+.shell{background:var(--paper);border:1px solid #a99d94;box-shadow:var(--shadow)}
+.topbar{
+  padding:21px 25px 18px;border-top:8px solid #111;border-bottom:1px solid #111;
+  background:linear-gradient(180deg,#fff8f0,#fffaf4)
+}
+.top-kicker{font-size:11px;font-weight:800;letter-spacing:.14em;color:#8b786a}
+.top-title{
+  margin:8px 0 7px;color:#16110d;
+  font:600 clamp(34px,5.6vw,49px)/1.06 Georgia,"Times New Roman","Songti SC",serif
+}
+.top-title em{font-style:normal;color:var(--green)}
+.top-date{font-size:13px;color:#8b4513;font-weight:800}
+.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;line-height:1.72;color:#50443c}
+.hero{
+  padding:36px 25px 30px;border-bottom:1px solid var(--line);
+  background:linear-gradient(145deg,#fffaf4 0%,#f3e5d8 62%,#dfeae4 100%)
+}
+.badge{
+  display:inline-block;padding:5px 12px;border:1px solid #cbb9a8;border-radius:999px;
+  background:rgba(255,255,255,.55);color:#805a37;font-size:10px;font-weight:800;letter-spacing:.11em
+}
+.hero h2{
+  margin:15px 0 12px;
+  font:600 clamp(28px,4vw,36px)/1.17 Georgia,"Times New Roman","Songti SC",serif
+}
+.hero-lead{margin:0 0 17px;color:#4e433c;font-size:18px;line-height:1.76}
+.hero-thesis{padding:18px 20px;border-radius:1px;background:var(--green);color:#f7f2e9}
+.hero-thesis b{display:block;margin-bottom:7px;font:600 21px/1.28 Georgia,"Songti SC",serif}
+.hero-thesis p{margin:0;color:#d8e5de;font-size:17px;line-height:1.72}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}
+.stat{padding:16px 11px;border:1px solid var(--line);background:#fffdf9;text-align:center}
+.stat strong{display:block;color:#17120f;font:700 26px/1.08 Georgia,serif}
+.stat strong.green{color:var(--green)}.stat strong.blue{color:var(--blue)}.stat strong.red{color:var(--red)}
+.stat span{display:block;margin-top:7px;color:var(--muted);font-size:14px;line-height:1.5}
+.nav{
+  position:sticky;top:0;z-index:20;display:flex;overflow-x:auto;
+  border-bottom:1px solid var(--line);background:rgba(252,245,238,.96);
+  backdrop-filter:blur(8px);scrollbar-width:none
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  min-height:42px;display:inline-flex;align-items:center;flex:none;padding:11px 14px;
+  color:#746459;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap
+}
+.nav a:hover{color:var(--green)}
+.section{padding:34px 25px;border-bottom:1px solid #eadfd4}
+.section-label{color:#8a5b2b;font-size:10px;font-weight:800;letter-spacing:.17em}
+.section h2{
+  margin:8px 0 15px;
+  font:600 clamp(28px,4vw,36px)/1.17 Georgia,"Times New Roman","Songti SC",serif
+}
+.section h3{margin:22px 0 9px;color:#2d241e;font:600 21px/1.35 Georgia,"Songti SC",serif}
+.section p{margin:0 0 13px;color:#40362f;font-size:17px;line-height:1.88}
+.lead{color:var(--muted)!important;font-size:18px!important}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:17px 0}
+.card{padding:17px;border:1px solid var(--line);background:#fffdf9}
+.card h3{margin:0 0 8px;font-size:21px}
+.card p{margin:0;color:#574b43;font-size:14px;line-height:1.68}
+.pill{display:inline-block;margin-bottom:8px;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em}
+.pill.green{background:var(--green-soft);color:var(--green)}
+.pill.blue{background:var(--blue-soft);color:var(--blue)}
+.pill.amber{background:var(--amber-soft);color:var(--amber)}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.callout{margin:17px 0;padding:17px 18px;border-left:4px solid var(--green);background:var(--green-soft);color:#284d40;font-size:15px;line-height:1.78}
+.callout.amber{border-left-color:var(--amber);background:var(--amber-soft);color:#684718}
+.callout.red{border-left-color:var(--red);background:var(--red-soft);color:#6e302a}
+.flow{display:flex;flex-direction:column;align-items:stretch;margin:18px 0}
+.flow-box{padding:14px 16px;border:1px solid var(--line);background:#fffdf9;font-size:14px;line-height:1.66}
+.flow-box strong{display:block;margin-bottom:4px;color:#342b25}
+.flow-box.green{border-color:#bdd3c6;background:var(--green-soft)}
+.flow-box.blue{border-color:#c5d4de;background:var(--blue-soft)}
+.flow-box.amber{border-color:#ead49f;background:var(--amber-soft)}
+.flow-arrow{padding:2px 0;color:#9e8977;text-align:center;font-weight:900}
+.table-wrap{overflow-x:auto;margin:17px 0;border:1px solid var(--line)}
+.table-wrap table{width:100%;min-width:720px;border-collapse:collapse;background:#fffdf9;font-size:15px}
+.table-wrap th{padding:11px 13px;background:#332b26;color:#f7f1e8;text-align:left;font-size:12px;letter-spacing:.04em}
+.table-wrap td{padding:11px 13px;border-bottom:1px solid #e8ddd2;vertical-align:top;line-height:1.62}
+.table-wrap tr:last-child td{border-bottom:0}
+.pos{color:var(--green);font-weight:800}.warn{color:var(--amber);font-weight:800}.risk{color:var(--red);font-weight:800}
+.source{display:grid;grid-template-columns:29px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid #e7ddd3}
+.source:last-child{border-bottom:0}
+.source-num{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:900}
+.source a{font-size:15px;font-weight:800;text-decoration:none}
+.source small{display:block;margin-top:3px;color:var(--muted);font-size:13px;line-height:1.58}
+.related{display:grid;gap:9px;margin-top:18px}
+.related a{display:block;padding:13px 15px;border:1px solid var(--line);background:#fffdf9;font-size:14px;font-weight:800;text-decoration:none}
+.conclusion{padding:35px 25px;background:#1f1a17;color:#f7f0e7}
+.conclusion h2{margin:0 0 15px;color:#fffaf5;font:600 clamp(28px,4vw,36px)/1.17 Georgia,"Songti SC",serif}
+.conclusion p{margin:0 0 11px;color:#eadcc7;font-size:17px;line-height:1.88}
+.enya-brand{padding:clamp(34px,5vw,62px) clamp(22px,6vw,72px);border-top:6px solid #262220;background:var(--green);color:#fff1e5}
+.enya-brand-name{font:600 clamp(31px,5vw,46px)/1.04 Georgia,"Times New Roman","Songti SC",serif}
+.enya-brand-tagline{margin-top:14px;color:#f5e8dc;font-size:17px;font-weight:800}
+.enya-brand-models{margin-top:5px;color:#dce8e2;font-size:14px;font-weight:800}
+.enya-brand-copy{max-width:720px;margin:16px 0 0;color:#c9d8d2;font-size:14px;line-height:1.72}
+.footer{padding:22px;background:#fbf7f1;color:var(--muted);font-size:13px;line-height:1.8}
+.footer-brand{margin-bottom:5px;color:#30433b;font:600 18px/1.3 Georgia,serif}
+.counter-wrap{margin:11px 0;color:#8a5b2b;font-size:12px;font-weight:800}
+.bottom-link{min-height:40px;display:inline-flex;align-items:center;margin-top:8px;font-weight:800;text-decoration:none}
+.back-top a:focus-visible,.nav a:focus-visible,.source a:focus-visible,.related a:focus-visible,.bottom-link:focus-visible,.kw-editorial-gate input:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+body.kw-gate-pending{overflow:hidden}
+.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:hidden}
+.kw-editorial-gate{
+  position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;
+  padding:max(18px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));
+  background:var(--green);transition:opacity .14s ease
+}
+.kw-editorial-gate.is-unlocking{opacity:0}
+.kw-editorial-gate[aria-hidden="true"]{display:none}
+.kw-editorial-gate__paper{width:min(860px,100%);border-top:6px solid #262220;background:#fff1e5;color:#262220;box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.kw-editorial-gate__masthead,.kw-editorial-gate__foot{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 18px;
+  border-bottom:1px solid #968b83;color:#746b65;font-size:10px;font-weight:800;letter-spacing:.08em
+}
+.kw-editorial-gate__body{display:grid;grid-template-columns:164px minmax(0,1fr);gap:clamp(32px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}
+.kw-editorial-gate__seal{
+  width:164px;height:164px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-radius:50%;background:var(--green);color:#fff1e5;text-align:center;
+  box-shadow:0 0 0 9px #fff1e5,0 0 0 10px var(--green);
+  font:600 25px/1 Georgia,"Times New Roman","Songti SC",serif
+}
+.kw-editorial-gate__seal small{max-width:105px;margin-top:7px;font:800 9px/1.25 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.kw-editorial-gate__kicker{color:var(--green);font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.kw-editorial-gate__title{max-width:520px;margin-top:12px;font:600 clamp(29px,4vw,42px)/1.08 Georgia,"Times New Roman","Songti SC",serif}
+.kw-editorial-gate__form{margin-top:26px}
+.kw-editorial-gate__form label{display:block;font-size:14px;font-weight:800}
+.kw-editorial-gate__field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;margin-top:10px;border-bottom:2px solid var(--green)}
+.kw-editorial-gate__field input{min-width:0;height:48px;padding:0 4px;border:0;background:transparent;color:var(--green);font:700 24px/1 Georgia,serif}
+.kw-editorial-gate__field input:focus{outline:0}
+.kw-editorial-gate__field span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.kw-editorial-gate__status{min-height:22px;margin:8px 0 0;color:var(--red);font-size:12px}
+.kw-editorial-gate__foot{border-top:1px solid var(--line);border-bottom:0;color:#5f5751;letter-spacing:.01em}
+@media(max-width:700px){
+  .page{padding:0 4px 22px}.back-top{padding:6px 9px 0}.topbar{padding:17px}
+  .hero{padding:29px 17px 25px}.section{padding:28px 17px}.grid2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}.table-wrap table{min-width:650px}
+  .kw-editorial-gate{padding:8px}.kw-editorial-gate__body{grid-template-columns:1fr;gap:28px;min-height:0;padding:32px 22px}
+  .kw-editorial-gate__seal{width:112px;height:112px;margin:auto;font-size:20px}
+  .kw-editorial-gate__masthead,.kw-editorial-gate__foot{align-items:flex-start;flex-direction:column;gap:4px;padding:9px 12px}
+  .kw-editorial-gate__title{font-size:clamp(29px,9vw,38px)}
+}
+@media(max-width:520px){
+  body{font-size:16px;line-height:1.86}.top-title{font-size:clamp(30px,9vw,38px)}
+  .hero h2,.section h2,.conclusion h2{font-size:29px}.section h3,.hero-thesis b{font-size:20px}
+  .hero-lead,.lead{font-size:17px!important}.section p,.conclusion p{font-size:16px;line-height:1.86}
+  .hero-thesis p{font-size:17px}.stats{grid-template-columns:1fr}.table-wrap table{font-size:14px}
+}
 </style>
-
-<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
+<noscript><style>body.kw-gate-pending{overflow:auto}.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:visible}.kw-editorial-gate{display:none}</style></noscript>
 </head>
-<body class="kw-research">
-<!-- pv-counter data-page-slug=arm-holdings-fy2026-brief --><!-- cache-bust-1778469355 -->
-<div style="max-width:780px;margin:0 auto;padding:6px 16px 0;"><a href="/" style="display:inline-block;font-family:Arial,"PingFang SC",sans-serif;font-size:12px;color:#8a5b2b;text-decoration:none;font-weight:700;padding:3px 10px;border:1px solid #dccdbf;border-radius:4px;background:#fffaf4;">← 返回首页</a></div>
+<body class="kw-research kw-gate-pending" data-page-slug="arm-holdings-fy2026-brief">
+<aside class="kw-editorial-gate" aria-label="页面访问互动">
+  <div class="kw-editorial-gate__paper">
+    <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>
+    <div class="kw-editorial-gate__body">
+      <div class="kw-editorial-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
+      <div>
+        <div class="kw-editorial-gate__kicker">Reader Access</div>
+        <div class="kw-editorial-gate__title">ARM Holdings FY2026 研究简报</div>
+        <form class="kw-editorial-gate__form">
+          <label for="kw-editorial-key">输入 “k” 即可显示，不分大小写</label>
+          <div class="kw-editorial-gate__field">
+            <input id="kw-editorial-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-editorial-status">
+            <span>Auto enter</span>
+          </div>
+          <p class="kw-editorial-gate__status" id="kw-editorial-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+  </div>
+</aside>
+
+<div class="back-top"><a href="/">← 返回研究首页</a></div>
 <div class="page">
 <div class="shell">
+<header class="topbar">
+  <div class="top-kicker">KERWIN TEAM PRESENTS · SEMICONDUCTOR PLATFORM RESEARCH</div>
+  <h1 class="top-title">ARM Holdings FY2026<br><em>从架构收费站到生产芯片</em></h1>
+  <div class="top-date">首次发布：2026年5月7日 · 本次校订：2026年7月26日</div>
+  <div class="top-block">Kerwin 投顾视角。财务数据来自 Arm FY2026 股东信及20-F；产品参数、客户与需求数据来自 Arm 官方发布。公司目标与性能比较均按管理层口径标注，不作为已实现结果。</div>
+</header>
 
-<div class="topbar">
-  <div class="top-kicker">KERWIN TEAM PRESENTS</div>
-  <h1 class="top-title">ARM Holdings<br>研究简报</h1>
-  <div class="top-date">报告发布日期：2026年5月7日</div>
-  <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
-</div>
+<section class="hero">
+  <span class="badge">NASDAQ: ARM · FISCAL 2026</span>
+  <h2>IP与版税仍是现金流底座，AGI CPU把Arm推入更高收入、也更高执行风险的新阶段。</h2>
+  <p class="hero-lead">FY2026收入创纪录，Armv9、CSS与数据中心部署推动授权和版税同步增长。真正需要判断的不是Arm是否进入AI数据中心，而是生产芯片能否在不破坏生态中立性的前提下，把需求转化为利润与自由现金流。</p>
+  <div class="hero-thesis">
+    <b>Kerwin核心判断</b>
+    <p>Arm的稀缺性来自“所有赢家都可能向它付费”，而不是单押某一颗芯片。AGI CPU增加了直接捕获系统价值的机会，但估值应同时计入R&amp;D上升、供应链执行、客户集中和潜在渠道冲突。</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>$4.92B</strong><span>FY2026收入<br>同比增长23%</span></div>
+    <div class="stat"><strong class="green">97.5%</strong><span>GAAP毛利率<br>IP底座仍极轻资产</span></div>
+    <div class="stat"><strong class="blue">$882M</strong><span>FY2026非GAAP自由现金流<br>由$99M显著提升</span></div>
+    <div class="stat"><strong>$2B+</strong><span>公司披露AGI CPU<br>FY2027至FY2028客户需求</span></div>
+    <div class="stat"><strong class="red">$2.78B</strong><span>GAAP研发费用<br>同比增长34%</span></div>
+    <div class="stat"><strong>$3.60B</strong><span>期末现金及短期投资<br>支持产品扩张</span></div>
+  </div>
+</section>
 
-<div style="max-width:680px;margin:0 auto;background:#fff;">
+<nav class="nav" aria-label="页面导航">
+  <a href="#summary">核心判断</a>
+  <a href="#financials">财务质量</a>
+  <a href="#agi">AGI CPU</a>
+  <a href="#economics">商业模式</a>
+  <a href="#competition">竞争格局</a>
+  <a href="#valuation">估值框架</a>
+  <a href="#sources">来源</a>
+</nav>
 
-<!-- ===== 封面 ===== -->
-<div style="background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9;">
- <div style="display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font-size:11px;letter-spacing:1px;font-weight:700;margin-bottom:18px;white-space:nowrap;max-width:100%;font-family:Arial,Helvetica,sans-serif;">
- 2026 kerwin 宏观对冲及 AI 精选组合
- </div>
- <div style="color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px;font-family:Georgia,'Times New Roman','PingFang SC','Microsoft YaHei',sans-serif;">
- ARM Holdings<br>研究简报
- </div>
- <div style="color:#7b4f24;font-size:14px;margin-bottom:6px;font-family:Arial,Helvetica,sans-serif;">FY2026 全年业绩 · AI芯片战略转型</div>
- <div style="color:#9a3412;font-size:12px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">2026年5月7日 · NASDAQ: ARM</div>
-</div>
+<main>
+<section class="section" id="summary">
+  <div class="section-label">01 · EXECUTIVE SUMMARY</div>
+  <h2>四个结论，先分清已经兑现与仍待兑现</h2>
+  <div class="grid2">
+    <article class="card"><span class="pill green">已兑现</span><h3>IP底座继续提价与扩张</h3><p>FY2026版税收入26.13亿美元，同比增长21%；授权及其他收入23.07亿美元，同比增长25%。Armv9与CSS提高了每颗芯片的价值捕获。</p></article>
+    <article class="card"><span class="pill blue">已验证</span><h3>数据中心成为最快变量</h3><p>Arm披露Q4数据中心版税同比超过翻倍，头部超大规模云厂商的CPU算力中，Arm约占一半。AI基础设施正在把架构优势转成收入。</p></article>
+    <article class="card"><span class="pill amber">公司目标</span><h3>生产芯片打开第二曲线</h3><p>Arm称AGI CPU在FY2027至FY2028已有超过20亿美元客户需求，并继续朝此前提出的150亿美元业务预测推进。目标仍需交付与收入确认验证。</p></article>
+    <article class="card"><span class="pill red">风险约束</span><h3>收入池扩大，成本结构也改变</h3><p>GAAP研发费用增至27.76亿美元。生产芯片需要更重的工程、供应链与客户支持能力，未来毛利率和自由现金流不应直接套用纯IP时期。</p></article>
+  </div>
+  <div class="callout"><b>研究边界：</b>FY2026财务结果是已报告事实；AGI CPU需求、性能节省与长期收入属于公司陈述或前瞻目标；竞争、估值与组合含义属于Kerwin判断。</div>
+</section>
 
-<!-- ===== 导读 ===== -->
-<div style="background:#eff6ff;border-left:4px solid #2563eb;margin:0;padding:16px 24px;">
- <div style="color:#1e40af;font-size:13px;font-weight:700;margin-bottom:6px;">📌 核心摘要</div>
- <div style="color:#1e3a8a;font-size:13px;line-height:1.8;">
- FY2026营收$4.92B创历史新高，连续三年20%+增长；ARM 35年来首次自研数据中心芯片「AGI CPU」正式量产在即，Meta、OpenAI已确认购买。公司勾勒出FY2031营收$25B的宏大蓝图——但当前估值已完全定价成功场景，需审慎对待。
- </div>
-</div>
+<section class="section" id="financials">
+  <div class="section-label">02 · FINANCIAL QUALITY</div>
+  <h2>收入、利润、现金流都改善，但R&amp;D已经先行加速</h2>
+  <p class="lead">Q4收入14.90亿美元，同比增长20%；全年收入49.20亿美元，同比增长23%。GAAP经营利润9.00亿美元，经营利润率18.3%；非GAAP经营利润21.15亿美元。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>FY2026指标</th><th>结果</th><th>同比/对比</th><th>投资含义</th></tr></thead>
+      <tbody>
+        <tr><td>总收入</td><td class="pos">$4.920B</td><td>+23%</td><td>连续第三年收入增长超过20%</td></tr>
+        <tr><td>版税收入</td><td>$2.613B</td><td>+21%</td><td>Armv9、CSS与数据中心部署提升单芯片价值</td></tr>
+        <tr><td>授权及其他收入</td><td>$2.307B</td><td>+25%</td><td>高价值授权合同与积压确认支撑增长</td></tr>
+        <tr><td>GAAP经营利润</td><td>$900M</td><td>利润率18.3%</td><td>研发扩张压低近期经营杠杆</td></tr>
+        <tr><td>经营现金流</td><td class="pos">$1.524B</td><td>FY2025为$397M</td><td>合同与回款改善，为新产品投入提供缓冲</td></tr>
+        <tr><td>非GAAP自由现金流</td><td class="pos">$882M</td><td>FY2025为$99M</td><td>现金转化显著改善，但需持续观察芯片投入</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flow order-to-cash" aria-label="Arm收入到自由现金流转化路径">
+    <div class="flow-box blue"><strong>授权与合同</strong>高价值IP、CSS与长期客户安排形成授权收入和未来履约基础。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green"><strong>版税与芯片收入</strong>客户出货带来版税；AGI CPU交付将新增直接产品收入，但需求金额不等于已确认收入。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box"><strong>经营利润</strong>高毛利IP业务需要覆盖快速增长的研发、销售支持与生产芯片组织成本。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box amber"><strong>自由现金流</strong>FY2026非GAAP自由现金流8.82亿美元。未来应关注库存、预付款、资本投入和供应链营运资金。</div>
+  </div>
+  <div class="callout amber"><b>不能跳步：</b>超过20亿美元的AGI CPU客户需求提供可见度，但不能直接视为收入、利润或现金流。必须跟踪系统交付、收入确认、毛利率与营运资金。</div>
+</section>
 
-<!-- ===== 核心指标 ===== -->
-<div style="padding:28px 20px 8px;">
- <div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;padding-left:4px;border-left:3px solid #2563eb;padding-left:12px;">
- 一、FY2026 核心财务数据
- </div>
-</div>
+<section class="section" id="agi">
+  <div class="section-label">03 · PRODUCTION SILICON</div>
+  <h2>AGI CPU不是简单加一条产品线，而是Arm商业边界的改变</h2>
+  <p class="lead">Arm将AGI CPU定位为面向Agentic AI数据中心的首款生产芯片。官方参数包括最多136个Neoverse V3核心、300W TDP，以及面向高密度机架的系统设计。</p>
+  <div class="grid2">
+    <article class="card"><span class="pill green">产品事实</span><h3>从IP、CSS延伸到完整芯片</h3><p>客户可以继续授权IP或CSS，也可以采购Arm设计的生产芯片。商业系统已可从Supermicro、Lenovo、Quanta与ASRock订购。</p></article>
+    <article class="card"><span class="pill blue">客户验证</span><h3>Meta是联合开发与领先客户</h3><p>Arm同时列出OpenAI、Cloudflare、Cerebras、F5、SAP、SK Telecom、Positron与Rebellions等部署伙伴。</p></article>
+    <article class="card"><span class="pill amber">公司口径</span><h3>每机架性能超过x86两倍</h3><p>该性能比较与每GW最高100亿美元资本开支节省均来自Arm内部估算，实际结果取决于工作负载与系统配置。</p></article>
+    <article class="card"><span class="pill red">执行风险</span><h3>从生态中立到潜在竞合</h3><p>Arm既向云厂商和芯片设计商授权，又开始出售完整CPU。新业务需要证明不会削弱客户自研意愿或生态信任。</p></article>
+  </div>
+  <div class="callout"><b>Kerwin判断：</b>AGI CPU最重要的价值不是取代GPU，而是控制AI机架中负责数据移动、编排、安全与通用计算的CPU层。它与GPU加速器互补，同时直接挑战x86服务器CPU。</div>
+</section>
 
-<!-- 指标卡片 2×3 -->
-<div style="padding:0 16px 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+<section class="section" id="economics">
+  <div class="section-label">04 · BUSINESS MODEL</div>
+  <h2>四层价值捕获，从通用架构走向系统级收入</h2>
+  <div class="flow">
+    <div class="flow-box"><strong>架构与CPU IP</strong>客户获得指令集或核心设计授权，Arm收取许可费并在出货后收取版税。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green"><strong>Armv9</strong>安全、AI与计算能力升级，提高高端设备和服务器芯片的版税价值。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box blue"><strong>Compute Subsystems</strong>预验证、优化的计算子系统减少客户开发周期，使Arm更接近系统设计层。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box amber"><strong>AGI CPU生产芯片</strong>直接销售完整芯片，扩大单套系统收入，同时引入产品交付、供应链与毛利率风险。</div>
+  </div>
+  <h3>为什么“谁赢都收费”仍然重要</h3>
+  <p>AWS Graviton、Google Axion、Microsoft Cobalt与NVIDIA Vera都建立在Arm架构上。即使AGI CPU并非最终占据最多服务器插槽，Arm仍可能通过IP、CSS与版税参与生态增长。</p>
+  <div class="callout amber"><b>反身性风险：</b>如果Arm在生产芯片层面过度挤压合作伙伴，它可能得到更高的单机收入，却削弱更广泛的授权生态。最优结果不是“只卖自己的芯片”，而是三种消费方式共同扩大。</div>
+</section>
 
- <div style="background:#f8fafc;border-radius:12px;padding:14px 12px;border:1px solid #e2e8f0;text-align:center;">
- <div style="color:#64748b;font-size:10px;margin-bottom:4px;">全年营收</div>
- <div style="color:#0f172a;font-size:20px;font-weight:800;">$4.92B</div>
- <div style="color:#16a34a;font-size:11px;font-weight:600;margin-top:2px;">▲ +23% YoY</div>
- </div>
+<section class="section" id="competition">
+  <div class="section-label">05 · COMPETITIVE MAP</div>
+  <h2>竞争不是一张芯片排名表，而是架构、CPU、加速器与系统的分层博弈</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>参与者</th><th>主要层级</th><th>相对优势</th><th>对Arm的关系</th><th>关键风险</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Arm</strong></td><td>ISA、CPU IP、CSS、生产芯片</td><td>统一架构、能效、庞大开发者与设备基础</td><td class="pos">价值捕获层级最广</td><td>生产芯片执行与渠道冲突</td></tr>
+        <tr><td><strong>NVIDIA</strong></td><td>GPU、互连、软件、Arm CPU</td><td>CUDA与全栈AI系统</td><td>Vera验证Arm架构，同时在系统层竞争</td><td>客户自研与监管约束</td></tr>
+        <tr><td><strong>AMD / Intel</strong></td><td>x86服务器CPU与AI加速器</td><td>企业软件兼容、渠道与既有部署</td><td class="risk">AGI CPU的直接CPU竞争对象</td><td>功耗、机架密度与产品节奏</td></tr>
+        <tr><td><strong>超大规模云厂商</strong></td><td>自研CPU、加速器与云平台</td><td>内部工作负载、规模与采购控制</td><td class="warn">既是Arm客户，也是自研竞争者</td><td>资本开支回报与供应链集中</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>组合映射：</b>Arm更像AI数据中心的架构与CPU期权，NVIDIA是加速计算与互连平台，云厂商控制最终需求与部署节奏。三者可以同时受益，也会在系统利润池中相互挤压。</div>
+</section>
 
- <div style="background:#f8fafc;border-radius:12px;padding:14px 12px;border:1px solid #e2e8f0;text-align:center;">
- <div style="color:#64748b;font-size:10px;margin-bottom:4px;">Q4单季营收</div>
- <div style="color:#0f172a;font-size:20px;font-weight:800;">$1.49B</div>
- <div style="color:#16a34a;font-size:11px;font-weight:600;margin-top:2px;">▲ 历史最高</div>
- </div>
+<section class="section" id="valuation">
+  <div class="section-label">06 · VALUATION AND MONITORING</div>
+  <h2>不使用一个静态PE判断Arm，改看三条兑现路径</h2>
+  <div class="grid2">
+    <article class="card"><span class="pill green">多头情景</span><h3>三种消费方式共同扩张</h3><p>IP与CSS继续增长，AGI CPU需求转化为高质量收入，数据中心成为最大业务，同时自由现金流覆盖更高研发投入。</p></article>
+    <article class="card"><span class="pill blue">基准情景</span><h3>IP底座稳，芯片爬坡较慢</h3><p>版税和授权支撑中高速增长，AGI CPU贡献逐步增加，但研发与供应链投入限制近期经营杠杆。</p></article>
+    <article class="card"><span class="pill red">空头情景</span><h3>需求不等于交付</h3><p>系统交付延迟、客户集中、毛利率低于预期，或合作伙伴担忧渠道冲突，使长期目标下修并压缩估值。</p></article>
+    <article class="card"><span class="pill amber">估值纪律</span><h3>优先验证现金，而非口号</h3><p>用AGI CPU已确认收入、数据中心版税、GAAP经营利润、经营现金流和自由现金流共同验证，不把长期目标直接资本化。</p></article>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>持续跟踪</th><th>利好信号</th><th>风险信号</th><th>对应判断</th></tr></thead>
+      <tbody>
+        <tr><td>AGI CPU需求转收入</td><td>FY2027至FY2028交付按期</td><td>需求金额延迟或取消</td><td>第二曲线可信度</td></tr>
+        <tr><td>数据中心版税</td><td>继续显著快于公司整体</td><td>增速快速回落</td><td>架构收费站强度</td></tr>
+        <tr><td>授权生态</td><td>IP、CSS客户继续增加</td><td>伙伴减少自研或转向替代架构</td><td>生态中立性</td></tr>
+        <tr><td>研发与毛利率</td><td>收入增长覆盖投入</td><td>成本上升快于新业务毛利</td><td>经营杠杆</td></tr>
+        <tr><td>现金流</td><td>OCF与FCF持续改善</td><td>库存、预付款和营运资金吞噬现金</td><td>估值质量</td></tr>
+        <tr><td>客户集中</td><td>部署伙伴扩散</td><td>收入依赖少数超大客户</td><td>预测稳定性</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Kerwin五层框架</h3>
+  <div class="flow">
+    <div class="flow-box"><strong>Layer 1 · 分母</strong>高估值资产需要用可验证现金流抵御利率和风险溢价变化。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box"><strong>Layer 2 · 制度</strong>出口限制、数据主权与云基础设施政策会影响客户、区域和供应链。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box green"><strong>Layer 3 · 产业</strong>Agentic AI提高CPU编排、内存带宽、网络和能效需求，Arm位于传导链中央。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box blue"><strong>Layer 4 · 分子</strong>FY2026已经兑现IP与现金流，AGI CPU仍需未来几个季度验证收入与利润。</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box amber"><strong>Layer 5 · 跨资产</strong>服务器、内存、网络、电力和云资本开支共同确认AI基础设施周期，但也放大拥挤交易风险。</div>
+  </div>
+  <div class="related" aria-label="相关研究">
+    <a href="/agent-compute-infrastructure/">Agent不是只吃GPU：CPU、内存与存储的再定价</a>
+    <a href="/google-ai-hypercomputer-tpu-virgo-optics-20260723/">Google Axion、TPU、Virgo vs NVIDIA Vera、Rubin与NVLink</a>
+    <a href="/nvidia-rubin-five-racks-sive-aaoi/">NVIDIA AI Factory：五个机架拆解</a>
+  </div>
+</section>
 
- <div style="background:#f8fafc;border-radius:12px;padding:14px 12px;border:1px solid #e2e8f0;text-align:center;">
- <div style="color:#64748b;font-size:10px;margin-bottom:4px;">Non-GAAP EPS</div>
- <div style="color:#0f172a;font-size:20px;font-weight:800;">$1.77</div>
- <div style="color:#16a34a;font-size:11px;font-weight:600;margin-top:2px;">▲ +9% YoY</div>
- </div>
+<section class="section" id="sources">
+  <div class="section-label">07 · PRIMARY SOURCES</div>
+  <h2>主要资料来源</h2>
+  <p class="lead">财务数字采用公司股东信及SEC文件。产品性能、客户与需求数据为Arm自身口径，页面已明确标识，不将其误写为独立第三方验证。</p>
+  <div class="source"><div class="source-num">1</div><div><a href="https://www.sec.gov/Archives/edgar/data/1973239/000197323926000062/exhibit992fye26q431-marx26.htm" target="_blank" rel="noopener">Arm FY2026 Q4股东信</a><small>Q4与全年收入、利润率、现金流、AGI CPU需求及客户进展。</small></div></div>
+  <div class="source"><div class="source-num">2</div><div><a href="https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm" target="_blank" rel="noopener">Arm FY2026 Form 20-F</a><small>经审计年度财务数据、研发投入、现金与风险披露。</small></div></div>
+  <div class="source"><div class="source-num">3</div><div><a href="https://newsroom.arm.com/news/arm-agi-cpu-launch" target="_blank" rel="noopener">Arm AGI CPU官方发布</a><small>核心数、TDP、机架设计与公司性能估算。</small></div></div>
+  <div class="source"><div class="source-num">4</div><div><a href="https://newsroom.arm.com/blog/introducing-arm-agi-cpu" target="_blank" rel="noopener">Arm AGI CPU产品与生态说明</a><small>部署伙伴、可订购系统与公司前瞻性声明。</small></div></div>
+  <div class="source"><div class="source-num">5</div><div><a href="https://www.sec.gov/Archives/edgar/data/1973239/000197323926000052/arm-20260324.htm" target="_blank" rel="noopener">Arm Everywhere Form 6-K</a><small>管理层长期财务预期的SEC披露入口。</small></div></div>
+</section>
+</main>
 
- <div style="background:#f8fafc;border-radius:12px;padding:14px 12px;border:1px solid #e2e8f0;text-align:center;">
- <div style="color:#64748b;font-size:10px;margin-bottom:4px;">毛利率</div>
- <div style="color:#0f172a;font-size:20px;font-weight:800;">97%</div>
- <div style="color:#64748b;font-size:11px;margin-top:2px;">极致轻资产</div>
- </div>
+<section class="conclusion">
+  <h2>结语：Arm的上限被打开，估值纪律也应更严格</h2>
+  <p>FY2026证明Arm并非只靠长期AI叙事，IP授权、版税、经营现金流和自由现金流已经形成坚实底座。AGI CPU则把公司从架构与子系统供应商推向生产芯片。</p>
+  <p>这一步扩大了收入池，也改变了风险结构。未来判断Arm，不应只看客户名单或长期目标，而要看需求如何依次转化为交付、收入、经营利润和自由现金流，同时确认授权生态没有被直接销售业务削弱。</p>
+</section>
 
- <div style="background:#f8fafc;border-radius:12px;padding:14px 12px;border:1px solid #e2e8f0;text-align:center;">
- <div style="color:#64748b;font-size:10px;margin-bottom:4px;">Armv9占比</div>
- <div style="color:#0f172a;font-size:20px;font-weight:800;">&gt;50%</div>
- <div style="color:#16a34a;font-size:11px;font-weight:600;margin-top:2px;">▲ 特许费占比</div>
- </div>
+<section class="enya-brand" aria-label="EnyaClawd 品牌说明">
+  <div class="enya-brand-name">EnyaClawd</div>
+  <div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+  <div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+  <p class="enya-brand-copy">Kerwin 确定研究主题、投资逻辑与最终校对；Enya 负责证据组织、可视化呈现与持续维护。</p>
+</section>
 
- <div style="background:#fff7ed;border-radius:12px;padding:14px 12px;border:1px solid #fed7aa;text-align:center;">
- <div style="color:#92400e;font-size:10px;margin-bottom:4px;">数据中心特许费</div>
- <div style="color:#c2410c;font-size:18px;font-weight:800;">同比翻倍+</div>
- <div style="color:#92400e;font-size:11px;margin-top:2px;">最快增长板块</div>
- </div>
-
-</div><!-- 季度营收走势 -->
-<div style="padding:0 20px 28px;">
- <div style="background:#f8fafc;border-radius:12px;padding:18px;border:1px solid #e2e8f0;">
- <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:14px;">季度营收走势（单位：亿美元）</div>
- <div style="display:flex;align-items:flex-end;gap:8px;height:100px;">
- <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="font-size:9px;color:#64748b;">8.9</div><div style="height:60px;width:100%;background:#bfdbfe;border-radius:4px 4px 0 0;"></div><div style="font-size:9px;color:#94a3b8;">Q4<br>FY25</div></div>
- <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="font-size:9px;color:#64748b;">10.5</div><div style="height:71px;width:100%;background:#93c5fd;border-radius:4px 4px 0 0;"></div><div style="font-size:9px;color:#94a3b8;">Q1<br>FY26</div></div>
- <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="font-size:9px;color:#64748b;">11.4</div><div style="height:77px;width:100%;background:#60a5fa;border-radius:4px 4px 0 0;"></div><div style="font-size:9px;color:#94a3b8;">Q2<br>FY26</div></div>
- <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="font-size:9px;color:#64748b;">12.4</div><div style="height:84px;width:100%;background:#3b82f6;border-radius:4px 4px 0 0;"></div><div style="font-size:9px;color:#94a3b8;">Q3<br>FY26</div></div>
- <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="font-size:9px;color:#1d4ed8;font-weight:800;">14.9🔥</div><div style="height:100px;width:100%;background:linear-gradient(180deg,#1d4ed8,#2563eb);border-radius:4px 4px 0 0;box-shadow:0 0 8px rgba(37,99,235,0.4);"></div><div style="font-size:9px;color:#1d4ed8;font-weight:700;">Q4<br>FY26</div></div>
- </div>
- </div>
-</div>
-
-<div style="padding:0 20px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">二、战略转型：35年来首次自研芯片</div></div>
-<div style="padding:0 20px 24px;">
- <div style="background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:14px;padding:22px;margin-bottom:14px;">
- <div style="color:#a5b4fc;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:8px;">2026年3月24日 重大发布</div>
- <div style="color:#fff;font-size:17px;font-weight:800;margin-bottom:10px;">🚀 ARM AGI CPU</div>
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
- <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;"><div style="color:#c7d2fe;font-size:10px;">核心数</div><div style="color:#fff;font-size:16px;font-weight:800;">136核</div></div>
- <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;"><div style="color:#c7d2fe;font-size:10px;">制程</div><div style="color:#fff;font-size:16px;font-weight:800;">TSMC 3nm</div></div>
- <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;"><div style="color:#c7d2fe;font-size:10px;">性能</div><div style="color:#fff;font-size:14px;font-weight:800;">2× x86/瓦</div></div>
- <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:10px;"><div style="color:#c7d2fe;font-size:10px;">量产</div><div style="color:#fff;font-size:14px;font-weight:800;">2026年H2</div></div>
- </div>
- </div>
- <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:16px;">
- <div style="color:#15803d;font-size:12px;font-weight:700;margin-bottom:10px;">✅ 已确认商业客户</div>
- <div style="display:flex;flex-wrap:wrap;gap:6px;">
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">Meta（联合开发）</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">OpenAI</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">Cloudflare</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">Cerebras</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">SAP</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">SK Telecom</span>
- <span style="background:#fff;border:1px solid #86efac;color:#166534;border-radius:16px;padding:4px 12px;font-size:12px;font-weight:600;">Rebellions</span>
- </div>
- <div style="margin-top:10px;color:#64748b;font-size:11px;">生态支持方：AWS、Google、Microsoft Azure、NVIDIA、Oracle、Samsung、SK Hynix 均公开表态支持</div>
- </div>
-</div>
-
-<div style="padding:0 20px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">三、Armv9「架构收费站」核心逻辑</div></div>
-<div style="padding:0 20px 24px;">
- <div style="background:#f8fafc;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;">
- <div style="padding:4px 0;">
- <div style="display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #f1f5f9;"><div style="width:36px;height:36px;background:#e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#64748b;margin-right:12px;flex-shrink:0;">v8</div><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#94a3b8;">Armv8（旧代架构）</div><div style="font-size:11px;color:#94a3b8;">逐步退出主流 · 1× 基准费率</div></div><div style="background:#e2e8f0;color:#64748b;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;">1×</div></div>
- <div style="display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #f1f5f9;background:#eff6ff;"><div style="width:36px;height:36px;background:#bfdbfe;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1d4ed8;margin-right:12px;flex-shrink:0;">v9</div><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#1e40af;">Armv9 标准</div><div style="font-size:11px;color:#3b82f6;">已占特许费收入 &gt;50% · 主力架构</div></div><div style="background:#bfdbfe;color:#1d4ed8;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;">~2×</div></div>
- <div style="display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #f1f5f9;background:#f0fdf4;"><div style="width:36px;height:36px;background:#86efac;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#15803d;margin-right:12px;flex-shrink:0;">CSS</div><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#15803d;">Armv9 + CSS（计算子系统）</div><div style="font-size:11px;color:#16a34a;">超大规模云厂商主力 · 数据中心爆发驱动</div></div><div style="background:#86efac;color:#15803d;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;">~4×</div></div>
- <div style="display:flex;align-items:center;padding:12px 16px;background:linear-gradient(90deg,#fef9c3,#fff);"><div style="width:36px;height:36px;background:#fef08a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#92400e;margin-right:12px;flex-shrink:0;">AGI</div><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#92400e;">AGI CPU（直销芯片）</div><div style="font-size:11px;color:#b45309;">全芯片价值捕获 · 2026H2量产</div></div><div style="background:#fef08a;color:#92400e;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;">直销</div></div>
- </div>
- </div>
- <div style="margin-top:10px;background:#eff6ff;border-radius:10px;padding:12px 14px;color:#1e40af;font-size:12px;line-height:1.7;">💡 <strong>关键洞察：</strong>AWS Graviton、Google Axion、Microsoft Cobalt、NVIDIA Vera 均是ARM架构。无论谁赢得服务器插槽，ARM都收取特许费——AGI CPU在此之上叠加直销收入，形成双轨护城河。</div>
-</div>
-
-<div style="padding:0 20px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">四、管理层 FY2031 长期目标</div></div>
-<div style="padding:0 20px 20px;">
- <div style="background:linear-gradient(135deg,#0a1628,#0f2d5a);border-radius:14px;padding:22px;">
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
- <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:14px;text-align:center;"><div style="color:#93c5fd;font-size:10px;margin-bottom:4px;">总营收目标</div><div style="color:#fff;font-size:24px;font-weight:800;">$25B</div><div style="color:#60a5fa;font-size:11px;">较FY2026增6.8×</div></div>
- <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:14px;text-align:center;"><div style="color:#93c5fd;font-size:10px;margin-bottom:4px;">Non-GAAP EPS</div><div style="color:#fff;font-size:24px;font-weight:800;">&gt;$9</div><div style="color:#60a5fa;font-size:11px;">较FY2026增5×+</div></div>
- </div>
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
- <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="color:#a5b4fc;font-size:10px;">AGI CPU 营收贡献</div><div style="color:#e0e7ff;font-size:15px;font-weight:700;">$15B</div></div>
- <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:10px;"><div style="color:#a5b4fc;font-size:10px;">IP 授权业务</div><div style="color:#e0e7ff;font-size:15px;font-weight:700;">$10B</div></div>
- </div>
- <div style="background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);border-radius:8px;padding:10px;"><div style="color:#fcd34d;font-size:11px;line-height:1.7;">⚠️ 上述为管理层指引，非经审计预测。AGI CPU需从零开始建立供应链能力，FY2028年才开始贡献实质收入，执行风险较高，需持续以季报数据验证。</div></div>
- </div>
-</div>
-
-<div style="padding:0 20px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:6px;border-left:3px solid #2563eb;padding-left:12px;">五、AI芯片竞争格局</div><div style="color:#64748b;font-size:12px;padding-left:12px;margin-bottom:16px;">六大玩家全维度对比</div></div>
-<div style="padding:0 12px 24px;">
- <div style="background:#fff;border-radius:12px;border:2px solid #2563eb;margin-bottom:12px;overflow:hidden;"><div style="background:#2563eb;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇬🇧 ARM Holdings</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">NASDAQ: ARM</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#1e40af;font-weight:700;margin-bottom:6px;">IP架构授权 + 新晋芯片制造商</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>Neoverse CSS + AGI CPU（2026H2量产）<br><span style="font-weight:700;">货币化：</span>特许费（每颗芯片）+ 授权费 + AGI CPU直销<br><span style="font-weight:700;">护城河：</span>ISA生态30年积累，无法绕过的行业标准<br><span style="font-weight:700;">毛利率：</span>97% ｜ <span style="font-weight:700;">FY2026营收：</span>$4.92B ｜ <span style="font-weight:700;">PE：</span>~110×</div></div></div>
- <div style="background:#fff;border-radius:12px;border:2px solid #76B900;margin-bottom:12px;overflow:hidden;"><div style="background:#76B900;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇺🇸 NVIDIA</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">NASDAQ: NVDA</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#3a5f00;font-weight:700;margin-bottom:6px;">AI计算全栈平台领导者</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#f7fee7;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#f7fee7;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#ca8a04;">⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#f7fee7;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#dc2626;">⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>H200/B200 GPU + Vera CPU + NIM推理平台<br><span style="font-weight:700;">护城河：</span>CUDA软件生态，切换成本极高，全栈锁定<br><span style="font-weight:700;">风险：</span>美国对华出口管制（H20禁售）；AMD/TPU竞争<br><span style="font-weight:700;">毛利率：</span>~75% ｜ <span style="font-weight:700;">FY2026营收：</span>~$130B+ ｜ <span style="font-weight:700;">PE：</span>~45×</div></div></div>
- <div style="background:#fff;border-radius:12px;border:2px solid #ED1C24;margin-bottom:12px;overflow:hidden;"><div style="background:#ED1C24;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇺🇸 AMD</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">NASDAQ: AMD</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#991b1b;font-weight:700;margin-bottom:6px;">AI加速器第二梯队 + 服务器CPU竞争者</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#fff5f5;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#ca8a04;">⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#fff5f5;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#dc2626;">⭐⭐</div></div><div style="text-align:center;padding:6px;background:#fff5f5;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#dc2626;">⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>MI350 GPU + EPYC Venice（256核，TSMC 2nm，2026H2）<br><span style="font-weight:700;">优势：</span>x86兼容性；高核心数EPYC在企业市场强势<br><span style="font-weight:700;">弱点：</span>ROCm软件生态仍弱于CUDA；中国出口受限<br><span style="font-weight:700;">毛利率：</span>~53% ｜ <span style="font-weight:700;">FY2026营收：</span>~$30B ｜ <span style="font-weight:700;">PE：</span>~35×</div></div></div>
- <div style="background:#fff;border-radius:12px;border:2px solid #0071C5;margin-bottom:12px;overflow:hidden;"><div style="background:#0071C5;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇺🇸 Intel</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">NASDAQ: INTC</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#1e3a5f;font-weight:700;margin-bottom:6px;">AI芯片转型挑战者 · 高风险重建期</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#ca8a04;">⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#ca8a04;">⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#dc2626;">⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>Xeon 6 + Clearwater Forest（288核，18A制程）<br><span style="font-weight:700;">赌注：</span>Intel 18A制程若成功将是颠覆性武器<br><span style="font-weight:700;">风险：</span>18A良率不确定；Gaudi AI芯片市场接受度低；转型期持续亏损<br><span style="font-weight:700;">毛利率：</span>~42% ｜ <span style="font-weight:700;">FY2026营收：</span>~$55B ｜ <span style="font-weight:700;">PE：</span>亏损/NM</div></div></div>
- <div style="background:#fff;border-radius:12px;border:2px solid #3253DC;margin-bottom:12px;overflow:hidden;"><div style="background:#3253DC;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇺🇸 Qualcomm</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">NASDAQ: QCOM</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#1e3a8a;font-weight:700;margin-bottom:6px;">移动AI芯片龙头 + 边缘AI/PC扩张</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#dc2626;">⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#eff6ff;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>Snapdragon 8 Elite + Oryon CPU（X Elite PC芯片）<br><span style="font-weight:700;">优势：</span>端侧AI推理最强；低功耗NPU领导者；5G调制解调器专利壁垒<br><span style="font-weight:700;">风险：</span>Apple自研调制解调器威胁；ARM授权合同重谈潜在风险<br><span style="font-weight:700;">毛利率：</span>~57% ｜ <span style="font-weight:700;">FY2026营收：</span>~$45B ｜ <span style="font-weight:700;">PE：</span>~17×</div></div></div>
- <div style="background:#fff;border-radius:12px;border:2px solid #E8A020;margin-bottom:12px;overflow:hidden;"><div style="background:#E8A020;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#fff;font-size:14px;font-weight:800;">🇹🇼 联发科</div><div style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px;border-radius:12px;padding:2px 10px;">TWSE: 2454</div></div><div style="padding:14px 16px;"><div style="font-size:12px;color:#92400e;font-weight:700;margin-bottom:6px;">中低端移动AI + AIoT平台</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;"><div style="text-align:center;padding:6px;background:#fffbeb;border-radius:6px;"><div style="font-size:9px;color:#64748b;">数据中心</div><div style="font-size:13px;color:#dc2626;">⭐</div></div><div style="text-align:center;padding:6px;background:#fffbeb;border-radius:6px;"><div style="font-size:9px;color:#64748b;">边缘AI</div><div style="font-size:13px;color:#ca8a04;">⭐⭐⭐⭐</div></div><div style="text-align:center;padding:6px;background:#fffbeb;border-radius:6px;"><div style="font-size:9px;color:#64748b;">移动端</div><div style="font-size:13px;color:#16a34a;">⭐⭐⭐⭐</div></div></div><div style="font-size:12px;color:#334155;line-height:1.7;"><span style="font-weight:700;">核心产品：</span>Dimensity 9400 + 天玑AI系列 + 凌霄AIoT芯片<br><span style="font-weight:700;">优势：</span>全球出货量最大；中端AI手机主导；AIoT/智能家居护城河<br><span style="font-weight:700;">风险：</span>高端溢价不足；ARM授权成本占比高；地缘贸易风险<br><span style="font-weight:700;">毛利率：</span>~50% ｜ <span style="font-weight:700;">FY2026营收：</span>~$7.5B USD ｜ <span style="font-weight:700;">PE：</span>~18×</div></div></div>
-</div>
-
-<div style="padding:0 20px 24px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">六、竞争格局三大核心洞察</div><div style="display:flex;flex-direction:column;gap:12px;"><div style="background:#f7fee7;border-radius:12px;padding:16px;border-left:4px solid #76B900;"><div style="font-weight:800;color:#3a5f00;font-size:13px;margin-bottom:6px;">🏆 数据中心AI算力：NVIDIA 绝对主导</div><div style="color:#166534;font-size:12px;line-height:1.7;">B200 GPU供不应求，CUDA生态护城河20年难以撼动。ARM AGI CPU是唯一真正新进入者，但定位CPU编排层而非GPU替代，两者更多是协同而非竞争。</div></div><div style="background:#eff6ff;border-radius:12px;padding:16px;border-left:4px solid #2563eb;"><div style="font-weight:800;color:#1e40af;font-size:13px;margin-bottom:6px;">📱 端侧/移动AI：ARM架构生态通吃</div><div style="color:#1e3a8a;font-size:12px;line-height:1.7;">Qualcomm Oryon主导高端，联发科天玑横扫中端，两者均使用ARM架构——ARM无论哪个品牌赢，都收取版税。全球99%以上智能手机跑ARM架构。</div></div><div style="background:linear-gradient(135deg,#faf5ff,#ede9fe);border-radius:12px;padding:16px;border-left:4px solid #7c3aed;"><div style="font-weight:800;color:#5b21b6;font-size:13px;margin-bottom:6px;">🌐 最大结构变量：ARM的「双重收费」护城河</div><div style="color:#4c1d95;font-size:12px;line-height:1.7;">ARM是唯一可同时向「自己赢得插槽」和「授权商赢得插槽」两种情景收费的玩家。竞争越激烈，生态越繁荣，ARM收费越多——这是Intel、AMD、NVIDIA均不具备的独特结构优势。</div></div></div></div>
-
-<div style="padding:0 20px 24px;"><div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">七、投资结论框架</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1px solid #86efac;border-radius:12px;padding:16px;"><div style="font-weight:800;color:#15803d;font-size:13px;margin-bottom:8px;">🐂 多头逻辑</div><div style="color:#166534;font-size:12px;line-height:1.7;">AI Capex超周期→数据中心爆发→v9费率升级→AGI CPU第二曲线，形成罕见「存量加速+新业务爆发」双击结构。</div></div><div style="background:linear-gradient(135deg,#fff7ed,#fee2e2);border:1px solid #fca5a5;border-radius:12px;padding:16px;"><div style="font-weight:800;color:#991b1b;font-size:13px;margin-bottom:8px;">🐻 风险警示</div><div style="color:#7f1d1d;font-size:12px;line-height:1.7;">~110×PE定价完美执行；Q1指引环比-15%；AGI CPU量产延迟或授权商反弹均可引发30-40%回调。</div></div></div>
- <div style="margin-top:14px;background:#f8fafc;border-radius:12px;padding:14px 16px;border:1px solid #e2e8f0;"><div style="font-size:12px;font-weight:700;color:#475569;margin-bottom:8px;">📊 建议持续跟踪的核心指标</div><div style="font-size:12px;color:#334155;line-height:2;">① Armv9特许费占比（目标突破60%）<br>② 数据中心特许费绝对值（是否维持同比翻倍+）<br>③ AGI CPU量产时间线及大客户扩展（超越Meta/OpenAI）<br>④ Q1 FY2027实际营收是否超越$1.26B指引<br>⑤ Arm China收入占比及政策动态</div></div>
-</div>
-
-<!-- ===== 五层框架补充评论（追加，不删原文） ===== -->
-<div style="padding:0 20px;">
- <div style="font-size:15px;font-weight:800;color:#0f172a;margin-bottom:16px;border-left:3px solid #2563eb;padding-left:12px;">八、kerwin 五层框架补充评论</div>
-</div>
-<div style="padding:0 20px 24px;display:flex;flex-direction:column;gap:12px;">
- <div style="background:#fffaf0;border:1px solid #fde68a;border-radius:12px;padding:16px;">
-  <div style="font-size:13px;font-weight:800;color:#92400e;margin-bottom:8px;">Layer 1｜分母：高利率环境下，ARM 是否仍配得上高估值？</div>
-  <div style="font-size:12px;line-height:1.8;color:#78350f;">当前美国10年期国债收益率为 <strong>4.41%</strong>（2026-05-07），较 2025-12-31 的 <strong>4.18%</strong> 上行 <strong>23bp</strong>。Kerwin观点：在不降息背景下，若 US10Y 维持在 <strong>4.0%–4.4%</strong> 区间，并不意味着所有高估值科技股都失去定价基础；对于毛利率 40% 以上、产业地位稳固、盈利与现金流路径清晰的科技细分龙头，当前贴现率仍可被阶段性吸收。ARM 以 97% 毛利率和平台级架构地位，属于有资格被市场容忍高估值的一类资产。</div>
- </div>
- <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px;">
-  <div style="font-size:13px;font-weight:800;color:#1d4ed8;margin-bottom:8px;">Layer 2｜制度 / 政策：制度环境是否顺风？</div>
-  <div style="font-size:12px;line-height:1.8;color:#1e3a8a;">ARM 当前受益的不是单一政策补贴，而是 AI 基础设施、云端算力、端侧能效升级共同推动的资本开支方向。制度层面没有明显逆风，但若未来地缘监管、出口约束或 hyperscaler CapEx 放缓，ARM 的高估值会先受到风险溢价抬升的冲击。</div>
- </div>
- <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:16px;">
-  <div style="font-size:13px;font-weight:800;color:#15803d;margin-bottom:8px;">Layer 3｜产业传导：技术叙事是否真正变成利润池？</div>
-  <div style="font-size:12px;line-height:1.8;color:#166534;">这一层是 ARM 当前最强的部分。Armv9 升级提高收费率，CSS 让 ARM 更深地嵌入数据中心系统层，AGI CPU 若顺利量产，则把 ARM 从“架构收费站”推向“收费站 + 自营芯片”的双模式。也就是说，产业传导已经从概念进入客户验证阶段，但全面兑现仍需未来几个季度验证。</div>
- </div>
- <div style="background:#faf5ff;border:1px solid #d8b4fe;border-radius:12px;padding:16px;">
-  <div style="font-size:13px;font-weight:800;color:#6b21a8;margin-bottom:8px;">Layer 4｜分子兑现与久期：近端兑现，还是远端故事？</div>
-  <div style="font-size:12px;line-height:1.8;color:#581c87;">ARM 当前不是分子端差，而是远端分子占定价权重过高。FY2026 营收 +23%、毛利率 97%，说明当前盈利质量很强；但 FY2031 $25B 营收目标，尤其是 AGI CPU 的大规模收入贡献，意味着市场正在提前买入数年后的兑现。结论是：ARM 质量很强，但估值容错率并不高。</div>
- </div>
- <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;">
-  <div style="font-size:13px;font-weight:800;color:#334155;margin-bottom:8px;">Layer 5｜跨资产确认：这条主线有没有被更大市场验证？</div>
-  <div style="font-size:12px;line-height:1.8;color:#475569;">ARM 所在主线并不孤立。NVDA、AMD、HBM、服务器、光互连、数据中心网络与电力链条仍在共同验证 AI 基础设施主线成立。Kerwin观点：ARM 更像“强主线内的高弹性高估值标的”，适合在兑现验证不断增强，或估值回撤后赔率改善时再提高进攻性。</div>
- </div>
-</div>
-
-<div style="background:#f8fafc;padding:20px;border-top:1px solid #e2e8f0;">
- <div style="color:#94a3b8;font-size:11px;line-height:1.8;">
- <strong style="color:#64748b;">免责声明</strong><br>
- 本文仅供参考，不构成投资建议。财务数据来自ARM官方SEC文件（2026年5月6日）；FY2031管理层目标为指引性预测，非经审计数据，存在重大不确定性。营收/PE等部分为市场估算（标注"~"）。美国10年期国债收益率取自 FRED 最新可得数据。投资有风险，请结合个人情况独立作出判断，并在必要时咨询专业人士。
- </div>
-</div>
-
-<div style="background:#0a1628;padding:16px;text-align:center;">
- <div style="color:#475569;font-size:11px;">2026 AI 精选组合 · 投资研究</div>
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-brand">EnyaClawd · Kerwin Research Hub</div>
+  <div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。底层模型：GPT 5.6 Sol 及 Claude Fable 付费版。</div>
+  <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+  <div>本文仅用于投资研究与信息交流，不构成证券买卖建议。财务数据截至2026年3月31日，产品与客户资料核对至2026年7月25日。公司前瞻目标、内部性能估算和需求口径存在重大不确定性。</div>
+  <div>© Kerwin｜宏观对冲及AI精选组合研究｜Enya.Clawd 自动化呈现</div>
+  <a class="bottom-link" href="/">返回研究首页 ↗</a>
+</footer>
 </div>
 </div>
-<div style="max-width:780px;margin:32px auto 24px;padding:16px;text-align:center;"><a href="/" style="font-family:Arial,"PingFang SC",sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700;">← 返回首页</a></div>
-<!-- Enya 页面计数器 -->
-<div class="counter-wrap" style="text-align:center;margin:2em 0 0.5em;font-size:13px;color:var(--muted,#6f6258)">
-  👀 页面浏览量：<span class="counter-num" id="counter-num">...</span>
-</div>
+
 <script>
 (function(){
-  var slug = document.querySelector('[data-page-slug]');
-  var slugVal = (slug && slug.getAttribute('data-page-slug')) || 'home';
-  var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slugVal);
-  var el = document.getElementById('counter-num');
-  // GET current count first
-  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){
-    if(el) el.textContent = d.count.toLocaleString();
-  }).catch(function(){if(el) el.textContent = '-';});
-  // POST to increment (fire and forget)
-  fetch(counterUrl, {method:'POST'}).then(function(r){return r.json()}).then(function(d){
-    if(el) el.textContent = d.count.toLocaleString();
+  var slug="arm-holdings-fy2026-brief";
+  var url="https://enyaclawd-counter.kerwin-finance.workers.dev?page="+encodeURIComponent(slug);
+  var el=document.getElementById("counter-num");
+  fetch(url).then(function(r){return r.json()}).then(function(d){
+    if(el)el.textContent=Number(d.count||0).toLocaleString("zh-CN");
+  }).catch(function(){if(el)el.textContent="-"});
+  fetch(url,{method:"POST"}).then(function(r){return r.json()}).then(function(d){
+    if(el)el.textContent=Number(d.count||0).toLocaleString("zh-CN");
   }).catch(function(){});
 })();
 </script>
-<!-- /Enya 计数器 -->
-
-<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
+<script>
+(function(){
+  var body=document.body;
+  var gate=document.querySelector(".kw-editorial-gate");
+  var form=gate.querySelector("form");
+  var input=gate.querySelector("input");
+  var status=gate.querySelector(".kw-editorial-gate__status");
+  var unlocking=false;
+  var clearTimer=0;
+  function openPage(){
+    if(unlocking)return;
+    unlocking=true;
+    if(clearTimer)clearTimeout(clearTimer);
+    gate.classList.add("is-unlocking");
+    status.textContent="正在展开页面…";
+    setTimeout(function(){
+      body.classList.remove("kw-gate-pending");
+      gate.setAttribute("aria-hidden","true");
+      var firstFocus=document.querySelector(".back-top a, main a, main button");
+      if(firstFocus)firstFocus.focus();
+    },140);
+  }
+  function checkInput(){
+    var value=String(input.value||"").trim().toLowerCase();
+    if(value==="k"){openPage();return}
+    if(value){
+      status.textContent="请输入 “k”，大小写均可。";
+      if(clearTimer)clearTimeout(clearTimer);
+      clearTimer=setTimeout(function(){
+        if(!unlocking){input.value="";input.focus()}
+      },260);
+    }
+  }
+  input.addEventListener("input",checkInput);
+  form.addEventListener("submit",function(event){event.preventDefault();checkInput()});
+  setTimeout(function(){if(!unlocking)input.focus()},60);
+})();
+</script>
 </body>
 </html>
