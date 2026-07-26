@@ -29,7 +29,7 @@ New directory-based reports use:
 <slug>/meta.json
 ```
 
-Homepage registration is maintained in `registry.json`. Every production entry should include a stable slug, title, date, summary, source, `homepage_approved`, and a Hong Kong ISO 8601 timestamp with `+08:00`.
+Homepage registration is maintained in `registry.json`. Every production entry should include a stable slug, title, date, `deck`, `tag`, source, `homepage_approved`, and a Hong Kong ISO 8601 timestamp with `+08:00`.
 
 ## Asset policy
 
