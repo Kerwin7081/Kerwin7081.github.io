@@ -151,6 +151,7 @@ def validate_registry(root: Path) -> list[str]:
 
     errors: list[str] = []
     seen: set[str] = set()
+    featured_ranks: dict[int, str] = {}
     for index, item in enumerate(registry):
         label = f"registry.json entry {index + 1}"
         if not isinstance(item, dict):
@@ -171,11 +172,77 @@ def validate_registry(root: Path) -> list[str]:
             if slug_path.is_absolute() or ".." in slug_path.parts:
                 errors.append(f"{label}: slug must be a safe repository-relative path")
                 continue
-            target = root / Path(*slug_path.parts) / "index.html"
+
+            route = item.get("path")
+            if route is not None:
+                if (
+                    not isinstance(route, str)
+                    or not route.startswith("/")
+                    or route.startswith("//")
+                    or "?" in route
+                    or "#" in route
+                ):
+                    errors.append(
+                        f"{label}: path must be a safe root-relative public route"
+                    )
+                    continue
+                route_path = PurePosixPath(route.lstrip("/"))
+                if not route_path.parts or ".." in route_path.parts:
+                    errors.append(
+                        f"{label}: path must be a safe root-relative public route"
+                    )
+                    continue
+                target = root / Path(*route_path.parts)
+                if route.endswith("/"):
+                    target /= "index.html"
+            else:
+                target = root / Path(*slug_path.parts) / "index.html"
             if not target.is_file():
                 errors.append(
-                    f"registry.json: approved slug {slug!r} has no {slug}/index.html"
+                    f"registry.json: approved slug {slug!r} has no public target "
+                    f"{target.relative_to(root).as_posix()}"
                 )
+
+        featured_rank = item.get("featured_rank")
+        if featured_rank is not None:
+            if (
+                isinstance(featured_rank, bool)
+                or not isinstance(featured_rank, int)
+                or featured_rank not in {1, 2, 3}
+            ):
+                errors.append(f"{label}: featured_rank must be one of 1, 2, or 3")
+            elif item.get("homepage_approved") is not True:
+                errors.append(f"{label}: featured entries must be homepage approved")
+            elif featured_rank in featured_ranks:
+                errors.append(
+                    f"registry.json: duplicate featured_rank {featured_rank} for "
+                    f"{featured_ranks[featured_rank]!r} and {slug!r}"
+                )
+            else:
+                featured_ranks[featured_rank] = slug
+    return errors
+
+
+def validate_homepage_loader(root: Path) -> list[str]:
+    path = root / "assets" / "kerwin-home-v3.js"
+    try:
+        source = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        return [f"assets/kerwin-home-v3.js: unable to read homepage loader: {exc}"]
+
+    errors: list[str] = []
+    for obsolete in ("var legacyPages", "registry.concat(legacyPages)", "source === 'codex'"):
+        if obsolete in source:
+            errors.append(
+                "assets/kerwin-home-v3.js: homepage content must come from "
+                f"registry.json; obsolete loader logic remains: {obsolete}"
+            )
+    for required in ("Array.isArray(registry)", "p.featured_rank", "p.path"):
+        if required not in source:
+            errors.append(
+                "assets/kerwin-home-v3.js: missing registry contract support: "
+                f"{required}"
+            )
     return errors
 
 
@@ -264,6 +331,8 @@ def main() -> int:
 
     if PurePosixPath("registry.json") in changed:
         errors.extend(validate_registry(root))
+    if PurePosixPath("assets/kerwin-home-v3.js") in changed:
+        errors.extend(validate_homepage_loader(root))
 
     affected_pages: set[PurePosixPath] = {
         path
