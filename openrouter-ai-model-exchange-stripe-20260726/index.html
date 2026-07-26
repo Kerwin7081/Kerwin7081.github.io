@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kerwin投顾视角：以OpenRouter为圆点，拆解中国开放权重模型的海外推理与商业分发链、平台商业模式、资本路径、Stripe潜在收购、竞争格局、护城河与AI行业真实调用数据。">
+<meta name="author" content="Kerwin">
+<meta name="theme-color" content="#103f35">
+<meta property="og:title" content="OpenRouter：AI模型时代的交易所｜从中国开放模型出海，到Stripe争夺Token分发权">
+<meta property="og:description" content="OpenRouter正在争夺模型、推理算力与开发者需求之间的分发、路由和结算层。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://enyaclawd.com/openrouter-ai-model-exchange-stripe-20260726/">
+<meta name="article:published_time" content="2026-07-26T12:10:00+08:00">
+<meta name="article:modified_time" content="2026-07-26T12:10:00+08:00">
+<meta name="kerwin-web-version" content="3.3.2">
+<meta name="typography-lock-version" content="1.1.0">
+<meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
+<title>OpenRouter：AI模型时代的交易所｜Kerwin Research Hub</title>
+<style>
+:root{
+  --surface:#fff1e5;
+  --paper:#fffaf5;
+  --paper-2:#f7e7d8;
+  --outer:#e6d8cb;
+  --ink:#262220;
+  --muted:#746b65;
+  --line:#cdbfb3;
+  --line-dark:#968b83;
+  --green:#103f35;
+  --green-2:#1f5a4d;
+  --green-pale:#dce8e2;
+  --copper:#9a5c38;
+  --risk:#9f332b;
+  --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+  --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--outer)}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--outer);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.88;
+  overflow-x:hidden;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #d29b5d;outline-offset:3px}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:1000;background:var(--paper);color:var(--green);padding:8px 12px;border:1px solid var(--green)}
+.skip-link:focus{top:12px}
+.progress{position:fixed;left:0;top:0;width:0;height:4px;background:var(--copper);z-index:950}
+.access-gate{
+  position:fixed;
+  inset:0;
+  z-index:900;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:var(--green);
+  transition:opacity 160ms ease,visibility 160ms ease;
+}
+.access-gate.is-leaving{opacity:0;visibility:hidden}
+.gate-sheet{
+  width:min(680px,100%);
+  padding:42px 44px 38px;
+  background:var(--surface);
+  color:var(--ink);
+  border-top:8px solid var(--ink);
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
+}
+.gate-top{display:flex;align-items:center;gap:24px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.gate-seal{
+  width:118px;
+  height:118px;
+  flex:0 0 118px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  border:1px solid var(--green);
+  border-radius:50%;
+  color:var(--green);
+  font-family:var(--serif);
+  font-size:17px;
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:.02em;
+}
+.gate-kicker,.eyebrow,.section-label,.micro-label{
+  font-size:10px;
+  line-height:1.4;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.gate-kicker{color:var(--green);margin-bottom:8px}
+.gate-sheet h1{margin:0;font:700 clamp(29px,4vw,42px)/1.08 var(--serif)}
+.gate-sheet p{margin:12px 0 0;color:var(--muted)}
+.gate-form{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:28px;align-items:end}
+.gate-field label{display:block;margin-bottom:7px;font-size:12px;font-weight:700;color:var(--green)}
+.gate-field input{
+  width:100%;
+  min-height:48px;
+  border:1px solid var(--green);
+  border-radius:0;
+  background:var(--paper);
+  color:var(--ink);
+  padding:10px 13px;
+  font:700 20px/1 var(--sans);
+}
+.auto-enter{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  color:var(--paper);
+  background:var(--green);
+  font-size:10px;
+  line-height:1;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.gate-status{min-height:24px;margin-top:8px;color:var(--risk);font-size:12px}
+.gate-brand{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:var(--muted)}
+.site-shell{width:min(1120px,calc(100% - 32px));margin:30px auto;background:var(--paper);box-shadow:0 18px 52px rgba(68,49,37,.16)}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:11px 24px;
+  background:var(--green);
+  color:var(--paper);
+  font-size:11px;
+  line-height:1.4;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.topbar a{text-decoration:none}
+.masthead{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:24px;
+  padding:18px 32px;
+  border-bottom:1px solid var(--line-dark);
+  background:var(--surface);
+}
+.brand-mark{font:700 22px/1 var(--serif);color:var(--green);white-space:nowrap}
+.brand-mark small{display:block;margin-top:7px;font:700 9px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.nav a{font-size:11px;font-weight:700;text-decoration:none;color:var(--green)}
+.home-route{font-size:12px;font-weight:700;color:var(--green);text-decoration:none;white-space:nowrap}
+.cover{padding:62px 64px 48px;background:var(--surface);border-bottom:1px solid var(--line-dark)}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:end}
+.eyebrow{color:var(--copper);margin-bottom:16px}
+.cover h1{max-width:790px;margin:0;font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.02em}
+.cover h1 span{display:block;margin-top:11px;color:var(--green)}
+.thesis{max-width:800px;margin:24px 0 0;font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif)}
+.cover-meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:var(--muted)}
+.cover-meta b{color:var(--ink)}
+.cover-seal{padding:24px 18px;text-align:center;border:1px solid var(--green);color:var(--green)}
+.cover-seal strong{display:block;font:700 36px/1 var(--serif)}
+.cover-seal span{display:block;margin-top:9px;font-size:10px;line-height:1.55;letter-spacing:.12em;text-transform:uppercase}
+.scope-note{padding:18px 64px;background:var(--paper-2);border-bottom:1px solid var(--line);font-size:13px;line-height:1.7;color:var(--muted)}
+.scope-note b{color:var(--ink)}
+.section{padding:44px 64px;border-bottom:1px solid var(--line)}
+.section-label{color:var(--green);margin-bottom:9px}
+.section h2{margin:0 0 21px;font:700 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.012em}
+.section h3{margin:30px 0 12px;font:700 21px/1.35 var(--serif)}
+.section p{margin:0 0 16px}
+.lead{font-size:18px;line-height:1.78}
+.chip{display:inline-block;margin-right:8px;padding:2px 7px;border:1px solid currentColor;font-size:10px;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;font-weight:700;vertical-align:2px}
+.chip.fact{color:var(--green)}
+.chip.reported{color:var(--copper)}
+.chip.inference{color:#695124}
+.chip.calc{color:var(--green-2)}
+.chip.unresolved{color:var(--risk)}
+.verdict{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.verdict-item{padding:19px 18px;border-right:1px solid var(--line)}
+.verdict-item:last-child{border-right:0}
+.verdict-item b{display:block;margin-bottom:8px;font:700 18px/1.35 var(--serif);color:var(--green)}
+.verdict-item span{display:block;font-size:14px;line-height:1.65;color:var(--muted)}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--green)}
+.evidence{min-height:154px;padding:20px;border-right:1px solid var(--green);border-bottom:1px solid var(--green)}
+.evidence:nth-child(3n){border-right:0}
+.evidence:nth-child(n+4){border-bottom:0}
+.evidence strong{display:block;font:700 34px/1 var(--serif);color:var(--green)}
+.evidence b{display:block;margin-top:10px;font-size:13px;line-height:1.5}
+.evidence span{display:block;margin-top:7px;font-size:12px;line-height:1.55;color:var(--muted)}
+.analogy{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-dark)}
+.analogy-head{grid-column:1/-1;padding:16px 20px;background:var(--green);color:var(--paper)}
+.analogy-head b{font:700 22px/1.25 var(--serif)}
+.analogy-col{padding:20px}
+.analogy-col+.analogy-col{border-left:1px solid var(--line)}
+.mapping-row{display:grid;grid-template-columns:112px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.mapping-row:last-child{border-bottom:0}
+.mapping-row b{font-size:13px;color:var(--green)}
+.mapping-row span{font-size:14px;line-height:1.62;color:var(--muted)}
+.limit-box{margin-top:20px;padding:18px 20px;border-left:4px solid var(--risk);background:#f5dfd4}
+.limit-box b{color:var(--risk)}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--green);background:var(--surface)}
+.flow-node{position:relative;min-height:180px;padding:19px 16px;border-right:1px solid var(--green)}
+.flow-node:last-child{border-right:0}
+.flow-node:not(:last-child)::after{content:"›";position:absolute;right:-10px;top:50%;z-index:2;width:19px;height:28px;margin-top:-14px;display:grid;place-items:center;background:var(--surface);color:var(--green);font:700 25px/1 var(--serif)}
+.flow-node small{display:block;color:var(--copper);font-size:10px;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.flow-node b{display:block;margin-top:10px;font:700 18px/1.3 var(--serif);color:var(--green)}
+.flow-node p{margin:9px 0 0;font-size:13px;line-height:1.62;color:var(--muted)}
+.money-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin-top:18px;padding:20px;background:var(--green);color:var(--paper)}
+.money-box{padding:10px 12px;border:1px solid rgba(255,250,245,.5);text-align:center;font-size:13px;line-height:1.5}
+.money-arrow{font:700 22px/1 var(--serif);color:#efc29a}
+.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line-dark)}
+table{width:100%;min-width:760px;border-collapse:collapse;font-size:15px;line-height:1.58}
+th{padding:12px 13px;text-align:left;background:var(--green);color:var(--paper);font-size:12px;line-height:1.45;letter-spacing:.04em}
+td{padding:13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child,th:last-child{border-right:0}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:var(--surface)}
+td b{color:var(--green)}
+.case-study{display:grid;grid-template-columns:190px 1fr;margin-top:24px;border-top:3px solid var(--green);background:var(--paper-2)}
+.case-number{padding:24px;background:var(--green);color:var(--paper)}
+.case-number strong{display:block;font:700 32px/1 var(--serif)}
+.case-number span{display:block;margin-top:9px;font-size:11px;line-height:1.55}
+.case-copy{padding:23px 26px}
+.case-copy h3{margin:0 0 9px}
+.case-copy p:last-child{margin-bottom:0}
+.telemetry{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.signal{padding:18px 20px;border-top:1px solid var(--green);background:var(--surface)}
+.signal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end}
+.signal-head b{font:700 18px/1.3 var(--serif);color:var(--green)}
+.signal-head strong{font:700 22px/1 var(--serif);color:var(--copper)}
+.bar{height:8px;margin:12px 0 10px;background:var(--line)}
+.bar i{display:block;width:var(--w);height:100%;background:var(--green)}
+.signal p{margin:0;font-size:13px;line-height:1.6;color:var(--muted)}
+.economics{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.equation{padding:25px;background:var(--green);color:var(--paper)}
+.equation small{display:block;font-size:10px;line-height:1.4;letter-spacing:.13em;text-transform:uppercase;color:#bdd1c8}
+.equation strong{display:block;margin-top:14px;font:700 clamp(27px,4vw,40px)/1.05 var(--serif)}
+.equation p{margin:13px 0 0;font-size:13px;line-height:1.65;color:#dce8e2}
+.fee-list{border-top:1px solid var(--line-dark)}
+.fee-row{display:grid;grid-template-columns:155px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.fee-row b{font-size:13px;color:var(--green)}
+.fee-row span{font-size:14px;line-height:1.65;color:var(--muted)}
+.capital-strip{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;border:1px solid var(--green);background:var(--surface)}
+.capital-point{padding:22px;text-align:center}
+.capital-point small{display:block;font-size:10px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.capital-point strong{display:block;margin-top:8px;font:700 32px/1 var(--serif);color:var(--green)}
+.capital-point span{display:block;margin-top:8px;font-size:12px;line-height:1.5}
+.capital-jump{padding:8px 10px;background:var(--copper);color:#fff;font-size:12px;font-weight:700}
+.timeline{margin-top:24px;border-left:2px solid var(--green)}
+.timeline-item{position:relative;padding:0 0 24px 28px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{content:"";position:absolute;left:-8px;top:5px;width:12px;height:12px;border:1px solid var(--green);border-radius:50%;background:var(--paper)}
+.timeline-item time{display:block;font-size:11px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:var(--copper);font-weight:700}
+.timeline-item b{display:block;margin-top:5px;font:700 18px/1.35 var(--serif)}
+.timeline-item p{margin:6px 0 0;font-size:14px;line-height:1.65;color:var(--muted)}
+.stripe-panel{display:grid;grid-template-columns:1fr 1fr;margin-top:24px;border:1px solid var(--green)}
+.stripe-fact,.stripe-inference{padding:22px}
+.stripe-fact{background:var(--surface)}
+.stripe-inference{background:var(--green);color:var(--paper)}
+.stripe-panel h3{margin:0 0 12px}
+.stripe-inference h3{color:#fff}
+.stripe-panel ul{margin:0;padding-left:20px}
+.stripe-panel li{margin:8px 0;font-size:14px;line-height:1.65}
+.moat-grid{border-top:1px solid var(--line-dark)}
+.moat-row{display:grid;grid-template-columns:190px 110px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line);align-items:center}
+.moat-row b{font:700 17px/1.35 var(--serif);color:var(--green)}
+.moat-score{font-size:13px;letter-spacing:.1em;color:var(--copper);white-space:nowrap}
+.moat-row span:last-child{font-size:14px;line-height:1.65;color:var(--muted)}
+.risk-band{margin-top:22px;padding:21px 24px;background:#efe0d6;border-top:4px solid var(--risk)}
+.risk-band h3{margin:0 0 10px;color:var(--risk)}
+.risk-band ul{margin:0;padding-left:21px}
+.risk-band li{margin:7px 0}
+.scenario{border-left:4px solid var(--green);padding:16px 20px;margin:12px 0;background:var(--surface)}
+.scenario.risk{border-left-color:var(--risk)}
+.scenario b{display:block;font:700 18px/1.35 var(--serif);color:var(--green)}
+.scenario.risk b{color:var(--risk)}
+.scenario span{display:block;margin-top:6px;font-size:14px;line-height:1.65;color:var(--muted)}
+.investment{padding:26px 28px;background:var(--green);color:var(--paper)}
+.investment h3{margin:0 0 13px;color:#fff;font-size:28px}
+.investment ol{margin:0;padding-left:24px}
+.investment li{margin:10px 0;line-height:1.72}
+.investment b{color:#f2c69f}
+.related{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--green)}
+.related a{position:relative;min-height:170px;padding:20px;text-decoration:none;border-right:1px solid var(--green);background:var(--surface)}
+.related a:last-child{border-right:0}
+.related small{display:block;color:var(--copper);font-size:10px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase}
+.related b{display:block;margin-top:10px;font:700 18px/1.35 var(--serif);color:var(--green)}
+.related span{display:block;margin-top:8px;font-size:13px;line-height:1.6;color:var(--muted)}
+.sources{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-dark)}
+.source{display:grid;grid-template-columns:36px 1fr;gap:11px;padding:15px 14px 15px 0;border-bottom:1px solid var(--line)}
+.source:nth-child(odd){border-right:1px solid var(--line);padding-right:20px}
+.source:nth-child(even){padding-left:20px}
+.source strong{font:700 18px/1 var(--serif);color:var(--copper)}
+.source a{font-size:13px;line-height:1.5;font-weight:700;color:var(--green);text-underline-offset:3px}
+.source span{display:block;margin-top:4px;font-size:12px;line-height:1.55;color:var(--muted)}
+.enya{padding:42px 64px;background:var(--green);color:var(--paper)}
+.enya h2{margin:0;font:700 clamp(31px,5vw,46px)/1.04 var(--serif)}
+.enya-tag{margin-top:12px;font:700 18px/1.5 var(--serif)}
+.enya-model{margin-top:6px;font-size:13px;color:#c7dbd2}
+.enya-copy{max-width:760px;margin:19px 0 0;color:#dce8e2}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:25px;padding-top:22px;border-top:1px solid rgba(255,250,245,.35)}
+.role b{display:block;color:#f2c69f}
+.role span{display:block;margin-top:5px;font-size:13px;line-height:1.6;color:#dce8e2}
+.footer{padding:22px 32px;background:var(--ink);color:#e8ddd5;font-size:12px;line-height:1.7}
+.footer-line{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.footer a{color:#fff}
+.counter{margin-top:9px;color:#bfb2a9}
+.top-button{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border:1px solid var(--paper);border-radius:50%;background:var(--green);color:#fff;font:700 20px/1 var(--serif);cursor:pointer;opacity:0;visibility:hidden;transition:opacity 150ms ease}
+.top-button.is-visible{opacity:1;visibility:visible}
+.micro{font-size:12px;line-height:1.65;color:var(--muted)}
+.nowrap{white-space:nowrap}
+@media (max-width:960px){
+  .cover-grid{grid-template-columns:1fr}
+  .cover-seal{width:210px}
+  .verdict{grid-template-columns:repeat(2,1fr)}
+  .verdict-item{border-bottom:1px solid var(--line)}
+  .verdict-item:nth-child(2n){border-right:0}
+  .verdict-item:last-child{grid-column:1/-1;border-bottom:0}
+  .evidence-grid{grid-template-columns:repeat(2,1fr)}
+  .evidence:nth-child(3n){border-right:1px solid var(--green)}
+  .evidence:nth-child(2n){border-right:0}
+  .evidence:nth-child(n+4){border-bottom:1px solid var(--green)}
+  .evidence:nth-child(n+5){border-bottom:0}
+  .flow{grid-template-columns:1fr}
+  .flow-node{min-height:0;border-right:0;border-bottom:1px solid var(--green)}
+  .flow-node:last-child{border-bottom:0}
+  .flow-node:not(:last-child)::after{content:"⌄";right:auto;left:50%;top:auto;bottom:-14px;width:28px;height:24px;margin:0 0 0 -14px}
+  .related{grid-template-columns:1fr}
+  .related a{min-height:0;border-right:0;border-bottom:1px solid var(--green)}
+  .related a:last-child{border-bottom:0}
+}
+@media (max-width:760px){
+  .site-shell{width:100%;margin:0;box-shadow:none}
+  .topbar{padding:10px 18px}
+  .topbar span:last-child{display:none}
+  .masthead{grid-template-columns:1fr auto;padding:15px 20px}
+  .nav{display:none}
+  .cover,.section{padding:38px 22px}
+  .scope-note{padding:16px 22px}
+  .cover{padding-top:44px}
+  .analogy,.economics,.telemetry,.stripe-panel{grid-template-columns:1fr}
+  .analogy-col+.analogy-col{border-left:0;border-top:1px solid var(--line)}
+  .money-flow{grid-template-columns:1fr}
+  .money-arrow{transform:rotate(90deg);text-align:center}
+  .case-study{grid-template-columns:1fr}
+  .capital-strip{grid-template-columns:1fr}
+  .capital-jump{justify-self:center;transform:rotate(90deg)}
+  .moat-row{grid-template-columns:1fr;gap:6px}
+  .sources{grid-template-columns:1fr}
+  .source:nth-child(odd){border-right:0;padding-right:0}
+  .source:nth-child(even){padding-left:0}
+  .enya{padding:38px 22px}
+  .roles{grid-template-columns:1fr}
+  .footer{padding:22px}
+  .footer-line{display:block}
+  .footer-line a{display:inline-block;margin-top:10px}
+}
+@media (max-width:520px){
+  body{font-size:16px;line-height:1.86}
+  .gate-sheet{padding:29px 22px 25px}
+  .gate-top{display:block}
+  .gate-seal{width:92px;height:92px;margin-bottom:20px;font-size:14px}
+  .gate-form{grid-template-columns:1fr}
+  .auto-enter{justify-content:center}
+  .cover h1{font-size:clamp(30px,9vw,38px);line-height:1.08}
+  .section h2{font-size:29px}
+  .section h3{font-size:20px}
+  .lead{font-size:17px}
+  .verdict{grid-template-columns:1fr}
+  .verdict-item{border-right:0}
+  .verdict-item:last-child{grid-column:auto}
+  .evidence-grid{grid-template-columns:1fr}
+  .evidence{min-height:0;border-right:0;border-bottom:1px solid var(--green)}
+  .evidence:nth-child(3n){border-right:0}
+  .evidence:nth-child(n+5){border-bottom:1px solid var(--green)}
+  .evidence:last-child{border-bottom:0}
+  table{font-size:14px}
+  .cover-seal{width:100%}
+}
+@media print{
+  body{background:#fff}
+  .access-gate,.topbar,.masthead,.progress,.top-button,.counter{display:none}
+  .site-shell{width:100%;margin:0;box-shadow:none}
+  a{text-decoration:none}
+}
+</style>
+<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260726">
+<style id="kerwin-typography-lock-1-1-0">
+body.kw-research{font-size:17px!important;line-height:1.88!important}
+body.kw-research .section h2{font-size:clamp(28px,4vw,36px)!important}
+body.kw-research .section h3{font-size:21px!important}
+body.kw-research table{font-size:15px!important}
+@media(max-width:520px){
+  body.kw-research{font-size:16px!important;line-height:1.86!important}
+  body.kw-research .cover h1{font-size:clamp(30px,9vw,38px)!important}
+  body.kw-research .section h2{font-size:29px!important}
+  body.kw-research .section h3{font-size:20px!important}
+  body.kw-research table{font-size:14px!important}
+}
+</style>
+<noscript><style>
+html body.kw-research:not(.kw-gate-granted){overflow:auto!important}
+html body.kw-research:not(.kw-gate-granted)>*:not(.kw-access-gate):not(script):not(style){visibility:visible!important}
+</style></noscript>
+</head>
+<body class="kw-research kw-wide" data-page-slug="openrouter-ai-model-exchange-stripe-20260726" data-asset-mode="shared-v2-plus-inline-ft-3.3.2" data-design-id="ft-warm-paper-forest-green-2026-07">
+<a class="skip-link" href="#main-content">跳至正文</a>
+
+<div class="site-shell">
+  <div class="topbar">
+    <span>KERWIN RESEARCH HUB · AI MODEL ECONOMICS</span>
+    <span>Evidence first · Snapshot 2026.07.26 HKT</span>
+  </div>
+  <header class="masthead">
+    <div class="brand-mark">EnyaClawd<small>Independent Investment Research</small></div>
+    <nav class="nav" aria-label="文章导航">
+      <a href="#verdict">核心判断</a>
+      <a href="#chain">产业链</a>
+      <a href="#data">平台数据</a>
+      <a href="#capital">资本与Stripe</a>
+      <a href="#competition">竞争格局</a>
+      <a href="#monitor">监测框架</a>
+    </nav>
+    <a class="home-route" href="/">研究首页 ↗</a>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">AI MODEL DISTRIBUTION · INFERENCE MARKET STRUCTURE · M&amp;A</div>
+          <h1>OpenRouter：AI 模型时代的交易所<span>从中国开放模型出海，到 Stripe 争夺 Token 分发权</span></h1>
+          <p class="thesis">OpenRouter 正把模型、推理算力和开发者需求撮合成一个可路由、可计价、可结算的市场。它最重要的资产不是“拥有 400 多个模型”，而是统一钱包、供需聚合、真实调用数据与进入 Agent 工作流的分发权。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年7月26日</span>
+            <span><b>数据快照</b> 2026年7月26日 HKT</span>
+            <span><b>研究对象</b> OpenRouter / Together AI / Stripe / AI Gateway</span>
+            <span><b>证据边界</b> 官方资料、英文媒体与明确标注的 Kerwin 推演</span>
+          </div>
+        </div>
+        <div class="cover-seal">
+          <strong>200T+</strong>
+          <span>Current monthly tokens<br>OpenRouter reported</span>
+        </div>
+      </div>
+    </section>
+    <div class="scope-note"><b>先说明：</b>本文把 OpenRouter 类比为“交易所 + 智能订单路由 + 统一资金账户”，用于解释其市场位置。OpenRouter 并非证券交易所，不承担证券清算，也不让用户持有模型资产。文中“开源模型”在严格口径下多数应称为<b>开放权重模型</b>，不同许可证的商用条件并不相同。</div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · EXECUTIVE VERDICT</div>
+      <h2>先给判断：价值正在从“谁造模型”向“谁控制调用入口”扩散</h2>
+      <div class="verdict">
+        <div class="verdict-item"><b>分发层开始被重估</b><span>模型数量爆发、价格与性能快速变化，让单一模型绑定越来越难。统一接入、路由和结算成为独立价值层。</span></div>
+        <div class="verdict-item"><b>中国模型是供给催化剂</b><span>DeepSeek、Qwen、Kimi、MiniMax、Z.ai 等开放权重模型，经海外推理商优化后获得全球商业入口。</span></div>
+        <div class="verdict-item"><b>护城河不在 API 格式</b><span>OpenAI 兼容接口容易复制。较难复制的是需求规模、统一钱包、供应商关系、运行数据和开发者心智。</span></div>
+        <div class="verdict-item"><b>Stripe 看中的是结算层</b><span>潜在收购若成立，Stripe 将从支付处理进一步进入 Agent 自动采购服务和 Token 消费账本。</span></div>
+        <div class="verdict-item"><b>估值已超前反映终局</b><span>约 100 亿美元潜在交易价对应约 200 倍媒体报道的年化收入，财务回报高度依赖长期平台统治力。</span></div>
+      </div>
+
+      <h3>六个改变判断的数字</h3>
+      <div class="evidence-grid">
+        <div class="evidence"><strong>200T+</strong><b>每月 Token</b><span>OpenRouter 官网当前口径，2026年7月26日快照。</span></div>
+        <div class="evidence"><strong>10M+</strong><b>全球用户</b><span>官网当前口径；2026年5月融资公告曾披露 8M+ 开发者，两个口径不完全相同。</span></div>
+        <div class="evidence"><strong>70+ / 400+</strong><b>推理 Provider / 模型</b><span>统一入口覆盖的供给广度，是平台流动性的第一层。</span></div>
+        <div class="evidence"><strong>5.5%</strong><b>标准按量付费平台费</b><span>模型 Token 标价与 Provider 一致，平台费另计；企业客户可谈折扣。</span></div>
+        <div class="evidence"><strong>$113M / $1.3B</strong><b>Series B / 报道投后估值</b><span>2026年5月，CapitalG 领投；估值来自媒体报道，OpenRouter未正式披露。</span></div>
+        <div class="evidence"><strong>~$10B</strong><b>Stripe 潜在收购讨论价</b><span>《华尔街日报》报道，交易尚未签署，谈判仍可能终止或出现其他买家。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="position">
+      <div class="section-label">02 · MARKET POSITION</div>
+      <h2>用传统金融语言理解：它像券商席位、智能路由与行情带的合体</h2>
+      <p class="lead"><span class="chip inference">Kerwin analogy</span>在多模型时代，开发者面对的不是“选一家银行开一个账户”，而是每周都有新模型、新价格和新推理场所出现。OpenRouter 把这种碎片化供给整理成一个入口。</p>
+      <div class="analogy">
+        <div class="analogy-head"><b>传统市场结构 ↔ AI 推理市场结构</b></div>
+        <div class="analogy-col">
+          <div class="mapping-row"><b>证券／合约</b><span>一个可调用的模型或模型版本，例如 Kimi、Claude、Gemini、DeepSeek。</span></div>
+          <div class="mapping-row"><b>交易场所</b><span>实际运行模型的推理 Provider，例如原厂 API、Together、Fireworks、DeepInfra 或云平台。</span></div>
+          <div class="mapping-row"><b>智能订单路由</b><span>按价格、延迟、吞吐、可用性、数据政策和容量，把请求送到合适端点。</span></div>
+        </div>
+        <div class="analogy-col">
+          <div class="mapping-row"><b>统一资金账户</b><span>开发者先购买 OpenRouter credits，再跨模型和 Provider 消费，免去多份合同与账单。</span></div>
+          <div class="mapping-row"><b>综合行情带</b><span>公开价格、上下文窗口、速度、真实使用排名和应用榜单，形成模型价格发现。</span></div>
+          <div class="mapping-row"><b>渠道佣金</b><span>标准按量付费收取 5.5% 平台费；企业和 BYOK 另有规则。</span></div>
+        </div>
+      </div>
+      <div class="limit-box"><b>类比的边界：</b>一次模型调用是被消费的服务，并非可持有或转售的金融资产；同一模型在不同 Provider 上还可能因量化、硬件、系统提示和功能支持出现差异。因此，OpenRouter 更接近“AI 服务经纪与路由市场”，还不是同质化资产的中央交易所。</div>
+    </section>
+
+    <section class="section" id="chain">
+      <div class="section-label">03 · VALUE CHAIN</div>
+      <h2>中国开放权重模型如何变成海外可计费的 Token</h2>
+      <p class="lead"><span class="chip fact">Verified structure</span>模型原厂、推理 Provider、路由分发平台和下游应用是四种不同生意。Together AI 与 OpenRouter 经常被放在一起讨论，但两者处在不同层。</p>
+      <div class="flow" aria-label="开放权重模型海外商业化链条">
+        <div class="flow-node"><small>01 · Model Lab</small><b>模型原厂</b><p>DeepSeek、Qwen、Kimi、MiniMax、Z.ai 等发布权重、API 或许可证，生产基础智能。</p></div>
+        <div class="flow-node"><small>02 · Inference</small><b>海外推理优化</b><p>Together、Fireworks、DeepInfra 等部署权重，优化内核、量化、缓存、并发和 GPU 利用率。</p></div>
+        <div class="flow-node"><small>03 · Marketplace</small><b>OpenRouter 分发</b><p>统一模型目录、API、Credits、路由、故障切换、数据政策、价格与性能展示。</p></div>
+        <div class="flow-node"><small>04 · Application</small><b>应用与 Agent</b><p>编码工具、研究 Agent、企业应用和独立开发者，用一个密钥调用多种模型。</p></div>
+        <div class="flow-node"><small>05 · Feedback</small><b>数据回流</b><p>Token、费用、延迟、留存与任务标签汇入排名和路由判断，形成需求侧数据资产。</p></div>
+      </div>
+      <div class="money-flow" aria-label="资金流">
+        <div class="money-box">开发者／企业<br><b>购买 Credits</b></div><div class="money-arrow">→</div>
+        <div class="money-box">OpenRouter<br><b>平台费 + 统一结算</b></div><div class="money-arrow">→</div>
+        <div class="money-box">推理 Provider／模型 API<br><b>承担计算与服务成本</b></div>
+      </div>
+      <p class="micro">开放权重模型是否向模型原厂产生逐 Token 许可收入，取决于具体许可证和商业安排；很多情况下，主要现金收入首先落到运行 GPU 的推理商和掌握客户账单的分发渠道。</p>
+
+      <h3>四层角色不要混淆</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角色</th><th>代表机构</th><th>拥有的核心能力</th><th>主要收入池</th><th>与 OpenRouter 的关系</th></tr></thead>
+          <tbody>
+            <tr><td><b>模型原厂</b></td><td>Moonshot、DeepSeek、Alibaba、MiniMax、Z.ai；OpenAI、Anthropic、Google</td><td>训练数据、算法、模型权重、品牌与前沿能力</td><td>API、订阅、许可、企业方案</td><td>供给模型；也可能直接竞争开发者入口</td></tr>
+            <tr><td><b>推理 Provider</b></td><td>Together AI、Fireworks AI、DeepInfra、Groq、各大云与原厂端点</td><td>GPU 集群、推理引擎、量化、并发、延迟与单位 Token 成本</td><td>按 Token、预留吞吐、专属端点、GPU 云</td><td>向平台提供实际可执行的模型端点</td></tr>
+            <tr><td><b>路由与市场</b></td><td>OpenRouter、Vercel AI Gateway、Cloudflare AI Gateway</td><td>目录、统一 API、路由、故障切换、账单、政策与市场数据</td><td>平台费、企业合同、网关与增值功能</td><td>OpenRouter 自身所在层</td></tr>
+            <tr><td><b>应用与 Agent</b></td><td>Replit、Kilo Code、研究与编码 Agent、企业内部应用</td><td>用户、工作流、专有数据、任务反馈与最终付费场景</td><td>订阅、席位、按任务收费、业务成果</td><td>贡献需求、费用和真实调用数据</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="case-study">
+        <div class="case-number"><strong>Kimi K3</strong><span>2026.07.16<br>OpenRouter model card snapshot</span></div>
+        <div class="case-copy">
+          <h3>一个近期案例：模型发布后迅速获得全球美元报价</h3>
+          <p><span class="chip reported">Platform listing</span>OpenRouter 当前模型页把 Kimi K3 标注为 2.8 万亿参数开放权重多模态推理模型，支持 100 万 Token 上下文，并给出每百万输入／输出 Token 3 美元／15 美元的即时价格。</p>
+          <p>对海外开发者而言，关键变化是：无需自行下载 2.8 万亿参数权重、寻找 GPU、优化推理栈或重新建立原厂支付关系，即可在既有 API 和 Credits 中测试。模型原厂获得全球采用，海外推理商获得计算收入，OpenRouter 获得分发费和需求数据。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <div class="section-label">04 · PLATFORM TELEMETRY</div>
+      <h2>OpenRouter 的数据告诉我们：AI 已从聊天工具转向 Agent 工作负载</h2>
+      <p class="lead"><span class="chip fact">100T+ token study</span>OpenRouter 与 a16z 的 2025 年研究覆盖截至 2025年11月的滚动 13 个月、100 万亿以上 Token。它是观察真实 API 使用的重要样本，但只代表 OpenRouter 用户，并非全球 AI 市场普查。</p>
+      <div class="telemetry">
+        <div class="signal"><div class="signal-head"><b>开放权重模型份额</b><strong>≈ 1/3</strong></div><div class="bar"><i style="--w:33%"></i></div><p>到 2025 年末，开放权重模型约占平台 Token 使用量三分之一，闭源模型仍占多数，双轨结构已形成。</p></div>
+        <div class="signal"><div class="signal-head"><b>中国开放权重模型</b><strong>最高近 30%</strong></div><div class="bar"><i style="--w:30%"></i></div><p>部分周度份额接近平台全部模型使用量的 30%；全年周均约 13.0%，与其他地区开放模型的 13.7% 接近。</p></div>
+        <div class="signal"><div class="signal-head"><b>推理型模型使用</b><strong>&gt; 50%</strong></div><div class="bar"><i style="--w:52%"></i></div><p>2025年初近乎可以忽略，年末已超过一半，说明多步推理、状态管理和 Agent 工作流快速成为主流。</p></div>
+        <div class="signal"><div class="signal-head"><b>编程任务 Token 占比</b><strong>11% → 50%+</strong></div><div class="bar"><i style="--w:54%"></i></div><p>编程从年初约 11% 升至近期超过 50%，Token 需求越来越来自代码理解、调试和数据脚本，而非闲聊。</p></div>
+        <div class="signal"><div class="signal-head"><b>平均序列长度</b><strong>&lt;2K → 5.4K+</strong></div><div class="bar"><i style="--w:68%"></i></div><p>20个月内增长超过两倍；平均输入从约 1.5K 增至 6K 以上，长上下文和持续任务提高单次调用价值。</p></div>
+        <div class="signal"><div class="signal-head"><b>亚洲支出份额</b><strong>≈13% → 31%</strong></div><div class="bar"><i style="--w:31%"></i></div><p>亚洲既是开放模型供给地，也成为增长最快的消费地区之一；研究期总体 Token 份额为 28.61%。</p></div>
+      </div>
+
+      <h3>对 AI 产业的五个含义</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>平台信号</th><th>行业含义</th><th>投资含义</th><th>必须保留的限制</th></tr></thead>
+          <tbody>
+            <tr><td>编程和推理份额上升</td><td>AI 从内容生成走向高频、长链条、可执行工作</td><td>推理算力、缓存、存储、网络与可观测性需求持续加深</td><td>OpenRouter 用户天然偏开发者，可能放大编程占比</td></tr>
+            <tr><td>中国开放模型快速采用</td><td>技术供给已全球化，开发者对来源地的敏感度低于成本与能力</td><td>价值可能由模型训练方转移到海外推理、分发和应用层</td><td>监管、数据主权和许可证可能阻断部分企业采用</td></tr>
+            <tr><td>多模型切换频繁</td><td>短期“最强模型”并不等于长期唯一标准</td><td>中立路由层获得期权价值，单模型集中风险下降</td><td>特定工作负载一旦找到最佳模型，仍会形成深度黏性</td></tr>
+            <tr><td>平均上下文变长</td><td>请求携带更多代码、文档、工具定义和历史状态</td><td>Token 数、KV Cache、企业数据管道和 Agent 基础设施共同扩张</td><td>Token 量增长不自动等于同等比例收入增长，单价持续下降</td></tr>
+            <tr><td>平台数据被研究机构采用</td><td>OpenRouter 逐渐形成 AI 推理市场的“行情带”</td><td>数据可提高发现、评测、路由和企业销售能力</td><td>OpenRouter明确表示不出售 Prompt 数据，公开的是聚合趋势</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="business">
+      <div class="section-label">05 · BUSINESS MODEL & UNIT ECONOMICS</div>
+      <h2>收入从哪里来：5.5% 看似薄，规模与资金账户让它变厚</h2>
+      <div class="economics">
+        <div class="equation">
+          <small>Illustrative standard pay-as-you-go</small>
+          <strong>$100 推理标价<br>+ $5.50 平台费</strong>
+          <p>OpenRouter 表示模型价格与 Provider 一致，不在 Token 标价上加价；标准按量付费另收 5.5% 平台费。企业可获得费率折扣。</p>
+        </div>
+        <div class="fee-list">
+          <div class="fee-row"><b>统一 Credits</b><span>先充值，再跨 400+ 模型和 70+ Provider 消费，降低供应商开户、支付和对账摩擦。</span></div>
+          <div class="fee-row"><b>BYOK</b><span>按量方案每月有 25,000 美元标价推理的免平台费额度，超出部分收 5%；企业门槛为 200,000 美元。</span></div>
+          <div class="fee-row"><b>企业增值</b><span>工作区、预算、SSO/SAML、SLA、ZDR、区域路由、统一报告和支持，帮助平台从长尾开发者进入企业采购。</span></div>
+          <div class="fee-row"><b>数据价值</b><span>平台称自己是 API 生意而非数据生意；数据更多用于路由、排行榜、研究与供给侧反馈，而非出售 Prompt。</span></div>
+        </div>
+      </div>
+
+      <h3>用媒体报道的年化收入做一笔粗算</h3>
+      <p><span class="chip reported">Reported</span>《The Information》称 OpenRouter 2026年4月年化收入约 5,000 万美元，较此前增长约五倍。公司没有公开审计财务报表，也未说明收入确认是净额还是总额。</p>
+      <div class="equation">
+        <small>Kerwin calculation · not official GMV</small>
+        <strong>$50M ÷ 5.5% ≈ $909M</strong>
+        <p>如果全部年化收入都来自标准 5.5% 平台费，则对应约 9.09 亿美元年化基础推理消费额。企业折扣、BYOK、充值会计、免费流量和其他收入都会改变结果，因此这只能作为量级检验。</p>
+      </div>
+      <div class="limit-box"><b>最关键的财务未知数：</b>付费 Token 与免费 Token 的比例、前十大客户集中度、平台费净留存、Provider 返利、企业合同占比、收入确认口径和毛利率都未公开。Token 数是业务活跃度，不等于收入，更不等于利润。</div>
+    </section>
+
+    <section class="section" id="capital">
+      <div class="section-label">06 · CAPITAL PATH & STRIPE</div>
+      <h2>从 5 亿到潜在 100 亿美元：市场在给“AI 结算层”定价</h2>
+      <div class="capital-strip">
+        <div class="capital-point"><small>June 2025</small><strong>$0.5B</strong><span>约 5 亿美元估值<br>合计融资 4,000 万美元</span></div>
+        <div class="capital-jump">2.6×</div>
+        <div class="capital-point"><small>May 2026</small><strong>$1.3B</strong><span>媒体报道投后估值<br>Series B 1.13 亿美元</span></div>
+        <div class="capital-jump">7.7×</div>
+        <div class="capital-point"><small>July 2026 · Talks</small><strong>~$10B</strong><span>潜在收购讨论价<br>尚未形成交易</span></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><time>Early 2023</time><b>OpenRouter 启动</b><p>CEO兼联合创始人 Alex Atallah 曾联合创办 NFT 市场 OpenSea；再次选择“开放市场”式商业模型。</p></div>
+        <div class="timeline-item"><time>June 2025</time><b>种子轮与 Series A 合计 4,000 万美元</b><p>a16z 与 Menlo Ventures 分别领投相关轮次，Sequoia 参与；《华尔街日报》报道估值约 5 亿美元。</p></div>
+        <div class="timeline-item"><time>May 2026</time><b>1.13 亿美元 Series B</b><p>CapitalG 领投，NVentures、ServiceNow Ventures、MongoDB Ventures、Snowflake Ventures、Databricks Ventures 等加入；媒体报道投后估值约 13 亿美元。</p></div>
+        <div class="timeline-item"><time>July 2026</time><b>Stripe 洽谈收购，价格或约 100 亿美元</b><p>《华尔街日报》称交易可能较快公布，也可能谈判破裂或出现其他买方。本文截至 7月26日未见双方正式交易公告。</p></div>
+      </div>
+
+      <h3>为什么 Stripe 有理由买，而不只是投资</h3>
+      <div class="stripe-panel">
+        <div class="stripe-fact">
+          <h3>已经发生的产品整合</h3>
+          <ul>
+            <li>OpenRouter 是 Stripe Projects 的合作 Provider。</li>
+            <li>开发者可用一条 CLI 命令创建或关联 OpenRouter 账户、生成 API Key 并同步环境变量。</li>
+            <li>Stripe Projects 可统一管理 AI、数据库、托管、认证等服务的账单与凭证。</li>
+            <li>付费计划通过 Stripe 的 Shared Payment Token 授权 Provider 扣款，底层卡号不直接共享。</li>
+          </ul>
+        </div>
+        <div class="stripe-inference">
+          <h3>Kerwin 的战略推演</h3>
+          <ul>
+            <li><b>把 Token 变成新的支付品类。</b> Stripe 可同时掌握企业软件服务采购与模型调用支出。</li>
+            <li><b>让 Agent 成为客户。</b> Agent 能自动开户、获取凭证、购买 Credits、调用模型并控制预算。</li>
+            <li><b>获得 AI 消费总账。</b> OpenRouter 的模型、Provider、任务与费用数据可补足 Stripe 的支付网络视角。</li>
+            <li><b>从支付底座进入开发者控制面。</b> 交易价值取决于未来分发权，而非当前 5,000 万美元年化收入。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="risk-band">
+        <h3>约 100 亿美元意味着什么</h3>
+        <ul>
+          <li>相对约 13 亿美元上一轮估值，潜在价格约为 <b>7.7 倍</b>。</li>
+          <li>相对约 5,000 万美元媒体报道年化收入，潜在价格约为 <b>200 倍</b>。</li>
+          <li>如果收购落地，Stripe 必须让 OpenRouter 成为 Agent 经济的默认采购与结算层，单靠现有平台费难以解释价格。</li>
+          <li>收购也可能削弱“中立路由”形象，让 Provider 和大客户担心 Stripe 掌握过多价格、需求与交易数据。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="moat">
+      <div class="section-label">07 · MOAT SCORECARD</div>
+      <h2>护城河在哪里：最强是市场流动性，最弱是接口本身</h2>
+      <div class="moat-grid">
+        <div class="moat-row"><b>供给广度与上新速度</b><span class="moat-score">●●●●○ 4/5</span><span>400+ 模型、70+ Provider 与新模型快速上线，降低开发者搜索成本；但竞争者也可扩展目录。</span></div>
+        <div class="moat-row"><b>需求聚合与开发者心智</b><span class="moat-score">●●●●○ 4/5</span><span>10M+ 用户、250K+ 应用与公开榜单形成自然入口。越多真实调用，越能吸引模型和 Provider。</span></div>
+        <div class="moat-row"><b>统一钱包与结算</b><span class="moat-score">●●●●○ 4/5</span><span>Credits、统一合同、税务与账单减少多供应商摩擦；企业财务流程一旦接入，切换成本高于单纯 API。</span></div>
+        <div class="moat-row"><b>运行数据与价格发现</b><span class="moat-score">●●●●○ 4/5</span><span>跨模型、Provider、任务、延迟与留存的数据有助于路由和研究；数据优势取决于样本代表性与合规边界。</span></div>
+        <div class="moat-row"><b>企业治理与可靠性</b><span class="moat-score">●●●○○ 3/5</span><span>ZDR、区域路由、预算、SSO、SLA 和故障切换正在补齐，但 AWS、Cloudflare、Portkey 等更强于既有企业控制面。</span></div>
+        <div class="moat-row"><b>OpenAI 兼容 API</b><span class="moat-score">●●○○○ 2/5</span><span>开发者体验优秀，也意味着迁移相对容易。统一接口已经成为行业标准，不构成单独的长期壁垒。</span></div>
+      </div>
+      <div class="risk-band">
+        <h3>网络效应成立需要三个条件</h3>
+        <ul>
+          <li>更多流量必须提升路由、可靠性或供给议价，而不只是增加低价与免费 Token。</li>
+          <li>应用愿意把主要账单留在平台，而非只用 OpenRouter 做测试，生产后转向原厂直连。</li>
+          <li>Provider 和模型原厂继续接受中立分发，不通过独家、限价或接口限制绕开平台。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="competition">
+      <div class="section-label">08 · COMPETITIVE LANDSCAPE</div>
+      <h2>真正的竞争不只来自另一个 OpenRouter</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>平台／路径</th><th>核心定位</th><th>最强优势</th><th>对 OpenRouter 的威胁</th><th>主要短板</th></tr></thead>
+          <tbody>
+            <tr><td><b>OpenRouter</b></td><td>独立模型市场、统一 Credits 与智能路由</td><td>目录广度、开发者流量、真实使用榜单、跨 Provider 结算</td><td>基准对象</td><td>5.5% 平台费、切换容易、企业深度仍在建设</td></tr>
+            <tr><td><b>Vercel AI Gateway</b></td><td>开发与部署平台内置的多模型网关</td><td>数百模型、零 Token 加价、无平台费、AI SDK 与前端开发生态</td><td>直接以零费率争夺 AI 原生应用和 Agent 开发者</td><td>市场数据与独立模型发现心智弱于 OpenRouter</td></tr>
+            <tr><td><b>AWS Bedrock</b></td><td>超大云中的企业模型市场与托管服务</td><td>企业采购、安全、云承诺额、私有模型、Agents 与 Guardrails</td><td>把多模型访问打包进客户已有 AWS 合同</td><td>中立性、长尾模型速度和跨云体验较弱</td></tr>
+            <tr><td><b>Cloudflare AI Gateway</b></td><td>边缘网络上的 AI 控制面</td><td>全球网络、缓存、安全、DLP、可观测性、动态路由与统一账单</td><td>可把 AI 网关并入现有网络与安全采购</td><td>开发者模型市场和应用发现仍非核心心智</td></tr>
+            <tr><td><b>Portkey / LiteLLM</b></td><td>企业 AI 网关或可自托管代理</td><td>治理、预算、观测、条件路由、自托管与数据控制</td><td>大型企业可保留自己的 Provider 合同和控制面</td><td>缺少同等规模的统一钱包、公开需求与模型市场</td></tr>
+            <tr><td><b>原厂直连</b></td><td>OpenAI、Anthropic、Google、模型原厂 API</td><td>最早能力、完整功能、直接支持和潜在价格优惠</td><td>高价值工作负载稳定后，客户可能绕过中间层</td><td>供应商锁定、故障半径和多模型管理成本较高</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="micro">Together AI 与 Fireworks AI 更接近上游推理 Provider，同时也可直接向开发者销售 API，因此既是 OpenRouter 的供给方，也是相邻竞争者。一个应用可以通过 OpenRouter 调用其端点，也可以与其直接签约。</p>
+    </section>
+
+    <section class="section" id="public-markets">
+      <div class="section-label">09 · CAPITAL-MARKET MAPPING</div>
+      <h2>资本市场映射：没有上市纯标的，更多是“卖铲、建云、做控制面”</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>层次</th><th>代表公司／证券</th><th>与 OpenRouter 的关系</th><th>可观察的投资信号</th><th>边界</th></tr></thead>
+          <tbody>
+            <tr><td><b>私有核心资产</b></td><td>OpenRouter、Stripe、Together AI、Fireworks AI、Vercel、Databricks</td><td>分发、支付、推理和 Agent 开发的核心未上市公司</td><td>融资估值、年化收入、并购、企业客户与 Token 规模</td><td>不存在公开市场直接复制 OpenRouter 回报的纯标的</td></tr>
+            <tr><td><b>GPU 与推理硬件</b></td><td>NVIDIA（NVDA）、AMD（AMD）</td><td>开放模型被全球部署，最终增加推理 GPU 需求；NVentures 是 OpenRouter 投资者</td><td>推理占比、Token 成本、GPU 利用率、云端推理收入</td><td>OpenRouter 流量只是全行业需求的一部分</td></tr>
+            <tr><td><b>云与模型市场</b></td><td>Alphabet（GOOGL）、Amazon（AMZN）、Microsoft（MSFT）</td><td>既提供模型或云端推理，也是独立路由层的竞争者；CapitalG 领投 OpenRouter B轮</td><td>多模型收入、AI 云增速、模型选择与企业迁移</td><td>CVC 投资收益对超大市值公司财务通常不重大</td></tr>
+            <tr><td><b>网络控制面</b></td><td>Cloudflare（NET）</td><td>AI Gateway 以边缘、安全、缓存、动态路由和统一账单竞争</td><td>AI Gateway 客户、开发者采用、推理流量与安全附加值</td><td>尚需验证 AI 网关能否成为实质收入驱动</td></tr>
+            <tr><td><b>企业数据与软件</b></td><td>ServiceNow（NOW）、MongoDB（MDB）、Snowflake（SNOW）</td><td>其 Ventures 参与 OpenRouter B轮，反映企业多模型治理与数据栈需求</td><td>Agent 收入、AI 工作负载、数据调用、企业推理支出</td><td>战略投资代表方向判断，不等同 OpenRouter 业务并表</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="investment">
+        <h3>Kerwin投顾解读</h3>
+        <ol>
+          <li><b>OpenRouter 最重要的投资启发，是价值池正在横向扩散。</b>模型能力越多、价格下降越快，统一路由、推理效率、企业治理和分发入口越有价值。</li>
+          <li><b>中国开放权重模型不必在海外建立完整销售团队，也能形成全球 Token 使用。</b>但收入可能更多落在 GPU、推理 Provider、路由平台和下游应用，而不是模型原厂本身。</li>
+          <li><b>约 100 亿美元是战略终局价，不是当前利润价。</b>它押注 OpenRouter 成为 Agent 采购模型与结算 Token 的默认入口；一旦费率被压到接近零，估值逻辑必须转向企业 SaaS、数据和支付协同。</li>
+          <li><b>公开市场上应观察推理总量的受益者，而非把某个战略投资者当作 OpenRouter 替代品。</b>NVDA、云平台、网络与数据软件的逻辑来自全行业推理扩张，OpenRouter只是领先观测窗口。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="monitor">
+      <div class="section-label">10 · SCENARIOS, FALSIFICATION & MONITORING</div>
+      <h2>未来三种路径，以及怎样判断故事正在失效</h2>
+      <div class="scenario"><b>路径 A｜保持独立，成长为中立推理市场</b><span>月度 Token、付费客户和企业收入同步增长；平台继续扩展路由、数据政策、工作区和多模态。中立性与两边市场网络效应最完整。</span></div>
+      <div class="scenario"><b>路径 B｜Stripe 以高战略溢价收购</b><span>OpenRouter 被嵌入 Stripe Projects、Agent 支付与服务采购体系。分发能力增强，但模型与 Provider 需要重新评估平台中立性和数据边界。</span></div>
+      <div class="scenario risk"><b>路径 C｜费率压缩与生产流量绕行</b><span>Vercel、Cloudflare、云平台和自托管网关把基础路由价格压向零；客户在 OpenRouter 测试模型后改为直连，Token 增长却难以转化为平台收入。</span></div>
+
+      <h3>证伪条件</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>当前判断</th><th>反证信号</th><th>需要怎样修正</th></tr></thead>
+          <tbody>
+            <tr><td>OpenRouter形成需求侧网络效应</td><td>用户与 Token 上升，但付费消费、净收入和企业留存停滞</td><td>把平台重新定义为流量入口，而非高质量商业网络</td></tr>
+            <tr><td>真实调用数据构成护城河</td><td>路由质量并未随规模改善，客户主要手动指定模型与 Provider</td><td>降低数据飞轮估值，回到统一账单和便利性估值</td></tr>
+            <tr><td>多模型结构长期存在</td><td>少数闭源模型在关键企业工作负载形成持续高留存并主导采购</td><td>路由平台价值从“模型选择”收缩为“故障切换与治理”</td></tr>
+            <tr><td>中国开放模型推动全球商业化</td><td>监管、许可证、数据合规或 Provider 下架阻断企业采用</td><td>区分开发者实验流量与可持续企业收入</td></tr>
+            <tr><td>Stripe愿以战略溢价控制分发层</td><td>谈判破裂且没有同级别买方或融资承接估值</td><td>撤回 100 亿美元锚点，以上一轮 13 亿美元和业务增长重估</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>持续监测仪表盘</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>变量</th><th>当前已知锚点</th><th>下一验证点</th><th>投资含义</th></tr></thead>
+          <tbody>
+            <tr><td>月度 Token</td><td>200T+</td><td>增长是否持续，免费与付费构成是否披露</td><td>验证 Agent 推理需求，但不能单独证明收入质量</td></tr>
+            <tr><td>用户／应用</td><td>10M+ 全球用户；250K+ 应用</td><td>活跃、留存、企业席位和客户集中度</td><td>决定需求流动性是否真实</td></tr>
+            <tr><td>平台费</td><td>标准 PAYG 5.5%</td><td>Vercel 等零平台费竞争是否迫使降价</td><td>决定规模能否转成净收入</td></tr>
+            <tr><td>企业化</td><td>工作区、SSO、ZDR、SLA、区域路由</td><td>企业收入占比、续约、BYOK 与净留存</td><td>决定估值从交易流量向 SaaS 质量迁移</td></tr>
+            <tr><td>模型与 Provider 集中度</td><td>400+ / 70+</td><td>前五模型、前五 Provider 与前十大客户占比</td><td>评估“广度”是否掩盖单点依赖</td></tr>
+            <tr><td>Stripe 交易</td><td>媒体报道洽谈，或约 100 亿美元</td><td>正式协议、价格、对价、监管与整合方案</td><td>决定战略溢价能否成为真实价格</td></tr>
+            <tr><td>中国开放模型份额</td><td>2025年部分周接近 30%</td><td>Kimi、Qwen、DeepSeek、MiniMax、Z.ai 新版本留存与企业采用</td><td>验证开放模型出海是长期生产使用还是发布脉冲</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">11 · PRIMARY SOURCES</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="sources">
+        <div class="source"><strong>01</strong><div><a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer">OpenRouter 官网</a><span>当前月度 Token、全球用户、Provider、模型与应用规模。</span></div></div>
+        <div class="source"><strong>02</strong><div><a href="https://openrouter.ai/blog/announcements/series-b/" target="_blank" rel="noopener noreferrer">OpenRouter：$113M Series B</a><span>融资金额、投资者、2026年5月平台规模与产品方向。</span></div></div>
+        <div class="source"><strong>03</strong><div><a href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">OpenRouter Pricing</a><span>5.5% 平台费、BYOK 门槛、企业费率与模型定价原则。</span></div></div>
+        <div class="source"><strong>04</strong><div><a href="https://openrouter.ai/docs/guides/routing/provider-selection" target="_blank" rel="noopener noreferrer">OpenRouter Provider Routing</a><span>价格、延迟、吞吐、故障切换、ZDR 与 Provider 选择机制。</span></div></div>
+        <div class="source"><strong>05</strong><div><a href="https://openrouter.ai/state-of-ai" target="_blank" rel="noopener noreferrer">OpenRouter / a16z：State of AI 2025</a><span>100T+ Token 研究、开放模型、编程、推理、上下文与地域数据。</span></div></div>
+        <div class="source"><strong>06</strong><div><a href="https://openrouter.ai/data" target="_blank" rel="noopener noreferrer">OpenRouter Data</a><span>数据用途、隐私边界、公开排名与研究机构引用。</span></div></div>
+        <div class="source"><strong>07</strong><div><a href="https://docs.stripe.com/projects" target="_blank" rel="noopener noreferrer">Stripe Projects 官方文档</a><span>服务采购、统一账单、凭证管理、Agent 工作流与 OpenRouter 集成。</span></div></div>
+        <div class="source"><strong>08</strong><div><a href="https://www.wsj.com/tech/ai/stripe-in-talks-to-buy-buzzy-ai-model-marketplace-openrouter-decc6a74" target="_blank" rel="noopener noreferrer">The Wall Street Journal：Stripe 收购洽谈</a><span>约 100 亿美元潜在交易价及交易仍可能终止的报道。</span></div></div>
+        <div class="source"><strong>09</strong><div><a href="https://www.theinformation.com/articles/startup-openrouter-fields-multi-billion-dollar-takeover-interest" target="_blank" rel="noopener noreferrer">The Information：OpenRouter 收购兴趣</a><span>2026年4月约 5,000 万美元年化收入及多方收购兴趣报道。</span></div></div>
+        <div class="source"><strong>10</strong><div><a href="https://www.wsj.com/articles/openrouter-a-marketplace-for-ai-models-raises-40-million-168073de" target="_blank" rel="noopener noreferrer">The Wall Street Journal：2025 融资</a><span>4,000 万美元融资、约 5 亿美元估值与创始人背景。</span></div></div>
+        <div class="source"><strong>11</strong><div><a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank" rel="noopener noreferrer">TechCrunch：$1.3B valuation report</a><span>Series B 后约 13 亿美元媒体报道估值。</span></div></div>
+        <div class="source"><strong>12</strong><div><a href="https://www.together.ai/serverless-inference" target="_blank" rel="noopener noreferrer">Together AI Serverless Inference</a><span>开放模型推理 Provider 的产品与商业位置。</span></div></div>
+        <div class="source"><strong>13</strong><div><a href="https://vercel.com/ai-gateway" target="_blank" rel="noopener noreferrer">Vercel AI Gateway</a><span>数百模型、零加价、零平台费、路由与开发生态。</span></div></div>
+        <div class="source"><strong>14</strong><div><a href="https://aws.amazon.com/bedrock/model-choice/" target="_blank" rel="noopener noreferrer">Amazon Bedrock Model Choice</a><span>超大云模型市场、统一 API、私有模型与企业工具。</span></div></div>
+        <div class="source"><strong>15</strong><div><a href="https://www.cloudflare.com/products/ai-gateway/" target="_blank" rel="noopener noreferrer">Cloudflare AI Gateway</a><span>边缘路由、缓存、安全、可观测性与统一账单。</span></div></div>
+        <div class="source"><strong>16</strong><div><a href="https://docs.portkey.ai/docs/product/ai-gateway" target="_blank" rel="noopener noreferrer">Portkey AI Gateway</a><span>企业网关、条件路由、Guardrails、预算与自托管能力。</span></div></div>
+      </div>
+      <p class="micro">估值、收入和收购价格来自媒体报道，不是 OpenRouter 经审计财务或正式交易公告。OpenRouter 2025 数据集使用账单地区代理地域，并受平台用户结构、分类阈值和数据覆盖期影响。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">12 · CAUSAL READING PATH</div>
+      <h2>下一条研究路径</h2>
+      <div class="related">
+        <a href="/china-open-model-global-token-value-chain-20260722/"><small>01 · Model Economics</small><b>中国开放模型出海</b><span>继续拆解模型原厂、海外推理 Provider 与 Token 利润链。</span></a>
+        <a href="/stripe-payment-ecosystem-2026/"><small>02 · Payment Infrastructure</small><b>Stripe 支付生态全景</b><span>理解 Stripe 从支付、稳定币走向 Agent 商业操作系统的路径。</span></a>
+        <a href="/agent-compute-infrastructure/"><small>03 · Compute Infrastructure</small><b>Agent不是只吃GPU</b><span>观察长上下文和 Agent 推理如何向 CPU、内存、存储与网络传导。</span></a>
+      </div>
+    </section>
+  </main>
+
+  <section class="enya enya-brand">
+    <h2 class="enya-brand-name">EnyaClawd</h2>
+    <div class="enya-tag enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+    <div class="enya-model enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+    <p class="enya-copy enya-brand-copy">把复杂世界，整理成一张投资地图。本专题以 OpenRouter 为圆点，追踪模型、推理算力、开发者、支付与资本之间的价值转移。</p>
+    <div class="roles">
+      <div class="role"><b>Kerwin</b><span>负责选题、资本市场视角、产业链判断、关键推演与最终审阅。</span></div>
+      <div class="role"><b>Enya</b><span>负责公开证据整理、数据口径核验、结构化写作、网页视觉呈现与后续维护。</span></div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-line">
+      <span>免责声明：本文仅用于研究与信息交流，不构成投资、并购、法律或证券买卖建议。</span>
+      <a href="/">← 返回 EnyaClawd 研究首页</a>
+    </div>
+    <div>Published 2026-07-26 · Kerwin Web 3.3.2 · Typography Lock 1.1.0 · Hong Kong</div>
+    <div class="counter">👀 页面浏览量：<span id="counter-num">...</span></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var counter=document.getElementById('counter-num');
+  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page=openrouter-ai-model-exchange-stripe-20260726';
+  fetch(counterUrl).then(function(response){return response.json();}).then(function(data){
+    if(counter){counter.textContent=Number(data.count||0).toLocaleString();}
+  }).catch(function(){if(counter){counter.textContent='-';}});
+  fetch(counterUrl,{method:'POST'}).then(function(response){return response.json();}).then(function(data){
+    if(counter){counter.textContent=Number(data.count||0).toLocaleString();}
+  }).catch(function(){});
+})();
+</script>
+<script defer src="/assets/kerwin-system-v2.js?v=20260726"></script>
+</body>
+</html>
