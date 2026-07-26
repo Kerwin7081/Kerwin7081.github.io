@@ -1,92 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{PAGE_TITLE}}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff1e5">
 <meta name="description" content="{{PAGE_DECK}}">
+<title>{{PAGE_TITLE}}</title>
+<!-- kerwin-research-brief-template v3.3.2 · typography lock v1.1.0 -->
 <!-- pv-counter data-page-slug={{PAGE_SLUG}} -->
 <style>
 :root{
-  --bg:#fff1e5; --paper:#fffaf4; --ink:#1f1a17; --muted:#6f6258; --line:#dccdbf;
-  --blue:#2563eb; --up:#16a34a; --down:#dc2626; --warn:#92400e; --gold:#8a5b2b; --date:#8b4513;
+  --outer:#e6d8cb;
+  --paper:#fff1e5;
+  --paper-2:#fffaf5;
+  --ink:#262220;
+  --muted:#746b65;
+  --line:#cdbfb3;
+  --green:#103f35;
+  --green-soft:#dce8e2;
+  --blue:#315f7c;
+  --blue-soft:#e6eef4;
+  --amber:#9a5c38;
+  --amber-soft:#f7e7d8;
+  --red:#9f332b;
+  --red-soft:#f7e5e2;
+  --shadow:0 12px 34px rgba(38,34,32,.08);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  background:var(--bg);color:var(--ink);
-  font-family:Georgia,'Times New Roman','Noto Serif SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',serif;
-  font-size:14px;line-height:1.85;
+  margin:0;
+  color:var(--ink);
+  background:var(--outer);
+  font:17px/1.88 Arial,"PingFang SC","Microsoft YaHei",sans-serif;
 }
-a{color:inherit}
-.back{max-width:780px;margin:0 auto;padding:6px 10px 0}
-.back a{display:inline-block;font-family:Arial,'PingFang SC',sans-serif;font-size:12px;color:var(--gold);text-decoration:none;font-weight:700;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
-.page{max-width:780px;margin:0 auto;padding:10px 10px 28px}
-.shell{background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,.06)}
-.topbar{background:linear-gradient(180deg,#fff8f0 0%,#fffaf4 100%);padding:18px 22px 14px;border-top:8px solid #111;border-bottom:1px solid #111}
-.top-kicker{font:700 11px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a7769;margin-bottom:8px}
-.top-title{font-size:34px;font-weight:700;line-height:1.12;margin:0 0 6px;color:#16110d}
-.top-date{font-size:13px;color:var(--date);line-height:1.6;font-weight:600}
-.top-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.8;color:#4b413a;font-family:Arial,Helvetica,sans-serif}
-.wrap{max-width:700px;margin:0 auto;background:#fff}
-.hero{background:linear-gradient(180deg,#fff8ef 0%,#fdf4ea 100%);padding:34px 24px 28px;text-align:center;border-bottom:1px solid #ead7c9}
-.badge{display:inline-block;background:#f7efe6;border:1px solid #dccdbf;border-radius:20px;padding:5px 14px;color:#8a5b2b;font:700 11px Arial,sans-serif;letter-spacing:1px;margin-bottom:18px;white-space:nowrap;max-width:100%}
-.hero-title{color:#16110d;font-size:30px;font-weight:700;line-height:1.2;margin-bottom:10px}
-.hero-sub{color:#7b4f24;font:14px Arial,Helvetica,sans-serif;margin-bottom:6px}
-.hero-meta{color:#9a3412;font:700 12px Arial,Helvetica,sans-serif}
-.nav{display:flex;overflow-x:auto;background:#fcf5ee;border-bottom:1px solid var(--line);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
-.nav a{flex-shrink:0;padding:10px 12px;font:600 12px Arial,sans-serif;color:#7a685a;text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
-.section{padding:26px 20px;border-bottom:1px solid #efe3d7}.section-label{font:700 10px Arial,sans-serif;color:#8a5b2b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}.section h2{font-size:22px;line-height:1.35;margin:0 0 14px;color:#16110d}.section h3{font-size:17px;line-height:1.4;margin:18px 0 10px;color:#2d2419;padding-bottom:8px;border-bottom:1px solid #e7ddd3}p{font-size:14px;line-height:1.85;color:#3d3229;margin:0 0 12px}
-.callout{border:1px solid #e7ddd3;border-left:4px solid #8a5b2b;padding:18px 20px;margin:16px 0;background:#fdfaf5;font-size:13px;line-height:1.8;color:#5c3d1e}.callout-label{font:700 10px Arial,sans-serif;letter-spacing:.15em;color:#8a5b2b;text-transform:uppercase;margin-bottom:8px}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.stat-cell{background:#fdfaf5;border:1px solid #e7ddd3;padding:18px 16px;text-align:center}.stat-value{font:700 28px Georgia,'Times New Roman',serif;color:#16110d;line-height:1.1;margin-bottom:6px}.stat-label{font:12px Arial,sans-serif;color:#6f6258;line-height:1.4}
-.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid #e5d9cc}table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif;min-width:500px}thead tr{background:#3d3229;color:#f5f0e8}thead th{padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em;font-size:11px}tbody tr:nth-child(even){background:#fdfaf7}tbody td{padding:10px 14px;border-bottom:1px solid #e5d9cc;color:#3d3229;line-height:1.5;vertical-align:top}
-.conclusion{background:#1f1a17;padding:28px 20px;border-bottom:1px solid #111}.conclusion h2{color:#f5f0e8;font-size:22px;margin-bottom:14px}.conclusion p{color:#e8d5b8}
-.footer{padding:20px;font-size:11px;color:#6f6258;line-height:1.8;border-top:1px solid #e7ddd3;background:#fbf7f1;font-family:Arial,Helvetica,sans-serif}.footer-back{max-width:780px;margin:20px auto 10px;padding:0 24px;text-align:center}.footer-back a{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:#8a5b2b;text-decoration:none;font-weight:700}.counter-wrap{text-align:center;margin:2em 0 .5em;font-size:11px;line-height:1.75;color:var(--muted)}
-@media(max-width:640px){body{font-size:14px;line-height:1.82}.page{padding:0 4px 20px}.topbar{padding:16px 16px 12px}.top-title{font-size:26px;line-height:1.14}.top-date{font-size:13px}.top-block{font-size:12px;line-height:1.75}.hero{padding:28px 16px 24px}.hero-title{font-size:26px;line-height:1.18}.hero-sub{font-size:13px}.hero-meta{font-size:12px}.section{padding:22px 16px}.section h2{font-size:20px;line-height:1.34}.section h3{font-size:16px}p{font-size:14px;line-height:1.82}.stat-value{font-size:24px}td,th{font-size:11px;padding:6px 8px}.footer,.counter-wrap{font-size:11px;line-height:1.75}}
+a{color:var(--green)}
+.back{max-width:880px;margin:0 auto;padding:10px 14px 0}
+.back a{
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  padding:5px 11px;
+  color:#754524;
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:1px;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+}
+.page{max-width:880px;margin:0 auto;padding:10px 10px 36px}
+.shell{overflow:hidden;background:var(--paper-2);border:1px solid #a99d94;border-radius:2px;box-shadow:var(--shadow)}
+.topbar{
+  padding:clamp(22px,4vw,38px) clamp(20px,5vw,46px);
+  background:linear-gradient(180deg,#fff8f0,#fffaf5);
+  border-top:8px solid #111;
+  border-bottom:1px solid #111;
+}
+.top-kicker{margin-bottom:10px;color:#7c7068;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.top-title{
+  margin:0 0 10px;
+  color:#16110d;
+  font:700 clamp(34px,5.6vw,49px)/1.06 Georgia,"Times New Roman","Songti SC",serif;
+}
+.top-date{color:#8b4513;font-size:13px;font-weight:800}
+.top-block{
+  margin-top:14px;
+  padding-top:14px;
+  color:#504943;
+  border-top:1px solid var(--line);
+  font-size:14px;
+  line-height:1.7;
+}
+.hero{
+  padding:clamp(34px,6vw,58px) clamp(20px,6vw,58px);
+  background:linear-gradient(145deg,#fffaf5 0%,#f4e8dc 68%,#dce8e2 100%);
+  border-bottom:1px solid var(--line);
+}
+.badge{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:5px 12px;
+  color:#754524;
+  background:rgba(255,255,255,.52);
+  border:1px solid #bba99b;
+  border-radius:1px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.11em;
+}
+.hero-title{max-width:760px;margin:0 0 14px;font:700 clamp(28px,4vw,36px)/1.17 Georgia,"Times New Roman","Songti SC",serif}
+.hero-sub{max-width:740px;margin:0 0 7px;color:#4e433c;font-size:18px;line-height:1.7}
+.hero-meta{color:#8b4513;font-size:13px;font-weight:800}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  overflow-x:auto;
+  background:rgba(255,250,245,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(8px);
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  min-height:40px;
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  padding:10px 14px;
+  color:#675d56;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.section{padding:clamp(30px,5vw,48px) clamp(20px,6vw,58px);border-bottom:1px solid #e5d9cf}
+.section-label{margin-bottom:12px;color:#8b532e;font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.section h2,.conclusion h2{margin:0 0 16px;font:700 clamp(28px,4vw,36px)/1.17 Georgia,"Times New Roman","Songti SC",serif}
+.section h3{margin:24px 0 10px;font:700 21px/1.35 Georgia,"Times New Roman","Songti SC",serif}
+p{margin:0 0 14px;color:#403934;font-size:17px;line-height:1.88}
+.callout{
+  margin:20px 0;
+  padding:18px 20px;
+  color:#294c42;
+  background:var(--green-soft);
+  border-left:4px solid var(--green);
+}
+.callout-label{margin-bottom:7px;color:var(--green);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.callout p{margin:0;color:inherit}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.stat-cell{padding:20px 16px;text-align:center;background:#fffdf9;border:1px solid var(--line)}
+.stat-value{margin-bottom:7px;color:var(--green);font:700 30px/1.08 Georgia,"Times New Roman",serif}
+.stat-label{color:var(--muted);font-size:14px;line-height:1.55}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line)}
+table{width:100%;min-width:520px;border-collapse:collapse;background:#fffdf9;font-size:15px}
+th{padding:11px 14px;color:#fffaf5;background:#332b26;text-align:left;font-size:12px;letter-spacing:.04em}
+td{padding:11px 14px;color:#403934;border-bottom:1px solid #e5d9cf;line-height:1.58;vertical-align:top}
+tr:last-child td{border-bottom:0}
+.media-frame{margin:20px 0;background:#111;border:1px solid #111}
+.media-frame img,.media-frame video{display:block;width:100%;height:auto}
+.media-frame video{max-height:min(70vh,720px);object-fit:contain}
+.media-caption{padding:9px 12px;color:#5f5751;background:#f4e8dc;font-size:13px;line-height:1.55}
+.conclusion{padding:clamp(32px,5vw,50px) clamp(20px,6vw,58px);color:#fffaf5;background:#1f1a17}
+.conclusion h2{color:#fffaf5}
+.conclusion p{color:#eadccf}
+.enya-brand{padding:clamp(34px,5vw,62px) clamp(22px,6vw,72px);color:#fff1e5;background:var(--green);border-top:6px solid var(--ink)}
+.enya-brand-name{font:600 clamp(31px,5vw,46px)/1.04 Georgia,"Times New Roman","Songti SC",serif}
+.enya-brand-tagline{margin-top:14px;color:#f5e8dc;font-size:17px;font-weight:700}
+.enya-brand-models{margin-top:5px;color:#dce8e2;font-size:14px;font-weight:700}
+.enya-brand-copy{max-width:720px;margin:16px 0 0;color:#c9d8d2;font-size:14px;line-height:1.72}
+.footer{padding:22px;color:var(--muted);background:#fbf7f1;font-size:11px;line-height:1.8}
+.counter-wrap{margin:10px 0;color:#754524;font-size:11px;font-weight:800}
+.bottom-link{min-height:40px;display:inline-flex;align-items:center;margin-top:8px;font-weight:800;text-decoration:none}
+.back a:focus-visible,.nav a:focus-visible,.bottom-link:focus-visible,.kw-editorial-gate input:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 
-/* ── gate (v1) ─────────────────────────────────── */
-.gate-prompt{text-align:center;padding:42px 32px;background:linear-gradient(180deg,#fffaf4 0%,#f8efe4 100%);border-bottom:2px solid var(--line);}
-.gate-prompt-inner{display:inline-block;border:1px solid var(--line);background:#fffdf9;border-radius:12px;padding:28px 36px;box-shadow:0 4px 20px rgba(15,23,42,.04);}
-.gate-hint{font-family:Arial,'PingFang SC',sans-serif;font-size:13px;color:var(--muted);margin-bottom:12px;letter-spacing:.06em;}
-.kw-legacy-gate-input-box{display:inline-block;width:48px;height:48px;border:2px solid var(--ink);border-radius:8px;font-family:Georgia,serif;font-size:24px;text-align:center;background:var(--paper);outline:none;caret-color:var(--ink);animation:gate-blink 1.2s ease-in-out infinite;}
-.kw-legacy-gate-input-box:focus{animation:none;box-shadow:0 0 0 4px rgba(31,26,23,.12);}
-@keyframes gate-blink{0%,100%{box-shadow:0 0 0 0 rgba(31,26,23,.18);}50%{box-shadow:0 0 0 8px rgba(31,26,23,0);}}
-.gated-content{display:none;}
-.gated-content.visible{display:block;}
+body.kw-gate-pending{overflow:hidden}
+.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:hidden}
+.kw-editorial-gate{
+  position:fixed;
+  inset:0;
+  z-index:2147483000;
+  display:grid;
+  place-items:center;
+  padding:max(18px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left));
+  background:var(--green);
+  transition:opacity .14s ease;
+}
+.kw-editorial-gate.is-unlocking{opacity:0}
+.kw-editorial-gate[aria-hidden="true"]{display:none}
+.kw-editorial-gate__paper{width:min(860px,100%);color:var(--ink);background:var(--paper);border-top:6px solid var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.kw-editorial-gate__masthead,.kw-editorial-gate__foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 18px;color:var(--muted);border-bottom:1px solid #968b83;font-size:10px;font-weight:800;letter-spacing:.08em}
+.kw-editorial-gate__body{display:grid;grid-template-columns:164px minmax(0,1fr);gap:clamp(32px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}
+.kw-editorial-gate__seal{width:164px;height:164px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--paper);background:var(--green);border-radius:50%;box-shadow:0 0 0 9px var(--paper),0 0 0 10px var(--green);text-align:center;font:600 25px/1 Georgia,"Times New Roman","Songti SC",serif}
+.kw-editorial-gate__seal small{max-width:105px;margin-top:7px;font:800 9px/1.25 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.kw-editorial-gate__kicker{color:var(--green);font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.kw-editorial-gate__title{max-width:520px;margin-top:12px;font:600 clamp(29px,4vw,42px)/1.08 Georgia,"Times New Roman","Songti SC",serif}
+.kw-editorial-gate__form{margin-top:26px}
+.kw-editorial-gate__form label{display:block;font-size:14px;font-weight:700}
+.kw-editorial-gate__field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;margin-top:10px;border-bottom:2px solid var(--green)}
+.kw-editorial-gate__field input{min-width:0;height:48px;padding:0 4px;color:var(--green);background:transparent;border:0;font:700 24px/1 Georgia,serif}
+.kw-editorial-gate__field input:focus{outline:0}
+.kw-editorial-gate__field span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.kw-editorial-gate__status{min-height:22px;margin:8px 0 0;color:var(--red);font-size:12px}
+.kw-editorial-gate__foot{color:#5f5751;border-top:1px solid var(--line);border-bottom:0;font-weight:700;letter-spacing:.01em}
+@media(max-width:680px){
+  .kw-editorial-gate{padding:8px}
+  .kw-editorial-gate__body{grid-template-columns:1fr;gap:28px;min-height:0;padding:32px 22px}
+  .kw-editorial-gate__seal{width:112px;height:112px;margin:auto;font-size:20px}
+  .kw-editorial-gate__masthead,.kw-editorial-gate__foot{align-items:flex-start;flex-direction:column;gap:4px;padding:9px 12px}
+  .kw-editorial-gate__title{font-size:clamp(29px,9vw,38px)}
+}
+@media(max-width:520px){
+  body{font-size:16px;line-height:1.86}
+  .page{padding:0 4px 24px}
+  .topbar,.hero,.section,.conclusion{padding-left:16px;padding-right:16px}
+  .top-title{font-size:clamp(30px,9vw,38px)}
+  .hero-title,.section h2,.conclusion h2{font-size:29px}
+  .hero-sub,p{font-size:16px;line-height:1.86}
+  .section h3{font-size:20px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .stat-value{font-size:26px}
+  table{font-size:14px}
+}
 </style>
-
-<link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718sitewide1">
+<noscript><style>body.kw-gate-pending{overflow:auto}.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:visible}.kw-editorial-gate{display:none}</style></noscript>
 </head>
-<body data-page-slug="{{PAGE_SLUG}}" class="kw-research">
-<div class="back"><a href="/">← 返回首页</a></div>
-<div class="page"><div class="shell">
-  <div class="topbar">
-    <div class="top-kicker">KERWIN TEAM PRESENTS</div>
-    <h1 class="top-title">{{TOP_TITLE_LINE1}}<br>{{TOP_TITLE_LINE2}}</h1>
-    <div class="top-date">报告发布日期：{{REPORT_DATE}}</div>
-    <div class="top-block">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
-  </div>
-  <!-- gate: type k (case-insensitive, no Enter) to reveal content -->
-  <div class="gate-prompt" id="gate-prompt">
-    <div class="gate-prompt-inner">
-      <div class="gate-hint">请输入 <strong>k / K</strong>，方可显示完整研究内容</div>
-      <input class="kw-legacy-gate-input-box" id="kw-legacy-gate-input" type="text" maxlength="1" placeholder="_" autofocus>
+<body class="kw-research kw-gate-pending" data-page-slug="{{PAGE_SLUG}}">
+<aside class="kw-editorial-gate" aria-label="页面访问互动">
+  <div class="kw-editorial-gate__paper">
+    <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>
+    <div class="kw-editorial-gate__body">
+      <div class="kw-editorial-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
+      <div>
+        <div class="kw-editorial-gate__kicker">Reader Access</div>
+        <div class="kw-editorial-gate__title">{{TOP_TITLE_LINE1}} {{TOP_TITLE_LINE2}}</div>
+        <form class="kw-editorial-gate__form">
+          <label for="kw-editorial-key">输入 “k” 即可显示，不分大小写</label>
+          <div class="kw-editorial-gate__field">
+            <input id="kw-editorial-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-editorial-status">
+            <span>Auto enter</span>
+          </div>
+          <p class="kw-editorial-gate__status" id="kw-editorial-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
+    <div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
   </div>
-  <div class="gated-content" id="gated-content">
-  <div class="wrap">
-    <div class="hero">
-      <div class="badge">2026 kerwin 宏观对冲及 AI 精选组合</div>
-      <div class="hero-title">{{HERO_TITLE}}</div>
-      <div class="hero-sub">{{HERO_SUB}}</div>
+</aside>
+
+<div class="back"><a href="/">← 返回研究首页</a></div>
+<main class="page">
+  <article class="shell">
+    <header class="topbar">
+      <div class="top-kicker">KERWIN TEAM PRESENTS</div>
+      <h1 class="top-title">{{TOP_TITLE_LINE1}}<br>{{TOP_TITLE_LINE2}}</h1>
+      <div class="top-date">报告发布日期：{{REPORT_DATE}}</div>
+      <div class="top-block">Kerwin 确定研究主题、投资逻辑与最终校对；Enya 负责证据组织、可视化呈现与持续维护。<br>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。底层模型：GPT 5.6 Sol 及 Claude Fable 付费版。</div>
+    </header>
+
+    <section class="hero">
+      <div class="badge">2026 · KERWIN MACRO HEDGE &amp; AI PORTFOLIO</div>
+      <h2 class="hero-title">{{HERO_TITLE}}</h2>
+      <p class="hero-sub">{{HERO_SUB}}</p>
       <div class="hero-meta">{{HERO_META}}</div>
-    </div>
-    <nav class="nav">
+    </section>
+
+    <nav class="nav" aria-label="页面导航">
       <a href="#intro">核心判断</a>
-      <a href="#section1">章节一</a>
-      <a href="#section2">章节二</a>
+      <a href="#section1">主体分析</a>
       <a href="#conclusion">结语</a>
     </nav>
-    <div class="section" id="intro">
+
+    <section class="section" id="intro">
       <div class="section-label">引言 · 核心判断</div>
       <h2>{{INTRO_TITLE}}</h2>
       <p>{{INTRO_BODY}}</p>
@@ -95,8 +262,9 @@ a{color:inherit}
         <div class="stat-cell"><div class="stat-value">{{STAT_1_VALUE}}</div><div class="stat-label">{{STAT_1_LABEL}}</div></div>
         <div class="stat-cell"><div class="stat-value">{{STAT_2_VALUE}}</div><div class="stat-label">{{STAT_2_LABEL}}</div></div>
       </div>
-    </div>
-    <div class="section" id="section1">
+    </section>
+
+    <section class="section" id="section1">
       <div class="section-label">01 · 主体分析</div>
       <h2>{{SECTION_1_TITLE}}</h2>
       <p>{{SECTION_1_BODY}}</p>
@@ -109,39 +277,78 @@ a{color:inherit}
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="conclusion" id="conclusion">
+    </section>
+
+    <section class="conclusion" id="conclusion">
       <h2>结语</h2>
       <p>{{CONCLUSION_BODY}}</p>
-    </div>
-    <div class="footer">本文为投资研究参考，不构成具体投资建议。数据截至 {{DATA_ASOF}}。<br>© Kerwin｜宏观对冲及AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
-  </div><!-- /wrap -->
-  </div><!-- /gated-content -->
-</div></div>
-<div class="footer-back"><a href="/">← 返回首页</a></div>
-<div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+    </section>
+
+    <section class="enya-brand" aria-label="EnyaClawd 品牌说明">
+      <div class="enya-brand-name">EnyaClawd</div>
+      <div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+      <p class="enya-brand-copy">Kerwin 确定研究主题、投资逻辑与最终校对；Enya 负责证据组织、可视化呈现与持续维护。</p>
+    </section>
+
+    <footer class="footer">
+      <div>本文为投资研究参考，不构成具体投资建议。数据截至 {{DATA_ASOF}}。</div>
+      <div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div>
+      <div>© Kerwin｜宏观对冲及 AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
+      <a class="bottom-link" href="/">返回研究首页 ↗</a>
+    </footer>
+  </article>
+</main>
+
 <script>
-/* gate */
 (function(){
-  var input=document.getElementById('kw-legacy-gate-input');
-  if(!input)return;
-  input.addEventListener('input',function(){
-    if(input.value==='k'||input.value==='K'){
-      var gate=document.getElementById('gate-prompt');
-      var content=document.getElementById('gated-content');
-      if(gate&&content){gate.style.display='none';content.classList.add('visible');}
+  var body=document.body;
+  var gate=document.querySelector(".kw-editorial-gate");
+  var form=gate.querySelector("form");
+  var input=gate.querySelector("input");
+  var status=gate.querySelector(".kw-editorial-gate__status");
+  var unlocking=false;
+  var clearTimer=0;
+  function openPage(){
+    if(unlocking)return;
+    unlocking=true;
+    if(clearTimer)clearTimeout(clearTimer);
+    gate.classList.add("is-unlocking");
+    status.textContent="正在展开页面…";
+    setTimeout(function(){
+      body.classList.remove("kw-gate-pending");
+      gate.setAttribute("aria-hidden","true");
+      var firstFocus=document.querySelector(".back a, main a, main button");
+      if(firstFocus)firstFocus.focus();
+    },140);
+  }
+  function checkInput(){
+    var value=String(input.value||"").trim().toLowerCase();
+    if(value==="k"){openPage();return}
+    if(value){
+      status.textContent="请输入 “k”，大小写均可。";
+      if(clearTimer)clearTimeout(clearTimer);
+      clearTimer=setTimeout(function(){
+        if(!unlocking){input.value="";input.focus()}
+      },260);
     }
-  });
+  }
+  input.addEventListener("input",checkInput);
+  form.addEventListener("submit",function(event){event.preventDefault();checkInput()});
+  setTimeout(function(){if(!unlocking)input.focus()},60);
 })();
+
 (function(){
-  var slugVal='{{PAGE_SLUG}}';
-  var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slugVal);
-  var el=document.getElementById('counter-num');
-  fetch(counterUrl).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){if(el)el.textContent='-';});
-  fetch(counterUrl,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString();}).catch(function(){});
+  var slug="{{PAGE_SLUG}}";
+  var url="https://enyaclawd-counter.kerwin-finance.workers.dev?page="+encodeURIComponent(slug);
+  var el=document.getElementById("counter-num");
+  fetch(url).then(function(response){return response.json()}).then(function(data){
+    if(el)el.textContent=Number(data.count||0).toLocaleString("zh-CN");
+  }).catch(function(){if(el)el.textContent="-"});
+  fetch(url,{method:"POST"}).then(function(response){return response.json()}).then(function(data){
+    if(el)el.textContent=Number(data.count||0).toLocaleString("zh-CN");
+  }).catch(function(){});
 })();
 </script>
-
-<script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>
