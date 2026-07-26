@@ -53,20 +53,6 @@
     });
   }
 
-  var legacyPages = [
-    {slug:'offshore-trust-tax-china-ipo-20260724',title:'离岸信托税务穿透时代\n第21号公告如何重写红筹IPO与财富管理',date:'2026年7月24日',published_at:'2026-07-24T17:45:00+08:00',deck:'第21号公告将离岸信托的税务连接点从境外受托人的法律身份，转向实际出资、控制、经济利益与中国税收居民身份；拆解装入即税、未分配年度归属、被动实体穿透、90日补报窗口及港股IPO尽调影响。',tag:'Cross-border Tax & IPO Compliance',category:'Wealth Management & Capital Markets',source:'enya',homepage_approved:true},
-    {slug:'shadow-of-leverage-ai-gold-liquidation-20260724',title:'杠杆的影子\n从黄金闪崩到全球AI资产的24小时清算链',date:'2026年7月24日',published_at:'2026-07-24T12:20:00+08:00',deck:'复盘2026年2月黄金闪崩与7月全球科技资产回撤，拆解韩国融资盘、美国杠杆交易、日本高贝塔、中国局部去杠杆、美元、利率、黄金与国债的跨资产清算链。',tag:'Macro & Market Structure Research',category:'Macro & Market Structure Research',source:'enya',homepage_approved:true},
-    {slug:'google-ai-industry-use-cases-20260723',title:'谷歌电话会折射出的AI行业应用图谱\n从搜索、广告到金融、制药、机器人与空间智能的24个落地案例',date:'2026年7月23日',published_at:'2026-07-23T21:30:00+08:00',deck:'从Alphabet 2026 Q2电话会出发，以条目式结构拆解24个AI实际应用案例，并补充Google官方客户案例、商业价值与投资映射。',tag:'AI Application Casebook',category:'AI Industry Applications',source:'enya',homepage_approved:true},
-    {slug:'gold-btc-dollar-leash-royalty-streaming-2026',title:'黄金、比特币与美元狗绳\nRoyalty / Streaming 与铜矿周期',date:'2026年6月15日',published_at:'2026-06-15T22:00:00+08:00',deck:'黄金 ETF、royalty / streaming、铜矿周期、加息逆转，以及黄金和比特币作为美元体系压力外溢阀门的投资框架。',tag:'宏观研究',source:'enya',homepage_approved:true},
-    {slug:'nvidia-agent-platform-2026',title:'NVIDIA Agent 平台战略\nAgent 加速成为 AI 时代的新应用层',date:'2026年6月4日',published_at:'2026-06-04T11:30:00+08:00',deck:'从 OpenClaw 实践出发，串联 NVIDIA OpenShell、NemoClaw、Nemotron 与企业应用案例。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'us-estate-tax-hk-investor-guide',title:'香港投资人持有美股的遗产税盲区',date:'2026年6月2日',published_at:'2026-06-02T12:00:00+08:00',deck:'从美国 situs assets、Form 706-NA、40%阶梯税率到离岸架构，梳理香港投资人的关键风险。',tag:'客户教育',source:'enya',homepage_approved:true},
-    {slug:'edge-computing-series',title:'NVIDIA Edge Computing\n五篇系列总览',date:'2026年5月30日',published_at:'2026-05-30T13:30:00+08:00',deck:'从机器人、汽车、边缘网络、视觉感知到本地智能体，串联 Edge Computing 投资图谱。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'nvidia-edge-ai-pc-local-agent',title:'Edge 系列第五篇\nAI PC / Workstation / Local Agent',date:'2026年5月30日',published_at:'2026-05-30T12:30:00+08:00',deck:'拆解 AI PC、Workstation、本地智能体、手机端侧 AI 与企业私有 AI 服务器。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'nvidia-edge-vision-ai-video-agent',title:'Edge 系列第四篇\nVision AI / 视频智能体',date:'2026年5月26日',published_at:'2026-05-26T10:30:00+08:00',deck:'拆解 Vision AI、视频智能体、NVIDIA Metropolis 与城市、工业和仓储场景。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'colossus-compute-revaluation',title:'出人意料\n马斯克的算力资产这么大？',date:'2026年5月21日',published_at:'2026-05-21T17:00:00+08:00',deck:'从 Colossus 算力租赁费用，对比 GPU、电力和云服务收入量级，重估算力中心资产价值。',tag:'AI Research',source:'enya',homepage_approved:true},
-    {slug:'dissect-enya-openclaw-investment-brief',title:'拆解 Enya\nOpenClaw 部署投资启示录',date:'2026年5月19日',published_at:'2026-05-19T12:20:00+08:00',deck:'从 Enya / OpenClaw 部署案例，拆解 Agent 经济对 CPU、NVMe SSD、NAND、互联和企业软件的需求。',tag:'AI基础设施',source:'codex',homepage_approved:true}
-  ];
-
   var themes = [
     {id:'ai',number:'01',name:'AI 系统与算力',short:'AI Systems',desc:'GPU、机架、电力、存储、光互联、Agent、行业应用与边缘计算。',test:/nvidia|英伟达|alphabet|google|gemini|ai |agent|算力|机架|gpu|edge|光互联|存储|hbm|nand|ssd|semiconductor|芯片|半导体|rubin|colossus|应用图谱/i},
     {id:'digital',number:'02',name:'数字金融与市场结构',short:'Digital Finance',desc:'加密资产、RWA、支付、稳定币与新一代交易基础设施。',test:/hyperliquid|hype|rwa|支付|stripe|digital asset|fintech|永续|交易所|比特币|稳定币/i},
@@ -80,15 +66,20 @@
   var visibleCount = 12;
   var activeFilter = 'all';
   var query = '';
+  var registryAvailable = true;
 
   fetch('/registry.json?v=' + Date.now(), {cache:'no-store'})
     .then(function (r) { if (!r.ok) throw new Error('registry'); return r.json(); })
-    .then(init)
-    .catch(function () { init([]); });
+    .then(function (registry) {
+      if (!Array.isArray(registry)) throw new Error('registry shape');
+      init(registry, true);
+    })
+    .catch(function () { init([], false); });
 
-  function init(registry) {
+  function init(registry, available) {
+    registryAvailable = available;
     var map = {};
-    registry.concat(legacyPages).forEach(function (p) {
+    registry.forEach(function (p) {
       if (p && p.slug && p.homepage_approved === true) map[p.slug] = p;
     });
     allPages = Object.keys(map).map(function (k) { return map[k]; }).sort(sortDesc);
@@ -103,14 +94,18 @@
   }
 
   function renderStats() {
-    setText('stat-reports', allPages.length);
-    setText('stat-earnings', earningsPages.length);
-    setText('stat-updated', compactDate(allPages[0] && allPages[0].date));
+    setText('stat-reports', registryAvailable ? allPages.length : '·');
+    setText('stat-earnings', registryAvailable ? earningsPages.length : '·');
+    setText('stat-updated', registryAvailable ? compactDate(allPages[0] && allPages[0].date) : '稍后重试');
   }
 
   function renderTicker() {
     var el = document.getElementById('ticker-items');
     if (!el) return;
+    if (!registryAvailable) {
+      el.innerHTML = '<span class="ticker-item">研究目录暂时不可用，请稍后刷新。</span>';
+      return;
+    }
     el.innerHTML = allPages.slice(0, 8).map(function (p) {
       var marker = isEarnings(p) ? '财报' : '专题';
       return '<a class="ticker-item" href="' + href(p) + '"><span class="ticker-kind">' + marker + '</span><b>' + esc(shortTitle(p.title)) + '</b><span>' + esc(compactDate(p.date)) + '</span></a>';
@@ -121,10 +116,10 @@
     var lead = document.getElementById('earnings-lead');
     var list = document.getElementById('earnings-list');
     var count = document.getElementById('earnings-count');
-    if (count) count.textContent = earningsPages.length + ' 篇';
+    if (count) count.textContent = registryAvailable ? earningsPages.length + ' 篇' : '目录暂不可用';
     if (!lead || !list) return;
     if (!earningsPages.length) {
-      lead.innerHTML = '<div class="empty">财报专栏正在建立。</div>';
+      lead.innerHTML = '<div class="empty">' + (registryAvailable ? '财报专栏正在建立。' : '研究目录暂时无法载入，请稍后刷新。') + '</div>';
       list.innerHTML = '';
       return;
     }
@@ -141,12 +136,19 @@
 
   function renderFeatured() {
     var researchPages = allPages.filter(function (p) { return !isEarnings(p); });
-    var priority = ['offshore-trust-tax-china-ipo-20260724','shadow-of-leverage-ai-gold-liquidation-20260724','ai-memory-hbm-nand-cmx-20260722'];
-    var chosen = priority.map(function (slug) { return researchPages.find(function (p) { return p.slug === slug; }); }).filter(Boolean);
+    var chosen = researchPages.filter(function (p) {
+      return Number.isInteger(p.featured_rank) && p.featured_rank >= 1 && p.featured_rank <= 3;
+    }).sort(function (a, b) { return a.featured_rank - b.featured_rank; });
     researchPages.forEach(function (p) { if (chosen.length < 3 && chosen.indexOf(p) < 0) chosen.push(p); });
+    chosen = chosen.slice(0, 3);
     var main = document.getElementById('feature-main');
     var side = document.getElementById('feature-side');
-    if (!main || !chosen[0]) return;
+    if (!main) return;
+    if (!chosen[0]) {
+      main.innerHTML = '<div class="feature-main__content"><div class="empty">' + (registryAvailable ? '精选专题正在整理。' : '研究目录暂时无法载入，请稍后刷新。') + '</div></div>';
+      if (side) side.innerHTML = '';
+      return;
+    }
     var p = chosen[0];
     main.innerHTML = '<div class="feature-main__visual"><div class="feature-orbit"><i></i><i></i><i></i></div></div>' +
       '<div class="feature-main__content"><div class="story-meta"><span class="story-tag">Lead Research</span><span>' + esc(p.date || '') + '</span><span>' + esc(p.tag || 'Research') + '</span></div><h3>' + esc(p.title || '') + '</h3><p>' + esc(p.deck || '') + '</p></div><a class="story-link" href="' + href(p) + '" aria-label="阅读 ' + esc(p.title || '') + '"></a>';
@@ -188,6 +190,11 @@
     var el = document.getElementById('article-grid');
     var more = document.getElementById('load-more');
     if (!el) return;
+    if (!registryAvailable) {
+      el.innerHTML = '<div class="empty">研究目录暂时无法载入，请稍后刷新。</div>';
+      if (more) more.style.display = 'none';
+      return;
+    }
     var filtered = allPages.filter(function (p) {
       var filterOk = true;
       if (activeFilter === 'earnings') filterOk = isEarnings(p);
@@ -233,7 +240,7 @@
     return match ? match[1] + ' · QUARTER ' + match[2] + ' EARNINGS' : 'EARNINGS & MANAGEMENT CALL';
   }
 
-  function href(p) { return p.source === 'codex' ? '/' + p.slug + '.html' : '/' + p.slug + '/'; }
+  function href(p) { return p.path || '/' + p.slug + '/'; }
   function haystack(p) { return [p.title,p.deck,p.tag,p.category,p.slug].join(' ').toLowerCase(); }
   function shortTitle(s) { return String(s || '').split('\n')[0].replace(/全景研究|深度报告/g,'').trim(); }
   function compactDate(s) { var d=String(s||'').match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/); return d ? d[2] + '.' + d[3] : (s || '持续更新'); }
