@@ -4,93 +4,542 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#103f35">
-<meta name="description" content="Kerwin Research Hub专题：从微软FY2026 Q4电话会出发，拆解AI进入企业的工作流、投入产出与数据安全三道硬门槛，以及Microsoft 365、Azure、Foundry、Fabric、Entra、Purview、Agent 365和Frontier Co.形成的全栈解法。">
-<meta name="author" content="Kerwin">
-<meta name="article:published_time" content="2026-07-30T23:35:00+08:00">
-<meta name="article:modified_time" content="2026-07-30T23:35:00+08:00">
+<meta name="description" content="Kerwin Research Hub专题：从微软FY2026 Q4财报电话会出发，拆解AI进入企业的工作流、投入产出与数据安全三道障碍，以及Microsoft 365、Azure、Foundry、Fabric、Entra、Purview、Agent 365和Frontier Co.形成的全栈解决方案。">
+<meta name="article:published_time" content="2026-07-31T00:19:00+08:00">
+<meta name="article:modified_time" content="2026-07-31T00:19:00+08:00">
 <meta name="kerwin-web-version" content="3.3.2">
 <meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
 <script>document.documentElement.className=(document.documentElement.className+' js').trim();</script>
 <title>AI如何真正进入企业｜三道障碍与微软的全栈解法｜Kerwin Research Hub</title>
 <!-- pv-counter data-page-slug=microsoft-enterprise-ai-barriers-solutions-20260730 -->
 <style>
-:root{--surface:#fff1e5;--paper:#fffaf5;--paper2:#f7e7d8;--outer:#e6d8cb;--ink:#262220;--muted:#746b65;--line:#cdbfb3;--line2:#968b83;--green:#103f35;--green2:#1f5a4d;--pale:#dce8e2;--copper:#9a5c38;--red:#9f332b;--sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;--serif:Georgia,"Times New Roman","Songti SC","STSong",serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:108px}body{margin:0;min-width:320px;overflow-x:hidden;background:var(--outer);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.88;-webkit-font-smoothing:antialiased}a{color:var(--green);text-underline-offset:3px}button,input{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--copper);outline-offset:3px}.skip{position:fixed;left:14px;top:8px;z-index:100000;transform:translateY(-150%);padding:8px 12px;background:var(--paper);border:1px solid var(--green);font-size:12px;font-weight:800}.skip:focus{transform:none}
-.js body:not(.gate-open){overflow:hidden}.js body:not(.gate-open)>*:not(.gate):not(script):not(style){visibility:hidden}.js body.gate-open .gate{display:none}.gate{display:none;position:fixed;inset:0;z-index:99999;place-items:center;padding:18px;background:var(--green);transition:opacity .16s ease}.js .gate{display:grid}.gate.fade{opacity:0}.gate:before{content:"";position:absolute;inset:12px;border:1px solid rgba(255,241,229,.34)}.gate-paper{position:relative;width:min(860px,100%);background:var(--surface);border-top:6px solid var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.22)}.gate-head,.gate-foot{display:flex;justify-content:space-between;gap:16px;padding:11px 18px;border-bottom:1px solid var(--line2);color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.gate-foot{border-top:1px solid var(--line);border-bottom:0;letter-spacing:.02em;text-transform:none}.gate-body{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(30px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}.seal{width:164px;height:164px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;color:var(--surface);background:var(--green);box-shadow:0 0 0 9px var(--surface),0 0 0 10px var(--green);font:600 25px/1 var(--serif);text-align:center}.seal small{max-width:105px;margin-top:7px;font:800 11px/1.25 var(--sans);letter-spacing:.13em;text-transform:uppercase}.kicker,.section-label{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.gate h1{max-width:520px;margin:15px 0 0;font:500 clamp(29px,4vw,42px)/1.08 var(--serif);letter-spacing:-.03em}.gate-copy{margin:12px 0 0;color:var(--muted);font-size:15px}.gate-form{margin-top:23px}.gate-form label{display:block;margin-bottom:7px;color:var(--green);font-size:12px;font-weight:800}.gate-field{display:grid;grid-template-columns:1fr auto;align-items:center;border-bottom:2px solid var(--ink)}.gate-field:focus-within{border-bottom-color:var(--copper);box-shadow:0 2px 0 var(--copper)}.gate-field input{width:100%;height:50px;padding:0 6px;border:0;outline:0;background:transparent;color:var(--ink);font:600 22px/1 var(--serif)}.gate-auto{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.gate-error{min-height:20px;margin:8px 0 0;color:var(--red);font-size:13px}
-.rail{position:fixed;inset:0 0 auto;z-index:1000;height:61px;background:rgba(255,241,229,.97);border-bottom:1px solid var(--ink);backdrop-filter:blur(10px)}.rail-inner{width:min(1180px,calc(100% - 34px));height:100%;margin:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}.brand{display:inline-flex;align-items:center;gap:11px;color:inherit;text-decoration:none;white-space:nowrap}.mark{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;color:var(--surface);background:var(--green);font:700 15px/1 var(--serif)}.wordmark{font:600 17px/1 var(--serif)}.wordmark small{display:block;margin-top:4px;color:#6f665f;font:700 10px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase}.context{overflow:hidden;color:#6f665f;font-size:13px;white-space:nowrap;text-overflow:ellipsis}.actions{display:flex;gap:7px}.rail-btn{min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border:1px solid var(--green);color:var(--green);text-decoration:none;font-size:12px;font-weight:700}.rail-btn:hover,.rail-btn:focus-visible{background:var(--green);color:var(--surface);outline:2px solid var(--copper);outline-offset:2px}.progress{position:absolute;inset:auto 0 -1px;height:2px}.progress span{display:block;width:0;height:100%;background:var(--green)}
-.page{width:min(920px,calc(100% - 28px));margin:83px auto 56px}.shell{overflow:hidden;background:var(--surface);border:1px solid #a99d94;border-radius:2px;box-shadow:0 12px 34px rgba(38,34,32,.08)}.wrap{max-width:860px;margin:auto;background:var(--paper)}.cover{position:relative;padding:46px clamp(24px,6vw,62px) 37px;border-top:6px solid var(--ink);border-bottom:1px solid var(--line);background:var(--surface)}.cover:after{content:"";position:absolute;right:clamp(24px,6vw,62px);top:32px;width:68px;height:12px;border-top:3px solid var(--green);border-bottom:1px solid var(--copper)}.cover h1{max-width:780px;margin:18px 0 14px;font:600 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.04em}.thesis{max-width:760px;margin:0;color:#3e3732;font:600 clamp(17px,2.4vw,21px)/1.55 var(--serif)}.meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:22px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.meta b{color:var(--copper)}.scope{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);background:var(--paper2)}.scope div{padding:15px 18px;border-right:1px solid var(--line)}.scope div:last-child{border-right:0}.scope small{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.scope b{display:block;margin-top:5px;color:var(--green);font-size:14px;line-height:1.55}.nav{position:sticky;top:61px;z-index:40;display:flex;overflow-x:auto;border-bottom:1px solid var(--line);background:rgba(255,250,245,.97);scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{flex:none;min-height:44px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid transparent;color:#5f5751;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap}.nav a:hover,.nav a:focus-visible{border-color:var(--green);color:var(--green);outline:0}
-.section{padding:clamp(34px,5vw,51px);border-bottom:1px solid var(--line)}.section h2{margin:10px 0 17px;font:600 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.025em}.section h3{margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);font:600 21px/1.35 var(--serif)}.section p{margin:0 0 15px;color:#433c37}.lead{font-size:18px;color:#39332f}.micro{font-size:14px;color:var(--muted)}.boundary{margin:21px 0;padding:19px 21px;border-left:5px solid var(--red);background:#f7dfda}.boundary b{display:block;color:var(--red);font:600 18px/1.35 var(--serif)}.boundary p{margin:7px 0 0;font-size:15px}.chip{display:inline-block;margin-right:6px;padding:3px 7px;border:1px solid var(--line);font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.fact{color:var(--green);background:var(--pale)}.reported{color:var(--green);background:#edf3ef}.inference{color:var(--copper);background:#f8e7d7}.limit{color:var(--red);background:#f7dfda}
-.verdict{margin-top:20px;border-top:5px solid var(--green);border-bottom:1px solid var(--line)}.verdict-row{display:grid;grid-template-columns:46px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}.verdict-row:first-child{border-top:0}.num{color:var(--copper);font:700 25px/1 var(--serif)}.verdict-row b{display:block;font:600 18px/1.35 var(--serif)}.verdict-row span{display:block;margin-top:6px;color:var(--muted);font-size:15px;line-height:1.7}.evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);margin:22px 0;border-top:5px solid var(--green);border-left:1px solid var(--line)}.evidence-item{min-height:190px;padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.2)}.evidence-number{color:var(--copper);font:700 34px/1 var(--serif)}.evidence-item b{display:block;margin-top:12px;font:600 18px/1.35 var(--serif)}.evidence-item span{display:block;margin-top:7px;color:var(--muted);font-size:14px;line-height:1.65}.evidence-item small{display:block;margin-top:11px;color:var(--green);font-size:12px;font-weight:800}
-.barriers{margin:22px 0;border-top:5px solid var(--green)}.barrier{display:grid;grid-template-columns:82px 1fr;border-bottom:1px solid var(--line)}.barrier-no{padding:21px 15px;color:var(--surface);background:var(--green);font:700 27px/1 var(--serif)}.barrier-copy{padding:20px 22px;background:rgba(255,255,255,.22)}.barrier-copy h3{margin:0 0 9px;padding:0;border:0}.barrier-copy p{margin:0}.barrier-copy ul{margin:10px 0 0;padding-left:20px}.barrier-copy li{margin:6px 0;color:#49413c}.kerwin{margin:23px 0;padding:23px 25px;border-top:5px solid var(--copper);background:var(--paper2)}.kerwin small{display:block;color:var(--copper);font-size:11px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.kerwin b{display:block;margin-top:8px;color:var(--green);font:600 23px/1.35 var(--serif)}.kerwin p{margin:9px 0 0}
-.layer-map{margin:22px 0;border:1px solid var(--line)}.layer{display:grid;grid-template-columns:135px 1fr;border-top:1px solid var(--line)}.layer:first-child{border-top:0}.layer-name{display:flex;align-items:center;padding:17px;color:var(--surface);background:var(--green);font-size:12px;font-weight:800;letter-spacing:.06em}.layer-copy{padding:17px 19px;background:rgba(255,255,255,.25)}.layer-copy b{display:block;font:600 17px/1.35 var(--serif)}.layer-copy span{display:block;margin-top:5px;color:var(--muted);font-size:14px}.flow{display:flex;flex-direction:column;margin:21px 0}.flow-box{padding:15px 17px;border:1px solid var(--line);background:rgba(255,255,255,.28);font-size:15px}.flow-box.alt{background:var(--pale)}.flow-box.dark{border-color:var(--green);background:var(--green);color:var(--surface)}.arrow{text-align:center;padding:4px;color:var(--copper);font-size:19px;line-height:1}.two-col{display:grid;grid-template-columns:1fr 1fr;margin:21px 0;border:1px solid var(--line)}.col{padding:21px;border-right:1px solid var(--line)}.col:last-child{border-right:0}.col h3{margin:0 0 10px;padding:0;border:0}.col ul{margin:0;padding-left:20px}.col li{margin:7px 0;color:#49413c;font-size:15px}
-.case-grid{display:grid;grid-template-columns:repeat(2,1fr);margin:22px 0;border-top:5px solid var(--green);border-left:1px solid var(--line)}.case{padding:21px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.2)}.case small{color:var(--copper);font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.case b{display:block;margin-top:8px;font:600 18px/1.35 var(--serif)}.case p{margin:8px 0 0;font-size:15px}.table-wrap{overflow-x:auto;margin:21px 0;border:1px solid var(--line);-webkit-overflow-scrolling:touch}table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px}thead{background:var(--green);color:var(--surface)}th{padding:13px 14px;text-align:left;font-size:13px;letter-spacing:.03em}td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}tbody tr:nth-child(even){background:rgba(247,231,216,.36)}td:first-child{font-weight:800;color:var(--green)}
-.investment{padding:25px;border-top:5px solid var(--green);background:var(--pale)}.investment h3{margin:0 0 12px;border:0;padding:0}.investment ol{margin:0;padding-left:21px}.investment li{margin:9px 0;color:#3f3935;font-size:16px}.sources{margin:20px 0;border-top:1px solid var(--line)}.source{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.source strong{color:var(--copper);font:700 18px/1 var(--serif)}.source a{font-size:16px;font-weight:700}.source span{display:block;margin-top:4px;color:var(--muted);font-size:14px}.related{display:grid;grid-template-columns:repeat(3,1fr);margin-top:21px;border:1px solid var(--line)}.related a{min-height:158px;padding:18px;border-right:1px solid var(--line);background:rgba(255,255,255,.24);color:var(--ink);text-decoration:none}.related a:last-child{border-right:0}.related small{display:block;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.related b{display:block;margin-top:9px;font:600 17px/1.35 var(--serif)}.related span{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55}.related a:hover,.related a:focus-visible{background:var(--pale);outline:2px solid var(--copper);outline-offset:-2px}
-.enya{padding:clamp(38px,6vw,62px) clamp(24px,7vw,72px);border-top:6px solid var(--ink);background:var(--green);color:var(--surface)}.enya h2{margin:0;font:600 clamp(31px,5vw,46px)/1 var(--serif);letter-spacing:-.035em}.enya-tag{max-width:720px;margin-top:14px;color:#f5e8dc;font-size:17px;font-weight:700}.enya-model{margin-top:8px;color:#f5e8dc;font-size:13px;font-weight:700}.enya-copy{max-width:720px;margin-top:18px;color:#c9d8d2;font-size:15px}.roles{display:grid;grid-template-columns:1fr 1fr;margin-top:22px;border-top:1px solid rgba(255,241,229,.35);border-bottom:1px solid rgba(255,241,229,.35)}.role{padding:15px 0}.role:first-child{padding-right:18px;border-right:1px solid rgba(255,241,229,.35)}.role:last-child{padding-left:18px}.role b{display:block;font:600 17px/1.3 var(--serif)}.role span{display:block;margin-top:5px;color:#c9d8d2;font-size:14px}.footer{padding:21px clamp(20px,5vw,46px);border-top:1px solid var(--line);background:#f3e4d7;color:#68605a;font-size:13px;line-height:1.75}.footer-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 18px}.footer a{font-weight:700}.top{position:fixed;right:max(18px,calc((100vw - 980px)/2));bottom:22px;z-index:80;width:42px;height:42px;border:1px solid var(--green);background:var(--green);color:var(--surface);cursor:pointer;opacity:0;transform:translateY(8px);transition:.18s}.top.show{opacity:1;transform:none}
-@media(max-width:720px){.context{display:none}.rail-inner{grid-template-columns:auto 1fr;gap:12px}.actions{justify-self:end}.rail-btn.secondary{display:none}.page{width:min(100% - 10px,920px);margin-top:68px;margin-bottom:18px}.cover{padding:32px 21px 28px}.cover:after{right:21px;top:24px;width:48px}.cover h1{font-size:clamp(30px,9vw,38px)}.scope{grid-template-columns:1fr}.scope div{border-right:0;border-bottom:1px solid var(--line)}.scope div:last-child{border-bottom:0}.section{padding:32px 20px}.section h2{font-size:29px}.related{grid-template-columns:1fr}.related a{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.related a:last-child{border-bottom:0}.roles{grid-template-columns:1fr}.role:first-child{padding-right:0;border-right:0;border-bottom:1px solid rgba(255,241,229,.35)}.role:last-child{padding-left:0}.evidence-grid,.case-grid{grid-template-columns:1fr}.evidence-item{min-height:0}.two-col{grid-template-columns:1fr}.col{border-right:0;border-bottom:1px solid var(--line)}.col:last-child{border-bottom:0}.layer{grid-template-columns:100px 1fr}.barrier{grid-template-columns:64px 1fr}}
-@media(max-width:520px){body{font-size:16px;line-height:1.86}.gate{padding:13px}.gate-head span:last-child,.gate-foot span:last-child{display:none}.gate-body{grid-template-columns:1fr;gap:29px;min-height:auto;padding:34px 25px}.seal{width:118px;height:118px;margin:auto;font-size:20px;box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--green)}.gate h1{font-size:29px}.wordmark{font-size:15px}.nav a{font-size:12px}.section h3{font-size:20px}.lead{font-size:17px}.table-wrap{margin-left:-20px;margin-right:-20px;border-left:0;border-right:0}table{font-size:14px}th{font-size:12px}.enya{padding:38px 22px}.footer-line{display:block}.footer-line span{display:block;margin-top:5px}.barrier-copy{padding:18px 16px}.barrier-no{padding:18px 10px}}
+:root{
+  --surface:#fff1e5;--paper:#fffaf5;--paper2:#f7e7d8;--outer:#e6d8cb;
+  --ink:#262220;--muted:#746b65;--line:#cdbfb3;--line2:#968b83;
+  --green:#103f35;--green2:#1f5a4d;--pale:#dce8e2;--copper:#9a5c38;--red:#9f332b;
+  --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;min-width:320px;overflow-x:hidden;background:var(--outer);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.88;-webkit-font-smoothing:antialiased}
+a{color:var(--green);text-underline-offset:3px}
+button,input{font:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+.skip-link{position:fixed;left:14px;top:8px;z-index:100000;transform:translateY(-150%);padding:8px 12px;background:var(--paper);border:1px solid var(--green);font-size:12px;font-weight:800}
+.skip-link:focus{transform:none}
+.js body:not(.gate-open){overflow:hidden}
+.js body:not(.gate-open)>*:not(.gate):not(script):not(style){visibility:hidden}
+.js body.gate-open .gate{display:none}
+.gate{display:none;position:fixed;inset:0;z-index:99999;place-items:center;padding:18px;background:var(--green);transition:opacity .16s ease}
+.js .gate{display:grid}
+.gate.fade{opacity:0}
+.gate:before{content:"";position:absolute;inset:12px;border:1px solid rgba(255,241,229,.34)}
+.gate-paper{position:relative;width:min(860px,100%);background:var(--surface);border-top:6px solid var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.gate-head,.gate-foot{display:flex;justify-content:space-between;gap:16px;padding:11px 18px;border-bottom:1px solid var(--line2);color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.gate-foot{border-top:1px solid var(--line);border-bottom:0;letter-spacing:.02em;text-transform:none}
+.gate-body{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(30px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}
+.seal{width:164px;height:164px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;color:var(--surface);background:var(--green);box-shadow:0 0 0 9px var(--surface),0 0 0 10px var(--green);font:600 25px/1 var(--serif);text-align:center}
+.seal small{max-width:105px;margin-top:7px;font:800 11px/1.25 var(--sans);letter-spacing:.13em;text-transform:uppercase}
+.kicker,.section-label{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.gate h1{max-width:520px;margin:15px 0 0;font:500 clamp(29px,4vw,42px)/1.08 var(--serif);letter-spacing:-.03em}
+.gate-copy{margin:12px 0 0;color:var(--muted);font-size:15px}
+.gate-form{margin-top:23px}
+.gate-form label{display:block;margin-bottom:7px;color:var(--green);font-size:12px;font-weight:800}
+.gate-field{display:grid;grid-template-columns:1fr auto;align-items:center;border-bottom:2px solid var(--ink)}
+.gate-field:focus-within{border-bottom-color:var(--copper);box-shadow:0 2px 0 var(--copper)}
+.gate-field input{width:100%;height:50px;padding:0 6px;border:0;outline:0;background:transparent;color:var(--ink);font:600 22px/1 var(--serif)}
+.gate-auto{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.gate-error{min-height:20px;margin:8px 0 0;color:var(--red);font-size:13px}
+.rail{position:fixed;inset:0 0 auto;z-index:1000;height:61px;background:rgba(255,241,229,.97);border-bottom:1px solid var(--ink);backdrop-filter:blur(10px)}
+.rail-inner{width:min(1180px,calc(100% - 34px));height:100%;margin:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}
+.brand{display:inline-flex;align-items:center;gap:11px;color:inherit;text-decoration:none;white-space:nowrap}
+.mark{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;color:var(--surface);background:var(--green);font:700 15px/1 var(--serif)}
+.wordmark{font:600 17px/1 var(--serif)}
+.wordmark small{display:block;margin-top:4px;color:#6f665f;font:700 10px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase}
+.context{overflow:hidden;color:#6f665f;font-size:13px;white-space:nowrap;text-overflow:ellipsis}
+.actions{display:flex;gap:7px}
+.rail-btn{min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;border:1px solid var(--green);color:var(--green);text-decoration:none;font-size:12px;font-weight:700}
+.rail-btn:hover,.rail-btn:focus-visible{background:var(--green);color:var(--surface);outline:2px solid var(--copper);outline-offset:2px}
+.progress{position:absolute;inset:auto 0 -1px;height:2px}
+.progress span{display:block;width:0;height:100%;background:var(--green)}
+.page{width:min(920px,calc(100% - 28px));margin:83px auto 56px}
+.shell{overflow:hidden;background:var(--surface);border:1px solid #a99d94;border-radius:2px;box-shadow:0 12px 34px rgba(38,34,32,.08)}
+.wrap{max-width:860px;margin:auto;background:var(--paper)}
+.cover{position:relative;padding:46px clamp(24px,6vw,62px) 37px;border-top:6px solid var(--ink);border-bottom:1px solid var(--line);background:var(--surface)}
+.cover:after{content:"";position:absolute;right:clamp(24px,6vw,62px);top:32px;width:68px;height:12px;border-top:3px solid var(--green);border-bottom:1px solid var(--copper)}
+.cover h1{max-width:780px;margin:18px 0 14px;font:600 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.04em}
+.thesis{max-width:760px;margin:0;color:#3e3732;font:600 clamp(17px,2.4vw,21px)/1.55 var(--serif)}
+.meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:22px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.meta b{color:var(--copper)}
+.scope{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);background:var(--paper2)}
+.scope div{padding:15px 18px;border-right:1px solid var(--line)}
+.scope div:last-child{border-right:0}
+.scope small{display:block;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.scope b{display:block;margin-top:5px;color:var(--green);font-size:14px;line-height:1.55}
+.nav{position:sticky;top:61px;z-index:40;display:flex;overflow-x:auto;border-bottom:1px solid var(--line);background:rgba(255,250,245,.97);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;min-height:44px;display:flex;align-items:center;padding:0 14px;border-bottom:2px solid transparent;color:#5f5751;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap}
+.nav a:hover,.nav a:focus-visible{border-color:var(--green);color:var(--green);outline:0}
+.section{padding:clamp(34px,5vw,52px);border-bottom:1px solid var(--line)}
+.section h2{margin:10px 0 17px;font:600 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.025em}
+.section h3{margin:29px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line);font:600 21px/1.35 var(--serif)}
+.section p{margin:0 0 15px;color:#433c37}
+.lead{font-size:18px;color:#39332f}
+.micro{font-size:14px;color:var(--muted)}
+.verdict{margin-top:22px;border-top:5px solid var(--green);border-bottom:1px solid var(--line)}
+.verdict-row{display:grid;grid-template-columns:48px 1fr;gap:17px;padding:18px 0;border-top:1px solid var(--line)}
+.verdict-row:first-child{border-top:0}
+.num{color:var(--copper);font:700 26px/1 var(--serif)}
+.verdict-row b{display:block;font:600 18px/1.35 var(--serif)}
+.verdict-row span{display:block;margin-top:6px;color:var(--muted);font-size:15px;line-height:1.68}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);margin:23px 0;border-top:5px solid var(--green);border-left:1px solid var(--line)}
+.evidence-item{min-height:175px;padding:19px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.2)}
+.evidence-number{color:var(--copper);font:700 31px/1 var(--serif)}
+.evidence-item b{display:block;margin-top:11px;font:600 17px/1.35 var(--serif)}
+.evidence-item span{display:block;margin-top:7px;color:var(--muted);font-size:14px;line-height:1.62}
+.kerwin{margin:24px 0;padding:22px 23px;border-top:5px solid var(--green);background:var(--pale)}
+.kerwin small{display:block;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.kerwin strong{display:block;margin-top:8px;color:var(--ink);font:600 22px/1.42 var(--serif)}
+.kerwin p{margin-top:10px;font-size:15px}
+.barriers{margin:22px 0;border-top:1px solid var(--line)}
+.barrier{display:grid;grid-template-columns:118px 1fr 1fr;border-bottom:1px solid var(--line)}
+.barrier-label{padding:20px 15px;color:var(--surface);background:var(--green)}
+.barrier-label b{display:block;font:700 28px/1 var(--serif)}
+.barrier-label span{display:block;margin-top:7px;font-size:12px;font-weight:800;letter-spacing:.08em}
+.barrier-copy{padding:19px;border-right:1px solid var(--line)}
+.barrier-copy:last-child{border-right:0}
+.barrier-copy small{display:block;color:var(--copper);font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.barrier-copy b{display:block;margin-top:6px;font:600 17px/1.4 var(--serif)}
+.barrier-copy p{margin:7px 0 0;font-size:14px;line-height:1.7}
+.layer-map{margin:23px 0;border:1px solid var(--line)}
+.layer{display:grid;grid-template-columns:145px 1fr 1fr;border-top:1px solid var(--line)}
+.layer:first-child{border-top:0}
+.layer-name{display:flex;align-items:center;padding:17px;color:var(--surface);background:var(--green);font-size:12px;font-weight:800;letter-spacing:.06em}
+.layer-copy{padding:16px 18px;border-right:1px solid var(--line);background:rgba(255,255,255,.25)}
+.layer-copy:last-child{border-right:0}
+.layer-copy b{display:block;font:600 17px/1.35 var(--serif)}
+.layer-copy span{display:block;margin-top:5px;color:var(--muted);font-size:14px;line-height:1.6}
+.flow{display:flex;flex-direction:column;margin:21px 0}
+.flow-box{padding:15px 17px;border:1px solid var(--line);background:rgba(255,255,255,.28);font-size:15px}
+.flow-box.alt{background:var(--pale)}
+.flow-box.dark{border-color:var(--green);background:var(--green);color:var(--surface)}
+.arrow{text-align:center;padding:4px;color:var(--copper);font-size:18px;line-height:1}
+.two-col{display:grid;grid-template-columns:1fr 1fr;margin:22px 0;border:1px solid var(--line)}
+.col{padding:21px;border-right:1px solid var(--line)}
+.col:last-child{border-right:0}
+.col h3{margin:0 0 11px;padding:0;border:0}
+.col ul{margin:0;padding-left:19px}
+.col li{margin:8px 0;color:#49413c;font-size:15px;line-height:1.65}
+.table-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--line);-webkit-overflow-scrolling:touch}
+table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px}
+thead{background:var(--green);color:var(--surface)}
+th{padding:12px 14px;text-align:left;font-size:13px;letter-spacing:.03em}
+td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.62}
+tbody tr:nth-child(even){background:rgba(247,231,216,.36)}
+.chip{display:inline-block;margin-right:6px;padding:3px 7px;border:1px solid var(--line);font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.fact{color:var(--green);background:var(--pale)}
+.reported{color:var(--green);background:#edf3ef}
+.inference{color:var(--copper);background:#f8e7d7}
+.limit{color:var(--red);background:#f7dfda}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;margin:22px 0;border:1px solid var(--line)}
+.case{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case:nth-child(2n){border-right:0}
+.case:nth-last-child(-n+2){border-bottom:0}
+.case small{color:var(--copper);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.case h3{margin:8px 0 10px;padding:0;border:0}
+.case p{font-size:15px}
+.case ul{margin:0;padding-left:19px}
+.case li{margin:7px 0;font-size:14px;line-height:1.65}
+.boundary{margin:22px 0;padding:19px 21px;border-left:5px solid var(--red);background:#f7dfda}
+.boundary b{display:block;color:var(--red);font:600 18px/1.35 var(--serif)}
+.boundary p{margin:7px 0 0;font-size:15px}
+.sources{margin:20px 0;border-top:1px solid var(--line)}
+.source{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
+.source strong{color:var(--copper);font:700 18px/1 var(--serif)}
+.source a{font-size:16px;font-weight:700}
+.source span{display:block;margin-top:4px;color:var(--muted);font-size:14px}
+.related{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;border:1px solid var(--line)}
+.related a{min-height:145px;padding:18px;border-right:1px solid var(--line);background:rgba(255,255,255,.24);color:var(--ink);text-decoration:none}
+.related a:last-child{border-right:0}
+.related small{display:block;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.related b{display:block;margin-top:9px;font:600 17px/1.35 var(--serif)}
+.related span{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55}
+.related a:hover,.related a:focus-visible{background:var(--pale);outline:2px solid var(--copper);outline-offset:-2px}
+.enya{padding:clamp(40px,6vw,64px) clamp(24px,7vw,74px);border-top:6px solid var(--ink);background:var(--green);color:var(--surface)}
+.enya h2{margin:0;font:600 clamp(31px,5vw,46px)/1 var(--serif);letter-spacing:-.035em}
+.enya-tag{max-width:720px;margin-top:14px;color:#f5e8dc;font-size:17px;font-weight:700}
+.enya-model{margin-top:8px;color:#f5e8dc;font-size:13px;font-weight:700}
+.enya-copy{max-width:720px;margin-top:18px;color:#c9d8d2;font-size:15px}
+.roles{display:grid;grid-template-columns:1fr 1fr;margin-top:22px;border-top:1px solid rgba(255,241,229,.35);border-bottom:1px solid rgba(255,241,229,.35)}
+.role{padding:16px 0}
+.role:first-child{padding-right:18px;border-right:1px solid rgba(255,241,229,.35)}
+.role:last-child{padding-left:18px}
+.role b{display:block;font:600 17px/1.3 var(--serif)}
+.role span{display:block;margin-top:5px;color:#c9d8d2;font-size:14px}
+.footer{padding:21px clamp(20px,5vw,48px);border-top:1px solid var(--line);background:#f3e4d7;color:#68605a;font-size:13px;line-height:1.75}
+.footer-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 18px}
+.footer a{font-weight:700}
+.top{position:fixed;right:max(18px,calc((100vw - 990px)/2));bottom:22px;z-index:80;width:42px;height:42px;border:1px solid var(--green);background:var(--green);color:var(--surface);cursor:pointer;opacity:0;transform:translateY(8px);transition:.18s}
+.top.show{opacity:1;transform:none}
+@media(max-width:760px){
+  .context{display:none}.rail-inner{grid-template-columns:auto 1fr;gap:12px}.actions{justify-self:end}.rail-btn.secondary{display:none}
+  .page{width:min(100% - 10px,920px);margin-top:68px;margin-bottom:18px}
+  .cover{padding:33px 21px 28px}.cover:after{right:21px;top:24px;width:48px}.cover h1{font-size:clamp(30px,9vw,38px)}
+  .scope{grid-template-columns:1fr}.scope div{border-right:0;border-bottom:1px solid var(--line)}.scope div:last-child{border-bottom:0}
+  .section{padding:31px 20px}.section h2{font-size:29px}.section h3{font-size:20px}
+  .evidence-grid{grid-template-columns:1fr 1fr}.barrier{grid-template-columns:90px 1fr}.barrier-copy:last-child{grid-column:2;border-top:1px solid var(--line)}
+  .layer{grid-template-columns:110px 1fr}.layer-copy:last-child{grid-column:2;border-top:1px solid var(--line)}
+  .related{grid-template-columns:1fr}.related a{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.related a:last-child{border-bottom:0}
+  .roles{grid-template-columns:1fr}.role:first-child{padding-right:0;border-right:0;border-bottom:1px solid rgba(255,241,229,.35)}.role:last-child{padding-left:0}
+}
+@media(max-width:520px){
+  body{font-size:16px;line-height:1.86}
+  .gate{padding:13px}.gate-head span:last-child,.gate-foot span:last-child{display:none}.gate-body{grid-template-columns:1fr;gap:29px;min-height:auto;padding:34px 25px}
+  .seal{width:118px;height:118px;margin:auto;font-size:20px;box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--green)}
+  .gate h1{font-size:29px}.wordmark{font-size:15px}
+  .evidence-grid,.case-grid,.two-col{grid-template-columns:1fr}
+  .case{border-right:0;border-bottom:1px solid var(--line)}.case:last-child{border-bottom:0}
+  .col{border-right:0;border-bottom:1px solid var(--line)}.col:last-child{border-bottom:0}
+  .table-wrap{margin-left:-20px;margin-right:-20px;border-left:0;border-right:0}
+  .enya{padding:39px 22px}.footer-line{display:block}.footer-line span{display:block;margin-top:5px}
+  .verdict-row{grid-template-columns:40px 1fr}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gate,.top{transition:none}}
 </style>
 </head>
 <body class="kw-research" data-page-slug="microsoft-enterprise-ai-barriers-solutions-20260730" data-asset-mode="self-contained-ft-3.3.2" data-design-id="ft-warm-paper-forest-green-2026-07">
-<div class="gate" id="gate" aria-labelledby="gate-title" aria-hidden="false"><div class="gate-paper"><div class="gate-head"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div><div class="gate-body"><div class="seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div><div><div class="kicker">Reader Access</div><h1 id="gate-title">AI如何真正进入企业</h1><p class="gate-copy">从三道硬门槛，理解微软的企业AI全栈战略。</p><form class="gate-form" id="gate-form"><label for="gate-key">输入 “k” 即可显示，不分大小写</label><div class="gate-field"><input id="gate-key" type="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false"><span class="gate-auto">Auto enter</span></div><p class="gate-error" id="gate-error" role="alert" aria-live="polite"></p></form></div></div><div class="gate-foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div></div></div>
-<a class="skip" href="#main-content">跳至正文</a>
-<header class="rail"><div class="rail-inner"><a class="brand" href="/"><span class="mark">K</span><span class="wordmark">EnyaClawd<small>Kerwin Research Hub</small></span></a><div class="context">Enterprise AI · Microsoft Strategy · Governance · Kerwin Web 3.3.2</div><div class="actions"><a class="rail-btn secondary" href="#sources">主要来源</a><a class="rail-btn" href="/">研究首页</a></div></div><div class="progress"><span id="progress"></span></div></header>
-<main class="page" id="main-content" tabindex="-1"><div class="shell"><div class="wrap">
-<header class="cover"><div class="kicker">KERWIN SIGNAL-CHAIN RESEARCH · ENTERPRISE AI</div><h1>AI如何真正进入企业<br>三道障碍与微软的全栈解法</h1><p class="thesis">企业AI的主战场正在从“模型够不够聪明”，转向“工作流能否重构、回报能否核算、数据与Agent能否被安全治理”。微软的优势，是把办公入口、企业数据、身份权限、模型算力和安全审计连接成同一套生产系统。</p><div class="meta"><span><b>发布日期</b> 2026年7月30日</span><span><b>研究基础</b> Microsoft FY2026 Q4电话会及官方产品文档</span><span><b>作者</b> Kerwin</span><span><b>网页规范</b> Kerwin Web 3.3.2</span></div></header>
-<div class="scope"><div><small>研究问题</small><b>AI为什么仍难以从试验进入企业核心流程？</b></div><div><small>核心判断</small><b>工作流、ROI与数据安全构成三道硬门槛</b></div><div><small>投资落点</small><b>微软争夺企业AI入口、上下文和治理控制权</b></div></div>
-<nav class="nav" aria-label="文章导航"><a href="#verdict">核心结论</a><a href="#evidence">电话会信号</a><a href="#barriers">三道障碍</a><a href="#stack">微软解法</a><a href="#security">数据安全</a><a href="#cases">案例</a><a href="#investment">投资含义</a><a href="#sources">来源</a></nav>
-<section class="section" id="verdict"><div class="section-label">01 · EXECUTIVE VERDICT</div><h2>结论先行：企业AI的瓶颈，已经从模型转向组织系统</h2><div class="boundary"><b>证据边界</b><p>本文将微软披露的业务数据、产品能力与Kerwin研究判断分开标示。客户节省时间、项目数量和采用数据属于微软或客户自报结果，不等同于独立审计后的利润贡献。</p></div><div class="verdict">
-<div class="verdict-row"><div class="num">01</div><div><b>AI进企业，首先是把隐性的经验、流程与判断重新编码。</b><span>企业往往知道哪些工作低效，却未把责任、数据、审批、异常和成功标准整理成机器可以执行的工作流。</span></div></div>
-<div class="verdict-row"><div class="num">02</div><div><b>安全与合规决定“能不能做”，业务结果决定“值不值得做”。</b><span>如果数据权限、Agent身份和审计链无法建立，项目无法进入生产环境；如果只统计节省时间而不能对应收入、成本、风险与资本回报，项目也难以扩大。</span></div></div>
-<div class="verdict-row"><div class="num">03</div><div><b>微软的核心护城河并非单一模型，而是Entra、Graph、Office与Purview的组合。</b><span>企业需要同时回答谁在使用、能读取什么、可以执行什么、出了问题如何追责。微软在这四层已有长期部署基础。</span></div></div>
-<div class="verdict-row"><div class="num">04</div><div><b>数据安全既是AI部署的阻力，也成为新的收费入口。</b><span>Agent越多，身份治理、数据分类、防泄露、审计、模型路由和成本管理的需求越强，推动E7、Agent 365、Entra、Purview、Defender、Fabric与Azure交叉销售。</span></div></div>
-<div class="verdict-row"><div class="num">05</div><div><b>AI正在重新激活微软过去二十年积累的企业软件资产。</b><span>Outlook、Teams、SharePoint、Windows、Dynamics与安全产品不再只是传统软件，而成为Agent获取上下文、调用工具和接受治理的基础设施。</span></div></div>
-</div></section>
-<section class="section" id="evidence"><div class="section-label">02 · EARNINGS-CALL SIGNALS</div><h2>电话会中真正重要的，是微软已经从卖Copilot走向企业AI总承包</h2><p class="lead">微软FY2026 Q4电话会给出的信号，已经覆盖入口、模型、数据、治理、实施和商业化六个环节。</p><div class="evidence-grid">
-<div class="evidence-item"><div class="evidence-number">30M+</div><b>Microsoft 365 Copilot付费席位</b><span>用户每周使用强度接近Outlook和Teams，显示Copilot开始从试点进入更广泛部署。</span><small>公司披露 · 2026-07-29</small></div>
-<div class="evidence-item"><div class="evidence-number">40M</div><b>Agent 365登记Agent接近四千万</b><span>发布约两个月后，覆盖数万家企业，说明企业正在需要Agent级身份、治理和成本控制。</span><small>公司披露 · 近似值</small></div>
-<div class="evidence-item"><div class="evidence-number">100K</div><b>Foundry客户约十万家</b><span>收入同比超过一倍，微软希望成为模型选择、Agent编排、记忆、评测和运行的统一开发平台。</span><small>公司披露</small></div>
-<div class="evidence-item"><div class="evidence-number">50B+</div><b>Purview累计审计Copilot交互</b><span>AI治理已经从附属功能变为生产部署的必需层，安全与合规可直接带动新的软件收入。</span><small>公司披露</small></div>
-<div class="evidence-item"><div class="evidence-number">6,000</div><b>Frontier Co.工程与行业专家</b><span>微软计划让专家进入客户组织，协助提炼工作流、开发Agent并形成可复制的行业方案。</span><small>公司披露</small></div>
-<div class="evidence-item"><div class="evidence-number">330+</div><b>已完成项目，覆盖164家客户</b><span>Frontier Co.结合软件厂商、咨询公司与前线工程师三种角色，目标是缩短从概念验证到生产的距离。</span><small>公司披露</small></div>
-</div><div class="kerwin"><small>Kerwin判断 01</small><b>AI进企业，本质上是企业知识产权的重新组织。</b><p>模型只是输入。真正形成持续价值的是企业自己的数据、上下文、流程、判断标准、权限关系与反馈记录。谁控制这些资产的组织方式，谁就更接近企业AI时代的控制层。</p></div></section>
-<section class="section" id="barriers"><div class="section-label">03 · THREE HARD BARRIERS</div><h2>三道障碍：工作流、投入产出与数据安全</h2><div class="barriers">
-<div class="barrier"><div class="barrier-no">01</div><div class="barrier-copy"><h3>企业不会把隐性工作变成Agent工作流</h3><p>现实流程散落在员工经验、邮件、会议、Excel、即时通讯和口头约定中。Agent需要明确输入、步骤、工具、权限、审批、异常处理与成功标准。</p><ul><li>难以选出最值得自动化的流程</li><li>职责边界与人工审批点不清楚</li><li>数据来源、质量和更新频率不统一</li><li>员工担心经验被抽走或岗位被替代</li></ul></div></div>
-<div class="barrier"><div class="barrier-no">02</div><div class="barrier-copy"><h3>企业不会把AI投入对应到可审计的经营结果</h3><p>节省三十分钟并不自动等于利润。董事会需要看到收入增加、单位成本下降、错误和风险损失减少、周期缩短、避免新增招聘或资本周转改善。</p><ul><li>缺少上线前业务基线</li><li>许可费、Token、集成、治理和维护成本分散</li><li>效率改善无法归因到AI</li><li>试点成功后仍缺乏规模化预算依据</li></ul></div></div>
-<div class="barrier"><div class="barrier-no">03</div><div class="barrier-copy"><h3>企业担心经验、客户数据和机密文档失去控制</h3><p>风险包括数据被用于训练、权限越界、敏感资料外流、Agent擅自执行操作，以及事后无法审计。受监管行业必须先建立身份、权限、保留、地域和追责机制。</p><ul><li>历史权限过度共享会被自然语言检索放大</li><li>第三方模型、插件和外部网站扩大数据边界</li><li>非人类Agent缺乏独立身份和最小权限</li><li>监管、诉讼和内部调查要求完整记录</li></ul></div></div>
-</div><div class="kerwin"><small>Kerwin判断 02</small><b>企业AI的优先级应当按“可控性 × 经济价值”排序。</b><p>先选择高频、规则较清晰、数据边界可控、结果可以计量的流程。直接从最复杂的核心决策开始，通常会同时放大技术、组织和责任风险。</p></div></section>
-<section class="section" id="stack"><div class="section-label">04 · MICROSOFT FULL-STACK RESPONSE</div><h2>微软的解决方案，是把入口、数据、模型、执行与治理接成一条线</h2><p class="lead">单一Copilot无法解决企业转型。微软正在构建从现场咨询到云算力、从企业知识到Agent审计的完整系统。</p><div class="layer-map">
-<div class="layer"><div class="layer-name">员工入口</div><div class="layer-copy"><b>Word、Excel、PowerPoint、Outlook、Teams、Windows</b><span>员工无需更换主要工作界面，AI直接嵌入已有办公习惯。</span></div></div>
-<div class="layer"><div class="layer-name">身份权限</div><div class="layer-copy"><b>Entra与Entra Agent ID</b><span>给员工、应用和Agent分配独立身份，执行认证、最小权限、条件访问与生命周期治理。</span></div></div>
-<div class="layer"><div class="layer-name">企业上下文</div><div class="layer-copy"><b>Microsoft Graph、SharePoint、Exchange、OneDrive、Fabric、OneLake</b><span>连接邮件、会议、文件、业务数据和语义模型，使Agent基于企业自己的上下文工作。</span></div></div>
-<div class="layer"><div class="layer-name">构建与模型</div><div class="layer-copy"><b>Microsoft Foundry、Azure、多模型目录与MAI模型</b><span>完成模型选择、路由、记忆、工具调用、评测、安全沙箱和推理运行。</span></div></div>
-<div class="layer"><div class="layer-name">业务执行</div><div class="layer-copy"><b>Dynamics 365、Power Platform、GitHub与企业系统连接器</b><span>让Agent从回答问题进一步进入CRM、ERP、代码、审批和客户服务流程。</span></div></div>
-<div class="layer"><div class="layer-name">治理控制</div><div class="layer-copy"><b>Agent 365、Purview、Defender、Intune</b><span>统一管理Agent登记、身份、数据权限、Token成本、安全事件、审计和终端防泄露。</span></div></div>
-<div class="layer"><div class="layer-name">现场实施</div><div class="layer-copy"><b>Microsoft Frontier Co.</b><span>工程师与行业专家进入客户组织，把隐性流程变成可部署、可复用和可衡量的Agent系统。</span></div></div>
-</div><h3>从工作流到ROI，微软试图建立闭环</h3><div class="flow"><div class="flow-box">观察部门实际工作，识别高频、昂贵、易错、可量化的流程</div><div class="arrow">↓</div><div class="flow-box alt">记录上线前基线：耗时、人力、错误率、周期、收入转化和风险损失</div><div class="arrow">↓</div><div class="flow-box">用Foundry、Fabric、Dynamics和Copilot构建Agent，保留人工审批与异常升级</div><div class="arrow">↓</div><div class="flow-box alt">由Agent 365、Azure与Purview记录Token、任务、权限、数据访问和运行成本</div><div class="arrow">↓</div><div class="flow-box dark">将任务成本与收入、成本、风险、周转和客户结果对应，决定扩大、修改或停止</div></div><div class="kerwin"><small>Kerwin判断 03</small><b>Frontier Co.的战略价值，高于其直接咨询收入。</b><p>它帮助微软进入客户流程定义环节，把一次性定制项目沉淀为Azure消耗、Copilot席位、Fabric数据、Agent 365治理和安全产品的持续收入。</p></div></section>
-<section class="section" id="security"><div class="section-label">05 · DATA SECURITY ARCHITECTURE</div><h2>数据怎样被保护：从“不训练”走向“全过程可控”</h2><p class="lead">企业需要的不只是一句“数据不会用于训练”。完整方案必须覆盖数据边界、身份权限、操作范围、审计追踪、地域与密钥控制。</p><div class="two-col"><div class="col"><h3>微软提供的保护层</h3><ul><li>Microsoft 365 Copilot的提示、回答和Graph数据不用于训练基础模型</li><li>Copilot继承现有Microsoft 365身份、权限、敏感度标签、保留和审计政策</li><li>Azure Foundry客户数据与其他客户及模型供应商隔离，不用于改进基础模型</li><li>Entra Agent ID为每个Agent建立独立身份和最小权限</li><li>Purview执行数据分类、DLP、内部人员风险、保留、电子取证和审计</li><li>Azure支持区域部署、客户管理密钥和机密计算等更严格控制</li></ul></div><div class="col"><h3>仍然需要企业承担的责任</h3><ul><li>清理SharePoint、邮箱和文件系统中的历史过度共享</li><li>明确哪些数据允许被检索、生成、外发或用于执行</li><li>为高风险操作设置人工批准、金额上限和双人复核</li><li>审核第三方插件、模型、MCP工具和外部网络访问</li><li>建立事故响应、Agent暂停、凭证撤销和模型回退机制</li><li>按适用法规确认数据地域、保留期限和跨境传输要求</li></ul></div></div><div class="flow"><div class="flow-box">员工提出请求，Entra验证身份、设备、位置与访问条件</div><div class="arrow">↓</div><div class="flow-box alt">Graph与Fabric只检索该身份有权访问、且符合敏感度政策的数据</div><div class="arrow">↓</div><div class="flow-box">Foundry按质量、成本、地域和合规要求选择模型并运行任务</div><div class="arrow">↓</div><div class="flow-box alt">Agent依据独立身份调用工具，敏感动作进入人工审批</div><div class="arrow">↓</div><div class="flow-box dark">Purview、Defender与Agent 365记录数据引用、模型、操作、成本与最终批准人</div></div><div class="boundary"><b>最容易被忽视的风险：AI会放大旧权限问题</b><p>Copilot原则上不会突破原有权限，但自然语言检索会让员工更容易发现过去隐藏在文件夹深处的过度共享内容。部署前的数据分类与权限整改是安全工程，不是可选的整理工作。</p></div><div class="kerwin"><small>Kerwin判断 04</small><b>微软在企业AI安全上的真正优势，是把“人、数据、Agent与设备”放进同一治理体系。</b><p>企业未来可能拥有数十万Agent。没有独立身份、最小权限、审计和成本归属，Agent规模越大，经营风险越高。</p></div></section>
-<section class="section" id="cases"><div class="section-label">06 · CONCRETE CASES</div><h2>具象化案例：AI怎样从助手变成生产系统</h2><div class="case-grid">
-<div class="case"><small>案例一 · 财富管理</small><b>投资建议与客户沟通Agent</b><p>读取获授权的邮件、会议记录、客户风险等级和研究资料，形成建议草稿；合规规则拦截不适配产品，投资顾问与合规人员最终审批，发送后写入CRM。衡量周期、差错、覆盖客户数和转化。</p></div>
-<div class="case"><small>案例二 · 财报研究</small><b>从公告到客户版本的研究流水线</b><p>监测公告、提取指标、对照预期、更新模型、生成研究底稿、校验数字、形成不同客户版本并进入审批。人保留投资判断、仓位和敏感沟通决策。</p></div>
-<div class="case"><small>案例三 · Novo Nordisk</small><b>临床数据分析与合规Agent</b><p>微软披露，Frontier Co.与Novo Nordisk共同建设临床数据Agent。关键不是单次问答，而是让受控数据、行业规则和可审计流程进入同一个系统。</p></div>
-<div class="case"><small>案例四 · LSEG</small><b>金融信息工作台中的Agent</b><p>微软披露，AI被嵌入LSEG Workspace，以统一访问结构化与非结构化金融信息。价值来自入口、数据许可、专业上下文与分析流程的组合。</p></div>
-<div class="case"><small>案例五 · NHS England</small><b>大规模知识工作部署</b><p>微软称部署覆盖50.5万名医护与员工，试点自报平均每天节省43分钟。后续需要继续验证节省时间能否转化为更短等待、更低行政成本或更高服务能力。</p></div>
-<div class="case"><small>案例六 · 企业安全</small><b>多Agent红队、蓝队与修复闭环</b><p>Project Perception让不同Agent持续发现、分析和修复威胁，并以低成本模型处理常规任务、前沿模型处理复杂任务，展示多模型路由与安全治理的结合。</p></div>
-</div><h3>一个可向董事会交代的ROI框架</h3><div class="table-wrap"><table><thead><tr><th>核算层</th><th>需要记录的指标</th><th>常见误区</th></tr></thead><tbody><tr><td>投入</td><td>许可费、Token、Azure、集成、数据治理、培训、维护与安全</td><td>只计算Copilot席位费</td></tr><tr><td>效率</td><td>单次任务耗时、人工复核时间、吞吐量、错误率与返工率</td><td>把节省时间直接等同利润</td></tr><tr><td>经营</td><td>收入转化、客户留存、单位服务成本、避免招聘与周期缩短</td><td>只有主观满意度，没有经营基线</td></tr><tr><td>风险</td><td>合规退回、欺诈损失、数据事件、审计时间与事故恢复成本</td><td>忽略低频高损失事件</td></tr><tr><td>资本</td><td>现金周转、库存、应收、资本占用与项目回收期</td><td>不把AI项目纳入资本纪律</td></tr></tbody></table></div></section>
-<section class="section" id="investment"><div class="section-label">07 · INVESTMENT IMPLICATIONS</div><h2>投资含义：微软争夺的是企业AI的入口、上下文和控制权</h2><div class="investment"><h3>Kerwin判断 05</h3><ol><li><b>微软的收入上限开始脱离单纯的员工数量。</b> 传统Office按席位收费，Agent时代叠加任务调用、Token、数据、身份、安全和审计消耗。</li><li><b>多模型不会天然削弱微软。</b> 只要模型运行、企业数据、身份与治理留在Azure和Microsoft体系内，模型可替换反而提高平台价值。</li><li><b>安全产品将成为AI商业化的伴生收入。</b> 每新增一个高权限Agent，企业都需要更强的Entra、Purview、Defender和Agent 365配置。</li><li><b>Frontier Co.可能建立行业模板复利。</b> 金融、制药、医疗和制造中的成功项目，可以沉淀为可复制组件，降低下一批客户部署成本。</li><li><b>最大风险是部署速度快于真实经济回报。</b> 如果Agent登记和席位增长无法转化为高频生产任务，资本开支、云毛利率和客户续费将承压。</li></ol></div><h3>需要持续验证的指标</h3><div class="table-wrap"><table><thead><tr><th>监测变量</th><th>正向信号</th><th>负向信号</th></tr></thead><tbody><tr><td>Copilot部署质量</td><td>付费席位、活跃率、使用频率与大规模企业同步增长</td><td>席位增长但使用频率下降、客户缩减部署</td></tr><tr><td>Agent商业化</td><td>生产任务量、Token可观察性和E7渗透提高</td><td>Agent登记量高，但生产使用和付费消耗有限</td></tr><tr><td>Frontier Co.转化</td><td>项目形成可复制模板并带动Azure、Fabric和安全套件</td><td>高度定制，实施成本高且难以规模化</td></tr><tr><td>数据与安全</td><td>Purview、Entra和Agent 365成为AI部署标准配置</td><td>重大安全事故或监管限制推迟部署</td></tr><tr><td>资本回报</td><td>Azure增长、利用率和效率改善抵消折旧压力</td><td>CapEx持续上升，云毛利和自由现金流恶化</td></tr></tbody></table></div><div class="kerwin"><small>最终判断</small><b>微软的企业AI战略，是把传统软件分发优势升级为Agent时代的生产与治理基础设施。</b><p>它已经拥有最难复制的企业入口，但最终胜负仍取决于三件事：能否帮助客户真正改造工作流，能否证明可持续ROI，以及能否在扩大Agent权限的同时维持数据安全与责任边界。</p></div></section>
-<section class="section" id="sources"><div class="section-label">08 · PRIMARY SOURCES</div><h2>主要来源与证据边界</h2><p class="lead">优先采用微软投资者关系、Microsoft Learn和官方产品公告。公司与客户披露的采用和效率结果，均按自报口径处理。</p><div class="sources">
-<div class="source"><strong>01</strong><div><a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4" target="_blank" rel="noopener">Microsoft FY2026 Q4 Earnings Conference Call</a><span>支持财务数据、Copilot与Agent采用、Frontier Co.、客户案例、多模型架构及管理层问答。</span></div></div>
-<div class="source"><strong>02</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/enterprise-data-protection" target="_blank" rel="noopener">Enterprise data protection in Microsoft 365 Copilot</a><span>支持提示、回答与Graph数据的保护边界，以及训练、权限、保留和审计政策。</span></div></div>
-<div class="source"><strong>03</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture" target="_blank" rel="noopener">How Microsoft 365 Copilot works</a><span>支持Microsoft Graph、用户现有权限边界与Copilot架构。</span></div></div>
-<div class="source"><strong>04</strong><div><a href="https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id" target="_blank" rel="noopener">Microsoft Entra Agent ID</a><span>支持Agent独立身份、认证、授权、治理、生命周期和审计。</span></div></div>
-<div class="source"><strong>05</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a><span>支持企业Agent登记、观察、治理和保护的控制平面定位。</span></div></div>
-<div class="source"><strong>06</strong><div><a href="https://learn.microsoft.com/en-us/purview/audit-copilot" target="_blank" rel="noopener">Audit logs for Copilot and AI applications</a><span>支持Copilot与AI应用交互的审计、调查和合规记录。</span></div></div>
-<div class="source"><strong>07</strong><div><a href="https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy" target="_blank" rel="noopener">Data, privacy, and security for models in Microsoft Foundry</a><span>支持客户数据、推理、训练、模型供应商和部署地域的处理边界。</span></div></div>
-<div class="source"><strong>08</strong><div><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/" target="_blank" rel="noopener">Microsoft 365 E7 and Agent 365 announcement</a><span>支持Copilot、Agent 365、Entra、Defender、Intune和Purview组成企业AI套件。</span></div></div>
-</div><h3>下一条研究路径</h3><div class="related"><a href="/google-ai-industry-use-cases-20260723/"><small>01 · 应用层</small><b>谷歌电话会折射出的AI行业应用图谱</b><span>对照另一家平台型公司如何把AI嵌入搜索、广告、金融、制药与机器人。</span></a><a href="/openrouter-ai-model-exchange-stripe-20260726/"><small>02 · 模型分发</small><b>OpenRouter：AI模型时代的交易所</b><span>理解多模型路由、Token分发和模型可替换背后的商业价值。</span></a><a href="/google-ai-hypercomputer-tpu-virgo-optics-20260723/"><small>03 · 基础设施</small><b>两套AI工厂的正面交锋</b><span>从Google与NVIDIA体系理解企业AI增长对算力、网络和资本开支的传导。</span></a></div></section>
-<section class="enya" id="enya"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">本专题由Kerwin确定研究方向、核心判断、投资映射与最终审阅；Enya负责官方资料检索、证据分层、案例组织、网页结构与发布维护。</p><div class="roles"><div class="role"><b>Kerwin</b><span>选题策划、产业逻辑、Kerwin判断、投资含义与最终校对。</span></div><div class="role"><b>Enya</b><span>官方资料跟踪、证据校验、结构化写作、可视化排版与网页发布。</span></div></div></section>
-<footer class="footer"><div class="footer-line"><span>© 2026 Kerwin Research Hub · Hong Kong</span><a href="/">返回研究首页</a></div><p>本文仅用于研究与信息交流，不构成投资建议、法律意见、数据安全实施建议或任何证券交易邀约。企业AI的安全与合规部署应结合适用法律、合同条款、组织权限和专业顾问意见。</p></footer>
-</div></div></main><button class="top" id="top" type="button" aria-label="返回页面顶部">↑</button>
-<script>(function(){var body=document.body,gate=document.getElementById('gate'),form=document.getElementById('gate-form'),key=document.getElementById('gate-key'),err=document.getElementById('gate-error');function openGate(){gate.classList.add('fade');window.setTimeout(function(){body.classList.add('gate-open');gate.setAttribute('aria-hidden','true');document.getElementById('main-content').focus()},150)}function check(){if(((key.value||'').toLowerCase())==='k'){openGate()}else if(key.value){err.textContent='请输入 k 或 K'}}form.addEventListener('submit',function(e){e.preventDefault();check()});key.addEventListener('input',check);window.setTimeout(function(){key.focus()},60);var progress=document.getElementById('progress'),top=document.getElementById('top');function update(){var d=document.documentElement,max=Math.max(1,d.scrollHeight-window.innerHeight);progress.style.width=Math.min(100,(window.scrollY/max)*100)+'%';if(window.scrollY>520){top.classList.add('show')}else{top.classList.remove('show')}}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});update()})();</script>
+<div class="gate" id="gate" aria-labelledby="gate-title" aria-hidden="false">
+  <div class="gate-paper">
+    <div class="gate-head"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
+    <div class="gate-body">
+      <div class="seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
+      <div>
+        <div class="kicker">Reader Access</div>
+        <h1 id="gate-title">AI如何真正进入企业</h1>
+        <p class="gate-copy">从微软最新电话会看工作流、ROI与数据安全的企业级解法。</p>
+        <form class="gate-form" id="gate-form">
+          <label for="gate-key">输入 “k” 即可显示，不分大小写</label>
+          <div class="gate-field"><input id="gate-key" type="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false"><span class="gate-auto">Auto enter</span></div>
+          <p class="gate-error" id="gate-error" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div class="gate-foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+  </div>
+</div>
+
+<a class="skip-link" href="#main-content">跳至正文</a>
+<header class="rail">
+  <div class="rail-inner">
+    <a class="brand" href="/"><span class="mark">K</span><span class="wordmark">EnyaClawd<small>Kerwin Research Hub</small></span></a>
+    <div class="context">Enterprise AI · Microsoft · Workflow · ROI · Data Security</div>
+    <div class="actions"><a class="rail-btn secondary" href="#sources">主要来源</a><a class="rail-btn" href="/">研究首页</a></div>
+  </div>
+  <div class="progress"><span id="progress"></span></div>
+</header>
+
+<main class="page" id="main-content" tabindex="-1">
+<div class="shell"><div class="wrap">
+<header class="cover">
+  <div class="kicker">KERWIN SIGNAL-CHAIN RESEARCH · ENTERPRISE AI</div>
+  <h1>AI如何真正进入企业<br>三道障碍与微软的全栈解法</h1>
+  <p class="thesis">企业AI扩散的核心瓶颈已经从“模型是否足够聪明”，转向工作流能否被重新编码、投入产出能否被董事会核算、企业知识产权能否留在自己的控制边界内。微软正在把这些阻力转化为一套覆盖入口、数据、身份、安全、Agent治理与现场工程的企业AI操作系统。</p>
+  <div class="meta"><span><b>研究快照</b> 2026年7月31日</span><span><b>核心底稿</b> Microsoft FY2026 Q4电话会</span><span><b>判断框架</b> Kerwin</span></div>
+</header>
+
+<div class="scope">
+  <div><small>研究问题</small><b>AI进入企业的真正障碍是什么，微软准备怎样解决？</b></div>
+  <div><small>核心变量</small><b>工作流、ROI、数据安全、组织变革与治理控制权</b></div>
+  <div><small>投资落点</small><b>Azure算力、M365席位、Agent用量、数据与安全交叉销售</b></div>
+</div>
+
+<nav class="nav" aria-label="文章导航">
+  <a href="#verdict">核心结论</a><a href="#evidence">证据锚点</a><a href="#barriers">三道障碍</a><a href="#stack">微软解法</a><a href="#security">数据安全</a><a href="#cases">案例</a><a href="#investment">投资判断</a><a href="#sources">来源</a>
+</nav>
+
+<section class="section" id="verdict">
+  <div class="section-label">01 · EXECUTIVE VERDICT</div>
+  <h2>企业AI的竞争，正在从模型能力转向组织操作系统</h2>
+  <p class="lead">微软最新电话会释放的关键信号，是企业AI的价值链正在向模型之外扩展。企业需要把自身工作流、数据、长期记忆、权限和判断标准组织成可持续学习的系统，并保留对核心知识产权的控制。</p>
+  <div class="verdict">
+    <div class="verdict-row"><div class="num">01</div><div><b>第一道门槛是工作流，而非提示词。</b><span>真正可规模化的Agent必须知道任务从哪里开始、读取哪些数据、经过哪些审批、在什么条件下停止，以及结果如何写回CRM、ERP或其他业务系统。</span></div></div>
+    <div class="verdict-row"><div class="num">02</div><div><b>第二道门槛是可审计的投入产出。</b><span>企业需要把席位费、Token、算力、集成和治理成本，对应到收入、毛利、周转周期、错误率、合规风险与避免招聘等业务结果。</span></div></div>
+    <div class="verdict-row"><div class="num">03</div><div><b>第三道门槛是企业知识资产的控制权。</b><span>模型只应是可替换的输入。企业的上下文、记忆、运行轨迹和专业判断需要留在企业自己的数据与权限边界内。</span></div></div>
+    <div class="verdict-row"><div class="num">04</div><div><b>微软的优势来自“入口＋上下文＋治理＋执行”。</b><span>Microsoft 365提供员工入口，Graph与Fabric组织上下文，Entra定义身份与权限，Purview和Defender负责安全，Agent 365统一观察与治理，Azure和Foundry提供模型与运行环境。</span></div></div>
+    <div class="verdict-row"><div class="num">05</div><div><b>AI正在重新激活微软的传统企业软件资产。</b><span>Office、Outlook、Teams、SharePoint、Entra和Dynamics在Agent时代获得新的使用强度与计费维度，收入模式由单纯席位费延伸到席位、用量、数据和安全治理。</span></div></div>
+  </div>
+  <div class="kerwin">
+    <small>Kerwin判断 01</small>
+    <strong>AI进入企业，本质上是把企业长期积累的经验、流程与判断重新编码成一个可执行、可审计、可持续学习的数字系统。</strong>
+    <p>大模型只是推理引擎。决定商业价值的，是模型能否进入企业的身份体系、数据权限、业务流程和责任链条。</p>
+  </div>
+</section>
+
+<section class="section" id="evidence">
+  <div class="section-label">02 · EVIDENCE DASHBOARD</div>
+  <h2>微软披露的六组数字，说明企业AI正在从试点走向规模化</h2>
+  <div class="evidence-grid">
+    <div class="evidence-item"><div class="evidence-number">30M+</div><b>Microsoft 365 Copilot付费席位</b><span>净新增席位环比超过翻倍，管理层称周度使用强度已接近Outlook与Teams。</span></div>
+    <div class="evidence-item"><div class="evidence-number">40M</div><b>Agent 365已登记Agent</b><span>产品推出约两个月，覆盖数万家企业，表明Agent治理开始成为独立控制层。</span></div>
+    <div class="evidence-item"><div class="evidence-number">100K</div><b>Foundry客户</b><span>收入同比超过翻倍，年化Token使用达到一万亿级别的客户数同比增长四倍。</span></div>
+    <div class="evidence-item"><div class="evidence-number">40K+</div><b>Fabric付费客户</b><span>同比增长超过60%，其中超过17,000家同时使用Foundry与Fabric。</span></div>
+    <div class="evidence-item"><div class="evidence-number">50B+</div><b>Purview审计Copilot交互</b><span>累计交互量同比增长近360%，安全与审计正在随AI使用规模同步扩张。</span></div>
+    <div class="evidence-item"><div class="evidence-number">6,000</div><b>Frontier Co.行业与工程专家</b><span>微软称过去一年已完成330多个项目，覆盖164家客户，目标是把AI直接嵌入业务成果。</span></div>
+  </div>
+  <p class="micro"><span class="chip reported">公司披露</span>以上数字均来自微软FY2026 Q4电话会，属于管理层披露，未经过第三方独立审计。<a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4" target="_blank" rel="noopener">查看官方电话会</a></p>
+</section>
+
+<section class="section" id="barriers">
+  <div class="section-label">03 · THREE HARD BARRIERS</div>
+  <h2>AI进企业的三道硬门槛</h2>
+  <p class="lead">企业购买AI工具并不困难，困难的是把试验性使用转化为生产系统。三道门槛相互关联，任何一项没有解决，项目都可能停留在聊天、写作和会议总结层面。</p>
+  <div class="barriers">
+    <div class="barrier">
+      <div class="barrier-label"><b>01</b><span>WORKFLOW</span></div>
+      <div class="barrier-copy"><small>企业的难题</small><b>隐性经验没有被流程化</b><p>很多关键工作依赖个人经验、邮件、Excel、口头协调和临时判断。企业自己也很难完整描述每一步的输入、权限、例外和责任人。</p></div>
+      <div class="barrier-copy"><small>结果</small><b>Agent只能做单点任务</b><p>可以写邮件和总结资料，却无法稳定完成从需求识别、数据读取、风险判断、审批到系统回写的完整业务链。</p></div>
+    </div>
+    <div class="barrier">
+      <div class="barrier-label"><b>02</b><span>RETURN</span></div>
+      <div class="barrier-copy"><small>企业的难题</small><b>节省时间不等于财务回报</b><p>员工每天节省30分钟，未必直接转化为收入或成本下降。董事会需要看到新增收入、毛利改善、周期缩短、错误率下降和避免招聘。</p></div>
+      <div class="barrier-copy"><small>结果</small><b>试点难以扩展</b><p>席位、Token和集成成本清晰可见，收益却难以归因，财务部门容易把AI视为不断扩大的IT预算。</p></div>
+    </div>
+    <div class="barrier">
+      <div class="barrier-label"><b>03</b><span>TRUST</span></div>
+      <div class="barrier-copy"><small>企业的难题</small><b>数据、权限与责任边界</b><p>企业担心机密文档被用于训练公共模型、员工越权访问、Agent向外部泄露信息、自动执行错误操作，以及事故无法追溯。</p></div>
+      <div class="barrier-copy"><small>结果</small><b>合规部门拥有否决权</b><p>金融、医疗、政府和大型企业即使认可AI价值，也不会在缺少身份、最小权限、审计和数据防泄露的情况下进入生产环境。</p></div>
+    </div>
+  </div>
+  <div class="kerwin">
+    <small>Kerwin判断 02</small>
+    <strong>企业AI的真实采购决策，通常先由安全与合规决定“能不能做”，再由业务部门决定“值不值得做”。</strong>
+    <p>这意味着安全并非附加模块。它直接决定Agent可访问的数据范围、可执行的动作和可规模化的业务边界。</p>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="section-label">04 · MICROSOFT FULL-STACK RESPONSE</div>
+  <h2>微软的解法：把入口、数据、身份、治理和工程实施接成一条链</h2>
+  <p class="lead">微软正在构建的企业AI系统，不是一个孤立聊天窗口，而是一套从员工意图到业务执行的完整架构。</p>
+  <div class="layer-map">
+    <div class="layer"><div class="layer-name">员工入口</div><div class="layer-copy"><b>Word、Excel、PowerPoint、Outlook、Teams、Windows</b><span>AI进入员工已经熟悉的办公界面，降低学习成本和切换成本。</span></div><div class="layer-copy"><b>Microsoft 365 Copilot与Cowork</b><span>从问答与生成扩展到多步骤任务和跨应用协作。</span></div></div>
+    <div class="layer"><div class="layer-name">业务执行</div><div class="layer-copy"><b>Dynamics 365、Power Platform、GitHub</b><span>让Agent接入销售、财务、供应链、客服、开发和审批流程。</span></div><div class="layer-copy"><b>650,000多个MCP动作</b><span>沿用原有数据模型、权限、安全规则和审计轨迹执行操作。</span></div></div>
+    <div class="layer"><div class="layer-name">数据与上下文</div><div class="layer-copy"><b>Microsoft Graph、Fabric、OneLake、Work IQ</b><span>将邮件、文档、会议、业务数据与实时上下文组织为Agent可调用的企业知识层。</span></div><div class="layer-copy"><b>企业自己的记忆</b><span>上下文、长期记忆和运行轨迹保留在企业控制范围内。</span></div></div>
+    <div class="layer"><div class="layer-name">模型与运行</div><div class="layer-copy"><b>Azure与Microsoft Foundry</b><span>提供算力、数据库、模型目录、模型路由、记忆、评测和安全沙箱。</span></div><div class="layer-copy"><b>模型可替换</b><span>前沿模型、低成本模型、开放权重模型和企业自研模型按任务组合。</span></div></div>
+    <div class="layer"><div class="layer-name">身份与治理</div><div class="layer-copy"><b>Entra Agent ID、Purview、Defender、Intune</b><span>给每个Agent定义身份、权限、生命周期、数据标签、防泄露和威胁保护。</span></div><div class="layer-copy"><b>Agent 365控制平面</b><span>统一登记、观察、治理和保护微软及第三方Agent。</span></div></div>
+    <div class="layer"><div class="layer-name">现场实施</div><div class="layer-copy"><b>Microsoft Frontier Co.</b><span>行业专家和工程师进入客户现场，梳理工作流、共同开发并持续优化AI系统。</span></div><div class="layer-copy"><b>从咨询到用量</b><span>实施服务最终带动Copilot、Azure、Fabric、Agent 365与安全产品消耗。</span></div></div>
+  </div>
+
+  <h3>Azure与“微软云”在这套架构中的位置</h3>
+  <div class="two-col">
+    <div class="col"><h3>Azure</h3><ul><li>是基础设施、数据、模型和应用运行平台。</li><li>提供GPU、CPU、存储、数据库、网络、Foundry和安全能力。</li><li>无论企业选择哪一种模型，底层算力和数据服务仍可由Azure承载。</li></ul></div>
+    <div class="col"><h3>Microsoft Cloud</h3><ul><li>是微软更宽的云收入统计口径。</li><li>包括Azure及其他云服务、Microsoft 365 Commercial Cloud、Dynamics 365和LinkedIn相关云收入。</li><li>Azure是平台，Microsoft Cloud是收入集合。</li></ul></div>
+  </div>
+
+  <div class="flow" aria-label="企业AI落地流程">
+    <div class="flow-box">业务部门选择一个高价值流程，并记录当前耗时、成本、错误率和周期</div>
+    <div class="arrow">↓</div>
+    <div class="flow-box alt">Frontier Co.、客户团队与合作伙伴把隐性经验拆成输入、规则、权限、审批与输出</div>
+    <div class="arrow">↓</div>
+    <div class="flow-box">Foundry与Copilot Studio构建Agent，Graph、Fabric和业务系统提供企业上下文</div>
+    <div class="arrow">↓</div>
+    <div class="flow-box alt">Entra、Purview、Defender与Agent 365设置最小权限、审计、成本和风险控制</div>
+    <div class="arrow">↓</div>
+    <div class="flow-box dark">将Token与席位成本对应到收入、毛利、周期、错误率和风险损失，再决定是否扩大部署</div>
+  </div>
+
+  <div class="kerwin">
+    <small>Kerwin判断 03</small>
+    <strong>微软最深的护城河并非某一个大模型，而是Entra身份体系、Microsoft Graph企业上下文、Office工作入口与Purview安全治理的组合。</strong>
+    <p>模型可以更换，企业的身份、权限、数据关系和业务系统迁移成本更高。控制这些层，意味着控制企业Agent的运行边界。</p>
+  </div>
+</section>
+
+<section class="section" id="security">
+  <div class="section-label">05 · DATA SECURITY & CORPORATE IP</div>
+  <h2>数据安全的核心，不只是“不拿去训练”</h2>
+  <p class="lead">企业安全需要同时回答四个问题：数据会不会进入公共模型，用户与Agent能看到什么，Agent可以做什么，出现问题后能否追溯。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>安全层</th><th>企业风险</th><th>微软的解决方式</th><th>仍需企业完成的工作</th></tr></thead>
+      <tbody>
+        <tr><td><b>模型训练与服务边界</b></td><td>提示词、回答和内部文档被用于训练公共基础模型</td><td>Microsoft 365 Copilot企业数据保护承诺，提示词、回答和Graph数据不用于训练基础模型；Foundry的Azure Direct Models在未经许可时也不使用客户数据训练基础模型。</td><td>明确不同模型目录、第三方连接器、网络搜索和可选持久化功能的数据处理边界。</td></tr>
+        <tr><td><b>用户权限</b></td><td>员工通过自然语言搜索看到原本不应访问的资料</td><td>Copilot继承现有Microsoft 365身份与访问权限，只返回用户已有权限查看的内容。</td><td>清理SharePoint、OneDrive、邮箱和业务系统中长期积累的过度共享。</td></tr>
+        <tr><td><b>Agent身份与动作</b></td><td>Agent共用高权限账户，越权读取或执行操作</td><td>Entra Agent ID为Agent提供独立身份、最小权限、条件访问、生命周期管理和人类责任人。</td><td>为每类Agent定义用途、赞助人、权限期限、审批节点和紧急停用机制。</td></tr>
+        <tr><td><b>防泄露与审计</b></td><td>敏感信息被粘贴到外部AI，或Agent行为无法追溯</td><td>Purview提供敏感度标签、DLP、审计、eDiscovery和AI数据安全态势管理；Agent 365提供统一登记与观察。</td><td>制定数据分类规则、监管保留期、异常阈值和安全事件处理流程。</td></tr>
+        <tr><td><b>企业知识产权</b></td><td>企业把经验和判断交给单一模型供应商后失去控制</td><td>微软主张将模型与harness、上下文、记忆和动作空间分离，使模型可替换，企业保留输出、轨迹和上下文。</td><td>建立企业自己的语义层、评测集、运行记录和模型切换方案。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="micro"><span class="chip fact">官方能力</span>Copilot的数据保护、Graph权限边界、Entra Agent ID和Purview审计能力可在微软官方文档中核查。<a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/enterprise-data-protection" target="_blank" rel="noopener">企业数据保护</a> · <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture" target="_blank" rel="noopener">Copilot架构</a> · <a href="https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id" target="_blank" rel="noopener">Entra Agent ID</a></p>
+
+  <div class="boundary">
+    <b>必须正视的权限放大效应</b>
+    <p>Copilot尊重现有权限，并不代表企业天然安全。过去隐藏在文件夹深处的过度共享，在自然语言检索出现后会被迅速暴露。企业上线前必须先做数据分类、权限清理和高风险站点隔离。</p>
+  </div>
+
+  <div class="kerwin">
+    <small>Kerwin判断 04</small>
+    <strong>数据安全既是企业AI部署的最大阻力，也是微软新的收入入口。</strong>
+    <p>Agent数量越多，企业越需要Entra、Purview、Defender、Intune和Agent 365。安全预算与AI预算因此开始合并，微软能够在同一客户内部形成更深的交叉销售。</p>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="section-label">06 · CONCRETE CASES</div>
+  <h2>从抽象架构到实际工作流</h2>
+  <div class="case-grid">
+    <article class="case">
+      <small>Kerwin场景推演</small>
+      <h3>私人银行财报研究Agent</h3>
+      <p>将财报研究从单点写作改造成完整生产流程。</p>
+      <ul><li>监测公告、电话会和监管文件。</li><li>提取收入、利润率、资本开支和指引。</li><li>与历史数据及一致预期比较。</li><li>生成投顾版本和客户版本。</li><li>经人工判断及合规审批后发送。</li><li>将客户反馈和后续动作写回CRM。</li></ul>
+      <p><b>ROI指标：</b>发布时间到客户触达时间、单家公司人时、数据错误率、合规退回率、覆盖公司数、客户回复与交易转化。</p>
+    </article>
+    <article class="case">
+      <small>公司披露案例</small>
+      <h3>Novo Nordisk临床数据Agent</h3>
+      <p>微软称其现场工程团队与Novo Nordisk共同开发用于分析临床数据的Agent，同时满足严格合规要求。</p>
+      <ul><li>业务价值来自专业数据分析效率。</li><li>部署边界由医疗数据与合规要求决定。</li><li>体现Frontier Co.模式中“行业专家＋工程师＋客户数据”的组合。</li></ul>
+    </article>
+    <article class="case">
+      <small>公司披露案例</small>
+      <h3>LSEG Workspace金融信息Agent</h3>
+      <p>微软与LSEG把AI嵌入Workspace，帮助金融专业人士在结构化与非结构化内容中提出复杂问题并快速获得答案。</p>
+      <ul><li>AI直接进入既有金融工作界面。</li><li>企业数据和专业内容构成差异化上下文。</li><li>业务价值可由检索时间、覆盖广度与决策效率衡量。</li></ul>
+    </article>
+    <article class="case">
+      <small>规模化采用信号</small>
+      <h3>NHS、HSBC与EY</h3>
+      <p>微软披露，NHS England计划向505,000名员工部署Copilot，试点显示平均每天节省43分钟；HSBC承诺200,000个席位；EY部署400,000个E7席位。</p>
+      <ul><li>大型组织正从局部试点转向广泛部署。</li><li>部署规模扩大后，身份、数据、安全和成本治理的重要性同步上升。</li><li>节省时间仍需进一步映射到服务能力、成本和业务结果。</li></ul>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="investment">
+  <div class="section-label">07 · INVESTMENT IMPLICATIONS</div>
+  <h2>微软争夺的是企业AI的入口、上下文和控制权</h2>
+  <p class="lead">从投资角度看，微软的机会不局限于Azure算力增长。更重要的是，它能够沿着同一客户的AI部署路径，同时销售席位、Token、数据平台、业务应用、身份与安全治理。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>价值层</th><th>主要产品</th><th>商业化方式</th><th>需要监测的变量</th></tr></thead>
+      <tbody>
+        <tr><td>员工入口</td><td>Microsoft 365 Copilot、E7</td><td>每席位订阅、ARPU提升</td><td>付费席位、活跃率、大客户部署、续约与折扣</td></tr>
+        <tr><td>Agent使用</td><td>Cowork、GitHub Copilot、Dynamics Agent</td><td>席位＋用量</td><td>Token消耗、任务频率、单位任务成本、使用型收入</td></tr>
+        <tr><td>模型与算力</td><td>Azure、Foundry、自研芯片</td><td>计算、模型、数据库和平台消耗</td><td>Azure增速、供给约束、GPU利用率、毛利率</td></tr>
+        <tr><td>企业数据</td><td>Fabric、OneLake、Graph</td><td>数据存储、分析与上下文服务</td><td>Fabric客户数、Foundry联用率、数据迁移速度</td></tr>
+        <tr><td>治理与安全</td><td>Agent 365、Entra、Purview、Defender</td><td>高级套件与独立许可</td><td>登记Agent数、安全采用率、E7渗透、监管要求</td></tr>
+        <tr><td>现场实施</td><td>Frontier Co.与合作伙伴</td><td>项目驱动后续云与软件消耗</td><td>项目数量、转生产比例、客户结果和可复制性</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>微软的结构性优势</h3>
+  <div class="two-col">
+    <div class="col"><h3>为什么更容易进入企业</h3><ul><li>员工已经在Word、Excel、Outlook与Teams中工作。</li><li>Microsoft Graph掌握邮件、文件、会议与组织关系的上下文入口。</li><li>Entra、Purview和Defender已经存在于许多企业的身份与安全体系中。</li><li>Dynamics、Power Platform与GitHub可以把Agent连接到业务执行。</li></ul></div>
+    <div class="col"><h3>为什么优势并非无条件</h3><ul><li>SAP、Salesforce、ServiceNow、Palantir及行业软件商掌握大量纵向工作流。</li><li>企业可能担心微软套件锁定、定价和数据集中度。</li><li>原有权限混乱会被AI放大。</li><li>Agent准确率、责任归属和真实ROI仍需要长期验证。</li></ul></div>
+  </div>
+
+  <div class="kerwin">
+    <small>Kerwin判断 05</small>
+    <strong>AI没有削弱传统企业软件的价值，反而提高了身份、权限、数据语义、审计和业务系统的战略价值。</strong>
+    <p>微软的长期机会，是把Office时代的“每名员工一个席位”，升级为Agent时代的“每名员工多个Agent＋持续用量＋统一治理”。</p>
+  </div>
+
+  <h3>反证条件与风险</h3>
+  <div class="verdict">
+    <div class="verdict-row"><div class="num">A</div><div><b>企业无法证明生产级ROI。</b><span>席位持续增长，但活跃率、流程产出和新增收入没有同步改善，AI预算将面临收缩。</span></div></div>
+    <div class="verdict-row"><div class="num">B</div><div><b>安全事件破坏信任。</b><span>越权检索、第三方Agent泄露或自动执行事故可能显著延缓受监管行业部署。</span></div></div>
+    <div class="verdict-row"><div class="num">C</div><div><b>纵向软件商控制工作流。</b><span>若行业Agent主要在SAP、Salesforce、ServiceNow或专有平台内运行，微软可能更多停留在基础设施层。</span></div></div>
+    <div class="verdict-row"><div class="num">D</div><div><b>资本开支与毛利压力超预期。</b><span>Azure需求强劲并不自动等于高资本回报，需持续观察GPU折旧、单位Token成本、利用率和云毛利率。</span></div></div>
+  </div>
+
+  <h3>后续监测仪表盘</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>监测指标</th><th>正向信号</th><th>负向信号</th></tr></thead>
+      <tbody>
+        <tr><td>Copilot部署质量</td><td>付费席位、活跃率与高使用企业同步增长</td><td>席位增长但使用频率下降，客户缩减部署</td></tr>
+        <tr><td>Agent商业化</td><td>用量收入、Token可观察性和E7渗透提高</td><td>Agent登记量高，但生产任务和付费消耗有限</td></tr>
+        <tr><td>Frontier Co.转化</td><td>项目形成可复制模板并带动Azure、Fabric和安全销售</td><td>项目高度定制，实施成本高且难规模化</td></tr>
+        <tr><td>数据与安全</td><td>Purview、Entra和Agent 365成为AI部署标准配置</td><td>重大安全事故或监管限制推迟部署</td></tr>
+        <tr><td>资本回报</td><td>Azure增长、利用率和效率提升抵消折旧压力</td><td>CapEx持续上升，云毛利和自由现金流恶化</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="sources">
+  <div class="section-label">08 · PRIMARY SOURCES</div>
+  <h2>主要来源与证据边界</h2>
+  <p class="lead">本报告优先采用微软投资者关系、Microsoft Learn和微软官方产品资料。微软披露的客户节省时间、部署规模和产品效果属于公司或客户自报结果，实际效果可能因组织、流程和部署方式而异。</p>
+  <div class="sources">
+    <div class="source"><strong>01</strong><div><a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4" target="_blank" rel="noopener">Microsoft FY2026 Q4 Earnings Conference Call</a><span>支持财务数字、Copilot与Agent采用、Frontier Co.、客户案例、企业知识产权架构及管理层问答。</span></div></div>
+    <div class="source"><strong>02</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/enterprise-data-protection" target="_blank" rel="noopener">Enterprise data protection in Microsoft 365 Copilot</a><span>支持提示词、回答与Graph数据不用于训练基础模型，以及权限、保留和审计政策。</span></div></div>
+    <div class="source"><strong>03</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture" target="_blank" rel="noopener">How Microsoft 365 Copilot works</a><span>支持Microsoft Graph、用户现有权限边界与Copilot架构。</span></div></div>
+    <div class="source"><strong>04</strong><div><a href="https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id" target="_blank" rel="noopener">What is Microsoft Entra Agent ID</a><span>支持Agent独立身份、认证、授权、治理、生命周期和审计。</span></div></div>
+    <div class="source"><strong>05</strong><div><a href="https://learn.microsoft.com/en-us/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a><span>支持统一登记、观察、治理和保护企业Agent的控制平面定位。</span></div></div>
+    <div class="source"><strong>06</strong><div><a href="https://learn.microsoft.com/en-us/purview/audit-copilot" target="_blank" rel="noopener">Audit logs for Copilot and AI applications</a><span>支持Copilot及AI应用交互审计、调查与合规记录。</span></div></div>
+    <div class="source"><strong>07</strong><div><a href="https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy" target="_blank" rel="noopener">Data, privacy, and security for Azure Direct Models in Microsoft Foundry</a><span>支持Foundry模型推理、客户数据与训练数据的处理边界。</span></div></div>
+    <div class="source"><strong>08</strong><div><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/" target="_blank" rel="noopener">Microsoft 365 E7 and Agent 365 announcement</a><span>支持E7将Copilot、Agent 365、Entra、Defender、Intune和Purview组合为企业AI套件。</span></div></div>
+  </div>
+
+  <h3>下一条研究路径</h3>
+  <div class="related">
+    <a href="/google-ai-industry-use-cases-20260723/"><small>01 · 应用层</small><b>谷歌电话会折射出的AI行业应用图谱</b><span>对照另一家平台型公司如何把AI嵌入搜索、广告、金融、制药与机器人。</span></a>
+    <a href="/openrouter-ai-model-exchange-stripe-20260726/"><small>02 · 模型分发</small><b>OpenRouter：AI模型时代的交易所</b><span>理解多模型路由、Token分发与模型可替换架构背后的商业价值。</span></a>
+    <a href="/google-ai-hypercomputer-tpu-virgo-optics-20260723/"><small>03 · 基础设施</small><b>两套AI工厂的正面交锋</b><span>从Google与NVIDIA体系理解企业AI增长对算力、网络和资本开支的传导。</span></a>
+  </div>
+</section>
+
+<section class="enya" id="enya">
+  <h2>EnyaClawd</h2>
+  <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+  <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+  <p class="enya-copy">本专题由Kerwin确定研究方向、判断框架、投资含义与最终审阅；Enya负责资料检索、证据校验、结构化写作、网页排版与持续维护。</p>
+  <div class="roles">
+    <div class="role"><b>Kerwin</b><span>选题策划、产业逻辑、Kerwin判断、投资映射及最终校对。</span></div>
+    <div class="role"><b>Enya</b><span>官方资料追踪、证据分层、案例组织、可视化结构与网页发布。</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-line"><span>© 2026 Kerwin Research Hub · Hong Kong</span><a href="/">返回研究首页</a></div>
+  <p>本文仅用于研究与信息交流，不构成投资建议、法律意见、数据安全实施建议或任何证券交易邀约。企业AI的安全与合规部署应结合适用法规、合同条款、组织权限和专业顾问意见。</p>
+</footer>
+</div></div>
+</main>
+<button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
+
+<script>
+(function(){
+  var body=document.body,gate=document.getElementById('gate'),form=document.getElementById('gate-form'),key=document.getElementById('gate-key'),err=document.getElementById('gate-error');
+  function openGate(){
+    gate.classList.add('fade');
+    window.setTimeout(function(){body.classList.add('gate-open');gate.setAttribute('aria-hidden','true');document.getElementById('main-content').focus();},150);
+  }
+  function check(){
+    if((key.value||'').toLowerCase()==='k'){openGate();}
+    else if(key.value){err.textContent='请输入 k 或 K';}
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();check();});
+  key.addEventListener('input',check);
+  window.setTimeout(function(){key.focus();},60);
+
+  var progress=document.getElementById('progress'),top=document.getElementById('top');
+  function update(){
+    var d=document.documentElement;
+    var max=Math.max(1,d.scrollHeight-window.innerHeight);
+    progress.style.width=Math.min(100,(window.scrollY/max)*100)+'%';
+    if(window.scrollY>520){top.classList.add('show');}else{top.classList.remove('show');}
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  update();
+})();
+</script>
 </body>
 </html>
