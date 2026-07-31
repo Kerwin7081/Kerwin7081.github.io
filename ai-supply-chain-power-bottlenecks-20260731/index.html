@@ -236,6 +236,138 @@
       line-height: 1.55;
     }
     .cover-meta b { color: var(--green); }
+    .kerwin-intro {
+      margin: 0 0 42px;
+      border-top: 1px solid var(--green);
+      border-bottom: 1px solid var(--rule);
+      padding: 22px 24px 23px;
+      background: var(--paper-2);
+    }
+    .report .kerwin-intro-label {
+      margin: 0 0 9px;
+      color: var(--copper);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .report .kerwin-intro-copy {
+      margin: 0;
+      color: #3c3531;
+      font: 500 18px/1.75 var(--serif);
+    }
+    .visual {
+      margin: 30px 0 38px;
+      border-top: 3px solid var(--green);
+      border-bottom: 1px solid var(--rule);
+      padding: 22px 24px 24px;
+      background: var(--paper-2);
+    }
+    .visual figcaption { margin-bottom: 20px; }
+    .visual-kicker {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--copper);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .visual-title {
+      color: var(--green);
+      font: 600 21px/1.35 var(--serif);
+    }
+    .visual-subtitle,
+    .visual-note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .report .visual-subtitle { margin: 7px 0 0; }
+    .report .visual-note {
+      margin: 18px 0 0;
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+    }
+    .flow-track {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .flow-node {
+      position: relative;
+      min-width: 0;
+      border-top: 4px solid var(--green);
+      padding: 13px 10px 0 0;
+    }
+    .flow-node:not(:last-child)::after {
+      position: absolute;
+      top: 22px;
+      right: -14px;
+      color: var(--copper);
+      content: "→";
+      font: 700 18px/1 var(--serif);
+    }
+    .flow-node b {
+      display: block;
+      color: var(--green);
+      font: 600 16px/1.35 var(--serif);
+    }
+    .flow-node span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .column-chart {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: end;
+      gap: 18px;
+      min-height: 286px;
+      border-bottom: 1px solid var(--rule-dark);
+      padding: 0 14px;
+      background: repeating-linear-gradient(
+        to top,
+        transparent 0,
+        transparent 54px,
+        rgba(150,139,131,.22) 55px,
+        transparent 56px
+      );
+    }
+    .bar-column {
+      display: grid;
+      grid-template-rows: 26px 220px 42px;
+      align-items: end;
+      gap: 6px;
+      min-width: 0;
+      text-align: center;
+    }
+    .bar-value {
+      color: var(--green);
+      font: 600 15px/1 var(--serif);
+    }
+    .bar-track {
+      display: flex;
+      align-items: flex-end;
+      height: 220px;
+      background: rgba(255,255,255,.55);
+    }
+    .bar-fill {
+      width: 100%;
+      height: var(--bar);
+      min-height: 2px;
+      border-top: 3px solid var(--green);
+      background: var(--green-2);
+    }
+    .bar-label {
+      align-self: start;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
     .report > h2 {
       margin: 64px 0 22px;
       border-top: 4px solid var(--green);
@@ -439,6 +571,24 @@
       .report > h2 { font-size: 29px; }
       .report > h3 { font-size: 20px; }
       .report p > strong:first-child:last-child { font-size: 17px; padding: 16px; }
+      .kerwin-intro { margin-bottom: 34px; padding: 18px; }
+      .kerwin-intro-copy { font-size: 17px; line-height: 1.72; }
+      .visual { padding: 19px 14px 20px; }
+      .visual-title { font-size: 20px; }
+      .flow-track { grid-template-columns: 1fr; gap: 27px; }
+      .flow-node { padding-right: 0; }
+      .flow-node:not(:last-child)::after {
+        top: calc(100% + 7px);
+        right: auto;
+        left: 50%;
+        content: "↓";
+        transform: translateX(-50%);
+      }
+      .column-chart { gap: 8px; min-height: 238px; padding: 0 4px; }
+      .bar-column { grid-template-rows: 24px 170px 38px; gap: 5px; }
+      .bar-track { height: 170px; }
+      .bar-value { font-size: 13px; }
+      .bar-label { font-size: 11px; }
       table { font-size: 14px; }
       th, td { padding: 10px 11px; }
       .reading-path, .enya, .footer { margin-left: 18px; margin-right: 18px; }
@@ -500,6 +650,10 @@ id="ai产业链供需与电力瓶颈2026年最新财报交叉分析">AI产业链
   <span><b>数据截点</b> 2026年7月30日（美东时间）</span>
   <span><b>研究范围</b> 云、芯片、内存、终端、发电、园区电源与机房基础设施</span>
 </div>
+<aside class="kerwin-intro" aria-labelledby="kerwin-intro-title">
+  <p class="kerwin-intro-label" id="kerwin-intro-title">Kerwin 导读</p>
+  <p class="kerwin-intro-copy">近期，AI产业链各细分赛道的龙头企业密集发布财报。AI在反反复复的质疑中，仍然向前猛进。本文通过对微软、Alphabet、亚马逊、Meta、苹果、三星电子、SK海力士、博通、高通，以及GE Vernova、Bloom Energy、Vertiv等产业链关键公司的财报和电话会细节进行横向交叉分析，试图揭示AI产业链真实的供需关系、瓶颈迁移与利润池重分配，并回答一个更关键的问题：谁正在因稀缺性获得定价权，谁又在为这轮基础设施扩张承担现金流与执行风险。</p>
+</aside>
 <h2 id="executive">Executive Summary</h2>
 <p><strong>核心结论：AI产业链的主要矛盾已经从“有没有GPU”升级为“能否把已锁定的芯片、内存、网络和电力设备按期变成可通电、可散热、可计费的算力”。</strong></p>
 <ul>
@@ -515,6 +669,21 @@ Energy代表为缩短并网等待而采用的园区表后电源；Vertiv代表�
 <li><strong>周期仍更像建设中段，而不是需求末端见顶。</strong>
 但订单可见性已明显长于收入兑现周期，资本开支与自由现金流背离扩大；因此“产业趋势正确”不等于“所有供应商盈利和估值都同步兑现”。</li>
 </ul>
+<figure class="visual" aria-labelledby="bottleneck-flow-title">
+  <figcaption>
+    <span class="visual-kicker">Signal Chain</span>
+    <div class="visual-title" id="bottleneck-flow-title">AI算力上线的串行瓶颈</div>
+    <p class="visual-subtitle">需求并不会直接变成收入；任何一层延误，都会推迟算力投运与现金回报。</p>
+  </figcaption>
+  <div class="flow-track" role="img" aria-label="云需求承诺依次传导至芯片与内存、电力与并网、机房交付，最终形成可计费算力">
+    <div class="flow-node"><b>需求承诺</b><span>云增长、RPO、Capex</span></div>
+    <div class="flow-node"><b>芯片与内存</b><span>GPU、HBM、网络、定制芯片</span></div>
+    <div class="flow-node"><b>电力与并网</b><span>燃机、变压器、许可与施工</span></div>
+    <div class="flow-node"><b>机房交付</b><span>UPS、母线、备电与液冷</span></div>
+    <div class="flow-node"><b>可计费算力</b><span>利用率、收入、利润与现金流</span></div>
+  </div>
+  <p class="visual-note">核心变化：稀缺性已从单一GPU扩散至内存、网络、电力设备、园区通电和高密度散热。</p>
+</figure>
 <h2 id="关键指标">关键指标</h2>
 <div class="table-wrap">
 <table>
@@ -595,6 +764,36 @@ backlog约4960亿美元。三者口径并不相同，但方向一致——客户
 <h3
 id="2026年四大云厂商资本开支指引中值">2026年四大云厂商资本开支指引中值</h3>
 <p>合计约7325亿美元；资本开支已经从服务器采购扩展到数据中心、网络、电力和长期租赁承诺。</p>
+<figure class="visual" aria-labelledby="capex-chart-title">
+  <figcaption>
+    <span class="visual-kicker">Capex Comparison</span>
+    <div class="visual-title" id="capex-chart-title">2026年四大云厂商资本开支指引中值</div>
+    <p class="visual-subtitle">单位：十亿美元。四家公司口径并非完全一致，柱形图用于比较建设强度。</p>
+  </figcaption>
+  <div class="column-chart" role="img" aria-label="2026年资本开支指引中值：微软1750亿美元，Alphabet 2000亿美元，亚马逊2200亿美元，Meta 1375亿美元">
+    <div class="bar-column" style="--bar:79.5%">
+      <span class="bar-value">$175B</span>
+      <div class="bar-track" aria-hidden="true"><span class="bar-fill"></span></div>
+      <span class="bar-label">微软</span>
+    </div>
+    <div class="bar-column" style="--bar:90.9%">
+      <span class="bar-value">$200B</span>
+      <div class="bar-track" aria-hidden="true"><span class="bar-fill"></span></div>
+      <span class="bar-label">Alphabet</span>
+    </div>
+    <div class="bar-column" style="--bar:100%">
+      <span class="bar-value">$220B</span>
+      <div class="bar-track" aria-hidden="true"><span class="bar-fill"></span></div>
+      <span class="bar-label">亚马逊</span>
+    </div>
+    <div class="bar-column" style="--bar:62.5%">
+      <span class="bar-value">$137.5B</span>
+      <div class="bar-track" aria-hidden="true"><span class="bar-fill"></span></div>
+      <span class="bar-label">Meta</span>
+    </div>
+  </div>
+  <p class="visual-note">合计约$732.5B。该规模说明AI基础设施竞争已经从芯片采购扩展到数据中心、网络、电力和长期租赁承诺。</p>
+</figure>
 <div class="table-wrap">
 <table>
 <thead>
