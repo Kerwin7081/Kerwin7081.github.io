@@ -1,0 +1,1324 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI产业链供需与电力瓶颈：2026年最新财报交叉分析｜EnyaClawd</title>
+  <meta name="description" content="横向打通微软、Alphabet、亚马逊、Meta、苹果、三星、SK海力士、博通、高通、GE Vernova、Bloom Energy与Vertiv的最新财报及电话会，分析AI产业链供需、瓶颈迁移、电力三层与利润池变化。">
+  <meta name="author" content="Kerwin Team x OpenClaw Enya">
+  <meta name="theme-color" content="#103f35">
+  <link rel="canonical" href="https://enyaclawd.com/ai-supply-chain-power-bottlenecks-20260731/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI产业链供需与电力瓶颈：2026年最新财报交叉分析">
+  <meta property="og:description" content="从云需求、芯片与内存，到发电、通电、散热和终端成本，横向分析AI产业链的供需关系与利润池迁移。">
+  <meta property="og:url" content="https://enyaclawd.com/ai-supply-chain-power-bottlenecks-20260731/">
+  <style>
+    :root {
+      --paper: #fff1e5;
+      --ivory: #fffaf5;
+      --paper-2: #f7e7d8;
+      --outer: #e6d8cb;
+      --ink: #262220;
+      --muted: #746b65;
+      --rule: #cdbfb3;
+      --rule-dark: #968b83;
+      --green: #103f35;
+      --green-2: #1f5a4d;
+      --pale-green: #dce8e2;
+      --copper: #9a5c38;
+      --risk: #9f332b;
+      --sans: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --serif: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--green);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.88;
+      overflow-x: hidden;
+    }
+    a { color: var(--green-2); text-underline-offset: 3px; }
+    a:hover { color: var(--copper); }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--copper);
+      outline-offset: 3px;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 90;
+      width: 0;
+      height: 3px;
+      background: var(--copper);
+    }
+    .access-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--green);
+      color: var(--ivory);
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+    .access-gate[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .gate-card {
+      width: min(620px, 100%);
+      border-top: 1px solid rgba(255,255,255,.55);
+      border-bottom: 1px solid rgba(255,255,255,.28);
+      padding: 34px 0 38px;
+      text-align: center;
+    }
+    .seal {
+      display: grid;
+      place-items: center;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(255,255,255,.62);
+      border-radius: 50%;
+      font: 700 14px/1.25 var(--serif);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .gate-kicker {
+      margin: 0 0 10px;
+      color: #d8c7b8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .gate-card h2 {
+      margin: 0;
+      color: var(--ivory);
+      font: 500 clamp(29px, 4vw, 42px)/1.08 var(--serif);
+    }
+    .gate-copy { margin: 18px 0 20px; color: #eadfd5; }
+    .gate-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 360px;
+    }
+    .gate-form input {
+      min-width: 0;
+      flex: 1;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 1px;
+      padding: 0 14px;
+      background: rgba(255,255,255,.08);
+      color: white;
+      font: 600 17px var(--sans);
+    }
+    .gate-form button {
+      min-width: 92px;
+      min-height: 48px;
+      border: 0;
+      border-radius: 1px;
+      padding: 0 18px;
+      background: var(--paper);
+      color: var(--green);
+      font: 700 14px var(--sans);
+      cursor: pointer;
+    }
+    .gate-error {
+      min-height: 25px;
+      margin: 10px 0 0;
+      color: #f3c3b7;
+      font-size: 13px;
+    }
+
+    .sitebar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      background: rgba(16,63,53,.97);
+      color: white;
+    }
+    .sitebar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      width: min(1180px, calc(100% - 36px));
+      min-height: 58px;
+      margin: auto;
+    }
+    .brand {
+      color: var(--ivory);
+      font: 700 18px var(--serif);
+      letter-spacing: .03em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex: 0 0 auto;
+      color: #e8ddd3;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-decoration: none;
+    }
+    .nav a:hover { color: white; }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto 54px;
+      background: var(--ivory);
+      box-shadow: 0 18px 55px rgba(25,19,15,.26);
+    }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--rule-dark);
+      padding: 22px 42px 16px;
+    }
+    .masthead strong {
+      color: var(--green);
+      font: 700 19px var(--serif);
+      letter-spacing: .04em;
+    }
+    .masthead span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .report {
+      padding: 48px 48px 24px;
+    }
+    .report > h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--green);
+      font: 500 clamp(34px, 5.6vw, 49px)/1.06 var(--serif);
+      letter-spacing: -.025em;
+      text-wrap: balance;
+    }
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 18px;
+      margin: 22px 0 42px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 13px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .cover-meta b { color: var(--green); }
+    .report > h2 {
+      margin: 64px 0 22px;
+      border-top: 4px solid var(--green);
+      padding-top: 18px;
+      color: var(--green);
+      font: 500 clamp(28px, 4vw, 36px)/1.17 var(--serif);
+      letter-spacing: -.018em;
+      text-wrap: balance;
+    }
+    .report > h2#executive {
+      margin-top: 0;
+      border-top-width: 1px;
+    }
+    .report > h3 {
+      margin: 40px 0 14px;
+      color: var(--green);
+      font: 600 21px/1.35 var(--serif);
+    }
+    .report p { margin: 0 0 20px; }
+    .report p > strong:first-child:last-child {
+      display: block;
+      border-left: 5px solid var(--green);
+      padding: 19px 22px;
+      background: var(--pale-green);
+      color: var(--green);
+      font: 600 clamp(17px, 2.4vw, 21px)/1.55 var(--serif);
+    }
+    .report ul,
+    .report ol {
+      margin: 0 0 25px;
+      padding-left: 1.35em;
+    }
+    .report li { margin-bottom: 9px; }
+    .report li::marker { color: var(--green-2); font-weight: 700; }
+    .report blockquote {
+      margin: 28px 0;
+      border-left: 4px solid var(--copper);
+      padding: 15px 22px;
+      background: var(--paper-2);
+      color: #4a403a;
+    }
+    .table-wrap {
+      max-width: 100%;
+      margin: 26px 0 34px;
+      overflow-x: auto;
+      border: 1px solid var(--rule);
+      background: white;
+    }
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: 15px;
+      line-height: 1.58;
+    }
+    th, td {
+      border-right: 1px solid #ddd2c8;
+      border-bottom: 1px solid #ddd2c8;
+      padding: 12px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--green);
+      color: var(--ivory);
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fff8f1; }
+    tbody tr:hover { background: var(--pale-green); }
+    code {
+      border: 1px solid var(--rule);
+      border-radius: 1px;
+      padding: .12em .35em;
+      background: var(--paper-2);
+      font-size: .88em;
+    }
+    .reading-path {
+      margin: 38px 48px 0;
+      border-top: 4px solid var(--green);
+      padding: 28px 0 12px;
+    }
+    .reading-path h2 {
+      margin: 0 0 20px;
+      color: var(--green);
+      font: 500 clamp(28px, 4vw, 36px)/1.17 var(--serif);
+    }
+    .related {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .related a {
+      display: flex;
+      min-height: 180px;
+      flex-direction: column;
+      gap: 8px;
+      border-right: 1px solid var(--rule);
+      padding: 20px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .related a:last-child { border-right: 0; }
+    .related small {
+      color: var(--copper);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .related b { color: var(--green); font: 600 20px/1.3 var(--serif); }
+    .related span { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .related a:hover { background: var(--paper-2); }
+    .enya {
+      margin: 42px 48px 0;
+      padding: 38px;
+      background: var(--green);
+      color: var(--ivory);
+    }
+    .enya h2 {
+      margin: 0;
+      color: white;
+      font: 500 clamp(31px, 5vw, 46px)/1.05 var(--serif);
+    }
+    .enya-tag { margin-top: 16px; font-weight: 700; }
+    .enya-model { margin-top: 4px; color: #decfc2; font-size: 14px; }
+    .enya-copy { max-width: 780px; margin: 24px 0; color: #eee3da; }
+    .roles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(255,255,255,.25);
+    }
+    .role {
+      display: grid;
+      gap: 5px;
+      border-right: 1px solid rgba(255,255,255,.25);
+      padding: 18px 20px 0 0;
+    }
+    .role + .role { border-right: 0; padding-left: 20px; }
+    .role b { font: 600 19px var(--serif); }
+    .role span { color: #d9ccc2; font-size: 14px; line-height: 1.65; }
+    .footer {
+      margin: 0 48px;
+      padding: 28px 0 34px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .footer-line {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    .footer-line a { flex: 0 0 auto; font-weight: 700; }
+    .counter { margin-top: 8px; }
+    .top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: 160ms ease;
+      pointer-events: none;
+      cursor: pointer;
+    }
+    .top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    @media (max-width: 820px) {
+      .sitebar-inner { align-items: flex-start; flex-direction: column; gap: 4px; padding: 10px 0; }
+      .nav { width: 100%; padding-bottom: 3px; }
+      .page-shell { width: min(100% - 20px, 1120px); margin-top: 16px; }
+      .masthead { padding: 18px 24px 14px; }
+      .report { padding: 36px 24px 18px; }
+      .reading-path, .enya, .footer { margin-left: 24px; margin-right: 24px; }
+      .related { grid-template-columns: 1fr; }
+      .related a { min-height: auto; border-right: 0; border-bottom: 1px solid var(--rule); }
+      .related a:last-child { border-bottom: 0; }
+    }
+
+    @media (max-width: 520px) {
+      body { font-size: 16px; line-height: 1.86; }
+      .page-shell { width: 100%; margin: 0; box-shadow: none; }
+      .masthead { align-items: flex-start; flex-direction: column; gap: 3px; padding: 16px 18px 12px; }
+      .report { padding: 32px 18px 12px; }
+      .report > h1 { font-size: clamp(30px, 9vw, 38px); }
+      .report > h2 { font-size: 29px; }
+      .report > h3 { font-size: 20px; }
+      .report p > strong:first-child:last-child { font-size: 17px; padding: 16px; }
+      table { font-size: 14px; }
+      th, td { padding: 10px 11px; }
+      .reading-path, .enya, .footer { margin-left: 18px; margin-right: 18px; }
+      .enya { padding: 28px 20px; }
+      .roles { grid-template-columns: 1fr; }
+      .role, .role + .role { border-right: 0; padding: 16px 0 0; }
+      .footer-line { flex-direction: column; }
+      .top { right: 14px; bottom: 14px; }
+      .gate-form { flex-direction: column; }
+    }
+
+    @media print {
+      body { background: white; }
+      .access-gate, .sitebar, .progress, .top { display: none !important; }
+      .page-shell { width: 100%; margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body class="kw-research kw-wide">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <section class="access-gate" id="access-gate" aria-label="研究页面入口">
+    <div class="gate-card">
+      <div class="seal">Kerwin<br>Research<br>Hub</div>
+      <p class="gate-kicker">EnyaClawd Research Desk</p>
+      <h2>AI产业链供需与电力瓶颈</h2>
+      <p class="gate-copy">输入 “k” 即可显示，不分大小写</p>
+      <form class="gate-form" id="gate-form">
+        <input id="gate-key" type="text" inputmode="text" maxlength="1" autocomplete="off" aria-label="输入 k 或 K">
+        <button type="submit">进入研究</button>
+      </form>
+      <p class="gate-error" id="gate-error" role="status"></p>
+    </div>
+  </section>
+
+  <header class="sitebar">
+    <div class="sitebar-inner">
+      <a class="brand" href="/">EnyaClawd</a>
+      <nav class="nav" aria-label="文章导航">
+        <a href="#executive">核心结论</a>
+        <a href="#demand">需求验证</a>
+        <a href="#bottleneck">瓶颈迁移</a>
+        <a href="#power">电力三层</a>
+        <a href="#profit">利润池</a>
+        <a href="#monitoring">监测与来源</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content" tabindex="-1">
+    <div class="masthead">
+      <strong>KERWIN RESEARCH HUB</strong>
+      <span>Corporate Earnings · AI Supply Chain · Power</span>
+    </div>
+    <article class="report order-to-cash">
+<h1
+id="ai产业链供需与电力瓶颈2026年最新财报交叉分析">AI产业链供需与电力瓶颈：2026年最新财报交叉分析</h1>
+<div class="cover-meta">
+  <span><b>研究类型</b> 跨公司财报与管理层电话会</span>
+  <span><b>数据截点</b> 2026年7月30日（美东时间）</span>
+  <span><b>研究范围</b> 云、芯片、内存、终端、发电、园区电源与机房基础设施</span>
+</div>
+<h2 id="executive">Executive Summary</h2>
+<p><strong>核心结论：AI产业链的主要矛盾已经从“有没有GPU”升级为“能否把已锁定的芯片、内存、网络和电力设备按期变成可通电、可散热、可计费的算力”。</strong></p>
+<ul>
+<li><strong>需求并非只存在于资本开支叙事里。</strong> Azure、Google
+Cloud、AWS均保持高增长，云厂商同时披露大额RPO/积压订单与容量不足；Meta的广告增长说明AI投入已经在部分应用层转化为收入。</li>
+<li><strong>供给约束正在串行叠加。</strong>
+HBM与通用DRAM/NAND、网络与定制芯片、燃机与输配电、园区电源、机房供配电与液冷，任何一层延误都会推迟算力上线。瓶颈不是消失，而是在产业链上迁移。</li>
+<li><strong>电力必须拆成三层。</strong> GE
+Vernova代表长周期发电与电网设备；Bloom
+Energy代表为缩短并网等待而采用的园区表后电源；Vertiv代表电进入园区后在数据中心内部的转换、分配、备电和散热。三者不能用同一套订单或估值逻辑衡量。</li>
+<li><strong>利润池正在向稀缺投入品迁移。</strong>
+内存、网络/定制芯片、电力设备和机房基础设施先获得涨价、预付款或经营杠杆；云厂商承受折旧、能源和第三方过渡产能成本，消费电子则承受内存涨价和产品组合下移。</li>
+<li><strong>周期仍更像建设中段，而不是需求末端见顶。</strong>
+但订单可见性已明显长于收入兑现周期，资本开支与自由现金流背离扩大；因此“产业趋势正确”不等于“所有供应商盈利和估值都同步兑现”。</li>
+</ul>
+<h2 id="关键指标">关键指标</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>指标</th>
+<th>最新值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>四家2026年capex指引中值合计（$B）</td>
+<td>732.5</td>
+<td>Microsoft、Alphabet、Amazon、Meta
+2026年最新资本开支指引中值合计；单位十亿美元，口径并非完全一致。</td>
+</tr>
+<tr class="even">
+<td>覆盖公司数</td>
+<td>4</td>
+<td>Microsoft、Alphabet、Amazon、Meta
+2026年最新资本开支指引中值合计；单位十亿美元，口径并非完全一致。</td>
+</tr>
+<tr class="odd">
+<td>Google Cloud</td>
+<td>82%</td>
+<td>最新季度云业务同比增速；三家公司披露口径和汇率基础不同。</td>
+</tr>
+<tr class="even">
+<td>Azure</td>
+<td>43%</td>
+<td>最新季度云业务同比增速；三家公司披露口径和汇率基础不同。</td>
+</tr>
+<tr class="odd">
+<td>AWS</td>
+<td>37%</td>
+<td>最新季度云业务同比增速；三家公司披露口径和汇率基础不同。</td>
+</tr>
+<tr class="even">
+<td>总积压订单</td>
+<td>$176B</td>
+<td>长周期发电与电网设备的需求可见性已延伸至2031年及以后。</td>
+</tr>
+<tr class="odd">
+<td>燃机积压+槽位预留</td>
+<td>116 GW</td>
+<td>长周期发电与电网设备的需求可见性已延伸至2031年及以后。</td>
+</tr>
+<tr class="even">
+<td>Q2收入同比</td>
+<td>+165.5%</td>
+<td>表后分布式电源在“抢时间通电”的场景中快速放量，但项目与客户集中度必须单独评估。</td>
+</tr>
+<tr class="odd">
+<td>Q2收入</td>
+<td>$1.07B</td>
+<td>表后分布式电源在“抢时间通电”的场景中快速放量，但项目与客户集中度必须单独评估。</td>
+</tr>
+<tr class="even">
+<td>Q2调整后经营利润率</td>
+<td>22.6%</td>
+<td>机房内部供配电与散热直接受益于功率密度上升，盈利增速快于收入。</td>
+</tr>
+<tr class="odd">
+<td>同比变化</td>
+<td>+410 bps</td>
+<td>机房内部供配电与散热直接受益于功率密度上升，盈利增速快于收入。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="demand">需求端：资本开支不是假繁荣，但回报节奏开始分化</h2>
+<p>四家云厂商最新2026年资本开支指引中值合计约
+<strong>7325亿美元</strong>。更重要的是，云业务增速和订单可见性同时上升：Microsoft商业RPO约6780亿美元，Alphabet
+Cloud backlog约5140亿美元，Amazon披露的AWS
+backlog约4960亿美元。三者口径并不相同，但方向一致——客户承诺增长快于当前可交付容量。</p>
+<p>真正需要警惕的不是“需求是否存在”，而是<strong>资本开支转化为现金回报的速度</strong>。Alphabet和Amazon季度自由现金流转负，Meta接近零，Microsoft仍为正；这说明建设强度是真实的，但折旧、第三方过渡容量、能源和基础设施成本会让云厂商的利润率与现金流表现分化。</p>
+<h3
+id="2026年四大云厂商资本开支指引中值">2026年四大云厂商资本开支指引中值</h3>
+<p>合计约7325亿美元；资本开支已经从服务器采购扩展到数据中心、网络、电力和长期租赁承诺。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>公司</th>
+<th>指引下限（$B）</th>
+<th>指引上限（$B）</th>
+<th>指引中值（$B）</th>
+<th>最新业务同比（%）</th>
+<th>最新季度capex（$B）</th>
+<th>口径</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Microsoft</td>
+<td>175</td>
+<td>175</td>
+<td>175</td>
+<td>43</td>
+<td>41</td>
+<td>公司电话会近似值；包含租赁分类影响</td>
+</tr>
+<tr class="even">
+<td>Alphabet</td>
+<td>195</td>
+<td>205</td>
+<td>200</td>
+<td>82</td>
+<td>44.9</td>
+<td>现金资本开支指引区间中值</td>
+</tr>
+<tr class="odd">
+<td>Amazon</td>
+<td>220</td>
+<td>220</td>
+<td>220</td>
+<td>37</td>
+<td>53.1</td>
+<td>电话会更新后约值；受内存价格与AI容量驱动</td>
+</tr>
+<tr class="even">
+<td>Meta</td>
+<td>130</td>
+<td>145</td>
+<td>137.5</td>
+<td>28</td>
+<td>31.08</td>
+<td>资本开支指引区间中值</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="bottleneck">从算力采购到算力上线：瓶颈正在迁移</h2>
+<p><strong>第一阶段是芯片与内存。</strong>
+Broadcom的AI半导体订单显著高于当季出货，网络约占AI半导体收入四成；Samsung和SK
+hynix则显示HBM与通用内存同时偏紧，长期供货协议、预付款和价格底线开始增加。</p>
+<p><strong>第二阶段是电力与并网。</strong>
+当云厂商已经锁定芯片，下一道门槛变成发电设备、变压器、开关柜、输配电工程和项目许可。GE
+Vernova的燃机安排已延伸到2031年，并开始讨论2032年以后；这类积压订单提供长期可见性，但不会迅速变成已投运电力。</p>
+<p><strong>第三阶段是机房内部功率密度。</strong>
+电到了园区，仍需UPS、母线、开关设备、BESS、电源架构和液冷。Vertiv围绕800VDC和闭环液冷扩大每MW内容量，说明AI机架的功率密度正把价值量从“服务器箱体”外溢到整个数据大厅。</p>
+<p><strong>终端形成反向验证。</strong>
+Apple与Qualcomm都把内存价格和供给约束列为产品成本、组合和毛利压力来源；Samsung移动业务也被元件成本拖累。这证明AI基础设施并非封闭市场，它正在通过晶圆与内存的机会成本挤压消费电子。</p>
+<h3 id="跨公司供需与瓶颈证据矩阵">跨公司供需与瓶颈证据矩阵</h3>
+<p>从需求、算力与内存，到发电、通电、散热，再到终端成本；按价值链顺序排列。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>顺序</th>
+<th>公司</th>
+<th>链路位置</th>
+<th>需求证据</th>
+<th>当前约束</th>
+<th>定价/议价</th>
+<th>兑现窗口</th>
+<th>证据性质</th>
+<th>主要反证/风险</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Microsoft</td>
+<td>云需求/算力购买</td>
+<td>Azure +43%；商业RPO $678B</td>
+<td>客户需求继续超过可用容量；元件价格上升</td>
+<td>新容量快速货币化，但云毛利受AI基建折旧压制</td>
+<td>新增容量即时至2.3年平均RPO期限</td>
+<td>财务事实+管理层表述</td>
+<td>RPO仅约30%预计12个月内确认</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Alphabet</td>
+<td>云需求/算力购买</td>
+<td>Google Cloud +82%；backlog $514B</td>
+<td>外部Cloud与内部产品需求均快于容量</td>
+<td>第三方过渡容量和能源成本短期压毛利</td>
+<td>超过一半backlog预计24个月内确认</td>
+<td>财务事实+管理层表述</td>
+<td>Q2自由现金流转负；净利润含大额未实现收益</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Amazon</td>
+<td>云需求/算力购买</td>
+<td>AWS +37%；backlog约$496B</td>
+<td>2026需求仍无法全部满足，2027容量亦偏紧</td>
+<td>2026 capex上调至约$220B，内存价格是增量因素</td>
+<td>大量2027—2028容量已预订</td>
+<td>财务事实+管理层表述</td>
+<td>自由现金流为负；净利润含Anthropic相关收益</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Meta</td>
+<td>应用需求/自建算力</td>
+<td>收入+28%，广告+27%；2026 capex $130—145B</td>
+<td>2026—2027优先最大化容量，提前锁定土地与电力</td>
+<td>广告效率已变现；外部算力可获显著溢价</td>
+<td>广告当期变现；2028+基础设施前置</td>
+<td>财务事实+管理层表述</td>
+<td>成本+55%，经营利润下降，自由现金流接近零</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Broadcom</td>
+<td>定制加速器/网络</td>
+<td>AI半导体收入<span
+class="math inline">10.8<em>B</em>；<em>订</em><em>单</em>&gt;</span>30B</td>
+<td>晶圆、HBM、先进封装与客户平台交付</td>
+<td>网络约占AI收入四成；平台级承诺强化议价</td>
+<td>Q3至FY2027加速，长期承诺延伸至2028</td>
+<td>财务事实+管理层表述</td>
+<td>客户高度集中；库存天数上升反映备货和执行风险</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Samsung Electronics</td>
+<td>HBM/DRAM/NAND/Foundry</td>
+<td>Memory创纪录；HBM4放量；服务器组合创新高</td>
+<td>有限产能优先配置服务器与HBM</td>
+<td>多年LTA、预付款、价格底线提升可见性</td>
+<td>H2 2026至2028</td>
+<td>财务事实+管理层表述</td>
+<td>移动业务因元件成本亏损；新产能会带来周期风险</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>SK hynix</td>
+<td>HBM/DRAM/NAND</td>
+<td>营收KRW79.3T；经营利润率76%；约10份LTA</td>
+<td>客户需求超过供货能力，HBM与通用内存同时紧</td>
+<td>DRAM/NAND价格环比大涨；长期合同锁量</td>
+<td>HBM4量产，扩产跨2026—2028</td>
+<td>财务事实+管理层表述</td>
+<td>出货延期与HBM定价低于市场预期；资本开支提高</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Qualcomm</td>
+<td>手机SoC/边缘AI/定制数据中心芯片</td>
+<td>汽车+61%；两家云客户定制芯片已下PO并投片</td>
+<td>内存价格、输入成本和供应短缺挤压消费端</td>
+<td>广泛两位数提价；高端手机组合仍受压</td>
+<td>手机数季修复；数据中心FY2027起</td>
+<td>财务事实+管理层表述</td>
+<td>手机收入-20%；初期数据中心业务毛利较低</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>GE Vernova</td>
+<td>发电/电网设备</td>
+<td>订单+88%；backlog $176B；燃机116GW</td>
+<td>燃机槽位、变压器、开关柜、EPC与并网</td>
+<td>更高$/kW；客户预付款锁产能</td>
+<td>设备合同延伸至2031，部分讨论2032+</td>
+<td>财务事实+管理层表述</td>
+<td>订单到投运周期长；Q2现金流受大额预付款抬升</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Bloom Energy</td>
+<td>园区表后/现场发电</td>
+<td>Q2收入+165.5%；产品收入+215.4%</td>
+<td>燃气、许可、融资和项目执行</td>
+<td>按提前通电的时间价值，而非单纯度电成本定价</td>
+<td>数周至数月的项目样例，明显快于大型并网工程</td>
+<td>财务事实+管理层主张</td>
+<td>客户集中与季度波动；55天部署不可外推</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Vertiv</td>
+<td>机房供配电/备电/液冷</td>
+<td>销售+24%；调整后经营利润+51%</td>
+<td>供应链拥堵与多阶段项目复杂度</td>
+<td>价格预计高于通胀；800VDC/液冷提高每MW内容量</td>
+<td>季度至1—2年，靠近数据中心投运时点</td>
+<td>财务事实+管理层表述</td>
+<td>Q2收入受时点偏移；精确订单/backlog未披露</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Apple</td>
+<td>消费终端/反向验证</td>
+<td>收入+16%；iPhone+22%；Mac+29%</td>
+<td>先进制程与内存；iPhone/Mac/iPad均受供给约束</td>
+<td>Mac/iPad已提价；iPhone暂未提</td>
+<td>当季至未来数季</td>
+<td>财务事实+管理层表述</td>
+<td>毛利率含约2个百分点关税退款；iPad收入下降</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="power">电力链：GE Vernova、Bloom
+Energy、Vertiv不是同一种受益</h2>
+<h3 id="ge-vernova最长周期最高可见性">GE
+Vernova：最长周期、最高可见性</h3>
+<p>燃机、变压器、变电站和开关设备的产能槽位决定大型数据中心何时获得长期、规模化电力。GEV的优势是订单可见性和设备+服务生命周期收入；弱点是从订单、发货、EPC施工到投运跨度很长，客户预付款改善现金流，但也可能掩盖实际收入兑现速度。</p>
+<h3 id="bloom-energy把时间变成商品">Bloom Energy：把“时间”变成商品</h3>
+<p>Bloom的核心不是在最低度电成本上取胜，而是用现场燃料电池缩短并网等待。在极端缺电场景中，提前几个月甚至几年上线算力的经济价值远高于电价差，因此公司能够按“time-to-power”定价。它的弹性最大、收入兑现最快，但燃气供应、许可、融资、客户集中度和项目季度波动也更高。</p>
+<h3 id="vertiv最靠近算力变现">Vertiv：最靠近算力变现</h3>
+<p>Vertiv不生产电，但决定电如何进入高密度机架、如何备份以及如何把热带走。800VDC、液冷、母线和电源架构升级会提高每MW内容量，因此其盈利弹性可以快于数据中心面积增长。风险是多阶段项目复杂度、临时供应链拥堵和固定价格订单的交付节奏。</p>
+<p><strong>边界正在模糊。</strong>
+GEV计划把中压UPS和固态变压器纳入数据中心方案，若落地可使其每GW内容量提升2—3倍；这会逐步进入Vertiv等机房电力设备商的传统边界。与此同时，GEV的航空衍生燃机与Bloom都能提供“桥接电力”，但前者更偏大型设备和后续长期服务，后者更偏模块化、表后和快速部署。</p>
+<h3
+id="ai数据中心电力三层ge-vernovabloom-energyvertiv">AI数据中心电力三层：GE
+Vernova、Bloom Energy、Vertiv</h3>
+<p>三者都受益于AI用电，但销售对象、交付周期、风险和盈利兑现路径完全不同。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>层级</th>
+<th>公司</th>
+<th>所在位置</th>
+<th>解决什么瓶颈</th>
+<th>典型兑现节奏</th>
+<th>最新需求证据</th>
+<th>定价权来源</th>
+<th>核心风险</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>GE Vernova</td>
+<td>电表前：发电、燃机、变压器、变电站、开关设备</td>
+<td>长期大规模电源与输配电容量</td>
+<td>数年；设备排产到2031，项目投运更晚</td>
+<td>Q2订单$24.2B；backlog <span
+class="math inline">176<em>B</em>；<em>数</em><em>据</em><em>中</em><em>心</em><em>订</em><em>单</em><em>H</em>1&gt;</span>5B</td>
+<td>稀缺产能槽位、更高$/kW、设备+长期服务</td>
+<td>EPC、管线、许可、并网与客户项目延期；预付款抬高短期现金流</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Bloom Energy</td>
+<td>电表后：园区现场燃料电池电源</td>
+<td>绕过或缩短并网等待，提供第一批可用电力</td>
+<td>数周至数月的项目样例；扩容模块化</td>
+<td>Q2收入<span
+class="math inline">1.065<em>B</em>、 + 165.5</span>3.9—4.2B</td>
+<td>提前上线算力的时间价值；客户愿为速度付溢价</td>
+<td>燃气、许可、融资、客户集中、项目确认和季度波动</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Vertiv</td>
+<td>数据中心内部：UPS、开关、母线、BESS、电源架、液冷</td>
+<td>把园区电力转为高密度、可用、可散热的机架功率</td>
+<td>季度至1—2年；最接近机房交付</td>
+<td>Q2销售$3.274B、+24%；调整后经营利润率22.6%</td>
+<td>功率密度提高每MW内容量；价格高于通胀</td>
+<td>项目复杂度、供应链拥堵、交付时点与固定价格订单</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="profit">利润池迁移：谁在收取稀缺溢价，谁在承担现金流</h2>
+<p>这轮AI资本开支的关键变化，是<strong>稀缺性开始从单一GPU扩散为多层经济租</strong>：</p>
+<ol type="1">
+<li>内存厂商通过服务器优先配置、LTA、预付款和价格底线锁定收益；代价由云厂商和消费电子共同承担。</li>
+<li>Broadcom等网络与定制芯片供应商把客户锁定从单颗芯片扩展到交换、互连和平台级承诺，供应链议价权进一步集中。</li>
+<li>GEV用长周期排产和更高$/kW捕获设备稀缺性，并通过客户预付款把部分建设资金前置。</li>
+<li>Bloom出售的是提前通电的时间价值；Vertiv出售的是每MW算力密度和可用性。两者离算力收入兑现更近，因此营收/利润弹性更快，但执行风险也更直接。</li>
+<li>云厂商短期承担最大现金流压力：服务器折旧、能源、数据中心运维和第三方过渡容量都先于最终收入释放。</li>
+</ol>
+<p>因此，<strong>当前最有定价权的不一定是技术上最复杂的公司，而是能够解除下一道串行瓶颈、且交付周期最难被替代的环节。</strong></p>
+<h3 id="利润池正在向哪些环节迁移">利润池正在向哪些环节迁移</h3>
+<p>“收入增长”与“自由现金流/资本回报”开始分化；稀缺投入品先拿走经济租。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>顺序</th>
+<th>环节</th>
+<th>经济租来源</th>
+<th>主要受益者</th>
+<th>主要买单者</th>
+<th>现金/利润兑现</th>
+<th>反转风险</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>HBM/DRAM/NAND</td>
+<td>服务器优先配置、产能有限、LTA与价格底线</td>
+<td>Samsung、SK hynix</td>
+<td>云厂商、Apple/Qualcomm及其他终端OEM</td>
+<td>价格与预付款先兑现，扩产支出随后增加</td>
+<td>2027—2028新增产能、重复下单、终端需求走弱</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>定制加速器与网络</td>
+<td>少数平台供应商、复杂互连、客户长期设计绑定</td>
+<td>Broadcom及其制造/封装伙伴</td>
+<td>头部云厂商与AI实验室</td>
+<td>订单领先收入数季至数年</td>
+<td>客户集中、自研替代、平台延期、库存累积</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>发电与输配电</td>
+<td>燃机槽位、变压器与开关设备长交期</td>
+<td>GE Vernova及EPC/设备生态</td>
+<td>公用事业、云厂商、开发商</td>
+<td>预付款先行，收入与服务利润多年释放</td>
+<td>项目取消/延期、许可和燃气约束、政策变化</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>现场快速电源</td>
+<td>提前通电带来的收入时间价值</td>
+<td>Bloom Energy及融资伙伴</td>
+<td>缺电地区的数据中心客户</td>
+<td>项目交付较快，营收弹性高</td>
+<td>电网排队缓解、燃气/许可受限、融资与集中度</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>机房供电与液冷</td>
+<td>更高功率密度和每MW内容量</td>
+<td>Vertiv及电气/热管理供应商</td>
+<td>云厂商、colo、OEM/ODM</td>
+<td>靠近投运，经营杠杆快于长周期发电设备</td>
+<td>项目时点、竞争、标准化与客户自研</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>云与AI平台</td>
+<td>客户需求、软件生态、模型与分发</td>
+<td>Microsoft、Alphabet、Amazon、Meta</td>
+<td>短期由自身自由现金流和资产负债表承担</td>
+<td>收入增长快，但折旧/能源/第三方容量先压现金流</td>
+<td>利用率不足、价格竞争、AI货币化慢于折旧</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>消费电子</td>
+<td>缺乏稀缺性，更多承担上游机会成本</td>
+<td>具品牌提价能力者部分转嫁</td>
+<td>OEM利润率与最终消费者</td>
+<td>提价、降配或产品组合下移当期出现</td>
+<td>内存供给修复会迅速缓解成本压力</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="其他结构性发现">其他结构性发现</h2>
+<h3 id="1-这是分配型短缺不是所有终端共同繁荣">1.
+这是“分配型短缺”，不是所有终端共同繁荣</h3>
+<p>HBM和服务器内存优先获得晶圆、先进封装和资本投入，手机与PC则承担更高采购价、延用上一代芯片或降低高端配置比例。Apple、Qualcomm和Samsung
+MX的压力，是服务器繁荣的镜像，而不是与之矛盾。</p>
+<h3 id="2-融资能力已经成为第五类产能">2. 融资能力已经成为第五类产能</h3>
+<p>GEV的大额预付款、Meta与BlackRock的数据中心合资、Bloom与Brookfield及其他金融机构的融资安排，都说明电力和数据中心项目不仅受设备约束，也受谁能先垫付数十亿美元约束。资本结构会直接决定建设优先级。</p>
+<h3 id="3-数据中心正从it项目变成能源系统工程">3.
+数据中心正从IT项目变成能源系统工程</h3>
+<p>现场发电、燃气管线、输配电、800VDC、BESS和液冷开始共同设计。供应商边界会继续重叠：发电设备公司向数据中心电气架构延伸，机房设备公司向更高电压和热管理平台延伸，云厂商则通过自研芯片和长期电力安排向上游内化。</p>
+<h3 id="4-订单期限拉长过度订购风险也同步上升">4.
+订单期限拉长，过度订购风险也同步上升</h3>
+<p>多年LTA、排产槽位和预付款提高了可见性，却也可能造成重复预订、需求前置和取消/延期风险。应把订单质量、客户集中度和最终投运率放在收入增速之前。</p>
+<h2
+id="证据分层哪些可以当作事实哪些只能当作方向">证据分层：哪些可以当作事实，哪些只能当作方向</h2>
+<p>财务数据和已签订单可以核验，但“需求超过供给”“短缺持续到2028年”“不会成为客户瓶颈”等表述首先是管理层判断。跨公司的一致性提高了这些判断的可信度，却不能消除销售激励、客户重复下单和项目延期的偏差。</p>
+<p>本报告把最重要的结论按证据等级列出：<strong>事实</strong>优先用于确认现状，<strong>管理层一致表述</strong>用于判断方向，<strong>分析推断</strong>用于连接产业链，但必须给出可被未来数据推翻的条件。</p>
+<h3 id="事实管理层表述与分析推断">事实、管理层表述与分析推断</h3>
+<p>把可核验财务数据、电话会口径和跨公司推断拆开，避免把叙事当成事实。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>顺序</th>
+<th>判断</th>
+<th>性质</th>
+<th>支持证据</th>
+<th>置信度</th>
+<th>什么会推翻/削弱</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>云需求和AI资本开支仍在加速</td>
+<td>财务事实</td>
+<td>Azure/GCP/AWS增速、四家capex指引、RPO/backlog同步上升</td>
+<td>高</td>
+<td>连续两个季度云增速与新增订单显著放缓</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>当前可用算力仍低于客户需求</td>
+<td>管理层一致表述</td>
+<td>Microsoft、Alphabet、Amazon、Meta均描述容量紧张</td>
+<td>中高</td>
+<td>云价格下降、交期明显缩短、利用率下滑</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>HBM/服务器内存短缺正在挤压手机与PC</td>
+<td>跨公司推断</td>
+<td>Samsung/Hynix服务器优先配置；Apple/Qualcomm报告内存与供给压力</td>
+<td>高</td>
+<td>消费内存价格回落而服务器供需不变</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>电力和机房基础设施已成为下一道串行瓶颈</td>
+<td>跨公司推断</td>
+<td>GEV长周期排产、Bloom快速通电需求、Vertiv功率密度与液冷升级</td>
+<td>高</td>
+<td>大量数据中心容量延期且电力设备订单/价格同步转弱</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>内存供给紧张可能持续到2028年</td>
+<td>管理层展望</td>
+<td>Samsung、SK hynix关于多年LTA和供需的表述</td>
+<td>中</td>
+<td>新增fab投产快于需求、客户库存上升、现货/合约价转跌</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Bloom可以长期获得time-to-power溢价</td>
+<td>公司主张+分析推断</td>
+<td>快速部署样例、收入增长与融资安排</td>
+<td>中</td>
+<td>并网时间缩短、客户集中度上升、单位项目毛利回落</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>AI产业链整体仍处于建设中段</td>
+<td>综合判断</td>
+<td>多层订单延伸至2027—2031，约束从芯片向电力迁移</td>
+<td>中高</td>
+<td>云需求、设备订单、内存价格与电力项目同时反转</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="反证与周期风险">反证与周期风险</h2>
+<ul>
+<li><strong>积压订单不等于近期收入。</strong>
+Microsoft与Alphabet的RPO、Amazon的AWS
+backlog、GEV的设备与服务backlog覆盖期限差异巨大；将它们直接相加没有意义。</li>
+<li><strong>自由现金流已经发出压力信号。</strong>
+Alphabet和Amazon季度自由现金流为负，Meta接近零。若云业务增长放缓或容量利用率下降，折旧与能源成本会先压缩回报。</li>
+<li><strong>内存高景气并非没有波动。</strong> SK
+hynix虽然创纪录，仍因出货节奏和HBM价格低于预期而出现市场落差；长期合同也可能把周期风险推迟而不是消除。</li>
+<li><strong>电力项目的物理约束不会被订单消灭。</strong>
+EPC、燃气管线、许可、并网、设备调试和客户融资都可能让GEV或Bloom的订单后移。</li>
+<li><strong>Vertiv已经给出微型反例。</strong>
+强劲需求背景下，供应链拥堵和多阶段项目执行仍造成收入时点偏移，说明“离机架近”并不等于没有交付风险。</li>
+<li><strong>会计利润可能掩盖经营现实。</strong>
+Alphabet的未实现投资收益、Amazon的Anthropic相关收益、SK
+hynix的非经营性收益、Apple的关税退款、GEV的客户预付款，都需要与核心经营表现分开。</li>
+</ul>
+<h2 id="monitoring">建议的观察框架</h2>
+<ol type="1">
+<li><strong>先看瓶颈迁移，再看单家公司收入。</strong>
+如果GPU交期改善但燃机、变压器、现场电源或液冷交期继续拉长，利润池会继续向电力链迁移。</li>
+<li><strong>把“订单”拆成四类。</strong>
+已签不可取消订单、产能槽位预留、含价格底线的LTA、软性客户意向，质量不能等同。</li>
+<li><strong>把每GW经济性做成统一口径。</strong>
+比较芯片与网络设备、发电、电网、园区电源、机房供电与冷却的内容量，以及从下单到可计费算力的时间。</li>
+<li><strong>用自由现金流验证云厂商ROI。</strong>
+云收入增速、AI产品货币化、资本开支、折旧、能源成本和第三方容量费用必须一起看。</li>
+<li><strong>用消费电子验证机会成本。</strong>
+如果Apple/Qualcomm的内存与先进制程压力缓解，而HBM仍紧，说明新增产能开始修复通用内存；若两端都紧，则短缺仍在扩散。</li>
+</ol>
+<h3
+id="未来两个季度最值得跟踪的验证指标">未来两个季度最值得跟踪的验证指标</h3>
+<p>重点观察约束是否继续向电力和机房迁移，以及高资本开支何时转化为现金回报。</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr class="header">
+<th>优先级</th>
+<th>指标</th>
+<th>验证本报告结论</th>
+<th>削弱本报告结论</th>
+<th>优先看哪里</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>云厂商新增容量、云增速与RPO/backlog增量</td>
+<td>容量一上线即被吸收，订单继续增长</td>
+<td>容量增长但云增速/利用率下降</td>
+<td>Microsoft、Alphabet、Amazon电话会</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>HBM、服务器DRAM与通用内存合约价/交期</td>
+<td>服务器和消费端同时涨价、LTA继续扩大</td>
+<td>通用内存先转跌、客户库存上升</td>
+<td>Samsung、SK hynix、Apple、Qualcomm</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>GEV燃机槽位、Electrification book-to-bill与数据中心订单</td>
+<td>2031/2032槽位继续锁定，$/kW上升</td>
+<td>槽位取消、项目延期或预付款回落</td>
+<td>GE Vernova季度电话会</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Bloom订单质量、客户集中度、交付周期与毛利</td>
+<td>复购扩大、快速部署可复制、毛利稳定</td>
+<td>收入依赖少数项目、燃气/许可拖延、毛利下滑</td>
+<td>Bloom Energy财报、10-Q与项目披露</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Vertiv订单转收入、800VDC/液冷内容量与项目时点</td>
+<td>盈利继续快于收入、时点偏移收窄</td>
+<td>供应拥堵扩大、固定价格订单侵蚀毛利</td>
+<td>Vertiv财报、演示材料与电话会</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>云厂商自由现金流、折旧与能源/第三方容量成本</td>
+<td>云增长保持且FCF逐步回正</td>
+<td>资本开支继续上升但FCF与云毛利持续恶化</td>
+<td>四大云厂商现金流量表与电话会</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="仍待回答的问题">仍待回答的问题</h2>
+<ul>
+<li>四大云厂商新增容量中，有多少已经被客户合同覆盖，多少仍是提前建设？</li>
+<li>GEV
+2030—2032年槽位预留中，可取消、带预付款和已完成最终设备选择的比例分别是多少？</li>
+<li>Bloom的订单与收入集中度、天然气供应和长期运维责任会如何影响单位项目回报？</li>
+<li>Vertiv在800VDC和液冷上的每MW内容量提升，能否抵消客户自研、电气架构标准化和竞争者进入？</li>
+<li>Samsung与SK
+hynix的多年LTA会压低未来周期波动，还是在新增产能投产后放大库存调整？</li>
+<li>Broadcom、Samsung
+Foundry/Memory/Packaging的纵向绑定，会否把AI加速器平台竞争从芯片设计扩展到完整供应链融资？</li>
+</ul>
+<h2 id="sources">口径、限制与主要来源</h2>
+<p><strong>数据截点：2026年7月30日美东时间。</strong>
+各公司财年、季度截止日、汇率口径、资本开支定义及RPO/backlog期限不同。本报告只做方向一致的横向验证，不把非同口径指标机械相加；四家capex合计仅为指引中值的近似规模感。</p>
+<p><strong>主要官方材料：</strong> <a
+href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4">Microsoft
+FY2026 Q4</a>；<a
+href="https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx">Alphabet
+Q2 2026 call</a> 与 <a
+href="https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/2026q2-alphabet-earnings-release.pdf">results
+PDF</a>；<a
+href="https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/">Amazon
+Q2 2026 results</a> 与 <a
+href="https://ir.aboutamazon.com/events/event-details/2026/Q2-2026-Amazoncom-Inc-Earnings-Conference-Call/default.aspx">call</a>；<a
+href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx">Meta
+Q2 2026 results</a>、<a
+href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf">call
+transcript</a> 与 <a
+href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Follow-Up-Call-Transcript.pdf">follow-up</a>。</p>
+<p><a
+href="https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/">Apple
+FY2026 Q3 results</a> 与 <a
+href="https://www.apple.com/investor/earnings-call/">call</a>；<a
+href="https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results">Samsung
+Q2 2026</a>；<a
+href="https://news.skhynix.com/en/q2-2026-business-results/">SK hynix Q2
+2026</a>；<a
+href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial">Broadcom
+FY2026 Q2</a>；<a
+href="https://investor.qualcomm.com/news-events/investor-events/events/event-details/2026/Q3-FY26-Earnings-Conference-Call-2026-wxmcaE5Hyo/default.aspx">Qualcomm
+FY2026 Q3 call</a>。</p>
+<p><a
+href="https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial">GE
+Vernova Q2 2026 results</a> 与 <a
+href="https://www.gevernova.com/sites/default/files/gev_webcast_transcript_07222026.pdf">call
+transcript</a>；<a
+href="https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx">Bloom
+Energy Q2 2026 results</a> 与 <a
+href="https://investor.bloomenergy.com/events-and-presentations/events-calendar/event-details/2026/Bloom-Energy-Q2-2026-Earnings-Conference-Call/default.aspx">call</a>；<a
+href="https://investors.vertiv.com/news/news-details/2026/Vertiv-Reports-Strong-Second-Quarter-2026-with-Diluted-EPS-Growth-of-53-Adjusted-Diluted-EPS-Growth-of-60-Raises-Full-Year-2026-Guidance-Across-All-Key-Metrics/default.aspx">Vertiv
+Q2 2026 results</a>、<a
+href="https://s205.q4cdn.com/554782763/files/doc_financials/2026/q2/Vertiv-Second-Quarter-2026-Results-Presentation.pdf">presentation</a>
+与 <a
+href="https://investors.vertiv.com/events-presentations/events-presentations/event-details/2026/Vertiv-Second-Quarter-2026-Earnings-Conference-Call/default.aspx">call</a>。</p>
+<p>部分公司未提供官方逐字稿时，电话会文字细节使用完整第三方转录复核，并以官方音频/演示材料校验。本文为产业研究，不构成投资建议。</p>
+    </article>
+
+    <section class="reading-path" aria-labelledby="reading-title">
+      <h2 id="reading-title">下一条研究路径</h2>
+      <div class="related">
+        <a href="/compute-rental-lens-2026/">
+          <small>01 · 需求源头</small>
+          <b>算力租赁价格</b>
+          <span>从算力租赁反推资本开支可持续性，以及稀缺性如何从GPU迁移到电力。</span>
+        </a>
+        <a href="/ai-memory-hbm-nand-cmx-20260722/">
+          <small>02 · 近端产业链</small>
+          <b>AI记忆体大迁徙</b>
+          <span>继续追踪HBM、服务器DRAM与企业级NAND的价格、长协和扩产节奏。</span>
+        </a>
+        <a href="/agent-compute-infrastructure/">
+          <small>03 · 系统架构</small>
+          <b>Agent不是只吃GPU</b>
+          <span>观察AI需求怎样进一步传导至CPU、内存、存储、网络和机柜级基础设施。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="enya">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+      <p class="enya-copy">把复杂世界，整理成一张投资地图。本文将多家公司财报与管理层电话会放入同一条产业链，区分已验证事实、公司表述与跨公司分析推断。</p>
+      <div class="roles">
+        <div class="role"><b>Kerwin</b><span>负责选题、产业链投资逻辑与最终审阅。</span></div>
+        <div class="role"><b>Enya</b><span>负责公开证据整理、跨公司结构化分析、网页视觉呈现与后续维护。</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>免责声明：本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">← 返回 EnyaClawd 研究首页</a>
+      </div>
+      <div>Published 2026-07-31 · Data snapshot 2026-07-30 ET · Hong Kong</div>
+      <div class="counter">👀 页面浏览量：<span id="counter-num">...</span></div>
+    </footer>
+  </main>
+
+  <button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
+  <script>
+  (function () {
+    var gate = document.getElementById('access-gate');
+    var form = document.getElementById('gate-form');
+    var input = document.getElementById('gate-key');
+    var error = document.getElementById('gate-error');
+    var main = document.getElementById('main-content');
+    var progress = document.getElementById('progress');
+    var topButton = document.getElementById('top');
+
+    function unlock() {
+      gate.setAttribute('aria-hidden', 'true');
+      if (main) main.focus();
+      window.scrollTo(0, 0);
+    }
+    function verify() {
+      var value = (input.value || '').toLowerCase();
+      if (value === 'k') {
+        error.textContent = '';
+        unlock();
+      } else if (value) {
+        error.textContent = '请输入 k 或 K';
+        input.select();
+      }
+    }
+    if (gate && form && input && error) {
+      input.addEventListener('input', verify);
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        verify();
+      });
+      setTimeout(function () { input.focus(); }, 120);
+    } else {
+      if (gate) gate.setAttribute('aria-hidden', 'true');
+    }
+
+    function updateScroll() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var ratio = max > 0 ? window.scrollY / max : 0;
+      if (progress) progress.style.width = (ratio * 100) + '%';
+      if (topButton) topButton.classList.toggle('show', window.scrollY > 620);
+    }
+    window.addEventListener('scroll', updateScroll, {passive: true});
+    window.addEventListener('resize', updateScroll);
+    if (topButton) {
+      topButton.addEventListener('click', function () {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      });
+    }
+    updateScroll();
+
+    var slug = 'ai-supply-chain-power-bottlenecks-20260731';
+    var counter = document.getElementById('counter-num');
+    var counterUrl = 'https://enyaclawd-counter.kerwin-finance.workers.dev?page=' + encodeURIComponent(slug);
+    fetch(counterUrl).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (counter) counter.textContent = Number(data.count || 0).toLocaleString();
+    }).catch(function () {
+      if (counter) counter.textContent = '-';
+    });
+    fetch(counterUrl, {method: 'POST'}).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (counter) counter.textContent = Number(data.count || 0).toLocaleString();
+    }).catch(function () {});
+  })();
+  </script>
+</body>
+</html>
