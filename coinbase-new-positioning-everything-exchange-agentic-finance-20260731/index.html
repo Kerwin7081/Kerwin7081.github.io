@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>全新定位的 Coinbase｜EnyaClawd</title>
+  <meta name="description" content="以Coinbase 2026年第二季度财报与电话会为原点，拆解Everything Exchange、预测市场、USDC、Base与Agentic Finance如何把一家加密交易所重构为同时服务人类与机器的全栈金融平台。">
+  <meta name="author" content="Kerwin Team x OpenClaw Enya">
+  <meta name="theme-color" content="#103f35">
+  <link rel="canonical" href="https://enyaclawd.com/coinbase-new-positioning-everything-exchange-agentic-finance-20260731/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="全新定位的 Coinbase">
+  <meta property="og:description" content="从Everything Exchange、预测市场到Agentic Finance：Coinbase正在争夺人类与机器的主金融账户。">
+  <meta property="og:url" content="https://enyaclawd.com/coinbase-new-positioning-everything-exchange-agentic-finance-20260731/">
+  <style>
+    :root{
+      --paper:#fff1e5;--ivory:#fffaf5;--paper-2:#f7e7d8;--outer:#e6d8cb;
+      --ink:#262220;--muted:#746b65;--rule:#cdbfb3;--rule-dark:#968b83;
+      --green:#103f35;--green-2:#1f5a4d;--pale-green:#dce8e2;
+      --copper:#9a5c38;--risk:#9f332b;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--green);color:var(--ink);font-family:var(--sans);
+      font-size:17px;line-height:1.88;overflow-x:hidden
+    }
+    a{color:var(--green-2);text-underline-offset:3px}
+    a:hover{color:var(--copper)}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+    .progress{position:fixed;inset:0 auto auto 0;z-index:90;width:0;height:3px;background:var(--copper)}
+    .access-gate{
+      position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;
+      background:var(--green);color:var(--ivory);transition:opacity 180ms ease,visibility 180ms ease
+    }
+    .access-gate[aria-hidden="true"]{opacity:0;visibility:hidden;pointer-events:none}
+    .gate-card{width:min(620px,100%);border-top:1px solid rgba(255,255,255,.55);border-bottom:1px solid rgba(255,255,255,.28);padding:34px 0 38px;text-align:center}
+    .seal{display:grid;place-items:center;width:104px;height:104px;margin:0 auto 24px;border:1px solid rgba(255,255,255,.62);border-radius:50%;font:700 14px/1.25 var(--serif);letter-spacing:.08em;text-transform:uppercase}
+    .gate-kicker{margin:0 0 10px;color:#d8c7b8;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .gate-card h2{margin:0;color:var(--ivory);font:500 clamp(29px,4vw,42px)/1.08 var(--serif)}
+    .gate-copy{margin:18px 0 20px;color:#eadfd5}
+    .gate-form{display:flex;gap:10px;justify-content:center;margin:0 auto;max-width:360px}
+    .gate-form input{min-width:0;flex:1;height:48px;border:1px solid rgba(255,255,255,.55);border-radius:1px;padding:0 14px;background:rgba(255,255,255,.08);color:#fff;font:600 17px var(--sans)}
+    .gate-form button{min-width:92px;min-height:48px;border:0;border-radius:1px;padding:0 18px;background:var(--paper);color:var(--green);font:700 14px var(--sans);cursor:pointer}
+    .gate-error{min-height:25px;margin:10px 0 0;color:#f3c3b7;font-size:13px}
+    .sitebar{position:sticky;top:0;z-index:60;border-bottom:1px solid rgba(255,255,255,.18);background:rgba(16,63,53,.97);color:#fff}
+    .sitebar-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;width:min(1180px,calc(100% - 36px));min-height:58px;margin:auto}
+    .brand{color:var(--ivory);font:700 18px var(--serif);letter-spacing:.03em;text-decoration:none;white-space:nowrap}
+    .nav{display:flex;align-items:center;gap:18px;overflow-x:auto;scrollbar-width:none}
+    .nav::-webkit-scrollbar{display:none}
+    .nav a{flex:0 0 auto;color:#e8ddd3;font-size:11px;font-weight:700;letter-spacing:.05em;text-decoration:none}
+    .nav a:hover{color:#fff}
+    .page-shell{width:min(1120px,calc(100% - 32px));margin:32px auto 54px;background:var(--ivory);box-shadow:0 18px 55px rgba(25,19,15,.26)}
+    .masthead{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid var(--rule-dark);padding:22px 42px 16px}
+    .masthead strong{color:var(--green);font:700 19px var(--serif);letter-spacing:.04em}
+    .masthead span{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .report{padding:48px 48px 24px}
+    .report>h1{max-width:900px;margin:0;color:var(--green);font:500 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.025em;text-wrap:balance}
+    .thesis{max-width:920px;margin:24px 0 26px;border-left:5px solid var(--green);padding:19px 22px;background:var(--pale-green);color:var(--green);font:600 clamp(17px,2.4vw,21px)/1.55 var(--serif)}
+    .cover-meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin:0 0 34px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:13px 0;color:var(--muted);font-size:12px;line-height:1.55}
+    .cover-meta b{color:var(--green)}
+    .kerwin-intro{margin:0 0 46px;border-top:4px solid var(--green);border-bottom:1px solid var(--rule);padding:25px 0 27px}
+    .kerwin-intro .label{margin:0 0 11px;color:var(--copper);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .kerwin-intro blockquote{margin:0;border:0;padding:0;background:transparent;color:var(--green);font:500 clamp(21px,3vw,29px)/1.55 var(--serif)}
+    .report>h2{margin:64px 0 22px;border-top:4px solid var(--green);padding-top:18px;color:var(--green);font:500 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.018em;text-wrap:balance}
+    .report>h2#executive{margin-top:0;border-top-width:1px}
+    .report>h3{margin:40px 0 14px;color:var(--green);font:600 21px/1.35 var(--serif)}
+    .report p{margin:0 0 20px}
+    .lead{font-size:18px;color:#4a403a}
+    .report ul,.report ol{margin:0 0 25px;padding-left:1.35em}
+    .report li{margin-bottom:9px}
+    .report li::marker{color:var(--green-2);font-weight:700}
+    .quote{margin:28px 0;border-left:4px solid var(--copper);padding:15px 22px;background:var(--paper-2);color:#4a403a}
+    .verdicts{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:24px 0 36px}
+    .verdict{padding:22px 22px 23px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .verdict:nth-child(2n){border-right:0}.verdict:nth-last-child(-n+2){border-bottom:0}
+    .verdict small{display:block;margin-bottom:8px;color:var(--copper);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .verdict b{display:block;margin-bottom:8px;color:var(--green);font:600 18px/1.35 var(--serif)}
+    .verdict span{display:block;color:var(--muted);font-size:14px;line-height:1.65}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:28px 0 38px}
+    .metric{padding:21px 18px;border-right:1px solid var(--rule)}
+    .metric:last-child{border-right:0}
+    .metric .n{color:var(--green);font:600 clamp(28px,4vw,42px)/1 var(--serif)}
+    .metric b{display:block;margin:9px 0 3px;color:var(--ink);font-size:14px}
+    .metric span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+    .table-wrap{max-width:100%;margin:26px 0 34px;overflow-x:auto;border:1px solid var(--rule);background:#fff}
+    table{width:100%;min-width:720px;border-collapse:collapse;font-size:15px;line-height:1.58}
+    th,td{border-right:1px solid #ddd2c8;border-bottom:1px solid #ddd2c8;padding:12px 13px;text-align:left;vertical-align:top}
+    th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}
+    thead th{position:sticky;top:0;background:var(--green);color:var(--ivory);font-weight:700}
+    tbody tr:nth-child(even){background:#fff8f1}tbody tr:hover{background:var(--pale-green)}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:28px 0 38px;border:1px solid var(--rule)}
+    .flow-step{position:relative;padding:20px 18px;background:#fff}
+    .flow-step+ .flow-step{border-left:1px solid var(--rule)}
+    .flow-step small{display:block;color:var(--copper);font-size:10px;font-weight:800;letter-spacing:.1em}
+    .flow-step b{display:block;margin:8px 0;color:var(--green);font:600 18px/1.35 var(--serif)}
+    .flow-step span{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+    .dark-panel{margin:32px 0;padding:30px;background:var(--green);color:var(--ivory)}
+    .dark-panel h3{margin:0 0 14px;color:#fff;font:600 26px/1.25 var(--serif)}
+    .dark-panel p{color:#eadfd5}
+    .dark-panel strong{color:#fff}
+    .source-note{color:var(--muted);font-size:12px;line-height:1.7}
+    .reading-path{margin:38px 48px 0;border-top:4px solid var(--green);padding:28px 0 12px}
+    .reading-path h2{margin:0 0 20px;color:var(--green);font:500 clamp(28px,4vw,36px)/1.17 var(--serif)}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .related a{display:flex;min-height:180px;flex-direction:column;gap:8px;border-right:1px solid var(--rule);padding:20px;color:var(--ink);text-decoration:none}
+    .related a:last-child{border-right:0}
+    .related small{color:var(--copper);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .related b{color:var(--green);font:600 20px/1.3 var(--serif)}
+    .related span{color:var(--muted);font-size:14px;line-height:1.65}
+    .related a:hover{background:var(--paper-2)}
+    .enya{margin:42px 48px 0;padding:38px;background:var(--green);color:var(--ivory)}
+    .enya h2{margin:0;color:#fff;font:500 clamp(31px,5vw,46px)/1.05 var(--serif)}
+    .enya-tag{margin-top:16px;font-weight:700}
+    .enya-model{margin-top:4px;color:#decfc2;font-size:14px}
+    .enya-copy{max-width:780px;margin:24px 0;color:#eee3da}
+    .roles{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.25)}
+    .role{display:grid;gap:5px;border-right:1px solid rgba(255,255,255,.25);padding:18px 20px 0 0}
+    .role+.role{border-right:0;padding-left:20px}
+    .role b{font:600 19px var(--serif)}.role span{color:#d9ccc2;font-size:14px;line-height:1.65}
+    .footer{margin:0 48px;padding:28px 0 34px;color:var(--muted);font-size:12px;line-height:1.65}
+    .footer-line{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-bottom:1px solid var(--rule);margin-bottom:15px;padding-bottom:15px}
+    .footer-line a{flex:0 0 auto;font-weight:700}.counter{margin-top:8px}
+    .top{position:fixed;right:22px;bottom:22px;z-index:50;width:44px;height:44px;border:1px solid rgba(255,255,255,.38);border-radius:50%;background:var(--green);color:#fff;opacity:0;transform:translateY(12px);transition:160ms ease;pointer-events:none;cursor:pointer}
+    .top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+    @media(max-width:900px){
+      .metric-grid{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+      .flow{grid-template-columns:1fr 1fr}.flow-step:nth-child(3){border-left:0;border-top:1px solid var(--rule)}.flow-step:nth-child(4){border-top:1px solid var(--rule)}
+    }
+    @media(max-width:820px){
+      .sitebar-inner{align-items:flex-start;flex-direction:column;gap:4px;padding:10px 0}.nav{width:100%;padding-bottom:3px}
+      .page-shell{width:min(100% - 20px,1120px);margin-top:16px}.masthead{padding:18px 24px 14px}
+      .report{padding:36px 24px 18px}.reading-path,.enya,.footer{margin-left:24px;margin-right:24px}
+      .related{grid-template-columns:1fr}.related a{min-height:auto;border-right:0;border-bottom:1px solid var(--rule)}.related a:last-child{border-bottom:0}
+    }
+    @media(max-width:620px){
+      .verdicts{grid-template-columns:1fr}.verdict,.verdict:nth-child(2n){border-right:0;border-bottom:1px solid var(--rule)}.verdict:last-child{border-bottom:0}
+      .flow{grid-template-columns:1fr}.flow-step+.flow-step,.flow-step:nth-child(3),.flow-step:nth-child(4){border-left:0;border-top:1px solid var(--rule)}
+    }
+    @media(max-width:520px){
+      body{font-size:16px;line-height:1.86}.page-shell{width:100%;margin:0;box-shadow:none}
+      .masthead{align-items:flex-start;flex-direction:column;gap:3px;padding:16px 18px 12px}.report{padding:32px 18px 12px}
+      .report>h1{font-size:clamp(30px,9vw,38px)}.report>h2{font-size:29px}.report>h3{font-size:20px}.lead{font-size:17px}
+      .kerwin-intro blockquote{font-size:22px}.metric-grid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--rule)}.metric:last-child{border-bottom:0}
+      table{font-size:14px}th,td{padding:10px 11px}.reading-path,.enya,.footer{margin-left:18px;margin-right:18px}
+      .enya{padding:28px 20px}.roles{grid-template-columns:1fr}.role,.role+.role{border-right:0;padding:16px 0 0}.footer-line{flex-direction:column}
+      .top{right:14px;bottom:14px}.gate-form{flex-direction:column}
+    }
+    @media print{body{background:#fff}.access-gate,.sitebar,.progress,.top{display:none!important}.page-shell{width:100%;margin:0;box-shadow:none}}
+  </style>
+</head>
+<body class="kw-research kw-wide" data-page-slug="coinbase-new-positioning-everything-exchange-agentic-finance-20260731">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <section class="access-gate" id="access-gate" aria-label="研究页面入口">
+    <div class="gate-card">
+      <div class="seal">Kerwin<br>Research<br>Hub</div>
+      <p class="gate-kicker">EnyaClawd Research Desk</p>
+      <h2>全新定位的 Coinbase</h2>
+      <p class="gate-copy">输入 “k” 即可显示，不分大小写</p>
+      <form class="gate-form" id="gate-form">
+        <input id="gate-key" type="text" inputmode="text" maxlength="1" autocomplete="off" aria-label="输入 k 或 K">
+        <button type="submit">进入研究</button>
+      </form>
+      <p class="gate-error" id="gate-error" role="status"></p>
+    </div>
+  </section>
+
+  <header class="sitebar">
+    <div class="sitebar-inner">
+      <a class="brand" href="/">EnyaClawd</a>
+      <nav class="nav" aria-label="文章导航">
+        <a href="#executive">核心判断</a>
+        <a href="#earnings">财报原点</a>
+        <a href="#everything">Everything Exchange</a>
+        <a href="#prediction">预测市场</a>
+        <a href="#agent">Agentic Finance</a>
+        <a href="#valuation">价值捕获</a>
+        <a href="#monitoring">跟踪指标</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content" tabindex="-1">
+    <div class="masthead">
+      <strong>KERWIN RESEARCH HUB</strong>
+      <span>Coinbase · Market Structure · Agentic Finance</span>
+    </div>
+
+    <article class="report">
+      <h1>全新定位的 Coinbase</h1>
+      <p class="thesis">Coinbase正在把自己从一家加密资产交易所，重新定义为同时服务人类和机器的全栈金融操作系统：Everything Exchange争夺人的主金融账户，Agentic Finance争夺机器的支付、交易与资金管理入口。</p>
+
+      <div class="cover-meta">
+        <span><b>研究类型</b> 财报原点下的公司战略专题</span>
+        <span><b>数据截点</b> 2026年7月31日</span>
+        <span><b>研究范围</b> 跨资产交易、预测市场、USDC、Base、x402与AI Agent</span>
+      </div>
+
+      <section class="kerwin-intro" aria-labelledby="kerwin-intro-title">
+        <p class="label" id="kerwin-intro-title">Kerwin 引言</p>
+        <blockquote>我一直将加密货币及相关，纳入到投资顾问观察、分析、建议的范畴。资产配置或者说投资组合越来越多元化。“金融”的内涵和外延也在快速变化。“All In One”，万物皆可交易。与其说我关注加密货币，不如说，我更加关注“All In One”的供需趋势。作为金融行业从业人员，如果还在舞台上，那就跟上。</blockquote>
+      </section>
+
+      <h2 id="executive">Executive Summary</h2>
+      <div class="verdicts">
+        <div class="verdict"><small>01 · 必须转型</small><b>财报越弱，新定位越重要</b><span>交易收入与利润继续受市场活跃度影响，说明Coinbase必须把收入从单一现货手续费扩展到跨资产、稳定币、订阅、支付和基础设施。</span></div>
+        <div class="verdict"><small>02 · 不只是货架</small><b>Everything Exchange是一套账户体系</b><span>核心不是多列几种资产，而是用同一个身份、资金账户、保证金、流动性、托管与合规系统连接所有交易和金融服务。</span></div>
+        <div class="verdict"><small>03 · 最强验证</small><b>预测市场是最先跑出来的新资产类别</b><span>第二季度收入环比增长106%，年化收入运行规模超过1亿美元，证明“事件本身”可以成为高频、短周期、持续生成的新交易品类。</span></div>
+        <div class="verdict"><small>04 · 下一类客户</small><b>Agentic Finance在争夺机器账户</b><span>Coinbase for Agents、Agentic Wallets与x402把钱包、权限、支付和交易变成机器可调用接口，但目前更像战略期权，而不是成熟利润来源。</span></div>
+      </div>
+
+      <p class="lead">这份财报并没有证明新战略已经成功。它证明的是：Coinbase已经给出一个比“加密交易所”更大的公司定义，而财务报表尚未给出同等规模的盈利证据。</p>
+
+      <h2 id="earnings">01｜财报原点：数字偏弱，战略边界却在扩大</h2>
+      <div class="metric-grid" aria-label="Coinbase第二季度关键指标">
+        <div class="metric"><div class="n">$1.22B</div><b>总收入</b><span>环比下降14%，同比下降19%</span></div>
+        <div class="metric"><div class="n">$599M</div><b>交易收入</b><span>环比下降21%，仍是周期性核心</span></div>
+        <div class="metric"><div class="n">$555M</div><b>订阅与服务</b><span>占净收入48%，但环比仍下降5%</span></div>
+        <div class="metric"><div class="n">$208M</div><b>调整后 EBITDA</b><span>环比下降31%，利润降幅快于收入</span></div>
+      </div>
+
+      <p>财报最值得注意的不是某一项单季“miss”，而是新旧商业模式同时出现在一张报表上：旧模式仍然由加密交易量、币价与波动率主导；新模式则开始通过预测市场、衍生品、稳定币余额、订阅关系和开发者基础设施积累证据。</p>
+
+      <p>Coinbase强调，第二季度有<strong>88%的净收入不来自比特币现货交易</strong>。这是多元化的重要证据，但不能被误读为88%的收入已经与加密周期脱钩。其他代币交易、质押、稳定币收入、托管资产与衍生品，仍会受到币价、利率和行业活跃度影响。订阅与服务收入低于公司此前指引区间，也正说明“非交易收入”尚未成为完全独立的防御性业务。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>财报证据</th><th>积极含义</th><th>必须保留的限制</th></tr></thead>
+          <tbody>
+            <tr><td>加密交易量市场份额升至10.3%</td><td>连续第三个季度提高，现货与衍生品均有份额进展</td><td>公司调整了交易量定义并纳入部分稳定币转换，不能把全部升幅视为传统现货抢份额</td></tr>
+            <tr><td>平台内平均USDC余额约200亿美元</td><td>资金账户和稳定币分发能力形成规模</td><td>收入仍受利率、奖励支出、合作分成与链外余额影响</td></tr>
+            <tr><td>预测市场收入环比增长106%</td><td>新资产类别已出现独立收入速度</td><td>尚未单独披露季度收入、交易量、费率、毛利和用户留存</td></tr>
+            <tr><td>衍生品交易量在行业下降时基本持平</td><td>Deribit与全球流动性战略开始强化专业交易能力</td><td>跨地区整合、监管许可和资本效率仍需持续兑现</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="quote"><strong>Kerwin判断：</strong>这不是一份证明Coinbase转型成功的财报，而是一份证明它为什么必须转型的财报。</p>
+
+      <h2 id="everything">02｜Everything Exchange：不是“什么都卖”，而是“所有资产共用一个账户”</h2>
+      <p>“Everything Exchange”最容易被理解成金融超市：加密资产之外，再放入股票、期货、永续合约、期权、预测市场和Pre-IPO产品。但这只是表层。</p>
+      <p>Coinbase真正试图控制的，是资产进入、资金沉淀、流动性组织、风险管理、支付结算与后续交叉销售的完整路径。其目标是让客户不再为不同资产分别使用加密交易所、证券券商、期货平台、预测市场、链上钱包和支付应用。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>层级</th><th>Coinbase要控制的环节</th><th>代表性产品与能力</th><th>经济价值</th></tr></thead>
+          <tbody>
+            <tr><td>用户入口</td><td>统一身份、开户与账户关系</td><td>Coinbase App、Advanced、Coinbase One、Prime、Business</td><td>降低获客和重复开户成本，形成主金融账户</td></tr>
+            <tr><td>资产货架</td><td>扩大可交易对象</td><td>加密现货、股票、期货、永续、期权、预测市场、链上代币、Pre-IPO合约</td><td>任何热点资产出现时，平台已拥有对应产品</td></tr>
+            <tr><td>金融账户</td><td>持有、收益、消费、借贷</td><td>USDC、质押、Card、直接存款、抵押借贷、DeFi借贷</td><td>提高资产余额、留存率和单位客户收入</td></tr>
+            <tr><td>基础设施</td><td>托管、流动性、支付、结算与开发接口</td><td>Custody、Deribit、Base、Coinbase Developer Platform、Payments</td><td>从零售手续费延伸到机构和基础设施收入</td></tr>
+            <tr><td>机器接口</td><td>让AI Agent调用金融能力</td><td>Coinbase for Agents、Agentic Wallets、x402</td><td>争夺下一类账户、支付和自动交易流量</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>“All In One”的供给端：资产可以被持续制造</h3>
+      <p>传统交易平台的供给取决于企业上市、债券发行和商品合约设计；链上代币、预测市场和合成永续，则把资产供给边界大幅推开。现实世界中的公司、指数、商品、私人公司估值、政策结果、比赛和经济数据，都可以被结构化为可交易合约。</p>
+      <p>这意味着交易平台的竞争不再只是“抢现有交易量”，而是争夺<strong>谁有权定义下一种可交易资产、谁拥有最强分发、谁能把资金留在统一账户中</strong>。</p>
+
+      <h3>“All In One”的需求端：用户追求的是统一资金效率</h3>
+      <p>客户真正需要的并不是一个塞满产品的页面，而是减少账户碎片、资金搬运、保证金割裂和结算等待。若股票、加密、预测合约与衍生品能够逐步共享资金账户、抵押物与风险管理，Coinbase得到的将不只是更多交易费，而是更高的资产沉淀、更频繁的使用和更低的流失率。</p>
+
+      <p class="source-note">边界说明：Coinbase所说的“Everything”是战略终局，不代表所有资产、功能和保证金体系已经在每个司法辖区同时上线。产品可用性仍取决于地区、客户资格、监管批准与关联实体安排。</p>
+
+      <h2 id="prediction">03｜预测市场：最先得到财务验证的新资产类别</h2>
+      <p class="lead">在Coinbase新推出的业务中，预测市场可能是最值得单独研究的一条线。它不是首页上的娱乐功能，而是一个正在形成独立收入规模、并能改变交易平台资产供给方式的新市场。</p>
+
+      <div class="metric-grid">
+        <div class="metric"><div class="n">+106%</div><b>收入环比增长</b><span>第二季度预测市场收入翻倍以上</span></div>
+        <div class="metric"><div class="n">&gt;$100M</div><b>年化收入速度</b><span>代表当前运行速度，不等于单季确认收入</span></div>
+        <div class="metric"><div class="n">&gt;2×</div><b>合约活动</b><span>交易合约量与收入同步快速增长</span></div>
+        <div class="metric"><div class="n">约3×</div><b>加密二元交易者</b><span>新体验推出后的公司披露口径</span></div>
+      </div>
+
+      <h3>预测市场不是一种产品，而是一种资产生成机制</h3>
+      <p>股票把企业未来现金流变成可交易资产，期货把价格风险变成可交易资产；预测市场则把<strong>未来事件本身</strong>变成资产。一个“Yes/No”合约的价格，可以近似理解为市场对某个结果发生概率的集体定价。</p>
+      <p>它由此带来三种结构性变化：</p>
+      <ol>
+        <li><strong>资产供给接近无限。</strong>体育、政策、经济数据、加密价格和社会事件每天都能生成新的合约。</li>
+        <li><strong>交易触发不依赖牛市。</strong>市场不必等待币价上涨；只要世界继续发生事件，就持续存在新的判断与对冲需求。</li>
+        <li><strong>短周期提高资金周转。</strong>许多合约在数分钟、数小时或数天内结算，较小资金也可能产生较高周转率。</li>
+      </ol>
+
+      <h3>为什么预测市场特别适合Coinbase</h3>
+      <p>Coinbase当前的优势未必是独占底层事件交易所，而是拥有已经完成身份认证、账户中已有美元或USDC、并且熟悉交易操作的客户。用户无需重新下载应用、开户和入金，就可以从已有余额进入事件合约。</p>
+      <p>目前产品由Coinbase Financial Markets提供受监管的经纪入口，合约市场与结果结算依赖包括Kalshi在内的受监管基础设施。Kalshi又使用Coinbase Custody托管相关USDC。由此，同一笔预测市场活动可能同时触及Coinbase的经纪分发、资金余额、稳定币、托管与交叉销售。</p>
+
+      <div class="flow" aria-label="预测市场价值链">
+        <div class="flow-step"><small>01 · 事件</small><b>现实不确定性</b><span>比赛、政策、数据、价格与突发事件持续产生</span></div>
+        <div class="flow-step"><small>02 · 合约</small><b>事件资产化</b><span>明确的结果、期限与0/1支付结构</span></div>
+        <div class="flow-step"><small>03 · 分发</small><b>Coinbase账户</b><span>已有用户、资金、身份、合规和交易入口</span></div>
+        <div class="flow-step"><small>04 · 协同</small><b>跨产品价值</b><span>USDC余额、现货、衍生品、订阅与托管</span></div>
+      </div>
+
+      <h3>加密二元合约可能比政治预测更重要</h3>
+      <p>预测市场通常与选举联系在一起，但Coinbase第二季度最值得关注的是加密价格二元合约。它把“是否在某个时间高于某价格”包装成简单判断，降低了仓位、止损和杠杆管理的复杂度。</p>
+      <p>更重要的是，它可以把低波动的横盘市场切割成大量短周期事件。即使比特币没有形成持续趋势，15分钟、小时、日度和周度价格条件仍可以不断生成交易机会。这可能帮助Coinbase重新组织加密波动率，提高现有客户的打开频率。</p>
+
+      <h3>是增量，还是从现货业务搬收入</h3>
+      <p>预测市场的最大财务问题不是增长快不快，而是它是否创造净新增价值。若原本会交易现货的客户只是把资金转到事件合约，收入只是内部迁移。管理层在电话会中表示，早期观察更接近交叉销售，而不是明显蚕食；预测市场用户还会产生额外现货活动，相关获客投入回收期也好于公司通常设定的一年标准。</p>
+      <p>这仍需要更严格的披露验证。投资者应要求看到预测市场用户的留存、跨产品渗透、净新增入金和总客户生命周期价值，而不只是一条年化收入数字。</p>
+
+      <div class="dark-panel">
+        <h3>预测市场可能是Everything Exchange与Agent战略的交汇点</h3>
+        <p>事件合约具有结果清晰、损益上限明确、数据结构标准化、结算时间确定等特点，非常适合机器读取和自动执行。未来的财务Agent、投资Agent或供应链Agent，可能根据利率、天气、政策或价格事件调整仓位并对冲现实风险。</p>
+        <p><strong>但这仍属于战略推演。</strong>Coinbase尚未披露AI Agent自主交易预测合约的规模、收入或留存，不能把产品适配性直接写成已经兑现的商业收入。</p>
+      </div>
+
+      <h3>预测市场需要持续追踪的七项数据</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指标</th><th>为什么重要</th><th>当前披露状态</th></tr></thead>
+          <tbody>
+            <tr><td>单季度实际收入</td><td>验证年化运行速度是否稳定，而非少数热点日期推动</td><td>未单独披露</td></tr>
+            <tr><td>合约交易量与有效费率</td><td>区分增长来自用户、周转、费率还是品类结构</td><td>只披露增长幅度</td></tr>
+            <tr><td>活跃交易者与留存</td><td>判断赛事或选举结束后，用户是否继续交易</td><td>局部产品有相对增长口径</td></tr>
+            <tr><td>体育、加密、政治与宏观占比</td><td>决定周期性、监管风险和对冲价值</td><td>公司称体育领先、加密随后</td></tr>
+            <tr><td>与底层市场的经济分配</td><td>决定Coinbase最终保留的净收入与毛利</td><td>未披露</td></tr>
+            <tr><td>对现货与衍生品的交叉提升</td><td>验证是否真正增加客户生命周期价值</td><td>管理层称早期为正向</td></tr>
+            <tr><td>市场诚信与合规成本</td><td>内幕信息、操纵、结算争议可能提高运营成本</td><td>需要持续观察</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="agent">04｜Agentic Finance：当机器成为下一类金融客户</h2>
+      <p>Coinbase对Agent赛道的判断，不是“AI帮助人类点一下买卖”，而是AI Agent最终会拥有资金、购买数据和计算资源、雇用其他Agent、自动支付、执行交易并管理风险。</p>
+      <p>传统金融体系并不是为机器设计的：银行开户要求人或法人身份，信用卡不适合高频微支付，跨境结算存在成本与延迟，权限控制也通常围绕人工审批。稳定币、可编程钱包、API和链上结算，则可以把金融活动直接变成软件调用。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Agent层级</th><th>Coinbase产品</th><th>解决的问题</th></tr></thead>
+          <tbody>
+            <tr><td>账户与权限</td><td>Coinbase for Agents</td><td>把Agent连接到隔离资产组合，设置资金上限、单笔限制和可调用产品</td></tr>
+            <tr><td>机器钱包</td><td>Agentic Wallets</td><td>让Agent持有、接收、支付、交易和赚取稳定币</td></tr>
+            <tr><td>机器支付</td><td>x402</td><td>把稳定币付款嵌入HTTP请求，让Agent自动购买API、数据、模型和计算</td></tr>
+            <tr><td>结算网络</td><td>Base</td><td>提供低成本、快速、可编程的链上执行环境</td></tr>
+            <tr><td>货币与流动性</td><td>USDC与Coinbase交易基础设施</td><td>为机器支付、交易和资金管理提供计价资产与兑换能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>从这个结构看，Coinbase想成为的并不是一个“Agent应用”，而是机器经济的<strong>银行账户、券商接口、钱包、支付网络和结算层</strong>。人类通过App使用Coinbase，机器通过MCP、CLI、API和x402使用Coinbase。</p>
+
+      <h3>90%、97%、99%：早期领先，不是盈利证明</h3>
+      <p>Coinbase在财报演示中引用Artemis Analytics数据，称第二季度被追踪的链上Agent活动中，90%以上的稳定币交易量发生在Base，97%以上的链上Agent交易使用x402完成，99%以上的链上Agent商业活动使用USDC。</p>
+      <p>这些数字证明Coinbase在早期协议和基础设施上占有明显位置，但它们描述的是一个特定、仍然很小的链上样本，并不包括法币、银行卡、链下支付和无法追踪的活动。更不能从交易笔数直接推导利润：机器支付可能数量巨大、客单价极低、补贴较多。</p>
+
+      <div class="flow" aria-label="Agentic Finance路径">
+        <div class="flow-step"><small>01 · 身份</small><b>权限与风控</b><span>资金隔离、额度、白名单、审计与撤销</span></div>
+        <div class="flow-step"><small>02 · 钱包</small><b>持有资金</b><span>USDC与其他资产进入机器可控账户</span></div>
+        <div class="flow-step"><small>03 · 支付</small><b>x402调用</b><span>购买数据、模型、API与其他数字服务</span></div>
+        <div class="flow-step"><small>04 · 金融</small><b>交易与管理</b><span>现货、衍生品、预测市场及未来跨资产配置</span></div>
+      </div>
+
+      <p class="quote"><strong>核心判断：</strong>Everything Exchange服务人的资产配置，Agentic Finance服务机器的经济活动；USDC、Base、x402、托管与流动性，则是两者共用的货币和结算底座。</p>
+
+      <h2 id="rails">05｜USDC与Base：产品货架下面的货币和结算层</h2>
+      <p>Everything Exchange的表面是资产与产品，真正把不同业务连接起来的是稳定币和区块链结算。</p>
+
+      <h3>USDC是Coinbase体系的现金账户</h3>
+      <p>第二季度Coinbase产品中的平均USDC余额约200亿美元，创历史新高。USDC在平台内同时承担交易保证金、现金余额、支付货币、跨境结算、用户奖励、Agent支付和Base生态计价单位。</p>
+      <p>因此，稳定币价值不能只看储备利息。它还可能带动兑换、交易、支付、托管、开发者服务和链上活动。但股东最终获得多少价值，取决于利率、与Circle及合作伙伴的经济分配、用户奖励，以及Coinbase为扩张网络效应愿意让渡多少短期收入。</p>
+
+      <h3>Base是结算层，但生态增长不等于股东收入</h3>
+      <p>Base让Coinbase可以从中心化交易所之外，进入链上交易、支付、应用、资产发行与Agent活动。它的战略价值在于降低结算成本、吸引开发者，并让Coinbase产品在同一链上环境中协同。</p>
+      <p>但需要严格区分三件事：Base交易笔数增长、Base生态价值增长、COIN股东收入增长。第二季度其他交易收入仍受到Base收入下降影响，说明网络活动与上市公司利润之间的转换并非自动发生。</p>
+
+      <h2 id="flywheel">06｜Coinbase试图建立的增长飞轮</h2>
+      <div class="flow" aria-label="Coinbase增长飞轮第一部分">
+        <div class="flow-step"><small>01</small><b>资产进入</b><span>用户、机构或Agent把现金、USDC与其他资产放入平台</span></div>
+        <div class="flow-step"><small>02</small><b>托管与流动性</b><span>资产沉淀提高市场深度、交易能力与信任</span></div>
+        <div class="flow-step"><small>03</small><b>产品扩张</b><span>现货、衍生品、股票、预测市场、借贷与支付</span></div>
+        <div class="flow-step"><small>04</small><b>参与度提升</b><span>更多使用场景提高打开频率、留存和订阅价值</span></div>
+      </div>
+      <div class="flow" aria-label="Coinbase增长飞轮第二部分">
+        <div class="flow-step"><small>05</small><b>稳定币与支付</b><span>更多余额和交易扩大USDC、支付与结算网络</span></div>
+        <div class="flow-step"><small>06</small><b>开发者进入</b><span>Base、CDP与x402吸引应用和服务提供者</span></div>
+        <div class="flow-step"><small>07</small><b>Agent进入</b><span>机器钱包、支付和交易产生新一类活动</span></div>
+        <div class="flow-step"><small>08</small><b>更多资产与流量</b><span>回到托管、交易、支付和基础设施收入</span></div>
+      </div>
+
+      <p>这个飞轮成立的必要条件，是新产品带来净新增资金与用户，而不仅是在Coinbase内部重新分配原有交易量；同时，Base、USDC和Agent生态的增长必须以可观察的费率、收入和利润被COIN股东捕获。</p>
+
+      <h2 id="competition">07｜竞争格局：Coinbase的对手不再只是加密交易所</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>竞争者</th><th>争夺的核心入口</th><th>相对Coinbase的优势</th><th>Coinbase的应对</th></tr></thead>
+          <tbody>
+            <tr><td>Robinhood</td><td>人的主金融账户</td><td>传统证券、期权与大众投资用户基础更成熟</td><td>用加密、稳定币、跨资产货架和链上能力形成差异</td></tr>
+            <tr><td>Kraken及全球交易平台</td><td>专业交易者与全球加密流动性</td><td>交易品类、费率和国际市场竞争强</td><td>Deribit、机构托管、美国合规和统一账户</td></tr>
+            <tr><td>Stripe</td><td>商户、开发者和机器支付</td><td>商业支付分发、企业集成和开发者生态更强</td><td>x402、USDC、Base和可交易资产能力</td></tr>
+            <tr><td>Kalshi等事件交易所</td><td>预测市场底层市场与清算</td><td>拥有事件合约设计、市场与结算基础设施</td><td>控制客户、资金、经纪分发、USDC与托管关系</td></tr>
+            <tr><td>链上协议与钱包</td><td>无许可资产、用户自托管与链上流动性</td><td>开放、低成本、创新速度快</td><td>以Base和钱包接口把链上活动纳入Coinbase体系</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="valuation">08｜投资者如何给“新Coinbase”估值</h2>
+      <p>若仍只用“加密交易量 × 手续费率”估值，无法覆盖Coinbase的新业务边界；若直接把Base和Agentic Finance按成熟平台估值，又会把叙事过早写进利润。</p>
+      <p>更合理的是分部观察：</p>
+      <ol>
+        <li><strong>交易平台：</strong>加密现货、衍生品、预测市场及逐步扩展的传统资产。</li>
+        <li><strong>稳定币与支付：</strong>USDC经济收益、兑换、支付和企业资金服务。</li>
+        <li><strong>机构与基础设施：</strong>Custody、Prime、Deribit、CDP与Coinbase Business。</li>
+        <li><strong>消费者金融：</strong>Coinbase One、Card、质押、借贷和财富管理。</li>
+        <li><strong>Base与Agentic Finance：</strong>现阶段更适合作为期权价值，而不是按成熟收入倍数定价。</li>
+      </ol>
+
+      <div class="dark-panel">
+        <h3>四个可能推翻新定位的反证</h3>
+        <p><strong>第一，</strong>新产品增长只是蚕食现有加密交易收入，没有提高净入金和客户生命周期价值。</p>
+        <p><strong>第二，</strong>Base和USDC生态不断扩大，但经济收益主要流向合作伙伴、开发者、用户补贴或底层协议，而不是COIN股东。</p>
+        <p><strong>第三，</strong>Agent交易笔数很高，但平均金额、非补贴收入、留存和take rate都很低。</p>
+        <p><strong>第四，</strong>跨资产、跨司法辖区与自动化交易带来的监管、技术和运营复杂度，增长快于收入与利润。</p>
+      </div>
+
+      <h2 id="monitoring">09｜未来几个季度的跟踪仪表盘</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>主线</th><th>关键指标</th><th>验证新定位</th><th>削弱新定位</th></tr></thead>
+          <tbody>
+            <tr><td>Everything Exchange</td><td>跨资产活跃用户、三种以上产品渗透率、平台资产净流入、衍生品份额</td><td>更多资金进入，产品使用和留存同步提高</td><td>产品增加但净入金、留存和收入不升</td></tr>
+            <tr><td>预测市场</td><td>单季收入、合约量、活跃用户、留存、品类结构、有效费率、交叉销售</td><td>在非大选周期保持增长，并提升其他交易活动</td><td>收入只集中于少数热点、用户快速流失或侵蚀现货</td></tr>
+            <tr><td>USDC与支付</td><td>平均余额、每单位余额收入、支付量、合作分成、用户奖励成本</td><td>余额和支付增长转化为稳定净收入</td><td>余额增长但单位经济恶化</td></tr>
+            <tr><td>Base</td><td>交易金额、活跃应用、直接收入、网络成本、Coinbase产品导流</td><td>生态活动形成可量化的公司收入</td><td>交易笔数高但收入、金额和留存低</td></tr>
+            <tr><td>Agentic Finance</td><td>有资金的活跃Agent、支付金额、平均客单、非补贴收入、留存、take rate</td><td>从协议采用转向持续付费和利润</td><td>主要是试验、补贴或低价值微交易</td></tr>
+            <tr><td>盈利质量</td><td>营业利润、股票薪酬、回购、营销回收期、调整后费用</td><td>新业务增长快于复杂度和成本</td><td>费用与稀释持续快于收入</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="conclusion">结论｜Coinbase的第二次创业</h2>
+      <p>Coinbase已经不再满足于成为加密资产的买卖入口。它正在试图把所有可以被数字化、结构化和结算的资产装入同一个账户，再把这个账户同时开放给人类与AI Agent。</p>
+      <p>Everything Exchange扩展的是<strong>什么可以交易</strong>；预测市场把现实事件持续转化为新资产；Agentic Finance扩展的是<strong>谁来交易和支付</strong>；USDC、Base、x402、托管与流动性则构成共同底座。</p>
+      <p><strong>但最终判断仍应保持克制：</strong>Coinbase已经给出了一个比加密交易所更大的公司定义，却尚未给出足够的财务证据，证明这个更大的定义已经转化为更稳定、更高质量的利润。</p>
+      <p>未来几个季度真正需要回答的，不是Coinbase又上线了多少新功能，而是：新资产是否带来净新增需求，机器经济是否产生真实付费，生态增长是否被股东捕获，以及公司能否在产品快速扩张时继续维持信任、监管能力和成本纪律。</p>
+
+      <h2 id="sources">口径与主要来源</h2>
+      <p class="source-note">财务数字与管理层表述以Coinbase 2026年第二季度官方财报演示、业绩陈述文字稿和投资者关系活动页为主；产品架构以Coinbase官方产品公告与开发者文档为主。预测市场的底层市场、结算和经纪角色依据Coinbase帮助中心及官方合作说明。Agent链上份额数字为Coinbase演示材料引用Artemis Analytics的追踪口径，不能外推至全部Agent商业活动。</p>
+      <ul class="source-note">
+        <li><a href="https://investor.coinbase.com/events-and-presentations/events/event-details/2026/Second-Quarter-2026-Earnings-2026-_jxzZiMgYJ/default.aspx" target="_blank" rel="noopener">Coinbase Q2 2026 earnings event</a>：官方财报、演示、文字稿与回放入口。</li>
+        <li><a href="https://s27.q4cdn.com/397450999/files/doc_financials/2026/q2/Q2-26-Earnings-Deck.pdf" target="_blank" rel="noopener">Q2 2026 Earnings Deck</a>：财务数据、Everything Exchange、预测市场与Agentic Finance指标。</li>
+        <li><a href="https://s27.q4cdn.com/397450999/files/doc_financials/2026/q2/Q2-26-Earnings-Presentation-Transcript.pdf" target="_blank" rel="noopener">Prepared Remarks Transcript</a>：管理层战略、业务进展与财务解释。</li>
+        <li><a href="https://www.coinbase.com/blog/coinbase-for-agents" target="_blank" rel="noopener">Coinbase for Agents</a>：机器账户、MCP/CLI、权限与交易路线。</li>
+        <li><a href="https://docs.cdp.coinbase.com/agentic-wallet/welcome" target="_blank" rel="noopener">Agentic Wallets</a> 与 <a href="https://docs.cdp.coinbase.com/x402/welcome" target="_blank" rel="noopener">x402</a>：机器钱包与HTTP稳定币支付协议。</li>
+        <li><a href="https://help.coinbase.com/en/coinbase/trading-and-funding/prediction-markets/intro" target="_blank" rel="noopener">Prediction Markets Help</a> 与 <a href="https://www.coinbase.com/blog/kalshi-prediction-markets-powered-by-usdc-and-safeguarded-by-coinbase-custody" target="_blank" rel="noopener">Kalshi / Coinbase Custody</a>：预测市场的产品、监管与托管边界。</li>
+      </ul>
+    </article>
+
+    <section class="reading-path" aria-labelledby="reading-title">
+      <h2 id="reading-title">下一条研究路径</h2>
+      <div class="related">
+        <a href="/stablecoin-profit-war-dollar-treasury-20260719/">
+          <small>01 · 货币层</small>
+          <b>稳定币利润战争</b>
+          <span>继续理解USDC、Circle、Coinbase与合作平台之间的收益分配和数字美元网络。</span>
+        </a>
+        <a href="/hyperliquid-series-2-competitive-encirclement-20260719/">
+          <small>02 · 交易结构</small>
+          <b>围猎 Hyperliquid</b>
+          <span>观察传统金融、中心化交易所、链上永续和预测市场如何争夺同一批流动性。</span>
+        </a>
+        <a href="/stripe-payment-ecosystem-2026/">
+          <small>03 · 机器支付</small>
+          <b>Stripe 支付生态全景</b>
+          <span>对照Stripe的商户与Agent支付路线，理解Coinbase在机器金融基础设施上的竞争边界。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="enya">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+      <p class="enya-copy">把复杂世界，整理成一张投资地图。本文以最新财报为证据原点，将Coinbase的跨资产交易、预测市场、稳定币、链上结算与Agent基础设施放在同一套商业模式中审视。</p>
+      <div class="roles">
+        <div class="role"><b>Kerwin</b><span>负责选题、投资逻辑、核心判断与最终审阅。</span></div>
+        <div class="role"><b>Enya</b><span>负责官方证据整理、结构化分析、网页视觉呈现与后续维护。</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>免责声明：本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">← 返回 EnyaClawd 研究首页</a>
+      </div>
+      <div>Published 2026-07-31 · Data snapshot 2026-07-31 · Hong Kong</div>
+      <div class="counter">👀 页面浏览量：<span id="counter-num">...</span></div>
+    </footer>
+  </main>
+
+  <button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
+  <script>
+  (function(){
+    var gate=document.getElementById('access-gate');
+    var form=document.getElementById('gate-form');
+    var input=document.getElementById('gate-key');
+    var error=document.getElementById('gate-error');
+    var main=document.getElementById('main-content');
+    var progress=document.getElementById('progress');
+    var topButton=document.getElementById('top');
+
+    function unlock(){
+      gate.setAttribute('aria-hidden','true');
+      if(main){main.focus();}
+      window.scrollTo(0,0);
+    }
+    function verify(){
+      var value=(input.value||'').toLowerCase();
+      if(value==='k'){error.textContent='';unlock();}
+      else if(value){error.textContent='请输入 k 或 K';input.select();}
+    }
+    if(gate&&form&&input&&error){
+      input.addEventListener('input',verify);
+      form.addEventListener('submit',function(event){event.preventDefault();verify();});
+      setTimeout(function(){input.focus();},120);
+    }else if(gate){gate.setAttribute('aria-hidden','true');}
+
+    function updateScroll(){
+      var max=document.documentElement.scrollHeight-window.innerHeight;
+      var ratio=max>0?window.scrollY/max:0;
+      if(progress){progress.style.width=(ratio*100)+'%';}
+      if(topButton){topButton.classList.toggle('show',window.scrollY>620);}
+    }
+    window.addEventListener('scroll',updateScroll,{passive:true});
+    window.addEventListener('resize',updateScroll);
+    if(topButton){topButton.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+    updateScroll();
+
+    var slug='coinbase-new-positioning-everything-exchange-agentic-finance-20260731';
+    var counter=document.getElementById('counter-num');
+    var counterUrl='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slug);
+    fetch(counterUrl).then(function(response){return response.json();}).then(function(data){
+      if(counter){counter.textContent=Number(data.count||0).toLocaleString();}
+    }).catch(function(){if(counter){counter.textContent='-';}});
+    fetch(counterUrl,{method:'POST'}).then(function(response){return response.json();}).then(function(data){
+      if(counter){counter.textContent=Number(data.count||0).toLocaleString();}
+    }).catch(function(){});
+  })();
+  </script>
+</body>
+</html>
