@@ -557,6 +557,15 @@
       .masthead { padding: 18px 24px 14px; }
       .report { padding: 36px 24px 18px; }
       .reading-path, .enya, .footer { margin-left: 24px; margin-right: 24px; }
+      .flow-track { grid-template-columns: 1fr; gap: 27px; }
+      .flow-node { padding-right: 0; }
+      .flow-node:not(:last-child)::after {
+        top: calc(100% + 7px);
+        right: auto;
+        left: 50%;
+        content: "↓";
+        transform: translateX(-50%);
+      }
       .related { grid-template-columns: 1fr; }
       .related a { min-height: auto; border-right: 0; border-bottom: 1px solid var(--rule); }
       .related a:last-child { border-bottom: 0; }
@@ -572,7 +581,7 @@
       .report > h3 { font-size: 20px; }
       .report p > strong:first-child:last-child { font-size: 17px; padding: 16px; }
       .kerwin-intro { margin-bottom: 34px; padding: 18px; }
-      .kerwin-intro-copy { font-size: 17px; line-height: 1.72; }
+      .report .kerwin-intro-copy { font-size: 17px; line-height: 1.72; }
       .visual { padding: 19px 14px 20px; }
       .visual-title { font-size: 20px; }
       .flow-track { grid-template-columns: 1fr; gap: 27px; }
