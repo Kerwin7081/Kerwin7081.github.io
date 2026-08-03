@@ -1,0 +1,41 @@
+name: Hyperliquid weekend dashboard snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC schedule covers the Hong Kong weekend window. The script skips
+    # outside-window runs so the same workflow remains DST-independent.
+    - cron: "17 0,4,8,12,16,20 * * 5,6,0,1"
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect public Hyperliquid snapshot
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+        run: python3 scripts/collect_hyperliquid_weekend_snapshot.py
+
+      - name: Commit changed snapshot
+        run: |
+          git config user.name "Enya Snapshot Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add hyperliquid-weekend-stock-signal-20260803/data/latest.json hyperliquid-weekend-stock-signal-20260803/data/history.json
+          if git diff --cached --quiet; then
+            echo "No snapshot change to commit."
+          else
+            git commit -m "Update Hyperliquid weekend snapshot"
+            git push
+          fi
