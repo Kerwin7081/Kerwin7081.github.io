@@ -1,0 +1,58 @@
+name: Preview v3 browser QA
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - ".github/workflows/preview-v3-browser.yml"
+      - "assets/kerwin-system-v3.css"
+      - "assets/kerwin-system-v3.js"
+      - "tools/v3_preview_browser.mjs"
+      - "coinbase-new-positioning-everything-exchange-agentic-finance-20260731/index.html"
+      - "nvidia-rubin-five-racks-sive-aaoi/index.html"
+      - "ai-supply-chain-power-bottlenecks-20260731/index.html"
+      - "xiaoxiao-block-world/index.html"
+      - "ineffable-superlearner-rubin-a5x-20260723/index.html"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v3-browser-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  browser-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout pull request head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: npm install --no-save --no-package-lock playwright@1.55.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run v3 browser regression
+        run: node tools/v3_preview_browser.mjs
+
+      - name: Upload preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kerwin-v3-preview-screenshots
+          path: artifacts/v3-preview
+          if-no-files-found: ignore
