@@ -3,611 +3,346 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="用 Hyperliquid XYZ 股票永续合约的价格、Mark、Oracle、资金费率、未平仓量和成交量，观察周末与周一开盘前的风险偏好及产业链相对强弱。">
-  <title>Hyperliquid 周末正股趋势仪表盘｜EnyaClawd</title>
-  <style>
-    .weekend-page {
-      width: min(1120px, calc(100% - 36px));
-      margin: 0 auto;
-      color: var(--kw-ink, #262220);
-      background: var(--kw-paper, #fffaf5);
-    }
-    .weekend-page * { box-sizing: border-box; }
-    .weekend-page a { color: inherit; }
-    .weekend-cover {
-      padding: clamp(34px, 6vw, 78px) clamp(20px, 5vw, 62px) 42px;
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-      background: linear-gradient(135deg, #fffaf5 0%, #fff1e5 100%);
-    }
-    .weekend-kicker, .weekend-section-label {
-      margin: 0 0 12px;
-      color: var(--kw-mint-deep, #103f35);
-      font: 700 12px/1.4 var(--kw-sans, Arial, sans-serif);
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .weekend-cover h1 {
-      max-width: 820px;
-      margin: 0;
-      font: 700 clamp(34px, 5.7vw, 60px)/.98 var(--kw-serif, Georgia, serif);
-      letter-spacing: -.045em;
-    }
-    .weekend-cover h1 em {
-      color: var(--kw-mint-deep, #103f35);
-      font-style: normal;
-    }
-    .weekend-deck {
-      max-width: 760px;
-      margin: 24px 0 0;
-      color: var(--kw-muted, #746b65);
-      font: 400 clamp(16px, 2vw, 20px)/1.62 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-cover-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 24px;
-      margin-top: 28px;
-      padding-top: 15px;
-      border-top: 1px solid var(--kw-line, #cdbfb3);
-      color: var(--kw-muted, #746b65);
-      font: 600 12px/1.5 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-signal-banner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
-      gap: 0;
-      margin-top: 36px;
-      border-top: 4px solid var(--kw-mint-deep, #103f35);
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-signal-call, .weekend-data-state {
-      padding: 22px 24px;
-    }
-    .weekend-signal-call {
-      background: var(--kw-mint, #dbe9e2);
-    }
-    .weekend-signal-call .label, .weekend-data-state .label {
-      display: block;
-      margin-bottom: 7px;
-      color: var(--kw-muted, #746b65);
-      font: 700 11px/1.4 var(--kw-sans, Arial, sans-serif);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .weekend-signal-call strong {
-      display: block;
-      color: var(--kw-mint-deep, #103f35);
-      font: 700 28px/1.2 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-signal-call p, .weekend-data-state p {
-      margin: 8px 0 0;
-      color: var(--kw-muted, #746b65);
-      font: 14px/1.55 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-data-state { background: #fffaf5; }
-    .weekend-data-state strong {
-      display: block;
-      font: 700 22px/1.2 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-section {
-      padding: 40px clamp(20px, 5vw, 62px);
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-section h2 {
-      max-width: 700px;
-      margin: 0;
-      font: 700 clamp(26px, 3.5vw, 40px)/1.12 var(--kw-serif, Georgia, serif);
-      letter-spacing: -.035em;
-    }
-    .weekend-section-intro {
-      max-width: 800px;
-      margin: 12px 0 26px;
-      color: var(--kw-muted, #746b65);
-      font: 15px/1.65 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-metrics {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      border-top: 1px solid var(--kw-line, #cdbfb3);
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-metric {
-      min-height: 126px;
-      padding: 17px 16px 14px;
-      border-right: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-metric:last-child { border-right: 0; }
-    .weekend-metric label {
-      display: block;
-      color: var(--kw-muted, #746b65);
-      font: 700 11px/1.4 var(--kw-sans, Arial, sans-serif);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .weekend-metric strong {
-      display: block;
-      margin-top: 12px;
-      font: 700 28px/1.1 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-metric small {
-      display: block;
-      margin-top: 7px;
-      color: var(--kw-muted, #746b65);
-      font: 12px/1.4 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-verdicts {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0;
-      margin-top: 30px;
-      border-top: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-verdict {
-      padding: 20px 18px 4px 0;
-      margin-right: 18px;
-      border-right: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-verdict:last-child { border-right: 0; margin-right: 0; }
-    .weekend-verdict-index {
-      color: var(--kw-copper, #9a5c38);
-      font: 700 12px/1.3 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-verdict h3 {
-      margin: 10px 0 8px;
-      font: 700 19px/1.25 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-verdict p {
-      margin: 0;
-      color: var(--kw-muted, #746b65);
-      font: 14px/1.6 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-panel {
-      padding: 22px;
-      border: 1px solid var(--kw-line, #cdbfb3);
-      background: #fffaf5;
-    }
-    .weekend-panel + .weekend-panel { margin-top: 24px; }
-    .weekend-panel-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: end;
-      flex-wrap: wrap;
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-panel h3 {
-      margin: 0;
-      font: 700 23px/1.2 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-panel-note {
-      max-width: 530px;
-      margin: 0;
-      color: var(--kw-muted, #746b65);
-      font: 13px/1.5 var(--kw-sans, Arial, sans-serif);
-      text-align: right;
-    }
-    .weekend-table-wrap {
-      overflow-x: auto;
-      margin-top: 16px;
-    }
-    .weekend-table {
-      width: 100%;
-      min-width: 880px;
-      border-collapse: collapse;
-      font: 13px/1.4 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-table th {
-      padding: 10px 9px;
-      color: #fffaf5;
-      background: var(--kw-mint-deep, #103f35);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-align: left;
-      white-space: nowrap;
-    }
-    .weekend-table th:not(:first-child), .weekend-table td:not(:first-child) { text-align: right; }
-    .weekend-table td {
-      padding: 10px 9px;
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-      white-space: nowrap;
-    }
-    .weekend-table tbody tr:hover { background: #f7eee6; }
-    .weekend-table .asset-name { font-weight: 700; text-align: left; }
-    .weekend-table .asset-name small {
-      display: block;
-      color: var(--kw-muted, #746b65);
-      font-size: 11px;
-      font-weight: 400;
-    }
-    .positive { color: #176b54; }
-    .negative { color: #9f332b; }
-    .neutral { color: var(--kw-muted, #746b65); }
-    .weekend-inspector {
-      display: grid;
-      grid-template-columns: minmax(210px, .72fr) minmax(0, 1.28fr);
-      gap: 24px;
-      margin-top: 24px;
-    }
-    .weekend-select-label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--kw-muted, #746b65);
-      font: 700 11px/1.4 var(--kw-sans, Arial, sans-serif);
-      letter-spacing: .09em;
-      text-transform: uppercase;
-    }
-    .weekend-select {
-      width: 100%;
-      min-height: 44px;
-      padding: 9px 11px;
-      border: 1px solid var(--kw-line, #cdbfb3);
-      border-radius: 1px;
-      color: var(--kw-ink, #262220);
-      background: #fffaf5;
-      font: 15px var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-inspector-copy h4 {
-      margin: 0;
-      font: 700 24px/1.2 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-readouts {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-top: 16px;
-      border-top: 1px solid var(--kw-line, #cdbfb3);
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-readout {
-      padding: 12px 12px 11px 0;
-      border-right: 1px solid var(--kw-line, #cdbfb3);
-    }
-    .weekend-readout:not(:first-child) { padding-left: 12px; }
-    .weekend-readout:last-child { border-right: 0; }
-    .weekend-readout span {
-      display: block;
-      color: var(--kw-muted, #746b65);
-      font: 11px/1.4 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-readout strong {
-      display: block;
-      margin-top: 5px;
-      font: 700 18px/1.2 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-note-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0 28px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .weekend-note-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--kw-line, #cdbfb3);
-      color: var(--kw-muted, #746b65);
-      font: 14px/1.6 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-note-list b { color: var(--kw-ink, #262220); }
-    .weekend-source-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .weekend-source-grid h3 {
-      margin: 0 0 11px;
-      font: 700 20px/1.25 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-source-grid ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--kw-muted, #746b65);
-      font: 13px/1.7 var(--kw-sans, Arial, sans-serif);
-    }
-    .weekend-source-grid a { color: var(--kw-mint-deep, #103f35); }
-    .weekend-brand {
-      padding: 28px 24px;
-      color: #fffaf5;
-      background: var(--kw-mint-deep, #103f35);
-    }
-    .weekend-brand h3 {
-      margin: 0 0 6px;
-      color: #fffaf5;
-      font: 700 28px/1.1 var(--kw-serif, Georgia, serif);
-    }
-    .weekend-brand p { margin: 7px 0 0; color: rgba(255,250,245,.78); font: 13px/1.65 var(--kw-sans, Arial, sans-serif); }
-    .weekend-brand .brand-line { color: #fffaf5; font-weight: 700; }
-    .weekend-disclaimer {
-      margin: 23px 0 0;
-      color: var(--kw-muted, #746b65);
-      font: 12px/1.65 var(--kw-sans, Arial, sans-serif);
-    }
-    @media (max-width: 840px) {
-      .weekend-signal-banner, .weekend-inspector { grid-template-columns: 1fr; }
-      .weekend-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .weekend-metric:nth-child(2) { border-right: 0; }
-      .weekend-metric:nth-child(-n+2) { border-bottom: 1px solid var(--kw-line, #cdbfb3); }
-      .weekend-verdicts { grid-template-columns: 1fr; }
-      .weekend-verdict { margin: 0; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--kw-line, #cdbfb3); }
-      .weekend-verdict:last-child { border-bottom: 0; }
-      .weekend-panel-note { text-align: left; }
-      .weekend-readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .weekend-readout:nth-child(2) { border-right: 0; }
-      .weekend-readout:nth-child(-n+2) { border-bottom: 1px solid var(--kw-line, #cdbfb3); }
-    }
-    @media (max-width: 580px) {
-      .weekend-page { width: min(100% - 20px, 1120px); }
-      .weekend-cover, .weekend-section { padding-left: 14px; padding-right: 14px; }
-      .weekend-panel { padding: 15px; }
-      .weekend-metrics { grid-template-columns: 1fr; }
-      .weekend-metric { border-right: 0; border-bottom: 1px solid var(--kw-line, #cdbfb3); }
-      .weekend-metric:last-child { border-bottom: 0; }
-      .weekend-source-grid, .weekend-note-list { grid-template-columns: 1fr; }
-      .weekend-readouts { grid-template-columns: 1fr 1fr; }
-      .weekend-readout:nth-child(odd) { border-right: 1px solid var(--kw-line, #cdbfb3); }
-      .weekend-readout:nth-child(even) { border-right: 0; }
-    }
-  </style>
+  <meta name="description" content="用 Hyperliquid 股票永续合约的 Mid Price 相对周五正股现金收盘价，观察周末及周一正股开盘前的方向参考。">
+  <title>Hyperliquid 周末正股趋势仪表盘｜修订版｜EnyaClawd</title>
   <link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260803">
+  <style>
+    .hl-page{width:min(1180px,calc(100% - 36px));margin:0 auto;color:var(--kw-ink,#262220);background:var(--kw-paper,#fffaf5)}
+    .hl-page *{box-sizing:border-box}.hl-page a{color:inherit}
+    .hl-hero{padding:clamp(36px,6vw,78px) clamp(20px,5vw,64px) 42px;border-bottom:1px solid var(--kw-line,#cdbfb3);background:linear-gradient(135deg,#fffaf5 0%,#fff0e2 100%)}
+    .hl-kicker,.hl-label{margin:0 0 12px;color:var(--kw-mint-deep,#103f35);font:700 12px/1.4 var(--kw-sans,Arial,sans-serif);letter-spacing:.14em;text-transform:uppercase}
+    .hl-hero h1{max-width:900px;margin:0;font:700 clamp(34px,5.5vw,62px)/.98 var(--kw-serif,Georgia,serif);letter-spacing:-.045em}
+    .hl-hero h1 em{color:var(--kw-mint-deep,#103f35);font-style:normal}
+    .hl-deck{max-width:850px;margin:24px 0 0;color:var(--kw-muted,#746b65);font:400 clamp(16px,2vw,20px)/1.62 var(--kw-sans,Arial,sans-serif)}
+    .hl-meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:28px;padding-top:15px;border-top:1px solid var(--kw-line,#cdbfb3);color:var(--kw-muted,#746b65);font:600 12px/1.5 var(--kw-sans,Arial,sans-serif)}
+    .hl-signal{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr);margin-top:36px;border-top:4px solid var(--kw-mint-deep,#103f35);border-bottom:1px solid var(--kw-line,#cdbfb3)}
+    .hl-signal-main,.hl-signal-side{padding:22px 24px}.hl-signal-main{background:var(--kw-mint,#dbe9e2)}
+    .hl-signal .cap{display:block;margin-bottom:7px;color:var(--kw-muted,#746b65);font:700 11px/1.4 var(--kw-sans,Arial,sans-serif);letter-spacing:.12em;text-transform:uppercase}
+    .hl-signal strong{display:block;color:var(--kw-mint-deep,#103f35);font:700 28px/1.2 var(--kw-serif,Georgia,serif)}
+    .hl-signal p{margin:8px 0 0;color:var(--kw-muted,#746b65);font:14px/1.55 var(--kw-sans,Arial,sans-serif)}
+    .hl-signal-side{background:#fffaf5}.hl-signal-side strong{color:var(--kw-ink,#262220);font-size:22px}
+    .hl-section{padding:40px clamp(20px,5vw,64px);border-bottom:1px solid var(--kw-line,#cdbfb3)}
+    .hl-section h2{max-width:840px;margin:0;font:700 clamp(26px,3.5vw,40px)/1.12 var(--kw-serif,Georgia,serif);letter-spacing:-.035em}
+    .hl-intro{max-width:880px;margin:12px 0 26px;color:var(--kw-muted,#746b65);font:15px/1.65 var(--kw-sans,Arial,sans-serif)}
+    .hl-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--kw-line,#cdbfb3);border-bottom:1px solid var(--kw-line,#cdbfb3)}
+    .hl-stat{min-height:132px;padding:17px 16px 14px;border-right:1px solid var(--kw-line,#cdbfb3)}.hl-stat:last-child{border-right:0}
+    .hl-stat label{display:block;color:var(--kw-muted,#746b65);font:700 11px/1.4 var(--kw-sans,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase}
+    .hl-stat strong{display:block;margin-top:12px;font:700 28px/1.1 var(--kw-serif,Georgia,serif)}.hl-stat small{display:block;margin-top:7px;color:var(--kw-muted,#746b65);font:12px/1.45 var(--kw-sans,Arial,sans-serif)}
+    .hl-verdicts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:30px;border-top:1px solid var(--kw-line,#cdbfb3)}
+    .hl-verdict{padding:20px 18px 4px 0;margin-right:18px;border-right:1px solid var(--kw-line,#cdbfb3)}.hl-verdict:last-child{border-right:0;margin-right:0}
+    .hl-verdict-index{color:var(--kw-copper,#9a5c38);font:700 12px/1.3 var(--kw-sans,Arial,sans-serif)}
+    .hl-verdict h3{margin:10px 0 8px;font:700 19px/1.25 var(--kw-serif,Georgia,serif)}.hl-verdict p{margin:0;color:var(--kw-muted,#746b65);font:14px/1.6 var(--kw-sans,Arial,sans-serif)}
+    .hl-panel{padding:22px;border:1px solid var(--kw-line,#cdbfb3);background:#fffaf5}.hl-panel+.hl-panel{margin-top:24px}
+    .hl-panel-head{display:flex;justify-content:space-between;gap:20px;align-items:end;flex-wrap:wrap;padding-bottom:15px;border-bottom:1px solid var(--kw-line,#cdbfb3)}
+    .hl-panel h3{margin:0;font:700 23px/1.2 var(--kw-serif,Georgia,serif)}.hl-panel-note{max-width:650px;margin:0;color:var(--kw-muted,#746b65);font:13px/1.5 var(--kw-sans,Arial,sans-serif);text-align:right}
+    .hl-table-wrap{overflow-x:auto;margin-top:16px}.hl-table{width:100%;min-width:1120px;border-collapse:collapse;font:13px/1.4 var(--kw-sans,Arial,sans-serif)}
+    .hl-table th{padding:10px 9px;color:#fffaf5;background:var(--kw-mint-deep,#103f35);font-size:11px;font-weight:700;letter-spacing:.03em;text-align:left;white-space:nowrap}
+    .hl-table th:not(:first-child),.hl-table td:not(:first-child){text-align:right}.hl-table td{padding:10px 9px;border-bottom:1px solid var(--kw-line,#cdbfb3);white-space:nowrap}.hl-table tbody tr:hover{background:#f7eee6}
+    .hl-table .asset{text-align:left;font-weight:700}.hl-table .asset small{display:block;color:var(--kw-muted,#746b65);font-weight:500}.hl-table .primary{font-weight:700}
+    .up{color:#14644f!important}.down{color:#a24d3d!important}.neutral{color:var(--kw-muted,#746b65)!important}.pending{color:var(--kw-copper,#9a5c38)!important;font-weight:700}
+    .hl-inspector{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;padding-top:20px}
+    .hl-select-label{display:block;margin-bottom:8px;color:var(--kw-muted,#746b65);font:700 11px/1.4 var(--kw-sans,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase}
+    .hl-select{width:100%;padding:11px 12px;border:1px solid var(--kw-line,#cdbfb3);border-radius:0;color:var(--kw-ink,#262220);background:#fffaf5;font:600 14px/1.3 var(--kw-sans,Arial,sans-serif)}
+    .hl-inspector h4{margin:0;font:700 22px/1.2 var(--kw-serif,Georgia,serif)}.hl-readouts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:15px;border-top:1px solid var(--kw-line,#cdbfb3);border-left:1px solid var(--kw-line,#cdbfb3)}
+    .hl-readout{min-height:82px;padding:12px;border-right:1px solid var(--kw-line,#cdbfb3);border-bottom:1px solid var(--kw-line,#cdbfb3)}.hl-readout span{display:block;color:var(--kw-muted,#746b65);font:11px/1.35 var(--kw-sans,Arial,sans-serif)}.hl-readout strong{display:block;margin-top:8px;font:700 18px/1.2 var(--kw-serif,Georgia,serif)}
+    .hl-note-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.hl-note-grid h3,.hl-source-grid h3{margin:0 0 10px;font:700 20px/1.25 var(--kw-serif,Georgia,serif)}
+    .hl-note-grid ul,.hl-source-grid ul{margin:0;padding-left:20px}.hl-note-grid li,.hl-source-grid li{margin:0 0 10px;color:var(--kw-muted,#746b65);font:14px/1.6 var(--kw-sans,Arial,sans-serif)}
+    .hl-callout{padding:17px 18px;margin-top:18px;border-left:4px solid var(--kw-copper,#9a5c38);background:#f8eee7;color:var(--kw-ink,#262220);font:14px/1.65 var(--kw-sans,Arial,sans-serif)}
+    .hl-glossary{width:100%;border-collapse:collapse;font:14px/1.5 var(--kw-sans,Arial,sans-serif)}.hl-glossary th{padding:10px;background:var(--kw-mint-deep,#103f35);color:#fffaf5;text-align:left}.hl-glossary td{padding:10px;border-bottom:1px solid var(--kw-line,#cdbfb3);vertical-align:top}.hl-glossary td:first-child{width:26%;font-weight:700}
+    .hl-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.hl-source-grid a{text-decoration:underline;text-underline-offset:3px}.hl-disclaimer{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--kw-line,#cdbfb3);color:var(--kw-muted,#746b65);font:12px/1.65 var(--kw-sans,Arial,sans-serif)}
+    .hl-brand{margin-top:28px;padding-top:20px;border-top:1px solid var(--kw-line,#cdbfb3)}.hl-brand h3{margin:0;font:700 24px/1.1 var(--kw-serif,Georgia,serif)}.hl-brand p{margin:6px 0 0;color:var(--kw-muted,#746b65);font:12px/1.55 var(--kw-sans,Arial,sans-serif)}
+    @media(max-width:860px){.hl-signal,.hl-inspector{grid-template-columns:1fr}.hl-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hl-stat:nth-child(2){border-right:0}.hl-stat:nth-child(-n+2){border-bottom:1px solid var(--kw-line,#cdbfb3)}.hl-verdicts,.hl-note-grid,.hl-source-grid{grid-template-columns:1fr}.hl-verdict{padding-right:0;margin:0;border-right:0;border-bottom:1px solid var(--kw-line,#cdbfb3);padding-bottom:18px;margin-bottom:18px}.hl-verdict:last-child{border-bottom:0;margin-bottom:0}.hl-panel-note{text-align:left}.hl-readouts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:520px){.hl-page{width:calc(100% - 20px)}.hl-hero,.hl-section{padding-left:14px;padding-right:14px}.hl-stats{grid-template-columns:1fr}.hl-stat{border-right:0;border-bottom:1px solid var(--kw-line,#cdbfb3)}.hl-stat:last-child{border-bottom:0}.hl-readouts{grid-template-columns:1fr 1fr}.hl-readout:nth-child(odd){border-right:1px solid var(--kw-line,#cdbfb3)}}
+  </style>
 </head>
 <body class="kw-research">
-  <main class="weekend-page">
-    <header class="weekend-cover">
-      <p class="weekend-kicker">Market Structure · Hyperliquid XYZ · Read-only Monitor</p>
-      <h1>Hyperliquid 周末正股趋势<br><em>仪表盘</em></h1>
-      <p class="weekend-deck">用 Hyperliquid XYZ 股票永续合约的价格、Mark、Oracle、资金费率、未平仓量与成交量，观察周末风险偏好、产业链相对强弱，以及周一正股开盘前可以被验证的方向线索。</p>
-      <div class="weekend-cover-meta">
+  <main class="hl-page">
+    <header class="hl-hero">
+      <p class="hl-kicker">Weekend Gap Reference · Hyperliquid XYZ · Read-only Monitor</p>
+      <h1>周末合约，周一现金开盘前的<br><em>方向参考</em></h1>
+      <p class="hl-deck">主口径已修订为 Hyperliquid Mid Price（合约中间价）相对 Friday Regular-session Cash Close（周五正股常规交易时段现金收盘价）。这是一张开盘前参考看板，不把 Hyperliquid 的 prevDayPx 误读成周五正股收盘价。</p>
+      <div class="hl-meta">
         <span id="snapshot-time">快照时间：载入中</span>
-        <span>采样频率：每 4 小时 · Asia/Hong_Kong</span>
-        <span>覆盖：16 个标的</span>
+        <span>周末采样：每 4 小时 · Asia/Hong_Kong</span>
+        <span>覆盖：16 个合约标的 · 14 个股票目标</span>
         <span>模式：只读，不下单</span>
       </div>
-      <div class="weekend-signal-banner">
-        <div class="weekend-signal-call">
-          <span class="label">Current reading / 当前判读</span>
+      <div class="hl-signal">
+        <div class="hl-signal-main">
+          <span class="cap">Current reference / 当前方向参考</span>
           <strong id="top-signal">载入中</strong>
-          <p id="top-signal-copy">仅代表当前合约横截面的风险偏好，不构成周一正股跳空预测。</p>
+          <p id="top-signal-copy">方向统计仅使用已接入周五正股现金收盘价的目标。</p>
         </div>
-        <div class="weekend-data-state">
-          <span class="label">Data status / 数据状态</span>
+        <div class="hl-signal-side">
+          <span class="cap">Data status / 数据状态</span>
           <strong id="data-status">载入中</strong>
-          <p id="data-status-copy">数据将显示最新快照与质量限制。</p>
+          <p id="data-status-copy">数据将显示现金基线覆盖与合约快照质量。</p>
         </div>
       </div>
     </header>
 
-    <section class="weekend-section" id="overview">
-      <p class="weekend-section-label">01 · Weekend read</p>
-      <h2>先看横截面，再看价格锚点</h2>
-      <p class="weekend-section-intro">这张看板把“价格方向”和“合约结构”分开。价格高于 Hyperliquid 的前一日参考价，只能说明合约自身的相对位置；要计算周一正股跳空，还必须补上 Friday regular-session cash close。</p>
-      <div class="weekend-metrics">
-        <div class="weekend-metric"><label>Positive breadth</label><strong id="metric-breadth">—</strong><small id="metric-breadth-note">高于合约前一日参考价</small></div>
-        <div class="weekend-metric"><label>S&P 500 perp</label><strong id="metric-sp500">—</strong><small>xyz:SP500 mid vs prevDayPx</small></div>
-        <div class="weekend-metric"><label>Nasdaq 100 perp</label><strong id="metric-xyz100">—</strong><small>xyz:XYZ100 mid vs prevDayPx</small></div>
-        <div class="weekend-metric"><label>Memory basket</label><strong id="metric-memory">—</strong><small>SMSN · SKHX · SNDK · DRAM 简单均值</small></div>
+    <section class="hl-section" id="overview">
+      <p class="hl-label">01 · Primary signal / 主指标</p>
+      <h2>先比较周五正股收盘，再看合约结构</h2>
+      <p class="hl-intro">主指标是 <b>Mid vs Friday Cash Close</b>，计算方式为：Hyperliquid Mid Price ÷ 周五正股现金收盘价 − 1。它用于表达周末或周一早合约报价相对周五正股收盘的偏离方向。没有同口径现金基线的标的，不进入上行广度和中位数统计。</p>
+      <div class="hl-stats">
+        <div class="hl-stat"><label>Cash baseline coverage / 现金基线覆盖</label><strong id="metric-coverage">-</strong><small id="metric-coverage-note">股票目标中已取得周五收盘价</small></div>
+        <div class="hl-stat"><label>Median Mid vs Friday / 中位变化</label><strong id="metric-median">-</strong><small>仅统计已覆盖现金基线的目标</small></div>
+        <div class="hl-stat"><label>Positive breadth / 上行广度</label><strong id="metric-breadth">-</strong><small id="metric-breadth-note">Mid 高于周五现金收盘</small></div>
+        <div class="hl-stat"><label>Storage coverage / 存储链覆盖</label><strong id="metric-storage">-</strong><small>MU · SMSN · SKHX · SNDK · DRAM 中，目标存储四项另计</small></div>
       </div>
-      <div class="weekend-verdicts">
-        <article class="weekend-verdict"><span class="weekend-verdict-index">01 / BROAD TONE</span><h3 id="verdict-broad-title">载入中</h3><p id="verdict-broad-copy">—</p></article>
-        <article class="weekend-verdict"><span class="weekend-verdict-index">02 / MEMORY SPREAD</span><h3 id="verdict-memory-title">载入中</h3><p id="verdict-memory-copy">—</p></article>
-        <article class="weekend-verdict"><span class="weekend-verdict-index">03 / STRUCTURE</span><h3 id="verdict-structure-title">载入中</h3><p id="verdict-structure-copy">—</p></article>
+      <div class="hl-verdicts">
+        <article class="hl-verdict"><span class="hl-verdict-index">01 / BROAD TONE</span><h3 id="verdict-broad-title">载入中</h3><p id="verdict-broad-copy">-</p></article>
+        <article class="hl-verdict"><span class="hl-verdict-index">02 / MEMORY CHAIN</span><h3 id="verdict-memory-title">载入中</h3><p id="verdict-memory-copy">-</p></article>
+        <article class="hl-verdict"><span class="hl-verdict-index">03 / ANCHOR DISCIPLINE</span><h3 id="verdict-structure-title">载入中</h3><p id="verdict-structure-copy">-</p></article>
       </div>
     </section>
 
-    <section class="weekend-section" id="cross-section">
-      <p class="weekend-section-label">02 · Cross-section</p>
-      <h2>16 个目标标的的合约状态</h2>
-      <p class="weekend-section-intro">默认按 mid price 相对 Hyperliquid 前一日参考价排序。Mark/Oracle basis、资金费率与 OI 变化用于识别拥挤和定价偏离，不能单独作为交易信号。</p>
-      <div class="weekend-panel">
-        <div class="weekend-panel-head">
+    <section class="hl-section" id="cross-section">
+      <p class="hl-label">02 · Cross-section / 横截面</p>
+      <h2>16 个 Hyperliquid 目标标的</h2>
+      <p class="hl-intro">表格的主排序是相对周五正股现金收盘的变化。Mark Price（标记价）、Oracle Price（预言机价）、Funding Rate（资金费率）、Open Interest（未平仓量）和 prevDayPx（合约前一日参考价）用于补充判断流动性、拥挤度与结构偏离。</p>
+      <div class="hl-panel">
+        <div class="hl-panel-head">
           <h3>目标资产横截面</h3>
-          <p class="weekend-panel-note">价格单位沿用 Hyperliquid 合约报价；成交量为 24 小时名义成交量；OI 变化为相邻快照变化。</p>
+          <p class="hl-panel-note">现金收盘基线：2026-07-31，America/New_York；美国上市标的来自 Alpaca SIP historical stock bars。待接入标的显示为“待接入”，不强行计算。</p>
         </div>
-        <div class="weekend-table-wrap">
-          <table class="weekend-table">
-            <thead><tr><th>标的</th><th>类别</th><th>Mid</th><th>Prev ref.</th><th>Mid vs ref.</th><th>Mark/Oracle</th><th>Funding</th><th>OI Δ</th><th>24h volume</th></tr></thead>
+        <div class="hl-table-wrap">
+          <table class="hl-table">
+            <thead><tr><th>标的 / Asset</th><th>类别 / Type</th><th>Friday cash close / 周五收盘</th><th>HL Mid / 合约中间价</th><th>Mid vs Friday / 主指标</th><th>Mark / Oracle</th><th>Funding / 资金费率</th><th>OI Δ / 未平仓变化</th><th>prevDayPx / 辅助</th></tr></thead>
             <tbody id="asset-table-body"><tr><td colspan="9">载入中</td></tr></tbody>
           </table>
         </div>
       </div>
-      <div class="weekend-panel">
-        <div class="weekend-panel-head">
+      <div class="hl-panel">
+        <div class="hl-panel-head">
           <h3>单一标的观察器</h3>
-          <p class="weekend-panel-note">点击下拉框查看价格、Oracle、资金费率、OI 与成交量；所有字段来自同一份快照。</p>
+          <p class="hl-panel-note">选择一个标的，查看主指标和合约结构字段。prevDayPx 单独列出，仅作为 Hyperliquid 合约自身的辅助参考。</p>
         </div>
-        <div class="weekend-inspector">
+        <div class="hl-inspector">
           <div>
-            <label class="weekend-select-label" for="asset-select">重点标的</label>
-            <select id="asset-select" class="weekend-select"></select>
+            <label class="hl-select-label" for="asset-select">重点标的 / Focus asset</label>
+            <select id="asset-select" class="hl-select"></select>
           </div>
-          <div class="weekend-inspector-copy">
+          <div>
             <h4 id="inspector-title">载入中</h4>
-            <div class="weekend-readouts">
-              <div class="weekend-readout"><span>Mid</span><strong id="readout-mid">—</strong></div>
-              <div class="weekend-readout"><span>Oracle</span><strong id="readout-oracle">—</strong></div>
-              <div class="weekend-readout"><span>Mid vs ref.</span><strong id="readout-return">—</strong></div>
-              <div class="weekend-readout"><span>Mark/Oracle</span><strong id="readout-basis">—</strong></div>
-              <div class="weekend-readout"><span>Funding raw</span><strong id="readout-funding">—</strong></div>
-              <div class="weekend-readout"><span>OI Δ</span><strong id="readout-oi">—</strong></div>
-              <div class="weekend-readout"><span>24h volume</span><strong id="readout-volume">—</strong></div>
-              <div class="weekend-readout"><span>Max leverage</span><strong id="readout-leverage">—</strong></div>
+            <div class="hl-readouts">
+              <div class="hl-readout"><span>Friday cash close / 周五收盘</span><strong id="readout-cash">-</strong></div>
+              <div class="hl-readout"><span>HL Mid / 合约中间价</span><strong id="readout-mid">-</strong></div>
+              <div class="hl-readout"><span>Mid vs Friday / 相对周五</span><strong id="readout-return">-</strong></div>
+              <div class="hl-readout"><span>Mark Price / 标记价</span><strong id="readout-mark">-</strong></div>
+              <div class="hl-readout"><span>Oracle Price / 预言机价</span><strong id="readout-oracle">-</strong></div>
+              <div class="hl-readout"><span>Mark/Oracle basis / 基差</span><strong id="readout-basis">-</strong></div>
+              <div class="hl-readout"><span>Funding raw / 原始资金费率</span><strong id="readout-funding">-</strong></div>
+              <div class="hl-readout"><span>OI Δ / 未平仓变化</span><strong id="readout-oi">-</strong></div>
+              <div class="hl-readout"><span>prevDayPx / 前一日参考</span><strong id="readout-prev">-</strong></div>
+              <div class="hl-readout"><span>Baseline source / 基线来源</span><strong id="readout-source">-</strong></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="weekend-section" id="method">
-      <p class="weekend-section-label">03 · Method & limits</p>
-      <h2>这张看板能回答什么，不能回答什么</h2>
-      <p class="weekend-section-intro">仪表盘定位为“周末风险偏好与相对强弱监测器”。它可以帮助我们发现合约市场的早期定价变化，但不把永续合约报价直接包装成正股开盘预测。</p>
-      <div class="weekend-panel">
-        <ul class="weekend-note-list">
-          <li><b>可以回答：</b>目标标的相对 Hyperliquid 参考价的方向、AI 半导体与存储链的横截面分化、Mark/Oracle basis 是否扩大、资金费率与 OI 是否同向。</li>
-          <li><b>可以回答：</b>周末价格变化是否广泛，还是由单个高波动标的带动；大盘合约是否同步移动。</li>
-          <li><b>暂不能回答：</b>精确的 Friday cash close 到周一正股开盘跳空，因为 Hyperliquid 的 prevDayPx 不是 Friday regular-session close。</li>
-          <li><b>暂不能回答：</b>正股开盘后持续涨跌。夜盘合约可能包含流动性折价、杠杆拥挤和事件驱动溢价。</li>
-          <li><b>采集方式：</b>官方公开 Info API，POST metaAndAssetCtxs，DEX=xyz；不需要 API Key，不启用 Exchange 下单接口。</li>
-          <li><b>邮件口径：</b>周一 08:00 HKT 速览应以最新快照、Friday cash close 和数据质量状态共同生成，缺少现金收盘价时必须明确标记。</li>
-        </ul>
+    <section class="hl-section" id="method">
+      <p class="hl-label">03 · Method & limits / 方法与边界</p>
+      <h2>这张看板回答的是“相对周五收盘的方向”，不是开盘价承诺</h2>
+      <p class="hl-intro">在周六、周日和周一正股开盘前，合约价格可以提供方向参考。真正开盘前的最后一版应在周一 08:00 HKT 速览后继续更新到接近正股开盘。美国夏令时通常在香港时间 21:30 开盘，冬令时通常为 22:30。</p>
+      <div class="hl-note-grid">
+        <div>
+          <h3>Primary comparison / 主比较</h3>
+          <ul>
+            <li><b>Friday Cash Close（周五现金收盘）</b>：正股在 Friday regular session 的收盘价，是本页的基准。</li>
+            <li><b>Mid Price（中间价）</b>：Hyperliquid 合约买一和卖一的中间价，当前方向读数使用它。</li>
+            <li>美国上市目标的现金基线已用 Alpaca SIP consolidated feed（综合市场数据源）的日线收盘价接入，日期为 2026-07-31。</li>
+            <li>Samsung（三星）和 SK hynix（SK 海力士）需要韩国本地市场周五收盘价及 USD/KRW 汇率换算；DRAM 需要同单位、同日期的官方指数收盘价。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contract context / 合约背景</h3>
+          <ul>
+            <li><b>Mark Price（标记价）</b>：用于风险控制和未实现盈亏计算的参考价格。</li>
+            <li><b>Oracle Price（预言机价）</b>：外部价格索引和内部规则组合形成的参考价格。</li>
+            <li><b>Funding Rate（资金费率）</b>：多空双方之间的周期性资金转移，页面保留 API 原始值。</li>
+            <li><b>Open Interest（未平仓量）</b>：尚未平仓的合约名义规模；OI Δ 为相邻快照变化。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="hl-callout"><b>prevDayPx（合约前一日参考价）</b>：它是 Hyperliquid 合约市场自己的前一日参考字段，不等于 Friday regular-session cash close（周五正股现金收盘价）。因此本页只把它放在辅助列，不用它计算主方向、上行广度或周一跳空参考。</div>
+      <div class="hl-panel" style="margin-top:24px">
+        <div class="hl-panel-head"><h3>现金基线待接入项</h3><p class="hl-panel-note">接入后才进入严格的 Mid vs Friday 统计。</p></div>
+        <div class="hl-table-wrap">
+          <table class="hl-table" style="min-width:700px">
+            <thead><tr><th>标的</th><th>当前合约字段保留</th><th>缺少的现金基线</th><th>当前统计处理</th></tr></thead>
+            <tbody>
+              <tr><th class="asset">SMSN<small>Samsung / 三星</small></th><td>Mid、Mark、Oracle、Funding、OI、prevDayPx</td><td>韩国周五本地收盘 + USD/KRW</td><td class="pending">待接入，不计入广度</td></tr>
+              <tr><th class="asset">SKHX<small>SK hynix / SK 海力士</small></th><td>Mid、Mark、Oracle、Funding、OI、prevDayPx</td><td>韩国周五本地收盘 + USD/KRW</td><td class="pending">待接入，不计入广度</td></tr>
+              <tr><th class="asset">DRAM<small>DRAM index / DRAM 指数</small></th><td>Mid、Mark、Oracle、Funding、OI、prevDayPx</td><td>官方 DRAM 指数周五收盘</td><td class="pending">待接入，不计入广度</td></tr>
+              <tr><th class="asset">SP500 · XYZ100<small>benchmark perps / 大盘合约</small></th><td>Mid、Mark、Oracle、Funding、OI、prevDayPx</td><td>直接指数现金基线</td><td class="pending">单独观察，不计入股票广度</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <section class="weekend-section" id="sources">
-      <p class="weekend-section-label">04 · Sources & delivery</p>
-      <h2>来源、更新与交付状态</h2>
-      <div class="weekend-source-grid">
+    <section class="hl-section" id="glossary">
+      <p class="hl-label">04 · Glossary / 术语</p>
+      <h2>英文术语与中文解释</h2>
+      <table class="hl-glossary">
+        <thead><tr><th>English term</th><th>中文解释</th><th>本页用途</th></tr></thead>
+        <tbody>
+          <tr><td>Friday Cash Close</td><td>周五正股现金收盘价</td><td>主基准，回答合约相对周五正股收盘变化多少。</td></tr>
+          <tr><td>Mid Price</td><td>中间价</td><td>Hyperliquid 买一与卖一的中间价，主方向读数。</td></tr>
+          <tr><td>Mark Price</td><td>标记价</td><td>用于风险控制和未实现盈亏的参考价。</td></tr>
+          <tr><td>Oracle Price</td><td>预言机价</td><td>价格索引体系生成的参考价，用来观察合约结构偏离。</td></tr>
+          <tr><td>Funding Rate</td><td>资金费率</td><td>多空之间的周期性资金转移，不能单独代表方向。</td></tr>
+          <tr><td>Open Interest, OI</td><td>未平仓量</td><td>仍在场内的合约规模；OI Δ 表示相邻快照变化。</td></tr>
+          <tr><td>prevDayPx</td><td>合约前一日参考价</td><td>Hyperliquid 合约自身字段，仅作辅助，不是周五正股现金收盘。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="hl-section" id="sources">
+      <p class="hl-label">05 · Sources & delivery / 来源与交付</p>
+      <h2>可复核的来源与当前交付状态</h2>
+      <div class="hl-source-grid">
         <div>
-          <h3>Primary sources</h3>
+          <h3>Primary sources / 主要来源</h3>
           <ul>
-            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api" target="_blank" rel="noopener noreferrer">Hyperliquid API overview</a>：接口边界与主网入口。</li>
-            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint" target="_blank" rel="noopener noreferrer">Info endpoint</a>：只读市场与账户信息接口。</li>
-            <li><a href="https://api.hyperliquid.xyz/info" target="_blank" rel="noopener noreferrer">Hyperliquid Info endpoint</a>：本页快照的机器接口来源。</li>
+            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api" target="_blank" rel="noopener noreferrer">Hyperliquid API overview</a>：API 边界与主网入口。</li>
+            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint" target="_blank" rel="noopener noreferrer">Info endpoint</a>：只读市场信息接口。</li>
+            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint/perpetuals" target="_blank" rel="noopener noreferrer">Perpetuals info endpoint</a>：永续合约元数据与市场字段。</li>
+            <li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/robust-price-indices" target="_blank" rel="noopener noreferrer">Robust price indices</a>：价格索引与预言机背景。</li>
+            <li><a href="https://docs.alpaca.markets/docs/market-data" target="_blank" rel="noopener noreferrer">Alpaca Market Data</a>：美国上市现金市场历史数据入口，本页使用 SIP 日线收盘。</li>
           </ul>
         </div>
         <div>
-          <h3>Current delivery</h3>
+          <h3>Delivery / 交付</h3>
           <ul>
-            <li>页面：响应式、只读、可筛选重点标的。</li>
-            <li>采集：4 小时 HKT 采样脚本已配套，覆盖 16 个标的。</li>
-            <li>状态：<span id="delivery-status">已嵌入最新快照</span>；页面本身是已发布快照，不是浏览器实时连接。</li>
-            <li>后续：补充 Friday 正股收盘价后，才启用严格的 Monday gap 计算。</li>
+            <li>网页：响应式、只读、可筛选重点标的，已按修订口径更新。</li>
+            <li>Hyperliquid：官方公开 Info API，POST metaAndAssetCtxs，DEX=xyz；不需要 API key，不启用下单接口。</li>
+            <li>采集：周六、周日及周一开盘前每 4 小时采样；当前页为嵌入式快照，不是浏览器实时连接。</li>
+            <li>邮件：周一 08:00 HKT 速览应同时带现金基线覆盖率、主指标、待接入项和风险提示。</li>
+            <li>状态：<span id="delivery-status">已嵌入最新快照</span>。</li>
           </ul>
         </div>
       </div>
-      <p class="weekend-disclaimer">投资研究免责声明：本页面用于研究、教育和市场结构观察，不构成对任何证券、基金、数字资产或永续合约的投资建议。Hyperliquid 股票 RWA 永续提供的是 USDC 结算的价格敞口，不代表持有正股、投票权、股息权或公司资产所有权。数据可能持续变化，页面快照以显示时间为准。</p>
-      <div class="weekend-brand">
-        <h3>EnyaClawd</h3>
-        <p class="brand-line">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</p>
-        <p>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</p>
-        <p>Kerwin 负责选题、投资逻辑、研究边界与最终审阅；Enya 负责证据组织、结构化呈现、网页可视化与持续维护。</p>
-      </div>
+      <p class="hl-disclaimer">投资研究免责声明：本页面用于研究、教育和市场结构观察，不构成对任何证券、基金、数字资产或永续合约的投资建议。Hyperliquid 股票 RWA 永续提供的是 USDC 结算的价格敞口，不代表持有正股、投票权、股息权或公司资产所有权。数据可能持续变化，页面快照以显示时间为准。</p>
+      <div class="hl-brand"><h3>EnyaClawd</h3><p>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</p><p>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</p><p>Kerwin 负责选题、投资逻辑、研究边界与最终审阅；Enya 负责证据组织、结构化呈现、网页可视化与持续维护。</p></div>
     </section>
   </main>
 
   <script>
     (function () {
-      var snapshot = {"schemaVersion":1,"observedAtUtc":"2026-08-03T05:32:32.265555+00:00","observedAtHkt":"2026-08-03T13:32:32.265555+08:00","timezone":"Asia/Hong_Kong","cadenceHours":4,"window":"manual","source":"https://api.hyperliquid.xyz/info","dex":"xyz","assets":[{"symbol":"NVDA","coin":"xyz:NVDA","category":"AI半导体","maxLeverage":20,"midPx":202.14,"markPx":202.13,"oraclePx":202.14,"funding":-0.0000020954,"premium":-0.0000049471,"openInterest":788906.6300000002,"dayNtlVlm":18866373.66952001,"dayBaseVlm":94202.675,"prevDayPx":200.27,"impactPxs":[202.12,202.158],"midVsPrevDayPxPct":0.9337394517401343,"markOracleBasisPct":-0.00494706638962672,"changeSincePrevious":{"midPxPct":-0.12105640240136495,"openInterestPct":0.034747993094641494,"fundingChange":0.000005295799999999999}},{"symbol":"AMD","coin":"xyz:AMD","category":"AI半导体","maxLeverage":10,"midPx":487.33,"markPx":487.29,"oraclePx":487.24,"funding":0.00000625,"premium":0.0002175519,"openInterest":16982.224,"dayNtlVlm":8918105.220350001,"dayBaseVlm":18278.404,"prevDayPx":483.24,"impactPxs":[487.268,487.424],"midVsPrevDayPxPct":0.8463703335816586,"markOracleBasisPct":0.010261883260809235,"changeSincePrevious":{"midPxPct":-0.05024867969030122,"openInterestPct":-0.31350759396542305,"fundingChange":0}},{"symbol":"MU","coin":"xyz:MU","category":"存储","maxLeverage":10,"midPx":840.27,"markPx":839.97,"oraclePx":839.74,"funding":0.00000625,"premium":0.000659728,"openInterest":205043.132,"dayNtlVlm":96042635.19739975,"dayBaseVlm":113346.1890000001,"prevDayPx":837.56,"impactPxs":[840.231,840.357],"midVsPrevDayPxPct":0.32355890921247354,"markOracleBasisPct":0.02738943006168615,"changeSincePrevious":{"midPxPct":0.16868231100726216,"openInterestPct":0.01211404078784728,"fundingChange":0}},{"symbol":"TSM","coin":"xyz:TSM","category":"晶圆代工","maxLeverage":10,"midPx":410.245,"markPx":410.19,"oraclePx":409.7,"funding":0.0000624416,"premium":0.0012082011,"openInterest":24200.522,"dayNtlVlm":3385696.0774000003,"dayBaseVlm":8195.032,"prevDayPx":410.99,"impactPxs":[410.14,410.25],"midVsPrevDayPxPct":-0.18126961726562252,"markOracleBasisPct":0.11959970710275769,"changeSincePrevious":{"midPxPct":-0.09497485601568378,"openInterestPct":0.8409957641861698,"fundingChange":-2.471000000000065e-7}},{"symbol":"AVGO","coin":"xyz:AVGO","category":"AI半导体","maxLeverage":10,"midPx":393.545,"markPx":393.42,"oraclePx":393.15,"funding":0.0000198245,"premium":0.0010367544,"openInterest":5347.44,"dayNtlVlm":723750.3352000002,"dayBaseVlm":1837.65,"prevDayPx":392.68,"impactPxs":[393.3882,393.727],"midVsPrevDayPxPct":0.22028114495262763,"markOracleBasisPct":0.06867607783289653,"changeSincePrevious":{"midPxPct":-0.062215901876638835,"openInterestPct":0,"fundingChange":-0.0000111131}},{"symbol":"MSFT","coin":"xyz:MSFT","category":"平台","maxLeverage":20,"midPx":467.275,"markPx":467.37,"oraclePx":467.57,"funding":-0.0000092522,"premium":-0.0006106038,"openInterest":84021.55,"dayNtlVlm":14255873.688689997,"dayBaseVlm":30743.192,"prevDayPx":461.72,"impactPxs":[467.2,467.369],"midVsPrevDayPxPct":1.2031101100233865,"markOracleBasisPct":-0.04277434394849289,"changeSincePrevious":{"midPxPct":-0.1794430855665885,"openInterestPct":-0.034824169472713606,"fundingChange":0.0000015083000000000004}},{"symbol":"AMZN","coin":"xyz:AMZN","category":"平台","maxLeverage":20,"midPx":275.455,"markPx":275.4,"oraclePx":275.36,"funding":0.00000625,"premium":0.0003468187,"openInterest":89623.236,"dayNtlVlm":9324650.144830005,"dayBaseVlm":33971.923,"prevDayPx":271.23,"impactPxs":[275.398,275.513],"midVsPrevDayPxPct":1.5577185414592742,"markOracleBasisPct":0.014526438117368201,"changeSincePrevious":{"midPxPct":-0.04535887945423811,"openInterestPct":-0.003061612269106284,"fundingChange":0}},{"symbol":"META","coin":"xyz:META","category":"平台","maxLeverage":20,"midPx":563.715,"markPx":563.71,"oraclePx":563.5,"funding":0.0000204038,"premium":0.0003496007,"openInterest":106920.918,"dayNtlVlm":8214857.024510002,"dayBaseVlm":14689.122,"prevDayPx":557.73,"impactPxs":[563.674,563.72],"midVsPrevDayPxPct":1.0730998870421171,"markOracleBasisPct":0.03726708074534013,"changeSincePrevious":{"midPxPct":-0.020396218718410353,"openInterestPct":-0.08246023204854236,"fundingChange":0.0000075598}},{"symbol":"GOOGL","coin":"xyz:GOOGL","category":"平台","maxLeverage":20,"midPx":360.165,"markPx":360.14,"oraclePx":359.84,"funding":0.0000325563,"premium":0.0009101267,"openInterest":326223.8199999999,"dayNtlVlm":8978709.578310004,"dayBaseVlm":25046.787,"prevDayPx":355.41,"impactPxs":[360.122,360.213],"midVsPrevDayPxPct":1.3378914493120675,"markOracleBasisPct":0.08337038683858822,"changeSincePrevious":{"midPxPct":0.11953243359694721,"openInterestPct":-0.012780388272626286,"fundingChange":-0.000002701400000000001}},{"symbol":"TSLA","coin":"xyz:TSLA","category":"高波动","maxLeverage":20,"midPx":315.08,"markPx":315.04,"oraclePx":314.92,"funding":0.00000625,"premium":0.0004509082,"openInterest":112039.184,"dayNtlVlm":7917342.413069998,"dayBaseVlm":25236.507,"prevDayPx":311.85,"impactPxs":[315.019,315.105],"midVsPrevDayPxPct":1.0357543690876936,"markOracleBasisPct":0.03810491553410955,"changeSincePrevious":{"midPxPct":0.12870421863826476,"openInterestPct":0.22948460879352872,"fundingChange":0}},{"symbol":"SMSN","coin":"xyz:SMSN","category":"存储","maxLeverage":10,"midPx":168.005,"markPx":167.98,"oraclePx":168.08,"funding":0.0000025599,"premium":-0.000434317,"openInterest":342112.3280000001,"dayNtlVlm":72255452.40951999,"dayBaseVlm":422537.9350000003,"prevDayPx":168.62,"impactPxs":[167.969,168.045],"midVsPrevDayPxPct":-0.364725418099876,"markOracleBasisPct":-0.05949547834366298,"changeSincePrevious":{"midPxPct":0.035725981720213795,"openInterestPct":0.013975725901205216,"fundingChange":-0.0000036901000000000005}},{"symbol":"SKHX","coin":"xyz:SKHX","category":"存储","maxLeverage":10,"midPx":1110.35,"markPx":1110.4,"oraclePx":1108.9,"funding":0.0000689961,"premium":0.0012444765,"openInterest":314343.3840000006,"dayNtlVlm":494397503.3999,"dayBaseVlm":439361.2529999994,"prevDayPx":1119.4,"impactPxs":[1110.16,1110.4],"midVsPrevDayPxPct":-0.8084688225835412,"markOracleBasisPct":0.13526918567949853,"changeSincePrevious":{"midPxPct":0.27544477558023583,"openInterestPct":-0.3575506890554303,"fundingChange":-0.0000014018000000000109}},{"symbol":"SNDK","coin":"xyz:SNDK","category":"存储","maxLeverage":10,"midPx":1250.25,"markPx":1250,"oraclePx":1249.8,"funding":0.00000625,"premium":0.0003600576,"openInterest":95917.8600000001,"dayNtlVlm":93891564.22299996,"dayBaseVlm":75441.074,"prevDayPx":1239,"impactPxs":[1250.1,1250.4],"midVsPrevDayPxPct":0.9079903147699797,"markOracleBasisPct":0.016002560409678068,"changeSincePrevious":{"midPxPct":0.45799686633722914,"openInterestPct":0.07178161312768605,"fundingChange":0}},{"symbol":"DRAM","coin":"xyz:DRAM","category":"存储指数","maxLeverage":20,"midPx":51.5065,"markPx":51.508,"oraclePx":51.508,"funding":0.00000625,"premium":0.0000473713,"openInterest":1266291.7999999998,"dayNtlVlm":94150562.00310017,"dayBaseVlm":1818138.2999999956,"prevDayPx":51.273,"impactPxs":[51.50482,51.51606],"midVsPrevDayPxPct":0.4554053790494006,"markOracleBasisPct":0,"changeSincePrevious":{"midPxPct":0.14971951895315083,"openInterestPct":-1.1242070091311507,"fundingChange":0.0000204781}},{"symbol":"SP500","coin":"xyz:SP500","category":"大盘","maxLeverage":50,"midPx":7530.95,"markPx":7531,"oraclePx":7536.5,"funding":-0.0000265809,"premium":-0.0007339614,"openInterest":92296.494,"dayNtlVlm":111165182.88710004,"dayBaseVlm":14800.966,"prevDayPx":7499.9,"impactPxs":[7530.9,7531.037],"midVsPrevDayPxPct":0.4140055200736015,"markOracleBasisPct":-0.07297817289192432,"changeSincePrevious":{"midPxPct":-0.017259119121115774,"openInterestPct":0.04071367312163954,"fundingChange":-1.1800000000000124e-7}},{"symbol":"XYZ100","coin":"xyz:XYZ100","category":"大盘","maxLeverage":30,"midPx":28505.5,"markPx":28506,"oraclePx":28523,"funding":-0.0000153664,"premium":-0.000600568,"openInterest":8375.3078,"dayNtlVlm":220612333.306,"dayBaseVlm":7756.3776,"prevDayPx":28371,"impactPxs":[28505,28506.74],"midVsPrevDayPxPct":0.4740756406189428,"markOracleBasisPct":-0.059601023735234016,"changeSincePrevious":{"midPxPct":-0.0631058600802814,"openInterestPct":3.6364271264584414,"fundingChange":-0.000003011099999999999}}],"missing":[],"dataQuality":{"assetCount":16,"expectedAssetCount":16,"oracleAndMarkCapturedSeparately":true,"prevDayPxIsNotFridayCashClose":true,"cashMarketFridayCloseRequiredForFinalGapSignal":true}};
-      var assets = snapshot.assets || [];
+      var snapshot = {
+        observedAtUtc: "2026-08-03T06:00:16.897787+00:00",
+        observedAtHkt: "2026-08-03T14:00:16.897787+08:00",
+        source: "https://api.hyperliquid.xyz/info",
+        cadenceHours: 4,
+        assets: [{"symbol":"NVDA","category":"AI半导体","midPx":201.925,"markPx":201.92,"oraclePx":201.92,"funding":6.25e-06,"openInterest":789068.2620000001,"prevDayPx":200.28,"markOracleBasisPct":0,"changeSincePrevious":{"openInterestPct":0.02048810262880174}},{"symbol":"AMD","category":"AI半导体","midPx":486.47,"markPx":486.81,"oraclePx":486.81,"funding":6.25e-06,"openInterest":16999.688,"prevDayPx":483.55,"markOracleBasisPct":0,"changeSincePrevious":{"openInterestPct":0.1028369429115994}},{"symbol":"MU","category":"存储","midPx":839.5,"markPx":839.8,"oraclePx":839.8,"funding":6.25e-06,"openInterest":205095.81,"prevDayPx":838.96,"markOracleBasisPct":0,"changeSincePrevious":{"openInterestPct":0.025691179941578213}},{"symbol":"TSM","category":"晶圆代工","midPx":410.015,"markPx":410.01,"oraclePx":409.5,"funding":6.41064e-05,"openInterest":24437.184,"prevDayPx":411.28,"markOracleBasisPct":0.12454212454211522,"changeSincePrevious":{"openInterestPct":0.9779210547607109}},{"symbol":"AVGO","category":"AI半导体","midPx":394.75,"markPx":394.66,"oraclePx":394.51,"funding":3.74137e-05,"openInterest":5340.5,"prevDayPx":392.34,"markOracleBasisPct":0.03802184988974666,"changeSincePrevious":{"openInterestPct":-0.12978172733120186}},{"symbol":"MSFT","category":"平台","midPx":467.39,"markPx":467.44,"oraclePx":467.58,"funding":-1.24703e-05,"openInterest":83954.752,"prevDayPx":462.28,"markOracleBasisPct":-0.029941400402067053,"changeSincePrevious":{"openInterestPct":-0.07950103277076792}},{"symbol":"AMZN","category":"平台","midPx":274.885,"markPx":274.9,"oraclePx":274.87,"funding":6.25e-06,"openInterest":89490.648,"prevDayPx":271.11,"markOracleBasisPct":0.010914250372895395,"changeSincePrevious":{"openInterestPct":-0.14793931341644528}},{"symbol":"META","category":"平台","midPx":564.625,"markPx":564.48,"oraclePx":564.13,"funding":2.87989e-05,"openInterest":106900.476,"prevDayPx":558.02,"markOracleBasisPct":0.06204243702692125,"changeSincePrevious":{"openInterestPct":-0.019118803300965936}},{"symbol":"GOOGL","category":"平台","midPx":360.865,"markPx":360.88,"oraclePx":360.54,"funding":3.74087e-05,"openInterest":326239.154,"prevDayPx":355.31,"markOracleBasisPct":0.09430298995949382,"changeSincePrevious":{"openInterestPct":0.004700453817285677}},{"symbol":"TSLA","category":"高波动","midPx":314.515,"markPx":314.53,"oraclePx":314.41,"funding":9.2009e-06,"openInterest":112213.858,"prevDayPx":311.69,"markOracleBasisPct":0.038166724976917976,"changeSincePrevious":{"openInterestPct":0.15590438430896914}},{"symbol":"SMSN","category":"存储","midPx":168.285,"markPx":168.34,"oraclePx":168.39,"funding":-2.83251e-05,"openInterest":342165.996,"prevDayPx":168.96,"markOracleBasisPct":-0.02969297464219256,"changeSincePrevious":{"openInterestPct":0.01568724527223342}},{"symbol":"SKHX","category":"存储","midPx":1108.15,"markPx":1106.9,"oraclePx":1104.9,"funding":0.0001229385,"openInterest":312580.17,"prevDayPx":1121.8,"markOracleBasisPct":0.18101185627659166,"changeSincePrevious":{"openInterestPct":-0.560919710656449}},{"symbol":"SNDK","category":"存储","midPx":1251.65,"markPx":1252,"oraclePx":1252,"funding":6.184e-07,"openInterest":95378.028,"prevDayPx":1243.1,"markOracleBasisPct":0,"changeSincePrevious":{"openInterestPct":-0.5628065513555991}},{"symbol":"DRAM","category":"存储指数","midPx":51.4645,"markPx":51.478,"oraclePx":51.478,"funding":6.25e-06,"openInterest":1262422,"prevDayPx":51.335,"markOracleBasisPct":0,"changeSincePrevious":{"openInterestPct":-0.30560096811805826}},{"symbol":"SP500","category":"大盘","midPx":7531.15,"markPx":7531.2,"oraclePx":7535.3,"funding":-1.78028e-05,"openInterest":92448.202,"prevDayPx":7495.8,"markOracleBasisPct":-0.05441057423062334,"changeSincePrevious":{"openInterestPct":0.16437027391311698}},{"symbol":"XYZ100","category":"大盘","midPx":28502.5,"markPx":28503,"oraclePx":28515,"funding":-1.03958e-05,"openInterest":8410.8128,"prevDayPx":28353,"markOracleBasisPct":-0.04208311415044852,"changeSincePrevious":{"openInterestPct":0.423924718324975}}]
+      };
+      var fridayCash = {
+        NVDA:{close:200.75,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        AMD:{close:476.15,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        MU:{close:823.03,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        TSM:{close:404.25,source:"Alpaca SIP · NYSE ADR",date:"2026-07-31"},
+        AVGO:{close:389.28,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        MSFT:{close:464.72,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        AMZN:{close:271.58,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        META:{close:556.71,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        GOOGL:{close:356.13,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        TSLA:{close:311.21,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"},
+        SNDK:{close:1214.83,source:"Alpaca SIP · NASDAQ",date:"2026-07-31"}
+      };
       var names = {
-        NVDA: 'NVDA', AMD: 'AMD', MU: 'Micron', TSM: 'TSMC', AVGO: 'Broadcom', MSFT: 'Microsoft',
-        AMZN: 'Amazon', META: 'Meta', GOOGL: 'Alphabet', TSLA: 'Tesla',
-        SMSN: 'Samsung', SKHX: 'SK hynix', SNDK: 'SanDisk', DRAM: 'DRAM',
-        SP500: 'S&P 500', XYZ100: 'Nasdaq 100'
+        NVDA:"NVIDIA",AMD:"AMD",MU:"Micron",TSM:"TSM ADR",AVGO:"Broadcom",MSFT:"Microsoft",AMZN:"Amazon",META:"Meta",GOOGL:"Alphabet",TSLA:"Tesla",SMSN:"Samsung / 三星",SKHX:"SK hynix / SK 海力士",SNDK:"SanDisk",DRAM:"DRAM index / DRAM 指数",SP500:"S&P 500",XYZ100:"Nasdaq 100"
       };
       var bySymbol = {};
-      assets.forEach(function (item) { bySymbol[item.symbol] = item; });
+      snapshot.assets.forEach(function (a) { bySymbol[a.symbol] = a; });
+      var stockSymbols = ["NVDA","AMD","MU","TSM","AVGO","MSFT","AMZN","META","GOOGL","TSLA","SMSN","SKHX","SNDK","DRAM"];
+      var storageSymbols = ["SMSN","SKHX","SNDK","DRAM"];
+      function el(id){return document.getElementById(id);}
+      function fixed(v,d){return v === null || v === undefined || Number.isNaN(Number(v)) ? "-" : Number(v).toFixed(d);}
+      function price(v){return v === null || v === undefined ? "-" : Number(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:4});}
+      function pct(v,d){return v === null || v === undefined || Number.isNaN(Number(v)) ? "-" : (Number(v)*100).toFixed(d === undefined ? 2 : d) + "%";}
+      function tone(v){return v === null || v === undefined || Number.isNaN(Number(v)) ? "neutral" : Number(v) > 0.00005 ? "up" : Number(v) < -0.00005 ? "down" : "neutral";}
+      function funding(v){return v === null || v === undefined ? "-" : Number(v).toExponential(2) + " (" + (Number(v)*100).toFixed(4) + "%)";}
+      function oi(v){return v === null || v === undefined ? "-" : pct(v);}
+      function baseline(a){return fridayCash[a.symbol] || null;}
+      function changeVsFriday(a){var b=baseline(a);return b ? a.midPx / b.close - 1 : null;}
+      function hktTime(){return snapshot.observedAtHkt.replace("T"," ").replace(/\+.*/,"") + " HKT";}
 
-      function el(id) { return document.getElementById(id); }
-      function pct(value, digits) {
-        if (value === null || value === undefined || isNaN(value)) return '—';
-        var sign = value > 0 ? '+' : '';
-        return sign + Number(value).toFixed(digits === undefined ? 2 : digits) + '%';
-      }
-      function rawFunding(value) {
-        if (value === null || value === undefined || isNaN(value)) return '—';
-        return pct(Number(value) * 100, 4);
-      }
-      function price(value) {
-        if (value === null || value === undefined || isNaN(value)) return '—';
-        return Number(value).toLocaleString('en-US', { maximumFractionDigits: 4 });
-      }
-      function volume(value) {
-        if (value === null || value === undefined || isNaN(value)) return '—';
-        var n = Number(value);
-        if (n >= 1000000000) return (n / 1000000000).toFixed(2) + 'B';
-        if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-        if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-        return n.toFixed(0);
-      }
-      function tone(value) {
-        if (value === null || value === undefined || isNaN(value)) return 'neutral';
-        return value > 0.00001 ? 'positive' : value < -0.00001 ? 'negative' : 'neutral';
-      }
-      function hktTime(iso) {
-        try {
-          return new Intl.DateTimeFormat('zh-HK', { timeZone: 'Asia/Hong_Kong', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(iso)) + ' HKT';
-        } catch (e) { return iso; }
-      }
+      var covered = snapshot.assets.filter(function(a){return stockSymbols.indexOf(a.symbol) >= 0 && baseline(a);});
+      var values = covered.map(changeVsFriday).sort(function(a,b){return a-b;});
+      var median = values.length % 2 ? values[(values.length-1)/2] : (values[values.length/2-1] + values[values.length/2])/2;
+      var positive = covered.filter(function(a){return changeVsFriday(a) > 0;}).length;
+      var storageCovered = storageSymbols.filter(function(s){return fridayCash[s];}).length;
+      var broadTone = median > 0 && positive / Math.max(1,covered.length) >= .7;
 
-      var breadth = assets.filter(function (item) { return Number(item.midVsPrevDayPxPct) > 0; }).length;
-      var sp500 = bySymbol.SP500;
-      var xyz100 = bySymbol.XYZ100;
-      var memorySymbols = ['SMSN', 'SKHX', 'SNDK', 'DRAM'];
-      var memoryAssets = memorySymbols.map(function (symbol) { return bySymbol[symbol]; }).filter(Boolean);
-      var memoryAvg = memoryAssets.reduce(function (sum, item) { return sum + Number(item.midVsPrevDayPxPct || 0); }, 0) / Math.max(1, memoryAssets.length);
-      var broadPositive = breadth / Math.max(1, assets.length);
-      var storageSorted = memoryAssets.slice().sort(function (a, b) { return Number(a.midVsPrevDayPxPct) - Number(b.midVsPrevDayPxPct); });
-      var largestBasis = assets.slice().sort(function (a, b) { return Math.abs(Number(b.markOracleBasisPct || 0)) - Math.abs(Number(a.markOracleBasisPct || 0)); })[0];
+      el("snapshot-time").textContent = "快照时间：" + hktTime();
+      el("data-status").textContent = covered.length + " / " + stockSymbols.length + " 股票基线";
+      el("data-status-copy").textContent = "Hyperliquid 16 / 16 字段完整；" + (stockSymbols.length - covered.length) + " 个股票目标尚缺可比周五现金基线。";
+      el("top-signal").textContent = broadTone ? "偏多参考｜低置信度" : "分化观察｜低置信度";
+      el("top-signal-copy").textContent = "已覆盖 " + covered.length + " 个目标中 " + positive + " 个高于周五正股收盘；不对待接入标的外推结论。";
+      el("metric-coverage").textContent = covered.length + " / " + stockSymbols.length;
+      el("metric-coverage-note").textContent = "美国上市现金基线已接入；SMSN、SKHX、DRAM 待补";
+      el("metric-median").textContent = pct(median);
+      el("metric-breadth").textContent = positive + " / " + covered.length;
+      el("metric-breadth-note").textContent = (positive / Math.max(1,covered.length) * 100).toFixed(0) + "% 高于周五现金收盘";
+      el("metric-storage").textContent = storageCovered + " / " + storageSymbols.length;
+      el("verdict-broad-title").textContent = "已覆盖目标一致偏正";
+      el("verdict-broad-copy").textContent = positive + " / " + covered.length + " 个已覆盖股票目标的 Mid 高于周五正股现金收盘，中位变化为 " + pct(median) + "。这是开盘前方向参考，不是开盘价预测。";
+      el("verdict-memory-title").textContent = "存储链仍不能完整合并";
+      el("verdict-memory-copy").textContent = "SNDK 已有周五现金基线，当前为 " + pct(changeVsFriday(bySymbol.SNDK)) + "；Samsung、SK hynix 和 DRAM 的可比现金基线待接入，暂不把四项合并成方向判断。";
+      el("verdict-structure-title").textContent = "prevDayPx 只做辅助";
+      el("verdict-structure-copy").textContent = "Mark、Oracle、Funding 和 OI 用来识别合约结构。prevDayPx 是合约前一日参考字段，不等于周五正股现金收盘，已从主统计移出。";
 
-      el('snapshot-time').textContent = '快照时间：' + hktTime(snapshot.observedAtUtc);
-      el('data-status').textContent = (snapshot.missing || []).length ? '部分缺失' : '16 / 16 完整';
-      el('data-status-copy').textContent = (snapshot.missing || []).length ? '缺失：' + snapshot.missing.join(', ') : 'Mark、Oracle、资金费率、OI 与成交量均已记录。';
-      el('metric-breadth').textContent = breadth + ' / ' + assets.length;
-      el('metric-breadth-note').textContent = (broadPositive * 100).toFixed(0) + '% 高于合约前一日参考价';
-      el('metric-sp500').textContent = pct(sp500 && sp500.midVsPrevDayPxPct);
-      el('metric-xyz100').textContent = pct(xyz100 && xyz100.midVsPrevDayPxPct);
-      el('metric-memory').textContent = pct(memoryAvg);
-
-      var reading = broadPositive >= .7 && sp500 && Number(sp500.midVsPrevDayPxPct) > 0
-        ? '轻度偏多，低置信度'
-        : broadPositive <= .35 ? '偏空，低置信度' : '分化，中性观察';
-      el('top-signal').textContent = reading;
-      el('top-signal-copy').textContent = '合约横截面偏正，但存储链分化，且当前锚点不是 Friday 正股收盘价。';
-      el('verdict-broad-title').textContent = '风险偏好略偏正';
-      el('verdict-broad-copy').textContent = breadth + ' / ' + assets.length + ' 个目标的 mid 高于各自 prevDayPx；S&P 500 与 Nasdaq 100 合约分别为 ' + pct(sp500 && sp500.midVsPrevDayPxPct) + '、' + pct(xyz100 && xyz100.midVsPrevDayPxPct) + '。这更像广义风险偏好的轻度改善。';
-      el('verdict-memory-title').textContent = '存储链没有同步上行';
-      el('verdict-memory-copy').textContent = '四项简单均值为 ' + pct(memoryAvg) + '，但 SMSN ' + pct(bySymbol.SMSN && bySymbol.SMSN.midVsPrevDayPxPct) + '、SKHX ' + pct(bySymbol.SKHX && bySymbol.SKHX.midVsPrevDayPxPct) + '，与 SNDK ' + pct(bySymbol.SNDK && bySymbol.SNDK.midVsPrevDayPxPct) + '、DRAM ' + pct(bySymbol.DRAM && bySymbol.DRAM.midVsPrevDayPxPct) + ' 形成明显分化。';
-      el('verdict-structure-title').textContent = '锚点仍需外部补齐';
-      el('verdict-structure-copy').textContent = '当前最大绝对 Mark/Oracle basis 为 ' + (largestBasis ? names[largestBasis.symbol] + ' ' + pct(largestBasis.markOracleBasisPct, 3) : '—') + '。在拿到 Friday cash close 前，不把 prevDayPx 解释为周一跳空幅度。';
-
-      assets.slice().sort(function (a, b) { return Number(b.midVsPrevDayPxPct) - Number(a.midVsPrevDayPxPct); }).forEach(function (item) {
-        var tr = document.createElement('tr');
-        var changeClass = tone(item.midVsPrevDayPxPct);
-        var basisClass = tone(item.markOracleBasisPct);
-        var oiChange = item.changeSincePrevious ? item.changeSincePrevious.openInterestPct : null;
-        tr.innerHTML =
-          '<th scope="row" class="asset-name">' + names[item.symbol] + '<small>' + item.symbol + '</small></th>' +
-          '<td>' + (item.category || '—') + '</td>' +
-          '<td>' + price(item.midPx) + '</td>' +
-          '<td>' + price(item.prevDayPx) + '</td>' +
-          '<td class="' + changeClass + '">' + pct(item.midVsPrevDayPxPct) + '</td>' +
-          '<td class="' + basisClass + '">' + pct(item.markOracleBasisPct, 3) + '</td>' +
-          '<td class="' + tone(Number(item.funding || 0)) + '">' + rawFunding(item.funding) + '</td>' +
-          '<td class="' + tone(oiChange) + '">' + pct(oiChange) + '</td>' +
-          '<td>' + volume(item.dayNtlVlm) + '</td>';
-        el('asset-table-body').appendChild(tr);
+      function rowHtml(a){
+        var b=baseline(a), ch=changeVsFriday(a), oiCh=a.changeSincePrevious && a.changeSincePrevious.openInterestPct;
+        var cash=b ? price(b.close) : '<span class="pending">待接入</span>';
+        var main=b ? '<span class="' + tone(ch) + '">' + pct(ch) + '</span>' : '<span class="pending">待接入</span>';
+        var source=b ? b.source : "需本地市场收盘与汇率";
+        return '<tr title="' + source + '">' +
+          '<th scope="row" class="asset">' + names[a.symbol] + '<small>' + a.symbol + '</small></th>' +
+          '<td>' + a.category + '</td>' +
+          '<td>' + cash + '</td>' +
+          '<td>' + price(a.midPx) + '</td>' +
+          '<td class="primary">' + main + '</td>' +
+          '<td>' + price(a.markPx) + ' / ' + price(a.oraclePx) + '<br><small class="' + tone(a.markOracleBasisPct) + '">' + pct(a.markOracleBasisPct,3) + '</small></td>' +
+          '<td class="' + tone(a.funding) + '">' + funding(a.funding) + '</td>' +
+          '<td class="' + tone(oiCh) + '">' + oi(oiCh) + '</td>' +
+          '<td>' + price(a.prevDayPx) + '</td></tr>';
+      }
+      var sorted = snapshot.assets.slice().sort(function(a,b){
+        var ac=changeVsFriday(a),bc=changeVsFriday(b);
+        if(ac === null && bc !== null) return 1;
+        if(ac !== null && bc === null) return -1;
+        return (bc === null ? 0 : bc) - (ac === null ? 0 : ac);
       });
+      el("asset-table-body").innerHTML = sorted.map(rowHtml).join("");
 
-      var select = el('asset-select');
-      assets.forEach(function (item) {
-        var option = document.createElement('option');
-        option.value = item.symbol;
-        option.textContent = names[item.symbol] + ' · ' + item.symbol;
-        select.appendChild(option);
-      });
-
-      function renderInspector(symbol) {
-        var item = bySymbol[symbol] || assets[0];
-        if (!item) return;
-        var oiChange = item.changeSincePrevious ? item.changeSincePrevious.openInterestPct : null;
-        el('inspector-title').textContent = names[item.symbol] + ' · ' + item.category;
-        el('readout-mid').textContent = price(item.midPx);
-        el('readout-oracle').textContent = price(item.oraclePx);
-        el('readout-return').textContent = pct(item.midVsPrevDayPxPct);
-        el('readout-basis').textContent = pct(item.markOracleBasisPct, 3);
-        el('readout-funding').textContent = rawFunding(item.funding);
-        el('readout-oi').textContent = pct(oiChange);
-        el('readout-volume').textContent = volume(item.dayNtlVlm);
-        el('readout-leverage').textContent = item.maxLeverage ? item.maxLeverage + '×' : '—';
+      var select=el("asset-select");
+      snapshot.assets.forEach(function(a){var o=document.createElement("option");o.value=a.symbol;o.textContent=names[a.symbol] + " · " + a.symbol;select.appendChild(o);});
+      function renderInspector(symbol){
+        var a=bySymbol[symbol], b=baseline(a), ch=changeVsFriday(a), oiCh=a.changeSincePrevious && a.changeSincePrevious.openInterestPct;
+        el("inspector-title").textContent = names[a.symbol] + " · " + a.category;
+        el("readout-cash").textContent = b ? price(b.close) : "待接入";
+        el("readout-cash").className = b ? "" : "pending";
+        el("readout-mid").textContent = price(a.midPx);
+        el("readout-return").textContent = b ? pct(ch) : "待接入";
+        el("readout-return").className = b ? tone(ch) : "pending";
+        el("readout-mark").textContent = price(a.markPx);
+        el("readout-oracle").textContent = price(a.oraclePx);
+        el("readout-basis").textContent = pct(a.markOracleBasisPct,3);
+        el("readout-funding").textContent = funding(a.funding);
+        el("readout-oi").textContent = oi(oiCh);
+        el("readout-prev").textContent = price(a.prevDayPx);
+        el("readout-source").textContent = b ? b.source : "待接入";
       }
-      select.addEventListener('change', function () { renderInspector(select.value); });
-      select.value = 'NVDA';
-      renderInspector('NVDA');
-      el('delivery-status').textContent = '已嵌入 ' + hktTime(snapshot.observedAtUtc) + ' 的快照';
+      select.addEventListener("change",function(){renderInspector(select.value);});
+      select.value="NVDA";renderInspector("NVDA");
+      el("delivery-status").textContent = "已嵌入 " + hktTime() + "；周五现金基线日期为 2026-07-31";
     }());
   </script>
   <script defer src="/assets/kerwin-system-v2.js?v=20260803"></script>
 </body>
 </html>
-
