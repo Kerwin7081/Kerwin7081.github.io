@@ -79,7 +79,12 @@ function nearestFx(points, date) {
 }
 
 async function collectAdditionalBaselines() {
-  const fx = await yahooChart("KRW=X");
+  let fx = [];
+  try {
+    fx = await yahooChart("KRW=X");
+  } catch (error) {
+    console.warn(`USD/KRW baseline unavailable: ${error.message}`);
+  }
   const baselines = {};
   for (const [symbol, ticker] of Object.entries(KOREAN_TARGETS)) {
     try {
