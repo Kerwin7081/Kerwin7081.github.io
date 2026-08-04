@@ -11,6 +11,7 @@ const TARGETS = [
 
 const KOREAN_TARGETS = { SMSN: "005930.KS", SKHX: "000660.KS" };
 const ETF_TARGETS = { DRAM: "DRAM" };
+const INDEX_TARGETS = { SP500: "^GSPC", XYZ100: "^NDX" };
 
 const CATEGORIES = {
   NVDA: "AI半导体", AMD: "AI半导体", MU: "存储", TSM: "晶圆代工", AVGO: "AI半导体",
@@ -118,6 +119,22 @@ async function collectAdditionalBaselines() {
       };
     } catch (error) {
       console.warn(`ETF baseline skipped for ${symbol}: ${error.message}`);
+    }
+  }
+  for (const [symbol, ticker] of Object.entries(INDEX_TARGETS)) {
+    try {
+      const close = lastFriday(await yahooChart(ticker));
+      if (!close) continue;
+      baselines[symbol] = {
+        close: Number(close.close.toFixed(4)),
+        date: close.date,
+        source: `Yahoo Finance · ${ticker} cash index close`,
+        comparable: true,
+        currency: "USD",
+        instrument: symbol === "SP500" ? "S&P 500 Index" : "Nasdaq 100 Index"
+      };
+    } catch (error) {
+      console.warn(`Index baseline skipped for ${symbol}: ${error.message}`);
     }
   }
   return baselines;
