@@ -87,6 +87,22 @@
       "comparable": true,
       "currency": "USD",
       "instrument": "Roundhill Memory ETF"
+    },
+    "SP500": {
+      "close": 7489.7202,
+      "date": "2026-07-31",
+      "source": "Yahoo Finance · ^GSPC cash index close",
+      "comparable": true,
+      "currency": "USD",
+      "instrument": "S&P 500 Index"
+    },
+    "XYZ100": {
+      "close": 28274.1992,
+      "date": "2026-07-31",
+      "source": "Yahoo Finance · ^NDX cash index close",
+      "comparable": true,
+      "currency": "USD",
+      "instrument": "Nasdaq 100 Index"
     }
   },
   "assets": [
