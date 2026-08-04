@@ -2,7 +2,6 @@ import fs from "node:fs";
 
 const ENDPOINT = "https://api.hyperliquid.xyz/info";
 const YAHOO_ENDPOINT = "https://query2.finance.yahoo.com/v8/finance/chart/";
-const DRAM_ENDPOINT = "https://www.dramexchange.com/";
 const DATA_PATH = "hyperliquid-weekend-stock-signal-20260803/data/latest.json";
 
 const TARGETS = [
@@ -11,6 +10,7 @@ const TARGETS = [
 ];
 
 const KOREAN_TARGETS = { SMSN: "005930.KS", SKHX: "000660.KS" };
+const ETF_TARGETS = { DRAM: "DRAM" };
 
 const CATEGORIES = {
   NVDA: "AI半导体", AMD: "AI半导体", MU: "存储", TSM: "晶圆代工", AVGO: "AI半导体",
@@ -41,28 +41,6 @@ async function yahooChart(symbol) {
     date: dateKey(timestamp, result.meta?.exchangeTimezoneName || "UTC"),
     close: numberOrNull(quote.close?.[index])
   })).filter((point) => point.close !== null);
-}
-
-async function dramSpot() {
-  const response = await fetch(DRAM_ENDPOINT, {
-    headers: { "user-agent": "Mozilla/5.0 KerwinResearch/1.0" }
-  });
-  if (!response.ok) throw new Error(`DRAMeXchange ${response.status}`);
-  const html = await response.text();
-  const marker = "DDR5 16Gb (2Gx8) 4800/5600";
-  const start = html.indexOf(marker);
-  if (start < 0) throw new Error("DRAMeXchange DDR5 16Gb row not found");
-  const snippet = html.slice(start, start + 3600);
-  const values = [...snippet.matchAll(/<td[^>]*class="tab_tr_gray"[^>]*>\s*([0-9.]+)\s*<\/td>/g)]
-    .map((match) => Number(match[1]))
-    .filter(Number.isFinite);
-  if (values.length < 5) throw new Error("DRAMeXchange session average not found");
-  const update = html.match(/Last Update:\s*([^<]+)/i)?.[1]?.replace(/\s+/g, " ").trim() || null;
-  return {
-    close: values[4],
-    label: "DDR5 16Gb (2Gx8) 4800/5600",
-    update
-  };
 }
 
 function numberOrNull(value) {
@@ -100,7 +78,7 @@ function nearestFx(points, date) {
   return points.filter((point) => point.date <= date).at(-1) || points.at(-1) || null;
 }
 
-async function collectKoreanBaselines() {
+async function collectAdditionalBaselines() {
   const fx = await yahooChart("KRW=X");
   const baselines = {};
   for (const [symbol, ticker] of Object.entries(KOREAN_TARGETS)) {
@@ -121,19 +99,23 @@ async function collectKoreanBaselines() {
       console.warn(`Korean baseline skipped for ${symbol}: ${error.message}`);
     }
   }
+  for (const [symbol, ticker] of Object.entries(ETF_TARGETS)) {
+    try {
+      const close = lastFriday(await yahooChart(ticker));
+      if (!close) continue;
+      baselines[symbol] = {
+        close: Number(close.close.toFixed(4)),
+        date: close.date,
+        source: `Yahoo Finance · ${ticker} (Roundhill Memory ETF)`,
+        comparable: true,
+        currency: "USD",
+        instrument: "Roundhill Memory ETF"
+      };
+    } catch (error) {
+      console.warn(`ETF baseline skipped for ${symbol}: ${error.message}`);
+    }
+  }
   return baselines;
-}
-
-function dramFridayBaseline(history) {
-  const friday = history.filter((point) => point.observedDate && isFriday(point.observedDate)).at(-1);
-  return friday ? {
-    close: friday.close,
-    date: friday.observedDate,
-    source: `DRAMeXchange · ${friday.label} session average`,
-    comparable: false,
-    proxy: true,
-    proxyLabel: friday.label
-  } : null;
 }
 
 const [metaAndContexts, mids] = await Promise.all([
@@ -176,35 +158,15 @@ const previousAssets = Array.isArray(existing.assets)
   : (existing.history?.at(-1)?.assets || []);
 const history = [...(Array.isArray(existing.history) ? existing.history : []), { observedAtUtc, assets }].slice(-200);
 
-let koreanBaselines = {};
+let additionalBaselines = {};
 try {
-  koreanBaselines = await collectKoreanBaselines();
+  additionalBaselines = await collectAdditionalBaselines();
 } catch (error) {
-  console.warn(`Korean baselines unavailable: ${error.message}`);
+  console.warn(`Additional cash baselines unavailable: ${error.message}`);
 }
 
-let dramCurrent = null;
-try {
-  dramCurrent = await dramSpot();
-} catch (error) {
-  console.warn(`DRAMeXchange unavailable: ${error.message}`);
-}
-
-const dramHistory = [...(Array.isArray(existing.dramHistory) ? existing.dramHistory : [])];
-if (dramCurrent) {
-  dramHistory.push({
-    observedAtUtc,
-    observedAtHkt,
-    observedDate,
-    close: dramCurrent.close,
-    label: dramCurrent.label,
-    update: dramCurrent.update
-  });
-}
-const trimmedDramHistory = dramHistory.slice(-200);
-const cashBaseline = { ...(existing.cashBaseline || {}), ...koreanBaselines };
-const fridayDram = dramFridayBaseline(trimmedDramHistory);
-if (fridayDram) cashBaseline.DRAM = fridayDram;
+const cashBaseline = { ...(existing.cashBaseline || {}), ...additionalBaselines };
+if (cashBaseline.DRAM?.proxy || cashBaseline.DRAM?.comparable === false) delete cashBaseline.DRAM;
 
 const next = {
   schema_version: 1,
@@ -217,10 +179,8 @@ const next = {
   cashBaseline,
   assets,
   previousAssets: Object.fromEntries(previousAssets.map((asset) => [asset.symbol, asset])),
-  history,
-  dramHistory: trimmedDramHistory,
-  currentDramSpot: dramCurrent
+  history
 };
 
 fs.writeFileSync(DATA_PATH, `${JSON.stringify(next, null, 2)}\n`);
-console.log(`Saved ${assets.length} assets at ${observedAtUtc}; history=${history.length}; Korean baselines=${Object.keys(koreanBaselines).join(",") || "none"}; DRAM=${dramCurrent?.close ?? "none"}`);
+console.log(`Saved ${assets.length} assets at ${observedAtUtc}; history=${history.length}; cash baselines=${Object.keys(additionalBaselines).join(",") || "none"}; DRAM=${cashBaseline.DRAM?.close ?? "none"}`);
