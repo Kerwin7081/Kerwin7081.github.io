@@ -1,0 +1,54 @@
+name: Publish SpaceX research page
+
+on:
+  push:
+    paths:
+      - '.publish-tmp/spacex-new-beginning-20260805/publish.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Assemble standalone page
+        run: |
+          cat .publish-tmp/spacex-new-beginning-20260805/part*.txt > spacex-new-beginning-20260805/index.html
+          test -s spacex-new-beginning-20260805/index.html
+
+      - name: Audit production page
+        run: python3 tools/audit_pages.py spacex-new-beginning-20260805/index.html --root .
+
+      - name: Approve homepage registry entry
+        run: >-
+          python3 tools/homepage_registry.py approve
+          --slug spacex-new-beginning-20260805
+          --title "全新起点的 SpaceX"
+          --date "2026年8月5日"
+          --deck "IPO之后，SpaceX第一次以公开公司身份交出季度答卷。真正需要重估的，是Starlink现金流、Starship运力、AI算力与资本市场共同构成的基础设施闭环。"
+          --tag "Space, Connectivity & AI Infrastructure"
+          --source enya
+          --published-at "2026-08-05T13:34:00+08:00"
+          --category "Space, Connectivity & AI Infrastructure"
+          --featured-rank 1
+
+      - name: Remove staging files
+        run: |
+          rm -rf .publish-tmp/spacex-new-beginning-20260805
+          rm -f .github/workflows/publish-spacex-page.yml
+
+      - name: Commit publication
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "publish SpaceX new beginning research"
+          git push
