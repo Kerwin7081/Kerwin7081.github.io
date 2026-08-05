@@ -1,0 +1,73 @@
+name: Publish SpaceX research expansion
+
+on:
+  push:
+    paths:
+      - '.publish-tmp/spacex-new-beginning-20260805-v2/publish.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Decode and apply validated patch
+        run: |
+          cat \
+            .publish-tmp/spacex-new-beginning-20260805-v2/patch00_aa \
+            .publish-tmp/spacex-new-beginning-20260805-v2/patch00_ab \
+            .publish-tmp/spacex-new-beginning-20260805-v2/patchpart01 \
+            > /tmp/spacex-v2.patch.gz.b64
+          base64 -d /tmp/spacex-v2.patch.gz.b64 | gunzip > /tmp/spacex-v2.patch
+          patch --dry-run spacex-new-beginning-20260805/index.html < /tmp/spacex-v2.patch
+          patch spacex-new-beginning-20260805/index.html < /tmp/spacex-v2.patch
+
+      - name: Update page metadata
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('spacex-new-beginning-20260805/meta.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          data['summary'] = 'IPO之后，SpaceX第一次以公开公司身份交出季度答卷。专题精细拆解Starlink Mobile、V3卫星、AI算力资产与现金流、StarMind轨道计算和Starship运力共同构成的基础设施闭环。'
+          data['updated_at'] = '2026-08-05T14:15:00+08:00'
+          data['mobile_qa_version'] = '2026-08-05-chromium-360-390-768-1440-v2'
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Audit production page
+        run: python3 tools/audit_pages.py spacex-new-beginning-20260805/index.html --root .
+
+      - name: Refresh homepage registry entry
+        run: >-
+          python3 tools/homepage_registry.py approve
+          --slug spacex-new-beginning-20260805
+          --title "全新起点的 SpaceX"
+          --date "2026年8月5日"
+          --deck "IPO之后，SpaceX第一次以公开公司身份交出季度答卷。专题精细拆解Starlink Mobile、V3卫星、AI算力资产与现金流、StarMind轨道计算和Starship运力共同构成的基础设施闭环。"
+          --tag "Space, Connectivity & AI Infrastructure"
+          --source enya
+          --published-at "2026-08-05T13:34:00+08:00"
+          --category "Space, Connectivity & AI Infrastructure"
+          --featured-rank 1
+
+      - name: Remove staging files
+        run: |
+          rm -rf .publish-tmp/spacex-new-beginning-20260805-v2
+          rm -f .github/workflows/publish-spacex-v2.yml
+
+      - name: Commit expanded publication
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "expand SpaceX mobile AI V3 StarMind analysis"
+          git push
