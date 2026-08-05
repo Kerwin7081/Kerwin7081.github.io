@@ -2,12 +2,12 @@
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#103f35">
 <meta name="description" content="以中际旭创为切入点，沿InP材料、CW激光器、低损耗封装、硅光制造、光模块、CPO与光学I/O梳理全球光互联产业链，并分析NVIDIA Rubin、美国政府产业政策与马斯克Mesh布局。">
 <meta name="author" content="Kerwin / Enya">
 <meta name="article:published_time" content="2026-08-01T19:34:00+08:00">
-<meta name="article:modified_time" content="2026-08-01T20:18:00+08:00">
+<meta name="article:modified_time" content="2026-08-05T10:58:00+08:00">
 <meta name="kerwin-web-version" content="3.4.1">
 <meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
 <meta name="layout-id" content="kerwin-editorial-research-v1">
@@ -31,6 +31,87 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 @media(max-width:960px){.cover-grid{grid-template-columns:1fr}.cover-seal{width:150px}.verdict,.metrics{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr)}.chain-row{grid-template-columns:110px 1fr}.companies{grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}.capital,.policy,.watch{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.site-shell{width:100%;margin:0;box-shadow:none}.topbar{padding:9px 18px}.topbar span:last-child{display:none}.masthead{grid-template-columns:1fr auto;padding:14px 20px}.nav{display:none}.cover{padding:34px 22px 31px}.cover h1{font-size:clamp(28px,8.3vw,34px)}.cover h1 span{font-size:clamp(22px,6.7vw,27px)}.cover-seal{width:132px;padding:17px 13px}.scope,.section,.enya{padding:34px 22px}.two{grid-template-columns:1fr}.three,.related{grid-template-columns:1fr}.gate-body{grid-template-columns:1fr;gap:25px;padding:36px}.gate-seal{width:108px}.footer-line{display:block}.footer-line div+div{margin-top:9px}}
 @media(max-width:520px){body{font-size:16px;line-height:1.86}.section h2{font-size:29px}.section h3{font-size:20px}.lead{font-size:17px}.verdict,.metrics,.capital,.policy,.watch,.flow{grid-template-columns:1fr}.verdict>div{border-right:0;border-bottom:1px solid var(--line)}table{font-size:14px}.chain-row{grid-template-columns:92px 1fr}.level{padding:11px;font-size:10px}.function{padding:12px}.cover h1{font-size:clamp(27px,8vw,31px)}.cover h1 span{font-size:clamp(21px,6.5vw,25px)}}
+
+/* MOBILE-REBUILD-20260805 */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video{max-width:100%;height:auto}
+@media(max-width:760px){
+  body{font-size:16px;line-height:1.8}
+  .kw-editorial-gate{display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));overflow:hidden}
+  .gate-paper{width:min(100%,420px);max-width:100%;max-height:calc(100svh - 24px);overflow:auto;border-top-width:4px}
+  .gate-head{display:block;padding:10px 16px;font-size:9px;line-height:1.45;white-space:normal;overflow-wrap:anywhere}
+  .gate-head span:last-child{display:none}
+  .gate-body{grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start;min-height:0;padding:24px 18px 20px}
+  .gate-body>*{min-width:0}
+  .gate-seal{width:72px;font-size:13px;line-height:1.15}
+  .gate-kicker{font-size:9px;letter-spacing:.12em}
+  .gate-title{max-width:100%;margin-top:7px;font-size:clamp(23px,7vw,29px);line-height:1.14;letter-spacing:-.015em;overflow-wrap:anywhere}
+  .gate-copy{margin:10px 0 13px;font-size:14px;line-height:1.55}
+  .gate-field{min-height:44px;gap:0}
+  .gate-field input{width:100%;height:42px;padding:0;font-size:23px}
+  .gate-field span{display:none}
+  .gate-foot{display:block;padding:10px 16px;font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+  .gate-foot span:last-child{display:none}
+  .site-shell{width:100%;margin:0;box-shadow:none}
+  .topbar{padding:8px 20px;font-size:9px}
+  .topbar span:last-child{display:none}
+  .masthead{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:12px 20px}
+  .masthead>*{min-width:0}
+  .nav{display:none}
+  .brand{font-size:23px}
+  .brand small{margin-top:5px;font-size:8px}
+  .home{font-size:12px;white-space:nowrap}
+  .cover{padding:27px 20px 24px}
+  .cover-grid{grid-template-columns:1fr;gap:16px}
+  .eyebrow{margin-bottom:12px;font-size:9px;line-height:1.5;letter-spacing:.12em}
+  .cover h1{font-size:clamp(24px,7vw,28px);line-height:1.18;letter-spacing:-.012em;overflow-wrap:anywhere}
+  .cover h1 span{margin-top:12px;font-size:clamp(18px,5.2vw,21px);line-height:1.34}
+  .thesis{margin-top:17px;font-size:16px;line-height:1.72}
+  .cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin-top:20px;padding-top:14px;font-size:11px;line-height:1.55}
+  .cover-meta span:last-child{grid-column:1/-1}
+  .cover-seal{display:none}
+  .scope{padding:14px 20px;font-size:12px;line-height:1.7}
+  .section,.enya{padding:30px 20px}
+  .section h2{font-size:clamp(23px,6.4vw,26px);line-height:1.25}
+  .section h3{margin-top:24px;font-size:19px}
+  .lead{font-size:16px;line-height:1.72}
+  .two,.three,.related{grid-template-columns:1fr}
+  .verdict,.metrics,.capital,.policy,.watch,.flow{grid-template-columns:1fr}
+  .verdict>div{border-right:0;border-bottom:1px solid var(--line)}
+  .flow>div{min-height:0;border-right:0;border-bottom:1px solid var(--line)}
+  .flow>div:last-child{border-bottom:0}
+  .related a{border-right:0;border-bottom:1px solid var(--line)}
+  .related a:last-child{border-bottom:0}
+  .roles{grid-template-columns:1fr}
+  .footer{padding:20px}
+  .footer-line{display:block}
+  .footer-line>div:last-child{margin-top:10px}
+  .table-wrap{max-width:100%;-webkit-overflow-scrolling:touch}
+  .tools,.tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .tools button,.tabs button{flex:0 0 auto;min-height:40px}
+}
+@media(max-width:520px){
+  .chain-row{grid-template-columns:1fr}
+  .level{min-height:42px;padding:10px 13px}
+  .function{padding:13px}
+  .companies{grid-column:auto;padding:11px 13px}
+  .cover-meta{grid-template-columns:1fr}
+  .cover-meta span:last-child{grid-column:auto}
+  .policy>div{padding:18px}
+  .dark{padding:21px}
+}
+@media(max-width:360px){
+  .kw-editorial-gate{padding:8px}
+  .gate-paper{max-height:calc(100svh - 16px)}
+  .gate-body{grid-template-columns:60px minmax(0,1fr);gap:13px;padding:20px 15px 17px}
+  .gate-seal{width:60px;font-size:11px}
+  .gate-title{font-size:22px}
+  .cover,.section,.enya{padding-left:17px;padding-right:17px}
+  .masthead{padding-left:17px;padding-right:17px}
+  .brand{font-size:21px}
+  .home{font-size:11px}
+}
+
 </style>
 </head>
 <body class="kw-gate-pending">
@@ -39,7 +120,7 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 <div class="site-shell">
 <div class="topbar"><span>AI Infrastructure & Optical Interconnect</span><span>Updated · 2026-08-01 20:18 HKT</span></div>
 <header class="masthead"><a class="brand" href="/">EnyaClawd<small>Kerwin Research Hub</small></a><nav class="nav" aria-label="页内导航"><a href="#chain">产业链</a><a href="#innolight">中际旭创</a><a href="#nvidia">NVIDIA</a><a href="#policy">美国政策</a><a href="#mesh">Mesh</a></nav><a class="home" href="/">研究首页</a></header>
-<section class="cover"><div class="cover-grid"><div><div class="eyebrow">Global Optical Interconnect Panorama</div><h1>以中际旭创为切入点的光互联全球全景图<span>从InP光源到Rubin：产业链、资本与供应链备份</span></h1><p class="thesis">中际旭创提供了观察AI光互联商业化的最佳入口，但完整判断必须继续向上游光源与材料、横向硅光制造与先进封装、向下游光学I/O和系统协议延伸。NVIDIA、美国政府与马斯克的动作，分别对应技术路线、国家备份供应链和私营算力体系垂直整合。</p><div class="cover-meta"><span><b>研究日期</b> 2026年8月1日</span><span><b>研究范围</b> 全球AI光互联产业链</span><span><b>方法</b> 产业链因果、资本布局、供应链备份</span></div></div><div class="cover-seal"><strong>7层</strong><span>Materials to AI Systems</span></div></div></section>
+<section class="cover"><div class="cover-grid"><div><div class="eyebrow">Global Optical Interconnect Panorama</div><h1>以中际旭创为切入点的光互联全球全景图<span>从InP光源到Rubin：产业链、资本与供应链备份</span></h1><p class="thesis">中际旭创是观察AI光互联商业化的最佳入口。完整判断还需向上游光源与材料、硅光制造与先进封装、光学I/O和系统协议延伸，并把NVIDIA、美国政策与马斯克的供应链布局放在同一张图中。</p><div class="cover-meta"><span><b>研究日期</b> 2026年8月1日</span><span><b>研究范围</b> 全球AI光互联产业链</span><span><b>方法</b> 产业链因果、资本布局、供应链备份</span></div></div><div class="cover-seal"><strong>7层</strong><span>Materials to AI Systems</span></div></div></section>
 <div class="scope"><b>阅读逻辑：</b>先从Rubin所代表的系统需求出发，沿七层价值链定位中际旭创、Sivers、Ayar与GlobalFoundries，再观察NVIDIA如何锁定产能、美国如何建立第二供应链、马斯克如何把Mesh纳入算力垂直整合。美国8.74亿美元项目目前为七份非约束性意向书；FTC记录也不等于Mesh交易已经公开确认交割。</div>
 <main id="content">
 <section class="section"><div class="section-label">01 · Executive Verdict</div><h2>先建立全局判断：光互联已从模块行业升级为AI系统工业体系</h2><div class="verdict"><div><b>中际旭创是商业化入口</b><span>核心强项是800G、1.6T产品迭代、客户认证与规模交付。</span></div><div><b>利润池向上下游扩展</b><span>InP、CW激光器、探测器、低损耗介质、硅光制造与封装重要性上升。</span></div><div><b>NVIDIA锁定整条链</b><span>资本与采购安排覆盖光源、硅光、光学I/O、定制芯片和光纤连接。</span></div><div><b>供应链备份成为变量</b><span>美国政府与大型算力业主正建立本土或友岸的第二来源能力。</span></div></div><div class="metrics"><div class="metric"><strong>$874M</strong><span>美国商务部七份研发激励意向书总额</span></div><div class="metric"><strong>$6B</strong><span>NVIDIA对Lumentum、Coherent、Marvell三笔已披露投资</span></div><div class="metric"><strong>1.6T</strong><span>当前高端可插拔模块主战场</span></div><div class="metric"><strong>7层</strong><span>材料、器件、制造、模块、光学I/O到系统平台</span></div></div><div class="bridge">全文不是公司名单的拼接。核心因果链是：更大AI集群带来数据搬运瓶颈，推动光学位置前移；技术迁移又引发资本锁定、国家产业政策和第二供应链建设。</div></section>
@@ -66,5 +147,5 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 <section class="enya" id="enya"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">本专题由Kerwin确定研究主题、产业链逻辑、投资判断边界与最终校对；Enya负责公开证据检索、因果结构、交互可视化、网页排版与持续维护。</p><div class="roles"><div class="role"><b>Kerwin</b><span>确定研究主题、投资逻辑、判断边界与最终校对。</span></div><div class="role"><b>Enya</b><span>组织证据、串联因果、构建交互可视化并持续维护专题。</span></div></div></section>
 <footer class="footer"><div class="footer-line"><div><b>EnyaClawd · Kerwin Research Hub</b><br>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。严谨投资建议请与Kerwin联系。© 2026 Kerwin 宏观对冲及 AI 精选组合。</div><div><a href="/">返回首页</a></div></div></footer>
 </div><button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
-<script>(()=>{const gate=document.getElementById('gate'),key=document.getElementById('gate-key'),err=document.getElementById('gate-error');key.addEventListener('input',()=>{if(key.value.toLowerCase()==='k'){gate.hidden=true;document.body.classList.remove('kw-gate-pending')}else if(key.value)err.textContent='请输入字母 k'});setTimeout(()=>key.focus(),80);const bar=document.getElementById('progress'),top=document.getElementById('top');function scrollState(){const m=document.documentElement.scrollHeight-innerHeight;bar.style.width=(m>0?scrollY/m*100:0)+'%';top.classList.toggle('show',scrollY>700)}addEventListener('scroll',scrollState,{passive:true});top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));scrollState();const tools=document.querySelectorAll('.tools button'),rows=document.querySelectorAll('.chain-row');tools.forEach(b=>b.addEventListener('click',()=>{tools.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.focus;rows.forEach(r=>{const hit=f==='all'||r.dataset.tags.split(' ').includes(f);r.classList.toggle('muted',!hit);r.classList.toggle('hit',f!=='all'&&hit)})}));const tabs=document.querySelectorAll('.tabs button'),panels=document.querySelectorAll('[data-panel]');tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});b.classList.add('active');b.setAttribute('aria-selected','true');panels.forEach(p=>p.hidden=p.dataset.panel!==b.dataset.tab)}))})();</script>
+<script>(()=>{const gate=document.getElementById('gate'),key=document.getElementById('gate-key'),err=document.getElementById('gate-error');key.addEventListener('input',()=>{if(key.value.toLowerCase()==='k'){gate.hidden=true;document.body.classList.remove('kw-gate-pending')}else if(key.value)err.textContent='请输入字母 k'});if(matchMedia('(min-width:761px) and (pointer:fine)').matches)setTimeout(()=>key.focus(),80);const bar=document.getElementById('progress'),top=document.getElementById('top');function scrollState(){const m=document.documentElement.scrollHeight-innerHeight;bar.style.width=(m>0?scrollY/m*100:0)+'%';top.classList.toggle('show',scrollY>700)}addEventListener('scroll',scrollState,{passive:true});top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));scrollState();const tools=document.querySelectorAll('.tools button'),rows=document.querySelectorAll('.chain-row');tools.forEach(b=>b.addEventListener('click',()=>{tools.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.focus;rows.forEach(r=>{const hit=f==='all'||r.dataset.tags.split(' ').includes(f);r.classList.toggle('muted',!hit);r.classList.toggle('hit',f!=='all'&&hit)})}));const tabs=document.querySelectorAll('.tabs button'),panels=document.querySelectorAll('[data-panel]');tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});b.classList.add('active');b.setAttribute('aria-selected','true');panels.forEach(p=>p.hidden=p.dataset.panel!==b.dataset.tab)}))})();</script>
 </body></html>

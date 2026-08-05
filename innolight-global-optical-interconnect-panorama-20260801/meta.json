@@ -21,9 +21,15 @@
   "homepage_approved": true,
   "homepage_section": "latest",
   "published_at": "2026-08-01T19:34:00+08:00",
-  "updated_at": "2026-08-01T20:18:00+08:00",
+  "updated_at": "2026-08-05T10:58:00+08:00",
   "layout_id": "kerwin-editorial-research-v1",
-  "typography_variant": "compact-two-tier-cover-title",
-  "typography_variant_reason": "Kerwin reviewed the desktop browser rendering and requested a smaller, better-proportioned main title and subtitle with dedicated mobile scaling.",
-  "typography_approved_by": "Kerwin"
+  "typography_variant": "mobile-editorial-v2",
+  "typography_variant_reason": "Kerwin mobile screenshots showed gate overflow, excessive cover scale and in-app-browser text inflation; rebuilt the 360–760px layout and disabled mobile autofocus.",
+  "typography_approved_by": "Kerwin",
+  "mobile_qa": [
+    "360x800",
+    "390x844",
+    "760px breakpoint",
+    "no horizontal overflow"
+  ]
 }
