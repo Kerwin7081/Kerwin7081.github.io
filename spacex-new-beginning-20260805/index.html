@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#fff1e5">
-  <meta name="description" content="从SpaceX 2026年第二季度财报出发，分析Starlink现金流、Starship运力、AI算力、移动通信与轨道数据中心如何重写公司边界与估值框架。">
+  <meta name="description" content="从SpaceX 2026年第二季度财报出发，精细拆解Starlink Mobile、V3卫星、AI算力资产与现金流、StarMind轨道计算如何重写公司边界与估值框架。">
   <title>全新起点的 SpaceX · Kerwin Research</title>
   <!-- pv-counter data-page-slug=spacex-new-beginning-20260805 -->
   <style>
@@ -113,6 +113,21 @@
     .callout{margin-top:20px;border-left:5px solid var(--gold);background:#fff7ed;padding:18px 20px}
     .callout h3{font-size:19px;margin:0 0 7px;color:var(--green)}
     .callout p{font-size:14px;line-height:1.7;margin:0;color:#645b50}
+    .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+    .detail-card{border:1px solid var(--line);background:white;padding:20px}
+    .detail-card b{display:block;font:700 10px/1.4 var(--sans);letter-spacing:.12em;color:var(--gold);margin-bottom:8px}
+    .detail-card h3{font-size:19px;line-height:1.35;margin:0 0 8px;color:var(--green)}
+    .detail-card p{font-size:14px;line-height:1.7;margin:0;color:var(--muted)}
+    .metric-band{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0}
+    .metric-band div{border:1px solid var(--line);background:#fff;padding:14px 10px;min-height:105px}
+    .metric-band strong{display:block;font-size:21px;line-height:1.15;color:var(--green);margin-bottom:7px}
+    .metric-band span{display:block;font:11px/1.45 var(--sans);color:var(--muted)}
+    .phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+    .phase{border-top:4px solid var(--green);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:white;padding:20px}
+    .phase i{display:block;font:700 10px/1.3 var(--sans);font-style:normal;letter-spacing:.11em;color:var(--gold);margin-bottom:7px}
+    .phase h3{font-size:19px;line-height:1.35;margin:0 0 8px;color:var(--green)}
+    .phase p{font-size:14px;line-height:1.68;margin:0;color:var(--muted)}
+    .math-note{margin-top:12px;padding:12px 14px;background:var(--soft);border:1px solid #bfcec5;font:13px/1.65 var(--sans);color:var(--green)}
     .sources{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
     .source-list{margin:0;padding-left:20px}
     .source-list li{margin:8px 0;font:13px/1.65 var(--sans);color:var(--muted)}
@@ -155,6 +170,7 @@
       .flywheel{grid-template-columns:1fr}.wheel-node{min-height:0}
       .layer{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:14px}.layer p,.layer .status{grid-column:2}
       .trend-grid{grid-template-columns:1fr}.trend{padding:18px}
+      .detail-grid,.phase-grid{grid-template-columns:1fr}.metric-band{grid-template-columns:1fr 1fr}
       .map-grid,.scenario-grid,.monitor{grid-template-columns:1fr}.monitor-item{grid-template-columns:1fr;gap:5px}
       .sources{grid-template-columns:1fr}.enya{padding:28px 16px}
       footer{padding:16px;display:block}footer span{display:block;margin-top:5px}
@@ -194,7 +210,7 @@
         <div class="cover-copy">
           <div class="eyebrow">Company Transformation · Space, Connectivity & AI</div>
           <h1>全新起点的 SpaceX</h1>
-          <p class="cover-deck">IPO之后，SpaceX第一次以公开公司身份交出季度答卷。真正需要重估的，是Starlink现金流、Starship运力、AI算力与资本市场共同构成的基础设施闭环。</p>
+          <p class="cover-deck">IPO之后，SpaceX第一次以公开公司身份交出季度答卷。真正需要重估的，是Starlink现金流、V3与Mobile网络、AI算力资产、StarMind轨道计算和Starship运力共同构成的基础设施闭环。</p>
           <div class="cover-tags"><span>SPCX</span><span>Starlink</span><span>Starship</span><span>xAI / Grok</span><span>AI Infrastructure</span></div>
         </div>
         <aside class="cover-side">
@@ -207,7 +223,7 @@
         </aside>
       </section>
 
-      <div class="scope"><strong>研究边界：</strong>财务数字以SpaceX 2026年第二季度10-Q为主；管理层目标来自8月4日电话会，统一标记为“公司目标”；轨道数据中心、生态协同与产业链影响属于Kerwin研究推演，不视为已兑现事实。</div>
+      <div class="scope"><strong>研究边界：</strong>财务数字以SpaceX 2026年第二季度10-Q为主；管理层目标来自8月4日电话会，统一标记为“公司目标”；Mobile收入敏感性、V3聚合带宽及StarMind规模换算属于Kerwin研究测算；轨道数据中心的盈利贡献仍按远期期权处理。</div>
 
       <section class="section" id="verdict">
         <div class="section-head"><div class="section-num">01 · VERDICT</div><div><h2>核心判断：SpaceX进入“可计量的马斯克基础设施平台”阶段</h2><p class="section-lead">过去市场主要为火箭复用、火星愿景和Starlink规模支付想象力溢价。上市后的新阶段要求公司用合同、利润、现金回收和执行节奏证明这套系统确实能够自我强化。</p></div></div>
@@ -238,8 +254,26 @@
         <div class="callout"><h3>Kerwin判断：最重要的数字不是收入增速，而是资本开支结构</h3><p>AI业务吸收了Q2总资本开支的约86%，说明SpaceX的边际资本已经明显从“把卫星送上天”转向“在地面部署GPU、电力、冷却与网络”。这使SpaceX第一次与大型云厂商、AI基础设施商和电力资产运营商进入同一张资本配置比较表。</p></div>
       </section>
 
+      <section class="section" id="ai-economics">
+        <div class="section-head"><div class="section-num">03 · AI ECONOMICS</div><div><h2>AI业务已经开始贡献收入和EBITDA，但尚未形成正自由现金流</h2><p class="section-lead">财报首次允许把“AI资产很多”拆成收入结构、资产产出、经营利润和现金消耗四层。结论需要保持精确：算力租赁已经商业化，AI业务仍处于依靠集团融资扩建资产的阶段。</p></div></div>
+        <div class="metric-band">
+          <div><strong>$2.561B</strong><span>Q2 AI收入，占集团收入32.8%</span></div>
+          <div><strong>$1.600B</strong><span>电话会披露的Colossus算力租赁收入，约占AI收入62%</span></div>
+          <div><strong>56.8%</strong><span>AI毛利率，毛利润约$1.455B</span></div>
+          <div><strong>$1.146B</strong><span>调整后EBITDA，利润率44.7%</span></div>
+          <div><strong>-$1.257B</strong><span>经营亏损，主要受训练研发和折旧影响</span></div>
+          <div><strong>$15.828B</strong><span>Q2 AI资本开支，为当季AI收入6.2倍</span></div>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card"><b>REVENUE STACK</b><h3>收入核心已经从Grok订阅转向算力基础设施合同</h3><p>AI收入包括X广告、X与Grok订阅、数据授权、Grok API和云服务。Q2新增收入主要来自AI基础设施合同，电话会披露Colossus I与II的初期算力租赁收入约16亿美元，意味着外部算力服务已成为最大单项收入来源。</p></article>
+          <article class="detail-card"><b>ASSET PRODUCTIVITY</b><h3>正EBITDA证明资产开始产出，巨额折旧反映其重资产本质</h3><p>AI业务当季折旧与摊销18.85亿美元、股权激励5.16亿美元。调整后EBITDA转正说明已部署GPU、电力与数据中心开始产生经营贡献；经营利润仍亏损12.57亿美元，说明会计折旧、模型训练研发及扩张费用仍高。</p></article>
+          <article class="detail-card"><b>CASH CONVERSION</b><h3>EBITDA转正不代表AI业务自我供血</h3><p>用“调整后EBITDA减资本开支”作为投资缺口代理，当季约为负146.82亿美元。公司没有披露分部经营现金流，因此不能把集团上半年34.66亿美元经营现金流归因于AI。更准确的表述是：AI已跨过商业化门槛，尚未跨过自由现金流门槛。</p></article>
+        </div>
+        <div class="callout"><h3>现金流判断框架</h3><p><b>第一层：</b>算力租赁合同是否继续提高收入和毛利；<b>第二层：</b>新增GPU的利用率和合同期限能否覆盖折旧、利息和电力；<b>第三层：</b>资本开支增速何时低于EBITDA增速。只有第三层出现，AI业务才开始从“资产扩张”转向“现金回收”。</p></div>
+      </section>
+
       <section class="section" id="flywheel">
-        <div class="section-head"><div class="section-num">03 · FLYWHEEL</div><div><h2>新的资本飞轮：利润、融资、算力与轨道运力互相强化</h2><p class="section-lead">这套闭环仍处于早期，但财报已经让过去分散的马斯克项目首次在同一份财务报表中出现。</p></div></div>
+        <div class="section-head"><div class="section-num">04 · FLYWHEEL</div><div><h2>新的资本飞轮：利润、融资、算力与轨道运力互相强化</h2><p class="section-lead">这套闭环仍处于早期，但财报已经让过去分散的马斯克项目首次在同一份财务报表中出现。</p></div></div>
         <div class="flywheel">
           <div class="wheel-node"><i>01 · CASH ENGINE</i><h3>Starlink现金流</h3><p>1200万订阅用户、企业与政府合同，以及移动通信业务，为集团提供最稳定的经营利润。</p></div>
           <div class="wheel-node"><i>02 · CAPITAL</i><h3>公开市场融资</h3><p>IPO净募资856.75亿美元，并发行250亿美元长期债，显著延长资本开支跑道。</p></div>
@@ -250,7 +284,7 @@
       </section>
 
       <section class="section" id="architecture">
-        <div class="section-head"><div class="section-num">04 · ARCHITECTURE</div><div><h2>SpaceX已经形成五层基础设施架构</h2><p class="section-lead">公司真正的护城河来自系统叠加：任何单一竞争者可以挑战其中一层，但很难同时复制运载成本、卫星规模、网络密度、频谱、算力与软件调度。</p></div></div>
+        <div class="section-head"><div class="section-num">05 · ARCHITECTURE</div><div><h2>SpaceX已经形成五层基础设施架构</h2><p class="section-lead">公司真正的护城河来自系统叠加：任何单一竞争者可以挑战其中一层，但很难同时复制运载成本、卫星规模、网络密度、频谱、算力与软件调度。</p></div></div>
         <div class="stack">
           <div class="layer"><div class="layer-num">01</div><h3>轨道运输层</h3><p>Falcon 9提供成熟现金化能力，Starship承担下一数量级的入轨质量与完全复用目标。</p><div class="status">当前：商业成熟 + 技术爬坡</div></div>
           <div class="layer"><div class="layer-num">02</div><h3>全球连接层</h3><p>Starlink消费者宽带、航空、海运、企业、政府与灾害通信组成规模化网络业务。</p><div class="status">当前：核心利润中心</div></div>
@@ -260,8 +294,79 @@
         </div>
       </section>
 
+      <section class="section" id="mobile">
+        <div class="section-head"><div class="section-num">06 · MOBILE</div><div><h2>Mobile业务不是“卫星短信附加包”，而是向混合型移动运营商演进</h2><p class="section-lead">SpaceX的移动战略正在经历一次性质变化：早期依靠运营商频谱和客户关系提供补盲服务，EchoStar频谱交易完成后，公司将具备自有频谱、卫星覆盖和地面网络组合能力，商业边界可能从批发网络延伸到直接客户。</p></div></div>
+        <div class="phase-grid">
+          <article class="phase"><i>PHASE 1 · WHOLESALE ROAMING</i><h3>运营商合作层</h3><p>Starlink卫星充当太空基站，T-Mobile、KDDI、Rogers等提供频谱、核心网、计费和客户入口。SpaceX主要获取容量费、连接费或数据使用收入。10-Q显示移动连接合同通常为1至5年，但客户一般拥有提前终止权。</p></article>
+          <article class="phase"><i>PHASE 2 · NEUTRAL HOST</i><h3>跨运营商卫星附加包</h3><p>T-Satellite允许非T-Mobile客户以每线每月10美元购买服务，证明卫星连接可以脱离主套餐单独定价。该模式可把Starlink变成面向所有运营商用户的中立覆盖层，但收入仍需与地面运营商及渠道分配。</p></article>
+          <article class="phase"><i>PHASE 3 · HYBRID MNO</i><h3>真正的Mobile服务</h3><p>公司已同意以约196亿美元取得约65MHz美国频谱，并提出建设地面基础设施补充卫星网络。若核心网、eSIM、漫游、终端认证、客服和地面小区逐步补齐，SpaceX将具备“卫星主覆盖 + 地面容量”的混合型MNO轮廓。</p></article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>关键层</th><th>当前状态</th><th>SpaceX控制力</th><th>商业意义</th><th>主要风险</th></tr></thead>
+            <tbody>
+              <tr><td><b>频谱</b></td><td>合作频谱 + EchoStar交易</td><td>由低转高</td><td>从批发容量走向自主产品设计</td><td>交割、监管、频段兼容</td></tr>
+              <tr><td><b>卫星RAN</b></td><td>Direct to Cell已商用</td><td>高</td><td>低成本覆盖偏远与灾备场景</td><td>容量、室内覆盖、语音质量</td></tr>
+              <tr><td><b>地面网络</b></td><td>管理层计划补建</td><td>中低</td><td>决定能否承载城市高密度流量</td><td>站址、资本开支、运维复杂度</td></tr>
+              <tr><td><b>客户与计费</b></td><td>主要掌握在MNO伙伴</td><td>低至中</td><td>决定ARPU、获客成本与品牌归属</td><td>渠道冲突和合作伙伴防御</td></tr>
+              <tr><td><b>终端生态</b></td><td>多数近四年手机可使用基础服务</td><td>间接</td><td>无需专用终端降低渗透门槛</td><td>完整5G NR-NTN仍需RF硬件与软件升级</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="math-note"><b>Kerwin情景测算：</b>按照每线每月10美元的当前公开定价，1000万、2500万和5000万付费线路对应年化总账单约12亿、30亿和60亿美元。该口径是总账单敏感性，未扣除运营商分成、网络成本、补贴和获客费用，也不是公司指引。</div>
+        <div class="callout"><h3>Kerwin判断：最大的战略信号是“合作伙伴可能变成竞争对手”</h3><p>Direct to Cell最初依赖T-Mobile等运营商完成商业化，但自有频谱与地面网络计划意味着SpaceX可能逐步掌握套餐、定价和用户关系。短期最优路径仍是合作，长期估值上限来自能否成为全球中立卫星网络或美国混合型移动运营商。</p></div>
+      </section>
+
+      <section class="section" id="v3">
+        <div class="section-head"><div class="section-num">07 · STARLINK V3</div><div><h2>V3的本质是把Starlink从覆盖网络升级为高密度容量网络</h2><p class="section-lead">V3的关键并非单颗卫星更大，而是下行、上行和波束数量同时跃迁。它直接决定宽带用户容量、企业服务质量、移动通信空间复用以及每次Starship发射能够带来的新增可售带宽。</p></div></div>
+        <div class="metric-band">
+          <div><strong>1 Tbps</strong><span>单颗V3设计下行容量，约为V2十倍</span></div>
+          <div><strong>160 Gbps</strong><span>单颗V3设计上行容量，约为V2二十二倍</span></div>
+          <div><strong>2,048</strong><span>上下行波束数量，显著提高空间复用</span></div>
+          <div><strong>1,000颗</strong><span>管理层目标：未来一年内部署的V3数量</span></div>
+          <div><strong>1 Pbps</strong><span>1000颗的理论聚合下行名义容量</span></div>
+          <div><strong>160 Tbps</strong><span>1000颗的理论聚合上行名义容量</span></div>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card"><b>CAPACITY</b><h3>波束数比总带宽更能解释Mobile价值</h3><p>V2的下行和上行波束分别为192和144，V3提升到双向2048个。更多波束意味着同一颗卫星能够把容量切分给更多地理小区，提高高密度区域的并发连接和频谱复用，Mobile业务才有机会从短信与轻数据走向更丰富的数据服务。</p></article>
+          <article class="detail-card"><b>STARSHIP DEPENDENCY</b><h3>V3与Starship是一个联合经济模型</h3><p>官方明确把V3扩张能力与Starship入轨载荷绑定。投资者需要同时观察每次发射携带颗数、卫星制造节拍、在轨部署成功率和Starship复用周期，而不能只看卫星参数。</p></article>
+          <article class="detail-card"><b>DEVICE PATH</b><h3>现有手机可获得5G-like服务，完整NR-NTN仍需终端升级</h3><p>招股材料显示，V2 Mobile可利用合作频谱或自有频谱向大量未改装设备提供类似5G的连接；要实现完整5G NR-NTN和最佳性能，手机射频前端与软件仍需支持n252、n256等非地面网络频段。</p></article>
+        </div>
+        <div class="callout"><h3>容量口径的使用边界</h3><p>1 Pbps与160 Tbps是1000颗卫星设计参数的简单聚合，不等于可销售吞吐量。真实收入取决于轨道可见性、网关与激光回传、频谱、用户分布、终端能力、拥塞管理和实际利用率。</p></div>
+      </section>
+
+      <section class="section" id="starmind">
+        <div class="section-head"><div class="section-num">08 · STARMIND</div><div><h2>StarMind是SpaceX把AI资本开支从地面延伸到轨道的第二阶段</h2><p class="section-lead">官方披露的AI1不是概念图，而是一套带有功率、尺寸、激光回传和工厂计划的工程架构。它仍未形成收入，但已经可以建立可验证的物理与资本模型。</p></div></div>
+        <div class="metric-band">
+          <div><strong>120 kW</strong><span>单颗AI1平均计算负载，峰值150 kW</span></div>
+          <div><strong>70 kW/吨</strong><span>官方给出的整车计算功率密度</span></div>
+          <div><strong>20米</strong><span>部署高度</span></div>
+          <div><strong>70米</strong><span>太阳翼翼展</span></div>
+          <div><strong>120 MW</strong><span>1000颗AI1的平均名义计算功率</span></div>
+          <div><strong>约8,333颗</strong><span>达到1GW平均计算功率所需数量</span></div>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card"><b>POWER & THERMAL</b><h3>用持续太阳能和辐射散热替代地面电网与冷却系统</h3><p>AI1计划运行于太阳同步轨道，利用太阳能供电，并通过辐射把热量排向太空。SpaceX称其可把冷却辅助功耗降低一个数量级。优势集中在电力可获得性、土地和水资源约束，代价则转化为太阳翼、散热器、辐射防护和入轨质量。</p></article>
+          <article class="detail-card"><b>NETWORK</b><h3>StarMind必须依赖Starlink激光网络才具有平台价值</h3><p>计算结果通过高带宽激光链路进入Starlink星座并返回地面。由此形成“Starship部署 + StarMind计算 + Starlink传输”的闭环。任何单独的轨道计算卫星都难以复制这一运输与网络组合。</p></article>
+          <article class="detail-card"><b>MANUFACTURING</b><h3>Gigasat Factory决定项目能否从样机走向GW级资产</h3><p>SpaceX计划在Bastrop建设Gigasat Factory，最快自2027年末开始批量生产和部署数千颗AI卫星。公司同时提出与Tesla合作的Terafab芯片项目，并保持计算模块对不同芯片供应商兼容。</p></article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>经济变量</th><th>轨道优势</th><th>新增成本与风险</th><th>需要验证的数据</th></tr></thead>
+            <tbody>
+              <tr><td><b>电力</b></td><td>不占用地面电网和土地</td><td>太阳翼面积、储能、轨道遮蔽</td><td>平均可用功率与负载率</td></tr>
+              <tr><td><b>冷却</b></td><td>不需要冷却塔、风机和水系统</td><td>真空无对流，依赖大型辐射散热器</td><td>芯片温度、散热面积、降频率</td></tr>
+              <tr><td><b>部署</b></td><td>Starship可能降低每公斤入轨成本</td><td>发射失败、在轨组装与替换</td><td>单颗质量、每次发射数量、复用成本</td></tr>
+              <tr><td><b>芯片</b></td><td>模块化、供应商中立</td><td>辐射老化、升级周期短、无法现场维修</td><td>有效寿命、故障率、每瓦推理性能</td></tr>
+              <tr><td><b>收入</b></td><td>全球分布式推理与空间数据处理</td><td>地面回传和客户需求尚未验证</td><td>首批合同、利用率、每kWh或Token收入</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><h3>Kerwin判断：StarMind应单独估值为“有工程参数的远期期权”</h3><p>在首批卫星入轨、客户合同、利用率、卫星寿命和单位GW资本开支披露之前，不宜把StarMind纳入基准现金流。其价值在于SpaceX拥有同时降低入轨成本、获取太阳能、建设激光回传和规模制造卫星的独特组合，兑现概率明显高于普通太空数据中心概念公司。</p></div>
+      </section>
+
       <section class="section" id="trends">
-        <div class="section-head"><div class="section-num">05 · INDUSTRY</div><div><h2>这份财报反映出的六个行业事实</h2><p class="section-lead">SpaceX的意义已经超出单一公司。它把航天工业、移动通信、AI工厂、电力基础设施和国家安全的边界拉到了一起。</p></div></div>
+        <div class="section-head"><div class="section-num">09 · INDUSTRY</div><div><h2>这份财报反映出的六个行业事实</h2><p class="section-lead">SpaceX的意义已经超出单一公司。它把航天工业、移动通信、AI工厂、电力基础设施和国家安全的边界拉到了一起。</p></div></div>
         <div class="trend-grid">
           <article class="trend"><b>TREND 01</b><h3>航天竞争正在从“火箭性能”转向“单位时间入轨质量”</h3><p>完全复用的价值不只在单次发射降本，更在于把轨道部署从项目制转成制造业与物流网络。发射频率、整箭产能、地面周转和卫星产线成为同等重要的指标。</p></article>
           <article class="trend"><b>TREND 02</b><h3>卫星互联网的利润池正在从消费者扩展到企业、政府与移动通信</h3><p>Q2企业及政府收入同比增长108%。频谱、直连手机与分布式地面节点可能让Starlink从传统运营商的补充网络，逐步进入主网络和灾备网络。</p></article>
@@ -273,7 +378,7 @@
       </section>
 
       <section class="section" id="mapping">
-        <div class="section-head"><div class="section-num">06 · MAPPING</div><div><h2>投资映射：SPCX是主资产，产业链受益与被替代风险同时展开</h2><p class="section-lead">产业链映射应区分直接收入、需求确认和长期期权，避免把所有AI与航天公司都笼统归为受益者。</p></div></div>
+        <div class="section-head"><div class="section-num">10 · MAPPING</div><div><h2>投资映射：SPCX是主资产，产业链受益与被替代风险同时展开</h2><p class="section-lead">产业链映射应区分直接收入、需求确认和长期期权，避免把所有AI与航天公司都笼统归为受益者。</p></div></div>
         <div class="map-grid">
           <article class="map-card"><h3>直接主线</h3><ul><li><b>SPCX：</b>Starlink利润、AI合同、Starship执行与移动通信共同决定重估。</li><li><b>NVDA：</b>Vera Rubin与大规模GPU部署获得新的需求确认。</li><li><b>HBM与内存：</b>先进内存供给约束成为AI装机速度的关键变量。</li></ul></article>
           <article class="map-card"><h3>基础设施外溢</h3><ul><li>电力设备、燃气轮机、变压器、配电与储能。</li><li>液冷、数据中心建设、网络交换与光互联。</li><li>卫星激光链路、终端射频、先进材料与航天制造。</li></ul></article>
@@ -283,7 +388,7 @@
       </section>
 
       <section class="section" id="valuation">
-        <div class="section-head"><div class="section-num">07 · VALUATION</div><div><h2>估值框架：不要把五层业务简单相加</h2><p class="section-lead">SpaceX的估值难点在于，成熟现金流、重资本成长和远期期权同时存在。更合适的方法是对每层业务采用不同的兑现概率和资本成本。</p></div></div>
+        <div class="section-head"><div class="section-num">11 · VALUATION</div><div><h2>估值框架：不要把五层业务简单相加</h2><p class="section-lead">SpaceX的估值难点在于，成熟现金流、重资本成长和远期期权同时存在。更合适的方法是对每层业务采用不同的兑现概率和资本成本。</p></div></div>
         <div class="scenario-grid">
           <article class="scenario base"><h3>基准情景</h3><p>Starlink用户与企业业务持续增长，AI云合同按计划转化，Starship提高发射频率但完全复用仍需时间。估值由连接业务现金流与AI收入增长共同支撑。</p></article>
           <article class="scenario bull"><h3>上行情景</h3><p>Starlink V3与移动通信快速放量，AI算力接近管理层目标，资本回收期保持短，Starship进入高频部署。轨道计算期权开始获得更高概率权重。</p></article>
@@ -292,28 +397,33 @@
       </section>
 
       <section class="section" id="monitor">
-        <div class="section-head"><div class="section-num">08 · MONITOR</div><div><h2>接下来需要持续验证的十个指标</h2><p class="section-lead">SpaceX已经进入季度可验证阶段。研究重点应从追踪马斯克表态，升级为追踪财务转化与工程里程碑。</p></div></div>
+        <div class="section-head"><div class="section-num">12 · MONITOR</div><div><h2>接下来需要持续验证的十五个指标</h2><p class="section-lead">SpaceX已经进入季度可验证阶段。研究重点应从追踪马斯克表态，升级为追踪财务转化、网络质量和工程里程碑。</p></div></div>
         <div class="monitor">
           <div class="monitor-item"><b>Starlink用户与ARPU</b><span>用户增长能否抵消新兴市场结构性降价。</span></div>
           <div class="monitor-item"><b>企业及政府收入</b><span>航空、海运、Starshield与移动业务的合同转化。</span></div>
           <div class="monitor-item"><b>Connectivity利润率</b><span>利润池能否在全球扩张与卫星折旧下保持韧性。</span></div>
-          <div class="monitor-item"><b>AI收入与客户集中度</b><span>大客户收入占比、合同期限与续约质量。</span></div>
-          <div class="monitor-item"><b>AI资本回收期</b><span>新增GPU与数据中心能否在一年左右实现现金回收。</span></div>
+          <div class="monitor-item"><b>Mobile付费线路</b><span>独立附加包、合作运营商渗透率及实际月费。</span></div>
+          <div class="monitor-item"><b>频谱交易进度</b><span>EchoStar频谱交割、FCC条件和地面网络建设。</span></div>
+          <div class="monitor-item"><b>Direct to Cell质量</b><span>轻数据、语音、室内覆盖、时延和高峰容量。</span></div>
+          <div class="monitor-item"><b>V3部署效率</b><span>每次Starship携带颗数、制造节拍和在轨成功率。</span></div>
+          <div class="monitor-item"><b>AI收入结构</b><span>算力租赁、Grok、API、订阅和广告的收入占比。</span></div>
+          <div class="monitor-item"><b>AI客户集中度</b><span>大客户收入占比、合同期限、预付款和续约质量。</span></div>
+          <div class="monitor-item"><b>AI EBITDA与Capex差</b><span>正EBITDA能否逐季缩小资本开支形成的资金缺口。</span></div>
           <div class="monitor-item"><b>算力装机与利用率</b><span>名义GW、实际利用率、电力与冷却准备度。</span></div>
           <div class="monitor-item"><b>内存及网络供给</b><span>HBM、服务器内存、交换与光互联是否拖慢部署。</span></div>
           <div class="monitor-item"><b>Starship发射频率</b><span>入轨、再入、回收、复用与V3卫星部署节奏。</span></div>
-          <div class="monitor-item"><b>Starlink Mobile</b><span>频谱交割、卫星发射、终端兼容与2027商业化进度。</span></div>
-          <div class="monitor-item"><b>自由现金流</b><span>经营现金流能否逐步覆盖AI、Starship和星座资本开支。</span></div>
+          <div class="monitor-item"><b>StarMind工程节点</b><span>AI1样机、Gigasat工厂、首批发射及客户合同。</span></div>
+          <div class="monitor-item"><b>集团自由现金流</b><span>经营现金流能否逐步覆盖AI、Starship、V3和频谱支出。</span></div>
         </div>
       </section>
 
       <section class="section" id="conclusion">
-        <div class="section-head"><div class="section-num">09 · CONCLUSION</div><div><h2>结论：SpaceX已经拥有重新定义多个行业的资产，但仍需证明同一张资产负债表可以承受全部野心</h2></div></div>
-        <div class="verdict-main"><h3>SpaceX最重要的变化，是从不可投资的传奇公司，变成必须接受季度审视的公开基础设施平台。</h3><p>未来的超额收益不会仅来自“马斯克还能创造什么”，而来自Starlink利润、AI合同、Starship复用、移动通信与轨道计算之间，能否形成比资本消耗更快的现金流增长。全新起点的含义，正是想象力仍然巨大，但验证标准已经彻底改变。</p></div>
+        <div class="section-head"><div class="section-num">13 · CONCLUSION</div><div><h2>结论：SpaceX已经拥有重新定义多个行业的资产，但仍需证明同一张资产负债表可以承受全部野心</h2></div></div>
+        <div class="verdict-main"><h3>SpaceX最重要的变化，是从不可投资的传奇公司，变成必须接受季度审视的公开基础设施平台。</h3><p>未来的超额收益不会仅来自“马斯克还能创造什么”，而来自Starlink利润、AI算力合同、V3容量、Mobile客户关系、Starship复用与StarMind轨道计算之间，能否形成比资本消耗更快的现金流增长。全新起点的含义，正是想象力仍然巨大，但验证标准已经彻底改变。</p></div>
       </section>
 
       <section class="section" id="sources">
-        <div class="section-head"><div class="section-num">10 · SOURCES</div><div><h2>主要资料与延伸阅读</h2><p class="section-lead">仅采用SpaceX、SEC、Nasdaq及相关官方材料作为事实底稿；管理层电话会目标与研究推演分层呈现。</p></div></div>
+        <div class="section-head"><div class="section-num">14 · SOURCES</div><div><h2>主要资料与延伸阅读</h2><p class="section-lead">以SpaceX、Starlink、SEC、T-Mobile和EchoStar官方材料为事实底稿；电话会目标采用公司回放及Reuters现场报道交叉核验，研究测算与公司目标分层呈现。</p></div></div>
         <div class="sources">
           <ol class="source-list">
             <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm" rel="noopener">SpaceX Form 10-Q, quarter ended June 30, 2026</a></li>
@@ -321,6 +431,12 @@
             <li><a href="https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Closing-of-Initial-Public-Offering-Including-Full-Exercise-of-Underwriters-Option-to-Purchase-Additional-Shares-2026-RgoR-Y1Vwh/default.aspx" rel="noopener">SpaceX IPO closing announcement</a></li>
             <li><a href="https://www.nasdaq.com/newsroom/spacex-ipo-rocket-company-launches-historic-ipo" rel="noopener">Nasdaq IPO pricing announcement</a></li>
             <li><a href="https://data.sec.gov/submissions/CIK0001181412.json" rel="noopener">SEC issuer submissions and filing index</a></li>
+            <li><a href="https://starlink.com/updates/starlink-version-3-satellites" rel="noopener">Starlink Version 3 satellite specifications</a></li>
+            <li><a href="https://www.spacex.com/spacexai/starmind" rel="noopener">SpaceX StarMind / AI1 official architecture</a></li>
+            <li><a href="https://www.t-mobile.com/coverage/satellite-phone-service" rel="noopener">T-Satellite service, compatibility and pricing</a></li>
+            <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026041013/japanfwp_06042026.htm" rel="noopener">SpaceX prospectus: Mobile Gen2, spectrum bands and device requirements</a></li>
+            <li><a href="https://www.sec.gov/Archives/edgar/data/1415404/000141540426000013/sats-20260522x8k.htm" rel="noopener">EchoStar spectrum transfer closing filing</a></li>
+            <li><a href="https://www.reuters.com/business/media-telecom/spacex-quarterly-revenue-surges-debut-results-strong-growth-its-starlink-2026-08-04/" rel="noopener">Reuters: Q2 earnings call, V3 deployment and Mobile strategy</a></li>
           </ol>
           <div class="related">
             <a href="/spcx-review/"><b>SpaceX 上市复盘研究简报</b><span>资本运作、估值光谱与上市初期的多空框架。</span></a>
