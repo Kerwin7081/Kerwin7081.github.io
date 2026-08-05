@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff1e5">
+  <meta name="description" content="从SpaceX 2026年第二季度财报出发，分析Starlink现金流、Starship运力、AI算力、移动通信与轨道数据中心如何重写公司边界与估值框架。">
+  <title>全新起点的 SpaceX · Kerwin Research</title>
+  <!-- pv-counter data-page-slug=spacex-new-beginning-20260805 -->
+  <style>
+    :root{
+      --bg:#fff1e5;--paper:#fffaf5;--ink:#17251f;--muted:#6c665f;--line:#d8c9bb;
+      --green:#103f35;--green2:#1b5b4e;--soft:#e8efe9;--gold:#8c632d;--red:#9b3e32;
+      --shadow:0 18px 48px rgba(35,25,18,.09);--sans:Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      --serif:Georgia,"Noto Serif SC","Songti SC","STSong",serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.88}
+    a{color:inherit}
+    body.kw-gate-pending{overflow:hidden}
+    .access-gate{position:fixed;inset:0;z-index:999;background:rgba(16,63,53,.96);display:grid;place-items:center;padding:20px}
+    .access-gate__paper{width:min(760px,100%);background:var(--paper);border:1px solid #bca99a;box-shadow:var(--shadow)}
+    .access-gate__mast,.access-gate__foot{display:flex;justify-content:space-between;gap:16px;padding:11px 18px;font:700 11px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+    .access-gate__foot{border-top:1px solid var(--line);border-bottom:0;text-transform:none;letter-spacing:0}
+    .access-gate__body{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:38px}
+    .seal{width:126px;height:126px;border:2px solid var(--green);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--green);font:700 24px/1.05 var(--serif)}
+    .seal small{display:block;font:700 10px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+    .eyebrow{font:700 11px/1.35 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .access-gate h1{font-size:38px;line-height:1.12;margin:7px 0 10px}
+    .access-gate p{margin:0 0 18px;color:var(--muted)}
+    .access-gate label{display:block;font:700 12px/1.5 var(--sans);color:var(--green);margin-bottom:8px}
+    .gate-field{display:grid;grid-template-columns:1fr 92px;border:1px solid var(--green);background:white}
+    .gate-field input{min-width:0;border:0;outline:0;padding:13px 15px;font:700 18px var(--sans);text-transform:lowercase;background:transparent}
+    .gate-field span{display:grid;place-items:center;background:var(--green);color:white;font:700 11px var(--sans);letter-spacing:.06em}
+    .gate-error{min-height:22px;margin:7px 0 0!important;color:var(--red)!important;font:700 12px var(--sans)}
+    .kw-gate-open .access-gate{display:none}
+    .site-shell{width:min(1160px,calc(100% - 34px));margin:18px auto 42px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .topbar{display:flex;justify-content:space-between;gap:24px;padding:10px 22px;border-top:7px solid var(--green);border-bottom:1px solid var(--line);font:700 11px/1.5 var(--sans);color:var(--muted);letter-spacing:.06em}
+   
