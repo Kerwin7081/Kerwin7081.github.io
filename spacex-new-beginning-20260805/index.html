@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff1e5">
+  <meta name="description" content="从SpaceX 2026年第二季度财报出发，分析Starlink现金流、Starship运力、AI算力、移动通信与轨道数据中心如何重写公司边界与估值框架。">
+  <title>全新起点的 SpaceX · Kerwin Research</title>
+  <!-- pv-counter data-page-slug=spacex-new-beginning-20260805 -->
+  <style>
+    :root{
+      --bg:#fff1e5;--paper:#fffaf5;--ink:#17251f;--muted:#6c665f;--line:#d8c9bb;
+      --green:#103f35;--green2:#1b5b4e;--soft:#e8efe9;--gold:#8c632d;--red:#9b3e32;
+      --shadow:0 18px 48px rgba(35,25,18,.09);--sans:Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      --serif:Georgia,"Noto Serif SC","Songti SC","STSong",serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.88}
+    a{color:inherit}
+    body.kw-gate-pending{overflow:hidden}
+    .access-gate{position:fixed;inset:0;z-index:999;background:rgba(16,63,53,.96);display:grid;place-items:center;padding:20px}
+    .access-gate__paper{width:min(760px,100%);background:var(--paper);border:1px solid #bca99a;box-shadow:var(--shadow)}
+    .access-gate__mast,.access-gate__foot{display:flex;justify-content:space-between;gap:16px;padding:11px 18px;font:700 11px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+    .access-gate__foot{border-top:1px solid var(--line);border-bottom:0;text-transform:none;letter-spacing:0}
+    .access-gate__body{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:38px}
+    .seal{width:126px;height:126px;border:2px solid var(--green);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--green);font:700 24px/1.05 var(--serif)}
+    .seal small{display:block;font:700 10px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+    .eyebrow{font:700 11px/1.35 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .access-gate h1{font-size:38px;line-height:1.12;margin:7px 0 10px}
+    .access-gate p{margin:0 0 18px;color:var(--muted)}
+    .access-gate label{display:block;font:700 12px/1.5 var(--sans);color:var(--green);margin-bottom:8px}
+    .gate-field{display:grid;grid-template-columns:1fr 92px;border:1px solid var(--green);background:white}
+    .gate-field input{min-width:0;border:0;outline:0;padding:13px 15px;font:700 18px var(--sans);text-transform:lowercase;background:transparent}
+    .gate-field span{display:grid;place-items:center;background:var(--green);color:white;font:700 11px var(--sans);letter-spacing:.06em}
+    .gate-error{min-height:22px;margin:7px 0 0!important;color:var(--red)!important;font:700 12px var(--sans)}
+    .kw-gate-open .access-gate{display:none}
+    .site-shell{width:min(1160px,calc(100% - 34px));margin:18px auto 42px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .topbar{display:flex;justify-content:space-between;gap:24px;padding:10px 22px;border-top:7px solid var(--green);border-bottom:1px solid var(--line);font:700 11px/1.5 var(--sans);color:var(--muted);letter-spacing:.06em}
+     .topbar a{text-decoration:none;color:var(--green)}
+    .masthead{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:22px;border-bottom:1px solid var(--line)}
+    .brand{font:700 25px/1 var(--serif);color:var(--green)}
+    .brand small{display:block;margin-top:6px;font:700 9px/1.3 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+    .mast-meta{text-align:right;font:700 11px/1.6 var(--sans);color:var(--muted)}
+    .cover{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.75fr);border-bottom:1px solid var(--line)}
+    .cover-copy{padding:58px 44px 48px}
+    .cover h1{font-size:clamp(34px,5vw,49px);line-height:1.08;letter-spacing:-.025em;margin:14px 0 18px;color:var(--green)}
+    .cover-deck{max-width:760px;font-size:20px;line-height:1.66;margin:0;color:#3d463f}
+    .cover-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+    .cover-tags span{border:1px solid #b9c8bf;background:var(--soft);padding:5px 9px;font:700 11px/1.3 var(--sans);color:var(--green)}
+    .cover-side{background:var(--green);color:white;padding:34px 28px;display:flex;flex-direction:column;justify-content:space-between}
+    .cover-side h2{font-size:25px;line-height:1.28;margin:8px 0 12px}
+    .cover-side p{font-size:14px;line-height:1.75;color:#dfe9e4;margin:0}
+    .signal{border-top:1px solid rgba(255,255,255,.28);padding-top:18px;margin-top:26px}
+    .signal b{display:block;font:700 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#e7c98e;margin-bottom:7px}
+    .scope{margin:24px 44px 0;padding:16px 18px;border:1px solid var(--line);background:#fff7ef;font:14px/1.75 var(--sans);color:#635b53}
+    .section{padding:48px 44px;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:90px minmax(0,1fr);gap:24px;margin-bottom:26px}
+    .section-num{font:700 12px/1.4 var(--sans);letter-spacing:.13em;color:var(--gold);padding-top:9px}
+    .section h2{font-size:clamp(28px,3.8vw,36px);line-height:1.2;letter-spacing:-.015em;margin:0 0 10px;color:var(--green)}
+    .section-lead{margin:0;max-width:800px;color:var(--muted);font-size:16px;line-height:1.75}
+    .verdict{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .verdict-main{background:var(--green);color:white;padding:28px}
+    .verdict-main h3{font-size:26px;line-height:1.32;margin:0 0 14px}
+    .verdict-main p{margin:0;color:#e0e9e4}
+    .verdict-side{border:1px solid var(--line);padding:24px;background:white}
+    .verdict-side b{display:block;color:var(--gold);font:700 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+    .verdict-side p{margin:0;font-size:15px;line-height:1.75}
+    .fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 0}
+    .fact{border:1px solid var(--line);background:white;padding:18px 14px;min-height:126px}
+    .fact strong{display:block;font-size:27px;line-height:1.1;color:var(--green);margin-bottom:9px}
+    .fact span{display:block;font:700 11px/1.45 var(--sans);color:var(--muted)}
+    .fact small{display:block;margin-top:9px;font:11px/1.45 var(--sans);color:var(--gold)}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);background:white}
+    table{border-collapse:collapse;width:100%;min-width:720px;font-family:var(--sans);font-size:13px;line-height:1.55}
+    th{background:var(--green);color:white;text-align:left;padding:11px 13px}
+    td{padding:11px 13px;border-bottom:1px solid #e9ddd2;vertical-align:top}
+    tr:last-child td{border-bottom:0}
+    .positive{color:#176848;font-weight:700}.negative{color:var(--red);font-weight:700}.neutral{color:var(--gold);font-weight:700}
+    .label{display:inline-block;padding:2px 6px;margin-right:5px;font:700 10px/1.4 var(--sans);border-radius:2px;background:var(--soft);color:var(--green)}
+    .label.target{background:#f5ead7;color:#7b5726}.label.inference{background:#f7dfda;color:#7e332c}
+    .flywheel{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+    .wheel-node{position:relative;border:1px solid var(--line);background:white;padding:18px 15px;min-height:170px}
+    .wheel-node:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:42%;z-index:2;color:var(--gold);font:700 20px var(--sans)}
+    .wheel-node i{display:block;font:700 10px/1.3 var(--sans);color:var(--gold);letter-spacing:.12em;font-style:normal;margin-bottom:8px}
+    .wheel-node h3{font-size:18px;line-height:1.35;margin:0 0 8px;color:var(--green)}
+    .wheel-node p{font-size:13px;line-height:1.65;margin:0;color:var(--muted)}
+    .stack{display:grid;gap:10px}
+    .layer{display:grid;grid-template-columns:58px 190px minmax(0,1fr) 160px;gap:16px;align-items:center;border:1px solid var(--line);background:white;padding:16px}
+    .layer-num{font:700 22px/1 var(--serif);color:var(--gold)}
+    .layer h3{font-size:18px;line-height:1.3;margin:0;color:var(--green)}
+    .layer p{font-size:14px;line-height:1.65;margin:0;color:var(--muted)}
+    .layer .status{font:700 11px/1.45 var(--sans);color:var(--green);text-align:right}
+    .trend-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .trend{border-top:4px solid var(--green);background:white;padding:22px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .trend b{font:700 11px/1.4 var(--sans);letter-spacing:.12em;color:var(--gold)}
+    .trend h3{font-size:20px;line-height:1.35;margin:8px 0}
+    .trend p{font-size:14px;line-height:1.72;margin:0;color:var(--muted)}
+    .map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .map-card{border:1px solid var(--line);background:white;padding:20px}
+    .map-card h3{font-size:19px;line-height:1.32;margin:0 0 10px;color:var(--green)}
+    .map-card ul{margin:0;padding-left:18px}
+    .map-card li{margin:7px 0;font-size:14px;line-height:1.6;color:#535b55}
+    .scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .scenario{padding:22px;border:1px solid var(--line);background:white}
+    .scenario.base{border-top:5px solid var(--green)}.scenario.bull{border-top:5px solid var(--gold)}.scenario.bear{border-top:5px solid var(--red)}
+    .scenario h3{font-size:20px;margin:0 0 10px}
+    .scenario p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
+    .monitor{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .monitor-item{display:grid;grid-template-columns:145px 1fr;gap:14px;padding:15px 16px;border:1px solid var(--line);background:white}
+    .monitor-item b{font:700 12px/1.45 var(--sans);color:var(--green)}
+    .monitor-item span{font:13px/1.55 var(--sans);color:var(--muted)}
+    .callout{margin-top:20px;border-left:5px solid var(--gold);background:#fff7ed;padding:18px 20px}
+    .callout h3{font-size:19px;margin:0 0 7px;color:var(--green)}
+    .callout p{font-size:14px;line-height:1.7;margin:0;color:#645b50}
+    .sources{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
+    .source-list{margin:0;padding-left:20px}
+    .source-list li{margin:8px 0;font:13px/1.65 var(--sans);color:var(--muted)}
+    .source-list a{color:var(--green);text-underline-offset:3px}
+    .related{display:grid;gap:10px}
+    .related a{display:block;text-decoration:none;border:1px solid var(--line);background:white;padding:15px}
+    .related b{display:block;font-size:15px;color:var(--green);margin-bottom:4px}
+    .related span{font:12px/1.5 var(--sans);color:var(--muted)}
+    .enya{padding:34px 44px;background:var(--green);color:white;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .enya h2{font-size:26px;margin:0 0 8px}
+    .enya p{margin:0;color:#dce8e3;font-size:14px;line-height:1.75}
+    .roles{display:grid;gap:10px}
+    .role{border-top:1px solid rgba(255,255,255,.28);padding-top:10px;font:13px/1.6 var(--sans)}
+    .role b{color:#f0d49e;margin-right:8px}
+    footer{padding:18px 44px;display:flex;justify-content:space-between;gap:20px;font:11px/1.55 var(--sans);color:var(--muted)}
+    @media(max-width:900px){
+      .cover{grid-template-columns:1fr}.cover-side{min-height:250px}
+      .fact-grid{grid-template-columns:1fr 1fr}.flywheel{grid-template-columns:1fr 1fr}.wheel-node:not(:last-child)::after{display:none}
+      .layer{grid-template-columns:46px 165px 1fr}.layer .status{grid-column:2/4;text-align:left}
+      .map-grid,.scenario-grid{grid-template-columns:1fr}.sources,.enya{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      body{font-size:16px;line-height:1.8}
+      .access-gate{padding:10px;align-items:start;overflow:auto}
+      .access-gate__paper{margin:14px 0}
+      .access-gate__mast,.access-gate__foot{padding:9px 12px;font-size:9px}
+      .access-gate__body{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:24px 14px}
+      .seal{width:68px;height:68px;font-size:15px}.seal small{font-size:7px}
+      .access-gate h1{font-size:25px}.access-gate p{font-size:13px;line-height:1.6}
+      .gate-field{grid-template-columns:minmax(0,1fr) 78px}
+      .site-shell{width:100%;margin:0;border-left:0;border-right:0;box-shadow:none}
+      .topbar{padding:8px 12px;font-size:9px}.masthead{padding:16px 14px;align-items:start}.brand{font-size:21px}.mast-meta{font-size:9px}
+      .cover-copy{padding:36px 18px 30px}.cover h1{font-size:clamp(24px,8.2vw,28px);line-height:1.12}.cover-deck{font-size:17px;line-height:1.62}
+      .cover-side{padding:25px 18px;min-height:220px}.cover-side h2{font-size:22px}
+      .scope{margin:16px 14px 0;padding:13px 14px}
+      .section{padding:36px 16px}.section-head{grid-template-columns:1fr;gap:4px;margin-bottom:20px}.section-num{padding-top:0}
+      .section h2{font-size:clamp(23px,7vw,26px)}
+      .verdict{grid-template-columns:1fr}.verdict-main,.verdict-side{padding:21px}
+      .fact-grid{grid-template-columns:1fr 1fr}.fact{padding:15px 11px;min-height:118px}.fact strong{font-size:23px}
+      .flywheel{grid-template-columns:1fr}.wheel-node{min-height:0}
+      .layer{grid-template-columns:38px minmax(0,1fr);gap:10px;padding:14px}.layer p,.layer .status{grid-column:2}
+      .trend-grid{grid-template-columns:1fr}.trend{padding:18px}
+      .map-grid,.scenario-grid,.monitor{grid-template-columns:1fr}.monitor-item{grid-template-columns:1fr;gap:5px}
+      .sources{grid-template-columns:1fr}.enya{padding:28px 16px}
+      footer{padding:16px;display:block}footer span{display:block;margin-top:5px}
+    }
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="spacex-new-beginning-20260805">
+  <aside class="access-gate" id="access-gate" aria-labelledby="gate-title">
+    <div class="access-gate__paper">
+      <div class="access-gate__mast"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
+      <div class="access-gate__body">
+        <div class="seal" aria-hidden="true"><span>Kerwin<small>Research Hub</small></span></div>
+        <div>
+          <div class="eyebrow">Reader Access</div>
+          <h1 id="gate-title">Kerwin Research Hub</h1>
+          <p>企业财报、宏观资产、AI产业链、数字金融与公司研究档案。</p>
+          <form id="access-form">
+            <label for="access-key">输入 “k” 即可显示，不分大小写</label>
+            <div class="gate-field"><input id="access-key" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k"><span>Auto enter</span></div>
+            <p class="gate-error" id="access-error" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+      <div class="access-gate__foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+    </div>
+  </aside>
+
+  <div class="site-shell">
+    <div class="topbar"><a href="/">← 返回研究首页</a><span>SPACEX · Q2 2026 · STRUCTURAL RE-RATING</span></div>
+    <header class="masthead">
+      <div class="brand">EnyaClawd<small>Kerwin Research Hub</small></div>
+      <div class="mast-meta">发布日期：2026年8月5日<br>数据截至：2026年8月4日电话会</div>
+    </header>
+
+    <main>
+      <section class="cover">
+        <div class="cover-copy">
+          <div class="eyebrow">Company Transformation · Space, Connectivity & AI</div>
+          <h1>全新起点的 SpaceX</h1>
+          <p class="cover-deck">IPO之后，SpaceX第一次以公开公司身份交出季度答卷。真正需要重估的，是Starlink现金流、Starship运力、AI算力与资本市场共同构成的基础设施闭环。</p>
+          <div class="cover-tags"><span>SPCX</span><span>Starlink</span><span>Starship</span><span>xAI / Grok</span><span>AI Infrastructure</span></div>
+        </div>
+        <aside class="cover-side">
+          <div>
+            <div class="eyebrow" style="color:#e7c98e">Kerwin Judgment</div>
+            <h2>上市只是法律身份变化，财报才第一次展示了新的经济身份。</h2>
+            <p>SpaceX已经不适合用单一航天公司、通信运营商或AI云厂商的估值框架解释。它正在尝试把运载、网络、算力、模型与资本市场装进同一套资产负债表。</p>
+          </div>
+          <div class="signal"><b>核心矛盾</b><p>Starlink已形成高质量利润池，AI扩张却以前所未有的资本密度消耗现金。未来估值取决于这笔资本能否快速转化为合同收入、现金流和轨道端的长期壁垒。</p></div>
+        </aside>
+      </section>
+
+      <div class="scope"><strong>研究边界：</strong>财务数字以SpaceX 2026年第二季度10-Q为主；管理层目标来自8月4日电话会，统一标记为“公司目标”；轨道数据中心、生态协同与产业链影响属于Kerwin研究推演，不视为已兑现事实。</div>
+
+      <section class="section" id="verdict">
+        <div class="section-head"><div class="section-num">01 · VERDICT</div><div><h2>核心判断：SpaceX进入“可计量的马斯克基础设施平台”阶段</h2><p class="section-lead">过去市场主要为火箭复用、火星愿景和Starlink规模支付想象力溢价。上市后的新阶段要求公司用合同、利润、现金回收和执行节奏证明这套系统确实能够自我强化。</p></div></div>
+        <div class="verdict">
+          <article class="verdict-main"><h3>SpaceX的新起点，是从“伟大项目集合”转向“资本循环系统”。</h3><p>Starlink提供经营利润和客户入口，Starship压低轨道运输成本，AI基础设施扩大地面算力租金，Grok与工程数据形成软件层，资本市场则为这套系统提供大规模、长期资金。五者能否闭环，决定SpaceX能否从约万亿美元级叙事走向持续复利的基础设施公司。</p></article>
+          <aside class="verdict-side"><b>需要警惕</b><p>Q2的利润改善并不等于自由现金流改善。AI资本开支远高于当季AI收入，且客户集中度较高。当前最大的风险不是“没有故事”，而是同时推进太多资本密集型故事。</p></aside>
+        </div>
+      </section>
+
+      <section class="section" id="numbers">
+        <div class="section-head"><div class="section-num">02 · RESULTS</div><div><h2>首份公开财报揭示了三种完全不同的经济模型</h2><p class="section-lead">连接业务负责赚钱，AI业务负责扩张，航天业务负责构建长期运力壁垒。三者收入规模已经接近可比，但资本回报周期完全不同。</p></div></div>
+        <div class="fact-grid">
+          <div class="fact"><strong>$7.814B</strong><span>Q2总收入，同比增长91.9%</span><small>Fact · SEC 10-Q</small></div>
+          <div class="fact"><strong>$3.538B</strong><span>调整后EBITDA，同比增长191%</span><small>Fact · SEC 10-Q</small></div>
+          <div class="fact"><strong>$18.369B</strong><span>Q2资本开支，约为收入的2.35倍</span><small>Fact · SEC 10-Q</small></div>
+          <div class="fact"><strong>$100.009B</strong><span>现金及短期有价证券</span><small>Fact · SEC 10-Q</small></div>
+        </div>
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>业务</th><th>Q2收入</th><th>同比</th><th>经营利润</th><th>调整后EBITDA</th><th>资本开支</th><th>经济角色</th></tr></thead>
+            <tbody>
+              <tr><td><b>Space</b></td><td>$0.962B</td><td class="positive">+29%</td><td class="negative">-$0.542B</td><td class="negative">-$0.205B</td><td>$1.174B</td><td>长周期研发与运力壁垒</td></tr>
+              <tr><td><b>Connectivity</b></td><td>$4.291B</td><td class="positive">+66%</td><td class="positive">$1.656B</td><td class="positive">$2.597B</td><td>$1.367B</td><td>利润池、现金流与客户入口</td></tr>
+              <tr><td><b>AI</b></td><td>$2.561B</td><td class="positive">+247%</td><td class="negative">-$1.257B</td><td class="positive">$1.146B</td><td class="neutral">$15.828B</td><td>高资本密度的增长引擎</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout"><h3>Kerwin判断：最重要的数字不是收入增速，而是资本开支结构</h3><p>AI业务吸收了Q2总资本开支的约86%，说明SpaceX的边际资本已经明显从“把卫星送上天”转向“在地面部署GPU、电力、冷却与网络”。这使SpaceX第一次与大型云厂商、AI基础设施商和电力资产运营商进入同一张资本配置比较表。</p></div>
+      </section>
+
+      <section class="section" id="flywheel">
+        <div class="section-head"><div class="section-num">03 · FLYWHEEL</div><div><h2>新的资本飞轮：利润、融资、算力与轨道运力互相强化</h2><p class="section-lead">这套闭环仍处于早期，但财报已经让过去分散的马斯克项目首次在同一份财务报表中出现。</p></div></div>
+        <div class="flywheel">
+          <div class="wheel-node"><i>01 · CASH ENGINE</i><h3>Starlink现金流</h3><p>1200万订阅用户、企业与政府合同，以及移动通信业务，为集团提供最稳定的经营利润。</p></div>
+          <div class="wheel-node"><i>02 · CAPITAL</i><h3>公开市场融资</h3><p>IPO净募资856.75亿美元，并发行250亿美元长期债，显著延长资本开支跑道。</p></div>
+          <div class="wheel-node"><i>03 · COMPUTE</i><h3>AI算力租金</h3><p>GPU、电力和数据中心先转化为云服务合同与推理收入，再为Grok训练提供内部规模优势。</p></div>
+          <div class="wheel-node"><i>04 · TRANSPORT</i><h3>Starship运力</h3><p>完全复用若兑现，将降低卫星与未来轨道计算设备的部署成本，扩大可服务市场。</p></div>
+          <div class="wheel-node"><i>05 · DATA NETWORK</i><h3>天地一体网络</h3><p>Starlink、星间激光链路、移动频谱与未来轨道算力共同形成全球数据传输和计算平台。</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="section-head"><div class="section-num">04 · ARCHITECTURE</div><div><h2>SpaceX已经形成五层基础设施架构</h2><p class="section-lead">公司真正的护城河来自系统叠加：任何单一竞争者可以挑战其中一层，但很难同时复制运载成本、卫星规模、网络密度、频谱、算力与软件调度。</p></div></div>
+        <div class="stack">
+          <div class="layer"><div class="layer-num">01</div><h3>轨道运输层</h3><p>Falcon 9提供成熟现金化能力，Starship承担下一数量级的入轨质量与完全复用目标。</p><div class="status">当前：商业成熟 + 技术爬坡</div></div>
+          <div class="layer"><div class="layer-num">02</div><h3>全球连接层</h3><p>Starlink消费者宽带、航空、海运、企业、政府与灾害通信组成规模化网络业务。</p><div class="status">当前：核心利润中心</div></div>
+          <div class="layer"><div class="layer-num">03</div><h3>主权与安全层</h3><p>Starshield和低轨通信、传感合同把商业星座升级为美国国家安全基础设施。</p><div class="status">当前：合同放量期</div></div>
+          <div class="layer"><div class="layer-num">04</div><h3>AI算力与模型层</h3><p>数据中心、云服务、Grok、X数据与工程数据形成训练、推理、分发和租赁的一体化平台。</p><div class="status">当前：高投入验证期</div></div>
+          <div class="layer"><div class="layer-num">05</div><h3>轨道计算层</h3><p>利用Starship、Starlink技术血缘与太空能源条件，探索轨道数据中心和空间AI基础设施。</p><div class="status">远期：高期权价值</div></div>
+        </div>
+      </section>
+
+      <section class="section" id="trends">
+        <div class="section-head"><div class="section-num">05 · INDUSTRY</div><div><h2>这份财报反映出的六个行业事实</h2><p class="section-lead">SpaceX的意义已经超出单一公司。它把航天工业、移动通信、AI工厂、电力基础设施和国家安全的边界拉到了一起。</p></div></div>
+        <div class="trend-grid">
+          <article class="trend"><b>TREND 01</b><h3>航天竞争正在从“火箭性能”转向“单位时间入轨质量”</h3><p>完全复用的价值不只在单次发射降本，更在于把轨道部署从项目制转成制造业与物流网络。发射频率、整箭产能、地面周转和卫星产线成为同等重要的指标。</p></article>
+          <article class="trend"><b>TREND 02</b><h3>卫星互联网的利润池正在从消费者扩展到企业、政府与移动通信</h3><p>Q2企业及政府收入同比增长108%。频谱、直连手机与分布式地面节点可能让Starlink从传统运营商的补充网络，逐步进入主网络和灾备网络。</p></article>
+          <article class="trend"><b>TREND 03</b><h3>AI基础设施的竞争核心已从GPU采购转向系统集成</h3><p>1.4GW名义算力只是GPU口径，真正约束还包括电力、冷却、内存、网络和施工。SpaceX将火箭工程的高强度硬件集成能力迁移到AI工厂，是其差异化所在。</p></article>
+          <article class="trend"><b>TREND 04</b><h3>HBM与先进内存继续处于需求曲线最陡的位置</h3><p>管理层把内存视为AI扩张的重要瓶颈。对投资而言，GPU需求确认会继续向HBM、服务器DRAM、先进封装、光互联与供电链条传导。</p></article>
+          <article class="trend"><b>TREND 05</b><h3>垂直整合正在成为资本效率的来源，也成为治理风险的来源</h3><p>火箭、卫星、终端、网络、频谱、GPU和模型共享同一组织，可以缩短决策链；同时也放大项目并行、关联交易、客户集中与资本错配风险。</p></article>
+          <article class="trend"><b>TREND 06</b><h3>轨道数据中心开始从科幻叙事进入工程可行性讨论</h3><p>它仍不是近期盈利来源，但Starship降低运输成本、Starlink提供链路、太空太阳能与散热条件构成了技术前提。估值中应把它作为远期期权，而非基准现金流。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="mapping">
+        <div class="section-head"><div class="section-num">06 · MAPPING</div><div><h2>投资映射：SPCX是主资产，产业链受益与被替代风险同时展开</h2><p class="section-lead">产业链映射应区分直接收入、需求确认和长期期权，避免把所有AI与航天公司都笼统归为受益者。</p></div></div>
+        <div class="map-grid">
+          <article class="map-card"><h3>直接主线</h3><ul><li><b>SPCX：</b>Starlink利润、AI合同、Starship执行与移动通信共同决定重估。</li><li><b>NVDA：</b>Vera Rubin与大规模GPU部署获得新的需求确认。</li><li><b>HBM与内存：</b>先进内存供给约束成为AI装机速度的关键变量。</li></ul></article>
+          <article class="map-card"><h3>基础设施外溢</h3><ul><li>电力设备、燃气轮机、变压器、配电与储能。</li><li>液冷、数据中心建设、网络交换与光互联。</li><li>卫星激光链路、终端射频、先进材料与航天制造。</li></ul></article>
+          <article class="map-card"><h3>潜在压力</h3><ul><li>传统卫星通信商面临规模和成本差距扩大。</li><li>移动运营商的漫游、灾备与偏远地区连接价值被重新定价。</li><li>独立AI云厂商面对SpaceX低资金成本与垂直整合竞争。</li></ul></article>
+        </div>
+        <div class="callout"><h3>Kerwin判断：供应链筛选要看“不可替代瓶颈”，不能只看SpaceX采购清单</h3><p>SpaceX拥有极强的内部制造倾向。最值得跟踪的外部标的，是其短期无法自建、全球供给扩张慢、同时服务多个AI客户的环节，例如先进内存、核心GPU、部分高速互联、电力设备和高可靠性材料。</p></div>
+      </section>
+
+      <section class="section" id="valuation">
+        <div class="section-head"><div class="section-num">07 · VALUATION</div><div><h2>估值框架：不要把五层业务简单相加</h2><p class="section-lead">SpaceX的估值难点在于，成熟现金流、重资本成长和远期期权同时存在。更合适的方法是对每层业务采用不同的兑现概率和资本成本。</p></div></div>
+        <div class="scenario-grid">
+          <article class="scenario base"><h3>基准情景</h3><p>Starlink用户与企业业务持续增长，AI云合同按计划转化，Starship提高发射频率但完全复用仍需时间。估值由连接业务现金流与AI收入增长共同支撑。</p></article>
+          <article class="scenario bull"><h3>上行情景</h3><p>Starlink V3与移动通信快速放量，AI算力接近管理层目标，资本回收期保持短，Starship进入高频部署。轨道计算期权开始获得更高概率权重。</p></article>
+          <article class="scenario bear"><h3>下行情景</h3><p>AI合同集中度暴露、资本开支回收放慢，Starship延期，频谱与电信监管受阻。Starlink利润需要长期补贴多个项目，集团自由现金流持续承压。</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="monitor">
+        <div class="section-head"><div class="section-num">08 · MONITOR</div><div><h2>接下来需要持续验证的十个指标</h2><p class="section-lead">SpaceX已经进入季度可验证阶段。研究重点应从追踪马斯克表态，升级为追踪财务转化与工程里程碑。</p></div></div>
+        <div class="monitor">
+          <div class="monitor-item"><b>Starlink用户与ARPU</b><span>用户增长能否抵消新兴市场结构性降价。</span></div>
+          <div class="monitor-item"><b>企业及政府收入</b><span>航空、海运、Starshield与移动业务的合同转化。</span></div>
+          <div class="monitor-item"><b>Connectivity利润率</b><span>利润池能否在全球扩张与卫星折旧下保持韧性。</span></div>
+          <div class="monitor-item"><b>AI收入与客户集中度</b><span>大客户收入占比、合同期限与续约质量。</span></div>
+          <div class="monitor-item"><b>AI资本回收期</b><span>新增GPU与数据中心能否在一年左右实现现金回收。</span></div>
+          <div class="monitor-item"><b>算力装机与利用率</b><span>名义GW、实际利用率、电力与冷却准备度。</span></div>
+          <div class="monitor-item"><b>内存及网络供给</b><span>HBM、服务器内存、交换与光互联是否拖慢部署。</span></div>
+          <div class="monitor-item"><b>Starship发射频率</b><span>入轨、再入、回收、复用与V3卫星部署节奏。</span></div>
+          <div class="monitor-item"><b>Starlink Mobile</b><span>频谱交割、卫星发射、终端兼容与2027商业化进度。</span></div>
+          <div class="monitor-item"><b>自由现金流</b><span>经营现金流能否逐步覆盖AI、Starship和星座资本开支。</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="conclusion">
+        <div class="section-head"><div class="section-num">09 · CONCLUSION</div><div><h2>结论：SpaceX已经拥有重新定义多个行业的资产，但仍需证明同一张资产负债表可以承受全部野心</h2></div></div>
+        <div class="verdict-main"><h3>SpaceX最重要的变化，是从不可投资的传奇公司，变成必须接受季度审视的公开基础设施平台。</h3><p>未来的超额收益不会仅来自“马斯克还能创造什么”，而来自Starlink利润、AI合同、Starship复用、移动通信与轨道计算之间，能否形成比资本消耗更快的现金流增长。全新起点的含义，正是想象力仍然巨大，但验证标准已经彻底改变。</p></div>
+      </section>
+
+      <section class="section" id="sources">
+        <div class="section-head"><div class="section-num">10 · SOURCES</div><div><h2>主要资料与延伸阅读</h2><p class="section-lead">仅采用SpaceX、SEC、Nasdaq及相关官方材料作为事实底稿；管理层电话会目标与研究推演分层呈现。</p></div></div>
+        <div class="sources">
+          <ol class="source-list">
+            <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm" rel="noopener">SpaceX Form 10-Q, quarter ended June 30, 2026</a></li>
+            <li><a href="https://ir.spacex.com/updates/releases-details/2026/SpaceX-to-Post-Second-Quarter-2026-Results-and-Host-Webcast-on-August-4-2026-2026-g8layJlbFm/default.aspx" rel="noopener">SpaceX Q2 2026 webcast notice and replay entry</a></li>
+            <li><a href="https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Closing-of-Initial-Public-Offering-Including-Full-Exercise-of-Underwriters-Option-to-Purchase-Additional-Shares-2026-RgoR-Y1Vwh/default.aspx" rel="noopener">SpaceX IPO closing announcement</a></li>
+            <li><a href="https://www.nasdaq.com/newsroom/spacex-ipo-rocket-company-launches-historic-ipo" rel="noopener">Nasdaq IPO pricing announcement</a></li>
+            <li><a href="https://data.sec.gov/submissions/CIK0001181412.json" rel="noopener">SEC issuer submissions and filing index</a></li>
+          </ol>
+          <div class="related">
+            <a href="/spcx-review/"><b>SpaceX 上市复盘研究简报</b><span>资本运作、估值光谱与上市初期的多空框架。</span></a>
+            <a href="/ai-supply-chain-power-bottlenecks-20260731/"><b>AI产业链供需与电力瓶颈</b><span>GPU、HBM、电力、液冷与系统集成的交叉验证。</span></a>
+            <a href="/tesla-q2-2026-earnings-call-20260723/"><b>Tesla 2026 Q2财报电话会</b><span>马斯克生态中物理AI、能源与资本开支的另一端。</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="enya">
+      <div><div class="eyebrow" style="color:#e7c98e">The Research Agent</div><h2>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</h2><p>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</p></div>
+      <div class="roles"><div class="role"><b>Kerwin</b>选题、投资逻辑与最终审核。</div><div class="role"><b>Enya</b>证据整理、可视化呈现与持续维护。</div></div>
+    </section>
+    <footer><b>Kerwin Research Hub · Independent Investment Research</b><span>本材料仅供研究交流，不构成任何投资建议。</span></footer>
+  </div>
+
+  <script>
+    (() => {
+      const body = document.body;
+      const input = document.getElementById('access-key');
+      const form = document.getElementById('access-form');
+      const error = document.getElementById('access-error');
+      const openGate = () => {
+        body.classList.remove('kw-gate-pending');
+        body.classList.add('kw-gate-open');
+        try { sessionStorage.setItem('kw-access','1'); } catch(e) {}
+      };
+      try { if (sessionStorage.getItem('kw-access') === '1') openGate(); } catch(e) {}
+      const check = () => {
+        if ((input.value || '').toLowerCase() === 'k') openGate();
+        else if (input.value) error.textContent = '请输入 k';
+      };
+      input.addEventListener('input', check);
+      form.addEventListener('submit', (e) => { e.preventDefault(); check(); });
+      if (window.innerWidth > 760 && !body.classList.contains('kw-gate-open')) input.focus();
+    })();
+  </script>
+</body>
+</html>
