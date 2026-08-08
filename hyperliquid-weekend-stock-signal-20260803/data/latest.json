@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observedAtUtc": "2026-08-08T09:00:34.679701Z",
-  "observedAtHkt": "2026-08-08T17:00:34.679701+08:00",
+  "observedAtUtc": "2026-08-08T12:53:37.507Z",
+  "observedAtHkt": "2026-08-08T20:53:37.507+08:00",
   "source": "https://api.hyperliquid.xyz/info",
   "dex": "xyz",
-  "mode": "live_snapshot",
+  "mode": "github_actions_4h",
   "cadenceHours": 4,
   "cashBaseline": {
     "NVDA": {
@@ -107,326 +107,326 @@
   },
   "assets": [
     {
+      "symbol": "NVDA",
+      "category": "AI半导体",
+      "midPx": 223.805,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "AMD",
+      "category": "AI半导体",
+      "midPx": 480.585,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "MU",
+      "category": "存储",
+      "midPx": 878.065,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "TSM",
+      "category": "晶圆代工",
+      "midPx": 420.235,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "AVGO",
+      "category": "AI半导体",
+      "midPx": 426.985,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "MSFT",
+      "category": "平台",
+      "midPx": 499.105,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "AMZN",
+      "category": "平台",
+      "midPx": 274.09,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "META",
+      "category": "平台",
+      "midPx": 591.72,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "GOOGL",
+      "category": "平台",
+      "midPx": 355.41,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "TSLA",
+      "category": "高波动",
+      "midPx": 329.655,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "SMSN",
+      "category": "存储",
+      "midPx": 166.94,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "SKHX",
+      "category": "存储",
+      "midPx": 1013.25,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "SNDK",
+      "category": "存储",
+      "midPx": 1215.25,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "DRAM",
+      "category": "存储",
+      "midPx": 50.6875,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "SP500",
+      "category": "指数",
+      "midPx": 7746.4,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    },
+    {
+      "symbol": "XYZ100",
+      "category": "指数",
+      "midPx": 29677.5,
+      "markPx": null,
+      "oraclePx": null,
+      "funding": null,
+      "openInterest": null,
+      "prevDayPx": null
+    }
+  ],
+  "previousAssets": {
+    "XYZ100": {
       "symbol": "XYZ100",
       "category": "指数",
       "midPx": 29654.5,
-      "markPx": 29654.0,
-      "oraclePx": 29630.0,
-      "funding": 3.42127e-05,
+      "markPx": 29654,
+      "oraclePx": 29630,
+      "funding": 0.0000342127,
       "openInterest": 6261.6256,
-      "prevDayPx": 29526.0
+      "prevDayPx": 29526
     },
-    {
+    "TSLA": {
       "symbol": "TSLA",
       "category": "高波动",
       "midPx": 329.225,
       "markPx": 329.21,
       "oraclePx": 329.11,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 107454.53,
       "prevDayPx": 321.64
     },
-    {
+    "NVDA": {
       "symbol": "NVDA",
       "category": "AI半导体",
       "midPx": 223.665,
       "markPx": 223.66,
       "oraclePx": 223.47,
-      "funding": 3.95232e-05,
+      "funding": 0.0000395232,
       "openInterest": 743858.388,
       "prevDayPx": 219.92
     },
-    {
+    "META": {
       "symbol": "META",
       "category": "平台",
       "midPx": 591.765,
       "markPx": 591.72,
       "oraclePx": 591.54,
-      "funding": 1.89241e-05,
+      "funding": 0.0000189241,
       "openInterest": 77188.208,
       "prevDayPx": 587.37
     },
-    {
+    "MSFT": {
       "symbol": "MSFT",
       "category": "平台",
       "midPx": 499.44,
       "markPx": 499.47,
       "oraclePx": 499.17,
-      "funding": 2.1236e-05,
+      "funding": 0.000021236,
       "openInterest": 106111.758,
       "prevDayPx": 497.38
     },
-    {
+    "GOOGL": {
       "symbol": "GOOGL",
       "category": "平台",
       "midPx": 355.525,
       "markPx": 355.53,
       "oraclePx": 355.3,
-      "funding": 2.09054e-05,
+      "funding": 0.0000209054,
       "openInterest": 352592.138,
       "prevDayPx": 358.86
     },
-    {
+    "AMZN": {
       "symbol": "AMZN",
       "category": "平台",
       "midPx": 273.835,
       "markPx": 273.81,
       "oraclePx": 273.78,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 100512.046,
       "prevDayPx": 271.89
     },
-    {
+    "AMD": {
       "symbol": "AMD",
       "category": "AI半导体",
       "midPx": 479.65,
       "markPx": 479.65,
       "oraclePx": 479.47,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 26180.422,
       "prevDayPx": 494.04
     },
-    {
+    "MU": {
       "symbol": "MU",
       "category": "存储",
       "midPx": 876.065,
       "markPx": 876.07,
       "oraclePx": 875.79,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 216871.638,
       "prevDayPx": 900.29
     },
-    {
+    "SNDK": {
       "symbol": "SNDK",
       "category": "存储",
       "midPx": 1211.95,
       "markPx": 1211.9,
       "oraclePx": 1211.9,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 106928.248,
       "prevDayPx": 1302.6
     },
-    {
+    "SKHX": {
       "symbol": "SKHX",
       "category": "存储",
       "midPx": 1009.75,
       "markPx": 1009.8,
       "oraclePx": 1009.6,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 389234.452,
       "prevDayPx": 1040.1
     },
-    {
+    "TSM": {
       "symbol": "TSM",
       "category": "晶圆代工",
       "midPx": 420.39,
       "markPx": 420.39,
       "oraclePx": 420.44,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 36050.974,
       "prevDayPx": 421.64
     },
-    {
+    "SMSN": {
       "symbol": "SMSN",
       "category": "存储",
       "midPx": 166.225,
       "markPx": 166.24,
       "oraclePx": 166.22,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 419595.052,
       "prevDayPx": 165.4
     },
-    {
+    "SP500": {
       "symbol": "SP500",
       "category": "指数",
       "midPx": 7744.6,
       "markPx": 7744.2,
       "oraclePx": 7741.6,
-      "funding": 7.1496e-06,
+      "funding": 0.0000071496,
       "openInterest": 59972.384,
       "prevDayPx": 7716.6
     },
-    {
+    "DRAM": {
       "symbol": "DRAM",
       "category": "存储",
       "midPx": 50.4645,
       "markPx": 50.465,
       "oraclePx": 50.455,
-      "funding": 6.25e-06,
+      "funding": 0.00000625,
       "openInterest": 1233548.8,
       "prevDayPx": 51.614
     },
-    {
+    "AVGO": {
       "symbol": "AVGO",
       "category": "AI半导体",
       "midPx": 426.125,
       "markPx": 426.12,
       "oraclePx": 425.88,
-      "funding": 1.7069e-05,
+      "funding": 0.000017069,
       "openInterest": 6522.14,
       "prevDayPx": 423.35
-    }
-  ],
-  "previousAssets": {
-    "NVDA": {
-      "symbol": "NVDA",
-      "category": "AI半导体",
-      "midPx": 223.435,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "AMD": {
-      "symbol": "AMD",
-      "category": "AI半导体",
-      "midPx": 479.395,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "MU": {
-      "symbol": "MU",
-      "category": "存储",
-      "midPx": 875.665,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "TSM": {
-      "symbol": "TSM",
-      "category": "晶圆代工",
-      "midPx": 420.405,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "AVGO": {
-      "symbol": "AVGO",
-      "category": "AI半导体",
-      "midPx": 426.04,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "MSFT": {
-      "symbol": "MSFT",
-      "category": "平台",
-      "midPx": 499.375,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "AMZN": {
-      "symbol": "AMZN",
-      "category": "平台",
-      "midPx": 273.77,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "META": {
-      "symbol": "META",
-      "category": "平台",
-      "midPx": 591.55,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "GOOGL": {
-      "symbol": "GOOGL",
-      "category": "平台",
-      "midPx": 355.515,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "TSLA": {
-      "symbol": "TSLA",
-      "category": "高波动",
-      "midPx": 329.145,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "SMSN": {
-      "symbol": "SMSN",
-      "category": "存储",
-      "midPx": 166.31,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "SKHX": {
-      "symbol": "SKHX",
-      "category": "存储",
-      "midPx": 1009.65,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "SNDK": {
-      "symbol": "SNDK",
-      "category": "存储",
-      "midPx": 1211.45,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "DRAM": {
-      "symbol": "DRAM",
-      "category": "存储",
-      "midPx": 50.4485,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "SP500": {
-      "symbol": "SP500",
-      "category": "指数",
-      "midPx": 7744.75,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
-    },
-    "XYZ100": {
-      "symbol": "XYZ100",
-      "category": "指数",
-      "midPx": 29627.5,
-      "markPx": null,
-      "oraclePx": null,
-      "funding": null,
-      "openInterest": null,
-      "prevDayPx": null
     }
   },
   "history": [
@@ -438,7 +438,7 @@
           "midPx": 201.925,
           "markPx": 201.92,
           "oraclePx": 201.92,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 789068.262,
           "prevDayPx": 200.28
         },
@@ -447,7 +447,7 @@
           "midPx": 486.47,
           "markPx": 486.81,
           "oraclePx": 486.81,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 16999.688,
           "prevDayPx": 483.55
         },
@@ -456,7 +456,7 @@
           "midPx": 839.5,
           "markPx": 839.8,
           "oraclePx": 839.8,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 205095.81,
           "prevDayPx": 838.96
         },
@@ -465,7 +465,7 @@
           "midPx": 410.015,
           "markPx": 410.01,
           "oraclePx": 409.5,
-          "funding": 6.41064e-05,
+          "funding": 0.0000641064,
           "openInterest": 24437.184,
           "prevDayPx": 411.28
         },
@@ -474,7 +474,7 @@
           "midPx": 394.75,
           "markPx": 394.66,
           "oraclePx": 394.51,
-          "funding": 3.74137e-05,
+          "funding": 0.0000374137,
           "openInterest": 5340.5,
           "prevDayPx": 392.34
         },
@@ -483,7 +483,7 @@
           "midPx": 467.39,
           "markPx": 467.44,
           "oraclePx": 467.58,
-          "funding": -1.24703e-05,
+          "funding": -0.0000124703,
           "openInterest": 83954.752,
           "prevDayPx": 462.28
         },
@@ -492,7 +492,7 @@
           "midPx": 274.885,
           "markPx": 274.9,
           "oraclePx": 274.87,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 89490.648,
           "prevDayPx": 271.11
         },
@@ -501,7 +501,7 @@
           "midPx": 564.625,
           "markPx": 564.48,
           "oraclePx": 564.13,
-          "funding": 2.87989e-05,
+          "funding": 0.0000287989,
           "openInterest": 106900.476,
           "prevDayPx": 558.02
         },
@@ -510,7 +510,7 @@
           "midPx": 360.865,
           "markPx": 360.88,
           "oraclePx": 360.54,
-          "funding": 3.74087e-05,
+          "funding": 0.0000374087,
           "openInterest": 326239.154,
           "prevDayPx": 355.31
         },
@@ -519,7 +519,7 @@
           "midPx": 314.515,
           "markPx": 314.53,
           "oraclePx": 314.41,
-          "funding": 9.2009e-06,
+          "funding": 0.0000092009,
           "openInterest": 112213.858,
           "prevDayPx": 311.69
         },
@@ -528,7 +528,7 @@
           "midPx": 168.285,
           "markPx": 168.34,
           "oraclePx": 168.39,
-          "funding": -2.83251e-05,
+          "funding": -0.0000283251,
           "openInterest": 342165.996,
           "prevDayPx": 168.96
         },
@@ -546,7 +546,7 @@
           "midPx": 1251.65,
           "markPx": 1252,
           "oraclePx": 1252,
-          "funding": 6.184e-07,
+          "funding": 6.184e-7,
           "openInterest": 95378.028,
           "prevDayPx": 1243.1
         },
@@ -555,7 +555,7 @@
           "midPx": 51.4645,
           "markPx": 51.478,
           "oraclePx": 51.478,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 1262422,
           "prevDayPx": 51.335
         },
@@ -564,7 +564,7 @@
           "midPx": 7531.15,
           "markPx": 7531.2,
           "oraclePx": 7535.3,
-          "funding": -1.78028e-05,
+          "funding": -0.0000178028,
           "openInterest": 92448.202,
           "prevDayPx": 7495.8
         },
@@ -573,7 +573,7 @@
           "midPx": 28502.5,
           "markPx": 28503,
           "oraclePx": 28515,
-          "funding": -1.03958e-05,
+          "funding": -0.0000103958,
           "openInterest": 8410.8128,
           "prevDayPx": 28353
         }
@@ -586,11 +586,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 28491.5,
-          "markPx": 28492.0,
-          "oraclePx": 28506.0,
-          "funding": -1.5139e-05,
+          "markPx": 28492,
+          "oraclePx": 28506,
+          "funding": -0.000015139,
           "openInterest": 8491.9624,
-          "prevDayPx": 28360.0
+          "prevDayPx": 28360
         },
         {
           "symbol": "TSLA",
@@ -598,7 +598,7 @@
           "midPx": 314.32,
           "markPx": 314.32,
           "oraclePx": 314.26,
-          "funding": 9.0522e-06,
+          "funding": 0.0000090522,
           "openInterest": 112260.102,
           "prevDayPx": 311.84
         },
@@ -608,7 +608,7 @@
           "midPx": 201.795,
           "markPx": 201.8,
           "oraclePx": 201.81,
-          "funding": 3.8852e-06,
+          "funding": 0.0000038852,
           "openInterest": 789921.436,
           "prevDayPx": 200.16
         },
@@ -618,7 +618,7 @@
           "midPx": 564.21,
           "markPx": 564.07,
           "oraclePx": 563.82,
-          "funding": 1.21076e-05,
+          "funding": 0.0000121076,
           "openInterest": 106841.576,
           "prevDayPx": 558.44
         },
@@ -628,7 +628,7 @@
           "midPx": 466.92,
           "markPx": 466.94,
           "oraclePx": 467.07,
-          "funding": 3.0992e-06,
+          "funding": 0.0000030992,
           "openInterest": 83753.724,
           "prevDayPx": 461.29
         },
@@ -638,7 +638,7 @@
           "midPx": 360.925,
           "markPx": 360.93,
           "oraclePx": 360.65,
-          "funding": 3.17282e-05,
+          "funding": 0.0000317282,
           "openInterest": 326319.09,
           "prevDayPx": 355.13
         },
@@ -648,7 +648,7 @@
           "midPx": 274.545,
           "markPx": 274.47,
           "oraclePx": 274.47,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 89384.406,
           "prevDayPx": 271.31
         },
@@ -658,7 +658,7 @@
           "midPx": 484.865,
           "markPx": 484.8,
           "oraclePx": 484.77,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 17244.462,
           "prevDayPx": 482.9
         },
@@ -668,7 +668,7 @@
           "midPx": 837.59,
           "markPx": 837.66,
           "oraclePx": 837.66,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 204602.212,
           "prevDayPx": 839.45
         },
@@ -678,7 +678,7 @@
           "midPx": 1246.85,
           "markPx": 1247.2,
           "oraclePx": 1247.8,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 94967.2,
           "prevDayPx": 1241.2
         },
@@ -686,11 +686,11 @@
           "symbol": "SKHX",
           "category": "存储",
           "midPx": 1096.85,
-          "markPx": 1098.0,
+          "markPx": 1098,
           "oraclePx": 1098.1,
-          "funding": 5.96443e-05,
+          "funding": 0.0000596443,
           "openInterest": 311323.5940000005,
-          "prevDayPx": 1120.0
+          "prevDayPx": 1120
         },
         {
           "symbol": "TSM",
@@ -698,7 +698,7 @@
           "midPx": 409.57,
           "markPx": 409.41,
           "oraclePx": 408.95,
-          "funding": 6.08158e-05,
+          "funding": 0.0000608158,
           "openInterest": 24623.324,
           "prevDayPx": 411.55
         },
@@ -708,7 +708,7 @@
           "midPx": 167.32,
           "markPx": 167.31,
           "oraclePx": 167.31,
-          "funding": 9.1884e-06,
+          "funding": 0.0000091884,
           "openInterest": 341910.9020000001,
           "prevDayPx": 168.47
         },
@@ -718,7 +718,7 @@
           "midPx": 7528.05,
           "markPx": 7528.6,
           "oraclePx": 7533.6,
-          "funding": -1.76042e-05,
+          "funding": -0.0000176042,
           "openInterest": 92355.362,
           "prevDayPx": 7501.3
         },
@@ -728,7 +728,7 @@
           "midPx": 51.2845,
           "markPx": 51.284,
           "oraclePx": 51.3,
-          "funding": -1.4125e-06,
+          "funding": -0.0000014125,
           "openInterest": 1264764.1999999995,
           "prevDayPx": 51.345
         },
@@ -738,7 +738,7 @@
           "midPx": 394.585,
           "markPx": 394.49,
           "oraclePx": 394.22,
-          "funding": 3.25635e-05,
+          "funding": 0.0000325635,
           "openInterest": 5356.44,
           "prevDayPx": 392.53
         }
@@ -751,11 +751,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 29654.5,
-          "markPx": 29655.0,
-          "oraclePx": 29647.0,
-          "funding": 6.25e-06,
+          "markPx": 29655,
+          "oraclePx": 29647,
+          "funding": 0.00000625,
           "openInterest": 6768.2642,
-          "prevDayPx": 29415.0
+          "prevDayPx": 29415
         },
         {
           "symbol": "TSLA",
@@ -763,7 +763,7 @@
           "midPx": 327.805,
           "markPx": 327.88,
           "oraclePx": 327.83,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 105655.77,
           "prevDayPx": 318.6
         },
@@ -773,7 +773,7 @@
           "midPx": 222.135,
           "markPx": 222.13,
           "oraclePx": 222.12,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 739895.4959999999,
           "prevDayPx": 219.43
         },
@@ -783,7 +783,7 @@
           "midPx": 592.27,
           "markPx": 592.32,
           "oraclePx": 592.32,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 76045.314,
           "prevDayPx": 589.14
         },
@@ -793,7 +793,7 @@
           "midPx": 500.165,
           "markPx": 500.14,
           "oraclePx": 500.19,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 108961.506,
           "prevDayPx": 496.06
         },
@@ -803,7 +803,7 @@
           "midPx": 355.115,
           "markPx": 355.11,
           "oraclePx": 354.95,
-          "funding": 9.4019e-06,
+          "funding": 0.0000094019,
           "openInterest": 345078.2860000001,
           "prevDayPx": 358.19
         },
@@ -813,7 +813,7 @@
           "midPx": 274.875,
           "markPx": 274.88,
           "oraclePx": 274.96,
-          "funding": -1.3701e-06,
+          "funding": -0.0000013701,
           "openInterest": 100506.408,
           "prevDayPx": 272.31
         },
@@ -823,7 +823,7 @@
           "midPx": 481.585,
           "markPx": 481.53,
           "oraclePx": 481.61,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 26867.458,
           "prevDayPx": 494.52
         },
@@ -832,8 +832,8 @@
           "category": "存储",
           "midPx": 872.615,
           "markPx": 872.68,
-          "oraclePx": 873.0,
-          "funding": -3.0946e-06,
+          "oraclePx": 873,
+          "funding": -0.0000030946,
           "openInterest": 227516.228,
           "prevDayPx": 891.43
         },
@@ -843,7 +843,7 @@
           "midPx": 1234.05,
           "markPx": 1234.1,
           "oraclePx": 1234.1,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 115591.406,
           "prevDayPx": 1285.6
         },
@@ -853,7 +853,7 @@
           "midPx": 1011.35,
           "markPx": 1010.7,
           "oraclePx": 1009.1,
-          "funding": 4.0419e-05,
+          "funding": 0.000040419,
           "openInterest": 391410.6040000001,
           "prevDayPx": 1064.3
         },
@@ -863,7 +863,7 @@
           "midPx": 420.21,
           "markPx": 420.17,
           "oraclePx": 420.14,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 36096.654,
           "prevDayPx": 420.51
         },
@@ -872,8 +872,8 @@
           "category": "存储",
           "midPx": 163.43,
           "markPx": 163.27,
-          "oraclePx": 163.0,
-          "funding": 3.98182e-05,
+          "oraclePx": 163,
+          "funding": 0.0000398182,
           "openInterest": 424594.836,
           "prevDayPx": 165.21
         },
@@ -883,9 +883,9 @@
           "midPx": 7741.95,
           "markPx": 7742.5,
           "oraclePx": 7746.2,
-          "funding": -1.03681e-05,
+          "funding": -0.0000103681,
           "openInterest": 60881.57,
-          "prevDayPx": 7703.0
+          "prevDayPx": 7703
         },
         {
           "symbol": "DRAM",
@@ -893,7 +893,7 @@
           "midPx": 50.1905,
           "markPx": 50.185,
           "oraclePx": 50.185,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 1285098.4000000004,
           "prevDayPx": 51.798
         },
@@ -903,7 +903,7 @@
           "midPx": 425.16,
           "markPx": 425.11,
           "oraclePx": 424.89,
-          "funding": 2.43871e-05,
+          "funding": 0.0000243871,
           "openInterest": 6590.64,
           "prevDayPx": 424.96
         }
@@ -916,11 +916,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 29727.5,
-          "markPx": 29727.0,
-          "oraclePx": 29717.0,
-          "funding": 6.25e-06,
+          "markPx": 29727,
+          "oraclePx": 29717,
+          "funding": 0.00000625,
           "openInterest": 6648.266,
-          "prevDayPx": 29393.0
+          "prevDayPx": 29393
         },
         {
           "symbol": "TSLA",
@@ -928,7 +928,7 @@
           "midPx": 328.845,
           "markPx": 328.84,
           "oraclePx": 328.75,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 107050.534,
           "prevDayPx": 319.39
         },
@@ -938,7 +938,7 @@
           "midPx": 223.595,
           "markPx": 223.58,
           "oraclePx": 223.52,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 741978.328,
           "prevDayPx": 219.09
         },
@@ -948,7 +948,7 @@
           "midPx": 592.895,
           "markPx": 592.85,
           "oraclePx": 592.53,
-          "funding": 1.44436e-05,
+          "funding": 0.0000144436,
           "openInterest": 77248.956,
           "prevDayPx": 588.11
         },
@@ -958,7 +958,7 @@
           "midPx": 499.975,
           "markPx": 499.94,
           "oraclePx": 500.09,
-          "funding": 1.1176e-06,
+          "funding": 0.0000011176,
           "openInterest": 106487.466,
           "prevDayPx": 498.62
         },
@@ -968,7 +968,7 @@
           "midPx": 354.53,
           "markPx": 354.53,
           "oraclePx": 354.35,
-          "funding": 1.54948e-05,
+          "funding": 0.0000154948,
           "openInterest": 350616.234,
           "prevDayPx": 358.45
         },
@@ -978,7 +978,7 @@
           "midPx": 274.335,
           "markPx": 274.34,
           "oraclePx": 274.45,
-          "funding": 1.4463e-06,
+          "funding": 0.0000014463,
           "openInterest": 100007.238,
           "prevDayPx": 271.88
         },
@@ -988,7 +988,7 @@
           "midPx": 482.405,
           "markPx": 482.43,
           "oraclePx": 482.51,
-          "funding": 4.9005e-06,
+          "funding": 0.0000049005,
           "openInterest": 26048.46,
           "prevDayPx": 488.45
         },
@@ -998,7 +998,7 @@
           "midPx": 875.835,
           "markPx": 875.83,
           "oraclePx": 876.4,
-          "funding": -2.38485e-05,
+          "funding": -0.0000238485,
           "openInterest": 220197.4440000001,
           "prevDayPx": 885.6
         },
@@ -1008,7 +1008,7 @@
           "midPx": 1217.85,
           "markPx": 1217.6,
           "oraclePx": 1216.9,
-          "funding": 1.05721e-05,
+          "funding": 0.0000105721,
           "openInterest": 109575.326,
           "prevDayPx": 1265.3
         },
@@ -1017,8 +1017,8 @@
           "category": "存储",
           "midPx": 1013.95,
           "markPx": 1013.2,
-          "oraclePx": 1013.0,
-          "funding": 6.25e-06,
+          "oraclePx": 1013,
+          "funding": 0.00000625,
           "openInterest": 390602.2299999999,
           "prevDayPx": 1061.5
         },
@@ -1028,7 +1028,7 @@
           "midPx": 421.15,
           "markPx": 421.14,
           "oraclePx": 420.76,
-          "funding": 1.6444e-05,
+          "funding": 0.000016444,
           "openInterest": 36078.04,
           "prevDayPx": 418.95
         },
@@ -1038,7 +1038,7 @@
           "midPx": 165.015,
           "markPx": 165.02,
           "oraclePx": 164.84,
-          "funding": 9.7922e-05,
+          "funding": 0.000097922,
           "openInterest": 421061.5420000001,
           "prevDayPx": 164.74
         },
@@ -1048,9 +1048,9 @@
           "midPx": 7750.55,
           "markPx": 7750.5,
           "oraclePx": 7753.6,
-          "funding": -1.98633e-05,
+          "funding": -0.0000198633,
           "openInterest": 60084.544,
-          "prevDayPx": 7702.0
+          "prevDayPx": 7702
         },
         {
           "symbol": "DRAM",
@@ -1058,7 +1058,7 @@
           "midPx": 50.4955,
           "markPx": 50.495,
           "oraclePx": 50.51,
-          "funding": -5.8839e-06,
+          "funding": -0.0000058839,
           "openInterest": 1283520.9999999998,
           "prevDayPx": 51.604
         },
@@ -1068,7 +1068,7 @@
           "midPx": 427.48,
           "markPx": 427.44,
           "oraclePx": 427.09,
-          "funding": 3.48435e-05,
+          "funding": 0.0000348435,
           "openInterest": 6379.24,
           "prevDayPx": 420.51
         }
@@ -1081,11 +1081,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 29727.5,
-          "markPx": 29727.0,
-          "oraclePx": 29722.0,
-          "funding": 2.29402e-05,
+          "markPx": 29727,
+          "oraclePx": 29722,
+          "funding": 0.0000229402,
           "openInterest": 6738.5952,
-          "prevDayPx": 29419.0
+          "prevDayPx": 29419
         },
         {
           "symbol": "TSLA",
@@ -1093,7 +1093,7 @@
           "midPx": 329.52,
           "markPx": 329.44,
           "oraclePx": 329.23,
-          "funding": 2.63423e-05,
+          "funding": 0.0000263423,
           "openInterest": 107072.106,
           "prevDayPx": 320.67
         },
@@ -1103,7 +1103,7 @@
           "midPx": 223.8,
           "markPx": 223.81,
           "oraclePx": 223.74,
-          "funding": 1.19863e-05,
+          "funding": 0.0000119863,
           "openInterest": 742179.942,
           "prevDayPx": 219.08
         },
@@ -1112,8 +1112,8 @@
           "category": "平台",
           "midPx": 592.615,
           "markPx": 592.61,
-          "oraclePx": 592.0,
-          "funding": 5.02019e-05,
+          "oraclePx": 592,
+          "funding": 0.0000502019,
           "openInterest": 77091.006,
           "prevDayPx": 589.28
         },
@@ -1123,7 +1123,7 @@
           "midPx": 499.55,
           "markPx": 499.66,
           "oraclePx": 499.77,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 106406.094,
           "prevDayPx": 497.56
         },
@@ -1133,7 +1133,7 @@
           "midPx": 355.28,
           "markPx": 355.29,
           "oraclePx": 355.14,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 351697.8200000001,
           "prevDayPx": 358.82
         },
@@ -1143,7 +1143,7 @@
           "midPx": 274.555,
           "markPx": 274.57,
           "oraclePx": 274.42,
-          "funding": 1.113e-05,
+          "funding": 0.00001113,
           "openInterest": 100239.466,
           "prevDayPx": 272.34
         },
@@ -1153,7 +1153,7 @@
           "midPx": 482.655,
           "markPx": 482.65,
           "oraclePx": 482.32,
-          "funding": 4.48781e-05,
+          "funding": 0.0000448781,
           "openInterest": 26316.334,
           "prevDayPx": 490.95
         },
@@ -1163,7 +1163,7 @@
           "midPx": 880.175,
           "markPx": 879.89,
           "oraclePx": 879.26,
-          "funding": 3.40818e-05,
+          "funding": 0.0000340818,
           "openInterest": 216995.882,
           "prevDayPx": 883.22
         },
@@ -1172,8 +1172,8 @@
           "category": "存储",
           "midPx": 1218.75,
           "markPx": 1218.2,
-          "oraclePx": 1218.0,
-          "funding": 6.25e-06,
+          "oraclePx": 1218,
+          "funding": 0.00000625,
           "openInterest": 106654.318,
           "prevDayPx": 1260.5
         },
@@ -1183,7 +1183,7 @@
           "midPx": 1014.8,
           "markPx": 1014.8,
           "oraclePx": 1014.6,
-          "funding": 4.07068e-05,
+          "funding": 0.0000407068,
           "openInterest": 390030.184,
           "prevDayPx": 1012.7
         },
@@ -1193,7 +1193,7 @@
           "midPx": 420.815,
           "markPx": 420.78,
           "oraclePx": 420.78,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 36070.678,
           "prevDayPx": 419.25
         },
@@ -1203,7 +1203,7 @@
           "midPx": 166.53,
           "markPx": 166.52,
           "oraclePx": 166.35,
-          "funding": 7.77361e-05,
+          "funding": 0.0000777361,
           "openInterest": 418947.33,
           "prevDayPx": 164.06
         },
@@ -1213,7 +1213,7 @@
           "midPx": 7751.85,
           "markPx": 7751.8,
           "oraclePx": 7747.6,
-          "funding": 2.37281e-05,
+          "funding": 0.0000237281,
           "openInterest": 60211.174,
           "prevDayPx": 7703.7
         },
@@ -1223,7 +1223,7 @@
           "midPx": 50.6985,
           "markPx": 50.698,
           "oraclePx": 50.665,
-          "funding": 5.19525e-05,
+          "funding": 0.0000519525,
           "openInterest": 1265231.6,
           "prevDayPx": 50.805
         },
@@ -1233,7 +1233,7 @@
           "midPx": 427.55,
           "markPx": 427.51,
           "oraclePx": 427.33,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 6509.9,
           "prevDayPx": 421.61
         }
@@ -1246,11 +1246,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 29653.5,
-          "markPx": 29655.0,
-          "oraclePx": 29680.0,
-          "funding": -3.56127e-05,
+          "markPx": 29655,
+          "oraclePx": 29680,
+          "funding": -0.0000356127,
           "openInterest": 6649.6912,
-          "prevDayPx": 29432.0
+          "prevDayPx": 29432
         },
         {
           "symbol": "TSLA",
@@ -1258,7 +1258,7 @@
           "midPx": 328.975,
           "markPx": 329.12,
           "oraclePx": 329.48,
-          "funding": -2.47827e-05,
+          "funding": -0.0000247827,
           "openInterest": 107037.772,
           "prevDayPx": 320.45
         },
@@ -1268,7 +1268,7 @@
           "midPx": 223.47,
           "markPx": 223.48,
           "oraclePx": 223.6,
-          "funding": -2.63308e-05,
+          "funding": -0.0000263308,
           "openInterest": 741900.744,
           "prevDayPx": 219.03
         },
@@ -1278,7 +1278,7 @@
           "midPx": 591.805,
           "markPx": 591.82,
           "oraclePx": 592.28,
-          "funding": -4.33711e-05,
+          "funding": -0.0000433711,
           "openInterest": 77021.684,
           "prevDayPx": 587.07
         },
@@ -1288,7 +1288,7 @@
           "midPx": 499.3,
           "markPx": 499.35,
           "oraclePx": 499.55,
-          "funding": -2.36207e-05,
+          "funding": -0.0000236207,
           "openInterest": 106037.078,
           "prevDayPx": 497.5
         },
@@ -1298,7 +1298,7 @@
           "midPx": 355.44,
           "markPx": 355.57,
           "oraclePx": 355.57,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 352178.326,
           "prevDayPx": 358.6
         },
@@ -1308,7 +1308,7 @@
           "midPx": 273.81,
           "markPx": 273.85,
           "oraclePx": 274.15,
-          "funding": -5.02475e-05,
+          "funding": -0.0000502475,
           "openInterest": 100422.594,
           "prevDayPx": 272.15
         },
@@ -1318,7 +1318,7 @@
           "midPx": 479.735,
           "markPx": 479.74,
           "oraclePx": 480.29,
-          "funding": -4.3299e-05,
+          "funding": -0.000043299,
           "openInterest": 26165.744,
           "prevDayPx": 490.87
         },
@@ -1328,7 +1328,7 @@
           "midPx": 875.355,
           "markPx": 875.37,
           "oraclePx": 876.32,
-          "funding": -4.49159e-05,
+          "funding": -0.0000449159,
           "openInterest": 216889.63,
           "prevDayPx": 886.95
         },
@@ -1338,9 +1338,9 @@
           "midPx": 1213.35,
           "markPx": 1213.3,
           "oraclePx": 1214.2,
-          "funding": -3.52024e-05,
+          "funding": -0.0000352024,
           "openInterest": 107114.344,
-          "prevDayPx": 1265.0
+          "prevDayPx": 1265
         },
         {
           "symbol": "SKHX",
@@ -1348,7 +1348,7 @@
           "midPx": 1009.35,
           "markPx": 1009.4,
           "oraclePx": 1009.9,
-          "funding": -3.12557e-05,
+          "funding": -0.0000312557,
           "openInterest": 389726.022,
           "prevDayPx": 1010.1
         },
@@ -1358,7 +1358,7 @@
           "midPx": 419.955,
           "markPx": 419.95,
           "oraclePx": 420.21,
-          "funding": -2.50674e-05,
+          "funding": -0.0000250674,
           "openInterest": 36046.126,
           "prevDayPx": 418.4
         },
@@ -1368,7 +1368,7 @@
           "midPx": 166.095,
           "markPx": 166.09,
           "oraclePx": 166.16,
-          "funding": -1.5972e-05,
+          "funding": -0.000015972,
           "openInterest": 418070.0360000001,
           "prevDayPx": 164.72
         },
@@ -1378,7 +1378,7 @@
           "midPx": 7740.25,
           "markPx": 7740.8,
           "oraclePx": 7744.6,
-          "funding": -2.22603e-05,
+          "funding": -0.0000222603,
           "openInterest": 60040.516,
           "prevDayPx": 7706.5
         },
@@ -1388,7 +1388,7 @@
           "midPx": 50.4615,
           "markPx": 50.462,
           "oraclePx": 50.486,
-          "funding": -1.34653e-05,
+          "funding": -0.0000134653,
           "openInterest": 1241513.5999999999,
           "prevDayPx": 50.801
         },
@@ -1398,7 +1398,7 @@
           "midPx": 426.405,
           "markPx": 426.38,
           "oraclePx": 426.7,
-          "funding": -4.01667e-05,
+          "funding": -0.0000401667,
           "openInterest": 6452.94,
           "prevDayPx": 421.16
         }
@@ -1411,11 +1411,11 @@
           "symbol": "XYZ100",
           "category": "指数",
           "midPx": 29654.5,
-          "markPx": 29654.0,
-          "oraclePx": 29630.0,
-          "funding": 3.42127e-05,
+          "markPx": 29654,
+          "oraclePx": 29630,
+          "funding": 0.0000342127,
           "openInterest": 6261.6256,
-          "prevDayPx": 29526.0
+          "prevDayPx": 29526
         },
         {
           "symbol": "TSLA",
@@ -1423,7 +1423,7 @@
           "midPx": 329.225,
           "markPx": 329.21,
           "oraclePx": 329.11,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 107454.53,
           "prevDayPx": 321.64
         },
@@ -1433,7 +1433,7 @@
           "midPx": 223.665,
           "markPx": 223.66,
           "oraclePx": 223.47,
-          "funding": 3.95232e-05,
+          "funding": 0.0000395232,
           "openInterest": 743858.388,
           "prevDayPx": 219.92
         },
@@ -1443,7 +1443,7 @@
           "midPx": 591.765,
           "markPx": 591.72,
           "oraclePx": 591.54,
-          "funding": 1.89241e-05,
+          "funding": 0.0000189241,
           "openInterest": 77188.208,
           "prevDayPx": 587.37
         },
@@ -1453,7 +1453,7 @@
           "midPx": 499.44,
           "markPx": 499.47,
           "oraclePx": 499.17,
-          "funding": 2.1236e-05,
+          "funding": 0.000021236,
           "openInterest": 106111.758,
           "prevDayPx": 497.38
         },
@@ -1463,7 +1463,7 @@
           "midPx": 355.525,
           "markPx": 355.53,
           "oraclePx": 355.3,
-          "funding": 2.09054e-05,
+          "funding": 0.0000209054,
           "openInterest": 352592.138,
           "prevDayPx": 358.86
         },
@@ -1473,7 +1473,7 @@
           "midPx": 273.835,
           "markPx": 273.81,
           "oraclePx": 273.78,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 100512.046,
           "prevDayPx": 271.89
         },
@@ -1483,7 +1483,7 @@
           "midPx": 479.65,
           "markPx": 479.65,
           "oraclePx": 479.47,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 26180.422,
           "prevDayPx": 494.04
         },
@@ -1493,7 +1493,7 @@
           "midPx": 876.065,
           "markPx": 876.07,
           "oraclePx": 875.79,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 216871.638,
           "prevDayPx": 900.29
         },
@@ -1503,7 +1503,7 @@
           "midPx": 1211.95,
           "markPx": 1211.9,
           "oraclePx": 1211.9,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 106928.248,
           "prevDayPx": 1302.6
         },
@@ -1513,7 +1513,7 @@
           "midPx": 1009.75,
           "markPx": 1009.8,
           "oraclePx": 1009.6,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 389234.452,
           "prevDayPx": 1040.1
         },
@@ -1523,7 +1523,7 @@
           "midPx": 420.39,
           "markPx": 420.39,
           "oraclePx": 420.44,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 36050.974,
           "prevDayPx": 421.64
         },
@@ -1533,7 +1533,7 @@
           "midPx": 166.225,
           "markPx": 166.24,
           "oraclePx": 166.22,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 419595.052,
           "prevDayPx": 165.4
         },
@@ -1543,7 +1543,7 @@
           "midPx": 7744.6,
           "markPx": 7744.2,
           "oraclePx": 7741.6,
-          "funding": 7.1496e-06,
+          "funding": 0.0000071496,
           "openInterest": 59972.384,
           "prevDayPx": 7716.6
         },
@@ -1553,7 +1553,7 @@
           "midPx": 50.4645,
           "markPx": 50.465,
           "oraclePx": 50.455,
-          "funding": 6.25e-06,
+          "funding": 0.00000625,
           "openInterest": 1233548.8,
           "prevDayPx": 51.614
         },
@@ -1563,9 +1563,174 @@
           "midPx": 426.125,
           "markPx": 426.12,
           "oraclePx": 425.88,
-          "funding": 1.7069e-05,
+          "funding": 0.000017069,
           "openInterest": 6522.14,
           "prevDayPx": 423.35
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-08-08T12:53:37.507Z",
+      "assets": [
+        {
+          "symbol": "NVDA",
+          "category": "AI半导体",
+          "midPx": 223.805,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "AMD",
+          "category": "AI半导体",
+          "midPx": 480.585,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "MU",
+          "category": "存储",
+          "midPx": 878.065,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "TSM",
+          "category": "晶圆代工",
+          "midPx": 420.235,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "AVGO",
+          "category": "AI半导体",
+          "midPx": 426.985,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "MSFT",
+          "category": "平台",
+          "midPx": 499.105,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "AMZN",
+          "category": "平台",
+          "midPx": 274.09,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "META",
+          "category": "平台",
+          "midPx": 591.72,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "GOOGL",
+          "category": "平台",
+          "midPx": 355.41,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "TSLA",
+          "category": "高波动",
+          "midPx": 329.655,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "SMSN",
+          "category": "存储",
+          "midPx": 166.94,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "SKHX",
+          "category": "存储",
+          "midPx": 1013.25,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "SNDK",
+          "category": "存储",
+          "midPx": 1215.25,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "DRAM",
+          "category": "存储",
+          "midPx": 50.6875,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "SP500",
+          "category": "指数",
+          "midPx": 7746.4,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
+        },
+        {
+          "symbol": "XYZ100",
+          "category": "指数",
+          "midPx": 29677.5,
+          "markPx": null,
+          "oraclePx": null,
+          "funding": null,
+          "openInterest": null,
+          "prevDayPx": null
         }
       ]
     }
