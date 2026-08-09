@@ -1,11 +1,11 @@
-# trigger 2026-08-09T22:40+08:00
 name: Run Future Payment refinement
 
 on:
-  push:
+  pull_request:
     branches: [main]
     paths:
-      - '.github/workflows/run-future-payment-refinement.yml'
+      - '.github/refine-trigger/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: Execute refinement payload
         shell: python
         run: |
@@ -32,7 +34,7 @@ jobs:
           payload = payload.split('\n      - name:', 1)[0]
           code = textwrap.dedent(payload).lstrip('\n')
           exec(compile(code, 'future-payment-refinement', 'exec'), {'__name__': '__main__'})
-      - name: Commit refined content
+      - name: Commit refined content to PR branch
         shell: bash
         run: |
           git config user.name 'kerwin-enya-publish-bot'
@@ -45,5 +47,4 @@ jobs:
             exit 0
           fi
           git commit -m 'Refine Future Payment framework and sync homepage'
-          git pull --rebase origin main
-          git push origin main
+          git push origin HEAD:${{ github.head_ref }}
