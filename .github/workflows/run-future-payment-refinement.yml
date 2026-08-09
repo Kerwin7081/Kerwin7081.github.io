@@ -21,7 +21,6 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
-          import textwrap
           source = Path('.github/workflows/one-time-refine-future-payment-20260810.yml').read_text(encoding='utf-8')
           marker = '      - name: Refine article, metadata and homepage registration'
           if marker not in source:
@@ -32,7 +31,10 @@ jobs:
               raise SystemExit('Python payload not found')
           payload = tail.split(marker2, 1)[1]
           payload = payload.split('\n      - name:', 1)[0]
-          code = textwrap.dedent(payload).lstrip('\n')
+          normalized = []
+          for line in payload.splitlines():
+              normalized.append(line[10:] if line.startswith('          ') else line)
+          code = '\n'.join(normalized).lstrip('\n')
           exec(compile(code, 'future-payment-refinement', 'exec'), {'__name__': '__main__'})
       - name: Commit refined content to PR branch
         shell: bash
