@@ -1,3 +1,4 @@
+# one-time workflow; second push triggers execution
 name: One-time refine Future Payment topic
 
 on:
@@ -56,26 +57,15 @@ jobs:
 
           text = text[:start] + core + text[end:]
 
-          # Reframe Enya strictly as the automation assistant; Kerwin owns judgment/framework.
           enya_start = text.index('<section class="enya enya-brand">')
           footer_start = text.index('<footer class="footer">', enya_start)
           enya_block = '''<section class="enya enya-brand"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">本专题的认识框架、判断边界与投资结论由 Kerwin 确定。Enya 作为自动化助理，负责持续搜索公开信息、核验来源、整理新增变化、维护数据口径、更新专题与《全新支付专题周报》，并完成网页与邮件排版呈现。</p><div class="roles"><div class="role"><b>Kerwin</b><span>研究主题、认识框架、判断、投资逻辑、决策边界与最终审核。</span></div><div class="role"><b>Enya</b><span>自动化跟踪、搜索、核验、整理、计算、可视化、排版与执行。</span></div></div></section>
 '''
           text = text[:enya_start] + enya_block + text[footer_start:]
-
-          # Publication label requested by Kerwin. Snapshot remains through Aug 9 HKT.
           text = text.replace('Evidence first · Snapshot 2026.08.09 HKT', 'Evidence first · Published 2026.08.10')
           text = text.replace('Published 2026-08-09 20:13 HKT · Updated 2026-08-09 20:13 HKT', 'Published 2026-08-10 HKT · Data snapshot through 2026-08-09 HKT')
 
-          required = [
-              'KERWIN FOREWORD · 卷首语',
-              'Cloudflare（NYSE: NET）到底是什么？',
-              '传统金融与加密金融',
-              'Agent 与 Agent',
-              'Kerwin判断',
-              '发布日期</b> 2026-08-10',
-              'data-layout-id="kerwin-editorial-research-v1"'
-          ]
+          required = ['KERWIN FOREWORD · 卷首语','Cloudflare（NYSE: NET）到底是什么？','传统金融与加密金融','Agent 与 Agent','Kerwin判断','发布日期</b> 2026-08-10','data-layout-id="kerwin-editorial-research-v1"']
           missing = [x for x in required if x not in text]
           if missing:
               raise SystemExit('Page QA missing: ' + ', '.join(missing))
@@ -84,35 +74,19 @@ jobs:
           page_path.write_text(text, encoding='utf-8')
 
           meta = json.loads(meta_path.read_text(encoding='utf-8'))
-          meta.update({
-              'date': '2026-08-10',
-              'author': 'Kerwin',
-              'summary': 'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为卷首框架，从A16z稳定币卡数据出发，依次拆解支付物种、六层基础设施、人类与机器两条路径、Cloudflare/NET互联网控制面，以及CRCL、COIN、V、MA、NET的价值捕获与证伪指标。',
-              'homepage_approved': True,
-              'homepage_section': 'research',
-              'published_at': '2026-08-10T00:00:00+08:00',
-              'updated_at': '2026-08-10T00:00:00+08:00'
-          })
+          meta.update({'date':'2026-08-10','author':'Kerwin','summary':'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为卷首框架，从A16z稳定币卡数据出发，依次拆解支付物种、六层基础设施、人类与机器两条路径、Cloudflare/NET互联网控制面，以及CRCL、COIN、V、MA、NET的价值捕获与证伪指标。','homepage_approved':True,'homepage_section':'research','published_at':'2026-08-10T00:00:00+08:00','updated_at':'2026-08-10T00:00:00+08:00'})
           meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
           items = json.loads(registry_path.read_text(encoding='utf-8'))
           found = False
           for item in items:
               if item.get('slug') == slug:
-                  item.update({
-                      'title': '全新支付基础设施：从 Stablecoin Card 到 Agent Payment',
-                      'date': '2026年8月10日',
-                      'deck': 'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为框架，从A16z稳定币卡数据出发，拆解六层未来支付基础设施、人类与机器支付分叉、Cloudflare/NET互联网控制面及CRCL、COIN、V、MA、NET的价值捕获与验证指标。',
-                      'homepage_approved': True,
-                      'published_at': '2026-08-10T00:00:00+08:00'
-                  })
+                  item.update({'title':'全新支付基础设施：从 Stablecoin Card 到 Agent Payment','date':'2026年8月10日','deck':'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为框架，从A16z稳定币卡数据出发，拆解六层未来支付基础设施、人类与机器支付分叉、Cloudflare/NET互联网控制面及CRCL、COIN、V、MA、NET的价值捕获与验证指标。','homepage_approved':True,'published_at':'2026-08-10T00:00:00+08:00'})
                   found = True
                   break
           if not found:
               raise SystemExit('Registry entry not found')
           registry_path.write_text(json.dumps(items, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
-          # Homepage sync is registry-driven. Verify exact public inclusion contract.
           check = next(x for x in items if x.get('slug') == slug)
           if check.get('homepage_approved') is not True or check.get('date') != '2026年8月10日':
               raise SystemExit('Homepage registry QA failed')
@@ -122,9 +96,7 @@ jobs:
         run: |
           git config user.name 'kerwin-enya-publish-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add future-payment-infrastructure-stablecoin-agentic-commerce-20260809/index.html \
-                  future-payment-infrastructure-stablecoin-agentic-commerce-20260809/meta.json \
-                  registry.json
+          git add future-payment-infrastructure-stablecoin-agentic-commerce-20260809/index.html future-payment-infrastructure-stablecoin-agentic-commerce-20260809/meta.json registry.json
           git rm .github/workflows/one-time-refine-future-payment-20260810.yml
           git commit -m 'Refine Future Payment framework and sync homepage'
           git pull --rebase origin main
