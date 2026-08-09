@@ -1,0 +1,48 @@
+name: Run Future Payment refinement
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/run-future-payment-refinement.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute refinement payload
+        shell: python
+        run: |
+          from pathlib import Path
+          import textwrap
+          source = Path('.github/workflows/one-time-refine-future-payment-20260810.yml').read_text(encoding='utf-8')
+          marker = '      - name: Refine article, metadata and homepage registration'
+          if marker not in source:
+              raise SystemExit('Refinement payload marker not found')
+          tail = source.split(marker, 1)[1]
+          marker2 = '        run: |'
+          if marker2 not in tail:
+              raise SystemExit('Python payload not found')
+          payload = tail.split(marker2, 1)[1]
+          payload = payload.split('\n      - name:', 1)[0]
+          code = textwrap.dedent(payload).lstrip('\n')
+          exec(compile(code, 'future-payment-refinement', 'exec'), {'__name__': '__main__'})
+      - name: Commit refined content
+        shell: bash
+        run: |
+          git config user.name 'kerwin-enya-publish-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add future-payment-infrastructure-stablecoin-agentic-commerce-20260809/index.html \
+                  future-payment-infrastructure-stablecoin-agentic-commerce-20260809/meta.json \
+                  registry.json
+          if git diff --cached --quiet; then
+            echo 'Refinement already applied.'
+            exit 0
+          fi
+          git commit -m 'Refine Future Payment framework and sync homepage'
+          git pull --rebase origin main
+          git push origin main
