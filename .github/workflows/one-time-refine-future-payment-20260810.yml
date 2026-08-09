@@ -1,0 +1,131 @@
+name: One-time refine Future Payment topic
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-refine-future-payment-20260810.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refine article, metadata and homepage registration
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          slug = 'future-payment-infrastructure-stablecoin-agentic-commerce-20260809'
+          page_path = Path(slug) / 'index.html'
+          meta_path = Path(slug) / 'meta.json'
+          registry_path = Path('registry.json')
+
+          text = page_path.read_text(encoding='utf-8')
+
+          extra_css = '''
+.kerwin-foreword{padding:34px 40px;border-left:6px solid var(--green);background:var(--paper-2)}.kerwin-foreword .section-label{margin-bottom:12px;color:var(--copper)}.kerwin-foreword p{margin:0 0 15px;font:400 19px/1.78 var(--serif)}.kerwin-foreword p:last-child{margin-bottom:0}.bridge-line{margin:20px 0 0;padding-top:17px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1.72}.plain-note{margin-top:24px;padding:24px;border:1px solid var(--green);background:var(--green-pale)}.plain-note h3{margin-top:0;color:var(--green)}.plain-note p:last-child{margin-bottom:0}.logic-bridge{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.75}.status-chip{display:inline-block;margin-right:7px;padding:3px 7px;border:1px solid var(--line-dark);color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:760px){.kerwin-foreword{padding:25px 20px;border-left-width:4px}.kerwin-foreword p{font-size:16px;line-height:1.78}.plain-note{padding:20px}.bridge-line,.logic-bridge{font-size:13px}}
+'''
+          if '.kerwin-foreword{' not in text:
+              text = text.replace('</style>', extra_css + '</style>')
+
+          start = text.index('<header class="masthead">')
+          end = text.index('<section class="enya enya-brand">')
+
+          core = '''<header class="masthead"><a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a><nav class="nav" aria-label="页内导航"><a href="#foreword">卷首语</a><a href="#stack">支付栈</a><a href="#control">控制权</a><a href="#stocks">股票映射</a><a href="#monitor">验证指标</a></nav><a class="home-route" href="/">研究首页 ↗</a></header>
+<section class="cover"><div class="cover-grid"><div><div class="eyebrow">FUTURE PAYMENT INFRASTRUCTURE</div><h1>全新支付基础设施<span>从 Stablecoin Card 到 Agent Payment</span></h1><p class="thesis">传统金融与加密金融正在经由稳定币发生双向融合；Agent 经济则把“支付”从人类结账动作变成机器可调用的基础能力。本文从 A16z 稳定币卡数据切入，沿着“两界融合 → 人类支付桥梁 → 机器支付闭环 → 控制权与价值捕获”展开。</p><div class="cover-meta"><span><b>发布日期</b> 2026-08-10</span><span><b>数据快照</b> 截至 2026-08-09 HKT</span><span><b>研究对象</b> Stablecoin × Cards × Agent Commerce</span><span><b>核心标的</b> CRCL / COIN / V / MA / NET</span></div></div><aside class="cover-seal"><strong>2×6</strong><span>Two worlds · Six payment layers</span></aside></div></section>
+<div class="scope-note"><b>证据边界：</b>A16z 8 月 newsletter 对 Paymentscan 的快照用于识别“稳定币卡正在规模化”的方向，口径属于被跟踪卡项目，并不等于 Visa/Mastercard 全网口径；Visa、Mastercard、Circle、Coinbase、Stripe、Cloudflare 与 Gnosis 的产品和规模描述优先采用公司官方材料。行业框架、股票传导与价值捕获排序均属于 <b>Kerwin 判断</b>；Enya 负责自动化搜索、核验、整理与呈现。</div>
+<section class="section" id="foreword"><div class="kerwin-foreword"><div class="section-label">KERWIN FOREWORD · 卷首语</div><p><b>Kerwin认为，理解“全新支付”首先要始终保留一个认识框架：</b>传统金融与加密金融曾长期处于两个相对独立的“世界”，而稳定币正在成为连接两者的重要桥梁。它一端把链上的数字美元、钱包和可编程结算接入银行卡、银行账户与现实商户，另一端也推动传统金融的资金、账户、支付网络和商业模式逐步向链上延伸。稳定币不是第三个孤立世界，而更像一座双向桥梁，由此推动两个金融世界持续渗透与融合。</p><p>与此同时，Agent 经济正在打开另一条变化更深的路径。Agent 只有真正补齐“支付”这一环，才能把搜索、判断、决策、执行与交易连接成完整闭环，使 AI 带来的生产力提升从“辅助人完成任务”，进一步走向“在授权边界内自主完成经济行为”。这也意味着未来的交易主体不再只有“人与人”，还会越来越多地出现“人与 Agent”以及“Agent 与 Agent”的交互与交易。</p><p>因此，本专题关注的不是某一种币、某一条链或某一家支付公司，而是持续观察：<b>两个金融世界如何融合，机器经济如何形成原生支付体系，以及在这个过程中谁最终掌握钱、身份、授权、路由、受理与交易入口。</b></p></div><p class="bridge-line">有了这个坐标系，再看 A16z 的稳定币卡数据，意义就不只是“Crypto Card 增长很快”：它恰好提供了第一个非常具体的现实样本——加密金融里的数字美元，正在借传统金融已有的支付网络进入真实消费世界。</p></section>
+<section class="section" id="verdict"><div class="section-label">01 · Executive Verdict</div><h2>先把主线钉住：一座桥，两条支付路径，六层基础设施</h2><p class="lead">全文的逻辑不是“Crypto 会不会取代银行卡”，而是三个问题顺序展开：稳定币怎样连接两个金融世界？人类与机器分别需要怎样的支付路径？最后谁掌握最难迁移的控制点？</p><div class="verdict"><div class="verdict-item"><b>稳定币卡，本质是数字美元卡</b><span>A16z / Paymentscan 快照显示，USDC 与 USDT 已占被跟踪 crypto-card 支付的大头；真实需求首先是“把数字美元花出去”，而不是拿 BTC / ETH 做日常消费。</span></div><div class="verdict-item"><b>短中期，V / MA 更像吸收者</b><span>Stablecoin Card 目前首先借 Visa / Mastercard 现成的商户受理、风控和争议体系扩张，而不是先重建一套全球商户网络。</span></div><div class="verdict-item"><b>Agent Payment 才是长期分叉</b><span>机器购买 API、数据、算力和 MCP Tool 时，可以把“请求—报价—付款—交付”放进同一个程序流程，传统 Checkout 不再是必需品。</span></div><div class="verdict-item"><b>控制层比运输层更关键</b><span>底层链可以迁移；稳定币流动性、全球受理、身份授权、开发者分发与 Internet Edge 更难迁移。Kerwin判断，长期价值更值得从控制点寻找。</span></div></div></section>
+<section class="section"><div class="section-label">02 · Reality Check</div><h2>A16z 的 $759M，为什么是“两界融合”的现实样本</h2><p>A16z 最新 newsletter 以 Paymentscan 为数据源，给出的 2026 年 7 月被跟踪 crypto-card 交易额约 <b>$759M</b>，约 900 万笔、平均每笔约 $86；USDC 约 58%、USDT 约 26%。最重要的不是单月数字，而是支付资产结构：所谓“Crypto Card”正在快速收敛成“Stablecoin Card”，也就是数字美元开始进入日常消费。</p><div class="evidence-grid"><div class="evidence"><strong>$759M</strong><span>2026年7月被跟踪 crypto-card 月交易额。属于 Paymentscan tracked-program 口径。</span></div><div class="evidence"><strong>84%</strong><span>USDC + USDT 合计占比。说明卡端的核心货币正在向稳定币集中。</span></div><div class="evidence"><strong>$5.2B</strong><span>Visa 官方：2025 年 stablecoin-linked Visa cards 交易额，YoY +319%，但仍仅约占 Visa 全球支付额 0.04%。</span></div></div><div class="risk-panel"><b>口径提醒：</b>Paymentscan 追踪其覆盖的 card programs，部分项目可能包含 issuer self-reporting；它足以说明需求正在形成，但不能直接外推为全球支付份额。</div><p class="logic-bridge">这组数据回答了“桥有没有开始通车”。下一步要回答的是：桥下面到底有哪些基础设施？要先把公链、L2、支付 Fintech 和支付协议这些完全不同的“物种”分开。</p></section>
+<section class="section"><div class="section-label">03 · Species Map</div><h2>先分清物种：链是路，支付公司是服务站，协议是机器语言</h2><div class="table-wrap"><table><thead><tr><th>名字</th><th>它是什么</th><th>在支付系统里负责什么</th><th>通俗理解</th></tr></thead><tbody><tr><td>BTC / ETH / SOL</td><td>L1 公链及原生资产</td><td>账本、资产与结算基础设施</td><td>更像底层“道路与总账”；稳定币可以在上面跑，但支付增长不等于原生 Token 等比例升值。</td></tr><tr><td>Base</td><td>Coinbase 孵化的 Ethereum L2，基于 OP Stack</td><td>更低成本的链上交易与 USDC / Agent commerce 场所</td><td>像 Ethereum 上的一条高速路；没有独立 Base Token，价值更多通过 Coinbase 生态观察。</td></tr><tr><td>OP Mainnet</td><td>Ethereum L2</td><td>把高频交易迁到更低成本环境</td><td>也是“高速路”；支付流可以换路，因此要看生态而不只看吞吐。</td></tr><tr><td>Gnosis / Gnosis Pay</td><td>Gnosis Chain + 稳定币卡基础设施</td><td>把 self-custodial stablecoin wallet 接到 Visa</td><td>前者是链，后者更像把链上钱包接入现实刷卡世界的“支付适配器”。</td></tr><tr><td>RedotPay</td><td>Stablecoin payment fintech / card app</td><td>钱包、兑换、发卡与消费入口</td><td>不是公链；更接近“稳定币版 Revolut / 消费支付 App”。</td></tr><tr><td>x402 / MPP</td><td>Machine payment protocols</td><td>让 HTTP 资源直接报价并由 Agent 程序化付款</td><td>不是币也不是链，而是机器之间“怎么谈钱、怎么付款”的支付语言。</td></tr></tbody></table></div><p class="logic-bridge">把物种分清之后，整个系统就可以按功能而不是按 Crypto 名字重新排列：谁发行钱、谁搬钱、谁把钱变成产品、谁让商户接受、谁让机器自动付款、谁控制互联网请求。</p></section>
+<section class="section" id="stack"><div class="section-label">04 · The Six-Layer Stack</div><h2>未来支付六层栈：从“钱是什么”一直到“谁控制机器请求”</h2><div class="flow"><div class="flow-step"><small>01 MONEY</small><b>Circle / USDC<br>Tether / USDT</b><span>钱是什么。核心变量是余额、流动性、储备、监管与分发。</span></div><div class="flow-step"><small>02 RAILS</small><b>ETH / SOL<br>Base / OP / Gnosis</b><span>钱怎么移动。成本、速度与生态重要，但底层 rail 的可替换性相对更高。</span></div><div class="flow-step"><small>03 ORCHESTRATION</small><b>Stripe / Bridge<br>Gnosis Pay / RedotPay</b><span>把 stablecoin、fiat、FX、钱包、发卡与结算拼成用户真正能用的产品。</span></div><div class="flow-step"><small>04 ACCEPTANCE</small><b>Visa / Mastercard</b><span>让钱能在全球商户被接受，并提供身份、授权、欺诈、争议与结算保证。</span></div><div class="flow-step"><small>05-06 MACHINE</small><b>x402 / MPP / AP4M<br>Cloudflare Edge</b><span>把报价、付款验证和访问控制嵌入 API / MCP / Data / Compute 请求。</span></div></div><div class="dark-panel"><h3>最关键的迁移：Payment 从 Checkout 变成 Tool</h3><p>传统软件里的支付是一个“结账页面”；Agent 时代的支付更像一个工具调用：<strong>发现服务 → 看价格 → 判断 ROI → 在预算和权限内付款 → 调用服务 → 继续任务</strong>。一旦支付成为 Tool，Wallet、Authorization、Price Discovery 与 Payment Routing 就会成为 Agent 的基础能力。</p></div><p class="logic-bridge">六层栈搭好后，还要再做一次关键拆分：付款者是人还是机器。两者都可能用稳定币，但它们对“最优支付路径”的要求并不一样。</p></section>
+<section class="section"><div class="section-label">05 · Human vs Machine</div><h2>同一枚稳定币，人类与机器可能走向两条不同的最优路径</h2><div class="split"><div><h3>Human Commerce：稳定币先借旧网络扩张</h3><p><b>USDC / USDT → Stripe / Bridge / Gnosis Pay → Visa / MA → Merchant</b></p><p>普通消费者在餐厅、酒店、电商消费时，最重要的是“到处都能刷、出问题能退款”。Stablecoin 解决资金来源、跨境与可编程性，Visa / MA 继续解决全球受理、风控和争议。因此稳定币短中期更像给卡网络增加新的 funding rail。</p></div><div><h3>Machine Commerce：协议可能直接连接供需</h3><p><b>Agent Wallet → HTTP 402 → x402 / MPP → Stablecoin / Card / Bank → API / MCP / Data</b></p><p>Agent 买的是 API 调用、数据、算力或另一个 Agent 的服务，它不需要塑料卡、CVV 或人工 Checkout。机器更在乎成本、延迟、权限和自动化，因此 direct rail 的经济性会更强。</p></div></div><p class="logic-bridge">这两条路径并不是互斥关系：未来最可能出现的是“人类商业继续大量依赖 Trust & Acceptance Network，而机器商业逐渐形成更直接的协议化支付”。这也把竞争焦点从“Card vs Stablecoin”推到了“谁控制交易”。</p></section>
+<section class="section" id="control"><div class="section-label">06 · Control Plane</div><h2>真正的大仗：不是哪条链赢，而是谁控制身份、授权、路由与访问</h2><p>Mastercard 的 AP4M 把问题从“钱怎么转”推进到 credential、permission、spending limit、verifiable intent 与 settlement assurance；Stripe 的 MPP 把不同支付方式抽象为统一机器协议；Coinbase 用 Base、Wallet/CDP、USDC 与 x402 建立 onchain stack；Cloudflare 则从互联网流量入口切入，把计量、支付验证与访问控制放到 Edge。</p><div class="table-wrap"><table><thead><tr><th>控制节点</th><th>它想控制什么</th><th>最难复制的资产</th><th>关键风险</th></tr></thead><tbody><tr><td>Visa / Mastercard</td><td>Acceptance + Trust + Authorization</td><td>全球商户、发卡收单关系、风控、争议与身份网络</td><td>Direct stablecoin / agent rails 是否开始绕过卡网络</td></tr><tr><td>Stripe / Bridge</td><td>Universal Money API / Orchestration</td><td>开发者、商户、Fiat + Stablecoin 全栈与合规</td><td>卡组织上移或链上基础设施下移，可能压缩中间层 economics</td></tr><tr><td>Coinbase</td><td>Onchain Financial OS</td><td>USDC 分发、Base、Wallet、CDP、x402</td><td>仍受 crypto cycle 影响；Agent commerce 要从“笔数”走向真实 GMV</td></tr><tr><td>Cloudflare（NET）</td><td>Internet / Agent Request Control Plane</td><td>Edge、Security、Bot/Agent traffic、HTTP request control</td><td>支付产品仍早期，必须证明真实收费、GMV 与 P&amp;L 贡献</td></tr><tr><td>Circle</td><td>Digital Dollar / Agent Money</td><td>USDC 流动性、监管与分发网络</td><td>利率下行、分销成本与其他稳定币竞争</td></tr></tbody></table></div><div class="plain-note"><h3>Cloudflare（NYSE: NET）到底是什么？为什么会突然出现在支付产业链里？</h3><p>很多投资者认识 Visa、Mastercard、Circle，却不一定熟悉 Cloudflare。最通俗的理解是：<b>Cloudflare 原本不是支付公司，它是大量网站和 API 前面的“互联网入口层”</b>。它通过全球网络为网站做 CDN 加速、DDoS 防护、Bot 管理、安全检查和 Edge Computing。Cloudflare 官方称其代理约 20% 的 Web 流量、平均每秒服务约 1.02 亿次 HTTP 请求，网络覆盖 335 个城市以上。</p><p>如果把一个网站或 API 想成一家商店，Cloudflare 过去更像店门口的<b>高速入口 + 保安 + 流量调度中心</b>：用户或机器人访问商店，很多请求先经过 Cloudflare，再到真正的服务器。</p><p>Agent 时代让这个位置突然具有“支付意义”。Agent 本来就通过 HTTP、API、MCP 去购买数据或服务；Cloudflare 的 Monetization Gateway 和 Agents SDK 可以在请求到达商家服务器之前判断：<b>你是谁 → 这条请求要不要收费 → 多少钱 → 是否已经付款 → 付款证明是否有效 → 通过后再放行。</b>因此它更像未来机器商业里的“计价器 + 验票闸机”，而不是发行货币或替代 Visa。</p><p><b>Kerwin判断：</b>所以 NET 应被放在 <i>Internet Control Plane</i>，而不是 Money、Blockchain Rail 或传统 Acceptance Layer。这个位置很有战略期权，但今天的支付收入仍远未被证明，不能把产业位置直接等同于已兑现利润。</p></div></section>
+<section class="section" id="stocks"><div class="section-label">07 · Investable Map</div><h2>控制点落到股票：同一笔交易，五家公司装的是五个不同“计价器”</h2><p class="lead">从这里再进入股票就顺畅得多：先知道它们在系统里控制什么，才能知道一美元新增支付活动究竟会变成谁的收入。</p><div class="table-wrap"><table><thead><tr><th>标的</th><th>产业位置</th><th>真正的收入驱动</th><th>Kerwin 当前研究定位</th></tr></thead><tbody><tr><td><b>CRCL</b></td><td>Money Layer</td><td>平均 USDC 余额 × 储备收益率 × 留存经济</td><td>Stablecoin Monetary Beta。关键不是交易笔数，而是有多少钱长期留在 USDC。</td></tr><tr><td><b>COIN</b></td><td>Onchain OS / Distribution</td><td>USDC economics + Base / Wallet / CDP / Payments 使用</td><td>x402 更像生态分发器，而非单笔手续费故事；关注 Exchange → Financial OS 的估值重构。</td></tr><tr><td><b>V</b></td><td>Acceptance Network</td><td>进入 VisaNet 的支付额、交易数与增值服务</td><td>若 stablecoin 被旧网络吸收，V 可能成为“新钱进入旧世界”的低风险表达。</td></tr><tr><td><b>MA</b></td><td>Trust / Authorization</td><td>Network + VAS + 身份、授权、多轨结算</td><td>更积极争夺 Agent 的 credential 与 trust layer，观察 AP4M 是否形成真实使用。</td></tr><tr><td><b>NET</b></td><td>Internet Control Plane</td><td>Security / Edge / Agent request，以及未来可能的 metering 与 payment verification</td><td>Agent Internet Call Option。产业位置好，但支付商业模式和 P&amp;L 贡献仍需验证。</td></tr></tbody></table></div><div class="dark-panel"><h3>四句话记住五只股票</h3><p><strong>Circle 赌钱存多少；Visa / Mastercard 赌钱经过多少；Coinbase 赌链上经济有多少发生在自己的生态；Cloudflare 赌机器产生多少有经济价值的互联网请求。</strong></p></div></section>
+<section class="section"><div class="section-label">08 · What the Market May Misprice</div><h2>从产业位置到预期差：市场可能在哪里仍沿用旧标签</h2><div class="verdict"><div class="verdict-item"><b>COIN：不只是交易所</b><span>如果 Base + Wallet + USDC + x402 逐渐形成链上金融操作系统，COIN 的长期估值框架可能从 Crypto Exchange 向基础设施平台迁移。</span></div><div class="verdict-item"><b>V / MA：不一定是被颠覆者</b><span>稳定币目前正在借卡网络的受理、信用、退款、欺诈和争议能力扩张。真正风险来自 direct rails 能否补齐这些功能。</span></div><div class="verdict-item"><b>NET：位置好不等于股票便宜</b><span>Cloudflare 的 request control 很适合 Agent Commerce，但 Monetization Gateway 仍需要真实 usage、收费率与收入贡献来验证。</span></div><div class="verdict-item"><b>公链：流量不等于价值捕获</b><span>Base、OP、Solana、Gnosis 之间的支付份额可以迁移。Kerwin更关注流动性、分发、身份与控制面，而不是只看链上吞吐。</span></div></div><p class="logic-bridge">预期差不是结论，而是待验证假设。最后必须把它变成可被数据推翻的监控项，否则专题只会变成一个越来越自洽的故事。</p></section>
+<section class="section" id="monitor"><div class="section-label">09 · Monitoring & Falsification</div><h2>用数据更新框架：什么会强化它，什么会证明它错了</h2><div class="table-wrap"><table><thead><tr><th>指标</th><th>第一个质变门槛 / 变化</th><th>它在验证什么</th></tr></thead><tbody><tr><td>Average USDC Outstanding</td><td><b>&gt; $100B</b></td><td>Stablecoin 是否从交易工具进一步成为长期资金与支付货币；直接关系 CRCL / COIN economics。</td></tr><tr><td>Stablecoin Card annual volume</td><td><b>&gt; $100B</b></td><td>数字美元消费是否从 crypto niche 进入独立支付品类。</td></tr><tr><td>真实独立 x402 / MPP usage</td><td><b>&gt; 1B/年且真实 GMV、独立 payer/provider 同步增长</b></td><td>机器支付是否有真实经济活动，而不是极低金额、内部集群或激励刷量。</td></tr><tr><td>Card-mediated vs Direct rail</td><td><b>Direct share 持续上升</b></td><td>Stablecoin 最终更多强化 V / MA，还是开始绕开它们。</td></tr><tr><td>Agent monetization 对 NET</td><td><b>可识别收入贡献 &gt; 5%</b></td><td>把 Cloudflare 的 Agent Payment 从战略期权变成可进入财务模型的业务。</td></tr></tbody></table></div><div class="risk-panel"><p><b>稳定币卡反证：</b>若 volume 长期依赖返现、积分、TGE 或补贴，真实消费留存弱，“Scaling”判断应下调。</p><p><b>Agent Payment 反证：</b>若 API / MCP 商户最终更偏好传统账户、预充值与集中账单，而不是 per-request payment，则 x402 / MPP TAM 会低于叙事。</p><p><b>V / MA 反证：</b>若 direct stablecoin rails 真正补齐退款、欺诈、仲裁、信用与合规并形成主流商户直接受理，卡网络防御逻辑会被明显削弱。</p><p><b>NET 反证：</b>如果 Monetization Gateway 长期停留在产品实验、无法产生可观收费，Cloudflare 应退回“网络/安全平台 + Agent 期权”的估值框架。</p></div></section>
+<section class="section" id="sources"><div class="section-label">10 · Primary Sources</div><h2>主要来源与证据边界</h2><div class="source"><a href="https://a16zcrypto.com/posts/article/stablecoin-data-charts/" target="_blank" rel="noopener">a16z crypto · 9 charts on what stablecoins are becoming</a><span>支持 stablecoin commerce、card collateral、velocity 与支付化趋势；$759M 快照来自后续 newsletter / Paymentscan tracked-program 口径。</span></div><div class="source"><a href="https://www.visa.com/en-us/thought-leadership/innovation/stablecoin-linked-cards-monetize-money-movement" target="_blank" rel="noopener">Visa · Stablecoin-linked cards and money movement</a><span>支持 2025 stablecoin-linked card volume 约 $5.2B、+319% YoY、约占 Visa 全球 volume 0.04% 的基准。</span></div><div class="source"><a href="https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-bridge-stablecoin-linked-card-expansion.html" target="_blank" rel="noopener">Visa / Bridge · stablecoin-linked cards expansion</a><span>支持 stablecoin card 借 Visa 全球 acceptance network 进入现实商户的路径。</span></div><div class="source"><a href="https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-launches-agent-pay-for-machines.html" target="_blank" rel="noopener">Mastercard · Agent Pay for Machines</a><span>支持 AP4M 的 agent credential、permission 与 multi-rail machine settlement 方向。</span></div><div class="source"><a href="https://investor.coinbase.com/news/news-details/2026/Coinbase-Q1-Financial-Results-Show-Resilient-Financial-Performance-Driven-by-New-All-Time-High-Crypto-Trading-Volume-Market-Share/default.aspx" target="_blank" rel="noopener">Coinbase Q1 2026 · Stablecoins, Base and x402</a><span>支持 Coinbase 对 USDC、Base 与 agentic payments 的公司披露。</span></div><div class="source"><a href="https://stripe.com/blog/machine-payments-protocol" target="_blank" rel="noopener">Stripe · Machine Payments Protocol</a><span>支持 MPP 作为 internet-native machine payment standard，并可接 stablecoin、card 等支付方式。</span></div><div class="source"><a href="https://www.cloudflare.com/about/" target="_blank" rel="noopener">Cloudflare · About / Global Network</a><span>支持 Cloudflare 约代理 20% Web 流量、平均约 102M HTTP requests/second 与全球 Edge 网络定位。</span></div><div class="source"><a href="https://developers.cloudflare.com/agents/tools/payments/" target="_blank" rel="noopener">Cloudflare Agents · Agentic Payments</a><span>支持 Cloudflare Agents SDK 同时支持 x402 与 MPP，以及 Agent 通过 HTTP 402 程序化购买资源。</span></div><div class="source"><a href="https://blog.cloudflare.com/monetization-gateway/" target="_blank" rel="noopener">Cloudflare · Monetization Gateway</a><span>支持对网页、数据集、API、MCP Tool 收费，并在 Edge 做 payment verification 与 access control 的产品方向。</span></div><div class="source"><a href="https://www.gnosis.io/blog/minipay-launches-visa-card-powered-by-gnosis-pay" target="_blank" rel="noopener">Gnosis · MiniPay Visa Card powered by Gnosis Pay</a><span>支持 self-custody stablecoin wallet → Visa → merchant local currency 的实际路径。</span></div></section>
+<section class="section" aria-labelledby="related-title"><div class="section-label">Related Research</div><h2 id="related-title">下一条研究路径</h2><p><a href="/coinbase-new-positioning-everything-exchange-agentic-finance-20260731/">全新定位的 Coinbase</a> — 从“新 Stack”继续深入 COIN 的 USDC / Base / x402 与 Financial OS 估值重构。</p><p><a href="/openrouter-ai-model-exchange-stripe-20260726/">OpenRouter：AI模型时代的交易所</a> — 从机器支付继续追踪 AI API、Token 计价、Stripe 与模型分发层如何形成机器商业市场。</p></section>
+'''
+
+          text = text[:start] + core + text[end:]
+
+          # Reframe Enya strictly as the automation assistant; Kerwin owns judgment/framework.
+          enya_start = text.index('<section class="enya enya-brand">')
+          footer_start = text.index('<footer class="footer">', enya_start)
+          enya_block = '''<section class="enya enya-brand"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">本专题的认识框架、判断边界与投资结论由 Kerwin 确定。Enya 作为自动化助理，负责持续搜索公开信息、核验来源、整理新增变化、维护数据口径、更新专题与《全新支付专题周报》，并完成网页与邮件排版呈现。</p><div class="roles"><div class="role"><b>Kerwin</b><span>研究主题、认识框架、判断、投资逻辑、决策边界与最终审核。</span></div><div class="role"><b>Enya</b><span>自动化跟踪、搜索、核验、整理、计算、可视化、排版与执行。</span></div></div></section>
+'''
+          text = text[:enya_start] + enya_block + text[footer_start:]
+
+          # Publication label requested by Kerwin. Snapshot remains through Aug 9 HKT.
+          text = text.replace('Evidence first · Snapshot 2026.08.09 HKT', 'Evidence first · Published 2026.08.10')
+          text = text.replace('Published 2026-08-09 20:13 HKT · Updated 2026-08-09 20:13 HKT', 'Published 2026-08-10 HKT · Data snapshot through 2026-08-09 HKT')
+
+          required = [
+              'KERWIN FOREWORD · 卷首语',
+              'Cloudflare（NYSE: NET）到底是什么？',
+              '传统金融与加密金融',
+              'Agent 与 Agent',
+              'Kerwin判断',
+              '发布日期</b> 2026-08-10',
+              'data-layout-id="kerwin-editorial-research-v1"'
+          ]
+          missing = [x for x in required if x not in text]
+          if missing:
+              raise SystemExit('Page QA missing: ' + ', '.join(missing))
+          if 'Kerwin / Enya 推断' in text or 'Enya判断' in text or 'Enya认为' in text:
+              raise SystemExit('Role attribution QA failed')
+          page_path.write_text(text, encoding='utf-8')
+
+          meta = json.loads(meta_path.read_text(encoding='utf-8'))
+          meta.update({
+              'date': '2026-08-10',
+              'author': 'Kerwin',
+              'summary': 'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为卷首框架，从A16z稳定币卡数据出发，依次拆解支付物种、六层基础设施、人类与机器两条路径、Cloudflare/NET互联网控制面，以及CRCL、COIN、V、MA、NET的价值捕获与证伪指标。',
+              'homepage_approved': True,
+              'homepage_section': 'research',
+              'published_at': '2026-08-10T00:00:00+08:00',
+              'updated_at': '2026-08-10T00:00:00+08:00'
+          })
+          meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          items = json.loads(registry_path.read_text(encoding='utf-8'))
+          found = False
+          for item in items:
+              if item.get('slug') == slug:
+                  item.update({
+                      'title': '全新支付基础设施：从 Stablecoin Card 到 Agent Payment',
+                      'date': '2026年8月10日',
+                      'deck': 'Kerwin以“传统金融与加密金融经稳定币双向融合、Agent补齐支付形成经济闭环”为框架，从A16z稳定币卡数据出发，拆解六层未来支付基础设施、人类与机器支付分叉、Cloudflare/NET互联网控制面及CRCL、COIN、V、MA、NET的价值捕获与验证指标。',
+                      'homepage_approved': True,
+                      'published_at': '2026-08-10T00:00:00+08:00'
+                  })
+                  found = True
+                  break
+          if not found:
+              raise SystemExit('Registry entry not found')
+          registry_path.write_text(json.dumps(items, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Homepage sync is registry-driven. Verify exact public inclusion contract.
+          check = next(x for x in items if x.get('slug') == slug)
+          if check.get('homepage_approved') is not True or check.get('date') != '2026年8月10日':
+              raise SystemExit('Homepage registry QA failed')
+
+      - name: Commit content and remove one-time workflow
+        shell: bash
+        run: |
+          git config user.name 'kerwin-enya-publish-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add future-payment-infrastructure-stablecoin-agentic-commerce-20260809/index.html \
+                  future-payment-infrastructure-stablecoin-agentic-commerce-20260809/meta.json \
+                  registry.json
+          git rm .github/workflows/one-time-refine-future-payment-20260810.yml
+          git commit -m 'Refine Future Payment framework and sync homepage'
+          git pull --rebase origin main
+          git push origin main
