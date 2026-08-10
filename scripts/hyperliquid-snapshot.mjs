@@ -10,6 +10,11 @@ const TARGETS = [
 ];
 
 const KOREAN_TARGETS = { SMSN: "005930.KS", SKHX: "000660.KS" };
+const US_STOCK_TARGETS = {
+  NVDA: "NVDA", AMD: "AMD", MU: "MU", TSM: "TSM", AVGO: "AVGO",
+  MSFT: "MSFT", AMZN: "AMZN", META: "META", GOOGL: "GOOGL", TSLA: "TSLA",
+  SNDK: "SNDK"
+};
 const ETF_TARGETS = { DRAM: "DRAM" };
 const INDEX_TARGETS = { SP500: "^GSPC", XYZ100: "^NDX" };
 
@@ -87,6 +92,21 @@ async function collectAdditionalBaselines() {
     console.warn(`USD/KRW baseline unavailable: ${error.message}`);
   }
   const baselines = {};
+  for (const [symbol, ticker] of Object.entries(US_STOCK_TARGETS)) {
+    try {
+      const close = lastFriday(await yahooChart(ticker));
+      if (!close) continue;
+      baselines[symbol] = {
+        close: Number(close.close.toFixed(4)),
+        date: close.date,
+        source: `Yahoo Finance · ${ticker} cash close`,
+        comparable: true,
+        currency: "USD"
+      };
+    } catch (error) {
+      console.warn(`US stock baseline skipped for ${symbol}: ${error.message}`);
+    }
+  }
   for (const [symbol, ticker] of Object.entries(KOREAN_TARGETS)) {
     try {
       const local = lastFriday(await yahooChart(ticker));
