@@ -2,213 +2,192 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fff1e5">
-  <meta name="description" content="EnyaClawd 是 Kerwin 的企业财报、宏观资产、AI 产业链与数字金融研究档案。">
-  <title>EnyaClawd · Kerwin Research</title>
+  <meta name="description" content="EnyaClawd 是 Kerwin 的投资研究首页：企业财报、AI 产业链、数字金融、宏观资产与公司战略研究。">
+  <meta name="kerwin-web-version" content="3.5.0">
+  <meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
+  <meta name="home-layout-id" content="kerwin-home-editorial-v1">
+  <meta name="home-mobile-qa-version" content="1.1.0">
+  <title>EnyaClawd · Kerwin Research Hub</title>
   <!-- pv-counter data-page-slug=home -->
-  <link rel="stylesheet" href="/assets/kerwin-home-v2.css?v=20260718ft2">
-  <link rel="stylesheet" href="/assets/kerwin-home-v3.css?v=20260723earnings1">
-  <script defer src="/assets/kerwin-home-v3.js?v=20260726registry1"></script>
+  <link rel="stylesheet" href="/assets/kerwin-home-v4.css?v=20260810home1">
+  <script defer src="/assets/kerwin-home-v4.js?v=20260810home1"></script>
 </head>
-<body class="access-pending" data-page-slug="home">
-  <aside class="access-gate" id="access-gate" aria-labelledby="gate-title">
-    <div class="access-gate__paper">
-      <div class="access-gate__masthead"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
-      <div class="access-gate__body">
-        <div class="access-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
-        <div class="access-gate__copy">
-          <div class="eyebrow">Reader Access</div>
-          <h1 id="gate-title">Kerwin Research Hub</h1>
-          <p>企业财报、宏观资产、AI产业链、数字金融与公司研究档案。</p>
-          <form class="access-gate__form" id="access-form">
-            <label for="access-key">输入 “k” 即可显示，不分大小写</label>
-            <div class="access-gate__field">
-              <input id="access-key" name="access-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="access-error">
-              <span class="access-gate__auto">Auto enter</span>
+<body class="home-page">
+  <aside class="home-gate" id="home-gate" aria-labelledby="gate-title">
+    <div class="home-gate__paper">
+      <div class="home-gate__head"><span>Kerwin Research Hub</span><span>Reader Access</span></div>
+      <div class="home-gate__body">
+        <div class="home-gate__seal" aria-hidden="true"><b>K</b><span>Research<br>Hub</span></div>
+        <div class="home-gate__copy">
+          <div class="eyebrow">Independent Investment Research</div>
+          <h1 id="gate-title">把复杂世界，整理成一张投资地图。</h1>
+          <p>输入 “k” 即可显示，不分大小写。</p>
+          <form id="access-form">
+            <label for="access-key">Reader Access Key</label>
+            <div class="home-gate__field">
+              <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="access-error" placeholder="k">
+              <span>Auto enter</span>
             </div>
-            <p class="access-gate__error" id="access-error" role="alert" aria-live="polite"></p>
+            <div class="home-gate__error" id="access-error" role="status" aria-live="polite"></div>
           </form>
         </div>
       </div>
-      <div class="access-gate__foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+      <div class="home-gate__foot"><span>EnyaClawd · Kerwin Research</span><span>Hong Kong · HKT</span></div>
     </div>
   </aside>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="brand" href="/" aria-label="EnyaClawd 首页">
-        <span class="brand__mark">K</span>
-        <span class="brand__name">EnyaClawd<small>Kerwin Research Hub</small></span>
+  <header class="home-header">
+    <div class="home-header__topline">
+      <div class="home-container home-header__topline-inner">
+        <span>Independent Investment Research · Hong Kong</span>
+        <span>Evidence first · Updated <b id="header-date">—</b></span>
+      </div>
+    </div>
+    <div class="home-container home-header__main">
+      <a class="home-brand" href="/" aria-label="EnyaClawd 研究首页">
+        <span class="home-brand__mark">E</span>
+        <span class="home-brand__word">EnyaClawd<small>Kerwin Research Hub</small></span>
       </a>
-      <nav class="site-nav" aria-label="主导航">
-        <a href="#earnings">财报专栏</a>
-        <a href="#featured">重点专题</a>
-        <a href="#map">研究地图</a>
-        <a href="#latest">研究库</a>
+      <nav class="home-nav" aria-label="首页导航">
+        <a href="#recent">最近更新</a>
+        <a href="#earnings">财报桌</a>
+        <a href="#axes">研究地图</a>
+        <a href="#library">研究库</a>
         <a href="#enya">关于 Enya</a>
-        <a class="nav-cta" href="#earnings">最新财报</a>
       </nav>
+      <a class="home-header__cta" href="#recent">最新研究 <span>↗</span></a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <div class="eyebrow">Independent Research · Hong Kong</div>
+    <section class="home-hero">
+      <div class="home-container home-hero__grid">
+        <div class="home-hero__copy">
+          <div class="eyebrow">Kerwin Research Hub · Editorial Desk</div>
           <h1>把复杂世界，整理成一张<em>投资地图</em>。</h1>
-          <p class="hero__lead">首页现在由两条内容流组成：企业财报与电话会议负责捕捉季度经营变化，长期专题负责追踪宏观、AI算力、半导体、存储、光互联、数字金融与真实资产的结构性趋势。</p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="#earnings">进入财报专栏 <span>↓</span></a>
-            <a class="button" href="#featured">阅读长期专题 <span>↗</span></a>
+          <p class="home-hero__lead">从财报与电话会的经营变化，到 AI 基础设施、数字金融与宏观资产的结构性趋势。Kerwin 负责提出问题、建立投资逻辑与最终校对；Enya 负责把证据、因果和持续跟踪组织成可以阅读的研究。</p>
+          <div class="home-hero__actions">
+            <a class="button button--green" href="#recent">阅读最近更新 <span>↓</span></a>
+            <a class="button button--quiet" href="#library">进入研究库 <span>↗</span></a>
           </div>
-          <div class="hero__meta" aria-label="站点数据">
-            <div class="hero-stat"><strong id="stat-reports">...</strong><span>Published Reports</span></div>
-            <div class="hero-stat"><strong id="stat-earnings">...</strong><span>Earnings Calls</span></div>
-            <div class="hero-stat"><strong id="stat-updated">...</strong><span>Latest Update</span></div>
+          <div class="home-hero__signals" aria-label="研究方法">
+            <div><b>01</b><span>事实</span><small>Primary evidence</small></div>
+            <div><b>02</b><span>因果</span><small>Signal chain</small></div>
+            <div><b>03</b><span>资产</span><small>Investable map</small></div>
           </div>
         </div>
-
-        <div class="desk-board" aria-label="Kerwin研究内容架构">
-          <div class="desk-board__mast"><span>Kerwin Editorial Desk</span><span>Two Research Speeds</span></div>
-          <div class="desk-board__body">
-            <div class="desk-channel">
-              <div class="desk-channel__num">01</div>
-              <h2>事件研究</h2>
-              <p>财报数据、电话会纪要、管理层指引、资本开支、现金流与股价定价变量。</p>
-              <span>Earnings · Calls · Catalysts</span>
-            </div>
-            <div class="desk-channel">
-              <div class="desk-channel__num">02</div>
-              <h2>长期专题</h2>
-              <p>产业链因果、商业模式、供需周期、技术路线、估值框架与组合映射。</p>
-              <span>Industry · Macro · Strategy</span>
-            </div>
-          </div>
-          <div class="desk-board__foot"><span>Research system online</span><b>HKT · 2026</b></div>
-        </div>
+        <aside class="editorial-note" aria-label="Kerwin 导读">
+          <div class="editorial-note__head"><span>Kerwin 导读</span><span>01</span></div>
+          <p>研究不是把信息堆在一起，而是沿着一个可复核的问题，把事件、产业变量、公司利润池和资产定价连接起来。</p>
+          <div class="editorial-note__rule"></div>
+          <div class="editorial-note__foot"><b>读者路径</b><span>先看判断，再看证据，最后看验证条件。</span></div>
+        </aside>
       </div>
     </section>
 
-    <div class="ticker-strip">
-      <div class="container ticker-strip__inner"><span class="ticker-label">Latest Research</span><div class="ticker-items" id="ticker-items"><span class="ticker-item">载入研究目录…</span></div></div>
-    </div>
-
-    <section class="section section--paper" id="optical-interconnect-feature">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="eyebrow">New Global Panorama · 1 Aug 2026</div><h2 class="section-title">以中际旭创为切入点的光互联全球全景图</h2></div>
-          <p class="section-note">从Rubin代表的系统需求出发，沿InP光源、低损耗封装、硅光制造、光模块、CPO与光学I/O逐层展开，并重点分析美国本土光模块制造能否成为中际旭创及亚洲供应链的第二来源与风险备份。</p>
-        </div>
-        <div class="earnings-rules" aria-label="光互联专题核心模块">
-          <div class="earnings-rules__title">专题结构</div>
-          <div class="earnings-rule"><b>01 · Chain</b><span>七层全球产业链与公司位置。</span></div>
-          <div class="earnings-rule"><b>02 · Capital</b><span>NVIDIA的激光器、硅光与连接布局。</span></div>
-          <div class="earnings-rule"><b>03 · Policy</b><span>美国本土制造与第二供应链意图。</span></div>
-          <div class="earnings-rule"><b>04 · Systems</b><span>中际旭创、Sivers、Ayar与Mesh的路线和替代关系。</span></div>
-        </div>
-        <div class="hero__actions"><a class="button button--primary" href="/innolight-global-optical-interconnect-panorama-20260801/">阅读全文 <span>↗</span></a></div>
+    <section class="ticker" aria-label="最新研究滚动条">
+      <div class="home-container ticker__inner">
+        <span class="ticker__label">Latest Research</span>
+        <div class="ticker__items" id="ticker-items"><span>载入研究目录…</span></div>
       </div>
     </section>
 
-    <section class="section earnings-section" id="earnings">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Corporate Earnings & Management Calls</div>
-            <h2 class="section-title">企业财报及电话会议</h2>
-            <div class="earnings-heading-badge"><i></i><span id="earnings-count">载入中</span></div>
+    <section class="home-section home-section--paper" id="recent">
+      <div class="home-container">
+        <div class="section-heading">
+          <div><div class="eyebrow">Recent Dispatches · 近期开题</div><h2>最近更新</h2></div>
+          <p>把最近发布的研究先放在同一张桌面上：新支付基础设施、周末永续价格与加密金融平台，构成近期对“人类与机器如何进入金融系统”的连续观察。</p>
+        </div>
+        <div class="recent-layout">
+          <article class="recent-lead" id="recent-lead">
+            <div class="recent-lead__kicker">Recent Dispatch</div>
+            <h3>全新支付基础设施：从 Stablecoin Card 到 Agent Payment</h3>
+            <p>从稳定币卡、支付网络、Agent Payment 到 Cloudflare 的互联网控制面，观察传统金融与加密金融如何融合，以及价值最终落在哪些控制点。</p>
+            <a class="story-link" href="/future-payment-infrastructure-stablecoin-agentic-commerce-20260809/" aria-label="阅读全新支付基础设施专题"></a>
+          </article>
+          <div class="recent-list" id="recent-list">
+            <article class="dispatch-row"><div class="dispatch-row__date">10.08</div><div><b>全新支付基础设施：从 Stablecoin Card 到 Agent Payment</b><span>Global Financial Infrastructure</span></div><span>↗</span></article>
+            <article class="dispatch-row"><div class="dispatch-row__date">03.08</div><div><b>周末永续合约价，周一开盘前参考简报</b><span>Digital Finance</span></div><span>↗</span></article>
+            <article class="dispatch-row"><div class="dispatch-row__date">31.07</div><div><b>全新定位的 Coinbase</b><span>Agentic Finance</span></div><span>↗</span></article>
           </div>
-          <p class="section-note">固定收录重点公司的财务数据、管理层陈述、分析师问答与投资含义。该栏目强调经营质量、指引变化、资本配置和估值边界，后续同类文章将自动归入这里。</p>
+        </div>
+        <div class="section-foot"><span><b id="recent-count">—</b> 篇研究已进入公开档案</span><a href="#library">查看全部研究库 ↗</a></div>
+      </div>
+    </section>
+
+    <section class="home-section earnings-desk" id="earnings">
+      <div class="home-container">
+        <div class="section-heading section-heading--light">
+          <div><div class="eyebrow">Corporate Earnings &amp; Management Calls</div><h2>财报桌</h2></div>
+          <p>财报、电话会、指引、资本开支、现金流与估值变量。这里关注的不是“超预期”三个字，而是经营变化如何沿产业链传导。</p>
         </div>
         <div class="earnings-layout">
-          <article class="earnings-lead" id="earnings-lead"><div class="empty">载入财报专栏…</div></article>
+          <article class="earnings-lead" id="earnings-lead"><div class="earnings-lead__fallback"><span>财报研究</span><b>载入最新财报及电话会…</b></div></article>
           <div class="earnings-list" id="earnings-list"></div>
         </div>
-        <div class="earnings-rules" aria-label="财报专栏固定框架">
-          <div class="earnings-rules__title">固定分析框架</div>
-          <div class="earnings-rule"><b>01 · Results</b><span>收入、利润率、现金流与关键经营指标。</span></div>
-          <div class="earnings-rule"><b>02 · Management</b><span>管理层陈述、业务优先级与资本配置。</span></div>
-          <div class="earnings-rule"><b>03 · Q&A</b><span>分析师追问、市场争议与信息增量。</span></div>
-          <div class="earnings-rule"><b>04 · Valuation</b><span>估值主矛盾、催化剂、风险与监测指标。</span></div>
+        <div class="desk-principles" aria-label="财报桌分析框架">
+          <div class="desk-principles__title">Desk principles</div>
+          <div><b>01 · Results</b><span>经营数据</span></div>
+          <div><b>02 · Management</b><span>指引与资本配置</span></div>
+          <div><b>03 · Q&amp;A</b><span>信息增量</span></div>
+          <div><b>04 · Valuation</b><span>重估与证伪</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section section--paper" id="featured">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="eyebrow">Long-Horizon Featured Research</div><h2 class="section-title">长期专题精选</h2></div>
-          <p class="section-note">财报之外，首页保留最值得持续跟踪的结构性主线。每篇专题应给出核心判断、因果链、可视化证据、风险边界和后续验证变量。</p>
+    <section class="home-section home-section--paper" id="axes">
+      <div class="home-container">
+        <div class="section-heading">
+          <div><div class="eyebrow">Research Architecture · 研究架构</div><h2>研究地图</h2></div>
+          <p>五条主线不是五个孤立栏目，而是观察资金、技术、产业与公司利润池的五个坐标。点击任意主线，可直接筛选研究库。</p>
         </div>
-        <div class="featured">
-          <article class="feature-main" id="feature-main"><div class="feature-main__content">载入中…</div></article>
-          <div class="feature-side" id="feature-side"></div>
+        <div class="axis-grid" id="axis-grid">
+          <a class="axis-row" href="#library"><b>01</b><strong>AI 系统与算力</strong><span>GPU、机架、电力、存储、光互联与 Agent。</span><i>—</i></a>
+          <a class="axis-row" href="#library"><b>02</b><strong>数字金融与市场结构</strong><span>支付、稳定币、RWA、交易所与机器经济。</span><i>—</i></a>
+          <a class="axis-row" href="#library"><b>03</b><strong>宏观与真实资产</strong><span>利率、美元、黄金、铜与跨资产配置。</span><i>—</i></a>
+          <a class="axis-row" href="#library"><b>04</b><strong>公司与战略研究</strong><span>商业模式、资本开支、产业地位与估值。</span><i>—</i></a>
+          <a class="axis-row" href="#library"><b>05</b><strong>实验与客户教育</strong><span>地图、互动实验、科普工具与沟通素材。</span><i>—</i></a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="map">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="eyebrow">Research Architecture</div><h2 class="section-title">五条长期研究主线</h2></div>
-          <p class="section-note">财报栏目负责事件更新，研究地图负责长期框架。专题按产业链与资产逻辑组织，一个研究可以跨越多条主线，但必须有明确的主坐标。</p>
+    <section class="home-section home-section--ivory" id="library">
+      <div class="home-container">
+        <div class="section-heading">
+          <div><div class="eyebrow">Research Library · 可检索档案</div><h2>研究库</h2></div>
+          <p>按研究主线、财报类型或关键词查找。默认按发布时间排列；每篇研究都应该能回答一个投资问题，并留下下一步验证路径。</p>
         </div>
-        <div class="themes" id="themes"></div>
-      </div>
-    </section>
-
-    <section class="section section--paper" id="latest">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="eyebrow">Research Library</div><h2 class="section-title">全部研究专题</h2></div>
-          <p class="section-note">可以单独筛选财报与电话会，也可以按长期主线或关键词查找公司、资产、技术和产业链专题。默认按发布时间排序。</p>
-        </div>
-        <div class="archive-tools">
-          <label class="search"><span>⌕</span><input id="search-input" type="search" placeholder="搜索 Alphabet、Tesla、NVIDIA、黄金、RWA…" autocomplete="off" aria-label="搜索研究专题"></label>
-          <div class="filters" aria-label="专题筛选">
+        <div class="library-tools">
+          <label class="library-search"><span>⌕</span><input id="search-input" type="search" placeholder="搜索公司、资产、技术、主题…" aria-label="搜索研究库" autocomplete="off"></label>
+          <div class="filter-bar" aria-label="研究库筛选">
             <button class="filter is-active" type="button" data-filter="all">全部</button>
             <button class="filter" type="button" data-filter="earnings">财报电话会</button>
             <button class="filter" type="button" data-filter="ai">AI 系统</button>
             <button class="filter" type="button" data-filter="digital">数字金融</button>
             <button class="filter" type="button" data-filter="macro">宏观资产</button>
             <button class="filter" type="button" data-filter="companies">公司研究</button>
-            <button class="filter" type="button" data-filter="explore">实验教育</button>
           </div>
         </div>
-        <div class="article-grid" id="article-grid"><div class="empty">正在载入研究目录…</div></div>
-        <div class="load-more"><button class="button" id="load-more" type="button">加载更多专题</button></div>
+        <div class="library-list" id="library-list">
+          <article class="library-row"><div class="library-row__meta"><span>2026.08.10</span><small>Digital Finance</small></div><div><h3>全新支付基础设施：从 Stablecoin Card 到 Agent Payment</h3><p>稳定币卡、支付网络、Agent Payment 与互联网控制面。</p></div><span class="library-row__arrow">↗</span></article>
+          <article class="library-row"><div class="library-row__meta"><span>2026.08.03</span><small>Digital Finance</small></div><div><h3>周末永续合约价，周一开盘前参考简报</h3><p>用 7×24 小时价格观察周一现金市场的方向参考。</p></div><span class="library-row__arrow">↗</span></article>
+        </div>
+        <div class="library-more"><button class="button button--quiet" id="load-more" type="button">加载更多研究 <span>↓</span></button></div>
       </div>
     </section>
 
-    <section class="section" id="enya">
-      <div class="container">
-        <div class="brand-story">
-          <div class="brand-story__inner">
-            <div>
-              <div class="eyebrow">The Research Agent</div>
-              <h2>EnyaClawd</h2>
-              <div class="brand-story__tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
-              <p class="brand-story__copy">EnyaClawd 是 Kerwin 的研究与呈现系统。它服务于财报跟踪、专题深挖、持续监测和客户沟通，把资料搜集、结构化分析、可视化和网页交付连接为一条工作流。</p>
-              <p class="brand-story__models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</p>
-            </div>
-            <div class="brand-story__roles">
-              <div class="role"><b>Kerwin</b><span>确定研究主题、投资逻辑、判断边界与最终校对。</span></div>
-              <div class="role"><b>Enya</b><span>组织证据、串联因果、构建交互可视化并持续维护专题。</span></div>
-              <div class="role"><b>OpenClaw × Frontier Models</b><span>承担自动化执行与编码；底层模型为 GPT 5.6 Sol 及 Claude Fable 付费版。</span></div>
-            </div>
-          </div>
-        </div>
+    <section class="home-section enya-section" id="enya">
+      <div class="home-container enya-section__inner">
+        <div><div class="eyebrow">The Research Agent</div><h2>EnyaClawd</h2><p class="enya-section__tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</p><p class="enya-section__models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</p><p class="enya-section__copy">EnyaClawd 是 Kerwin 的研究与呈现系统，把资料搜集、结构化分析、可视化、网页交付与持续维护连接为一条工作流。</p></div>
+        <div class="enya-roles"><div><b>Kerwin</b><span>确定研究主题、投资逻辑、判断边界与最终校对。</span></div><div><b>Enya</b><span>组织证据、串联因果、构建可视化并持续维护专题。</span></div><div><b>OpenClaw × Frontier Models</b><span>承担自动化执行与编码；底层模型为 GPT 5.6 Sol 及 Claude Fable 付费版。</span></div></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div><div class="footer__brand">EnyaClawd · Kerwin Research Hub</div><p>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。严谨投资建议请与 Kerwin 联系。© 2026 Kerwin 宏观对冲及 AI 精选组合。</p></div>
-      <div class="counter">页面浏览量<b id="counter-num">...</b></div>
-    </div>
+  <footer class="home-footer">
+    <div class="home-container home-footer__inner"><div><b>EnyaClawd · Kerwin Research Hub</b><p>本网站内容用于研究、教育与客户沟通，不构成对任何证券、基金、数字资产或其他金融产品的投资建议。</p></div><div class="home-footer__meta"><span>© 2026 Kerwin</span><span>页面浏览量 <b id="counter-num">—</b></span></div></div>
   </footer>
 </body>
 </html>

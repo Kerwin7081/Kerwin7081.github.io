@@ -65,15 +65,15 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     has_v2_js = "kerwin-system-v2.js" in lower
     has_v3_css = "kerwin-system-v3.css" in lower
     has_v3_js = "kerwin-system-v3.js" in lower
-    has_home_css = "kerwin-home-v2.css" in lower or "kerwin-home-v3.css" in lower
-    has_home_js = "kerwin-home-v3.js" in lower
+    has_home_css = any(name in lower for name in ("kerwin-home-v2.css", "kerwin-home-v3.css", "kerwin-home-v4.css"))
+    has_home_js = "kerwin-home-v3.js" in lower or "kerwin-home-v4.js" in lower
     has_inline_css = "<style" in lower and "</style>" in lower
     has_shared_shell = (has_v2_css and has_v2_js) or (has_v3_css and has_v3_js)
 
     if is_home:
         require(has_home_css, "homepage missing canonical homepage stylesheet")
-        require(has_home_js, "homepage missing kerwin-home-v3.js")
-        require("access-gate" in lower, "homepage missing editorial access gate")
+        require(has_home_js, "homepage missing current homepage loader")
+        require("access-gate" in lower or "home-gate" in lower, "homepage missing editorial access gate")
         require(MODEL_LINE in html, "homepage missing current model line")
     else:
         require(
