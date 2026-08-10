@@ -224,24 +224,34 @@ def validate_registry(root: Path) -> list[str]:
 
 
 def validate_homepage_loader(root: Path) -> list[str]:
-    path = root / "assets" / "kerwin-home-v3.js"
+    candidates = (
+        root / "assets" / "kerwin-home-v4.js",
+        root / "assets" / "kerwin-home-v3.js",
+    )
+    path = next((candidate for candidate in candidates if candidate.is_file()), candidates[0])
     try:
         source = path.read_text(encoding="utf-8")
     except (OSError, UnicodeError) as exc:
-        return [f"assets/kerwin-home-v3.js: unable to read homepage loader: {exc}"]
+        return [f"{path.relative_to(root).as_posix()}: unable to read homepage loader: {exc}"]
 
     errors: list[str] = []
+    is_v4 = path.name == "kerwin-home-v4.js"
     for obsolete in ("var legacyPages", "registry.concat(legacyPages)", "source === 'codex'"):
         if obsolete in source:
             errors.append(
-                "assets/kerwin-home-v3.js: homepage content must come from "
+                f"{path.relative_to(root).as_posix()}: homepage content must come from "
                 f"registry.json; obsolete loader logic remains: {obsolete}"
             )
-    for required in ("Array.isArray(registry)", "p.featured_rank", "p.path"):
-        if required not in source:
+    required = (
+        ("Array.isArray(registry)", "homepage_approved", "function renderRecent",
+         "function renderEarnings", "function renderLibrary")
+        if is_v4
+        else ("Array.isArray(registry)", "p.featured_rank", "p.path")
+    )
+    for token in required:
+        if token not in source:
             errors.append(
-                "assets/kerwin-home-v3.js: missing registry contract support: "
-                f"{required}"
+                f"{path.relative_to(root).as_posix()}: missing homepage loader contract support: {token}"
             )
     return errors
 
@@ -331,7 +341,13 @@ def main() -> int:
 
     if PurePosixPath("registry.json") in changed:
         errors.extend(validate_registry(root))
-    if PurePosixPath("assets/kerwin-home-v3.js") in changed:
+    if any(
+        path in changed
+        for path in (
+            PurePosixPath("assets/kerwin-home-v3.js"),
+            PurePosixPath("assets/kerwin-home-v4.js"),
+        )
+    ):
         errors.extend(validate_homepage_loader(root))
 
     affected_pages: set[PurePosixPath] = {
