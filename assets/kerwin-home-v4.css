@@ -52,6 +52,7 @@ img, svg, video { max-width: 100%; height: auto; }
 .home-gate__seal b { font: 700 23px/1 var(--serif); letter-spacing: -.06em; }
 .home-gate__seal span { margin-top: 8px; font: 800 9px/1.25 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
 .home-gate__copy h1 { max-width: 600px; margin: 12px 0 0; color: var(--green); font: 600 clamp(29px, 4vw, 42px)/1.08 var(--serif); letter-spacing: -.025em; }
+.home-gate__title-line { display: block; }
 .home-gate__copy p { margin: 15px 0 20px; color: var(--muted); }
 .home-gate__copy label { display: block; margin-bottom: 7px; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .home-gate__field { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; border-bottom: 2px solid var(--ink); }
