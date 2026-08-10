@@ -6,22 +6,23 @@ const DATA_PATH = "hyperliquid-weekend-stock-signal-20260803/data/latest.json";
 
 const TARGETS = [
   "NVDA", "AMD", "MU", "TSM", "AVGO", "MSFT", "AMZN", "META", "GOOGL", "TSLA",
-  "SMSN", "SKHX", "SNDK", "DRAM", "KIOXIA", "CXMT", "UNITREE", "SP500", "XYZ100"
+  "SMSN", "SKHX", "SKHY", "SNDK", "DRAM", "KIOXIA", "CXMT", "UNITREE", "SP500", "XYZ100"
 ];
 
 const KOREAN_TARGETS = { SMSN: "005930.KS", SKHX: "000660.KS" };
 const US_STOCK_TARGETS = {
   NVDA: "NVDA", AMD: "AMD", MU: "MU", TSM: "TSM", AVGO: "AVGO",
-  MSFT: "MSFT", AMZN: "AMZN", META: "META", GOOGL: "GOOGL", TSLA: "TSLA",
+  MSFT: "MSFT", AMZN: "AMZN", META: "META", GOOGL: "GOOGL", TSLA: "TSLA", SKHY: "SKHY",
   SNDK: "SNDK"
 };
 const ETF_TARGETS = { DRAM: "DRAM" };
 const INDEX_TARGETS = { SP500: "^GSPC", XYZ100: "^NDX" };
+const FX_BASED_TARGETS = { KIOXIA: { ticker: "285A.T", fx: "JPY=X", currency: "JPY" }, CXMT: { ticker: "688825.SS", fx: "CNY=X", currency: "CNY" } };
 
 const CATEGORIES = {
   NVDA: "AI半导体", AMD: "AI半导体", MU: "存储", TSM: "晶圆代工", AVGO: "AI半导体",
   MSFT: "平台", AMZN: "平台", META: "平台", GOOGL: "平台", TSLA: "高波动",
-  SMSN: "存储", SKHX: "存储", SNDK: "存储", DRAM: "存储", KIOXIA: "存储", CXMT: "存储", UNITREE: "扩展观察", SP500: "指数", XYZ100: "指数"
+  SMSN: "存储", SKHX: "存储", SKHY: "存储", SNDK: "存储", DRAM: "存储", KIOXIA: "存储", CXMT: "存储", UNITREE: "扩展观察", SP500: "指数", XYZ100: "指数"
 };
 
 async function post(payload) {
@@ -140,6 +141,15 @@ async function collectAdditionalBaselines() {
     } catch (error) {
       console.warn(`ETF baseline skipped for ${symbol}: ${error.message}`);
     }
+  }
+  for (const [symbol, spec] of Object.entries(FX_BASED_TARGETS)) {
+    try {
+      const local = lastFriday(await yahooChart(spec.ticker));
+      const fxPoints = await yahooChart(spec.fx);
+      const fx = local ? nearestFx(fxPoints, local.date) : null;
+      if (!local || !fx || !fx.close) continue;
+      baselines[symbol] = { close: Number((local.close / fx.close).toFixed(4)), date: local.date, source: `Yahoo Finance · ${spec.ticker} ÷ ${spec.fx}`, comparable: true, nativeClose: local.close, fx: fx.close, currency: "USD" };
+    } catch (error) { console.warn(`FX baseline skipped for ${symbol}: ${error.message}`); }
   }
   for (const [symbol, ticker] of Object.entries(INDEX_TARGETS)) {
     try {
