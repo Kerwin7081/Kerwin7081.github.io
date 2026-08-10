@@ -25,7 +25,10 @@
     setTimeout(function () {
       body.classList.remove('home-gate-pending');
       body.classList.add('home-gate-granted');
-      if (gate) gate.setAttribute('aria-hidden', 'true');
+      if (gate) {
+        gate.setAttribute('aria-hidden', 'true');
+        gate.hidden = true;
+      }
       var focus = document.querySelector('.home-nav a, main a, main button');
       if (focus) focus.focus();
     }, 160);
