@@ -85,6 +85,20 @@ function nearestFx(points, date) {
   return points.filter((point) => point.date <= date).at(-1) || points.at(-1) || null;
 }
 
+function compactHistory(entries) {
+  const ordered = entries
+    .filter((entry) => entry?.observedAtUtc && Array.isArray(entry.assets))
+    .sort((a, b) => new Date(a.observedAtUtc) - new Date(b.observedAtUtc));
+  const compacted = [];
+  for (const entry of ordered) {
+    const previous = compacted.at(-1);
+    const distance = previous ? new Date(entry.observedAtUtc) - new Date(previous.observedAtUtc) : Infinity;
+    if (distance < 3 * 60 * 60 * 1000) compacted[compacted.length - 1] = entry;
+    else compacted.push(entry);
+  }
+  return compacted.slice(-200);
+}
+
 async function collectAdditionalBaselines() {
   let fx = [];
   try {
@@ -212,7 +226,7 @@ const existing = fs.existsSync(DATA_PATH) ? JSON.parse(fs.readFileSync(DATA_PATH
 const previousAssets = Array.isArray(existing.assets)
   ? existing.assets
   : (existing.history?.at(-1)?.assets || []);
-const history = [...(Array.isArray(existing.history) ? existing.history : []), { observedAtUtc, assets }].slice(-200);
+const history = compactHistory([...(Array.isArray(existing.history) ? existing.history : []), { observedAtUtc, assets }]);
 
 let additionalBaselines = {};
 try {
