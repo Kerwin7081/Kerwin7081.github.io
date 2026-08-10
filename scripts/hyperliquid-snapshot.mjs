@@ -6,7 +6,7 @@ const DATA_PATH = "hyperliquid-weekend-stock-signal-20260803/data/latest.json";
 
 const TARGETS = [
   "NVDA", "AMD", "MU", "TSM", "AVGO", "MSFT", "AMZN", "META", "GOOGL", "TSLA",
-  "SMSN", "SKHX", "SNDK", "DRAM", "SP500", "XYZ100"
+  "SMSN", "SKHX", "SNDK", "DRAM", "KIOXIA", "CXMT", "UNITREE", "SP500", "XYZ100"
 ];
 
 const KOREAN_TARGETS = { SMSN: "005930.KS", SKHX: "000660.KS" };
@@ -21,7 +21,7 @@ const INDEX_TARGETS = { SP500: "^GSPC", XYZ100: "^NDX" };
 const CATEGORIES = {
   NVDA: "AI半导体", AMD: "AI半导体", MU: "存储", TSM: "晶圆代工", AVGO: "AI半导体",
   MSFT: "平台", AMZN: "平台", META: "平台", GOOGL: "平台", TSLA: "高波动",
-  SMSN: "存储", SKHX: "存储", SNDK: "存储", DRAM: "存储", SP500: "指数", XYZ100: "指数"
+  SMSN: "存储", SKHX: "存储", SNDK: "存储", DRAM: "存储", KIOXIA: "存储", CXMT: "存储", UNITREE: "扩展观察", SP500: "指数", XYZ100: "指数"
 };
 
 async function post(payload) {
