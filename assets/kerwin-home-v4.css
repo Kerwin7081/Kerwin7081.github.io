@@ -197,6 +197,7 @@ img, svg, video { max-width: 100%; height: auto; }
 .enya-section__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr); gap: 50px; align-items: end; }
 .enya-section h2 { margin: 8px 0 0; font: 600 clamp(38px, 5vw, 62px)/1 var(--serif); letter-spacing: -.04em; }
 .enya-section__tag { margin: 15px 0 0; color: var(--paper); font: 600 19px/1.45 var(--serif); }
+.enya-section__models { margin: 7px 0 0; color: #c7d8d0; font-size: 11px; font-weight: 800; letter-spacing: .03em; }
 .enya-section__copy { max-width: 650px; margin: 15px 0 0; color: #c7d8d0; font-size: 13px; line-height: 1.8; }
 .enya-roles { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,241,229,.36); }
 .enya-roles > div { padding: 15px 0; border-bottom: 1px solid rgba(255,241,229,.36); }
