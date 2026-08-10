@@ -180,7 +180,11 @@ const universe = meta?.universe || [];
 const contextByCoin = new Map();
 universe.forEach((item, index) => {
   const name = coinName(item);
-  if (name && contexts?.[index]) contextByCoin.set(name, contexts[index]);
+  if (name && contexts?.[index]) {
+    contextByCoin.set(name, contexts[index]);
+    const shortName = name.includes(":") ? name.split(":").at(-1) : name;
+    contextByCoin.set(shortName, contexts[index]);
+  }
 });
 
 const assets = TARGETS.map((symbol) => {
