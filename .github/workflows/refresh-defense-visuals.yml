@@ -29,6 +29,9 @@ jobs:
       - name: Download official product imagery, patch pages, generate summary PNGs and QA
         run: python tools/refresh_defense_visuals.py
 
+      - name: Normalize image encodings to match public file extensions
+        run: python tools/normalize_defense_image_mime.py
+
       - name: Commit generated assets and page patches
         run: |
           git config user.name 'github-actions[bot]'
