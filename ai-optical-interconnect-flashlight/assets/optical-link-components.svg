@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="t d">
+  <title id="t">把光互联术语翻译成手电筒部件</title>
+  <desc id="d">八个光互联术语对应手电筒隐喻中的发光、快门、通道、眼睛、放大器和指路部件。</desc>
+  <rect width="1200" height="800" fill="#fff1e5"/>
+  <rect x="44" y="42" width="1112" height="716" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/>
+  <text x="86" y="94" fill="#103f35" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="700">把术语翻译成手电筒部件</text>
+  <text x="86" y="128" fill="#746b65" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17">先理解角色，再去研究公司、产品和利润池</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <g transform="translate(86,176)">
+      <rect width="246" height="224" fill="#dce8e2" stroke="#103f35" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">Laser</text><text x="22" y="72" fill="#9a5c38" font-size="16">灯珠 / 负责发光</text><text x="22" y="116" fill="#262220" font-size="15">没有稳定光源，</text><text x="22" y="142" fill="#262220" font-size="15">就没有“超级手电筒”。</text><text x="22" y="190" fill="#746b65" font-size="13">材料线索：InP（磷化铟）</text>
+    </g>
+    <g transform="translate(350,176)">
+      <rect width="246" height="224" fill="#dce8e2" stroke="#103f35" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">CW Laser</text><text x="22" y="72" fill="#9a5c38" font-size="16">一直亮着的稳定光源</text><text x="22" y="116" fill="#262220" font-size="15">先把光亮度稳定住，</text><text x="22" y="142" fill="#262220" font-size="15">再让调制器写入数据。</text><text x="22" y="190" fill="#746b65" font-size="13">CW = Continuous Wave</text>
+    </g>
+    <g transform="translate(614,176)">
+      <rect width="246" height="224" fill="#dce8e2" stroke="#103f35" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">Modulator</text><text x="22" y="72" fill="#9a5c38" font-size="16">高速快门 / 调制器</text><text x="22" y="116" fill="#262220" font-size="15">把 0101 写进光的</text><text x="22" y="142" fill="#262220" font-size="15">亮度、相位或状态。</text><text x="22" y="190" fill="#746b65" font-size="13">EML = 光源 + 快门</text>
+    </g>
+    <g transform="translate(878,176)">
+      <rect width="246" height="224" fill="#103f35" stroke="#103f35" stroke-width="2"/><text x="22" y="42" fill="#fffaf5" font-size="25" font-weight="700">Fiber / WDM</text><text x="22" y="72" fill="#f5e8d6" font-size="16">透明通道 / 多条车道</text><text x="22" y="116" fill="#dce8e2" font-size="15">光纤约束传播；</text><text x="22" y="142" fill="#dce8e2" font-size="15">不同波长共用一根路。</text><text x="22" y="190" fill="#b9d1c6" font-size="13">WDM = Wavelength Division</text>
+    </g>
+    <g transform="translate(86,424)">
+      <rect width="246" height="224" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">Photodiode</text><text x="22" y="72" fill="#9a5c38" font-size="16">接收者的眼睛</text><text x="22" y="116" fill="#262220" font-size="15">看见到达的光变化，</text><text x="22" y="142" fill="#262220" font-size="15">先转换成电信号。</text><text x="22" y="190" fill="#746b65" font-size="13">接收端的第一站</text>
+    </g>
+    <g transform="translate(350,424)">
+      <rect width="246" height="224" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">TIA / DSP</text><text x="22" y="72" fill="#9a5c38" font-size="16">放大器 / 大脑</text><text x="22" y="116" fill="#262220" font-size="15">TIA 放大微弱信号，</text><text x="22" y="142" fill="#262220" font-size="15">DSP 解读 00 / 01 / 10 / 11。</text><text x="22" y="190" fill="#746b65" font-size="13">完成：光 → 电 → 数据</text>
+    </g>
+    <g transform="translate(614,424)">
+      <rect width="246" height="224" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/><text x="22" y="42" fill="#103f35" font-size="25" font-weight="700">Pump Laser</text><text x="22" y="72" fill="#9a5c38" font-size="16">中途加油的发动机</text><text x="22" y="116" fill="#262220" font-size="15">给光放大器提供能量，</text><text x="22" y="142" fill="#262220" font-size="15">不直接承载 0101。</text><text x="22" y="190" fill="#746b65" font-size="13">长距离链路的能源站</text>
+    </g>
+    <g transform="translate(878,424)">
+      <rect width="246" height="224" fill="#103f35" stroke="#103f35" stroke-width="2"/><text x="22" y="42" fill="#fffaf5" font-size="25" font-weight="700">OCS / CPO</text><text x="22" y="72" fill="#f5e8d6" font-size="16">自动镜子 / 芯片旁的光</text><text x="22" y="116" fill="#dce8e2" font-size="15">OCS 改变光路；</text><text x="22" y="142" fill="#dce8e2" font-size="15">CPO 减少长距离电传输。</text><text x="22" y="190" fill="#b9d1c6" font-size="13">路径管理 + 封装位置</text>
+    </g>
+  </g>
+  <text x="86" y="710" fill="#746b65" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15">记忆法：发光 → 写入 → 运输 → 补能 / 指路 → 看见 → 放大 → 解读。</text>
+</svg>
