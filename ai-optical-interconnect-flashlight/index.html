@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="用一支手电筒理解 AI 光互联：从 Laser、EML、CW Laser、WDM、OCS、CPO 到投资者应观察的变量。">
-<meta name="mobile-qa-version" content="1.1.0">
+<meta name="mobile-qa-version" content="1.2.0">
 <meta name="layout-id" content="kerwin-editorial-research-v1">
 <meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
 <meta name="kerwin-web-version" content="3.7.0">
@@ -891,6 +891,17 @@
   .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; }
   .kw-editorial-gate__brand, .kw-editorial-gate__access { min-width:0; overflow-wrap:anywhere; }
   .kw-editorial-gate__access { text-align:right; }
+  /* 2026-08-15 screenshot hierarchy refinement */
+  .kw-editorial-gate__copy {
+    margin:14px 0 18px;
+    color:var(--green);
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(18px,2.4vw,23px);
+    line-height:1.28;
+  }
+  .kw-editorial-gate__copy strong { font:inherit; }
+  .kw-editorial-gate__copy span { display:block; margin-top:5px; color:var(--muted); font-family:var(--sans); font-size:13px; font-weight:400; line-height:1.55; }
   .kw-editorial-gate__body > * { min-width:0; }
   .site-shell { width:min(1120px,calc(100% - 32px)); margin:30px auto; background:var(--paper); box-shadow:0 18px 52px rgba(68,49,37,.16); }
   .topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:11px 24px; line-height:1.4; }
@@ -903,7 +914,14 @@
   .thesis { max-width:800px; }
   .cover-meta { line-height:1.6; }
   .section { padding:44px 64px; }
-  .enya { padding:42px 64px; background:var(--green); }
+  .enya { padding:36px 64px; background:var(--green); }
+  .enya h2 { margin:0; font-family:var(--serif); font-weight:700; font-size:clamp(28px,4vw,38px); line-height:1.08; }
+  .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+  .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+  .enya-copy { max-width:800px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+  .roles { gap:18px; margin-top:20px; }
+  .role b { font-size:15px; }
+  .role span { margin-top:4px; color:#dce8e2; font-size:12px; line-height:1.55; }
   .footer { padding:22px 32px; background:var(--ink); color:#e8ddd5; font-size:12px; line-height:1.7; }
   .footer-line { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
   .footer-meta { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:6px; color:#cfc2ba; }
@@ -918,7 +936,12 @@
     .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
     .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
     .kw-editorial-gate__title { max-width:100%; margin-top:7px; font-size:clamp(23px,7vw,29px); line-height:1.14; overflow-wrap:anywhere; }
-    .kw-editorial-gate__copy { margin:10px 0 13px; font-size:14px; line-height:1.55; }
+    .kw-editorial-gate__copy {
+      margin:9px 0 12px;
+      font-size:clamp(17px,4.8vw,19px);
+      line-height:1.25;
+    }
+    .kw-editorial-gate__copy span { margin-top:4px; font-size:13px; line-height:1.5; }
     .kw-editorial-gate__field { min-height:44px; }
     .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
     .kw-editorial-gate__field span { display:none; }
@@ -941,6 +964,14 @@
     .cover-seal { display:none; }
     .scope-note, .series-intro { padding-left:20px; padding-right:20px; }
     .section, .enya { padding:30px 20px; }
+    .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+    .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+    .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+    .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+    .roles { gap:14px; margin-top:20px; }
+    .role { padding-top:10px; }
+    .role b { font-size:15px; }
+    .role span { margin-top:4px; font-size:13px; line-height:1.55; }
     .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
     .section h3 { font-size:19px; }
     .lead, .series-intro p { font-size:16px; }
@@ -970,7 +1001,7 @@
       <div>
         <div class="kw-editorial-gate__kicker">AI Infrastructure · Optical Interconnect</div>
         <h2 class="kw-editorial-gate__title" id="gate-title">AI 光互联产业</h2>
-        <p class="kw-editorial-gate__copy">输入 “k” 即可显示，不分大小写</p>
+        <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
         <label class="kw-editorial-gate__field">
           <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
           <span>Auto enter</span>
