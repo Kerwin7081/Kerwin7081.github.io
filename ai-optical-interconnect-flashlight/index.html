@@ -776,6 +776,104 @@
 
 
   </style>
+
+  <style>
+    .cover-hero {
+      margin:0;
+      padding:0;
+      border:1px solid var(--green);
+      background:var(--green);
+      overflow:hidden;
+    }
+    .cover-hero img {
+      display:block;
+      width:100%;
+      aspect-ratio:2 / 1;
+      object-fit:cover;
+    }
+    .cover-hero figcaption {
+      padding:10px 12px;
+      color:#dce8e2;
+      background:var(--green);
+      font-size:11px;
+      line-height:1.5;
+    }
+    .visual-summary { background:#fffaf5; }
+    .visual-summary__intro { max-width:760px; }
+    .visual-summary__intro b { color:var(--green); }
+    .share-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:24px;
+    }
+    .share-card {
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+      margin:0;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .share-card__image {
+      display:flex;
+      align-items:center;
+      min-height:190px;
+      background:var(--surface);
+      overflow:hidden;
+    }
+    .share-card__image img {
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .share-card figcaption {
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding:14px 15px 15px;
+    }
+    .share-card figcaption strong {
+      color:var(--green);
+      font-family:var(--serif);
+      font-size:18px;
+      line-height:1.25;
+    }
+    .share-card figcaption span {
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .share-download {
+      width:max-content;
+      margin-top:6px;
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-underline-offset:3px;
+    }
+    .visual-note {
+      margin-top:18px !important;
+      padding:12px 14px;
+      border-left:3px solid var(--copper);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+    @media (max-width:960px) {
+      .share-grid { grid-template-columns:1fr 1fr; }
+      .share-card:last-child { grid-column:1/-1; }
+      .share-card:last-child .share-card__image { min-height:0; }
+    }
+    @media (max-width:760px) {
+      .cover-hero { width:100%; }
+      .cover-hero img { aspect-ratio:2 / 1; }
+      .share-grid { grid-template-columns:1fr; }
+      .share-card:last-child { grid-column:auto; }
+      .share-card__image { min-height:0; }
+    }
+  </style>
 </head>
 <body class="kw-research kw-wide kw-gate-pending"
       data-layout-id="kerwin-editorial-research-v1"
@@ -820,6 +918,7 @@
       </a>
       <nav class="nav" aria-label="页内导航">
         <a href="#verdict">核心判断</a>
+        <a href="#visuals">图解</a>
         <a href="#analysis">深度分析</a>
         <a href="#sources">主要来源</a>
       </nav>
@@ -842,10 +941,11 @@
             <span><b>证据边界</b> 原理框架 + 官方技术资料</span>
           </div>
         </div>
-        <aside class="cover-seal" aria-label="关键数据">
-          <strong>0101 → ✦ → 0101</strong>
-          <span>一条光链路的最小模型</span>
-        </aside>
+        
+        <figure class="cover-hero">
+          <img src="/ai-optical-interconnect-flashlight/assets/flashlight-optical-link-hero-v1.jpg" alt="一个人用手电筒把光送入透明光纤隧道，光束穿过多条彩色光路抵达 AI 服务器机柜" width="1200" height="600" fetchpriority="high">
+          <figcaption>隐喻插画：手电筒负责建立直觉；术语和流程由下方精确图形说明。</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -877,10 +977,31 @@
         <div class="verdict-item"><b>投资逻辑是系统性的</b><span>需求不是只增加一种激光器，而是发光、调制、运输、放大、路由与接收一起升级。</span></div>
       </div>
     </section>
+    <section class="section visual-summary" id="visuals">
+      <div class="section-label">02 · Shareable Visuals</div>
+      <h2>三张图，把光互联带走</h2>
+      <p class="visual-summary__intro">这组图卡适合转发给客户或放进演示文稿：<b>总览图</b>讲一条链路如何闭环，<b>部件图</b>讲术语各自负责什么，<b>投资图</b>讲为什么 GPU 集群越大，光互联价值量越高。</p>
+      <div class="share-grid">
+        <figure class="share-card">
+          <div class="share-card__image"><img src="/ai-optical-interconnect-flashlight/assets/optical-link-overview.svg" alt="AI 光互联一条数据从 GPU 到另一台 GPU 的完整链路总览图" loading="lazy"></div>
+          <figcaption><strong>01 · 一条链路总览</strong><span>电数据 → 发光 → 写入 → 光纤 / 波分 → 放大 / 指路 → 接收。</span><a class="share-download" href="/ai-optical-interconnect-flashlight/assets/optical-link-overview.svg" download="ai-optical-link-overview.svg">下载 SVG 图卡 ↗</a></figcaption>
+        </figure>
+        <figure class="share-card">
+          <div class="share-card__image"><img src="/ai-optical-interconnect-flashlight/assets/optical-link-components.svg" alt="Laser、CW Laser、Modulator、Fiber、WDM、Photodiode、TIA、DSP、Pump Laser、OCS、CPO 术语部件图" loading="lazy"></div>
+          <figcaption><strong>02 · 术语部件对照</strong><span>把每个英文术语翻译成手电筒里的角色，建立第一张产业链地图。</span><a class="share-download" href="/ai-optical-interconnect-flashlight/assets/optical-link-components.svg" download="ai-optical-link-components.svg">下载 SVG 图卡 ↗</a></figcaption>
+        </figure>
+        <figure class="share-card">
+          <div class="share-card__image"><img src="/ai-optical-interconnect-flashlight/assets/optical-link-investor-map.svg" alt="AI 集群规模扩大推动通信次数、带宽和光互联价值量上升的因果图" loading="lazy"></div>
+          <figcaption><strong>03 · 投资逻辑地图</strong><span>节点数 × 通信次数 × 单链路速率 × 光学渗透率，构成观察价值量的概念式。</span><a class="share-download" href="/ai-optical-interconnect-flashlight/assets/optical-link-investor-map.svg" download="ai-optical-link-investor-map.svg">下载 SVG 图卡 ↗</a></figcaption>
+        </figure>
+      </div>
+      <p class="visual-note"><b>使用边界：</b>插画只负责让人先“看见”手电筒、通道和接收方；所有准确术语、方向箭头与投资关系，都以 SVG 图卡和正文为准。</p>
+    </section>
+
 
     
     <section class="section" id="analysis">
-      <div class="section-label">02 · Interactive Explainer</div>
+      <div class="section-label">03 · Interactive Explainer</div>
       <h2>点亮一个步骤，看到器件如何接力</h2>
       <p>把手电筒拆成五个动作：先编码，再提高单位变化的信息量，随后在更大的集群里分发，必要时给光补能并改变路径，最后把光读回 0101。点击下方步骤，右侧解释会跟着变化。</p>
       <div class="optical-lab" data-optical-lab>
@@ -910,7 +1031,7 @@
 
     
     <section class="section" id="scale">
-      <div class="section-label">03 · Scale Changes the Value Pool</div>
+      <div class="section-label">04 · Scale Changes the Value Pool</div>
       <h2>距离越长，系统越像一张交通网</h2>
       <p>同一个“亮一下”，在不同距离里对应不同的工程约束。桌边的线缆、机柜之间的链路、园区之间的连接，都会把器件数量、功耗、散热和可靠性推到新的层级。</p>
       <div class="scale-ladder" aria-label="光互联距离层级">
@@ -932,7 +1053,7 @@
       </div>
     </section>
     <section class="section" id="investor">
-      <div class="section-label">04 · Investor Lens</div>
+      <div class="section-label">05 · Investor Lens</div>
       <h2>带宽升级，为什么会变成产业链升级</h2>
       <p>真正要观察的不是某一个名词是否“热门”，而是四个变量是否同时变化：节点数量、节点之间的通信次数、每次通信的比特数，以及光信号在链路中的占比。</p>
       <div class="investment-equation">
@@ -954,7 +1075,7 @@
       </div>
     </section>
     <section class="section" id="risks">
-      <div class="section-label">05 · Risks & Boundaries</div>
+      <div class="section-label">06 · Risks & Boundaries</div>
       <h2>先拆逻辑，再看公司</h2>
       <p>“光互联受益”不是一个足够细的投资结论。不同链路、不同距离、不同系统架构，会让同一个术语对应完全不同的价值量与兑现节奏。</p>
       <div class="table-wrap">
@@ -972,7 +1093,7 @@
 
     
     <section class="section" id="sources">
-      <div class="section-label">06 · Primary Sources</div>
+      <div class="section-label">07 · Primary Sources</div>
       <h2>主要来源与证据边界</h2>
       <p>下面的资料用于支撑“GPU 集群通信、AI 网络的 all-to-all 压力、EML / InP 与高速收发器”这些事实背景；页面主体仍然是面向投资者的解释框架。</p>
       <div class="source-list">
