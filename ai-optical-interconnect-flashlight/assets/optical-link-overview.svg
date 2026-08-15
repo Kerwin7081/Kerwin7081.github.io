@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">AI 光互联：一条数据如何穿过光</title>
+  <desc id="d">从 GPU 或交换机产生电数据，经激光、调制、光纤、波分、放大与路由，最后由接收端还原成数据。</desc>
+  <rect width="1200" height="675" fill="#fff1e5"/>
+  <rect x="44" y="42" width="1112" height="591" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/>
+  <text x="86" y="94" fill="#103f35" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="700">AI 光互联：一条数据如何穿过光</text>
+  <text x="86" y="128" fill="#746b65" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17">把芯片里的 0101，送到另一台机器，再准确读回来</text>
+  <line x1="112" y1="356" x2="1088" y2="356" stroke="#9a5c38" stroke-width="5"/>
+  <polygon points="1088,356 1068,346 1068,366" fill="#9a5c38"/>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <rect x="82" y="278" width="178" height="156" fill="#103f35"/>
+    <text x="171" y="326" text-anchor="middle" fill="#fffaf5" font-size="22" font-weight="700">GPU / Switch</text>
+    <text x="171" y="362" text-anchor="middle" fill="#dce8e2" font-size="17">产生电数据</text>
+    <text x="171" y="392" text-anchor="middle" fill="#f5e8d6" font-size="20">0101</text>
+    <rect x="284" y="268" width="138" height="176" fill="#dce8e2" stroke="#103f35" stroke-width="2"/>
+    <text x="353" y="316" text-anchor="middle" fill="#103f35" font-size="21" font-weight="700">Laser</text>
+    <text x="353" y="346" text-anchor="middle" fill="#1f5a4d" font-size="16">激光器</text>
+    <text x="353" y="385" text-anchor="middle" fill="#746b65" font-size="14">负责发光</text>
+    <rect x="446" y="268" width="138" height="176" fill="#dce8e2" stroke="#103f35" stroke-width="2"/>
+    <text x="515" y="316" text-anchor="middle" fill="#103f35" font-size="21" font-weight="700">Modulator</text>
+    <text x="515" y="346" text-anchor="middle" fill="#1f5a4d" font-size="16">调制器 / EML</text>
+    <text x="515" y="385" text-anchor="middle" fill="#746b65" font-size="14">把数据写进光</text>
+    <rect x="608" y="258" width="174" height="196" fill="#103f35"/>
+    <text x="695" y="310" text-anchor="middle" fill="#fffaf5" font-size="21" font-weight="700">Fiber + WDM</text>
+    <text x="695" y="342" text-anchor="middle" fill="#f5e8d6" font-size="16">光纤 + 波分复用</text>
+    <line x1="636" y1="378" x2="754" y2="378" stroke="#d7a26c" stroke-width="4"/>
+    <line x1="636" y1="397" x2="754" y2="397" stroke="#b9d1c6" stroke-width="4"/>
+    <line x1="636" y1="416" x2="754" y2="416" stroke="#f5e8d6" stroke-width="4"/>
+    <text x="695" y="440" text-anchor="middle" fill="#dce8e2" font-size="13">一根路，多条光车道</text>
+    <rect x="806" y="268" width="138" height="176" fill="#dce8e2" stroke="#103f35" stroke-width="2"/>
+    <text x="875" y="316" text-anchor="middle" fill="#103f35" font-size="18" font-weight="700">Amplifier</text>
+    <text x="875" y="346" text-anchor="middle" fill="#1f5a4d" font-size="15">放大 / OCS 指路</text>
+    <text x="875" y="385" text-anchor="middle" fill="#746b65" font-size="14">距离变长时补能</text>
+    <rect x="966" y="278" width="178" height="156" fill="#103f35"/>
+    <text x="1055" y="326" text-anchor="middle" fill="#fffaf5" font-size="22" font-weight="700">GPU / Switch</text>
+    <text x="1055" y="362" text-anchor="middle" fill="#dce8e2" font-size="17">接收并解读</text>
+    <text x="1055" y="392" text-anchor="middle" fill="#f5e8d6" font-size="20">0101</text>
+  </g>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="16">
+    <text x="86" y="526" fill="#9a5c38" font-weight="700">发送端</text>
+    <text x="248" y="526" fill="#746b65">发光</text>
+    <text x="420" y="526" fill="#746b65">写入</text>
+    <text x="608" y="526" fill="#fff" font-weight="700">运输与复用</text>
+    <text x="806" y="526" fill="#746b65">补能与指路</text>
+    <text x="1012" y="526" fill="#9a5c38" font-weight="700">接收端</text>
+  </g>
+  <text x="86" y="586" fill="#746b65" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15">最小闭环：电数据 → 光信号 → 受保护通道 → 光电转换 → 电数据</text>
+</svg>
