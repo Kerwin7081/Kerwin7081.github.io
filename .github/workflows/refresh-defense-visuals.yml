@@ -1,0 +1,46 @@
+name: Refresh Defense Visuals
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/refresh-defense-visuals.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install fonts and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install pillow requests qrcode opencv-python-headless
+
+      - name: Download official product imagery, patch pages, generate summary PNGs and QA
+        run: python tools/refresh_defense_visuals.py
+
+      - name: Commit generated assets and page patches
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            spacex-vs-rocket-lab-defense-launch-20260815/index.html \
+            spacex-vs-rocket-lab-defense-launch-20260815/assets \
+            golden-dome-defense-investment-map-20260815/index.html \
+            golden-dome-defense-investment-map-20260815/assets
+          if git diff --cached --quiet; then
+            echo 'No visual changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Self-host defense article images and add summary cards'
+          git push
