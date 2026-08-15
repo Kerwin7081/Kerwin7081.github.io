@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="t d">
+  <title id="t">AI 集群越大，光互联价值量为何上升</title>
+  <desc id="d">节点数量、通信次数、单链路速率和光学渗透率共同推动光互联价值量。</desc>
+  <rect width="1200" height="700" fill="#fff1e5"/>
+  <rect x="44" y="42" width="1112" height="616" fill="#fffaf5" stroke="#cdbfb3" stroke-width="2"/>
+  <text x="86" y="94" fill="#103f35" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="700">AI 集群越大，光互联价值量为何上升</text>
+  <text x="86" y="128" fill="#746b65" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17">不是单一器件受益，而是整套“超级手电筒系统”变厚</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <rect x="86" y="206" width="208" height="118" fill="#103f35"/><text x="190" y="252" text-anchor="middle" fill="#fffaf5" font-size="21" font-weight="700">更多 GPU</text><text x="190" y="284" text-anchor="middle" fill="#dce8e2" font-size="15">节点数上升</text>
+    <text x="303" y="274" fill="#9a5c38" font-size="34" font-weight="700">→</text>
+    <rect x="338" y="206" width="208" height="118" fill="#dce8e2" stroke="#103f35" stroke-width="2"/><text x="442" y="252" text-anchor="middle" fill="#103f35" font-size="21" font-weight="700">更多同步</text><text x="442" y="284" text-anchor="middle" fill="#746b65" font-size="15">通信次数上升</text>
+    <text x="555" y="274" fill="#9a5c38" font-size="34" font-weight="700">→</text>
+    <rect x="590" y="206" width="208" height="118" fill="#dce8e2" stroke="#103f35" stroke-width="2"/><text x="694" y="252" text-anchor="middle" fill="#103f35" font-size="21" font-weight="700">更高带宽</text><text x="694" y="284" text-anchor="middle" fill="#746b65" font-size="15">每次传得更多</text>
+    <text x="807" y="274" fill="#9a5c38" font-size="34" font-weight="700">→</text>
+    <rect x="842" y="206" width="236" height="118" fill="#103f35"/><text x="960" y="252" text-anchor="middle" fill="#fffaf5" font-size="21" font-weight="700">更多光学环节</text><text x="960" y="284" text-anchor="middle" fill="#dce8e2" font-size="15">发光、运输、接收</text>
+  </g>
+  <rect x="86" y="386" width="992" height="126" fill="#103f35"/>
+  <text x="582" y="438" text-anchor="middle" fill="#f5e8d6" font-family="Georgia, 'Times New Roman', serif" font-size="30">光互联价值量 ≈ 节点数 × 通信次数 × 单链路速率 × 光学渗透率</text>
+  <text x="582" y="476" text-anchor="middle" fill="#dce8e2" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15">这是组织投资问题的概念式，不是财务预测模型</text>
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif">
+    <text x="86" y="564" fill="#9a5c38" font-size="17" font-weight="700">投资者观察四件事</text>
+    <text x="86" y="598" fill="#262220" font-size="16">速率路线：400G → 800G → 1.6T</text>
+    <text x="390" y="598" fill="#262220" font-size="16">部署位置：机内 → 机柜 → 园区</text>
+    <text x="700" y="598" fill="#262220" font-size="16">器件组合：EML / CW Laser / 硅光</text>
+    <text x="86" y="628" fill="#746b65" font-size="14">不要只看 GPU 出货量；还要看链路密度、距离、可靠性和功耗。</text>
+  </g>
+</svg>
