@@ -1,0 +1,67 @@
+name: Sync registry overlay
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - registry-pending.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: registry-overlay-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Merge pending metadata into registry
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry_path = Path('registry.json')
+          pending_path = Path('registry-pending.json')
+          registry = json.loads(registry_path.read_text(encoding='utf-8'))
+          pending = json.loads(pending_path.read_text(encoding='utf-8'))
+          if not isinstance(registry, list) or not isinstance(pending, list):
+              raise SystemExit('registry and pending files must both be arrays')
+
+          by_slug = {item.get('slug'): i for i, item in enumerate(registry) if isinstance(item, dict) and item.get('slug')}
+          additions = []
+          for item in pending:
+              if not isinstance(item, dict) or not item.get('slug'):
+                  continue
+              slug = item['slug']
+              if slug in by_slug:
+                  registry[by_slug[slug]] = item
+              else:
+                  additions.append(item)
+
+          additions.sort(key=lambda x: x.get('published_at', ''), reverse=True)
+          registry = additions + registry
+          registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit registry update
+        run: |
+          if git diff --quiet -- registry.json; then
+            echo "registry already synchronized"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registry.json
+          git commit -m "Sync published research registry"
+          git push
