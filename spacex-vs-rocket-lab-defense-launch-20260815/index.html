@@ -4,18 +4,160 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="从 Golden Dome 天基拦截器 Gate 1 测试切入，比较 SpaceX 与 Rocket Lab 在美国国防航天、快速响应发射、卫星垂直整合与国家安全太空基础设施中的两条路线。">
+<meta name="mobile-qa-version" content="1.2.0">
+<meta name="layout-id" content="kerwin-editorial-research-v1">
+<meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
+<meta name="kerwin-web-version" content="3.7.0">
+<meta name="theme-color" content="#fff1e5">
 <link rel="canonical" href="https://enyaclawd.com/spacex-vs-rocket-lab-defense-launch-20260815/">
 <title>SpaceX vs Rocket Lab：美国国防航天与运载体系的两条路线｜Kerwin Research Hub</title>
 <style>
 :root{--surface:#fff1e5;--paper:#fffaf5;--paper2:#f7e7d8;--outer:#e6d8cb;--ink:#262220;--muted:#746b65;--rule:#cdbfb3;--dark-rule:#968b83;--green:#103f35;--green2:#1f5a4d;--pale:#dce8e2;--copper:#9a5c38;--risk:#9f332b;--serif:Georgia,"Times New Roman","Songti SC","STSong",serif;--sans:Arial,"PingFang SC","Microsoft YaHei",sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}body{margin:0;background:var(--outer);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.88;overflow-x:hidden}a{color:inherit;text-underline-offset:3px}img{display:block;max-width:100%;height:auto}button,input{font:inherit}a:focus-visible,input:focus-visible{outline:3px solid #d29b5d;outline-offset:3px}body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:hidden}.kw-editorial-gate{position:fixed;inset:0;z-index:990;display:grid;place-items:center;padding:18px;background:var(--green)}.kw-editorial-gate[hidden]{display:none}.kw-editorial-gate__paper{width:min(860px,100%);border-top:6px solid var(--ink);background:var(--surface);box-shadow:0 24px 70px rgba(0,0,0,.22)}.kw-editorial-gate__masthead{display:flex;justify-content:space-between;gap:20px;padding:13px 22px;border-bottom:1px solid var(--dark-rule);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.kw-editorial-gate__body{display:grid;grid-template-columns:164px minmax(0,1fr);gap:clamp(32px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}.kw-editorial-gate__seal{display:grid;place-items:center;width:148px;aspect-ratio:1;border:1px solid var(--green);border-radius:50%;color:var(--green);text-align:center;font:700 20px/1.15 var(--serif)}.kw-editorial-gate__article{margin:9px 0 16px;color:var(--ink);font:700 clamp(20px,2.8vw,28px)/1.18 var(--serif);letter-spacing:-.01em}.kw-editorial-gate__article span{display:block;margin-top:6px;color:var(--green);font-size:.72em;line-height:1.35}.kw-editorial-gate__title{margin:0;color:var(--green);font:700 clamp(25px,3.5vw,34px)/1.12 var(--serif)}.kw-editorial-gate__copy{margin:16px 0 20px;color:var(--muted)}.kw-editorial-gate__field{display:flex;align-items:center;gap:12px;min-height:50px;border-bottom:1px solid var(--green)}.kw-editorial-gate__field input{min-width:0;width:100%;height:48px;border:0;padding:0 4px;background:transparent;color:var(--green);font:700 24px/1 var(--serif)}.kw-editorial-gate__field input:focus{outline:0}.kw-editorial-gate__field span{font-size:10px;font-weight:800;letter-spacing:.1em}.site-shell{width:min(1120px,calc(100% - 32px));margin:30px auto;background:var(--paper);box-shadow:0 18px 52px rgba(68,49,37,.16)}.topbar{display:flex;justify-content:space-between;gap:18px;padding:11px 24px;background:var(--green);color:var(--paper);font-size:11px;letter-spacing:.08em;text-transform:uppercase}.masthead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:18px 32px;border-bottom:1px solid var(--dark-rule);background:var(--surface)}.brand-mark{color:var(--green);font:700 27px/1 var(--serif);text-decoration:none}.brand-mark span{display:block;margin-top:7px;color:var(--muted);font:700 9px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase}.nav{display:flex;justify-content:center;gap:18px;font-size:11px;font-weight:700}.nav a,.home-route{text-decoration:none}.home-route{color:var(--green);font-size:12px;font-weight:800}.cover{padding:62px 64px 48px;border-bottom:1px solid var(--dark-rule);background:var(--surface)}.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:end}.eyebrow,.section-label{font-size:10px;font-weight:800;letter-spacing:.16em;line-height:1.4;text-transform:uppercase}.eyebrow{color:var(--copper)}.cover h1{margin:17px 0 0;font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.02em}.cover h1 span{display:block;margin-top:11px;color:var(--green);font-size:clamp(25px,4.2vw,35px);line-height:1.18}.thesis{max-width:880px;margin:24px 0 0;font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif)}.cover-meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:28px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:12px}.cover-seal{padding:24px 18px;border:1px solid var(--green);color:var(--green);text-align:center}.cover-seal strong{display:block;font:700 36px/1 var(--serif)}.cover-seal span{display:block;margin-top:9px;font-size:10px;line-height:1.55;letter-spacing:.12em;text-transform:uppercase}.scope-note{padding:18px 64px;border-bottom:1px solid var(--rule);background:var(--paper2);color:var(--muted);font-size:13px;line-height:1.7}.section{padding:44px 64px;border-bottom:1px solid var(--rule)}.section-label{margin-bottom:9px;color:var(--green)}.section h2{margin:0 0 21px;font:700 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.012em}.section h3{margin:30px 0 12px;font:700 21px/1.35 var(--serif)}.section p{margin:0 0 16px}.lead{font-size:18px;line-height:1.78}.series-intro{padding:30px 64px;background:#fff;border-bottom:1px solid var(--rule)}.series-intro p{max-width:930px;margin:0 0 13px;font:400 18px/1.78 var(--serif)}.series-intro p:last-child{margin-bottom:0}.verdict{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--dark-rule);border-bottom:1px solid var(--dark-rule)}.verdict-item{padding:19px 18px;border-right:1px solid var(--rule)}.verdict-item:last-child{border-right:0}.verdict-item b{display:block;margin-bottom:8px;color:var(--green);font:700 18px/1.35 var(--serif)}.verdict-item span{display:block;color:var(--muted);font-size:14px;line-height:1.65}.evidence-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:24px;border:1px solid var(--dark-rule);background:var(--rule)}.evidence{padding:18px;background:#fff}.evidence strong{display:block;color:var(--green);font:700 28px/1 var(--serif)}.evidence span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.55}.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--dark-rule);margin:22px 0}table{width:100%;min-width:900px;border-collapse:collapse;font-size:15px;line-height:1.58}th{padding:12px 14px;background:var(--green);color:#fff;text-align:left;vertical-align:top}td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}tbody tr:nth-child(even){background:var(--surface)}.flow{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--dark-rule);margin:24px 0}.flow-step{padding:18px;background:#fff;border-right:1px solid var(--rule)}.flow-step:last-child{border-right:0}.flow-step small{color:var(--copper);font-weight:800}.flow-step b{display:block;margin:7px 0;color:var(--green);font:700 17px/1.35 var(--serif)}.flow-step span{display:block;color:var(--muted);font-size:13px;line-height:1.55}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}.split>div{padding:22px;border:1px solid var(--dark-rule);background:#fff}.split h3{margin-top:0}.formula{margin:24px 0;padding:24px 28px;border-top:3px solid var(--green);border-bottom:1px solid var(--dark-rule);background:var(--surface)}.formula b{display:block;color:var(--green);font:700 24px/1.35 var(--serif)}.formula span{display:block;margin-top:8px;color:var(--muted);font-size:14px}.term-note{display:block;margin-top:8px;color:var(--muted);font-size:12px;line-height:1.65}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.figure{margin:0;border:1px solid var(--dark-rule);background:#fff}.figure img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#f3eee8}.figure figcaption{padding:13px 15px;color:var(--muted);font-size:12px;line-height:1.55}.figure figcaption b{color:var(--green);font-size:14px}.risk-panel{margin-top:24px;padding:22px;border-left:5px solid var(--risk);background:#f4ded7}.risk-panel h3{margin-top:0;color:var(--risk)}.watch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:22px;border:1px solid var(--dark-rule);background:var(--rule)}.watch{background:#fff;padding:18px}.watch b{display:block;color:var(--green);font:700 17px/1.4 var(--serif)}.watch span{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.6}.source{padding:12px 0;border-bottom:1px solid var(--rule)}.source a{color:var(--green);font-weight:800}.source span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.55}.related{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--dark-rule);background:var(--rule);margin-top:22px}.related a{display:block;padding:18px;background:#fff;text-decoration:none}.related b{display:block;color:var(--green);font:700 17px/1.4 var(--serif)}.related span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.55}.enya{padding:42px 64px;background:var(--green);color:var(--paper)}.enya h2{margin:0;font:700 clamp(31px,5vw,46px)/1.04 var(--serif)}.enya-tag{margin-top:12px;font:700 18px/1.5 var(--serif)}.enya-model{margin-top:6px;color:#c7dbd2;font-size:13px}.enya-copy{max-width:800px;margin:19px 0 0;color:#dce8e2}.roles{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.role{padding-top:12px;border-top:1px solid rgba(255,255,255,.35)}.role span{display:block;margin-top:5px;color:#dce8e2;font-size:13px;line-height:1.6}.footer{padding:22px 32px;background:var(--ink);color:#e8ddd5;font-size:12px;line-height:1.7}.footer a{color:#fff}.bridge{margin:22px 0 0;padding-top:17px;border-top:1px solid var(--rule);color:var(--muted);font:italic 15px/1.7 var(--serif)}@media(max-width:960px){.cover-grid{grid-template-columns:1fr}.verdict{grid-template-columns:repeat(2,1fr)}.evidence-grid{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(2,1fr)}.split,.gallery{grid-template-columns:1fr}.watch-grid,.related{grid-template-columns:1fr}}@media(max-width:760px){body{font-size:16px;line-height:1.80}.site-shell{width:100%;margin:0;box-shadow:none}.topbar{padding:9px 16px;font-size:9px}.masthead{grid-template-columns:1fr auto;padding:15px 18px}.nav{display:none}.cover{padding:40px 20px 32px}.cover h1{font-size:clamp(24px,7vw,28px);line-height:1.18}.cover h1 span{font-size:clamp(18px,5.2vw,21px)}.thesis{font-size:16px;line-height:1.72}.scope-note,.series-intro,.section{padding-left:20px;padding-right:20px}.section h2{font-size:clamp(23px,6.4vw,26px);line-height:1.25}.section h3{font-size:19px}.lead,.series-intro p{font-size:16px}.verdict{grid-template-columns:1fr}.evidence-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.table-wrap table{font-size:14px}.kw-editorial-gate{display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));overflow:hidden}.kw-editorial-gate__paper{width:min(100%,420px);max-height:calc(100svh - 24px);overflow:auto;border-top-width:4px}.kw-editorial-gate__masthead{display:block;padding:10px 16px;font-size:9px}.kw-editorial-gate__masthead span:last-child{display:none}.kw-editorial-gate__body{grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start;min-height:0;padding:24px 18px 20px}.kw-editorial-gate__seal{width:72px;font-size:13px}.kw-editorial-gate__article{font-size:clamp(18px,5.4vw,22px);margin:7px 0 12px}.kw-editorial-gate__title{font-size:clamp(22px,6.6vw,27px);line-height:1.14}.kw-editorial-gate__copy{margin:10px 0 13px}.enya{padding:34px 20px}.roles{grid-template-columns:1fr}.cover-seal{width:210px}}
 </style>
+<style id="kerwin-web-3-7-desktop-qa">
+  /* Kerwin Web 3.7.0 · desktop 16-inch + mobile editorial QA */
+  html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body { min-width:320px; }
+  .skip-link { position:fixed; left:12px; top:-80px; z-index:1000; padding:8px 12px; border:1px solid var(--green); background:var(--paper); color:var(--green); }
+  .skip-link:focus { top:12px; }
+  .progress { position:fixed; left:0; top:0; z-index:950; width:0; height:4px; background:var(--copper); }
+  .kw-editorial-gate { display:flex; align-items:center; justify-content:center; padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom)); overflow:auto; }
+  .kw-editorial-gate__paper { width:min(100%,860px); max-width:100%; max-height:calc(100svh - 24px); overflow:auto; }
+  .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; }
+  .kw-editorial-gate__brand, .kw-editorial-gate__access { min-width:0; overflow-wrap:anywhere; }
+  .kw-editorial-gate__access { text-align:right; }
+  /* 2026-08-15 screenshot hierarchy refinement */
+  .kw-editorial-gate__copy {
+    margin:14px 0 18px;
+    color:var(--green);
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(18px,2.4vw,23px);
+    line-height:1.28;
+  }
+  .kw-editorial-gate__copy strong { font:inherit; }
+  .kw-editorial-gate__copy span { display:block; margin-top:5px; color:var(--muted); font-family:var(--sans); font-size:13px; font-weight:400; line-height:1.55; }
+  .kw-editorial-gate__body > * { min-width:0; }
+  .site-shell { width:min(1120px,calc(100% - 32px)); margin:30px auto; background:var(--paper); box-shadow:0 18px 52px rgba(68,49,37,.16); }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:11px 24px; line-height:1.4; }
+  .masthead { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:24px; padding:18px 32px; }
+  .masthead > * { min-width:0; }
+  .cover { padding:62px 64px 48px; }
+  .cover-grid { display:grid; grid-template-columns:minmax(0,1fr) 210px; gap:52px; align-items:end; }
+  .cover h1 { max-width:790px; margin:0; }
+  .cover h1 span { display:block; margin-top:11px; color:var(--green); }
+  .thesis { max-width:800px; }
+  .cover-meta { line-height:1.6; }
+  .section { padding:44px 64px; }
+  .enya { padding:36px 64px; background:var(--green); }
+  .enya h2 { margin:0; font-family:var(--serif); font-weight:700; font-size:clamp(28px,4vw,38px); line-height:1.08; }
+  .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+  .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+  .enya-copy { max-width:800px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+  .roles { gap:18px; margin-top:20px; }
+  .role b { font-size:15px; }
+  .role span { margin-top:4px; color:#dce8e2; font-size:12px; line-height:1.55; }
+  .footer { padding:22px 32px; background:var(--ink); color:#e8ddd5; font-size:12px; line-height:1.7; }
+  .footer-line { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+  .footer-meta { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:6px; color:#cfc2ba; }
+  .top-button { position:fixed; right:24px; bottom:max(24px,env(safe-area-inset-bottom)); z-index:920; width:48px; height:48px; display:grid; place-items:center; border:1px solid var(--paper); border-radius:50%; color:var(--paper); background:var(--green); box-shadow:0 8px 20px rgba(0,0,0,.16); cursor:pointer; }
+  @media (min-width:1280px) { .site-shell { width:min(1120px,calc(100% - 32px)); } .cover-grid { grid-template-columns:minmax(0,1fr) 210px; gap:52px; } }
+  @media (max-width:760px) {
+    body { font-size:16px; line-height:1.80; }
+    .kw-editorial-gate { align-items:flex-start; padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom)); }
+    .kw-editorial-gate__paper { width:min(100%,420px); max-height:calc(100svh - 24px); overflow:auto; border-top-width:4px; }
+    .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:10px 16px; font-size:9px; line-height:1.45; }
+    .kw-editorial-gate__body { grid-template-columns:72px minmax(0,1fr); gap:16px; align-items:start; min-height:0; padding:24px 18px 20px; }
+    .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+    .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+    .kw-editorial-gate__title { max-width:100%; margin-top:7px; font-size:clamp(23px,7vw,29px); line-height:1.14; overflow-wrap:anywhere; }
+    .kw-editorial-gate__copy {
+      margin:9px 0 12px;
+      font-size:clamp(17px,4.8vw,19px);
+      line-height:1.25;
+    }
+    .kw-editorial-gate__copy span { margin-top:4px; font-size:13px; line-height:1.5; }
+    .kw-editorial-gate__field { min-height:44px; }
+    .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+    .kw-editorial-gate__field span { display:none; }
+    .kw-editorial-gate__foot { display:grid; grid-template-columns:1fr; gap:3px; padding:10px 16px; font-size:10px; line-height:1.5; overflow-wrap:anywhere; }
+    .site-shell { width:100%; margin:0; box-shadow:none; }
+    .topbar { padding:8px 20px; font-size:9px; }
+    .topbar span:last-child { display:none; }
+    .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+    .nav { display:none; }
+    .brand-mark { font-size:23px; }
+    .brand-mark span { margin-top:5px; font-size:8px; }
+    .home-route { font-size:12px; white-space:nowrap; }
+    .cover { padding:27px 20px 24px; }
+    .cover-grid { grid-template-columns:1fr; gap:16px; }
+    .cover h1 { max-width:100%; font-size:clamp(24px,7vw,28px); line-height:1.18; overflow-wrap:anywhere; }
+    .cover h1 span { margin-top:12px; font-size:clamp(18px,5.2vw,21px); line-height:1.34; }
+    .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+    .cover-meta { display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; margin-top:20px; padding-top:14px; font-size:11px; line-height:1.55; }
+    .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+    .cover-seal { display:none; }
+    .scope-note, .series-intro { padding-left:20px; padding-right:20px; }
+    .section, .enya { padding:30px 20px; }
+    .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+    .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+    .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+    .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+    .roles { gap:14px; margin-top:20px; }
+    .role { padding-top:10px; }
+    .role b { font-size:15px; }
+    .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+    .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+    .section h3 { font-size:19px; }
+    .lead, .series-intro p { font-size:16px; }
+    .table-wrap { max-width:100%; overflow-x:auto; }
+    .table-wrap table { font-size:14px; }
+    .footer { padding:20px; }
+    .footer-line { display:block; }
+    .footer-line a { display:inline-block; margin-top:10px; }
+    .footer-meta { display:grid; grid-template-columns:1fr; gap:3px; margin-top:10px; font-size:11px; }
+    .top-button { right:16px; bottom:max(16px,env(safe-area-inset-bottom)); width:44px; height:44px; }
+  }
+
+</style>
 </head>
-<body class="kw-gate-pending">
-<div class="kw-editorial-gate" id="gate"><div class="kw-editorial-gate__paper"><div class="kw-editorial-gate__masthead"><span>KERWIN RESEARCH HUB · EDITORIAL ACCESS</span><span>ENYA · AUTOMATED INTELLIGENCE</span></div><div class="kw-editorial-gate__body"><div class="kw-editorial-gate__seal">KERWIN<br>RESEARCH</div><div><small>Independent investment research</small><div class="kw-editorial-gate__article">SpaceX vs Rocket Lab<span>美国国防航天与运载体系的两条路线</span></div><h2 class="kw-editorial-gate__title">输入 “k” 即可显示</h2><p class="kw-editorial-gate__copy">不分大小写。进入后可阅读完整研究、证据边界与监测框架。</p><label class="kw-editorial-gate__field"><input id="key" aria-label="输入 k 进入" autocomplete="off" inputmode="text"><span>AUTO ENTER</span></label></div></div></div></div>
-<div class="site-shell">
-<div class="topbar"><span>ENYA · AUTOMATED INTELLIGENCE</span><span>由 Enya 自动化跟踪并排版呈现</span></div>
-<header class="masthead"><a class="brand-mark" href="/">kerwin<span>INDEPENDENT INVESTMENT RESEARCH</span></a><nav class="nav"><a href="#genealogy">型号谱系</a><a href="#responsive">快速响应</a><a href="#stack">国防栈</a><a href="#risk">证伪</a></nav><a class="home-route" href="/">研究首页 ↗</a></header>
-<main>
+<body class="kw-gate-pending kw-research kw-wide" data-layout-id="kerwin-editorial-research-v1" data-page-slug="spacex-vs-rocket-lab-defense-launch-20260815">
+
+<section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+  <div class="kw-editorial-gate__paper">
+    <div class="kw-editorial-gate__masthead">
+      <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+      <span class="kw-editorial-gate__access">Reader Access</span>
+    </div>
+    <div class="kw-editorial-gate__body">
+      <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+      <div>
+        <div class="kw-editorial-gate__kicker">DEFENSE SPACE · LAUNCH INFRASTRUCTURE</div>
+        <h2 class="kw-editorial-gate__title" id="gate-title">SpaceX vs Rocket Lab</h2>
+        <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+        <label class="kw-editorial-gate__field">
+          <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+          <span>Auto enter</span>
+        </label>
+      </div>
+    </div>
+    <div class="kw-editorial-gate__foot">
+      <span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span>
+      <span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span>
+    </div>
+  </div>
+</section>
+<a class="skip-link" href="#main-content">跳至正文</a>
+<div class="progress" id="reading-progress" aria-hidden="true"></div>
+<main class="site-shell" id="main-content">
+<div class="topbar">
+      <span>Kerwin Research Hub · DEFENSE SPACE & LAUNCH</span>
+      <span>Evidence first · Snapshot 2026.08.15 HKT</span>
+    </div>
+<header class="masthead"><a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a><nav class="nav" aria-label="页内导航"><a href="#genealogy">型号谱系</a><a href="#responsive">快速响应</a><a href="#stack">国防栈</a><a href="#risk">证伪</a></nav><a class="home-route" href="/">研究首页 ↗</a></header>
 <section class="cover"><div class="cover-grid"><div><div class="eyebrow">DEFENSE SPACE · LAUNCH INFRASTRUCTURE · 2026.08.15 HKT</div><h1>SpaceX vs Rocket Lab<span>美国国防航天与运载体系的两条路线</span></h1><p class="thesis">这篇研究把 SpaceX 与 Rocket Lab（火箭实验室）放到同一张“国家安全太空基础设施”地图上：前者已经形成发射、卫星、网络与运营的规模化闭环；后者正在用小型快速响应发射、卫星 Prime（主承包商）能力和不断内生的载荷/光通信/推进系统，建立一套更轻、更分散的第二条供应链。</p><div class="cover-meta"><span><b>研究范围</b> Defense（国防）+ Launch（运载）+ Space Infrastructure（太空基础设施）</span><span><b>不重复展开</b> Starlink（星链）连接与 SpaceX AI 业务，相关专题见文末</span><span><b>数据截止</b> 2026-08-14 美股收盘 / 2026-08-15 HKT</span></div></div><div class="cover-seal"><strong>2</strong><span>NEW SPACE PRIMES<br>两种垂直整合路线</span></div></div></section>
 <div class="scope-note"><b>型号阅读规则：</b>首次出现的火箭、飞船、卫星平台和项目代号均附中文用途与代际说明。若名称本身不能说明角色，则在段落下方用小字补充“它是什么、属于哪一代、与相邻型号有什么区别”。</div>
 <section class="series-intro"><p><b>这组研究，起点是一则看似并不宏大的新闻：</b>美国太空军披露，参与 Golden Dome（金穹）SBI（Space-Based Interceptor，天基拦截器）竞赛的 12 家供应商全部通过 Gate 1（第一阶段：设计与组件级测试）。“第一关全员通过”本身不足以改变任何一家公司的盈利模型，却把一个更重要的问题推到台前——当美国把本土导弹防御从地面拦截扩展到低轨传感、太空数据网络、AI 指挥控制与天基拦截，谁会成为真正的基础设施供应商？</p><p>由此，这个专题被拆成上下两篇。<b>本篇从公司出发</b>，比较 SpaceX 与 Rocket Lab 在国防航天和运载体系中的两条垂直整合路线；配套的 <a href="/golden-dome-defense-investment-map-20260815/"><b>《美国 Golden Dome（金穹）国防航天产业投资地图》</b></a>则从系统出发，把任务链、预算口径、入选公司、真实合同与股票表现放进一张图。前者回答“两个 New Space Prime（新航天主承包商）如何竞争”，后者回答“任务与资金会沿哪条链条流向哪些公司”。</p></section>
@@ -29,9 +171,33 @@
 <section class="section" id="risk"><div class="section-label">08 · FALSIFIERS</div><h2>四个问题，决定“RKLB 正升级为国家安全 Space Prime”能否成立</h2><div class="risk-panel"><h3>Rocket Lab 的反证条件</h3><p><b>① Neutron 持续大幅延期：</b>没有中型可复用运力，RKLB 很难进入更大任务价值池。<br><b>② TRKT3 / T2TL-Beta 固定价合同出现成本或进度失控：</b>Prime 身份真正考验是复杂星座按期、按成本交付。<br><b>③ GHOST 没有形成第二个实际部署地点与重复任务：</b>则它更像概念能力，而不是可规模化军事基础设施。<br><b>④ 国防收入增长但自由现金流持续恶化：</b>垂直整合若不能转化为毛利和现金效率，收入增长不等于股东价值。</p></div><div class="risk-panel"><h3>SpaceX 的反证条件</h3><p>Starship 长期不能形成可靠复用、美国政府显著收紧对单一供应商的依赖、Falcon 9 外部任务槽位持续被内部需求挤压，或国家安全网络交付明显不达标，都会削弱“平台级基础设施”溢价。</p></div></section>
 <section class="section"><div class="section-label">09 · MONITORING</div><h2>下一步只盯能改变判断的硬指标</h2><div class="watch-grid"><div class="watch"><b>Neutron 首飞与复用</b><span>Archimedes（阿基米德发动机）可靠性、一级回收方案与首批国家安全任务采用。</span></div><div class="watch"><b>GHOST 第二地点</b><span>异地部署、运输到 ready-to-launch（可发射状态）的真实时间与重复周转。</span></div><div class="watch"><b>SBI Gate 2 / 3</b><span>进入太空飞行和在轨验证后，SpaceX 与 RTX/RKLB 团队的真实硬件价值量。</span></div><div class="watch"><b>Starship 可靠复用</b><span>不看单次成功，重点看连续任务、周转、入轨能力与政府载荷采用。</span></div><div class="watch"><b>卫星 Prime 毛利</b><span>TRKT3/T2TL-Beta 的成本、现金消耗和 backlog（订单积压）转收入节奏。</span></div><div class="watch"><b>供应商多元化</b><span>Space Force / SDA 是否持续把同类星座与 launch block buy（批量发射采购）分给第二、第三供应商。</span></div></div></section>
 <section class="section" id="sources"><div class="section-label">10 · SOURCES & RELATED</div><h2>主要来源与网站内相关专题</h2><div class="source"><a href="https://www.ssc.spaceforce.mil/Newsroom/Article/4470337/space-forces-space-based-interceptor-program-to-counter-growing-speed-and-maneu">U.S. Space Force · SBI prototype program</a><span>天基拦截器原型竞争、pLEO（分布式近地轨道）拦截星座与多供应商路线。</span></div><div class="source"><a href="https://www.ssc.spaceforce.mil/Newsroom/Article-Display/Article/4503728/us-space-force-accelerates-fielding-space-based-airborne-target-indicator-progr">U.S. Space Force · SB-AMTI $4.16B</a><span>SpaceX 天基空中移动目标指示项目。</span></div><div class="source"><a href="https://www.ssc.spaceforce.mil/Newsroom/Article-Display/Article/4501527/us-space-force-advances-space-data-network-backbone-for-global-warfighter-conne">U.S. Space Force · SDN Backbone $2.29B</a><span>SpaceX 太空数据网络骨干。</span></div><div class="source"><a href="https://rocketlabcorp.com/updates/victus-haze/">Rocket Lab · VICTUS HAZE</a><span>16 小时 42 分 Notice-to-Launch；快速响应发射与在轨行动。</span></div><div class="source"><a href="https://rocketlabcorp.com/missions/launches/sda-tracking-layer-tranche-3/">Rocket Lab · TRKT3 $816M</a><span>18 颗导弹预警、跟踪与防御卫星。</span></div><div class="source"><a href="https://rocketlabcorp.com/updates/record-contract-rslp-kodiak/">Rocket Lab · $266M Space Force suborbital launches</a><span>HASTE 批量亚轨道导弹防御测试任务。</span></div><div class="source"><a href="https://www.space.com/space-exploration/launches-spacecraft/launching-anywhere-anytime-and-without-compromise-rocket-lab-unveils-new-ghost-portable-spaceport-system">Space.com · GHOST portable spaceport</a><span>GHOST 标准集装箱化部署 Electron/HASTE 发射基础设施、地面支持与 Range Control。</span></div><div class="related"><a href="/golden-dome-defense-investment-map-20260815/"><b>美国 Golden Dome（金穹）投资地图</b><span>本组专题下篇：任务架构、预算层级、Gate 1 公司、价值池与股票 YTD。</span></a><a href="/starlink-hybrid-mobile-network-20260812/"><b>Starlink：从卫星宽带到混合移动网络</b><span>SpaceX 连接业务：V3、Mobile V2 与地面融合网络。</span></a><a href="/spacex-new-beginning-20260805/"><b>全新起点的 SpaceX</b><span>连接、AI 算力与 Starship 的上一阶段公司研究。</span></a></div></section>
+<section class="enya" id="enya"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">Kerwin 负责选题、投资逻辑与最终审阅；Enya 负责证据整理、数据核验、可视化呈现与后续维护。</p><div class="roles"><div class="role"><b>Kerwin</b><span>研究问题 · 投资逻辑 · 观点审阅 · 组合语境</span></div><div class="role"><b>Enya</b><span>证据链 · 数据核验 · 可视化 · 网页发布 · 持续更新</span></div></div></section>
+<footer class="footer">
+    <div class="footer-line">
+      <span>本页面用于研究、教育与客户沟通，不构成证券买卖建议。公开合同、技术里程碑与股价会持续变化，请以最新官方披露为准。</span>
+      <a href="/">返回研究首页</a>
+    </div>
+    <div class="footer-meta">
+      <span>Published 2026-08-15 HKT</span>
+      <span>Updated 2026-08-15 HKT</span>
+    </div>
+  </footer>
 </main>
-<section class="enya"><h2>EnyaClawd · Kerwin Research Hub</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">Kerwin 负责选题、投资逻辑与最终审阅；Enya 负责证据整理、数据核验、可视化呈现与后续维护。</p><div class="roles"><div class="role"><b>Kerwin</b><span>研究问题 · 投资逻辑 · 观点审阅 · 组合语境</span></div><div class="role"><b>Enya</b><span>证据链 · 数据核验 · 可视化 · 网页发布 · 持续更新</span></div></div></section>
-<footer class="footer">本页面用于研究、教育与客户沟通，不构成证券买卖建议。公开合同、技术里程碑与股价会持续变化，请以最新官方披露为准。 · <a href="/">enyaclawd.com ↗</a></footer>
-</div>
-<script>(function(){var g=document.getElementById('gate'),k=document.getElementById('key');k.addEventListener('input',function(){if(k.value.trim().toLowerCase()==='k'){g.hidden=true;document.body.classList.remove('kw-gate-pending')}})})();</script>
+<button class="top-button" id="top-button" type="button" aria-label="返回顶部" hidden>↑</button>
+<script>
+(function(){
+  var body=document.body;
+  var gate=document.getElementById("editorial-gate");
+  var accessKey=document.getElementById("access-key");
+  var progress=document.getElementById("reading-progress");
+  var topButton=document.getElementById("top-button");
+  function reveal(){ if(!gate || !accessKey) return; body.classList.remove("kw-gate-pending"); gate.hidden=true; window.scrollTo(0,0); }
+  function check(){ if(accessKey && String(accessKey.value||"").trim().toLowerCase()==="k") reveal(); }
+  if(accessKey) accessKey.addEventListener("input",check);
+  function update(){ var doc=document.documentElement; var max=doc.scrollHeight-window.innerHeight; var ratio=max>0 ? window.scrollY/max : 0; if(progress) progress.style.width=(ratio*100)+"%"; if(topButton) topButton.hidden=window.scrollY<480; }
+  window.addEventListener("scroll",update,{passive:true});
+  if(topButton) topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  update();
+})();
+</script>
 </body></html>

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fff1e5">
   <meta name="description" content="把2026年7月以来AI全产业链公司的财报放在同一张产业链地图上，分析增长扩散、光互联、存储、电力、云利润与现金回报。">
-  <meta name="kerwin-web-version" content="3.6.0">
+  <meta name="kerwin-web-version" content="3.7.0">
   <meta name="design-id" content="ft-warm-paper-forest-green-2026-07">
   <meta name="layout-id" content="kerwin-editorial-research-v1">
-  <meta name="mobile-qa-version" content="1.0.0">
+  <meta name="mobile-qa-version" content="1.2.0">
   <title>AI全产业链财报专题｜2026年7月以来 · Kerwin Research Hub</title>
   <!-- pv-counter data-page-slug=ai-full-chain-earnings-20260815 -->
   <style>
@@ -29,22 +29,149 @@
     /* six-slice legend: optics/network, cloud/apps, storage, compute, power, supplemental platforms */
     .pie{background:conic-gradient(var(--risk) 0 23%,#60779a 23% 46%,#b77e34 46% 62%,#4d8d73 62% 76%,#b6a5cc 76% 85%,#9a928a 85% 100%)}
   </style>
+<style id="kerwin-web-3-7-desktop-qa">
+  /* Kerwin Web 3.7.0 · desktop 16-inch + mobile editorial QA */
+  html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body { min-width:320px; }
+  .skip-link { position:fixed; left:12px; top:-80px; z-index:1000; padding:8px 12px; border:1px solid var(--green); background:var(--paper); color:var(--green); }
+  .skip-link:focus { top:12px; }
+  .progress { position:fixed; left:0; top:0; z-index:950; width:0; height:4px; background:var(--copper); }
+  .kw-editorial-gate { display:flex; align-items:center; justify-content:center; padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom)); overflow:auto; }
+  .kw-editorial-gate__paper { width:min(100%,860px); max-width:100%; max-height:calc(100svh - 24px); overflow:auto; }
+  .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; }
+  .kw-editorial-gate__brand, .kw-editorial-gate__access { min-width:0; overflow-wrap:anywhere; }
+  .kw-editorial-gate__access { text-align:right; }
+  /* 2026-08-15 screenshot hierarchy refinement */
+  .kw-editorial-gate__copy {
+    margin:14px 0 18px;
+    color:var(--green);
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(18px,2.4vw,23px);
+    line-height:1.28;
+  }
+  .kw-editorial-gate__copy strong { font:inherit; }
+  .kw-editorial-gate__copy span { display:block; margin-top:5px; color:var(--muted); font-family:var(--sans); font-size:13px; font-weight:400; line-height:1.55; }
+  .kw-editorial-gate__body > * { min-width:0; }
+  .site-shell { width:min(1120px,calc(100% - 32px)); margin:30px auto; background:var(--paper); box-shadow:0 18px 52px rgba(68,49,37,.16); }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:11px 24px; line-height:1.4; }
+  .masthead { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:24px; padding:18px 32px; }
+  .masthead > * { min-width:0; }
+  .cover { padding:62px 64px 48px; }
+  .cover-grid { display:grid; grid-template-columns:minmax(0,1fr) 210px; gap:52px; align-items:end; }
+  .cover h1 { max-width:790px; margin:0; }
+  .cover h1 span { display:block; margin-top:11px; color:var(--green); }
+  .thesis { max-width:800px; }
+  .cover-meta { line-height:1.6; }
+  .section { padding:44px 64px; }
+  .enya { padding:36px 64px; background:var(--green); }
+  .enya h2 { margin:0; font-family:var(--serif); font-weight:700; font-size:clamp(28px,4vw,38px); line-height:1.08; }
+  .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+  .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+  .enya-copy { max-width:800px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+  .roles { gap:18px; margin-top:20px; }
+  .role b { font-size:15px; }
+  .role span { margin-top:4px; color:#dce8e2; font-size:12px; line-height:1.55; }
+  .footer { padding:22px 32px; background:var(--ink); color:#e8ddd5; font-size:12px; line-height:1.7; }
+  .footer-line { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+  .footer-meta { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:6px; color:#cfc2ba; }
+  .top-button { position:fixed; right:24px; bottom:max(24px,env(safe-area-inset-bottom)); z-index:920; width:48px; height:48px; display:grid; place-items:center; border:1px solid var(--paper); border-radius:50%; color:var(--paper); background:var(--green); box-shadow:0 8px 20px rgba(0,0,0,.16); cursor:pointer; }
+  @media (min-width:1280px) { .site-shell { width:min(1120px,calc(100% - 32px)); } .cover-grid { grid-template-columns:minmax(0,1fr) 210px; gap:52px; } }
+  @media (max-width:760px) {
+    body { font-size:16px; line-height:1.80; }
+    .kw-editorial-gate { align-items:flex-start; padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom)); }
+    .kw-editorial-gate__paper { width:min(100%,420px); max-height:calc(100svh - 24px); overflow:auto; border-top-width:4px; }
+    .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:10px 16px; font-size:9px; line-height:1.45; }
+    .kw-editorial-gate__body { grid-template-columns:72px minmax(0,1fr); gap:16px; align-items:start; min-height:0; padding:24px 18px 20px; }
+    .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+    .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+    .kw-editorial-gate__title { max-width:100%; margin-top:7px; font-size:clamp(23px,7vw,29px); line-height:1.14; overflow-wrap:anywhere; }
+    .kw-editorial-gate__copy {
+      margin:9px 0 12px;
+      font-size:clamp(17px,4.8vw,19px);
+      line-height:1.25;
+    }
+    .kw-editorial-gate__copy span { margin-top:4px; font-size:13px; line-height:1.5; }
+    .kw-editorial-gate__field { min-height:44px; }
+    .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+    .kw-editorial-gate__field span { display:none; }
+    .kw-editorial-gate__foot { display:grid; grid-template-columns:1fr; gap:3px; padding:10px 16px; font-size:10px; line-height:1.5; overflow-wrap:anywhere; }
+    .site-shell { width:100%; margin:0; box-shadow:none; }
+    .topbar { padding:8px 20px; font-size:9px; }
+    .topbar span:last-child { display:none; }
+    .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+    .nav { display:none; }
+    .brand-mark { font-size:23px; }
+    .brand-mark span { margin-top:5px; font-size:8px; }
+    .home-route { font-size:12px; white-space:nowrap; }
+    .cover { padding:27px 20px 24px; }
+    .cover-grid { grid-template-columns:1fr; gap:16px; }
+    .cover h1 { max-width:100%; font-size:clamp(24px,7vw,28px); line-height:1.18; overflow-wrap:anywhere; }
+    .cover h1 span { margin-top:12px; font-size:clamp(18px,5.2vw,21px); line-height:1.34; }
+    .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+    .cover-meta { display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; margin-top:20px; padding-top:14px; font-size:11px; line-height:1.55; }
+    .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+    .cover-seal { display:none; }
+    .scope-note, .series-intro { padding-left:20px; padding-right:20px; }
+    .section, .enya { padding:30px 20px; }
+    .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+    .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+    .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+    .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+    .roles { gap:14px; margin-top:20px; }
+    .role { padding-top:10px; }
+    .role b { font-size:15px; }
+    .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+    .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+    .section h3 { font-size:19px; }
+    .lead, .series-intro p { font-size:16px; }
+    .table-wrap { max-width:100%; overflow-x:auto; }
+    .table-wrap table { font-size:14px; }
+    .footer { padding:20px; }
+    .footer-line { display:block; }
+    .footer-line a { display:inline-block; margin-top:10px; }
+    .footer-meta { display:grid; grid-template-columns:1fr; gap:3px; margin-top:10px; font-size:11px; }
+    .top-button { right:16px; bottom:max(16px,env(safe-area-inset-bottom)); width:44px; height:44px; }
+  }
+
+</style>
 </head>
 <body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="ai-full-chain-earnings-20260815">
-  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
-    <div class="kw-editorial-gate__paper">
-      <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Reader Access</span></div>
-      <div class="kw-editorial-gate__body">
-        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-        <div><div class="kw-editorial-gate__kicker">AI Infrastructure &amp; Earnings</div><h2 class="kw-editorial-gate__title" id="gate-title">AI全产业链财报专题</h2><p class="kw-editorial-gate__copy">输入 “k” 即可显示，不分大小写</p><label class="kw-editorial-gate__field"><input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究"><span>Auto enter</span></label></div>
-      </div>
-      <div class="kw-editorial-gate__foot">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent · 底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+  
+<section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+  <div class="kw-editorial-gate__paper">
+    <div class="kw-editorial-gate__masthead">
+      <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+      <span class="kw-editorial-gate__access">Reader Access</span>
     </div>
-  </section>
-  <a class="skip-link" href="#main-content">跳至正文</a><div class="progress" id="reading-progress" aria-hidden="true"></div>
+    <div class="kw-editorial-gate__body">
+      <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+      <div>
+        <div class="kw-editorial-gate__kicker">AI Infrastructure & Earnings</div>
+        <h2 class="kw-editorial-gate__title" id="gate-title">AI 全产业链财报</h2>
+        <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+        <label class="kw-editorial-gate__field">
+          <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+          <span>Auto enter</span>
+        </label>
+      </div>
+    </div>
+    <div class="kw-editorial-gate__foot">
+      <span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span>
+      <span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span>
+    </div>
+  </div>
+</section>
+<a class="skip-link" href="#main-content">跳至正文</a><div class="progress" id="reading-progress" aria-hidden="true"></div>
   <main class="site-shell" id="main-content">
-    <div class="topbar"><span>Kerwin Research Hub · AI FULL-CHAIN EARNINGS</span><span>Snapshot 2026.08.15 HKT</span></div>
-    <header class="masthead"><a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a><nav class="nav" aria-label="页内导航"><a href="#verdict">核心判断</a><a href="#charts">数据图表</a><a href="#chain">产业链</a><a href="#accounting">折旧与现金</a><a href="#sources">主要来源</a></nav><a class="home-route" href="/">研究首页 ↗</a></header>
+    <div class="topbar">
+      <span>Kerwin Research Hub · AI FULL-CHAIN EARNINGS</span>
+      <span>Evidence first · Snapshot 2026.08.15 HKT</span>
+    </div>
+<header class="masthead"><a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a><nav class="nav" aria-label="页内导航"><a href="#verdict">核心判断</a><a href="#charts">数据图表</a><a href="#chain">产业链</a><a href="#accounting">折旧与现金</a><a href="#sources">主要来源</a></nav><a class="home-route" href="/">研究首页 ↗</a></header>
 
     <section class="cover"><div class="cover-grid"><div><div class="eyebrow">AI Infrastructure &amp; Earnings · 点 · 线 · 面</div><h1>AI全产业链财报专题<span>从 GPU 订单到重资产现金流链</span></h1><p class="thesis">把2026年7月以来分散在算力、存储、光互联、网络、电力、云与应用公司的财报放在同一张产业链地图上：景气已经扩散，但越靠近云和机房，现金回报越滞后。</p><div class="cover-meta"><span><b>研究日期</b> 2026-08-15</span><span><b>数据快照</b> 2026-08-15 HKT</span><span><b>研究对象</b> AI 全产业链重点公司</span><span><b>证据边界</b> 官方财报优先，推演单列</span></div></div><aside class="cover-seal" aria-label="关键数据"><strong>43</strong><span>重点公司<br>7月以来</span></aside></div></section>
     <div class="scope-note"><b>口径说明：</b>严格窗口为 2026-07-01 至 2026-08-15；部分 6 月财报仅作为“窗口前基准”标注。各公司财年、币种、分部口径不同，增长率保留原披露基础，不把订单、backlog 或 contracted capacity 直接当作收入、利润或现金。</div>
@@ -77,7 +204,16 @@
     <p class="caption">估值观察：本页不提供目标价；再评级取决于订单转收入、利润转自由现金流，以及折旧和融资成本是否被真实回报覆盖。</p>
   </main>
   <section class="enya" id="enya"><h2>EnyaClawd</h2><div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-copy">本专题由 Kerwin 确定研究命题、产业逻辑和判断边界，Enya 负责资料跟踪、证据交叉、结构化分析、网页可视化与持续维护。</p><div class="roles"><div class="role"><b>Kerwin</b><span>确定主题、投资逻辑、判断边界与最终校对。</span></div><div class="role"><b>Enya</b><span>组织证据、串联因果、构建可视化并持续维护专题。</span></div><div class="role"><b>Research Discipline</b><span>事实、推演和监测条件分层表达，不以单一产品发布替代系统验证。</span></div></div></section>
-  <footer class="footer"><div class="footer-line"><span>Published 2026-08-15 · Updated 2026-08-15 HKT</span><a href="/">返回研究首页 ↗</a></div><div>本文仅用于研究与信息交流，不构成投资建议、要约或收益承诺。</div></footer>
+  <footer class="footer">
+    <div class="footer-line">
+      <span>本文仅用于研究与信息交流，不构成投资建议、要约或收益承诺。</span>
+      <a href="/">返回研究首页</a>
+    </div>
+    <div class="footer-meta">
+      <span>Published 2026-08-15 HKT</span>
+      <span>Updated 2026-08-15 HKT</span>
+    </div>
+  </footer>
   <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
   <script>(function(){var body=document.body,gate=document.getElementById('editorial-gate'),key=document.getElementById('access-key'),progress=document.getElementById('reading-progress'),topButton=document.getElementById('top-button');function reveal(){body.classList.remove('kw-gate-pending');gate.hidden=true;window.scrollTo(0,0)}function check(){if(String(key.value||'').trim().toLowerCase()==='k')reveal()}key.addEventListener('input',check);window.addEventListener('scroll',function(){var max=document.documentElement.scrollHeight-window.innerHeight,ratio=max>0?window.scrollY/max:0;progress.style.width=Math.min(100,Math.max(0,ratio*100))+'%';topButton.classList.toggle('is-visible',window.scrollY>560)},{passive:true});topButton.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});if(window.matchMedia('(min-width: 761px)').matches)key.focus()}());</script>
 </body>
