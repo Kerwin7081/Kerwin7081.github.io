@@ -1,0 +1,36 @@
+name: Fix SpaceX Moneyline Once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-spacex-moneyline-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair exact malformed moneyline markup
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('spacex-product-system-20260816/index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<div class="moneyline"><div><strong>$4.291B</strong><span>2026Q2 Connectivity revenue，YoY +66%。</span></div><div class="moneyline"><div><strong>$1.656B</strong><span>2026Q2 Connectivity operating income。</span></div><div><strong>$66</strong><span>Q2 Starlink ARPU / month。</span></div></div></section>'
+          new = '<div class="moneyline"><div><strong>$4.291B</strong><span>2026Q2 Connectivity revenue，YoY +66%。</span></div><div><strong>$1.656B</strong><span>2026Q2 Connectivity operating income。</span></div><div><strong>$66</strong><span>Q2 Starlink ARPU / month。</span></div></div></section>'
+          count = s.count(old)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one malformed block, found {count}')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          Path('.github/workflows/fix-spacex-moneyline-once.yml').unlink()
+          PY
+      - name: Commit repaired page and remove one-time workflow
+        run: |
+          git config user.name 'Enya Markup Fix'
+          git config user.email 'actions@users.noreply.github.com'
+          git add spacex-product-system-20260816/index.html .github/workflows/fix-spacex-moneyline-once.yml
+          git commit -m 'Fix SpaceX connectivity metric markup'
+          git push
