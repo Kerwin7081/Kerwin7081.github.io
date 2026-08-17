@@ -1,0 +1,67 @@
+name: Refine SpaceX Starmind Economics Once
+on:
+  push:
+    paths:
+      - '.github/workflows/refine-spacex-starmind-economics-once.yml'
+permissions:
+  contents: write
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refine GB300 Rubin and Starmind economics
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          p=Path('spacex-product-system-20260816/index.html')
+          s=p.read_text(encoding='utf-8')
+
+          anchor='<div class="callout"><b>这张表的意义：</b>如果仍停留在 Falcon 9 时代的成本曲线，把1GW Starmind 算力送上轨道，仅运费就可能是数百亿美元；如果 Starship 真能逼近每公斤数百美元，运费才开始从“项目杀手”变成“可管理的基础设施成本”。<b>这就是 Starship 对 Starmind 的意义：它不是运输工具，而是轨道AI的成本开关。</b></div>'
+          add='''<div class="callout"><b>这张表的意义：</b>如果仍停留在 Falcon 9 时代的成本曲线，把1GW Starmind 算力送上轨道，仅运费就可能是数百亿美元；如果 Starship 真能逼近每公斤数百美元，运费才开始从“项目杀手”变成“可管理的基础设施成本”。<b>这就是 Starship 对 Starmind 的意义：它不是运输工具，而是轨道AI的成本开关。</b></div><h3>把运费放回 1MW AI Factory 总账：最震撼的是“占比”</h3><p>为了避免把太空算力越推越远，本页只做一阶比较：<b>先固定“同样 1MW IT Load、同一代计算硬件、同样的商业化能力”，只比较基础设施架构。</b>地面需要机房、配电、液冷和电网；轨道端则把这部分替换成 launch（运载）+ spacecraft platform（卫星平台：结构、太阳能、散热、激光通信、辐射防护等）。这样才能看清 Starship 究竟改变了哪一项成本。</p><div class="table-wrap"><table><thead><tr><th>1MW IT 工作中枢</th><th>GB300（今天地面基线）</th><th>Vera Rubin（2027前瞻基线）</th><th>证据状态</th></tr></thead><tbody><tr><td>GPU density（GPU密度）</td><td>≈500张/MW</td><td>≈500张/MW（暂沿2.0kW/GPU功率包络）</td><td>GB300有公开架构锚；Rubin功率仍为模型值</td></tr><tr><td>Compute full-stack Capex（计算全栈资本支出）</td><td>≈$35M</td><td>≈$45M</td><td>$70K/GPU vs $90K/GPU工作值</td></tr><tr><td>Terrestrial infrastructure（地面非GPU基建）</td><td>≈$8M</td><td>≈$8M</td><td>机房、配电、液冷等模型中枢</td></tr><tr><td><b>Total ground Capex（地面总资本支出）</b></td><td><b>≈$43M/MW</b></td><td><b>≈$53M/MW</b></td><td>Kerwin AI Cloud Economics v0.4</td></tr><tr><td>GPUh ARR（GPU小时年化收入）</td><td>≈$14.9M/MW</td><td>≈$16.8M/MW</td><td>85%利用率；$4/h vs $4.5/h，Rubin价格为情景</td></tr><tr><td>Project EBITDA payback（项目EBITDA回本）</td><td>≈3.85年</td><td>≈4.06年</td><td>75% vs 78%项目EBITDA margin模型</td></tr><tr><td>Token/MW（单位电力Token吞吐）</td><td>≈2.8M tokens/s/MW基准</td><td><b>工作中枢≈3× GB300</b></td><td>Rubin 3×是Kerwin/Enya前瞻模型；NVIDIA特定agentic场景相对GB200可更高</td></tr><tr><td>默认 Token infra revenue（Token基础设施收入）</td><td>≈$15M/MW-year</td><td><b>≈$45M/MW-year</b></td><td>高度依赖可售利用率、API价格实现率与基础设施捕获率；不是公司收入指引</td></tr></tbody></table></div><div class="evidence-grid"><div class="evidence"><strong class="wine">6.1%</strong><span>按 v0.4 GB300 地面总 Capex ≈$43M/MW，Starship 目标运费 $2.64M/MW 仅相当于约 <b>6.1%</b>。</span></div><div class="evidence"><strong class="wine">5.0%</strong><span>按 Rubin 当前前瞻地面总 Capex ≈$53M/MW，同一 $2.64M/MW 运费只相当于约 <b>5.0%</b>。</span></div><div class="evidence"><strong>$5.36M</strong><span>Rubin 初始 Capex 平价预算：$8M 地面非GPU基建 − $2.64M Starship运费 = <b>约$5.36M/MW</b>，留给轨道结构、太阳能、散热、激光与辐射防护。</span></div><div class="evidence"><strong>≈$0.49M/年</strong><span>Rubin地面基线若 PUE 1.12、电价$50/MWh，单 1MW IT 的年电费约49万美元；用于后续比较轨道太阳能Capex，而不是宣称太空“免费用电”。</span></div></div><div class="callout"><b>最关键的 Breakeven（平价）条件：</b>在 Rubin 工作中枢下，计算硬件本身约 $45M/MW。地面再加约 $8M/MW 基建，总计约 $53M/MW。若 Starship 运费约 $2.64M/MW，那么为了让轨道与地面在<b>初始 Capex</b>上打平，轨道端剩余的卫星平台预算只有约 <span class="wine">$5.36M/MW</span>。这 $5.36M 要覆盖结构、太阳能、电源、散热器、激光通信、辐射防护与其他航天硬件。<b>这不是“轨道AI已经更便宜”的结论，而是一个非常清楚的工程/资本开支门槛。</b></div><div class="callout"><b>为什么现在先用 Rubin，而不是继续沿 GB300 推演：</b>Starmind 真正规模部署大概率不会长期停留在今天的 Blackwell Ultra。当前 v0.4 已把 Vera Rubin 作为 2027 前瞻基线：72 Rubin GPU + 36 Vera CPU、288GB HBM4/GPU、22TB/s HBM带宽，并用 2.5×–3.5× GB300 的 token/MW 作为常规情景。<b>但 Rubin 的绝对 Capex、整架功率、长约GPUh价格和真实Token收入还缺少成熟大客户合同验证，因此本页只保留“工作中枢”，不把它写成定论。</b></div>'''
+          if anchor not in s:
+              raise SystemExit('launch economics anchor missing')
+          if '6.1%</strong><span>按 v0.4 GB300' not in s:
+              s=s.replace(anchor,add,1)
+
+          pat=r'<h3>把 1\.4GW 翻译成收入：Kerwin「1MW AI Factory」匡算</h3>.*?<p class="transition">因此，下一章不再只是看“AI花了多少钱”，而是把上面的产能收入坐标与三大分部真实报表放在一起，判断资本开支有没有开始转化成收入、利润和最终 ROIC。</p>'
+          repl='''<h3>把 1.4GW 放回最新单位经济模型：GB300 是今天的尺，Rubin 是 Starmind 的前瞻尺</h3><p>Kerwin AI Cloud Economics 已更新到 v0.4。当前地面对照不再使用旧的 $8.3M–$9.7M/MW 收入坐标，而是统一到 <b>1MW IT Load</b>：GB300 工作中枢约 <b>$43M Capex / $14.9M GPUh ARR</b>；Rubin 前瞻工作中枢约 <b>$53M Capex / $16.8M GPUh ARR</b>。如果商业模式进一步从“出租GPU小时”转向“出售Token”，v0.4 默认低成本大规模推理情景给出 GB300 约 <b>$15M/MW-year</b>、Rubin 约 <b>$45M/MW-year</b> 的基础设施Token收入坐标；<b>后两者属于模型情景，不是SpaceX或NVIDIA收入指引。</b></p><div class="evidence-grid"><div class="evidence"><strong>$43M</strong><span>GB300 地面 AI Factory Capex / MW IT 工作中枢。</span></div><div class="evidence"><strong>$53M</strong><span>Rubin 地面 AI Factory Capex / MW IT 前瞻工作中枢。</span></div><div class="evidence"><strong>$14.9M</strong><span>GB300 GPUh 模式 ARR / MW IT 工作中枢。</span></div><div class="evidence"><strong class="wine">≈3× Token/MW</strong><span>Rubin 对 GB300 的常规工作中枢；用于 Starmind 前瞻比较，不是官方统一倍数。</span></div></div><div class="callout"><b>1.4GW 不能直接乘上这些数字当 SpaceX 收入预测。</b><span class="wine">Nameplate Compute（名义算力）≠ IT Load（IT负载）≠ 可售算力。</span>SpaceX 的1.4GW同时包含自有Grok训练/推理、客户云基础设施和处于爬坡期的资产；地面模型只是用来理解“每1MW成熟算力对应的资本和收入数量级”。Q2 AI solutions &amp; infrastructure 收入 $2.194B，对应约 $8.8B 年化，AI总收入 $2.561B，对应约 $10.2B 年化，是当前真实报表锚点。</div><div class="moneyline"><div><strong>1.4GW</strong><span>2026Q2 Nameplate Compute；不是1.4GW可售IT Load。</span></div><div><strong>$2.561B</strong><span>2026Q2 AI revenue（AI收入）。</span></div><div><strong>$14.1B</strong><span>Q2 披露 Cloud Services Agreements 已签合同销售额。</span></div></div><p class="transition">因此，地面 AI Factory 模型负责给 Starmind 一个可比较的基准线；真正需要验证的是，轨道端能否把“地面基建 + 持续电费”替换成足够低的“卫星平台 + 发射 + 更换成本”，同时保持 Rubin 级别的可售Token产出。到这里先收住，后续等 Rubin 的真实功率、合同价和 Starmind 工程参数继续披露再更新。</p>'''
+          s2,n=re.subn(pat,repl,s,count=1,flags=re.S)
+          if n!=1:
+              raise SystemExit(f'ai economics replacement failed {n}')
+          s=s2
+
+          s=s.replace('<h2>接下来只盯这十六个验证点</h2>','<h2>接下来只盯这十七个验证点</h2>')
+          watch_row='<tr><td>Starmind 1MW economics</td><td>AI1当前约70kW/吨；Starship目标运费≈$2.64M/MW；Rubin前瞻地面Capex≈$53M/MW</td><td>Rubin真实整架功率与Capex、Starmind kW/吨、轨道平台$5.36M/MW平价门槛、替换周期与可售Token利用率</td></tr>'
+          if 'Starmind 1MW economics' not in s:
+              s=s.replace('</tbody></table></div></section>\n<section class="section" id="sources">',watch_row+'</tbody></table></div></section>\n<section class="section" id="sources">',1)
+
+          source_anchor='<div class="source"><a href="https://www.spacex.com/spacexai/starmind" target="_blank" rel="noopener">SpaceX — STARMIND / AI1</a>'
+          sources='''<div class="source"><a href="https://blogs.nvidia.com/blog/vera-rubin/" target="_blank" rel="noopener">NVIDIA — Vera Rubin performance / watt</a><span>Vera Rubin 代际的公开性能与每瓦吞吐锚点；Kerwin AI Cloud Economics v0.4 对 GB300 使用更保守的约3× token/MW 工作中枢，而非直接套用特定benchmark上限。</span></div><div class="source"><a href="https://iren.com/resources/blog/iren-signs97-billion-agreement-with-microsoft-to-deploy-ai-cloud-infrastructure" target="_blank" rel="noopener">IREN × Microsoft — AI Cloud contract anchor</a><span>$9.7B / 200MW IT / 5年合同，为地面 AI Factory ARR/MW 的真实合同校准样本之一；用于校准GB300/Rubin模型，不代表SpaceX合同。</span></div>'''
+          if source_anchor in s and 'NVIDIA — Vera Rubin performance / watt' not in s:
+              s=s.replace(source_anchor,sources+source_anchor,1)
+
+          s=s.replace('Evidence first · Snapshot 2026-08-17 12:33 HKT','Evidence first · Snapshot 2026-08-17 14:11 HKT')
+          s=re.sub(r'<span><b>数据快照</b> 2026-08-17 [^<]* HKT</span>','<span><b>数据快照</b> 2026-08-17 14:11 HKT</span>',s,count=1)
+          s=re.sub(r'Updated 2026-08-17 [0-9:]+ HKT','Updated 2026-08-17 14:11 HKT',s)
+          p.write_text(s,encoding='utf-8')
+
+          m=Path('spacex-product-system-20260816/meta.json')
+          data=json.loads(m.read_text(encoding='utf-8'))
+          data['summary']='从 Kerwin 香港西贡巴士上的真实观察切入，把 Falcon、Starship、Starlink、Starshield、AI 与 Starmind 放回同一张投资地图；新增 GB300 / Vera Rubin 1MW AI Factory 对照、Starship 单位入轨成本及轨道 AI 初始 Capex 平价门槛，区分已验证数据、公司目标与前瞻模型。'
+          tags=data.get('tags',[])
+          for t in ['Vera Rubin','Starmind','Ground vs Orbit','AI Factory Economics','Cost to Orbit']:
+              if t not in tags: tags.append(t)
+          data['tags']=tags
+          data['updated_at']='2026-08-17T14:11:00+08:00'
+          m.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding='utf-8')
+          PY
+      - name: Commit refinement and remove one-time workflow
+        run: |
+          git config user.name kerwin
+          git config user.email kerwin7081@gmail.com
+          git add spacex-product-system-20260816/index.html spacex-product-system-20260816/meta.json
+          git rm .github/workflows/refine-spacex-starmind-economics-once.yml
+          git commit -m "Refine SpaceX Starmind economics with Rubin baseline"
+          git push
