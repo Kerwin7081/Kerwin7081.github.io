@@ -1,0 +1,135 @@
+name: Upgrade SpaceX Investor Atlas Once
+on:
+  push:
+    paths:
+      - '.github/workflows/upgrade-spacex-investor-atlas-once.yml'
+permissions:
+  contents: write
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade narrative, scale, defense, mobile and AI sections
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('spacex-product-system-20260816/index.html')
+          s = p.read_text(encoding='utf-8')
+
+          def replace_section(section_id, new):
+              global s
+              pat = rf'<section class="section" id="{re.escape(section_id)}">.*?</section>'
+              s2, n = re.subn(pat, new, s, count=1, flags=re.S)
+              if n != 1:
+                  raise SystemExit(f'could not replace section {section_id}: {n}')
+              s = s2
+
+          # Visual language: Kerwin burgundy emphasis + opening note.
+          css_anchor = '.scope-note b{color:var(--ink)}.section{'
+          css_insert = '.scope-note b{color:var(--ink)}.wine{color:#7b2430;font-weight:800}.evidence strong small{font:700 13px/1.35 var(--sans);color:var(--muted)}.kerwin-intro{padding:34px 64px 32px;border-bottom:1px solid var(--line);background:#fff}.kerwin-intro__label{margin-bottom:10px;color:#7b2430;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.kerwin-intro h2{margin:0 0 17px;color:var(--green);font:700 26px/1.25 var(--serif)}.kerwin-intro p{max-width:880px;margin:0 0 13px;font-size:16px;line-height:1.82}.kerwin-intro p:last-child{margin-bottom:0}.kerwin-intro .heard{margin:18px 0;padding:16px 20px;border-left:4px solid #7b2430;background:var(--surface);font-family:var(--serif);font-size:17px;line-height:1.75}.transition{margin-top:22px;padding-top:15px;border-top:1px solid var(--line);color:var(--green);font-family:var(--serif);font-weight:700}.section{'
+          if css_anchor in s and '.kerwin-intro{' not in s:
+              s = s.replace(css_anchor, css_insert, 1)
+          if '@media(max-width:760px){.kerwin-intro' not in s:
+              s = s.replace('</style>', '@media(max-width:760px){.kerwin-intro{padding:26px 20px 24px}.kerwin-intro h2{font-size:22px}.kerwin-intro p{font-size:15px}.kerwin-intro .heard{padding:14px 16px;font-size:16px}}\n</style>', 1)
+
+          intro = '''<section class="kerwin-intro" id="kerwin-intro"><div class="kerwin-intro__label">Kerwin 导语</div><h2>先把“傻傻分不清”，整理成一张地图</h2><p>上周末，去往香港西贡的双层巴士上，我坐在前排，身后传来普通话。一位中年男子对年轻女子说（大意）：</p><div class="heard">“你刚才提到马斯克的火箭？他那玩意儿牛吹得太大了，股价都跌破发行价了……”<br>年轻女子回了一句：“他的产品太多了，一会儿这个在飞、一会儿那个在测试，我也傻傻分不清。”</div><p>我听着觉得很熟悉。坦率地说，在系统梳理之前，Kerwin 也有类似感受。SpaceX 的认知难点恰恰在这里：<b>成熟产品、试验任务、下一代型号和更远期愿景，经常同时出现在新闻里。</b>如果不把 Falcon（猎鹰）、Dragon（龙飞船）、Starship（星舰）、Starlink（星链）、Starshield（星盾）、AI、Terafab、Cursor 与频谱资产放回同一张地图，很容易把“尚在测试的宏大目标”等同于整家公司，再顺手得出“就是吹牛”的结论；反过来，也容易只看愿景，忽略今天已经拥有用户、合同、收入和利润的业务。</p><p><b>于是有了这篇专题：</b>不替马斯克辩护，也不替他吹牛。我们只把产品、规模、用户、合同、现金流、资本开支与下一代能力一层层拆开，再看看这家公司究竟已经做到哪一步，下一步又需要什么事实来证明自己。</p></section>'''
+          if 'id="kerwin-intro"' not in s:
+              s = s.replace('<div class="scope-note">', intro + '\n<div class="scope-note">', 1)
+
+          scale = '''<section class="section" id="scale"><div class="section-label">02 · Scale / Global Position</div><h2>先建立坐标系：SpaceX 到底已经大到什么程度</h2><p class="lead">产品名字分清之后，第二步必须知道“规模”。否则发射次数、入轨吨位、卫星数量和用户数都只是孤立数字。这里统一把英文缩写翻译成中国投资人一眼能理解的量级。</p><div class="evidence-grid"><div class="evidence"><strong>165</strong><span>2025 Falcon 9（猎鹰9号）发射次数；<span class="wine">超过全球轨道发射次数一半</span>。</span></div><div class="evidence"><strong>2,213 吨</strong><span>2025 Mass to Orbit（入轨质量）；<span class="wine">SpaceX 公司披露占全球 80% 以上</span>。全球分母包括中国等其他航天参与者，本页未逐任务重算。</span></div><div class="evidence"><strong>~620</strong><span>截至 2026-03-31 Falcon 9 累计轨道飞行；任务成功率 99% 以上。</span></div><div class="evidence"><strong>96</strong><span>2026 年截至 8 月15日已完成 Falcon 9 发射；8月15日两枚火箭仅相隔38分钟升空，为当年第95、96次。</span></div><div class="evidence"><strong>~9,600</strong><span>2026Q1 Starlink Broadband + Mobile 在轨卫星官方披露快照；约占全球可主动机动卫星 75%。</span></div><div class="evidence"><strong>12.0M <small>（1,200万）</small></strong><span>2026Q2 末 Starlink subscribers（订阅用户）；Q1 为 10.3M（1,030万）。</span></div><div class="evidence"><strong>164</strong><span>2026Q1 覆盖国家、地区及市场；对应可服务人口约 33 亿。</span></div><div class="evidence"><strong>1.4GW</strong><span>2026Q2 AI Nameplate Compute（名义算力用电规模）；后文把它进一步翻译成年化收入坐标。</span></div></div><div class="callout"><b>为什么 Mass to Orbit（入轨质量）更重要：</b>小火箭和大火箭都算“一次发射”，但有效载荷可相差几十倍。SpaceX 2023 / 2024 / 2025 的入轨质量分别约 1,210 吨 / 1,699 吨 / 2,213 吨，公司披露连续三年全球份额均超过 80%。<br><br><b>统计边界：</b>“全球”包含中国、俄罗斯、欧洲、日本、印度等主要轨道发射参与者；但 SpaceX 没有在该段披露逐任务公开全球分母构成，因此 <span class="wine">&gt;80% 必须标为公司披露口径</span>，而不是 Kerwin 已逐笔用各国官方数据审计后的结果。BryceTech 全球活动数据库作为独立交叉验证来源。</div><p class="transition">有了规模坐标，下一步才有资格谈“产品价值”：先看今天真正承担运输任务的 Falcon / Dragon，再看仍处测试期、但决定下一代吞吐能力的 Starship。</p></section>'''
+          replace_section('scale', scale)
+
+          # Chinese-readable metric cleanup outside scale.
+          s = s.replace('<strong>78 crew</strong>', '<strong>78 名乘员</strong>')
+          s = s.replace('截至 2026Q1，Dragon 自 2020 年以来累计运送约 78 名 crew members。', '截至 2026Q1，Dragon 自 2020 年以来累计运送约 78 名乘员（crew members）。')
+
+          # Add the spectrum asset bridge to Starlink Mobile.
+          mobile_pat = r'<section class="section" id="mobile">.*?</section>'
+          mm = re.search(mobile_pat, s, flags=re.S)
+          if not mm:
+              raise SystemExit('mobile section missing')
+          mobile = mm.group(0)
+          if 'EchoStar 频谱资产' not in mobile:
+              spectrum = '''<h3>再往前一步：EchoStar 频谱资产，是 Starlink Mobile 的“无线高速公路路权”</h3><div class="callout"><b>这里不是“SpaceX 收购了一家频谱公司”。</b>更准确的说法是：SpaceX 通过两笔交易取得 EchoStar 的约 <b>65 MHz</b> 无线频谱许可，公开报道合计对价约 <b>$19.6B</b>。频谱可以通俗理解为移动通信中受监管、稀缺的“无线车道使用权”——卫星会飞，并不自动等于能成为全国移动运营商；必须拥有合法且足够宽的无线频段，才能让更多手机、卫星和未来地面基站稳定通信。</div><div class="table-wrap"><table><thead><tr><th>资产</th><th>它是什么</th><th>为什么重要</th><th>投资人怎么读</th></tr></thead><tbody><tr><td><b>EchoStar spectrum（频谱资产）</b></td><td>AWS-4 / H-Block 与后续 AWS-3 等频谱；合计约65MHz。</td><td>为 Direct-to-Cell（手机直连）和未来 satellite + terrestrial（卫星 + 地面）混合移动网络提供专用频谱资源。</td><td>Starlink Mobile 的终局可能不只是“没信号时补盲”，而是向真正移动通信服务延伸。</td></tr><tr><td><b>“True mobile service”</b></td><td>公司在 2026Q2 后明确表示计划建设地面侧能力。</td><td>让 Starlink 从卫星补充网络，逐步逼近与 Verizon / AT&amp;T / T-Mobile 同场竞争的综合移动网络。</td><td><span class="wine">频谱是战略资产，但65MHz仍远少于传统运营商长期积累的全国频谱组合。</span>真正竞争力还要看地面网络、资本开支和获客。</td></tr></tbody></table></div><p class="transition">当连接从家庭、企业继续延伸到手机，下一步就是看这些网络如何进入航空、海事、政府和国家安全场景，并最终变成持续付费合同。</p>'''
+              mobile = mobile.replace('</section>', spectrum + '</section>', 1)
+              s = s[:mm.start()] + mobile + s[mm.end():]
+
+          starshield = '''<section class="section" id="starshield"><div class="section-label">09 · Starshield / Golden Dome</div><h2>Starshield（星盾）：SpaceX 已经进入“发射 + 军用网络 + 太空感知”三层国防体系</h2><p class="lead">Starshield 不能简单理解成“军用版 Starlink”。它更像 SpaceX 把低轨卫星制造、光学星间链路、安全通信、感知载荷和 Falcon 高频发射能力，打包成美国国家安全空间基础设施。2026 年以来，这条业务与 U.S. Space Force（美国太空军）以及 Golden Dome（金穹顶导弹防御体系）的联系已经越来越具体。</p><div class="moneyline"><div><strong>$2.29B</strong><span>2026-05-26：Space Data Network（太空数据网络）Backbone，安全高速全球军事数据骨干网。</span></div><div><strong>$4.16B</strong><span>2026-05-29：SB-AMTI，利用太空传感器追踪并定位空中威胁，计划 2028 起形成早期星座能力。</span></div><div><strong>$1.6B</strong><span>2026-07-29：18 次 Falcon 9 发射任务，至2027年底为 Space Based Sensing &amp; Targeting（天基感知与目标指示）体系部署载荷。</span></div></div><div class="table-wrap"><table><thead><tr><th>项目</th><th>合同 / 时间</th><th>通俗解释</th><th>与 Golden Dome 的位置</th></tr></thead><tbody><tr><td><b>SDN Backbone（太空数据网络骨干）</b></td><td>$2.29B · 2026/05/26</td><td>在低轨建立一张“军用太空光纤骨干网”，让导弹预警、追踪传感器与拦截系统之间更快、更安全地传数据。</td><td>属于 sensor-to-shooter（传感器到武器）数据链基础设施，是金穹顶多层体系的重要连接底座。</td></tr><tr><td><b>SB-AMTI（天基空中移动目标指示）</b></td><td>$4.16B · 2026/05/29</td><td>把过去依赖飞机/地面雷达做的部分空中目标发现与追踪搬到太空：卫星传感器 + 安全通信 + 地面处理共同工作。</td><td>更接近金穹顶的 sensing &amp; tracking（感知与追踪）层；初始星座目标为 2028 年提供早期能力。</td></tr><tr><td><b>NSSL / SBST Launch（国防发射）</b></td><td>$1.6B · 18次 Falcon 9 · 2027年前</td><td>不仅“造网络和卫星”，还由自己的 Falcon 9 负责把相关感知/目标指示载荷批量送上去。</td><td>说明 SpaceX 同时占据上游运载和部分在轨基础设施，形成垂直整合。</td></tr><tr><td><b>USSF-366</b></td><td>2026/08/15 · Falcon 9 保密任务</td><td>从 Vandenberg 为美国太空军执行 classified mission（保密任务）；公开资料没有披露载荷细节。</td><td><b>不能直接写成“金穹顶部署”。</b>外界推测可能涉及 Starshield 类卫星，但截至本页快照没有官方确认。</td></tr></tbody></table></div><div class="callout"><b>避免合同重复计算：</b>SpaceX Q2 披露 Starshield 拥有 <span class="wine">&gt;$6B 多年期美国政府合同</span>；5月的 $2.29B SDN + $4.16B SB-AMTI 本身就合计约 $6.45B，和财报“&gt;$6B”口径高度重合，因此本页不把它们再次叠加成新的增量 backlog。</div><div class="callout"><b>周末那次“神秘发射”怎么理解：</b>8月15日 SpaceX 在 38 分钟内完成两次 Falcon 9 轨道发射，其中第二次就是 USSF-366。真正有信息量的不是猜载荷是什么，而是：<b>Falcon 已经具备在极高商业发射节奏下，同时承接保密国家安全任务的工业调度能力。</b></div><p class="transition">至此，SpaceX 的 Connectivity 已从家庭宽带一路扩展到手机、飞机、轮船和国防网络。再往右走，就是公司估值变化最快、同时资本开支最大的第三根支柱：AI。</p></section>'''
+          replace_section('starshield', starshield)
+
+          ai = '''<section class="section" id="ai"><div class="section-label">10 · AI Platform / Physical Stack</div><h2>AI 要按“芯片 → 光互联 → 算力 → 模型 → 开发者工作流 → Agent → 分发”看</h2><p class="lead">如果只看到 Q2 AI Capex 很大，会自然问一句：“这些钱什么时候变成收入？”要回答这个问题，先把 SpaceX 正在补齐的 AI 物理栈和软件栈放在一起：Terafab 补芯片，Mesh 补 GPU 集群的光互联，Colossus 提供算力，Grok 提供模型，Cursor 把模型嵌入专业开发者每天工作的界面，Grok Bot / Build 把能力变成 Agent，X 则提供实时数据与分发。</p><div class="photo-wide"><figure><img loading="lazy" src="https://i.insider.com/6a74c6e30c0bf4e8be522448?width=1200" alt="SpaceX Terafab 工厂概念渲染图"><figcaption class="caption"><b>Terafab 概念渲染图</b>｜SpaceX 于 2026年8月公开的得州 Grimes County 芯片工厂概念图，Business Insider 转引。<b>渲染图 ≠ 已建成实景。</b>公司公布的首期项目投资约 $16.8B；长期 1TW/年是目标产能，不是今天产能。</figcaption></figure></div><div class="callout"><b>Terafab（太瓦级 AI 芯片制造计划）｜上游“造芯片”。</b>SpaceX + Tesla 框架合作、Intel 参与，长期希望把 lithography mask（光刻掩膜）、logic（逻辑芯片）、memory（存储）和 advanced packaging（先进封装）放进闭环制造体系，并探索针对太空环境优化的芯片。<span class="wine">但它仍处建设 / 开发阶段：</span>具体产能爬坡、良率、工艺节点和最终 Capex 必须继续验证，而且 SpaceX 明确预计仍会大量采购第三方算力硬件。</div><div class="table-wrap"><table><thead><tr><th>AI 层级</th><th>资产 / 产品</th><th>通俗解释</th><th>当前状态 / 价值</th></tr></thead><tbody><tr><td><b>Chip Manufacturing（芯片）</b></td><td>Terafab</td><td>试图把“买芯片”进一步变成“部分自己设计、制造、封装芯片”。</td><td><span class="status road">建设 / 开发</span> 首期公开投资约 $16.8B；长期目标约1TW/年算力硬件。</td></tr><tr><td><b>Optical Interconnect（光互联）</b></td><td>Mesh Optical</td><td>GPU 越来越多，如果 GPU 之间的数据通道太慢、太耗电，整个集群就像高速公路堵车。Mesh 的 Alpha C1 是 1.6T 光收发器，把电信号高速转换为光信号。</td><td><span class="status road">FTC已放行拟收购</span> 收购方公开登记为 Elon Musk；尚不把它写成 SpaceX 已并表资产。</td></tr><tr><td><b>Compute（算力）</b></td><td>Colossus / Colossus II</td><td>GPU、电力、网络、存储和数据中心工程组成的“AI 工厂”。</td><td><span class="status live">规模运营 / 扩建</span> Q2 Nameplate Compute 1.4GW。</td></tr><tr><td><b>Foundation Model（基础模型）</b></td><td>Grok 4.6</td><td>把算力转换成推理、编码、知识工作和 Agent 能力。</td><td><span class="status live">当前旗舰</span> 2026-08-12 发布。</td></tr><tr><td><b>Developer Workflow（开发者工作流）</b></td><td><b>Cursor / Anysphere</b></td><td><b>不是“花600亿美元买一个代码编辑器”。</b>更像买下专业开发者每天高频使用的 AI 工作台、企业客户、coding agent、工程人才，以及大量“代码是否真的能运行”的高质量反馈闭环。</td><td><span class="status live">公开报道8月14日完成交割</span> $60B 全股票交易；公开报道年化B2B收入约$2.6B，对价约为其23倍。</td></tr><tr><td><b>Agent / Apps（智能体与应用）</b></td><td>Grok Bot / Build / Automations / Chat / Imagine / Voice / API</td><td>把模型变成可持续执行工作、写代码、生成内容和调用工具的产品。</td><td>Bot 为 Early Beta；其余产品持续迭代。</td></tr><tr><td><b>Distribution（分发）</b></td><td>X</td><td>实时信息流、用户入口、广告和订阅，也是 Grok 获客与数据分发渠道。</td><td><span class="status live">规模运营</span></td></tr></tbody></table></div><div class="callout"><b>Cursor 为什么值这么多钱——用一句话理解：</b><span class="wine">Colossus 像发动机，Cursor 是把发动机接进全球程序员每天工作的“驾驶舱”。</span>SpaceX 自己的 SEC 文件也强调：大规模算力可以帮助 Cursor 提升体验，而 Cursor 又能把 Grok 更直接地嵌入 developer workflow（开发者工作流），扩大 AI 分发和真实任务反馈。高估值最终能否成立，要看 Cursor 的企业收入、留存、Grok 调用量和协同，而不是只看“代码编辑器”这个标签。</div><h3>用户规模也必须有参照物：550M 到底大不大？</h3><div class="table-wrap"><table><thead><tr><th>平台</th><th>最新公开用户口径</th><th>怎么理解</th></tr></thead><tbody><tr><td><b>X + Grok</b></td><td><b>550M（5.5亿）MAU</b>；其中 <b>117M（1.17亿）MAU</b> 使用过 Grok AI 功能；活跃付费用户约6.3M。</td><td>550M 是 X + Grok 合并平台月活，<b>不能等同于 5.5亿“纯 Grok 用户”</b>；117M 更接近 AI 功能渗透口径。</td></tr><tr><td><b>Google Gemini App</b></td><td><b>950M（9.5亿）MAU</b>，2026Q2 官方披露。</td><td>与 MAU 口径更接近，说明 Grok 的纯 AI 使用规模仍明显落后于 Gemini。</td></tr><tr><td><b>OpenAI ChatGPT</b></td><td><b>&gt;900M（9亿+）WAU</b>；50M+ 消费订阅用户；9M+ 付费企业用户。</td><td>这是 WAU（周活跃），比 MAU 更严格，<b>不能与550M MAU直接做苹果对苹果比较</b>，但能提供头部AI产品量级坐标。</td></tr><tr><td><b>Anthropic Claude</b></td><td>未披露当前可直接横比的统一 MAU / WAU。</td><td>不为了表格完整而猜数字。</td></tr></tbody></table></div><h3>把 1.4GW 翻译成收入：Kerwin「1MW AI Factory」匡算</h3><p>我们在 NeoCloud / IREN 研究中形成的参考坐标是：<b>1MW IT Load（信息技术负载）成熟运营后，对应 AI Cloud 年化收入约 $8.3M–$9.7M。</b>这里把它作为行业匡算尺子，帮助投资人理解 SpaceX 的算力资产可能对应多大的收入池；<b>它不是 SpaceX 公司指引。</b></p><div class="evidence-grid"><div class="evidence"><strong>1MW</strong><span>参考年化收入约 <span class="wine">$8.3M–$9.7M</span>。</span></div><div class="evidence"><strong>1.4GW</strong><span>若等价为1,400MW成熟、可计费 IT Load，参考年化收入约 <span class="wine">$11.6B–$13.6B</span>。</span></div><div class="evidence"><strong>2.0GW</strong><span>若未来达到2,000MW成熟可计费IT Load，参考年化收入约 <span class="wine">$16.6B–$19.4B</span>。</span></div><div class="evidence"><strong>Q2 实绩</strong><span>AI solutions &amp; infrastructure Q2 $2.194B，对应约 <b>$8.8B 年化</b>；AI总收入 $2.561B，对应约 <b>$10.2B 年化</b>。</span></div></div><div class="callout"><b>最重要的口径限制：</b><span class="wine">1.4GW Nameplate Compute ≠ 1.4GW 可对外收费的 IT Load。</span>其中一部分用于自有 Grok 训练/推理，一部分处于爬坡期，数据中心还有供配电、冷却等非GPU负载，利用率也不可能永远100%。所以 $11.6B–$13.6B 是“如果成熟且全部可商业化”的坐标上限参考，不是收入预测。反过来看，Q2 AI infrastructure 约 $8.8B 的年化实绩说明：收入已经形成，但距离把1.4GW全部转化为成熟商业负载仍有空间。</div><div class="moneyline"><div><strong>1.4GW</strong><span>2026Q2 Nameplate Compute；Q1 为1.0GW。</span></div><div><strong>$2.561B</strong><span>2026Q2 AI revenue（AI收入）。</span></div><div><strong>$14.1B</strong><span>Q2 披露 Cloud Services Agreements 已签合同销售额。</span></div></div><p class="transition">因此，下一章不再只是看“AI花了多少钱”，而是把上面的产能收入坐标与三大分部真实报表放在一起，判断资本开支有没有开始转化成收入、利润和最终 ROIC。</p></section>'''
+          replace_section('ai', ai)
+
+          # Financial-map handoff: explicitly reconcile capacity model with reported accounts.
+          s = s.replace('2026Q2 的三个分部已经形成三种完全不同的财务形态。<b>Connectivity（连接）是今天最清晰的利润发动机；AI 是收入快速形成、同时吞噬绝大多数资本开支的新增长曲线；Space（太空）外部收入占比最小，但其运力与 Starship 研发是另外两条业务扩张的物理基础。</b>', '上面用 1MW IT Load 做了行业匡算，这里回到公司真实报表校验。2026Q2 的三个分部已经形成三种完全不同的财务形态：<b>Connectivity（连接）是今天最清晰的利润发动机；AI 是收入快速形成、同时吞噬绝大多数资本开支的新增长曲线；Space（太空）外部收入占比最小，但其运力与 Starship 研发是另外两条业务扩张的物理基础。</b>')
+
+          # Future platform: add acquisition / infrastructure rows if absent.
+          future_pat = r'<section class="section" id="future">.*?</section>'
+          fm = re.search(future_pat, s, flags=re.S)
+          if fm:
+              future = fm.group(0)
+              if 'EchoStar / Terrestrial Mobile' not in future:
+                  extra = '<tr><td><b>EchoStar / Terrestrial Mobile（地面移动网络）</b></td><td>频谱资产已获监管批准 / 网络建设路线图</td><td>65MHz频谱、地面基站/回传、卫星D2D</td><td>真正地面网络部署、套餐、用户迁移与单位资本效率</td></tr>'
+                  future = future.replace('</tbody>', extra + '</tbody>', 1)
+              s = s[:fm.start()] + future + s[fm.end():]
+
+          # Full product matrix: add spectrum, Cursor, Mesh rows.
+          matrix_pat = r'<section class="section" id="matrix">.*?</section>'
+          xm = re.search(matrix_pat, s, flags=re.S)
+          if xm:
+              matrix = xm.group(0)
+              if '<td>Spectrum</td>' not in matrix:
+                  rows = '<tr><td>Spectrum</td><td>EchoStar ~65MHz wireless spectrum assets</td><td>监管批准 / 分阶段转移与利用</td><td>Starlink Direct-to-Cell + 未来卫星/地面混合移动网络</td><td>Connectivity 战略基础设施；不是收购EchoStar整家公司</td></tr><tr><td>Developer Platform</td><td>Cursor / Anysphere</td><td>公开报道已完成交割</td><td>AI-native IDE、coding agent、企业开发者工作流</td><td>AI；$60B全股票收购，协同需要收入/留存/调用量验证</td></tr><tr><td>AI Interconnect</td><td>Mesh Optical</td><td>FTC已放行拟收购；尚未确认SpaceX并表</td><td>1.6T光收发器、AI集群低功耗高速互联</td><td>AI工业栈潜在补强</td></tr>'
+                  matrix = matrix.replace('<tr><td>Distribution</td>', rows + '<tr><td>Distribution</td>', 1)
+              s = s[:xm.start()] + matrix + s[xm.end():]
+
+          # Risks: preserve uncertainty in M&A and spectrum execution.
+          risks_pat = r'<section class="section" id="risks">.*?</section>'
+          rm = re.search(risks_pat, s, flags=re.S)
+          if rm:
+              risks = rm.group(0)
+              add = ''
+              if '频谱 / 地面移动网络' not in risks:
+                  add += '<div class="riskrow"><b>频谱 / 地面移动网络</b><span>65MHz频谱是稀缺战略资产，但不足以自动复制传统运营商30年建设的全国无线网络；基站、回传、Capex、监管与获客仍需验证。</span></div>'
+              if '并购 / 整合' not in risks:
+                  add += '<div class="riskrow"><b>并购 / 整合</b><span>Cursor $60B 对价很高，最终需要企业收入、留存、Grok调用与研发协同证明回报；Mesh目前只确认FTC提前终止等待期，且公开登记收购方是Elon Musk，不能提前计为SpaceX资产。</span></div>'
+              if add:
+                  risks = risks.replace('</section>', add + '</section>', 1)
+              s = s[:rm.start()] + risks + s[rm.end():]
+
+          # Monitoring: update Falcon cadence and add spectrum/M&A checkpoints.
+          s = s.replace('截至8月12日 94 次；约每2.4天一发', '截至8月15日 96 次；当日两次轨道发射仅间隔38分钟')
+          s = s.replace('接下来只盯这十三个验证点', '接下来只盯这十五个验证点')
+          watch_pat = r'<section class="section" id="watch">.*?</section>'
+          wm = re.search(watch_pat, s, flags=re.S)
+          if wm:
+              watch = wm.group(0)
+              if '<td>EchoStar spectrum / Mobile</td>' not in watch:
+                  rows = '<tr><td>EchoStar spectrum / Mobile</td><td>约65MHz；公开报道合计对价约$19.6B；公司明确提出true mobile service</td><td>频谱最终转移、地面网络Capex、套餐、用户与三大运营商竞争</td></tr><tr><td>Cursor / Mesh integration</td><td>Cursor公开报道8月14日完成交割；Mesh FTC已放行拟收购</td><td>Cursor企业ARR/留存与Grok调用；Mesh最终交易主体、交割与1.6T量产导入</td></tr>'
+                  watch = watch.replace('</tbody>', rows + '</tbody>', 1)
+              s = s[:wm.start()] + watch + s[wm.end():]
+
+          # Add source entries before the existing SpaceXAI/SEC sources.
+          source_marker = '<div class="source"><a href="https://x.ai/news/grok-4-6"'
+          new_sources = '''<div class="source"><a href="https://www.ssc.spaceforce.mil/Newsroom/Article-Display/Article/4501527/us-space-force-advances-space-data-network-backbone-for-global-warfighter-conne" target="_blank" rel="noopener">U.S. Space Force / SSC — Space Data Network Backbone</a><span>2026-05-26：向SpaceX授予$2.29B SDN Backbone订单，建设安全、高速、光学互联的低轨军事数据骨干网。</span></div><div class="source"><a href="https://www.ssc.spaceforce.mil/Newsroom/Article-Display/Article/4503728/us-space-force-accelerates-fielding-space-based-airborne-target-indicator-progr" target="_blank" rel="noopener">U.S. Space Force / SSC — SB-AMTI</a><span>2026-05-29：$4.16B天基空中移动目标指示项目，传感器、通信和地面处理共同构成全球空中目标追踪能力。</span></div><div class="source"><a href="https://www.ssc.spaceforce.mil/DesktopModules/ArticleCS/Print.aspx?Article=4559276&amp;ModuleId=705&amp;PortalId=3" target="_blank" rel="noopener">U.S. Space Force / SSC — 18 Falcon 9 SBST launches</a><span>2026-07-29：$1.6B、18次Falcon 9，至2027年完成天基感知与目标指示相关发射。</span></div><div class="source"><a href="https://www.reuters.com/business/media-telecom/spacexs-mobile-ambitions-jolt-us-telecom-market-analysts-debate-threat-2026-08-05/" target="_blank" rel="noopener">Reuters — SpaceX mobile ambitions / EchoStar spectrum</a><span>约65MHz无线频谱、公开报道合计$19.6B；公司提出建设卫星+地面基础设施，向“true mobile service”演进。</span></div><div class="source"><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026043411/spaceexplorationtechnologi.htm" target="_blank" rel="noopener">SpaceX 8-K — Cursor merger agreement</a><span>2026-06-16签署$60B全股票收购Anysphere / Cursor的正式协议；Cursor作为AI-native developer workflow进入SpaceX AI战略。</span></div><div class="source"><a href="https://www.businessinsider.com/spacex-cursor-acquisition-partnership-grok-bot-colossus-2026-8" target="_blank" rel="noopener">Business Insider — Cursor acquisition close</a><span>2026-08-14公开报道交易完成，并梳理Cursor、Colossus和Grok之间的已有协同。</span></div><div class="source"><a href="https://www.ftc.gov/legal-library/browse/early-termination-notices/20261601" target="_blank" rel="noopener">FTC — Elon Musk / Mesh Optical Technologies</a><span>2026-06-25 HSR提前终止等待期；官方登记收购方为Elon Musk、标的为Mesh Optical Technologies，故本页不提前写成SpaceX已并表。</span></div><div class="source"><a href="https://www.meshoptical.com/blog/introducing-mesh" target="_blank" rel="noopener">Mesh Optical — Alpha C1</a><span>1.6Tbps AI数据中心光收发器，重点改善功耗、延迟与规模制造；创始团队具SpaceX光通信经验。</span></div><div class="source"><a href="https://openai.com/index/scaling-ai-for-everyone/" target="_blank" rel="noopener">OpenAI — ChatGPT scale</a><span>900M+ weekly active users、50M+ consumer subscribers、9M+ paying business users；用于AI用户规模坐标，不与MAU直接混算。</span></div><div class="source"><a href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/" target="_blank" rel="noopener">Google / Alphabet Q2 2026 — Gemini scale</a><span>Gemini App 950M MAU；与X+Grok的MAU口径相对更接近。</span></div><div class="source"><a href="https://www.businessinsider.com/spacex-terafab-chip-factory-images-2026-8" target="_blank" rel="noopener">Business Insider — SpaceX Terafab renderings</a><span>SpaceX公开Terafab概念渲染与Grimes County首期项目坐标；渲染图只用于理解规划体量，不代表已建成。</span></div>'''
+          if source_marker in s and 'SSC — Space Data Network Backbone' not in s:
+              s = s.replace(source_marker, new_sources + source_marker, 1)
+
+          # Current snapshot and editorial description.
+          s = s.replace('Evidence first · Snapshot 2026-08-17 HKT', 'Evidence first · Snapshot 2026-08-17 12:33 HKT')
+          s = re.sub(r'<span><b>数据快照</b> 2026-08-17 [^<]* HKT</span>', '<span><b>数据快照</b> 2026-08-17 12:33 HKT</span>', s, count=1)
+          s = s.replace('工业壁垒、商业模式、竞争对手与价值迁移。', '工业壁垒、频谱资产、国防合同、AI并购、商业模式、竞争对手与价值迁移。')
+          s = re.sub(r'Updated 2026-08-17 [0-9:]+ HKT', 'Updated 2026-08-17 12:33 HKT', s)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit upgraded page and remove one-time workflow
+        run: |
+          git config user.name kerwin
+          git config user.email kerwin7081@gmail.com
+          git add spacex-product-system-20260816/index.html
+          git rm .github/workflows/upgrade-spacex-investor-atlas-once.yml
+          git commit -m "Upgrade SpaceX investor atlas narrative and product economics"
+          git push
