@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="从2026年7月AI与半导体交易剧烈去杠杆出发，区分价格崩塌与产业基本面，沿电力、数据中心、GPU、HBM、光互联、存储、Agent、融资与ROIC重建AI资本循环投资框架。">
+  <title>不浪费每一次危机｜7月去杠杆之后，重新理解AI资本循环｜Kerwin Research Hub</title>
+  <style id="kerwin-web-3-7-desktop-qa">
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+    body { margin:0; color:var(--ink); background:var(--outer); font-family:var(--sans); font-size:17px; line-height:1.88; overflow-x:hidden; }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline:3px solid #d29b5d; outline-offset:3px; }
+    button,input { font:inherit; }
+    img,svg,video { max-width:100%; height:auto; }
+    .skip-link { position:fixed; left:12px; top:-80px; z-index:1000; padding:8px 12px; border:1px solid var(--green); background:var(--paper); color:var(--green); }
+    .skip-link:focus { top:12px; }
+    .progress { position:fixed; left:0; top:0; z-index:950; width:0; height:4px; background:var(--copper); }
+    body.kw-gate-pending { overflow:hidden; }
+    .kw-gate-pending > :not(.kw-editorial-gate):not(script):not(noscript) { visibility:hidden; }
+    .kw-editorial-gate { position:fixed; inset:0; z-index:990; display:grid; place-items:center; padding:18px; background:var(--green); }
+    .kw-editorial-gate[hidden] { display:none; }
+    .kw-editorial-gate__paper { width:min(860px,100%); border-top:6px solid var(--ink); background:var(--surface); color:var(--ink); box-shadow:0 24px 70px rgba(0,0,0,.22); }
+    .kw-editorial-gate__masthead { display:flex; justify-content:space-between; gap:20px; padding:13px 22px; border-bottom:1px solid var(--line-dark); color:var(--green); font-size:10px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+    .kw-editorial-gate__body { display:grid; grid-template-columns:164px minmax(0,1fr); gap:clamp(32px,7vw,72px); align-items:center; min-height:370px; padding:clamp(36px,6vw,66px); }
+    .kw-editorial-gate__seal { display:grid; place-items:center; width:148px; aspect-ratio:1; border:1px solid var(--green); border-radius:50%; color:var(--green); text-align:center; font:700 20px/1.15 var(--serif); }
+    .kw-editorial-gate__kicker,.eyebrow,.section-label { font-size:10px; font-weight:800; letter-spacing:.16em; line-height:1.4; text-transform:uppercase; }
+    .kw-editorial-gate__title { margin:10px 0 0; color:var(--green); font:700 clamp(29px,4vw,42px)/1.08 var(--serif); }
+    .kw-editorial-gate__copy { margin:14px 0 18px; color:var(--green); font-family:var(--serif); font-weight:700; font-size:clamp(18px,2.4vw,23px); line-height:1.28; }
+    .kw-editorial-gate__copy strong { font:inherit; }
+    .kw-editorial-gate__copy span { display:block; margin-top:5px; color:var(--muted); font-family:var(--sans); font-size:13px; font-weight:400; line-height:1.55; }
+    .kw-editorial-gate__field { display:flex; align-items:center; gap:12px; min-height:50px; border-bottom:1px solid var(--green); }
+    .kw-editorial-gate__field input { min-width:0; width:100%; height:48px; border:0; padding:0 4px; background:transparent; color:var(--green); font:700 24px/1 var(--serif); }
+    .kw-editorial-gate__field input:focus { outline:0; }
+    .kw-editorial-gate__field span { font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .kw-editorial-gate__foot { padding:12px 22px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+    .site-shell { width:min(1120px, calc(100% - 32px)); margin:30px auto; background:var(--paper); box-shadow:0 18px 52px rgba(68,49,37,.16); }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:11px 24px; background:var(--green); color:var(--paper); font-size:11px; line-height:1.4; letter-spacing:.08em; text-transform:uppercase; }
+    .topbar a { text-decoration:none; }
+    .masthead { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px; padding:18px 32px; border-bottom:1px solid var(--line-dark); background:var(--surface); }
+    .brand-mark { color:var(--green); font:700 27px/1 var(--serif); text-decoration:none; }
+    .brand-mark span { display:block; margin-top:7px; color:var(--muted); font:700 9px/1.4 var(--sans); letter-spacing:.16em; text-transform:uppercase; }
+    .nav { display:flex; justify-content:center; gap:18px; font-size:11px; font-weight:700; }
+    .home-route { color:var(--green); font-size:12px; font-weight:800; text-decoration:none; }
+    .cover { padding:62px 64px 48px; border-bottom:1px solid var(--line-dark); background:var(--surface); }
+    .cover-grid { display:grid; grid-template-columns:minmax(0,1fr) 210px; gap:52px; align-items:end; }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 { max-width:790px; margin:0; font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif); letter-spacing:-.02em; }
+    .cover h1 span { display:block; margin-top:11px; color:var(--green); font-size:clamp(20px,2.8vw,27px); line-height:1.28; }
+    .thesis { max-width:800px; margin:24px 0 0; font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif); }
+    .cover-meta { display:flex; flex-wrap:wrap; gap:9px 18px; margin-top:28px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.6; }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal { padding:24px 18px; border:1px solid var(--green); color:var(--green); text-align:center; }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span { display:block; margin-top:9px; font-size:10px; line-height:1.55; letter-spacing:.12em; text-transform:uppercase; }
+    .scope-note { padding:18px 64px; border-bottom:1px solid var(--line); background:var(--paper-2); color:var(--muted); font-size:13px; line-height:1.7; }
+    .scope-note b { color:var(--ink); }
+    .section { padding:44px 64px; border-bottom:1px solid var(--line); }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 { margin:0 0 21px; font:700 clamp(28px,4vw,36px)/1.17 var(--serif); letter-spacing:-.012em; }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+    .verdict-item { padding:19px 18px; border-right:1px solid var(--line); }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b { display:block; margin-bottom:8px; color:var(--green); font:700 18px/1.35 var(--serif); }
+    .verdict-item span { display:block; color:var(--muted); font-size:14px; line-height:1.65; }
+    .evidence-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:24px; border:1px solid var(--line-dark); background:var(--line); }
+    .evidence { padding:18px; background:#fff; }
+    .evidence strong { display:block; color:var(--green); font:700 28px/1 var(--serif); }
+    .evidence span { display:block; margin-top:7px; color:var(--muted); font-size:12px; line-height:1.55; }
+    .table-wrap { width:100%; max-width:100%; overflow-x:auto; border:1px solid var(--line-dark); -webkit-overflow-scrolling:touch; }
+    table { width:100%; min-width:760px; border-collapse:collapse; font-size:15px; line-height:1.58; }
+    th { padding:12px 14px; background:var(--green); color:#fff; text-align:left; }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel { margin-top:24px; padding:26px; background:var(--green); color:var(--paper); }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .dark-panel p:last-child { margin-bottom:0; }
+    .pullquote { margin:24px 0; padding:22px 26px; border-top:1px solid var(--green); border-bottom:1px solid var(--green); color:var(--green); font:700 22px/1.55 var(--serif); }
+    .chain { margin:24px 0; border-top:1px solid var(--line-dark); }
+    .chain-row { display:grid; grid-template-columns:170px minmax(0,1fr); gap:22px; padding:14px 0; border-bottom:1px solid var(--line); }
+    .chain-row b { color:var(--green); font-family:var(--serif); }
+    .chain-row span { color:var(--muted); font-size:14px; line-height:1.65; }
+    .formula { margin:24px 0; padding:22px 26px; background:var(--paper-2); border-left:4px solid var(--green); }
+    .formula strong { display:block; color:var(--green); font:700 25px/1.25 var(--serif); }
+    .formula span { display:block; margin-top:8px; color:var(--muted); font-size:13px; line-height:1.65; }
+    .risk-band { margin-top:24px; padding:20px 22px; border-left:4px solid var(--risk); background:var(--surface); }
+    .risk-band b { color:var(--risk); }
+    .source { padding:12px 0; border-bottom:1px solid var(--line); }
+    .source a { color:var(--green); font-weight:700; }
+    .source span { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.55; }
+    .enya { padding:36px 64px; background:var(--green); color:var(--paper); }
+    .enya h2 { margin:0; font-family:var(--serif); font-weight:700; font-size:clamp(28px,4vw,38px); line-height:1.08; }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:24px; }
+    .role { padding-top:12px; border-top:1px solid rgba(255,255,255,.35); }
+    .role span { display:block; margin-top:5px; color:#dce8e2; font-size:13px; line-height:1.6; }
+    .footer { padding:22px 32px; background:var(--ink); color:#e8ddd5; font-size:12px; line-height:1.7; }
+    .footer-line { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; }
+    .footer-meta { display:flex; flex-wrap:wrap; gap:4px 18px; margin-top:5px; overflow-wrap:anywhere; }
+    .footer a { color:#fff; }
+    .top-button { position:fixed; right:20px; bottom:20px; width:44px; height:44px; border:1px solid var(--paper); border-radius:50%; background:var(--green); color:#fff; font:700 20px/1 var(--serif); cursor:pointer; opacity:0; visibility:hidden; transition:opacity 150ms ease; }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .kw-editorial-gate { display:flex; align-items:flex-start; justify-content:center; padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom)); overflow:auto; }
+      .kw-editorial-gate__paper { width:min(100%,420px); max-width:100%; max-height:calc(100svh - 24px); overflow:auto; border-top-width:4px; }
+      .kw-editorial-gate__masthead { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; padding:10px 16px; font-size:9px; line-height:1.45; white-space:normal; overflow-wrap:anywhere; }
+      .kw-editorial-gate__masthead span { min-width:0; overflow-wrap:anywhere; }
+      .kw-editorial-gate__masthead span:last-child { display:block; }
+      .kw-editorial-gate__body { grid-template-columns:72px minmax(0,1fr); gap:16px; align-items:start; min-height:0; padding:24px 18px 20px; }
+      .kw-editorial-gate__body > * { min-width:0; }
+      .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+      .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+      .kw-editorial-gate__title { max-width:100%; margin-top:7px; font-size:clamp(23px,6.4vw,26px); line-height:1.14; letter-spacing:-.015em; overflow-wrap:anywhere; }
+      .kw-editorial-gate__copy { margin:9px 0 12px; font-size:clamp(17px,4.8vw,19px); line-height:1.25; }
+      .kw-editorial-gate__copy span { margin-top:4px; font-size:13px; line-height:1.5; }
+      .kw-editorial-gate__field { min-height:44px; gap:0; }
+      .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+      .kw-editorial-gate__field span { display:none; }
+      .kw-editorial-gate__foot { display:grid; gap:4px; padding:10px 16px; font-size:10px; line-height:1.5; overflow-wrap:anywhere; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 { font-size:clamp(24px,7vw,28px); line-height:1.18; letter-spacing:-.012em; overflow-wrap:anywhere; }
+      .cover h1 span { margin-top:12px; font-size:clamp(18px,5.2vw,21px); line-height:1.34; }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta { display:grid; grid-template-columns:1fr 1fr; gap:7px 12px; margin-top:20px; padding-top:14px; font-size:11px; line-height:1.55; }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,.enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,.evidence-grid,.roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .chain-row { grid-template-columns:1fr; gap:4px; }
+      .pullquote { padding:18px 0; font-size:19px; }
+      .formula { padding:18px; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button { right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); }
+    }
+    @media (max-width:390px) {
+      .kw-editorial-gate__masthead { grid-template-columns:1fr; gap:2px; }
+      .kw-editorial-gate__body { grid-template-columns:72px minmax(0,1fr); gap:14px; }
+    }
+    @media print {
+      body { background:#fff; }
+      .kw-editorial-gate,.topbar,.masthead,.progress,.top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="ai-capital-cycle-after-july-deleveraging-20260817">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead">
+        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+        <span class="kw-editorial-gate__access">Reader Access</span>
+      </div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">AI Capital Cycle · Market Reset</div>
+          <h2 class="kw-editorial-gate__title" id="gate-title">7月去杠杆之后，AI变了吗？</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field">
+            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+            <span>Auto enter</span>
+          </label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot">
+        <span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span>
+        <span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · AI Capital Cycle</span>
+      <span>Evidence first · Snapshot 2026-08-17 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#cycle">资本循环</a>
+        <a href="#framework">投资框架</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">AI Capital Cycle · July 2026 Reset</div>
+          <h1>不浪费每一次危机<span>7月去杠杆之后，重新理解 AI 资本循环</span></h1>
+          <p class="thesis">股价可以在几个星期内崩塌，但一轮产业周期是否结束，需要用需求、瓶颈、现金流与资本回报重新回答。7月危机击穿了拥挤仓位，也迫使投资者把“AI故事”重新还原成一门资本生意。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年8月17日</span>
+            <span><b>数据快照</b> 2026-08-17 HKT</span>
+            <span><b>研究对象</b> AI资本开支、基础设施、云、Agent与融资</span>
+            <span><b>证据边界</b> 公开市场数据、公司披露与Kerwin推演</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>&gt;20%</strong>
+          <span>SOX drawdown from late-June high by Jul.17</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note"><b>阅读口径：</b>本文不是对7月以来专题的流水式汇总。它把市场去杠杆、财报验证与产业链研究重新组织成一条因果链，重点区分“价格发生了什么”和“产业发生了什么”。</div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>危机之后，四个判断反而更清楚</h2>
+      <p class="lead">7月最重要的不是证明AI永远不会下跌，而是第一次把拥挤交易、产业需求和资本回报放进同一场压力测试。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>价格崩塌 ≠ 产业崩塌</b><span>SOX一度较6月底高点回落逾20%，但随后财报并未同步显示AI算力需求出现同等幅度逆转。</span></div>
+        <div class="verdict-item"><b>瓶颈正在系统化</b><span>投资问题已经从“缺多少GPU”扩展到Power、HBM、网络、光互联、存储、机房和融资。</span></div>
+        <div class="verdict-item"><b>进入ROIC时代</b><span>收入和Backlog只能证明需求，折旧后的利润、FCF和ROIC才决定股东价值。</span></div>
+        <div class="verdict-item"><b>下一阶段更难</b><span>市场开始从“谁最AI”转向“谁控制稀缺资产、谁拥有低资本成本、谁真正把增长变成现金流”。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="reset">
+      <div class="section-label">02 · Market Reset</div>
+      <h2>7月首先击穿的是杠杆与拥挤仓位</h2>
+      <p>7月17日，费城半导体指数当周下跌约10%，较6月底历史高位回落逾20%，进入技术性熊市。更值得注意的是，随后披露的市场信息显示，这次调整并非普通获利回吐：高杠杆AI组合出现保证金压力，部分资金被迫出售持仓。到8月14日，Reuters披露Jane Street在7月承受约150亿美元损失，其中涉及对AI主题基金Situational Awareness的敞口和更广泛的AI股抛售。</p>
+      <div class="evidence-grid">
+        <div class="evidence"><strong>&gt;20%</strong><span>SOX截至7月17日相对6月底高点的回撤幅度。来源：Reuters。</span></div>
+        <div class="evidence"><strong>≈10%</strong><span>SOX截至7月17日当周跌幅，为一年多以来最大单周跌幅。来源：Reuters。</span></div>
+        <div class="evidence"><strong>≈$15B</strong><span>Jane Street披露的7月损失规模，体现杠杆与强平链条的破坏力。来源：Reuters。</span></div>
+      </div>
+      <div class="pullquote">危机首先告诉我们的，是“谁必须卖”，然后才轮到“什么应该卖”。把这两个问题混在一起，往往会错判产业周期。</div>
+      <p>因此，7月以后最重要的验证不是问“AI股票为什么跌”，而是问：云厂商需求有没有下降？机房是不是不再缺容量？HBM、光互联和存储的订单有没有同步转弱？如果价格与基本面同时恶化，产业逻辑需要下修；如果只是仓位、估值和融资条件恶化，投资策略需要调整，但产业结论不应机械跟随股价。</p>
+    </section>
+
+    <section class="section" id="cycle">
+      <div class="section-label">03 · AI Capital Cycle</div>
+      <h2>从“缺GPU”走向一整套AI资本循环</h2>
+      <p class="lead">AI真正消耗的从来不只是芯片，而是一整套物理资源与资本资源。GPU供应改善以后，瓶颈并没有消失，而是在产业链上迁移。</p>
+      <div class="chain">
+        <div class="chain-row"><b>Macro Capital</b><span>利率、信用利差、日元Carry与市场风险偏好决定AI资产的资本成本和估值折现率。</span></div>
+        <div class="chain-row"><b>Financing</b><span>股权、可转债、项目债、租赁、ABS与客户预付款把资本转化成可建设的AI资产。</span></div>
+        <div class="chain-row"><b>Power & Land</b><span>可并网电力、土地、许可、变压器和供配电设备决定一座AI Factory能否真实上线。</span></div>
+        <div class="chain-row"><b>Compute</b><span>GPU、CPU、ASIC、HBM与先进封装提供核心计算能力，但已经只是系统中的一层。</span></div>
+        <div class="chain-row"><b>Network & Storage</b><span>800G/1.6T、Laser/InP、交换网络、DRAM和Enterprise SSD承担规模化集群的数据流动与记忆。</span></div>
+        <div class="chain-row"><b>Token & Agent</b><span>模型把物理算力转化成Token，Agent把一次性调用升级成持续运行的软件劳动力。</span></div>
+        <div class="chain-row"><b>Revenue & ROIC</b><span>最终只有企业和消费者愿意持续付费，资本开支才能形成收入、FCF、ROIC并支持下一轮再投资。</span></div>
+      </div>
+      <div class="dark-panel">
+        <h3>Kerwin判断</h3>
+        <p>AI资本开支超级周期当前仍处于扩张阶段，但投资单位已经从“单颗GPU”升级为“整套AI Factory”。下一阶段最稀缺的资产，未必是GPU本身，而可能是可迅速转化成计算收入的Power-Ready MW、关键光学材料、存储供给，以及低成本融资能力。</p>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="section-label">04 · Fundamental Check</div>
+      <h2>股价崩塌之后，产业证据并没有一起塌</h2>
+      <p>财报季最有价值的地方，是它让市场可以区分“情绪”和“订单”。Microsoft在FY2026 Q3电话会中预计2026自然年资本开支约1900亿美元，并表示即使持续增加GPU、CPU和存储容量，仍预计至少在2026年内受制于供给；Azure当季增长40%。8月17日Reuters对大型投资者的采访也显示，Microsoft和Amazon的强劲结果缓解了部分AI资本开支回报焦虑，市场焦点开始从“花得太多”转向“谁能获得长期利润”。</p>
+      <p>与此同时，光互联和存储已经开始出现从Narrative到Earnings的转换。Lumentum最新季度收入约10.1亿美元，同比增长超过一倍，非GAAP毛利率达到50.4%；这类数据的意义不在于证明所有光通信股票都便宜，而在于说明AI网络升级已经能够进入收入和利润表。存储端则继续受HBM、服务器DRAM和Enterprise SSD需求驱动，AI正在把“计算扩张”逐渐传导成“数据移动与数据记忆扩张”。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>观察层</th><th>危机中市场担心什么</th><th>目前更重要的验证</th><th>投资含义</th></tr></thead>
+          <tbody>
+            <tr><td>Compute</td><td>GPU需求见顶</td><td>云需求、利用率、部署节奏</td><td>份额变化不等于总需求收缩</td></tr>
+            <tr><td>Memory</td><td>HBM/DRAM/NAND周期过热</td><td>ASP、长协、产能释放、Enterprise SSD</td><td>AI正在拉长传统存储周期，但不能线性外推</td></tr>
+            <tr><td>Optical</td><td>1.6T/CPO预期透支</td><td>订单、良率、毛利率、Laser/InP供给</td><td>利润池可能继续向上游稀缺材料迁移</td></tr>
+            <tr><td>Power</td><td>数据中心建设会过剩</td><td>并网、Firm Power、变压器交期、项目延期</td><td>Power-Ready MW可能成为领先资产指标</td></tr>
+            <tr><td>Cloud</td><td>Capex无法回收</td><td>GPU利用率、折旧、FCF、ROIC/WACC</td><td>NeoCloud将显著分化，不宜作为同一类资产估值</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="economics">
+      <div class="section-label">05 · Unit Economics</div>
+      <h2>真正的问题：1MW到底创造多少股东价值？</h2>
+      <p>过去研究AI基础设施，市场习惯使用“5GW、10万块GPU、1000亿美元Backlog”这样的规模语言。但如果没有统一分母，这些数字很难比较。更有效的方式，是把AI Cloud还原成1MW IT Load，再一路追踪GPU数量、GPU Hours、利用率、收入、折旧、FCF和ROIC。</p>
+      <div class="formula"><strong>1MW → GPU → Utilization → Revenue → Depreciation → FCF → ROIC</strong><span>规模只能说明“有多大”；单位经济学决定“是不是一门好生意”。</span></div>
+      <p>这也是CoreWeave、Nebius、IREN、Oracle等资产不能简单归入同一个“AI Cloud”篮子的原因。有人拥有客户，有人拥有GPU，有人拥有低成本资本，有人最核心的资产是土地和电力。最终的竞争变量并不是GPU数量，而是：</p>
+      <div class="formula"><strong>Cost / Effective GPU Hour</strong><span>GPU采购 + 电价 + PUE + 机房 + 网络 + 融资成本 + 经济折旧 + 闲置率。</span></div>
+      <p>当行业从供不应求进入更成熟阶段，这个指标会越来越重要。低电价没有意义，如果利用率太低；高利用率也不一定创造价值，如果债务成本和经济折旧吞噬了全部利润。</p>
+    </section>
+
+    <section class="section" id="capital">
+      <div class="section-label">06 · Capital Structure</div>
+      <h2>融资已经成为AI产业链本身</h2>
+      <p>AI数据中心是极端资本密集型资产。股权、可转债、优先股、企业债、项目融资、ABS、GPU抵押融资、租赁和客户预付款，正在共同构成一条“看不见的AI产业链”。同样100亿美元Capex，不同资本结构最终对应完全不同的股东回报。</p>
+      <div class="formula"><strong>Incremental ROIC &gt; Incremental WACC</strong><span>这是AI资本循环能否持续的核心约束。只要增量资本回报显著高于增量资本成本，资本仍有动力继续进入；当两者趋近甚至倒挂，产业增长也可能与股东回报分离。</span></div>
+      <p>因此，未来评价一家AI基础设施公司，只看Revenue或EBITDA已经不够。必须继续向下看到After-depreciation operating profit、FCF和投入资本回报率，再与WACC比较。</p>
+      <div class="risk-band"><b>真正的周期风险：</b>AI需求仍然增长，但GPU利用率下降、租赁价格下降、残值下降、信用利差扩大，最终导致ROIC低于资本成本。这个拐点可能早于“AI需求消失”。</div>
+    </section>
+
+    <section class="section" id="agent">
+      <div class="section-label">07 · Agent Economy</div>
+      <h2>Agent可能成为下一轮算力需求乘数</h2>
+      <p>Chatbot的典型计算路径是“提问 → 回答 → 结束”。Agent则需要规划、调用工具、读取结果、重新推理，并可能持续运行。于是未来衡量AI需求，一个比DAU更有解释力的变量可能是 <b>Token / User / Day</b>，进一步甚至是 <b>Agent Compute Hours / User</b>。</p>
+      <p>这也构成AI长期需求的Jevons Effect：如果单位Token成本持续下降，但每位用户和每家企业消耗的Token数量增长更快，总算力需求仍然可能上升。这个逻辑目前仍需要用真实企业付费、任务量、持续运行时长和ROI验证，不能把技术可行直接等同于商业兑现。</p>
+    </section>
+
+    <section class="section" id="framework">
+      <div class="section-label">08 · Kerwin Framework</div>
+      <h2>危机之后，我更关注六个问题</h2>
+      <p class="lead">AI仍然是技术革命，但股票最终仍然是一项资本配置。研究公司时，我更愿意从“稀缺资产与资本回报”而不是“AI标签浓度”出发。</p>
+      <div class="chain">
+        <div class="chain-row"><b>01 · 需求还在吗？</b><span>观察订单、云使用、Token消耗与实际部署，而不是只看股价。</span></div>
+        <div class="chain-row"><b>02 · 瓶颈在哪里？</b><span>GPU、HBM、Laser/InP、存储、电力、并网还是融资，瓶颈会迁移。</span></div>
+        <div class="chain-row"><b>03 · 单位经济性改善吗？</b><span>每MW、每GPU Hour、每美元Capex对应的收入和现金流是否提高。</span></div>
+        <div class="chain-row"><b>04 · ROIC高于WACC吗？</b><span>资本开支增长只有在创造超额资本回报时，才真正增加股东价值。</span></div>
+        <div class="chain-row"><b>05 · 利润池向哪里迁移？</b><span>从GPU到Memory、Optical、Power、Cloud或Agent，价值量不是固定的。</span></div>
+        <div class="chain-row"><b>06 · 什么会证明我错？</b><span>提前定义Kill Criteria，比事后解释股价更重要。</span></div>
+      </div>
+      <div class="dark-panel"><h3>一句话总结</h3><p>寻找技术与资本开支超级周期中供给弹性最低的瓶颈资产，再沿产业链、单位经济性、资本结构与宏观资金成本，判断这种稀缺性最终能否转化为可持续的超额ROIC和股东价值。</p></div>
+    </section>
+
+    <section class="section" id="falsification">
+      <div class="section-label">09 · Falsification</div>
+      <h2>哪些证据会让我改变判断？</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>当前判断</th><th>需要持续验证</th><th>削弱/证伪条件</th></tr></thead>
+          <tbody>
+            <tr><td>AI基础设施仍在扩张</td><td>云需求、GPU利用率、Capacity上线</td><td>利用率与租赁价格持续下降，项目取消增加</td></tr>
+            <tr><td>Power-Ready MW仍稀缺</td><td>并网周期、电价、Firm Power、设备交期</td><td>核电/燃气/储能与电网改造显著缩短供给周期</td></tr>
+            <tr><td>光互联利润池仍向上游迁移</td><td>1.6T、Laser、InP、良率与毛利率</td><td>扩产快于需求、ASP下行、毛利率无法兑现</td></tr>
+            <tr><td>AI存储周期被结构性拉长</td><td>HBM、Server DRAM、Enterprise SSD、库存</td><td>新增产能释放明显快于AI需求，ASP持续转弱</td></tr>
+            <tr><td>Agent是算力乘数</td><td>Token/User、Agent runtime、企业ROI</td><td>使用量增长无法抵消Token价格下降，企业留存弱</td></tr>
+            <tr><td>AI资本循环可持续</td><td>ROIC、WACC、信用利差、GPU残值</td><td>ROIC-WACC spread持续收窄或转负</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="monitor">
+      <div class="section-label">10 · Monitoring Dashboard</div>
+      <h2>下一阶段，不需要无限增加研究对象</h2>
+      <p>经历7月以后，研究更适合进入持续校准期。重点不是每天寻找新的AI概念，而是反复更新几个能够决定资本循环方向的变量：</p>
+      <div class="chain">
+        <div class="chain-row"><b>AI Cloud Economics</b><span>$/GPU Hour、利用率、MW→ARR、MW→Capex、PUE、EBITDA/MW、FCF/MW、ROIC与Payback。</span></div>
+        <div class="chain-row"><b>Capex Breadth</b><span>Compute、Memory、Optical、Semicap、Power是否仍然同步向上。</span></div>
+        <div class="chain-row"><b>Credit Cycle</b><span>可转债、债券收益率、信用利差、GPU融资、客户预付款与股权稀释。</span></div>
+        <div class="chain-row"><b>Agent Demand</b><span>Token/User/Day、持续运行时长、任务量、企业付费和真实生产力。</span></div>
+        <div class="chain-row"><b>Macro Cost</b><span>Fed、US10Y/30Y、JPY Carry与风险资产去杠杆信号。</span></div>
+      </div>
+      <p class="pullquote">危机不会替投资者给出答案，但它会让真正重要的问题变得更清楚。</p>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">11 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source"><a href="https://www.fidelity.com/news/article/us-markets/202607170951RTRSNEWSCOMBINED_KBN3TD1I9-OUSBS_1" target="_blank" rel="noopener">Reuters · Chip stock pullback sparks worries about AI rally strength, leveraged trades · 2026-07-17</a><span>支持7月17日SOX单周跌幅、较6月底高点回撤逾20%以及市场对AI交易拥挤与杠杆的讨论。</span></div>
+      <div class="source"><a href="https://www.reuters.com/business/finance/jane-street-took-15-billion-hit-july-tied-situational-awareness-sources-say-2026-08-14/" target="_blank" rel="noopener">Reuters · Jane Street took $15 billion hit in July tied to Situational Awareness · 2026-08-14</a><span>支持高杠杆AI组合、保证金压力与被迫出售的去杠杆链条。</span></div>
+      <div class="source"><a href="https://www.reuters.com/business/big-investors-hunt-tomorrows-ai-winners-capex-angst-fades-2026-08-17/" target="_blank" rel="noopener">Reuters · Big investors hunt for tomorrow's AI winners as capex angst fades · 2026-08-17</a><span>支持大型投资者在Microsoft、Amazon财报后将关注点从Capex规模转向长期盈利能力，并指出云需求与容量约束仍然存在。</span></div>
+      <div class="source"><a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3" target="_blank" rel="noopener">Microsoft FY2026 Q3 Earnings Conference Call</a><span>支持Azure增长40%、2026自然年约1900亿美元Capex指引、需求超过可用容量以及AI基础设施短长周期资产的讨论。</span></div>
+      <div class="source"><a href="https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Fourth-Quarter-and-Full-Fiscal-Year-2026-Results/default.aspx" target="_blank" rel="noopener">Lumentum Q4 & FY2026 Results</a><span>支持光互联收入、增长和毛利率已经进入财务兑现阶段的判断。</span></div>
+      <div class="source"><a href="https://news.skhynix.com/en/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle/" target="_blank" rel="noopener">SK hynix · 2026 Market Outlook</a><span>用于观察HBM、服务器内存与AI数据中心需求对Memory/Storage周期的结构性影响。</span></div>
+      <p style="margin-top:18px;color:var(--muted);font-size:13px;">文中“Power-Ready MW可能成为领先资产指标”“利润池可能向上游Laser/InP迁移”“Agent Compute Hours / User”等均为Kerwin推演，需要用后续财报、订单、价格、利用率和资本回报持续验证。</p>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/shadow-of-leverage-ai-gold-liquidation-20260724/">《杠杆的影子：从黄金闪崩到全球AI资产的24小时清算链》</a> — 先理解7月危机为什么会形成跨资产去杠杆。</p>
+      <p><a href="/ai-full-chain-earnings-20260815/">《AI全产业链财报专题：2026年7月以来，景气扩散与利润兑现》</a> — 再用财报验证危机以后产业需求是否同步恶化。</p>
+      <p><a href="/ai-cloud-unit-economics-dashboard-20260817/">《AI Cloud双代际单位经济模型：GB300 vs Vera Rubin》</a> — 最后把产业需求落到1MW、Capex、ARR和回本期的可计算模型。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+      <p class="enya-copy">Kerwin Research Hub以“证据优先、因果拆解、资本回报”为研究原则，把新闻、财报、产业链与宏观变量放回同一张投资地图。Enya负责证据整理、网页呈现与持续维护。</p>
+      <div class="roles">
+        <div class="role"><b>Kerwin</b><span>选题、投资逻辑与最终审核。</span></div>
+        <div class="role"><b>Enya</b><span>证据整理、可视化呈现与持续维护。</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。</span><a href="/">返回研究首页</a></div>
+      <div class="footer-meta"><span>Published 2026-08-17 17:32 HKT</span><span>Updated 2026-08-17 17:32 HKT</span><span>AI Capital Cycle · Market Reset</span></div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+  <script>
+    (function () {
+      var body = document.body;
+      var gate = document.getElementById("editorial-gate");
+      var accessKey = document.getElementById("access-key");
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+      function reveal() { body.classList.remove("kw-gate-pending"); gate.hidden = true; window.scrollTo(0,0); }
+      accessKey.addEventListener("input", function () { if (accessKey.value.trim().toLowerCase() === "k") { reveal(); } });
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100,Math.max(0,ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+      topButton.addEventListener("click", function () { window.scrollTo({ top:0, behavior:"smooth" }); });
+      if (window.matchMedia("(min-width: 761px)").matches) { accessKey.focus(); }
+    }());
+  </script>
+</body>
+</html>
