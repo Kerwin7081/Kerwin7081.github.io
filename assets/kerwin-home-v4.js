@@ -13,6 +13,22 @@
   var visibleCount = 10;
   var activeFilter = 'all';
   var query = '';
+  var manualPages = [
+    {
+      slug:'texas-industrial-os-20260820',
+      title:'Texas Industrial OS｜为什么得州正在成为 AI、航天与重资本的制度型平台？',
+      date:'2026年8月20日',
+      deck:'美国州际政策竞争系列②：从公司法、税制、ERCOT 电力、土地、劳工、产业链与社区许可出发，把 Texas 作为一套把资本转化为物理产能的 Industrial OS 来研究，并建立 State Absorption Capacity 与 Probability-adjusted Energized MW 框架。',
+      tag:'AI Infrastructure · U.S. State Policy · Texas Industrial OS',
+      category:'AI Infrastructure · U.S. State Policy',
+      source:'enya',
+      homepage_approved:true,
+      published_at:'2026-08-20T13:39:00+08:00',
+      layout_id:'kerwin-editorial-research-v1',
+      mobile_qa_version:'1.2.0',
+      desktop_qa_version:'1.0.0'
+    }
+  ];
 
   body.classList.add('home-js', 'home-gate-pending');
 
@@ -67,7 +83,7 @@
 
   function init(registry, available) {
     var map = {};
-    registry.forEach(function (page) {
+    manualPages.concat(registry || []).forEach(function (page) {
       if (page && page.slug && page.homepage_approved === true) map[page.slug] = page;
     });
     allPages = Object.keys(map).map(function (key) { return map[key]; }).sort(sortDesc);
