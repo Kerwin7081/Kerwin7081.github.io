@@ -1,0 +1,65 @@
+name: Upgrade SpaceX Ground Network Once
+on:
+  push:
+    paths:
+      - '.github/workflows/upgrade-spacex-ground-network-once.yml'
+permissions:
+  contents: write
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade ground network architecture
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p = Path('spacex-product-system-20260816/index.html')
+          m = Path('spacex-product-system-20260816/meta.json')
+          s = p.read_text(encoding='utf-8')
+
+          old_row = '<tr><td><b>Ground Network（地面网络）</b></td><td>Gateway（网关站）、PoP（网络接入点）、Private Network Interconnect、Bonded Gateway</td><td>把太空中的流量安全、高容量地接入运营商、企业数据中心和公共互联网。</td><td>Starlink 不是“卫星直接魔法连互联网”；地面网关、骨干互联与星间激光共同构成端到端网络。</td></tr>'
+          new_row = '<tr><td><b>Ground Network（地面网络）</b></td><td>Small Cell / Femtocell（手机小基站）+ Starlink Backhaul（星链回传）+ Gateway Earth Station（卫星网关地面站）+ PoP / Core Network（接入点/核心网）</td><td>分别解决手机接入、基站回传、卫星流量落地，以及认证/路由/计费/互联网互联。</td><td>SpaceX 的真正差异不是只拥有卫星，而是试图把接入网、回传网、太空骨干与地面出口连成一张网；但全国移动核心网和大规模 Small Cell 仍需真实部署验证。</td></tr>'
+          if old_row not in s:
+              raise SystemExit('Ground Network row anchor not found')
+          s = s.replace(old_row, new_row, 1)
+
+          anchor = '</tbody></table></div><div class="callout"><b>一个容易忽略的认知：</b>Starlink 的路径不一定总是“卫星 → 最近地面站”。'
+          module = '''</tbody></table></div><h3>地面网络不是一个“网关”：要拆成四层</h3><p class="lead">把最近的 FCC Gateway 申请与 Shotwell / Musk 讲的停车场、屋顶 Small Cell 放在一起，最容易犯的错误就是把它们都叫“地面基站”。实际上它们处在完全不同的位置：<b>Small Cell 面向手机，Gateway 面向卫星，PoP / Core Network 面向互联网与移动业务控制。</b></p><div class="table-wrap"><table><thead><tr><th>地面层</th><th>手机/卫星连接谁</th><th>通俗理解</th><th>2026 当前状态</th></tr></thead><tbody><tr><td><b>1 · Small Cell / Femtocell<br>手机蜂窝小基站</b></td><td>普通手机 ↔ 小基站</td><td>就是“停车场、屋顶、企业园区里的小型 Verizon/T-Mobile 基站”。手机连的是它，不是卫星；它使用 SpaceX 可用于 terrestrial mobile 的频谱。</td><td><span class="status road">公开规划</span> Shotwell 表示将把 cellular base station 放到承载 Starlink broadband dish 的设备上；Musk 称可大量部署在住宅与企业屋顶等地点。<b>这不是最近 FCC 密集申请的 Gateway Earth Station。</b></td></tr><tr><td><b>2 · Starlink Backhaul<br>星链回传</b></td><td>Small Cell ↔ Starlink Dish ↔ 卫星</td><td>传统运营商的小基站后面通常要拉光纤；SpaceX 可以让 Starlink Dish 充当 backhaul（回传），把小基站的数据送进自己的卫星网络。</td><td><span class="status live">核心能力已存在</span> Starlink 已经长期承担家庭、企业和行业用户的回传；未来能否以足够低成本服务大量 cellular small cells，是移动网络 Capex 的关键。</td></tr><tr><td><b>3 · Gateway Earth Station<br>卫星网关地面站</b></td><td>Starlink 卫星 ↔ 大型地面天线阵列</td><td>它不是给手机连的，而是“太空高速公路的大型出口”：把星座汇聚流量从卫星送入地面的光纤、数据中心、运营商与公共互联网。</td><td><span class="status live">正在加速扩容</span> 2026年8月 SpaceX 在美国连续提交新 Gateway 申请；8月6日可核实 Sherman、Stockton、Greenfield、American Canyon、Racine、Ontario 等多座 <b>quad-band Ka/Q/V/E/W gateway</b>，并为部分站点申请 8月20日起临时运营授权。<b>这些申请证明地面出口扩容，不证明这些站点本身是手机基站。</b></td></tr><tr><td><b>4 · PoP / Mobile Core<br>网络接入点与移动核心网</b></td><td>Gateway / Backhaul ↔ Internet / Mobile Services</td><td>负责“你是谁、号码能不能打、流量往哪走、怎么计费、怎么漫游”。这相当于运营商真正的大脑，而不是一根天线。</td><td><span class="status test">部分能力已有、完整移动运营商能力待验证</span> Starlink 已有 PoP、Private Network Interconnect 等宽带网络能力；要成为 true mobile service，还需要更完整的移动核心网、认证、计费、号码、漫游、客服与监管体系。</td></tr></tbody></table></div><div class="two-col"><div class="rulebox"><h3>路径 A｜城市 / 有地面覆盖</h3><p><b>手机 → SpaceX Small Cell → Starlink Dish / 其他回传 → Starlink 卫星/地面骨干 → Gateway / PoP / Mobile Core → Internet / 电话网络</b></p><p>这条路径里，手机体验最像传统运营商；SpaceX 的不同在于可以用 Starlink 替代一部分昂贵、难铺设的光纤回传。</p></div><div class="rulebox"><h3>路径 B｜荒野 / 无地面覆盖</h3><p><b>手机 → Starlink Mobile 卫星 → Optical ISL 星间激光 → Gateway / PoP / Mobile Core → Internet / 电话网络</b></p><p>这条路径不需要附近基站，是 Starlink Direct-to-Cell 真正消灭 dead zone（信号盲区）的价值。</p></div></div><div class="callout"><b>为什么 8 月 Gateway 申请值得跟踪：</b>V3 Broadband、V2 Mobile、企业专线、航空、Starshield 的容量都在往上走。如果“天上的车道”扩了很多倍，但地面出口没扩，整个系统仍会堵在落地点。近期申请的 quad-band Gateway 因此更像是<b>下一代 Starlink 总吞吐量扩张的地面配套</b>；目前没有证据证明这些站点是专为 Starlink Mobile 建设，页面明确不作这种归因。</div><div class="callout"><b>一个容易忽略的认知：</b>Starlink 的路径不一定总是“卫星 → 最近地面站”。'''
+          if anchor not in s:
+              raise SystemExit('Ground Network module insertion anchor not found')
+          s = s.replace(anchor, module, 1)
+
+          old_watch = '<tr><td>EchoStar spectrum / Mobile</td><td>约65MHz；公开报道合计对价约$19.6B；公司明确提出true mobile service</td><td>频谱最终转移、地面网络Capex、套餐、用户与三大运营商竞争</td></tr>'
+          new_watch = old_watch + '<tr><td>Ground mobile network</td><td>Small Cell / Femtocell 路线已由管理层公开；2026年8月多座 quad-band Gateway Earth Station 连续提交 FCC 申请</td><td>第一批真正商业化 cellular small cells 的站址/设备/频段；Gateway 获批与投运节奏；Mobile Core、号码、计费与漫游能力</td></tr>'
+          if old_watch not in s:
+              raise SystemExit('Monitoring anchor not found')
+          s = s.replace(old_watch, new_watch, 1)
+          s = s.replace('<h2>接下来只盯这十七个验证点</h2>', '<h2>接下来盯这些关键验证点</h2>', 1)
+
+          source_anchor = '<div class="source"><a href="https://www.reuters.com/business/media-telecom/spacexs-mobile-ambitions-jolt-us-telecom-market-analysts-debate-threat-2026-08-05/" target="_blank" rel="noopener">Reuters — SpaceX mobile ambitions / EchoStar spectrum</a><span>约65MHz无线频谱、公开报道合计$19.6B；公司提出建设卫星+地面基础设施，向“true mobile service”演进。</span></div>'
+          extra_sources = source_anchor + '<div class="source"><a href="https://arstechnica.com/tech-policy/2026/08/spacex-claims-starlink-mobile-will-be-better-than-att-t-mobile-and-verizon/" target="_blank" rel="noopener">Ars Technica — Starlink Mobile Small Cell / Femtocell Architecture</a><span>2026-08-05：整理 SpaceX Q2 电话会中 Shotwell 与 Musk 对 terrestrial mobile 的具体部署设想：不复制大型塔站，而是在 Starlink Dish 设备、住宅与企业屋顶等位置大量部署小型 cellular base stations / femtocells。</span></div><div class="source"><a href="https://www.fcc.report/IBFS/SES-LIC-20260806-02176" target="_blank" rel="noopener">FCC ICFS mirror — Sherman, TX Quad-band Gateway</a><span>2026-08-06：SpaceX Services 申请新的 Sherman, Texas quad-band Gateway Earth Station，Ka / Q/V / E/W；同批申请还覆盖 Stockton、Greenfield、American Canyon、Racine、Ontario 等站点。代表近期 Starlink 地面卫星网关出口扩容，不等同于 cellular small cell。</span></div>'
+          if source_anchor not in s:
+              raise SystemExit('Source anchor not found')
+          s = s.replace(source_anchor, extra_sources, 1)
+
+          s = s.replace('Updated 2026-08-21 08:36 HKT', 'Updated 2026-08-21 09:15 HKT', 1)
+          p.write_text(s, encoding='utf-8')
+
+          d = json.loads(m.read_text(encoding='utf-8'))
+          d['updated_at'] = '2026-08-21T09:15:00+08:00'
+          tags = d.setdefault('tags', [])
+          for tag in ['Small Cell', 'Femtocell', 'Gateway Earth Station', 'Mobile Core', 'Starlink Backhaul']:
+              if tag not in tags:
+                  tags.append(tag)
+          m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit page update and remove workflow
+        run: |
+          git config user.name "kerwin"
+          git config user.email "kerwin7081@gmail.com"
+          git add spacex-product-system-20260816/index.html spacex-product-system-20260816/meta.json
+          git rm .github/workflows/upgrade-spacex-ground-network-once.yml
+          git commit -m "Expand SpaceX ground mobile network architecture"
+          git push
