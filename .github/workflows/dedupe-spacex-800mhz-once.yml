@@ -1,0 +1,44 @@
+name: Dedupe SpaceX 800 MHz Once
+on:
+  push:
+    paths:
+      - '.github/workflows/dedupe-spacex-800mhz-once.yml'
+permissions:
+  contents: write
+jobs:
+  dedupe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Remove duplicate spectrum block and tighten FCC timing
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, json
+          p = Path('spacex-product-system-20260816/index.html')
+          m = Path('spacex-product-system-20260816/meta.json')
+          s = p.read_text(encoding='utf-8')
+          s, n = re.subn(r'<div id="spectrum-strategy">.*?</table></div></div>', '', s, count=1, flags=re.S)
+          if n != 1:
+              raise SystemExit(f'expected one duplicate spectrum block, removed {n}')
+          s = s.replace('这批 800 MHz 许可证覆盖约 3,224 个县，接近全美人口覆盖。', '这批 800 MHz 许可证覆盖约 3,224 个县，FCC 口径覆盖约 100% 美国人口。', 1)
+          old = 'FCC 暂缓处理相关 SCS 豁免，要求 Grain 确定具体 D2D 合作伙伴并提交带有明确技术参数的申请后再审。也就是说，这场竞标同时是<b>频谱资产争夺 + 卫星硬件适配 + FCC 授权能力</b>的竞争。'
+          new = 'FCC 暂缓处理相关 SCS 豁免，要求 Grain 确定具体 D2D 合作伙伴并提交带有明确技术参数的申请后再审。若 Grain 在 11 月 5 日前完成合作伙伴遴选，并希望适用 FCC 预设的卫星 D2D 建设指标，完整且充分支持的 secondary satellite / D2D 申请需在 <b>12 月 4 日</b>前提交。也就是说，这场竞标同时是<b>频谱资产争夺 + 卫星硬件适配 + FCC 授权能力</b>的竞争。'
+          if old not in s:
+              raise SystemExit('FCC regulatory callout anchor not found')
+          s = s.replace(old, new, 1)
+          s = re.sub(r'Updated 2026-[^<]+ HKT', 'Updated 2026-08-21 08:36 HKT', s, count=1)
+          p.write_text(s, encoding='utf-8')
+          d = json.loads(m.read_text(encoding='utf-8'))
+          d['updated_at'] = '2026-08-21T08:36:00+08:00'
+          m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit cleanup and remove one-time workflow
+        run: |
+          git config user.name "kerwin"
+          git config user.email "kerwin7081@gmail.com"
+          git add spacex-product-system-20260816/index.html spacex-product-system-20260816/meta.json
+          git rm .github/workflows/dedupe-spacex-800mhz-once.yml
+          git commit -m "Deduplicate SpaceX 800 MHz section and add FCC Dec 4 deadline"
+          git push
