@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="从 NVIDIA 入股 Cloverleaf 与黄仁勋将 Land、Power、Shell 定义为 AI Factory 关键资源出发，拆解 Powered Land 开发商如何把土地、电网、许可、政府与社区风险转化为可交付 MW，并建立 LPS 之前的资本与估值框架。">
-<link rel="canonical" href="https://enyaclawd.com/cloverleaf-powered-land-lps-20260822/">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="从 NVIDIA 入股 Cloverleaf 与黄仁勋将 Land、Power、Shell 定义为 AI Factory 关键资源出发，系统拆解 Powered Land 开发商如何通过电网分析、土地控制、Zoning、Annexation、Utility、许可与社区协调，把普通土地转化为可交付 MW，并分析其 PE 融资、项目退出、Social License 与 NVIDIA Physical CUDA 的战略含义。" name="description"/>
+<link href="https://enyaclawd.com/cloverleaf-powered-land-lps-20260822/" rel="canonical"/>
 <title>Cloverleaf：LPS之前，先把MW“制造”出来｜Kerwin Research Hub</title>
 <style id="kerwin-web-3-7-desktop-qa">
 :root{--surface:#fff1e5;--paper:#fffaf5;--paper2:#f7e7d8;--outer:#e6d8cb;--ink:#262220;--muted:#746b65;--line:#cdbfb3;--line2:#968b83;--green:#103f35;--green2:#1f5a4d;--pale:#dce8e2;--copper:#9a5c38;--risk:#9f332b;--serif:Georgia,"Times New Roman","Songti SC","STSong",serif;--sans:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
@@ -35,237 +35,307 @@ body{font-size:16px;line-height:1.80}
 </style>
 </head>
 <body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="cloverleaf-powered-land-lps-20260822">
-<section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
-  <div class="kw-editorial-gate__paper">
-    <div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">Kerwin Research Hub</span><span class="kw-editorial-gate__access">Reader Access</span></div>
-    <div class="kw-editorial-gate__body">
-      <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-      <div>
-        <div class="kw-editorial-gate__kicker">AI Infrastructure · Powered Land · LPS</div>
-        <h2 class="kw-editorial-gate__title" id="gate-title">LPS之前，先把MW制造出来</h2>
-        <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
-        <label class="kw-editorial-gate__field"><input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究"><span>Auto enter</span></label>
-      </div>
-    </div>
-    <div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-  </div>
+<section aria-labelledby="gate-title" class="kw-editorial-gate" id="editorial-gate">
+<div class="kw-editorial-gate__paper">
+<div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">Kerwin Research Hub</span><span class="kw-editorial-gate__access">Reader Access</span></div>
+<div class="kw-editorial-gate__body">
+<div class="kw-editorial-gate__seal">Kerwin<br/>Research<br/>Hub</div>
+<div>
+<div class="kw-editorial-gate__kicker">AI Infrastructure · Powered Land · LPS</div>
+<h2 class="kw-editorial-gate__title" id="gate-title">LPS之前，先把MW制造出来</h2>
+<p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+<label class="kw-editorial-gate__field"><input aria-label="输入 k 显示研究" autocapitalize="none" autocomplete="off" id="access-key" inputmode="text" maxlength="1"/><span>Auto enter</span></label>
+</div>
+</div>
+<div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+</div>
 </section>
 <a class="skip-link" href="#main-content">跳至正文</a>
-<div class="progress" id="reading-progress" aria-hidden="true"></div>
-
+<div aria-hidden="true" class="progress" id="reading-progress"></div>
 <main class="site-shell" id="main-content">
-  <div class="topbar"><span>Kerwin Research Hub · AI Physical Infrastructure</span><span>Evidence first · Snapshot 2026-08-22 HKT</span></div>
-  <header class="masthead">
-    <a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a>
-    <nav class="nav" aria-label="页内导航"><a href="#verdict">核心判断</a><a href="#business">商业模式</a><a href="#capital">融资历史</a><a href="#sources">来源</a></nav>
-    <a class="home-route" href="/">研究首页 ↗</a>
-  </header>
-
-  <section class="cover">
-    <div class="cover-grid">
-      <div>
-        <div class="eyebrow">AI基础设施新分工｜Powered Land 系列①</div>
-        <h1>Cloverleaf：LPS之前，先把MW“制造”出来<span>从 NVIDIA 入股，到 Powered Land、Social License 与 AI 基础设施的新专业分工</span></h1>
-        <p class="thesis">NVIDIA 对 Cloverleaf 的少数股权投资，把一个此前隐蔽的价值层推到台前：Land、Power、Shell 并不是天然存在的生产资料；在 LPS 之前，还有一批专业开发商负责把土地、电网、许可、政府与社区的不确定性，转化为某个明确年份可以交付的 MW。</p>
-        <div class="cover-meta">
-          <span><b>研究日期</b> 2026-08-22</span>
-          <span><b>数据快照</b> 2026-08-22 HKT</span>
-          <span><b>研究对象</b> Cloverleaf Infrastructure / Powered Land</span>
-          <span><b>证据边界</b> 官方披露优先；媒体 pipeline 数字单独标注</span>
-        </div>
-      </div>
-      <aside class="cover-seal" aria-label="关键数据"><strong>&gt;$300M</strong><span>2024 founding<br>capital commitments</span></aside>
-    </div>
-  </section>
-
-  <div class="scope-note"><b>口径说明：</b>本文将 <b>Powered Land</b> 定义为土地控制、供电路径、电网互联、许可与地方协调已取得实质进展、能够向后续数据中心开发商提供明确容量与时间表的场址；它不等于已建成 Shell，更不等于已经通电的 IT MW。文中“&gt;10GW pipeline / &gt;7GW powered-land sales”为媒体披露口径，不直接视为可用或已通电容量。</div>
-
-  <section class="section" id="verdict">
-    <div class="section-label">01 · Executive Verdict</div>
-    <h2>一笔 NVIDIA 投资，把 LPS 又往前拆了一层</h2>
-    <p class="lead intro">2026 年 8 月 21 日，Cloverleaf Infrastructure 宣布与 NVIDIA 建立战略合作，NVIDIA 同时进行少数股权投资。四天前，黄仁勋刚刚把 Land、Power and Shell（LPS）称为 AI Factory 的下一类关键资源，并通过 SB Energy 锁定 Ohio PORTS-Pike 的大规模 LPS 容量。两件事连续发生，指向同一个变化：NVIDIA 已经开始从 Token/MW 的最终生产效率，沿着物理约束一路向前倒推，寻找那些会决定未来 AI Factory 能否按时上线的瓶颈。</p>
-    <div class="verdict">
-      <div><b>LPS 之前还有一层</b><span>土地、电力与 Shell 不是起点；Site Origination、Zoning、Utility、Interconnection、Permitting 与 Social License 共同决定 Power-Ready MW。</span></div>
-      <div><b>Cloverleaf 卖的是确定性</b><span>它不运营 GPU，也不以长期持有数据中心为核心；价值在于把“理论上能建”推进到“在明确年份可以交付多少 MW”。</span></div>
-      <div><b>政治风险可以被专业化</b><span>州政府、县市、utility、居民与社区并非纯外部噪音。Powered-Land 开发商的能力，就是提高项目穿越这些否决点的概率。</span></div>
-      <div><b>资本结构是商业模式的一部分</b><span>Cloverleaf 从成立时的 PE growth capital 起步，再引入 NVIDIA 战略股权；融资方式与“开发—去风险—转手/循环资本”的模式高度匹配。</span></div>
-    </div>
-    <div class="facts">
-      <div><strong>8/17</strong><span>Jensen Huang：LPS 成为 AI Factory 的关键战略资源。</span></div>
-      <div><strong>8/21</strong><span>NVIDIA 对 Cloverleaf 进行少数股权投资，金额未披露。</span></div>
-      <div><strong>&gt;$300M</strong><span>2024 年 NGP、Sandbrook 与管理层的初始资本承诺。</span></div>
-      <div><strong>3.5GW</strong><span>Red Granite 官方披露的 2030 潜在供电规模；并非已通电容量。</span></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">02 · Why Now</div>
-    <h2>新闻的真正含义，不是“英伟达又投了一家公司”</h2>
-    <p>NVIDIA 8 月 21 日披露的合作并没有给出投资金额、持股比例或估值，官方只确认这是一笔少数股权投资，并表示双方将共同推进美国 AI Factory 的基础设施开发。单独看，这很容易被归入一笔普通的战略投资。</p>
-    <p>但把时间往前拨四天，逻辑立刻不同。8 月 17 日，黄仁勋在 NVIDIA 官方博客中把 <b>Land、Power and Shell</b> 明确列为 AI Factory 的下一类关键资源；同一天，NVIDIA 与 SB Energy 宣布锁定首期 4.25 IT-GW 的 LPS，并拥有额外 3.75 IT-GW 的选择权。NVIDIA 的表述已经从“卖更多 GPU”转向“确保未来 compute 有长期可用的物理载体”。</p>
-    <div class="timeline">
-      <div><small>2026-08-10</small><b>资本先到位</b><span>NVIDIA 与 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR 建立算力融资平台，目标长期动员 &gt;$500B 第三方资本。</span></div>
-      <div><small>2026-08-17</small><b>LPS 被正式定义</b><span>NVIDIA 将 Land、Power、Shell 提升为战略资源，并在 Ohio 锁定长期 LPS。</span></div>
-      <div><small>2026-08-21</small><b>再向 LPS 上游走</b><span>NVIDIA 入股 Cloverleaf——一家在 Shell 开工之前就处理土地、电网与许可的开发平台。</span></div>
-      <div><small>投资含义</small><b>从 Token/MW 倒推瓶颈</b><span>Compute 的效率优势只有在 MW 能按期落地时才有经济意义；因此 NVIDIA 开始管理更长的物理供应链。</span></div>
-    </div>
-    <div class="dark-panel"><h3>本系列由此展开</h3><p>研究 AI 基础设施不能从“有多少 GW”开始，也不能止于 LPS。真正需要追踪的是：<b>谁发现场址、谁控制土地、谁解决电网、谁拿到许可、谁处理社区关系、谁为开发风险出资本，以及这些变量最终如何变成 Probability-adjusted Deliverable MW。</b></p></div>
-  </section>
-
-  <section class="section" id="business">
-    <div class="section-label">03 · Business Model</div>
-    <h2>Cloverleaf 到底做什么：把 $/acre 的土地变成 $/MW 的资产</h2>
-    <p>Cloverleaf 2024 年成立，总部在 Houston。公司不是传统数据中心 REIT，也不是 CoreWeave / IREN 一类算力运营商。其官方定位是开发大规模、低碳供电的数字基础设施场址，并与区域公用事业公司和数据中心运营商合作，通过输电、grid interconnection（土地与电网互联）、土地、现场发电和储能等手段，为高耗能客户创造可扩展的电力条件。</p>
-    <p>这意味着它最重要的“产品”不是建筑，而是一组被逐渐消除的不确定性。普通土地最初按 acre 计价；一旦获得清晰的供电路径、许可和交付时间，买方开始更关心的是 <b>多少 MW、哪一年、可靠性如何、还能扩多少</b>。</p>
-    <div class="flow">
-      <div><small>01</small><b>Site Origination</b><span>先从电网、输电、天然气、道路和土地条件中寻找可能容纳数百 MW 至 GW 负荷的节点。</span></div>
-      <div><small>02</small><b>Land Control</b><span>取得土地选择权或控制权，而不是先把巨额资本全部压在永久持有土地上。</span></div>
-      <div><small>03</small><b>Grid / Utility</b><span>做潮流与容量分析，与 utility 协调 interconnection、输电升级、现场发电和储能。</span></div>
-      <div><small>04</small><b>Entitlement</b><span>推进 zoning、annexation、道路、水务、环境与建设许可，把“可以想象”变成“法律上可以建”。</span></div>
-      <div><small>05</small><b>Social License</b><span>与县市、社区、居民和利益相关方形成可持续的地方政治支持，降低诉讼、选举与邻避风险。</span></div>
-      <div><small>06</small><b>Deliverable MW</b><span>最终形成带有时间表与扩容路径的 Powered Land，再交给真正建设 Shell / AI Factory 的资本。</span></div>
-    </div>
-    <div class="note"><b>新的估值单位：</b>AI 时代的土地不能只看 <b>$/acre</b>。更有意义的框架是 <b>$/Deliverable MW × Power Certainty × Time-to-Power × Power Quality × Expandability</b>。</div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">04 · LPS Before LPS</div>
-    <h2>为什么 Cloverleaf 扩展了对 LPS 的认知</h2>
-    <p>Land + Power + Shell 已经比“数据中心”更接近 AI 工厂的真实资本结构，但把 Land 和 Power 写成两个名词，仍然会掩盖大量前置开发过程。土地不是因为买下就具备数据中心用途，电力也不是因为几公里外有一条 345kV 输电线就自动成为可用 MW。</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>资产状态</th><th>真正解决的问题</th><th>主要价值单位</th><th>仍然存在的核心风险</th></tr></thead>
-        <tbody>
-          <tr><td>Raw Land</td><td>只是地理位置与面积</td><td>$/acre</td><td>用途、供电、许可、社区全部未定</td></tr>
-          <tr><td>Entitled Land</td><td>Zoning / Annexation 等用途与行政路径取得实质进展</td><td>土地价值 + entitlement premium</td><td>电力与建设时间仍可能不确定</td></tr>
-          <tr><td>Powered Land</td><td>形成可信的电力、互联、扩容与交付路径</td><td>$/Deliverable MW</td><td>建设融资、Shell、最终客户与工期</td></tr>
-          <tr><td>LPS</td><td>Land + Power + Shell 形成可装入 IT 设备的物理载体</td><td>$/IT MW / lease economics</td><td>机电效率、客户信用、利用率</td></tr>
-          <tr><td>Energized IT MW</td><td>真正可供服务器使用的通电容量</td><td>IT MW</td><td>Compute 配置、折旧、运营与需求</td></tr>
-          <tr><td>Productive Compute</td><td>把 IT MW 转成满足 SLA 的可售 Token</td><td>Tokens/MW @ SLA</td><td>架构效率、TCO、价格与客户负载</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>因此，“1GW pipeline”不能直接进入估值。它至少要继续拆成 Land Controlled MW、Permitted MW、Utility-studied MW、Interconnection-secured MW、Power-Ready MW 和 Energized MW，并按照年份分层。</p>
-  </section>
-
-  <section class="section">
-    <div class="section-label">05 · Case Study</div>
-    <h2>Red Granite：一块地如何逐渐获得“MW属性”</h2>
-    <p>Cloverleaf 官网披露的 Red Granite 是目前最清晰的项目样本。该场址靠近 345kV 输电和冗余天然气供应，官方材料给出的路径是 <b>2027 年 310MW、2030 年最高 3.5GW</b>，并将 zoning 与 annexation 状态标记为 <b>Completed</b>。</p>
-    <p>这组数据最重要的不是“3.5GW 很大”，而是展示 Powered-Land 开发商如何把容量按时间分层：2027 能交付多少，2030 才可能扩到多少。对资本而言，2027 的 310MW 与 2030 的潜在 3.5GW 绝不能用同样的确定性和折现率估值。</p>
-    <div class="compare">
-      <div><b>Headline GW</b><span>媒体和项目宣传最容易引用，表达远期上限，但不能代表已经签约、已许可或已通电。</span></div>
-      <div><b>Deliverable MW by Year</b><span>真正改变资产价值：哪个年份、什么前置条件、谁承担升级成本、供电有多 firm。</span></div>
-      <div><b>Risk-adjusted MW</b><span>将 Power、Permitting、Labor、Political Survival 与 Social License 概率纳入后，才接近可用于投资模型的容量。</span></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">06 · Political Economy</div>
-    <h2>专业的人处理专业的事：Social License 正在成为 LPS 开发能力</h2>
-    <p>大型云服务商真正想买的并不是“替它参加几十场市政听证会”的工作，而是尽快获得可预测的 IT MW。随着数据中心成为地方政治议题，Powered-Land Developer 的价值正在从工程能力扩展到政治经济学执行能力。</p>
-    <p>州长支持 AI，并不代表项目一定能建成。县市 zoning、utility 成本分摊、居民电价、水资源、道路、噪音、施工就业、税基和下一次地方选举，都可能成为否决点。此前的美国州际政策研究已经把这一问题写成：</p>
-    <div class="dark-panel"><h3>Probability-adjusted Energized MW</h3><p><b>Effective MWₜ = Announced MWₜ × P(Power) × P(Permitting) × P(Labor Execution) × P(Political Survival) × P(Social License)</b></p><p>新的认识是：这些概率并不全是被动风险。Cloverleaf 这类开发商存在的意义，就是用专业能力主动提高其中若干概率。</p></div>
-    <p>因此，Community Benefit 也不能只理解为 CSR。企业承担电网、水务、道路、培训或公共设施成本，短期提高开发成本，但如果能换来更高许可确定性、更短 Time-to-Power，它本质上是在购买一种可以资本化的 <b>Social License</b>。</p>
-  </section>
-
-  <section class="section" id="capital">
-    <div class="section-label">07 · Capital History</div>
-    <h2>融资史第一次进入公司研究的核心：商业模式决定该拿什么钱</h2>
-    <p>2024 年 7 月 17 日，Cloverleaf 宣布获得 NGP 与 Sandbrook Capital、以及管理层合计 <b>超过 $300M 的资本承诺</b>。Sandbrook 的官方披露称这是公司成立阶段的核心资本；WSJ 当时报道 NGP 与 Sandbrook 各承诺约 $150M。</p>
-    <p>2026 年 8 月 21 日，NVIDIA 再以少数股权投资者身份进入。官方没有披露金额、估值、股份比例，也没有披露是否附带优先权、项目权利或未来容量安排，因此现阶段不能据此倒推 Cloverleaf 估值。</p>
-    <div class="timeline">
-      <div><small>2023</small><b>商业模式形成</b><span>NGP 后来披露，其与团队在 2023 年就开始讨论 Cloverleaf，当时数据中心电力需求尚未成为大众焦点。</span></div>
-      <div><small>2024-07</small><b>&gt;$300M PE Capital</b><span>NGP + Sandbrook + management 为早期场址开发、电网、土地与项目推进提供风险资本。</span></div>
-      <div><small>2024–2026</small><b>项目开发与资本循环</b><span>公司推进多个 GW 级项目；媒体报道称已出售 &gt;7GW powered land，并有 &gt;10GW pipeline，但两者口径需要逐项目核验。</span></div>
-      <div><small>2026-08</small><b>NVIDIA Strategic Equity</b><span>资本不再只有财务属性：战略股东同时可能带来 DSX 设计、客户生态和后续 AI Factory 需求。</span></div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>资本工具</th><th>Cloverleaf 当前公开状态</th><th>为什么适合这种商业模式</th></tr></thead>
-        <tbody>
-          <tr><td>PE / Sponsor Equity</td><td>核心：&gt;$300M 初始资本承诺</td><td>承担土地、工程、许可和项目早期的高不确定开发风险。</td></tr>
-          <tr><td>Strategic Equity</td><td>NVIDIA 少数股权投资</td><td>不仅提供资本，还可能提高项目的技术标准化、客户可信度和退出选择。</td></tr>
-          <tr><td>Corporate / Project Debt</td><td>截至本文快照，未见公司公开披露成为主要融资来源</td><td>早期开发现金流不稳定，债务通常更适合确定性更高、拥有长期合同的后续资产层。</td></tr>
-          <tr><td>Asset Recycling / Project Exit</td><td>属于其 merchant-development 逻辑的重要观察项；交易对价披露有限</td><td>把去风险后的项目转给长期数据中心资本，回收权益资本再开发下一批场址。</td></tr>
-          <tr><td>IPO / Public Capital</td><td>当前无公开 IPO 计划</td><td>若未来转向长期持有大量 LPS 或形成稳定开发收益，资本市场路径才可能显著变化。</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="note"><b>研究方法升级：</b>以后研究 AI 基础设施企业，融资历史应与产业链位置同时展开：Founding Capital → Sponsor Equity → Strategic Equity → Preferred → Project Debt → Customer Capital / Guarantee → Asset Recycling → IPO，最后统一落到 <b>Marginal WACC 与 Incremental ROIC</b>。</div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">08 · NVIDIA Read-through</div>
-    <h2>Physical CUDA 的前奏：英伟达开始影响“未来算力在哪里发生”</h2>
-    <p>NVIDIA 的优势过去主要被理解为 CUDA 软件生态、GPU 性能和网络互联。现在，这个定义正在变窄。若最终竞争指标是 <b>Tokens/MW @ latency SLA</b>，那么 NVIDIA 就必须从 Token 往前看：GPU 效率取决于网络、供电和冷却；网络、供电和冷却取决于 AI Factory 设计；AI Factory 又取决于某个年份有没有真正可用的 LPS。</p>
-    <p>Cloverleaf 与 NVIDIA 的合作因此具有两层价值。第一层是最直接的：增加未来 Power-Ready Site 的可见度。第二层更长期：NVIDIA 可以在项目早期引入 DSX 等 AI Factory 设计框架，让供电、冷却、网络与计算在 Shell 开工前就围绕 NVIDIA 系统做协同设计。</p>
-    <p>这不是物理上把 AMD 或 TPU “封死”，而是建立路径依赖：如果一个未来场址已经按照 NVIDIA 的功率密度、液冷、网络和部署标准完成大量工程验证，那么继续使用 NVIDIA 的 Time-to-Market 与执行风险往往更低。真正的护城河由单一 CUDA，扩展为 <b>Software + Network + Facility + Financing + Time-to-Market</b> 的多维 switching cost。</p>
-  </section>
-
-  <section class="section">
-    <div class="section-label">09 · Valuation Framework</div>
-    <h2>以后不再问“有多少GW”，而要问“这些MW是什么状态”</h2>
-    <p>WSJ 在 NVIDIA 投资前的报道中提到，Cloverleaf 已促成超过 7GW powered-land 项目销售，并拥有超过 10GW pipeline。这些数字证明平台规模已经足以被 NVIDIA 注意，但不能直接视为 10GW Power-Ready 或 Energized MW。</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>研究指标</th><th>要回答的问题</th><th>估值含义</th></tr></thead>
-        <tbody>
-          <tr><td>Gross Pipeline MW</td><td>理论上正在推进多少容量？</td><td>只代表机会集，不应直接资本化。</td></tr>
-          <tr><td>Land-Controlled MW</td><td>土地是否真正锁定？</td><td>排除仅处于选址讨论阶段的项目。</td></tr>
-          <tr><td>Entitled / Permitted MW</td><td>Zoning、annexation、环境与地方审批走到哪里？</td><td>政治和法律折价开始显著下降。</td></tr>
-          <tr><td>Utility / Interconnection MW</td><td>供电是否有正式研究、协议与升级责任？</td><td>从“地”变成“电力资产”的关键跃迁。</td></tr>
-          <tr><td>Deliverable MW by Year</td><td>2027 / 2028 / 2029 各能交多少？</td><td>Time-to-Power 进入现金流折现。</td></tr>
-          <tr><td>Exit Value / MW</td><td>卖给 Vantage / hyperscaler 等长期资本时获得多少价值？</td><td>决定 Cloverleaf 的开发毛利与资本周转率。</td></tr>
-          <tr><td>Development ROIC</td><td>开发成本、开发周期和退出价值之间的关系？</td><td>最终判断这种商业模式是否可复制、是否值得更低 WACC。</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-label">10 · Risks & Falsification</div>
-    <h2>什么会推翻这套判断</h2>
-    <div class="risk"><h3>Pipeline 无法转换</h3><p>如果 &gt;10GW headline pipeline 长期无法转成 signed utility agreements、zoning approvals 和实际项目退出，Powered-Land 平台的可复制性就被高估。</p></div>
-    <div class="risk"><h3>Social License 成本失控</h3><p>若地方反对持续提高补偿、基础设施和政治成本，使开发周期延长速度快于 Powered Land 的价值提升，开发 ROIC 会下降。</p></div>
-    <div class="risk"><h3>NVIDIA 战略协同没有经济结果</h3><p>如果 NVIDIA 入股之后没有带来更高项目转化率、更快融资、更清晰客户需求或 DSX-aligned 场址，Physical CUDA 的前置渗透意义需要下调。</p></div>
-    <div class="risk"><h3>资本结构过早变重</h3><p>如果 Cloverleaf 从轻资产开发转向大规模长期持有 Shell / generation，而缺乏长期 offtake 和低成本债务，其 WACC 与资本需求将发生根本变化。</p></div>
-  </section>
-
-  <section class="section" id="sources">
-    <div class="section-label">11 · Primary Sources</div>
-    <h2>主要来源与证据边界</h2>
-    <div class="source"><a href="https://www.prnewswire.com/news-releases/cloverleaf-infrastructure-forms-strategic-partnership-with-nvidia-to-accelerate-data-center-infrastructure-development-302857329.html" target="_blank" rel="noopener">Cloverleaf / NVIDIA — Strategic Partnership, 2026-08-21</a><span>支持 NVIDIA 少数股权投资、合作目标与“multiple GW-scale projects”官方表述；投资金额和持股比例未披露。</span></div>
-    <div class="source"><a href="https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/" target="_blank" rel="noopener">NVIDIA — Securing the Infrastructure of Intelligence, 2026-08-17</a><span>支持 Jensen Huang 对 LPS 战略资源的定义，以及从 semiconductor resources 向 LPS capacity 延伸的官方逻辑。</span></div>
-    <div class="source"><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Guarantees-SB-Energys-PORTS-Pike-Technology-Campus-in-Ohio-to-Exclusively-Host-NVIDIA-AI-Compute/default.aspx" target="_blank" rel="noopener">NVIDIA / SB Energy — PORTS-Pike</a><span>支持首期 4.25 IT-GW、额外 3.75 IT-GW option、$1.5B SB Energy 投资与 credit support。</span></div>
-    <div class="source"><a href="https://www.sandbrook.com/news/cloverleaf-infrastructure-raises-300-million-from-ngp-and-sandbrook-capital" target="_blank" rel="noopener">Sandbrook / Cloverleaf — &gt;$300M Capital Commitments, 2024-07-17</a><span>支持 NGP、Sandbrook 与 management 的成立资本承诺及 Cloverleaf 业务定位。</span></div>
-    <div class="source"><a href="https://www.cloverleafinfra.com/case-studies/red-granite" target="_blank" rel="noopener">Cloverleaf — Project Red Granite</a><span>支持 310MW by 2027、3.5GW by 2030、345kV 输电接近度以及 zoning / annexation completed。</span></div>
-    <div class="source"><a href="https://ngpenergy.com/news/how-entrepreneurs-put-energy-hungry-data-centers-on-the-map/" target="_blank" rel="noopener">NGP — How Entrepreneurs Put Energy-Hungry Data Centers on the Map</a><span>支持 Cloverleaf 商业模式形成、utility 与 hyperscaler 之间的专业能力缺口，以及 2023 年起投资人已开始讨论该机会。</span></div>
-    <div class="source"><a href="https://www.wsj.com/business/deals/nvidia-in-talks-to-invest-in-data-center-power-developer-cloverleaf-infrastructure-ff94c556" target="_blank" rel="noopener">The Wall Street Journal — NVIDIA / Cloverleaf</a><span>媒体口径：投资谈判规模、&gt;7GW powered-land sales、&gt;10GW pipeline；这些数字与官方已通电 MW 分开处理。</span></div>
-  </section>
-
-  <section class="section" aria-labelledby="related-title">
-    <div class="section-label">Related Research</div>
-    <h2 id="related-title">下一条研究路径</h2>
-    <p><a href="/musk-state-competition-social-license-20260820/">美国州际政策竞争：从停车场到州竞争</a> — 把州政府、居民、选票与 Social License 纳入 Probability-adjusted Energized MW；本篇进一步回答谁在商业上负责提高这些概率。</p>
-    <p><a href="/ai-institutional-capital-financing-20260819/">AI融资结构④：Institutional Capital｜机构资本</a> — 从 Powered Land 的开发权益资本继续向 LPS、Compute 和长期机构资本展开。</p>
-    <p><a href="/ai-cloud-unit-economics-dashboard-20260817/">AI Cloud 四层经济模型：从1MW到Token，再到利润池</a> — 将前端 Deliverable MW 接回 IT MW、Token/MW 与最终 ROIC。</p>
-  </section>
-
-  <section class="enya enya-brand">
-    <h2>EnyaClawd</h2>
-    <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
-    <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
-    <p class="enya-copy">把 AI 基础设施从土地、电力、许可、资本一路追到 Compute、Token 与 ROIC：不把 headline GW 当资产，而是持续寻找每一层真正决定交付速度和资本回报的瓶颈。</p>
-    <div class="roles"><div class="role"><b>Kerwin</b><span>选题、投资逻辑与最终审核。</span></div><div class="role"><b>Enya</b><span>证据整理、可视化呈现与持续维护。</span></div></div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。</span><a href="/">返回研究首页</a></div>
-    <div class="footer-meta"><span>Published 2026-08-22 18:42 HKT</span><span>Updated 2026-08-22 18:42 HKT</span></div>
-  </footer>
+<div class="topbar"><span>Kerwin Research Hub · AI Physical Infrastructure</span><span>Evidence first · Snapshot 2026-08-22 HKT</span></div>
+<header class="masthead">
+<a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a>
+<nav aria-label="页内导航" class="nav"><a href="#verdict">核心判断</a><a href="#business">商业模式</a><a href="#capital">融资历史</a><a href="#sources">来源</a></nav>
+<a class="home-route" href="/">研究首页 ↗</a>
+</header>
+<section class="cover">
+<div class="cover-grid">
+<div>
+<div class="eyebrow">AI基础设施新分工｜Powered Land 系列①</div>
+<h1>Cloverleaf：LPS之前，先把MW“制造”出来
+<span>从 NVIDIA 入股，到 Powered Land、资本结构、Social License 与 Physical CUDA</span></h1>
+<p class="thesis">2026 年 8 月 21 日，NVIDIA 成为 Cloverleaf 的少数股东。四天前，黄仁勋刚把 Land、Power、Shell（LPS）称为 AI Factory 的下一类关键资源。两件事连在一起，揭示了一个更靠前的产业层：在 Shell 开工、GPU 上架之前，必须先有人把土地、电网、许可、政府与社区的不确定性，转化为某个明确年份真正可以交付的 MW。</p>
+<div class="cover-meta">
+<span><b>研究日期</b> 2026-08-22</span>
+<span><b>数据快照</b> 2026-08-22 HKT</span>
+<span><b>研究对象</b> Cloverleaf Infrastructure / Powered Land</span>
+<span><b>证据边界</b> 官方披露优先；媒体 pipeline 与投资金额估计单独标注</span>
+</div>
+</div>
+<aside aria-label="关键数据" class="cover-seal"><strong>&gt;$300M</strong><span>2024 founding<br/>capital commitments</span></aside>
+</div>
+</section>
+<div class="scope-note"><b>口径说明：</b>本文将 <b>Powered Land</b> 理解为：土地控制、土地用途、供电路径、电网互联、许可与地方协调已取得实质进展，能够向后续数据中心开发商提供较明确容量与时间表的场址。它不等于已经建成的 Shell，更不等于已经通电的 IT MW。文中“&gt;7GW powered-land sales / &gt;10GW pipeline”为媒体披露口径；“3.5GW”是 Red Granite 原始远期供电潜力；“902MW”是 Vantage Lighthouse 当前披露的 critical IT load，三者不能混用。</div>
+<section class="section" id="verdict">
+<div class="section-label">01 · Executive Verdict</div>
+<h2>一笔 NVIDIA 投资，把 LPS 的起点向前推了一层</h2>
+<p class="lead intro">2026 年 8 月 21 日，Cloverleaf Infrastructure 宣布与 NVIDIA 建立战略合作，NVIDIA 同时进行少数股权投资。四天前，黄仁勋刚刚把 <b>Land、Power and Shell（LPS）</b>称为 AI Factory 的下一类关键资源，并通过 SB Energy 锁定 Ohio PORTS-Pike 的大规模 LPS 容量。连续发生的两件事说明，AI 基础设施的竞争正在从 GPU 继续向上游延伸：真正稀缺的不只是“电”，而是<b>在明确年份能够合法、稳定、可融资地交付给 AI Factory 的 MW</b>。</p>
+<div class="verdict">
+<div><b>LPS 不是最前端</b><span>在 Land + Power + Shell 之前，还存在 Site Origination、土地控制、Zoning / Annexation、Utility、Interconnection、Permitting 与 Social License。</span></div>
+<div><b>Cloverleaf 卖的是确定性</b><span>它不运营 GPU，也公开表示无意自己建设数据中心；其核心产品是已经被逐步去风险、带有容量与时间表的 Powered Land。</span></div>
+<div><b>MW 可以被“开发”出来</b><span>靠近高压线的农地并不等于可用电力。电网潮流、输电升级、费率、许可、道路、水务与社区接受度共同决定 MW 能否兑现。</span></div>
+<div><b>资本结构映射业务边界</b><span>早期 Powered-Land 开发风险适合 PE / Sponsor Equity；进入 Shell、长期持有和稳定合同后，项目债、优先股和公开资本才更有优势。</span></div>
+</div>
+<div class="facts">
+<div><strong>2024</strong><span>Cloverleaf 成立；NGP、Sandbrook 与管理层承诺超过 $300M 风险资本。</span></div>
+<div><strong>&gt;7GW</strong><span>WSJ 披露的累计 powered-land sales；不是已通电 IT MW。</span></div>
+<div><strong>&gt;10GW</strong><span>WSJ 披露的当前 gross pipeline；需按项目阶段折算。</span></div>
+<div><strong>902MW</strong><span>Red Granite 后续演化为 Vantage Lighthouse 后，当前披露的 critical IT load。</span></div>
+</div>
+</section>
+<section class="section">
+<div class="section-label">02 · Why This News Matters</div>
+<h2>从“锁 GPU 供应链”到“锁未来可交付 MW”</h2>
+<p>NVIDIA 8 月 21 日披露的 Cloverleaf 投资没有公布金额、持股比例或估值；官方只确认这是少数股权投资，并称双方将共同推进美国 AI Factory 的基础设施开发。若孤立来看，它很像一笔普通战略投资。</p>
+<p>但 8 月 17 日，黄仁勋在 NVIDIA 官方博客中已经把 <b>Land、Power and Shell</b>与先进芯片、封装、内存和网络并列为 AI Factory 的关键资源，并明确表示 NVIDIA 正把过去管理半导体供应链的纪律延伸到 LPS。当天公布的 SB Energy 交易更进一步：NVIDIA 对 PORTS-Pike 的 Land、Power、Shell 建设提供信用支持，锁定首期 <b>4.25 IT-GW</b>，并拥有剩余 <b>3.75 IT-GW</b> 的选择权。</p>
+<p>再往前一周，NVIDIA 又与 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs 和 KKR 建立 AI compute 融资平台，长期目标是动员超过 <b>$500B</b> 第三方资本。资本、LPS、Powered Land 三组动作拼在一起，逻辑就很清楚：<b>NVIDIA 不打算只等待客户把数据中心盖好，再去卖 GPU；它正在更早地影响未来算力在哪里、何时以及按什么架构落地。</b></p>
+<div class="timeline">
+<div><small>2026-08-10</small><b>资本工具</b><span>&gt;$500B 第三方资本平台，为 AI Factory 形成更长期、可复制的融资供给。</span></div>
+<div><small>2026-08-17</small><b>LPS 锁定</b><span>SB Energy：首期 4.25 IT-GW + 3.75 IT-GW option，并由 NVIDIA 提供 LPS 信用支持。</span></div>
+<div><small>2026-08-21</small><b>Site Origination</b><span>入股 Cloverleaf，把触角继续伸到 Shell 开工之前的土地、电网、许可与场址开发。</span></div>
+<div><small>最终目标</small><b>Token/MW</b><span>只有 MW 能按时兑现，Rubin、网络与软件栈的 Token/MW 优势才能真正变成收入。</span></div>
+</div>
+<div class="dark-panel"><h3>关键变化：电力已经从“运营成本”变成“算力供应链”</h3><p>AI Factory 的物理供应链不再从服务器机柜开始，而是从<b>哪一块土地、哪一个 utility、哪一条输电线路、哪一年能够交付多少 MW</b>开始。Cloverleaf 正处在这条供应链最靠前、也最容易被传统半导体投资者忽略的位置。</p></div>
+</section>
+<section class="section" id="company">
+<div class="section-label">03 · Company Anatomy</div>
+<h2>Cloverleaf 是什么公司：不是数据中心运营商，而是 Powered-Land Developer</h2>
+<p>Cloverleaf 成立于 2024 年，在 Houston 与 Seattle 设有办公室。公司官网对自己的定位非常直接：与 utilities 合作，为大型数据中心用户和运营商开发 <b>clean-powered、ready-to-build sites</b>。其业务边界与传统数据中心开发商有一个关键区别——Cloverleaf 的 Brian Janous 在 2024 年接受 Data Center Dynamics 采访时明确表示，公司没有兴趣把资本投入到真正的数据中心建筑本身。</p>
+<p>因此，Cloverleaf 既不是 Equinix / Digital Realty 式长期持有型 REIT，也不是 CoreWeave / IREN 式 Compute Operator，更不是 utility。它更接近能源行业里的 <b>merchant developer</b>：先承担早期选址、电网、土地、许可和地方协调风险，等项目从“可能能建”变成“高概率能建”，再通过项目出售、转让、合资或其他安排把资产交给更适合长期持有的资本。</p>
+<h3>团队履历本身，就是商业模式的说明书</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>核心管理层</th><th>代表性经历</th><th>对应的开发能力</th></tr></thead>
+<tbody>
+<tr><td><b>David Berry</b><br/>Co-Founder / CEO</td><td>Clean Line Energy、ConnectGen 联合创始人；ConnectGen 曾开发 &gt;20,000MW 风、光、储项目；还曾任 Harris County County Administrator，管理约 $6B 预算。</td><td>输电与电源开发、项目资本配置，以及大型地方政府体系的实际运作经验。</td></tr>
+<tr><td><b>Brian Janous</b><br/>Co-Founder / CCO</td><td>曾任 Microsoft VP of Energy；负责全球数据中心能源版图，执行 &gt;15GW 可再生能源 PPA，并参与 &gt;4GW 数据中心选址与增长策略。</td><td>从 hyperscaler 视角理解“客户到底愿意为什么样的 MW 付钱”，以及 utility 与科技公司之间的接口。</td></tr>
+<tr><td><b>Jonathan Abebe</b><br/>Co-Founder / CTO</td><td>历任美国能源部、Pattern Energy、Clean Line Energy 等工程与技术岗位。</td><td>电网、输电、互联与大型负荷的工程可行性。</td></tr>
+<tr><td><b>Aaron Bilyeu</b><br/>Chief Development Officer</td><td>此前负责 Meta 的土地收购与 site development，更早在 Microsoft 从事类似工作，并有 Jacobs 工程背景。</td><td>把 hyperscaler 的真实场址标准前置到土地控制、规划、道路与建设条件中。</td></tr>
+</tbody>
+</table>
+</div>
+<p>这套人员组合值得注意：<b>能源开发 + hyperscaler + 工程 + 土地开发 + 地方政府</b>并不是简历上的偶然拼接，而正好对应 Powered Land 项目最容易卡住的几个接口。公司今天的组织架构中还单独设置 Power &amp; Utilities、Community Engagement、Energy、Finance、General Counsel 等岗位，说明它卖的并不是单一工程服务，而是跨专业的项目去风险能力。</p>
+</section>
+<section class="section" id="business">
+<div class="section-label">04 · Business Model</div>
+<h2>一块普通土地，怎样被开发成“可交付 MW”</h2>
+<p>最容易误解 Cloverleaf 的地方，是把它想成“先买地，再去找电”。公司公开的方法恰好相反：<b>power-first</b>。它先从电网本身寻找可以承受数百 MW 至 GW 级新增负荷的位置，再把土地、许可与其他基础设施围绕这个电力节点组织起来。</p>
+<div class="flow">
+<div><small>01</small><b>Grid-first Siting</b><span>用 proprietary load-flow analysis 独立分析输电系统，寻找能承载超大负荷的高潜力节点，而不是只看土地便宜不便宜。</span></div>
+<div><small>02</small><b>Land Control</b><span>取得足够连续的土地控制权，并验证道路、天然气、光纤、水务、地形、湿地等条件能否支持后续大型园区。</span></div>
+<div><small>03</small><b>Utility / Interconnection</b><span>与 utility 同步推进容量研究、互联路径、变电站和输电升级，并明确谁出钱、何时建设、什么条件下可以扩容。</span></div>
+<div><small>04</small><b>Grid Optimization</b><span>评估储能、Grid Enhancing Technologies、dispatchable resources、现场发电与 transmission upgrades，尽量从现有系统里提前释放容量。</span></div>
+<div><small>05</small><b>Entitlement</b><span>推进 zoning、annexation、PUD、环境、道路、噪音、建设许可等，把“工程上可行”变成“法律和行政上可建”。</span></div>
+<div><small>06</small><b>Commercial Exit</b><span>当场址具备足够的 power certainty 与 time-to-power，再由 hyperscaler、colo / data-center developer 或长期资本接手建设 Shell 与 IT 设施。</span></div>
+</div>
+<h3>它甚至会参与 utility 的“产品设计”</h3>
+<p>Cloverleaf 官网披露，其工作并不止于申请 interconnection。团队会评估现有 utility rate 是否阻碍大规模投资，在需要时与 utility 一起设计新的 tariff；也会研究 transmission、storage 和 Grid Enhancing Technologies，甚至利用可调度的客户侧资源降低峰值需求。换句话说，它不仅在找“哪里有电”，还在参与设计<b>怎样让 utility 愿意、也有能力把电卖给一个超大负荷客户</b>。</p>
+<p>这解释了为什么 Brian Janous 把 utility 与科技公司的差异视为机会：hyperscaler 的需求变化以季度甚至月为单位，而 utility 的规划、审批、输电建设通常以多年计。Powered-Land Developer 的价值，正是把两个完全不同时间尺度的行业连接起来。</p>
+<div class="note"><b>价值单位发生变化：</b>普通土地首先按 <b>$/acre</b> 定价；当开发商把电力路径、许可与时间表做实以后，买方越来越按 <b>$/Deliverable MW</b> 思考。对 AI 场址，更完整的估值应同时考虑 <b>Power Certainty、Time-to-Power、Power Quality、Expandability</b>。</div>
+</section>
+<section class="section">
+<div class="section-label">05 · LPS Before LPS</div>
+<h2>Land 和 Power 不是两个静态名词，而是一串需要被完成的开发动作</h2>
+<p>LPS 已经比传统“数据中心”概念更接近 AI Factory 的真实物理约束，但如果把 Land 和 Power 写成两个现成资产，仍然会严重高估项目确定性。土地买下以后，未必允许建数据中心；附近有 345kV 输电线，也不等于 utility 已经承诺在某一年给你 500MW。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>资产状态</th><th>真正完成了什么</th><th>主要价值单位</th><th>仍未解决的问题</th></tr></thead>
+<tbody>
+<tr><td><b>Raw Land</b></td><td>只有地理位置、面积与基础自然条件</td><td>$/acre</td><td>用途、电力、许可、道路、社区全部未定</td></tr>
+<tr><td><b>Land Controlled</b></td><td>开发商已取得足够的土地控制权</td><td>土地成本 + option value</td><td>能否取得数据中心用途、供电路径仍未知</td></tr>
+<tr><td><b>Entitled Land</b></td><td>Zoning / Annexation / PUD 等土地用途和行政边界取得实质进展</td><td>$/acre + entitlement premium</td><td>电网容量、升级责任和交付时间仍可能变化</td></tr>
+<tr><td><b>Powered Land</b></td><td>土地、utility、互联、供电和扩容路径形成较高可信度</td><td>$/Deliverable MW</td><td>Shell、建设融资、最终客户、工期</td></tr>
+<tr><td><b>LPS</b></td><td>Land + Power + Shell 构成可装入 IT 设备的物理载体</td><td>$/IT MW / lease economics</td><td>机电效率、客户信用、设备交付与利用率</td></tr>
+<tr><td><b>Energized IT MW</b></td><td>电力已真正进入数据厅，可供服务器使用</td><td>IT MW</td><td>Compute 配置、折旧、运营、需求</td></tr>
+<tr><td><b>Productive Compute</b></td><td>IT MW 被转成满足延迟 SLA 的可售 Token</td><td>Tokens/MW @ SLA</td><td>TCO、价格、负载结构与客户货币化</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Zoning 与 Annexation 为什么会成为资产价值的一部分</h3>
+<p><b>Zoning</b> 是地方政府对土地用途的法律分类：农业用地、住宅用地、工业用地能做什么并不一样。大型数据中心若不符合现有 zoning，必须 rezoning 或通过 PUD 等规划程序取得合法用途。</p>
+<p><b>Annexation</b> 则是把原本位于城市边界之外的土地正式并入某个 municipality。并入之后，城市的 zoning、税收、道路、公共服务和开发协议才可能直接适用。并非每个数据中心都需要 annexation，但在需要城市基础设施与开发协议的郊区项目中，它可能是关键步骤。</p>
+<p>因此，同样一块地，完成 zoning / annexation 之前和之后，不只是“手续多了一张纸”，而是项目能否合法进入下一阶段、能否签开发协议、能否被长期资本接手的概率发生了变化。</p>
+</section>
+<section class="section" id="red-granite">
+<div class="section-label">06 · Case Study</div>
+<h2>Red Granite：从 3.5GW 远期故事，到 902MW IT 的真实项目</h2>
+<p>Red Granite 是理解 Cloverleaf 商业模式最重要的案例，因为它已经从开发商手里的“Powered Land”跨越到了下一任长期资本手里。Cloverleaf 官网对原始项目的描述是：最多约 1,700–1,900 acres，距离 345kV 输电不到 4 英里，规划 <b>2027 年 310MW、2030 年最高 3.5GW</b>，并把 zoning 与 annexation 标记为 Completed。</p>
+<p>如果只看到这一步，很容易把“3.5GW”当成 Cloverleaf 已经拥有的可用容量。但 Port Washington 的公开开发协议给出了后半段：2025 年 1 月 21 日，Cloverleaf 的 Red Granite DevCo 与 Port Washington 签署 pre-annexation agreement；2025 年 5 月 30 日，Cloverleaf 又把相关协议和权益转让给 Vantage Data Centers 的关联方。也就是说，Cloverleaf 完成了一部分最前端去风险工作后，<b>项目控制权进入了更适合建设和长期运营数据中心的 Vantage 体系</b>。</p>
+<div class="timeline">
+<div><small>2025-01-21</small><b>Pre-Annexation</b><span>Red Granite DevCo 与 Port Washington 建立前置开发框架，为土地并入和数据中心用途创造行政路径。</span></div>
+<div><small>2025-05-30</small><b>Assignment to Vantage</b><span>公开开发协议确认，Cloverleaf 将 pre-annexation agreement 等相关协议转让给 Vantage 关联方。</span></div>
+<div><small>2025-08-19</small><b>Development Agreement</b><span>Vantage 与城市签署正式开发协议，项目从 powered-land 阶段进入大型数据中心建设阶段。</span></div>
+<div><small>2025-10 → 2026</small><b>Stargate Lighthouse</b><span>OpenAI、Oracle、Vantage 公布 Wisconsin Stargate；当前 Vantage 披露 672 acres、4 座数据中心、902MW critical IT load、2028 完成。</span></div>
+</div>
+<h3>为什么“3.5GW”与“902MW”并不矛盾</h3>
+<p>两组数字的口径不同。3.5GW 是 Cloverleaf 对更大原始场址在 2030 年的<b>远期供电潜力</b>；902MW 是 Vantage 当前选定 672 acres、四栋数据中心的<b>critical IT load</b>。中间还发生了场址范围收缩、开发方案改变以及 utility MW 与 IT MW 口径差异。真正可用于估值的是每一阶段的容量、时间和条件，而不是把所有 GW 数字相加。</p>
+<div class="compare">
+<div><b>开发商创造的价值</b><span>土地控制、zoning / annexation、utility 路径和开发协议把项目从高不确定性推进到可交易状态。</span></div>
+<div><b>长期资本接力</b><span>Vantage 接手后承担巨额 Shell、机电、建设、客户和运营资本；当前项目总投资口径已上升到约 $15B。</span></div>
+<div><b>仍缺的一块数据</b><span>Cloverleaf 转让 Red Granite 的具体对价没有公开，因此目前无法计算 Development Cost/MW、Exit Value/MW 与开发 ROIC。</span></div>
+</div>
+</section>
+<section class="section" id="capital">
+<div class="section-label">07 · Capital Structure</div>
+<h2>为什么 Cloverleaf 从一开始就需要 PE 风险资本</h2>
+<p>Powered-Land 开发的现金流特征决定了它很难一开始就依赖传统项目债。项目最早期需要花钱锁地、做工程研究、与 utility 推进互联、支付顾问与许可费用，但什么时候能卖、最终能卖多少 MW、地方政府是否批准，都存在较大不确定性。这个阶段最适合承担风险的是权益资本，而不是要求固定本息和明确抵押物的长期债权人。</p>
+<p>2024 年 7 月，Cloverleaf 宣布获得 NGP、Sandbrook Capital 与管理层合计<b>超过 $300M 的 capital commitments</b>。这里要强调是“资本承诺”，不能自动理解成 $300M 在成立当天全部打入公司账户。WSJ 当时报道 NGP 与 Sandbrook 各承诺约 $150M；NGP 后来披露，双方其实在 2023 年、数据中心电力短缺尚未成为大众焦点时就已经开始讨论这门生意。</p>
+<p>Brian Janous 后来对 CTVC 的表述非常能说明资本结构：Cloverleaf 采用 <b>private-equity-backed fund model</b>，用几亿美元级的 equity line 支持项目开发；价值创造来自“按 acre 获取土地，再通过 time-to-market、density、scale 和 clean-energy visibility 把资产转成按 MW 定价”。这不是软件公司追求 ARR 的融资逻辑，而是典型的开发资本循环。</p>
+<p>2026 年 8 月 21 日，NVIDIA 再成为少数股东。官方没有披露金额、估值、持股比例，也没有披露是否包含项目优先权、容量权利或其他条款。WSJ 在交易公布前报道称谈判规模可能达到<b>数亿美元</b>，但这仍只是媒体口径，不能作为已确认交易金额。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>资本层</th><th>Cloverleaf 当前公开状态</th><th>与商业模式的关系</th></tr></thead>
+<tbody>
+<tr><td><b>Sponsor / PE Equity</b></td><td>&gt;$300M commitments，NGP + Sandbrook + management</td><td>承受土地、许可、电网、地方政治等最早期开发风险，是项目“从零到可交易”阶段的主资本。</td></tr>
+<tr><td><b>Strategic Equity</b></td><td>NVIDIA minority investment</td><td>除了资金，还可能提高技术标准化、客户可信度、未来 DSX 对接和项目退出的选择权。</td></tr>
+<tr><td><b>Project / Corporate Debt</b></td><td>公开资料中未见其成为母公司主要融资来源；私有项目层面的全部债务并不透明</td><td>债务更适合供电、客户和现金流确定性更高的后续 LPS / construction 阶段。</td></tr>
+<tr><td><b>Project Sale / JV</b></td><td>Red Granite → Vantage 已验证项目权益可以向长期开发资本转手；对价未披露</td><td>回收权益资本、提高 capital turns，再投入下一批场址，是 merchant developer 的关键循环。</td></tr>
+</tbody>
+</table>
+</div>
+<h3>同一条产业链，为什么 SB Energy 会需要完全不同的钱</h3>
+<div class="compare">
+<div><b>Cloverleaf：Pre-LPS / Powered Land</b><span>高开发风险、资产尚未稳定产生现金流，更依赖 PE / Sponsor Equity 与战略资本；成功后可以通过项目出售或 JV 回收资本。</span></div>
+<div><b>SB Energy：LPS Builder / Owner</b><span>进入 Shell、长期供电和大规模建设后，资本停留时间更长，因此需要 preferred equity、project finance、credit support 与最终公开资本市场。</span></div>
+<div><b>Compute Operator</b><span>再往后进入 GPU、客户合同和算力租赁，可使用 GPU-backed financing、客户预付款、长期 take-or-pay 和资产证券化等工具。</span></div>
+</div>
+<p>资本结构因此不是财务报表最后一页的附属信息，而是判断企业到底处在哪一层价值链、谁承担风险、资本需要停留多久、最终 ROIC 能否高于 WACC 的核心线索。</p>
+</section>
+<section class="section" id="political-economy">
+<div class="section-label">08 · Political Economy</div>
+<h2>州政府欢迎 AI，不等于某个县市愿意让 1GW 项目落地</h2>
+<p>大型数据中心的政策环境有明显的多层治理特征。州政府可能通过税收优惠、电力政策和招商政策欢迎 AI；但真正决定一块地能否完成 zoning、annexation、道路接入和开发协议的，往往是 county、city council、planning commission、utility 以及当地居民。宏观层面的“某州支持 AI”只能提高顶层概率，不能替代项目层面的许可与 Social License。</p>
+<p>这正是 Powered-Land Developer 的专业价值。Cloverleaf 官网的 “Cloverleaf Standard” 已把社区工作标准化：不要求地方政府签 NDA、公开项目网站和时间表、举行信息与听取意见会议；在项目设计上承诺尽量让冷却在初次注水后实现零日常耗水、承担为项目新增的电力和输电升级成本、规划道路与噪音缓解，并把教育、培训、应急服务和能源可负担性纳入社区投入。</p>
+<p>这些动作并不只是 ESG 包装。对一个需要数年才能通电的项目来说，这些投入会提高开发成本，但只要能够显著提高审批确定性或缩短 Time-to-Power，就可能通过更高的项目现值被资本化。<b>Social License 本质上正在成为一种可以资本化的开发能力。</b></p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>项目</th><th>公开状态（截至 2026-08-22）</th><th>它说明了什么</th></tr></thead>
+<tbody>
+<tr><td><b>Red Granite / Lighthouse, Wisconsin</b></td><td>Zoning / annexation 完成，权益已转给 Vantage；当前为 902MW IT Stargate campus</td><td>当地方、utility、土地和客户链条全部打通，Powered Land 可以真正进入巨额长期资本。</td></tr>
+<tr><td><b>Project Open Sky, Piedmont, Oklahoma</b></td><td>633 acres、&gt;$1B proposed investment；仍在 annexation / PUD 等地方审批流程中</td><td>一块靠近强电网节点的土地，其价值仍然取决于地方规划、社区接受度和最终 end user。</td></tr>
+<tr><td><b>Project Bluestem, Kansas</b></td><td>早期方案至少约 600MW，管理层曾表示潜力可到 1.2GW；但最终容量仍待 utility 确认，8 月地方规划程序继续放慢</td><td>“1.2GW potential”在 utility 和地方审批完成前，只能是高折价 option，而不是可用 MW。</td></tr>
+</tbody>
+</table>
+</div>
+<div class="dark-panel"><h3>Probability-adjusted MW</h3><p>对尚未通电的项目，可以用一个启发式框架表达容量质量：<br/><b>Risk-adjusted MWₜ ≈ Announced MWₜ × P(Power) × P(Permitting) × P(Political / Social License) × P(Customer / Financing)</b></p><p>这些概率并非统计上独立，不能机械相乘当作精确概率模型；它的价值在于迫使投资者逐项追问：这 1GW 到底卡在哪一道门。</p></div>
+</section>
+<section class="section" id="pipeline">
+<div class="section-label">09 · Pipeline Quality</div>
+<h2>&gt;10GW pipeline 的价值，取决于每一 MW 走到了哪一步</h2>
+<p>WSJ 在 NVIDIA 投资公布前报道称，Cloverleaf 已经完成超过 <b>7GW powered-land sales</b>，并拥有超过 <b>10GW pipeline</b>。这两个数字说明公司已从初创项目开发商扩展为具有全国机会集的平台，但它们仍然不能直接等同于 7GW 或 10GW 的可用电力。</p>
+<p>私营开发商的项目 pipeline 往往包含不同成熟度：有的只是完成初步 grid screen，有的已控制土地但没有正式 utility study，有的进入 zoning / annexation，有的已经签署开发协议，有的已经转让给买方。若把这些阶段全部按 100% 计入估值，最容易高估的是<b>时间和确定性</b>。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>容量口径</th><th>应该验证什么</th><th>估值处理</th></tr></thead>
+<tbody>
+<tr><td><b>Gross Pipeline MW</b></td><td>只是机会集，还是已有具体 site / project company？</td><td>只给低权重 option value，不直接资本化。</td></tr>
+<tr><td><b>Land-Controlled MW</b></td><td>土地是否足够连续、控制期限多长、是否存在拆迁/收购缺口？</td><td>开始出现真实 sunk cost，但仍高度依赖 entitlement 与 power。</td></tr>
+<tr><td><b>Utility-Studied MW</b></td><td>utility 是否完成容量/互联研究？需要多少升级、谁承担费用？</td><td>Power Certainty 明显提高，但仍需时间与资本。</td></tr>
+<tr><td><b>Entitled / Permitted MW</b></td><td>Zoning、annexation、PUD、道路、环境等是否获得批准？</td><td>政治与法律折价明显下降。</td></tr>
+<tr><td><b>Contracted / Sold MW</b></td><td>是否有明确 buyer / end user、assignment / JV / sale agreement？</td><td>可以开始观察 Exit Value/MW 与 capital turns。</td></tr>
+<tr><td><b>Power-Ready / Energized MW</b></td><td>变电站、输电、generation、utility service date 是否真正落地？</td><td>接近可以按 LPS / IT MW 现金流估值。</td></tr>
+</tbody>
+</table>
+</div>
+<p>对 Cloverleaf 最值得持续补齐的财务数据不是单纯“pipeline 又增加几 GW”，而是：<b>Development Cost/MW、平均开发周期、项目退出率、Exit Value/MW、资本周转次数、每年实现的 realized MW，以及失败项目的 sunk cost</b>。这些变量一旦公开，才可能真正估算其 development ROIC。</p>
+</section>
+<section class="section" id="nvidia">
+<div class="section-label">10 · NVIDIA Read-through</div>
+<h2>Physical CUDA：护城河开始从软件延伸到 AI Factory 的物理层</h2>
+<p><b>Physical CUDA</b> 是本文用于描述 NVIDIA 战略演化的分析概念，并非 NVIDIA 官方产品名称。传统 CUDA 把开发者、软件库和模型运行方式锁在 NVIDIA 计算平台周围；而 DSX、LPS、融资与 Powered Land 让这种路径依赖继续向物理基础设施延伸。</p>
+<p>NVIDIA 对 DSX 的官方定义已经远远超出“服务器参考设计”。DSX Facilities Infrastructure Reference Design 把 <b>site、power、cooling、controls、connectivity 和 compute</b> 放进同一个 campus context；DSX MaxLPS 则进一步协调设施设计、动态功率分配和 performance-per-watt 技术。NVIDIA 的核心目标是：在固定站点功率预算下，让同样的 MW 支撑更多 GPU、产生更多 Token，并缩短 time to first production。</p>
+<p>这解释了 Cloverleaf 的战略价值。如果 NVIDIA 在 Powered Land 还处于 utility、供电、冷却和 Shell 设计阶段时就把 DSX 引入，未来买方接手项目后，继续采用 NVIDIA 全栈可能成为<b>最低摩擦、最快上线</b>的路径。改用 AMD 或 TPU 并非物理上不可能，但可能需要重新验证 rack density、液冷、电力分配、网络、控制系统和融资假设。</p>
+<div class="flow">
+<div><small>01</small><b>Powered Land</b><span>Cloverleaf 提高某年可交付 MW 的概率。</span></div>
+<div><small>02</small><b>LPS / DSX</b><span>设施、电力、冷却、网络与计算开始协同设计。</span></div>
+<div><small>03</small><b>Rubin / Network</b><span>在固定 IT MW 内提高有效计算与集群效率。</span></div>
+<div><small>04</small><b>Inference Software</b><span>TensorRT-LLM、Dynamo 等继续提高 GPU 利用率与可售吞吐。</span></div>
+<div><small>05</small><b>Tokens/MW @ SLA</b><span>同样稀缺的电力产生更多满足延迟要求的有效 Token。</span></div>
+<div><small>06</small><b>Revenue / ROIC</b><span>技术效率最终必须转成单位 MW 的收入与资本回报。</span></div>
+</div>
+<div class="note"><b>重要边界：</b>不能因为 DSX 与 Cloverleaf 合作就推导“这些场址只能安装 NVIDIA”。真正的护城河更接近 <b>switching cost + time-to-market + validation + financing ecosystem</b>，而不是物理排他性。</div>
+</section>
+<section class="section" id="valuation">
+<div class="section-label">11 · Valuation Lens</div>
+<h2>Powered Land 的估值核心：不是 acre，也不是 headline GW，而是“可交付 MW × 时间 × 确定性”</h2>
+<p>传统工业地产可以围绕土地面积、位置和租金来估值；Powered Land 的核心变量不同。一个 2027 年可交付的 300MW 场址，与一个 2030 年“理论上最高 3GW”的场址，即使 headline capacity 更小，前者也可能拥有更高现值。</p>
+<div class="dark-panel"><h3>一个更适合 AI 基础设施的估值表达</h3><p><b>Powered-Land Value ≈ Deliverable MW × Delivery Probability × Time-to-Power Discount × Value per Deliverable MW</b></p><p>Value per MW 本身又取决于 power price、firmness、扩容潜力、客户竞争、税收与基础设施成本。这个表达是分析框架，不是行业通用会计公式。</p></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>关键指标</th><th>为什么重要</th><th>理想的公司披露</th></tr></thead>
+<tbody>
+<tr><td><b>Time-to-Power</b></td><td>每提前一年，客户可以更早装 GPU、产生 Token 和收入。</td><td>按年份拆分 2027 / 2028 / 2029+ Deliverable MW。</td></tr>
+<tr><td><b>Power Certainty / Firmness</b></td><td>utility study、service agreement、generation 与 transmission 的确定性决定容量是否真实。</td><td>每个项目的 interconnection milestone 与供电条件。</td></tr>
+<tr><td><b>Development Cost/MW</b></td><td>衡量锁地、工程、许可和社区投入到底花了多少权益资本。</td><td>项目级累计开发成本与 write-off。</td></tr>
+<tr><td><b>Exit Value/MW</b></td><td>决定开发商把不确定性变成多少钱。</td><td>项目出售 / JV 对价与保留权益。</td></tr>
+<tr><td><b>Capital Turns</b></td><td>同样 $300M 权益资本一年能循环几次，决定平台增长速度。</td><td>项目从 initial spend 到 monetization 的平均周期。</td></tr>
+<tr><td><b>Development ROIC / IRR</b></td><td>最终判断 Powered-Land 模式是否只是“有很多项目”，还是能高效创造股东价值。</td><td>realized returns 与失败项目损失同时披露。</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section" id="risks">
+<div class="section-label">12 · Risks &amp; Falsification</div>
+<h2>什么情况下，Powered-Land 模式会被高估</h2>
+<div class="risk"><h3>Pipeline 很大，但转化率很低</h3><p>如果 &gt;10GW gross pipeline 长期无法转成 utility agreements、entitlements、buyer commitments 和项目退出，平台规模就只是 option book，而不是可持续的开发收益。</p></div>
+<div class="risk"><h3>电网升级成本和时间继续恶化</h3><p>当 transmission、substation、generation 与设备交付周期同步拉长，开发商即使解决土地与许可，也可能无法把 Time-to-Power 压缩到客户愿意支付溢价的程度。</p></div>
+<div class="risk"><h3>Social License 的成本超过资产增值</h3><p>道路、水务、电力保护、社区基金和政治谈判都需要真金白银。如果这些投入只延长审批、却没有显著提高项目成功率，development ROIC 会下降。</p></div>
+<div class="risk"><h3>资本结构变重，却没有更低 WACC</h3><p>如果 Cloverleaf 从 merchant developer 转向长期持有 Shell、generation 或数据中心，而没有长期客户合同和项目融资能力，原本可以快速循环的 PE 资本会被锁住。</p></div>
+<div class="risk"><h3>NVIDIA 协同变成单一生态依赖</h3><p>DSX 可以提高项目标准化和融资可信度，但 Powered Land 的买方最终仍可能要求多供应商灵活性。若 NVIDIA 路径依赖降低了场址的 vendor neutrality，战略协同的价值需要重新评估。</p></div>
+</section>
+<section class="section" id="sources">
+<div class="section-label">13 · Primary Sources</div>
+<h2>主要来源与证据边界</h2>
+<div class="source"><a href="https://www.prnewswire.com/news-releases/cloverleaf-infrastructure-forms-strategic-partnership-with-nvidia-to-accelerate-data-center-infrastructure-development-302857329.html" rel="noopener" target="_blank">Cloverleaf / NVIDIA — Strategic Partnership, 2026-08-21</a><span>支持 NVIDIA 少数股权投资与合作方向；金额、估值、持股比例均未披露。</span></div>
+<div class="source"><a href="https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/" rel="noopener" target="_blank">Jensen Huang — Securing the Infrastructure of Intelligence, 2026-08-17</a><span>支持 LPS 被定义为 AI Factory 下一类关键资源，以及 NVIDIA 将半导体供应链纪律延伸至 LPS 的官方逻辑。</span></div>
+<div class="source"><a href="https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute" rel="noopener" target="_blank">NVIDIA / SB Energy — PORTS-Pike</a><span>支持 4.25 IT-GW、额外 3.75 IT-GW option、NVIDIA $1.5B 投资和 LPS credit support。</span></div>
+<div class="source"><a href="https://docs.nvidia.com/dsx/facilities-infra/reference-design-overview" rel="noopener" target="_blank">NVIDIA DSX Facilities Infrastructure Reference Design</a><span>支持 DSX 跨 site、power、cooling、controls、connectivity 与 compute 的共同设计范围。</span></div>
+<div class="source"><a href="https://docs.nvidia.com/dsx/maxlps/overview" rel="noopener" target="_blank">NVIDIA DSX MaxLPS</a><span>支持固定 site-power envelope 下提高 throughput per MW、动态功率和设施协同的官方框架。</span></div>
+<div class="source"><a href="https://www.cloverleafinfra.com/about-us" rel="noopener" target="_blank">Cloverleaf — About Us</a><span>公司定位、管理团队和 power-first 开发模式。</span></div>
+<div class="source"><a href="https://www.cloverleafinfra.com/our-approach" rel="noopener" target="_blank">Cloverleaf — Our Approach / Cloverleaf Standard</a><span>支持 proprietary load-flow analysis、Grid Enhancing Technologies、tariff development、社区透明度、零日常冷却耗水与 no-rate-impact 承诺。</span></div>
+<div class="source"><a href="https://www.datacenterdynamics.com/en/analysis/cloverleaf-infrastructure-brian-janous-microsoft/" rel="noopener" target="_blank">Data Center Dynamics — The power brokers: Brian Janous on building Cloverleaf</a><span>支持客户定位、500MW–1GW+ 场址尺度、与 utility 协作及“不建设数据中心本体”的业务边界。</span></div>
+<div class="source"><a href="https://www.ctvc.co/inside-cloverleaf-infrastructures-power-play-206/" rel="noopener" target="_blank">CTVC — Inside Cloverleaf Infrastructure’s power play</a><span>支持 PE-backed fund model 与“$/acre → $/MW”的公司自述。</span></div>
+<div class="source"><a href="https://www.sandbrook.com/news/cloverleaf-infrastructure-raises-300-million-from-ngp-and-sandbrook-capital" rel="noopener" target="_blank">Sandbrook / Cloverleaf — &gt;$300M Capital Commitments, 2024-07-17</a><span>支持 NGP、Sandbrook 与 management 的成立资本承诺及资金用途。</span></div>
+<div class="source"><a href="https://ngpenergy.com/news/how-entrepreneurs-put-energy-hungry-data-centers-on-the-map/" rel="noopener" target="_blank">NGP — How Entrepreneurs Put Energy-Hungry Data Centers on the Map</a><span>支持 2023 年起投资人与团队开始讨论机会，以及 utility / data-center 行业节奏错配。</span></div>
+<div class="source"><a href="https://www.cloverleafinfra.com/case-studies/red-granite" rel="noopener" target="_blank">Cloverleaf — Project Red Granite</a><span>支持原始场址面积、310MW by 2027、3.5GW by 2030 与 zoning / annexation 状态。</span></div>
+<div class="source"><a href="https://www.wpr.org/wp-content/uploads/2025/08/CITY-OF-PORT-WASHINGTON.pdf" rel="noopener" target="_blank">City of Port Washington / Vantage Development Agreement, 2025-08-19</a><span>支持 2025-01-21 pre-annexation agreement 与 2025-05-30 Cloverleaf 向 Vantage 关联方转让相关协议。</span></div>
+<div class="source"><a href="https://vantage-dc.com/data-center-locations/north-america/port-washington-wisconsin/" rel="noopener" target="_blank">Vantage Data Centers — Port Washington (Lighthouse)</a><span>支持当前 672 acres、4 个数据中心、902MW critical IT load、2.5M sq ft、2028 完工。</span></div>
+<div class="source"><a href="https://openskydatacenter.com/" rel="noopener" target="_blank">Project Open Sky — Official Project Site</a><span>支持 633-acre 项目、&gt;$1B 投资、closed-loop cooling、地方审批与社区承诺。</span></div>
+<div class="source"><a href="https://www.piedmont-ok.gov/323/Data-Center-Transparency-Portal" rel="noopener" target="_blank">City of Piedmont — Data Center Transparency Portal</a><span>支持 Open Sky 的 PUD、annexation 等正式地方文件与当前审议状态。</span></div>
+<div class="source"><a href="https://www2.ljworld.com/news/general-news/2026/aug/13/leavenworth-co-officials-reverse-course-slow-down-on-data-center-proposed-for-site-near-tonganoxie/" rel="noopener" target="_blank">Lawrence Journal-World — Project Bluestem, 2026-08-13</a><span>支持 Bluestem 600MW–1.2GW 的早期容量口径、utility 尚未确认及地方规划进度放慢。</span></div>
+<div class="source"><a href="https://www.wsj.com/business/deals/nvidia-in-talks-to-invest-in-data-center-power-developer-cloverleaf-infrastructure-ff94c556" rel="noopener" target="_blank">The Wall Street Journal — NVIDIA / Cloverleaf</a><span>媒体口径：投资谈判可能为数亿美元、&gt;7GW powered-land sales、&gt;10GW pipeline；均与官方确认信息分开处理。</span></div>
+</section>
+<section aria-labelledby="related-title" class="section">
+<div class="section-label">Related Research</div>
+<h2 id="related-title">相关研究</h2>
+<p><a href="/musk-state-competition-social-license-20260820/">美国州际政策竞争：从停车场到州竞争</a> — 州政策、县市许可、居民与选票如何进入 Probability-adjusted Energized MW。</p>
+<p><a href="/ai-institutional-capital-financing-20260819/">AI融资结构④：Institutional Capital｜机构资本</a> — 从开发权益资本继续向 LPS、Compute、项目融资和长期机构资本延伸。</p>
+<p><a href="/ai-cloud-unit-economics-dashboard-20260817/">AI Cloud 四层经济模型：从1MW到Token，再到利润池</a> — 将 Deliverable MW 接回 IT MW、Tokens/MW @ SLA、Revenue/MW 与 ROIC。</p>
+</section>
+<section class="enya enya-brand">
+<h2>EnyaClawd</h2>
+<div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+<div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+<p class="enya-copy">把 AI 基础设施从土地、电力、许可、资本一路追到 Compute、Token 与 ROIC：不把 headline GW 当资产，而是持续寻找每一层真正决定交付速度和资本回报的瓶颈。</p>
+<div class="roles"><div class="role"><b>Kerwin</b><span>选题、投资逻辑与最终审核。</span></div><div class="role"><b>Enya</b><span>证据整理、可视化呈现与持续维护。</span></div></div>
+</section>
+<footer class="footer">
+<div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。</span><a href="/">返回研究首页</a></div>
+<div class="footer-meta"><span>Published 2026-08-22 18:42 HKT</span><span>Updated 2026-08-22 19:19 HKT</span></div>
+</footer>
 </main>
-<button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+<button aria-label="返回顶部" class="top-button" id="top-button" type="button">↑</button>
 <script>
 (function(){
 var body=document.body,gate=document.getElementById("editorial-gate"),key=document.getElementById("access-key"),progress=document.getElementById("reading-progress"),topButton=document.getElementById("top-button");
