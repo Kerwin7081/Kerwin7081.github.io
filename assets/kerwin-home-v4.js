@@ -15,6 +15,20 @@
   var query = '';
   var manualPages = [
     {
+      slug:'delaware-vs-texas-corporate-domicile-20260823',
+      title:'Delaware vs Texas｜美国公司法的迁册战争',
+      date:'2026年8月23日',
+      deck:'美国州际政策竞争系列③：客观比较 Delaware 与 Texas 的公司法、专业法院、管理层自主权与少数股东保护，并以 Tesla、SpaceX、OpenAI、Anthropic、Stripe、Databricks、SB Energy 与 Cloverleaf 案例拆分法律注册地、总部和物理资产，最终建立 Governance WACC 与 Total Governance Cost 框架。',
+      tag:'U.S. State Policy · Corporate Domicile · Governance WACC',
+      category:'AI Infrastructure · U.S. State Policy · Corporate Law',
+      source:'enya',
+      homepage_approved:true,
+      published_at:'2026-08-23T13:58:00+08:00',
+      layout_id:'kerwin-editorial-research-v1',
+      mobile_qa_version:'1.2.0',
+      desktop_qa_version:'1.0.0'
+    },
+    {
       slug:'texas-industrial-os-20260820',
       title:'Texas Industrial OS｜为什么得州正在成为 AI、航天与重资本的制度型平台？',
       date:'2026年8月20日',
