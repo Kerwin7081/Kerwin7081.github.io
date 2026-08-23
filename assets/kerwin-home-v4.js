@@ -13,23 +13,6 @@
   var visibleCount = 10;
   var activeFilter = 'all';
   var query = '';
-  var manualPages = [
-    {
-      slug:'texas-industrial-os-20260820',
-      title:'Texas Industrial OS｜为什么得州正在成为 AI、航天与重资本的制度型平台？',
-      date:'2026年8月20日',
-      deck:'美国州际政策竞争系列②：从公司法、税制、ERCOT 电力、土地、劳工、产业链与社区许可出发，把 Texas 作为一套把资本转化为物理产能的 Industrial OS 来研究，并建立 State Absorption Capacity 与 Probability-adjusted Energized MW 框架。',
-      tag:'AI Infrastructure · U.S. State Policy · Texas Industrial OS',
-      category:'AI Infrastructure · U.S. State Policy',
-      source:'enya',
-      homepage_approved:true,
-      published_at:'2026-08-20T13:39:00+08:00',
-      layout_id:'kerwin-editorial-research-v1',
-      mobile_qa_version:'1.2.0',
-      desktop_qa_version:'1.0.0'
-    }
-  ];
-
   body.classList.add('home-js', 'home-gate-pending');
 
   function grantAccess() {
@@ -83,7 +66,7 @@
 
   function init(registry, available) {
     var map = {};
-    manualPages.concat(registry || []).forEach(function (page) {
+    (registry || []).forEach(function (page) {
       if (page && page.slug && page.homepage_approved === true) map[page.slug] = page;
     });
     allPages = Object.keys(map).map(function (key) { return map[key]; }).sort(sortDesc);
@@ -110,7 +93,12 @@
   function renderRecent(available) {
     var lead = document.getElementById('recent-lead');
     var list = document.getElementById('recent-list');
-    if (!lead || !list || !available || !allPages.length) return;
+    if (!lead || !list) return;
+    if (!available || !allPages.length) {
+      lead.innerHTML = '<div class="recent-lead__kicker">Recent Dispatch</div><h3>' + (available ? '暂无已发布研究' : '研究目录暂时无法载入') + '</h3><p>' + (available ? '目录更新后会显示最新一篇。' : '请稍后刷新。') + '</p>';
+      list.innerHTML = '';
+      return;
+    }
     var leadPage = allPages[0];
     lead.innerHTML = '<div class="recent-lead__kicker">Recent Dispatch · ' + esc(compactDate(leadPage.date)) + '</div><h3>' + esc(leadPage.title || '') + '</h3><p>' + esc(leadPage.deck || '') + '</p><a class="story-link" href="' + href(leadPage) + '" aria-label="阅读 ' + esc(leadPage.title || '') + '"></a>';
     list.innerHTML = allPages.slice(1, 4).map(dispatchRow).join('');
@@ -177,7 +165,7 @@
   function dispatchRow(page) { return '<article class="dispatch-row"><div class="dispatch-row__date">' + esc(compactDate(page.date)) + '</div><div><b>' + esc(page.title || '') + '</b><span>' + esc(page.tag || 'Research') + '</span></div><span>↗</span><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a></article>'; }
   function libraryRow(page) { var theme = themes.find(function (item) { var ok = item.test.test(haystack(page)); item.test.lastIndex = 0; return ok; }); return '<article class="library-row"><div class="library-row__meta"><span>' + esc(compactDate(page.date)) + '</span><small>' + esc((theme && theme.short) || page.tag || 'Research') + '</small></div><div><h3>' + esc(page.title || '未命名专题') + '</h3><p>' + esc(page.deck || '') + '</p></div><span class="library-row__arrow">↗</span><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a></article>'; }
   function isEarnings(page) { if (/AI Industry Applications|AI Application Casebook/i.test([page.category, page.tag].join(' '))) return false; return /earnings|财报|电话会|业绩会|results call/i.test([page.category, page.tag, page.title, page.deck, page.slug].join(' ')); }
-  function companyName(page) { var text = haystack(page); if (/alphabet|google|goog/.test(text)) return 'ALPHABET · GOOG / GOOGL'; if (/tesla|tsla/.test(text)) return 'TESLA · TSLA'; return String(page.title || 'COMPANY EARNINGS').split(/[\n｜|]/)[0].toUpperCase(); }
+  function companyName(page) { var text = haystack(page); if (/alphabet|google|goog/.test(text)) return 'ALPHABET · GOOG / GOOGL'; if (/tesla|tsla/.test(text)) return 'TESLA · TSLA'; var first = String(page.title || '财报').split(/[\n｜|]/)[0].trim(); return /[\u4e00-\u9fff]/.test(first) ? first : first.toUpperCase(); }
   function quarterLabel(page) { var match = String(page.title || '').match(/(20\d{2})\s*Q([1-4])/i); return match ? match[1] + ' · QUARTER ' + match[2] + ' EARNINGS' : 'EARNINGS & MANAGEMENT CALL'; }
   function href(page) { return page.path || '/' + page.slug + '/'; }
   function haystack(page) { return [page.title, page.deck, page.tag, page.category, page.slug].join(' ').toLowerCase(); }
