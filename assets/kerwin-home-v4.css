@@ -34,7 +34,7 @@ img, svg, video { max-width: 100%; height: auto; }
 .button--green { color: var(--paper); background: var(--green); }
 .button--quiet { color: var(--green); background: transparent; }
 .button:hover, .button:focus-visible { color: var(--paper); background: var(--wine); border-color: var(--wine); }
-.story-link { position: absolute; inset: 0; z-index: 3; }
+.story-link { position: absolute; inset: 0; z-index: 4; cursor: pointer; }
 
 /* Access interaction remains editorial, not security. */
 .home-gate { display: none; position: fixed; inset: 0; z-index: 1000; align-items: center; justify-content: center; padding: max(14px, env(safe-area-inset-top)) 14px max(14px, env(safe-area-inset-bottom)); background: var(--green); }
@@ -128,7 +128,7 @@ img, svg, video { max-width: 100%; height: auto; }
 .recent-lead { position: relative; min-height: 350px; display: flex; flex-direction: column; justify-content: end; overflow: hidden; padding: 30px; color: var(--paper); background: var(--green); border-top: 7px solid var(--ink); }
 .recent-lead::before { content: "01"; position: absolute; right: 25px; top: 20px; color: rgba(255,241,229,.14); font: 700 100px/.9 var(--serif); }
 .recent-lead::after { content: ""; position: absolute; right: -66px; top: 82px; width: 230px; height: 230px; border: 1px solid rgba(255,241,229,.18); border-radius: 50%; box-shadow: 0 0 0 43px rgba(255,241,229,.025), 0 0 0 86px rgba(255,241,229,.02); }
-.recent-lead > * { position: relative; z-index: 1; }
+.recent-lead > *:not(.story-link) { position: relative; z-index: 1; }
 .recent-lead__kicker { color: #efbea0; font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .recent-lead h3 { max-width: 650px; margin: 22px 0 12px; color: var(--paper); font: 600 clamp(28px, 3.4vw, 45px)/1.08 var(--serif); letter-spacing: -.03em; }
 .recent-lead p { max-width: 660px; margin: 0; color: #c9d8d2; font-size: 13px; line-height: 1.72; }
@@ -145,7 +145,7 @@ img, svg, video { max-width: 100%; height: auto; }
 .earnings-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 20px; }
 .earnings-lead { position: relative; min-height: 350px; display: flex; flex-direction: column; justify-content: end; padding: 30px; overflow: hidden; background: #241e1b; border-top: 7px solid var(--wine); }
 .earnings-lead::after { content: "EARNINGS"; position: absolute; right: -18px; top: 52px; color: rgba(255,241,229,.08); font: 700 clamp(50px, 8vw, 100px)/1 var(--serif); transform: rotate(-90deg); transform-origin: top right; }
-.earnings-lead > * { position: relative; z-index: 1; }
+.earnings-lead > *:not(.story-link) { position: relative; z-index: 1; }
 .earnings-lead__top { display: flex; justify-content: space-between; gap: 15px; color: #c8b8af; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .earnings-lead__top b { color: #efb7ae; }
 .earnings-lead__quarter { margin-top: auto; margin-bottom: 15px; color: #efbea0; font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
