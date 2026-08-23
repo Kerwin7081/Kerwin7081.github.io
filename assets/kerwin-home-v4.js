@@ -15,6 +15,20 @@
   var query = '';
   var manualPages = [
     {
+      slug:'us-ai-deployment-map-midterms-20260823',
+      title:'美国50州 AI Deployment Map｜2026中期选举前的算力基础设施地图',
+      date:'2026年8月23日',
+      deck:'美国州际政策竞争系列④：以50州统一底表比较党派控制、电力、电网、土地、劳工、水资源、审批、社区许可、产业生态与2026州级选举暴露，建立 AI Deployment Capacity、Election Exposure 与 Probability-adjusted Energized MW 框架。',
+      tag:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
+      category:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
+      source:'enya',
+      homepage_approved:true,
+      published_at:'2026-08-23T17:55:00+08:00',
+      layout_id:'kerwin-editorial-research-v1',
+      mobile_qa_version:'1.2.0',
+      desktop_qa_version:'1.0.0'
+    },
+    {
       slug:'delaware-vs-texas-corporate-domicile-20260823',
       title:'Delaware vs Texas｜美国公司法的迁册战争',
       date:'2026年8月23日',
