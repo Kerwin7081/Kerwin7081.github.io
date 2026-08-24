@@ -15,6 +15,20 @@
   var query = '';
   var manualPages = [
     {
+      slug:'ai-factory-ballot-box-community-roi-20260824',
+      title:'AI Factory Meets the Ballot Box｜谁来为 AI 基础设施付账？',
+      date:'2026年8月24日',
+      deck:'美国州际政策竞争系列⑤：以 Texas、Pennsylvania、Georgia、Virginia、Arizona 与 California 六州案例，研究居民电费、水资源、社区收益与地方审批如何通过 Take-or-Pay、Large-load Tariff、Community Benefit Agreement 和 Local Approval 进入 Time-to-Power、WACC 与 ROIC。',
+      tag:'AI Infrastructure · Social License · 2026 Midterms',
+      category:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
+      source:'enya',
+      homepage_approved:true,
+      published_at:'2026-08-24T13:19:00+08:00',
+      layout_id:'kerwin-editorial-research-v1',
+      mobile_qa_version:'1.2.0',
+      desktop_qa_version:'1.0.0'
+    },
+    {
       slug:'us-ai-deployment-map-midterms-20260823',
       title:'美国50州 AI Deployment Map｜2026中期选举前的算力基础设施地图',
       date:'2026年8月23日',
