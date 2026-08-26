@@ -29,6 +29,9 @@ jobs:
       - name: Run guard tests
         run: python3 -m unittest discover -s tests -p 'test_audit_changed_pages.py'
 
+      - name: Verify homepage fallback is synchronized
+        run: python3 tools/sync_homepage_fallback.py --check
+
       - name: Audit affected production pages
         run: >-
           python3 tools/audit_changed_pages.py
