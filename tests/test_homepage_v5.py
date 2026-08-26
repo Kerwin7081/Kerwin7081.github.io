@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -73,6 +75,16 @@ class HomepageV5Tests(unittest.TestCase):
         self.assertIn('/ai-factory-agent-production-function-20260824/', self.index)
         self.assertIn('/ai-cloud-unit-economics-dashboard-20260817/', self.index)
         self.assertGreaterEqual(len(re.findall(r'class="story-link" href="/', self.index)), 8)
+
+    def test_static_fallback_is_synchronized_with_registry(self) -> None:
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / "sync_homepage_fallback.py"), "--check"],
+            check=False,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout)
 
     def test_seo_surface_is_complete(self) -> None:
         for path in ("robots.txt", "sitemap.xml", "favicon.svg", "site.webmanifest", "404.html"):
