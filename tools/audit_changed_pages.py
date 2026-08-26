@@ -25,7 +25,19 @@ REGISTRY_REQUIRED_FIELDS = {
     "source",
     "homepage_approved",
     "published_at",
+    "updated_at",
+    "axis",
+    "content_type",
+    "homepage_deck",
 }
+HOMEPAGE_AXES = {
+    "physical-infrastructure",
+    "compute-chain",
+    "agent-economy",
+    "capital-macro",
+    "frontier-infrastructure",
+}
+HOMEPAGE_CONTENT_TYPES = {"earnings", "deep-dive", "brief", "interactive", "tracker"}
 NEW_META_REQUIRED_FIELDS = {
     "title",
     "slug",
@@ -168,6 +180,10 @@ def validate_registry(root: Path) -> list[str]:
             errors.append(f"registry.json: duplicate slug {slug!r}")
         seen.add(slug)
         if item.get("homepage_approved") is True:
+            if item.get("axis") not in HOMEPAGE_AXES:
+                errors.append(f"{label}: invalid structured homepage axis")
+            if item.get("content_type") not in HOMEPAGE_CONTENT_TYPES:
+                errors.append(f"{label}: invalid structured homepage content_type")
             slug_path = PurePosixPath(slug)
             if slug_path.is_absolute() or ".." in slug_path.parts:
                 errors.append(f"{label}: slug must be a safe repository-relative path")
@@ -225,6 +241,7 @@ def validate_registry(root: Path) -> list[str]:
 
 def validate_homepage_loader(root: Path) -> list[str]:
     candidates = (
+        root / "assets" / "kerwin-home-v5.js",
         root / "assets" / "kerwin-home-v4.js",
         root / "assets" / "kerwin-home-v3.js",
     )
@@ -235,8 +252,8 @@ def validate_homepage_loader(root: Path) -> list[str]:
         return [f"{path.relative_to(root).as_posix()}: unable to read homepage loader: {exc}"]
 
     errors: list[str] = []
-    is_v4 = path.name == "kerwin-home-v4.js"
-    for obsolete in ("var legacyPages", "registry.concat(legacyPages)", "source === 'codex'"):
+    is_modern = path.name in {"kerwin-home-v4.js", "kerwin-home-v5.js"}
+    for obsolete in ("var legacyPages", "var manualPages", "registry.concat(legacyPages)", "source === 'codex'"):
         if obsolete in source:
             errors.append(
                 f"{path.relative_to(root).as_posix()}: homepage content must come from "
@@ -245,9 +262,11 @@ def validate_homepage_loader(root: Path) -> list[str]:
     required = (
         ("Array.isArray(registry)", "homepage_approved", "function renderRecent",
          "function renderEarnings", "function renderLibrary")
-        if is_v4
+        if is_modern
         else ("Array.isArray(registry)", "p.featured_rank", "p.path")
     )
+    if path.name == "kerwin-home-v5.js":
+        required += ("page.axis", "page.content_type", "page.series_id")
     for token in required:
         if token not in source:
             errors.append(
@@ -346,6 +365,7 @@ def main() -> int:
         for path in (
             PurePosixPath("assets/kerwin-home-v3.js"),
             PurePosixPath("assets/kerwin-home-v4.js"),
+            PurePosixPath("assets/kerwin-home-v5.js"),
         )
     ):
         errors.extend(validate_homepage_loader(root))
