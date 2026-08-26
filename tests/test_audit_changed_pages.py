@@ -185,6 +185,10 @@ class ChangedPageAuditTests(unittest.TestCase):
             "source": "codex",
             "homepage_approved": True,
             "published_at": "2026-07-26T15:00:00+08:00",
+            "updated_at": "2026-07-26T15:00:00+08:00",
+            "axis": "capital-macro",
+            "content_type": "deep-dive",
+            "homepage_deck": "Test",
             "path": "/legacy-topic.html",
         }
         self.write("registry.json", json.dumps([entry]))

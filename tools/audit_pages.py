@@ -65,8 +65,19 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     has_v2_js = "kerwin-system-v2.js" in lower
     has_v3_css = "kerwin-system-v3.css" in lower
     has_v3_js = "kerwin-system-v3.js" in lower
-    has_home_css = any(name in lower for name in ("kerwin-home-v2.css", "kerwin-home-v3.css", "kerwin-home-v4.css"))
-    has_home_js = "kerwin-home-v3.js" in lower or "kerwin-home-v4.js" in lower
+    has_home_css = any(
+        name in lower
+        for name in (
+            "kerwin-home-v2.css",
+            "kerwin-home-v3.css",
+            "kerwin-home-v4.css",
+            "kerwin-home-v5.css",
+        )
+    )
+    has_home_js = any(
+        name in lower
+        for name in ("kerwin-home-v3.js", "kerwin-home-v4.js", "kerwin-home-v5.js")
+    )
     has_inline_css = "<style" in lower and "</style>" in lower
     has_shared_shell = (has_v2_css and has_v2_js) or (has_v3_css and has_v3_js)
 
