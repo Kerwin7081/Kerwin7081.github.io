@@ -1,0 +1,66 @@
+name: Apply probability copy polish
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-probability-copy-polish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Apply reader-facing copy polish
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('probability-capital-market-casino-prediction-perpetuals-20260827/index.html')
+          s = path.read_text(encoding='utf-8')
+
+          replacements = [
+              ('<span>Flutter / FanDuel、DraftKings、Fanatics 已通过合资、收购交易所或自建交易所进入事件合约市场。</span>',
+               '<span>Flutter / FanDuel（美国头部线上体育博彩）、DraftKings（美国数字博彩龙头）以及 Fanatics Betting &amp; Gaming（体育消费巨头 Fanatics 旗下博彩业务）都已通过合资、收购交易所或自建交易所进入事件合约市场。</span>'),
+              ('传统体育博彩公司又从防守转向进攻，FanDuel、DraftKings 和 Fanatics 开始直接建设预测市场产品和交易所基础设施。',
+               '传统体育博彩公司又从防守转向进攻：FanDuel（Flutter 旗下美国头部体育博彩平台）、DraftKings（美国数字博彩龙头）以及 Fanatics Betting &amp; Gaming（Fanatics 体育消费生态旗下博彩业务）开始直接建设预测市场产品和交易所基础设施。'),
+              ('<tr><td><b>Flutter Entertainment（弗拉特娱乐，NYSE: FLUT） / FanDuel（范杜尔）</b><br/><span class="muted">中文市场也常直接使用 FanDuel 英文品牌名；它是 Flutter 旗下美国体育博彩、iGaming 与预测市场核心平台。</span></td>',
+               '<tr><td><b>Flutter Entertainment（弗拉特娱乐，NYSE: FLUT） / FanDuel（范杜尔）</b><br/><span class="muted">FanDuel 是 Flutter 旗下美国头部在线体育博彩与 iGaming（在线赌场）平台，也是美国市场份额领先的 Sportsbook（体育博彩）品牌之一。</span></td>'),
+              ('<tr><td><b>DraftKings（NASDAQ: DKNG）</b></td>',
+               '<tr><td><b>DraftKings（NASDAQ: DKNG）</b><br/><span class="muted">美国头部在线体育博彩、iGaming（在线赌场）与每日梦幻体育平台，与 FanDuel 并列美国数字博彩核心玩家。</span></td>'),
+              ('<tr><td><b>Fanatics</b></td>',
+               '<tr><td><b>Fanatics Betting &amp; Gaming</b><br/><span class="muted">Fanatics 集团旗下博彩业务。母集团以体育球衣、周边电商和球迷会员生态起家，随后把庞大的体育用户入口延伸到在线体育博彩和预测市场。</span></td>'),
+              ('<p>因此，第8部分把重点放在<strong>Onshore Conversion（监管上岸）</strong>：离岸流动性、链上技术和 24×7 交易能否获得美国合规通道。名义成交额提供规模背景，监管可转换性决定机构资本能否进入，也决定永续合约能否从离岸交易工具升级为美国市场结构的一部分。</p>',
+               '<p>更值得关注的是 <strong>Onshore Conversion（监管上岸）</strong> 能否发生：美国是否愿意为离岸形成的 24×7 流动性、链上订单簿和永续衍生品建立清晰的合规入口。一旦这条通道打通，过去主要服务加密原生用户的产品才有机会进一步接入美国的券商分发、机构资金、托管与清算体系。届时，永续合约的竞争范围也会从离岸加密交易平台，逐步扩展到 Coinbase、CME 等主流市场基础设施。成交额说明产品已经拥有足够大的用户需求；合规通道决定这部分需求能否真正进入美国金融体系。</p>'),
+              ('<tr><td><b>澳娱综合 0880.HK</b><br/>SJM Holdings</td>',
+               '<tr><td><b>澳娱综合 0880.HK</b><br/>SJM Holdings<br/><span class="muted"><b>何鸿燊家族博彩体系的核心上市平台</b>：控股体系源自何鸿燊创办的 STDM（澳门旅游娱乐股份有限公司）；梁安琪（何鸿燊四太）现任联席主席及最大个人股东。<a class="cite" href="https://www.forbes.com/profile/angela-leong/" rel="noopener" target="_blank">[资料]</a></span></td>'),
+              ('<div class="callout"><b>这对本专题的意义：</b>传统赌场并没有停在“线下旧经济”。它们也在把投注过程变成实时数据，只是价值捕获方式不同：澳门把数据用于提高实体赌桌效率、客户识别和综合度假村变现；预测市场与永续合约把数据直接变成可交易价格。两条路径最终都在争夺同一件资产——更高频、更可计算的用户行为。</div>',
+               '<div class="callout"><b>投资含义：</b>传统赌场也在把投注过程变成实时数据。澳门运营商用这些数据提高实体赌桌效率、客户识别和综合度假村变现；预测市场与永续合约则把数据直接变成可交易价格。两条路径都在提高用户行为的频率与可计算性，最终争夺的是同一批风险资金、注意力和数据价值。</div>'),
+          ]
+
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f'Missing expected text: {old[:80]}')
+              s = s.replace(old, new)
+
+          s = s.replace('DraftKings、Fanatics 已主动进入预测市场', 'DraftKings、Fanatics Betting &amp; Gaming 已主动进入预测市场')
+          s = s.replace('DraftKings 收购交易所、Fanatics 收购交易所与清算所', 'DraftKings 收购交易所、Fanatics Betting &amp; Gaming 收购交易所与清算所')
+          s = s.replace('DraftKings、Fanatics、BetMGM', 'DraftKings、Fanatics Betting &amp; Gaming、BetMGM')
+
+          path.write_text(s, encoding='utf-8')
+          PY
+
+          rm .github/workflows/apply-probability-copy-polish.yml
+          git config user.name "kerwin-web-bot"
+          git config user.email "kerwin7081@gmail.com"
+          git add probability-capital-market-casino-prediction-perpetuals-20260827/index.html .github/workflows/apply-probability-copy-polish.yml
+          git commit -m "Polish probability capital market reader context"
+          git push
