@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "observedAtUtc": "2026-08-31T21:25:36.590Z",
-  "observedAtHkt": "2026-09-01T05:25:36.590+08:00",
+  "observedAtUtc": "2026-09-01T04:13:13.497Z",
+  "observedAtHkt": "2026-09-01T12:13:13.497+08:00",
   "source": "https://api.hyperliquid.xyz/info",
   "dex": "xyz",
   "mode": "github_actions_4h",
@@ -50,22 +50,22 @@
       "instrument": "Nasdaq 100 Index"
     },
     "NVDA": {
-      "close": 214.72,
-      "date": "2026-08-21",
+      "close": 217.55,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · NVDA cash close",
       "comparable": true,
       "currency": "USD"
     },
     "AMD": {
-      "close": 473.25,
-      "date": "2026-08-21",
+      "close": 465.58,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · AMD cash close",
       "comparable": true,
       "currency": "USD"
     },
     "MU": {
-      "close": 966.78,
-      "date": "2026-08-21",
+      "close": 932.86,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · MU cash close",
       "comparable": true,
       "currency": "USD"
@@ -78,57 +78,57 @@
       "currency": "USD"
     },
     "AVGO": {
-      "close": 368.45,
-      "date": "2026-08-21",
+      "close": 368.79,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · AVGO cash close",
       "comparable": true,
       "currency": "USD"
     },
     "MSFT": {
-      "close": 483.24,
-      "date": "2026-08-21",
+      "close": 513.53,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · MSFT cash close",
       "comparable": true,
       "currency": "USD"
     },
     "AMZN": {
-      "close": 258.63,
-      "date": "2026-08-21",
+      "close": 266.43,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · AMZN cash close",
       "comparable": true,
       "currency": "USD"
     },
     "META": {
-      "close": 549.9,
-      "date": "2026-08-21",
+      "close": 578.02,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · META cash close",
       "comparable": true,
       "currency": "USD"
     },
     "GOOGL": {
-      "close": 344.82,
-      "date": "2026-08-21",
+      "close": 346.59,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · GOOGL cash close",
       "comparable": true,
       "currency": "USD"
     },
     "TSLA": {
-      "close": 362.86,
-      "date": "2026-08-21",
+      "close": 348.75,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · TSLA cash close",
       "comparable": true,
       "currency": "USD"
     },
     "SNDK": {
-      "close": 1596.08,
-      "date": "2026-08-21",
+      "close": 1484.98,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · SNDK cash close",
       "comparable": true,
       "currency": "USD"
     },
     "SKHY": {
-      "close": 163.41,
-      "date": "2026-08-21",
+      "close": 161.04,
+      "date": "2026-08-28",
       "source": "Yahoo Finance · SKHY cash close",
       "comparable": true,
       "currency": "USD"
@@ -156,6 +156,208 @@
     {
       "symbol": "NVDA",
       "category": "AI半导体",
+      "midPx": 220.055,
+      "markPx": 220.07,
+      "oraclePx": 220.13,
+      "funding": 0.00000625,
+      "openInterest": 656403.8380000001,
+      "prevDayPx": 217.57
+    },
+    {
+      "symbol": "AMD",
+      "category": "AI半导体",
+      "midPx": 469.635,
+      "markPx": 469.62,
+      "oraclePx": 469.36,
+      "funding": 0.0000162239,
+      "openInterest": 28268.35,
+      "prevDayPx": 462.72
+    },
+    {
+      "symbol": "MU",
+      "category": "存储",
+      "midPx": 956.715,
+      "markPx": 956.74,
+      "oraclePx": 956.71,
+      "funding": 0.00000625,
+      "openInterest": 134685.142,
+      "prevDayPx": 919.97
+    },
+    {
+      "symbol": "TSM",
+      "category": "晶圆代工",
+      "midPx": 419.84,
+      "markPx": 419.93,
+      "oraclePx": 419.93,
+      "funding": 0.00000625,
+      "openInterest": 23041.776,
+      "prevDayPx": 416.69
+    },
+    {
+      "symbol": "AVGO",
+      "category": "AI半导体",
+      "midPx": 371.26,
+      "markPx": 371.21,
+      "oraclePx": 370.98,
+      "funding": 0.0000248653,
+      "openInterest": 16710.96,
+      "prevDayPx": 369.04
+    },
+    {
+      "symbol": "MSFT",
+      "category": "平台",
+      "midPx": 506.155,
+      "markPx": 506.19,
+      "oraclePx": 506.22,
+      "funding": 0.00000625,
+      "openInterest": 42327.1,
+      "prevDayPx": 510.45
+    },
+    {
+      "symbol": "AMZN",
+      "category": "平台",
+      "midPx": 260.16,
+      "markPx": 260.24,
+      "oraclePx": 260.25,
+      "funding": 0.00000625,
+      "openInterest": 103506.07,
+      "prevDayPx": 265.38
+    },
+    {
+      "symbol": "META",
+      "category": "平台",
+      "midPx": 572.095,
+      "markPx": 572.06,
+      "oraclePx": 572,
+      "funding": 0.00000625,
+      "openInterest": 82788.07,
+      "prevDayPx": 575.18
+    },
+    {
+      "symbol": "GOOGL",
+      "category": "平台",
+      "midPx": 339.855,
+      "markPx": 339.86,
+      "oraclePx": 339.7,
+      "funding": 0.0000086023,
+      "openInterest": 273485.3639999999,
+      "prevDayPx": 344.26
+    },
+    {
+      "symbol": "TSLA",
+      "category": "高波动",
+      "midPx": 366.415,
+      "markPx": 366.44,
+      "oraclePx": 366.54,
+      "funding": 0.0000032542,
+      "openInterest": 127128.676,
+      "prevDayPx": 347.33
+    },
+    {
+      "symbol": "SMSN",
+      "category": "存储",
+      "midPx": 189.7,
+      "markPx": 189.72,
+      "oraclePx": 189.72,
+      "funding": 0.0000023093,
+      "openInterest": 241372.13,
+      "prevDayPx": 183.61
+    },
+    {
+      "symbol": "SKHX",
+      "category": "存储",
+      "midPx": 1236.25,
+      "markPx": 1235.9,
+      "oraclePx": 1235.9,
+      "funding": -0.0000097205,
+      "openInterest": 261320.8359999998,
+      "prevDayPx": 1179.2
+    },
+    {
+      "symbol": "SKHY",
+      "category": "存储",
+      "midPx": 164.815,
+      "markPx": 164.79,
+      "oraclePx": 164.79,
+      "funding": 0.00000625,
+      "openInterest": 540763.72,
+      "prevDayPx": 157.96
+    },
+    {
+      "symbol": "SNDK",
+      "category": "存储",
+      "midPx": 1545.55,
+      "markPx": 1545.5,
+      "oraclePx": 1545.7,
+      "funding": 0.00000625,
+      "openInterest": 96643.942,
+      "prevDayPx": 1459.6
+    },
+    {
+      "symbol": "DRAM",
+      "category": "存储",
+      "midPx": 56.894,
+      "markPx": 56.896,
+      "oraclePx": 56.875,
+      "funding": 0.0000075317,
+      "openInterest": 1432696.6,
+      "prevDayPx": 55.136
+    },
+    {
+      "symbol": "KIOXIA",
+      "category": "存储",
+      "midPx": 318.01,
+      "markPx": 318.22,
+      "oraclePx": 318.64,
+      "funding": -0.0000524901,
+      "openInterest": 26054.062,
+      "prevDayPx": 298.48
+    },
+    {
+      "symbol": "CXMT",
+      "category": "存储",
+      "midPx": 8.39575,
+      "markPx": 8.4004,
+      "oraclePx": 8.417,
+      "funding": -0.0001073789,
+      "openInterest": 6923485.199999999,
+      "prevDayPx": 8.567
+    },
+    {
+      "symbol": "UNITREE",
+      "category": "扩展观察",
+      "midPx": 86.7105,
+      "markPx": 86.705,
+      "oraclePx": 86.861,
+      "funding": -0.0002309928,
+      "openInterest": 240954.44,
+      "prevDayPx": 82.9
+    },
+    {
+      "symbol": "SP500",
+      "category": "指数",
+      "midPx": 7688.25,
+      "markPx": 7688.3,
+      "oraclePx": 7686.4,
+      "funding": 0.00000625,
+      "openInterest": 50079.22,
+      "prevDayPx": 7679.9
+    },
+    {
+      "symbol": "XYZ100",
+      "category": "指数",
+      "midPx": 29455.5,
+      "markPx": 29455,
+      "oraclePx": 29438,
+      "funding": 0.0000188661,
+      "openInterest": 8279.6828,
+      "prevDayPx": 29305
+    }
+  ],
+  "previousAssets": {
+    "NVDA": {
+      "symbol": "NVDA",
+      "category": "AI半导体",
       "midPx": 220.495,
       "markPx": 220.51,
       "oraclePx": 220.6,
@@ -163,7 +365,7 @@
       "openInterest": 663496.858,
       "prevDayPx": 218.6
     },
-    {
+    "AMD": {
       "symbol": "AMD",
       "category": "AI半导体",
       "midPx": 470.655,
@@ -173,7 +375,7 @@
       "openInterest": 28202.356,
       "prevDayPx": 469
     },
-    {
+    "MU": {
       "symbol": "MU",
       "category": "存储",
       "midPx": 953.875,
@@ -183,7 +385,7 @@
       "openInterest": 137447.344,
       "prevDayPx": 931.69
     },
-    {
+    "TSM": {
       "symbol": "TSM",
       "category": "晶圆代工",
       "midPx": 415.89,
@@ -193,7 +395,7 @@
       "openInterest": 23101.39,
       "prevDayPx": 420.38
     },
-    {
+    "AVGO": {
       "symbol": "AVGO",
       "category": "AI半导体",
       "midPx": 370.92,
@@ -203,7 +405,7 @@
       "openInterest": 16378.94,
       "prevDayPx": 371.18
     },
-    {
+    "MSFT": {
       "symbol": "MSFT",
       "category": "平台",
       "midPx": 507.44,
@@ -213,7 +415,7 @@
       "openInterest": 42302.96,
       "prevDayPx": 514.92
     },
-    {
+    "AMZN": {
       "symbol": "AMZN",
       "category": "平台",
       "midPx": 259.985,
@@ -223,7 +425,7 @@
       "openInterest": 107031.126,
       "prevDayPx": 266.74
     },
-    {
+    "META": {
       "symbol": "META",
       "category": "平台",
       "midPx": 571.965,
@@ -233,7 +435,7 @@
       "openInterest": 82950.684,
       "prevDayPx": 580.83
     },
-    {
+    "GOOGL": {
       "symbol": "GOOGL",
       "category": "平台",
       "midPx": 339.915,
@@ -243,7 +445,7 @@
       "openInterest": 273886.344,
       "prevDayPx": 346.5
     },
-    {
+    "TSLA": {
       "symbol": "TSLA",
       "category": "高波动",
       "midPx": 367.385,
@@ -253,7 +455,7 @@
       "openInterest": 124540.598,
       "prevDayPx": 350.95
     },
-    {
+    "SMSN": {
       "symbol": "SMSN",
       "category": "存储",
       "midPx": 187.995,
@@ -263,7 +465,7 @@
       "openInterest": 237595.024,
       "prevDayPx": 188.12
     },
-    {
+    "SKHX": {
       "symbol": "SKHX",
       "category": "存储",
       "midPx": 1223.75,
@@ -273,7 +475,7 @@
       "openInterest": 260832.362,
       "prevDayPx": 1223.5
     },
-    {
+    "SKHY": {
       "symbol": "SKHY",
       "category": "存储",
       "midPx": 163.875,
@@ -283,7 +485,7 @@
       "openInterest": 549563.26,
       "prevDayPx": 162.48
     },
-    {
+    "SNDK": {
       "symbol": "SNDK",
       "category": "存储",
       "midPx": 1546.8,
@@ -293,7 +495,7 @@
       "openInterest": 101853.81,
       "prevDayPx": 1491.8
     },
-    {
+    "DRAM": {
       "symbol": "DRAM",
       "category": "存储",
       "midPx": 56.6965,
@@ -303,7 +505,7 @@
       "openInterest": 1426436,
       "prevDayPx": 56.176
     },
-    {
+    "KIOXIA": {
       "symbol": "KIOXIA",
       "category": "存储",
       "midPx": 315.055,
@@ -313,7 +515,7 @@
       "openInterest": 25204.302,
       "prevDayPx": 302.68
     },
-    {
+    "CXMT": {
       "symbol": "CXMT",
       "category": "存储",
       "midPx": 8.78335,
@@ -323,7 +525,7 @@
       "openInterest": 6923831.399999999,
       "prevDayPx": 9.0076
     },
-    {
+    "UNITREE": {
       "symbol": "UNITREE",
       "category": "扩展观察",
       "midPx": 83.199,
@@ -333,7 +535,7 @@
       "openInterest": 243115.34,
       "prevDayPx": 86.541
     },
-    {
+    "SP500": {
       "symbol": "SP500",
       "category": "指数",
       "midPx": 7696.7,
@@ -343,7 +545,7 @@
       "openInterest": 50416.332,
       "prevDayPx": 7723
     },
-    {
+    "XYZ100": {
       "symbol": "XYZ100",
       "category": "指数",
       "midPx": 29491.5,
@@ -352,208 +554,6 @@
       "funding": 0.0000109965,
       "openInterest": 8072.267,
       "prevDayPx": 29507
-    }
-  ],
-  "previousAssets": {
-    "NVDA": {
-      "symbol": "NVDA",
-      "category": "AI半导体",
-      "midPx": 219.735,
-      "markPx": 219.74,
-      "oraclePx": 219.75,
-      "funding": 0.00000625,
-      "openInterest": 675328.3960000003,
-      "prevDayPx": 218.9
-    },
-    "AMD": {
-      "symbol": "AMD",
-      "category": "AI半导体",
-      "midPx": 466.14,
-      "markPx": 466.21,
-      "oraclePx": 466.18,
-      "funding": 0.00000625,
-      "openInterest": 28401.04,
-      "prevDayPx": 469.5
-    },
-    "MU": {
-      "symbol": "MU",
-      "category": "存储",
-      "midPx": 937.06,
-      "markPx": 937.27,
-      "oraclePx": 937.45,
-      "funding": 0.00000625,
-      "openInterest": 149037.8339999999,
-      "prevDayPx": 934.05
-    },
-    "TSM": {
-      "symbol": "TSM",
-      "category": "晶圆代工",
-      "midPx": 418.1,
-      "markPx": 418.09,
-      "oraclePx": 417.84,
-      "funding": 0.0000164767,
-      "openInterest": 23073.898,
-      "prevDayPx": 420.45
-    },
-    "AVGO": {
-      "symbol": "AVGO",
-      "category": "AI半导体",
-      "midPx": 368.96,
-      "markPx": 368.95,
-      "oraclePx": 368.81,
-      "funding": 0.000024605,
-      "openInterest": 15576.56,
-      "prevDayPx": 371.6
-    },
-    "MSFT": {
-      "symbol": "MSFT",
-      "category": "平台",
-      "midPx": 510.055,
-      "markPx": 510.07,
-      "oraclePx": 510.26,
-      "funding": -0.0000091179,
-      "openInterest": 41819.704,
-      "prevDayPx": 515.13
-    },
-    "AMZN": {
-      "symbol": "AMZN",
-      "category": "平台",
-      "midPx": 261.165,
-      "markPx": 261.15,
-      "oraclePx": 261.13,
-      "funding": 0.00000625,
-      "openInterest": 103886.998,
-      "prevDayPx": 267.19
-    },
-    "META": {
-      "symbol": "META",
-      "category": "平台",
-      "midPx": 571.415,
-      "markPx": 571.4,
-      "oraclePx": 571.36,
-      "funding": 0.00000625,
-      "openInterest": 82977.134,
-      "prevDayPx": 581.13
-    },
-    "GOOGL": {
-      "symbol": "GOOGL",
-      "category": "平台",
-      "midPx": 338.575,
-      "markPx": 338.56,
-      "oraclePx": 338.48,
-      "funding": 0.00000625,
-      "openInterest": 270304.3839999998,
-      "prevDayPx": 346.71
-    },
-    "TSLA": {
-      "symbol": "TSLA",
-      "category": "高波动",
-      "midPx": 366.4,
-      "markPx": 366.38,
-      "oraclePx": 366.39,
-      "funding": 0.00000625,
-      "openInterest": 130336.0260000001,
-      "prevDayPx": 351.76
-    },
-    "SMSN": {
-      "symbol": "SMSN",
-      "category": "存储",
-      "midPx": 186.805,
-      "markPx": 186.91,
-      "oraclePx": 187.59,
-      "funding": -0.0001767574,
-      "openInterest": 236882.95,
-      "prevDayPx": 188.77
-    },
-    "SKHX": {
-      "symbol": "SKHX",
-      "category": "存储",
-      "midPx": 1211.55,
-      "markPx": 1212.2,
-      "oraclePx": 1216.3,
-      "funding": -0.0000824535,
-      "openInterest": 258882.2239999999,
-      "prevDayPx": 1232.7
-    },
-    "SKHY": {
-      "symbol": "SKHY",
-      "category": "存储",
-      "midPx": 162.165,
-      "markPx": 162.23,
-      "oraclePx": 162.27,
-      "funding": -0.0000096754,
-      "openInterest": 555881.38,
-      "prevDayPx": 163.77
-    },
-    "SNDK": {
-      "symbol": "SNDK",
-      "category": "存储",
-      "midPx": 1512.15,
-      "markPx": 1512.5,
-      "oraclePx": 1512.4,
-      "funding": 0.00000625,
-      "openInterest": 107088.346,
-      "prevDayPx": 1493.9
-    },
-    "DRAM": {
-      "symbol": "DRAM",
-      "category": "存储",
-      "midPx": 56.1085,
-      "markPx": 56.115,
-      "oraclePx": 56.09,
-      "funding": 0.0000088293,
-      "openInterest": 1418593.2000000004,
-      "prevDayPx": 56.43
-    },
-    "KIOXIA": {
-      "symbol": "KIOXIA",
-      "category": "存储",
-      "midPx": 311.675,
-      "markPx": 311.77,
-      "oraclePx": 312.7,
-      "funding": -0.000058994,
-      "openInterest": 25339.826,
-      "prevDayPx": 303.09
-    },
-    "CXMT": {
-      "symbol": "CXMT",
-      "category": "存储",
-      "midPx": 8.76755,
-      "markPx": 8.7697,
-      "oraclePx": 8.7773,
-      "funding": -0.0000291461,
-      "openInterest": 6934773.4,
-      "prevDayPx": 9.0134
-    },
-    "UNITREE": {
-      "symbol": "UNITREE",
-      "category": "扩展观察",
-      "midPx": 83.882,
-      "markPx": 83.889,
-      "oraclePx": 83.983,
-      "funding": 0.0000064716,
-      "openInterest": 243223.58,
-      "prevDayPx": 86.676
-    },
-    "SP500": {
-      "symbol": "SP500",
-      "category": "指数",
-      "midPx": 7673.65,
-      "markPx": 7673.9,
-      "oraclePx": 7675.1,
-      "funding": 0.00000625,
-      "openInterest": 52011.758,
-      "prevDayPx": 7733.8
-    },
-    "XYZ100": {
-      "symbol": "XYZ100",
-      "category": "指数",
-      "midPx": 29358,
-      "markPx": 29359,
-      "oraclePx": 29350,
-      "funding": 0.00000625,
-      "openInterest": 7548.292,
-      "prevDayPx": 29552
     }
   },
   "history": [
@@ -8759,6 +8759,211 @@
           "funding": 0.0000109965,
           "openInterest": 8072.267,
           "prevDayPx": 29507
+        }
+      ]
+    },
+    {
+      "observedAtUtc": "2026-09-01T04:13:13.497Z",
+      "assets": [
+        {
+          "symbol": "NVDA",
+          "category": "AI半导体",
+          "midPx": 220.055,
+          "markPx": 220.07,
+          "oraclePx": 220.13,
+          "funding": 0.00000625,
+          "openInterest": 656403.8380000001,
+          "prevDayPx": 217.57
+        },
+        {
+          "symbol": "AMD",
+          "category": "AI半导体",
+          "midPx": 469.635,
+          "markPx": 469.62,
+          "oraclePx": 469.36,
+          "funding": 0.0000162239,
+          "openInterest": 28268.35,
+          "prevDayPx": 462.72
+        },
+        {
+          "symbol": "MU",
+          "category": "存储",
+          "midPx": 956.715,
+          "markPx": 956.74,
+          "oraclePx": 956.71,
+          "funding": 0.00000625,
+          "openInterest": 134685.142,
+          "prevDayPx": 919.97
+        },
+        {
+          "symbol": "TSM",
+          "category": "晶圆代工",
+          "midPx": 419.84,
+          "markPx": 419.93,
+          "oraclePx": 419.93,
+          "funding": 0.00000625,
+          "openInterest": 23041.776,
+          "prevDayPx": 416.69
+        },
+        {
+          "symbol": "AVGO",
+          "category": "AI半导体",
+          "midPx": 371.26,
+          "markPx": 371.21,
+          "oraclePx": 370.98,
+          "funding": 0.0000248653,
+          "openInterest": 16710.96,
+          "prevDayPx": 369.04
+        },
+        {
+          "symbol": "MSFT",
+          "category": "平台",
+          "midPx": 506.155,
+          "markPx": 506.19,
+          "oraclePx": 506.22,
+          "funding": 0.00000625,
+          "openInterest": 42327.1,
+          "prevDayPx": 510.45
+        },
+        {
+          "symbol": "AMZN",
+          "category": "平台",
+          "midPx": 260.16,
+          "markPx": 260.24,
+          "oraclePx": 260.25,
+          "funding": 0.00000625,
+          "openInterest": 103506.07,
+          "prevDayPx": 265.38
+        },
+        {
+          "symbol": "META",
+          "category": "平台",
+          "midPx": 572.095,
+          "markPx": 572.06,
+          "oraclePx": 572,
+          "funding": 0.00000625,
+          "openInterest": 82788.07,
+          "prevDayPx": 575.18
+        },
+        {
+          "symbol": "GOOGL",
+          "category": "平台",
+          "midPx": 339.855,
+          "markPx": 339.86,
+          "oraclePx": 339.7,
+          "funding": 0.0000086023,
+          "openInterest": 273485.3639999999,
+          "prevDayPx": 344.26
+        },
+        {
+          "symbol": "TSLA",
+          "category": "高波动",
+          "midPx": 366.415,
+          "markPx": 366.44,
+          "oraclePx": 366.54,
+          "funding": 0.0000032542,
+          "openInterest": 127128.676,
+          "prevDayPx": 347.33
+        },
+        {
+          "symbol": "SMSN",
+          "category": "存储",
+          "midPx": 189.7,
+          "markPx": 189.72,
+          "oraclePx": 189.72,
+          "funding": 0.0000023093,
+          "openInterest": 241372.13,
+          "prevDayPx": 183.61
+        },
+        {
+          "symbol": "SKHX",
+          "category": "存储",
+          "midPx": 1236.25,
+          "markPx": 1235.9,
+          "oraclePx": 1235.9,
+          "funding": -0.0000097205,
+          "openInterest": 261320.8359999998,
+          "prevDayPx": 1179.2
+        },
+        {
+          "symbol": "SKHY",
+          "category": "存储",
+          "midPx": 164.815,
+          "markPx": 164.79,
+          "oraclePx": 164.79,
+          "funding": 0.00000625,
+          "openInterest": 540763.72,
+          "prevDayPx": 157.96
+        },
+        {
+          "symbol": "SNDK",
+          "category": "存储",
+          "midPx": 1545.55,
+          "markPx": 1545.5,
+          "oraclePx": 1545.7,
+          "funding": 0.00000625,
+          "openInterest": 96643.942,
+          "prevDayPx": 1459.6
+        },
+        {
+          "symbol": "DRAM",
+          "category": "存储",
+          "midPx": 56.894,
+          "markPx": 56.896,
+          "oraclePx": 56.875,
+          "funding": 0.0000075317,
+          "openInterest": 1432696.6,
+          "prevDayPx": 55.136
+        },
+        {
+          "symbol": "KIOXIA",
+          "category": "存储",
+          "midPx": 318.01,
+          "markPx": 318.22,
+          "oraclePx": 318.64,
+          "funding": -0.0000524901,
+          "openInterest": 26054.062,
+          "prevDayPx": 298.48
+        },
+        {
+          "symbol": "CXMT",
+          "category": "存储",
+          "midPx": 8.39575,
+          "markPx": 8.4004,
+          "oraclePx": 8.417,
+          "funding": -0.0001073789,
+          "openInterest": 6923485.199999999,
+          "prevDayPx": 8.567
+        },
+        {
+          "symbol": "UNITREE",
+          "category": "扩展观察",
+          "midPx": 86.7105,
+          "markPx": 86.705,
+          "oraclePx": 86.861,
+          "funding": -0.0002309928,
+          "openInterest": 240954.44,
+          "prevDayPx": 82.9
+        },
+        {
+          "symbol": "SP500",
+          "category": "指数",
+          "midPx": 7688.25,
+          "markPx": 7688.3,
+          "oraclePx": 7686.4,
+          "funding": 0.00000625,
+          "openInterest": 50079.22,
+          "prevDayPx": 7679.9
+        },
+        {
+          "symbol": "XYZ100",
+          "category": "指数",
+          "midPx": 29455.5,
+          "markPx": 29455,
+          "oraclePx": 29438,
+          "funding": 0.0000188661,
+          "openInterest": 8279.6828,
+          "prevDayPx": 29305
         }
       ]
     }
