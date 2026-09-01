@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Frontier Model Economics 1.0：从智谱与 MiniMax 的公开损益表出发，把模型、Agent、Task、OpenRouter、Task Ownership 与价值捕获放进同一张统一账本。">
+  <link rel="canonical" href="https://enyaclawd.com/frontier-model-economics-1-0-20260901/">
+  <meta property="og:title" content="Frontier Model Economics 1.0：从模型财报到数字劳动力市场">
+  <meta property="og:description" content="统一账本：Power → Compute → Token → Agent Hour → Successful Task → Outcome → Economic Value → ROIC。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://enyaclawd.com/frontier-model-economics-1-0-20260901/">
+  <title>Frontier Model Economics 1.0：从模型财报到数字劳动力市场｜Kerwin Research Hub</title>
+  <style>
+    :root{--surface:#fff1e5;--paper:#fffaf5;--paper2:#f7e7d8;--outer:#e6d8cb;--ink:#262220;--muted:#746b65;--line:#cdbfb3;--line2:#968b83;--green:#103f35;--green2:#1f5a4d;--greenp:#dce8e2;--copper:#9a5c38;--risk:#9f332b;--serif:Georgia,"Times New Roman","Songti SC","STSong",serif;--sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--outer);font-family:var(--sans);font-size:17px;line-height:1.88;overflow-x:hidden}a{color:inherit;text-underline-offset:3px}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #d29b5d;outline-offset:3px}button,input{font:inherit}.skip-link{position:fixed;left:12px;top:-80px;z-index:1000;padding:8px 12px;border:1px solid var(--green);background:var(--paper);color:var(--green)}.skip-link:focus{top:12px}.progress{position:fixed;left:0;top:0;z-index:950;width:0;height:4px;background:var(--copper)}
+    body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:hidden}.kw-editorial-gate{position:fixed;inset:0;z-index:990;display:grid;place-items:center;padding:18px;background:var(--green)}.kw-editorial-gate[hidden]{display:none}.kw-editorial-gate__paper{width:min(860px,100%);border-top:6px solid var(--ink);background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.22)}.kw-editorial-gate__masthead{display:flex;justify-content:space-between;gap:20px;padding:13px 22px;border-bottom:1px solid var(--line2);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.kw-editorial-gate__body{display:grid;grid-template-columns:164px minmax(0,1fr);gap:clamp(32px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}.kw-editorial-gate__seal{display:grid;place-items:center;width:148px;aspect-ratio:1;border:1px solid var(--green);border-radius:50%;color:var(--green);text-align:center;font:700 20px/1.15 var(--serif)}.kw-editorial-gate__kicker,.eyebrow,.section-label{font-size:10px;font-weight:800;letter-spacing:.16em;line-height:1.4;text-transform:uppercase}.kw-editorial-gate__title{margin:10px 0 0;color:var(--green);font:700 clamp(29px,4vw,42px)/1.08 var(--serif)}.kw-editorial-gate__copy{margin:14px 0 18px;color:var(--green);font-family:var(--serif);font-weight:700;font-size:clamp(18px,2.4vw,23px);line-height:1.28}.kw-editorial-gate__copy span{display:block;margin-top:5px;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:400;line-height:1.55}.kw-editorial-gate__field{display:flex;align-items:center;gap:12px;min-height:50px;border-bottom:1px solid var(--green)}.kw-editorial-gate__field input{min-width:0;width:100%;height:48px;border:0;padding:0 4px;background:transparent;color:var(--green);font:700 24px/1 var(--serif)}.kw-editorial-gate__field input:focus{outline:0}.kw-editorial-gate__field span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.kw-editorial-gate__foot{display:grid;gap:3px;padding:12px 22px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+    .site-shell{width:min(1120px,calc(100% - 32px));margin:30px auto;background:var(--paper);box-shadow:0 18px 52px rgba(68,49,37,.16)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 24px;background:var(--green);color:var(--paper);font-size:11px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase}.topbar a{text-decoration:none}.masthead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:18px 32px;border-bottom:1px solid var(--line2);background:var(--surface)}.brand-mark{color:var(--green);font:700 27px/1 var(--serif);text-decoration:none}.brand-mark span{display:block;margin-top:7px;color:var(--muted);font:700 9px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase}.nav{display:flex;justify-content:center;gap:18px;font-size:11px;font-weight:700}.nav a{text-decoration:none}.home-route{color:var(--green);font-size:12px;font-weight:800;text-decoration:none}
+    .cover{padding:62px 64px 48px;border-bottom:1px solid var(--line2);background:var(--surface)}.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:end}.eyebrow{margin-bottom:18px;color:var(--copper)}.cover h1{max-width:820px;margin:0;font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.02em}.cover h1 span{display:block;margin-top:11px;color:var(--green);font-size:.56em;line-height:1.3}.thesis{max-width:840px;margin:24px 0 0;font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif)}.cover-meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6}.cover-meta b{color:var(--ink)}.cover-seal{padding:24px 18px;border:1px solid var(--green);color:var(--green);text-align:center}.cover-seal strong{display:block;font:700 36px/1 var(--serif)}.cover-seal span{display:block;margin-top:9px;font-size:10px;line-height:1.55;letter-spacing:.12em;text-transform:uppercase}.scope-note{padding:18px 64px;border-bottom:1px solid var(--line);background:var(--paper2);color:var(--muted);font-size:13px;line-height:1.7}.scope-note b{color:var(--ink)}
+    .section{padding:44px 64px;border-bottom:1px solid var(--line)}.section-label{margin-bottom:9px;color:var(--green)}.section h2{margin:0 0 21px;font:700 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.012em}.section h3{margin:30px 0 12px;font:700 21px/1.35 var(--serif)}.section p{margin:0 0 16px}.lead{font-size:18px;line-height:1.78}.verdict{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}.verdict-item{padding:19px 18px;border-right:1px solid var(--line)}.verdict-item:last-child{border-right:0}.verdict-item b{display:block;margin-bottom:8px;color:var(--green);font:700 18px/1.35 var(--serif)}.verdict-item span{display:block;color:var(--muted);font-size:14px;line-height:1.65}.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line2);margin:20px 0 26px}table{width:100%;min-width:760px;border-collapse:collapse;font-size:15px;line-height:1.58}th{padding:12px 14px;background:var(--green);color:#fff;text-align:left}td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:var(--surface)}.dark-panel{margin:24px 0;padding:26px;background:var(--green);color:var(--paper)}.dark-panel h3{margin-top:0;color:#fff}.dark-panel p:last-child{margin-bottom:0}.formula{margin:20px 0;padding:20px 22px;border-left:4px solid var(--copper);background:#fff;font:700 18px/1.55 var(--serif);overflow-wrap:anywhere}.formula small{display:block;margin-top:8px;color:var(--muted);font:400 12px/1.6 var(--sans)}.flow{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));overflow-x:auto;margin:24px 0;border:1px solid var(--line2);background:var(--line)}.flow div{min-width:140px;padding:18px 14px;background:#fff;border-right:1px solid var(--line)}.flow div:last-child{border-right:0}.flow b{display:block;color:var(--green);font:700 17px/1.3 var(--serif)}.flow span{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.5}.analogy{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:24px 0;border:1px solid var(--line2);background:var(--line)}.analogy>div{padding:22px;background:var(--surface)}.analogy h3{margin-top:0}.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:24px 0;border:1px solid var(--line2);background:var(--line)}.kpi{padding:18px;background:#fff}.kpi b{display:block;color:var(--green);font:700 18px/1.35 var(--serif)}.kpi code{display:block;margin:8px 0;color:var(--copper);font-size:12px;white-space:normal}.kpi span{display:block;color:var(--muted);font-size:13px;line-height:1.6}.ladder{margin:24px 0;border-top:1px solid var(--line2)}.ladder-row{display:grid;grid-template-columns:170px 1fr 180px;gap:18px;padding:14px 0;border-bottom:1px solid var(--line)}.ladder-row b{color:var(--green);font-family:var(--serif)}.ladder-row span:last-child{color:var(--muted);font-size:13px}.note{margin:20px 0;padding:18px 20px;border:1px solid var(--line2);background:var(--paper2);font-size:14px;line-height:1.7}.risk{color:var(--risk);font-weight:700}.source{padding:12px 0;border-bottom:1px solid var(--line)}.source a{font-weight:700}.source span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.55}.related p{padding-bottom:12px;border-bottom:1px solid var(--line)}
+    .enya{padding:36px 64px;background:var(--green);color:var(--paper)}.enya h2{margin:0;font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.08}.enya-tag{margin-top:10px;font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.55}.enya-model{margin-top:5px;color:#c7dbd2;font-size:12px;line-height:1.5}.enya-copy{max-width:800px;margin:16px 0 0;color:#dce8e2;font-size:16px;line-height:1.7}.roles{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.role{padding-top:12px;border-top:1px solid rgba(255,255,255,.35)}.role span{display:block;margin-top:5px;color:#dce8e2;font-size:13px;line-height:1.6}.footer{padding:22px 32px;background:var(--ink);color:#e8ddd5;font-size:12px;line-height:1.7}.footer-line{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.footer-meta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:5px;overflow-wrap:anywhere}.footer a{color:#fff}.top-button{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border:1px solid var(--paper);border-radius:50%;background:var(--green);color:#fff;font:700 20px/1 var(--serif);cursor:pointer;opacity:0;visibility:hidden;transition:opacity 150ms ease}.top-button.is-visible{opacity:1;visibility:visible}
+    @media(max-width:960px){.cover-grid{grid-template-columns:1fr}.cover-seal{width:210px}.verdict{grid-template-columns:repeat(2,1fr)}.verdict-item{border-bottom:1px solid var(--line)}.verdict-item:nth-child(2n){border-right:0}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){body{font-size:16px;line-height:1.80}.kw-editorial-gate{display:flex;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom));overflow:auto}.kw-editorial-gate__paper{width:min(100%,420px);max-height:calc(100svh - 24px);overflow:auto;border-top-width:4px}.kw-editorial-gate__masthead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:10px 16px;font-size:9px}.kw-editorial-gate__body{grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start;min-height:0;padding:24px 18px 20px}.kw-editorial-gate__seal{width:72px;font-size:13px}.kw-editorial-gate__kicker{font-size:9px}.kw-editorial-gate__title{margin-top:7px;font-size:clamp(23px,6.4vw,26px);line-height:1.14}.kw-editorial-gate__copy{margin:9px 0 12px;font-size:clamp(17px,4.8vw,19px)}.kw-editorial-gate__copy span{font-size:13px}.kw-editorial-gate__field{min-height:44px}.kw-editorial-gate__field input{height:42px;padding:0;font-size:23px}.kw-editorial-gate__field span{display:none}.kw-editorial-gate__foot{padding:10px 16px;font-size:10px}.site-shell{width:100%;margin:0;box-shadow:none}.topbar{padding:8px 20px;font-size:9px}.topbar span:last-child{display:none}.masthead{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:12px 20px}.nav{display:none}.brand-mark{font-size:23px}.brand-mark span{margin-top:5px;font-size:8px}.home-route{font-size:12px;white-space:nowrap}.cover{padding:27px 20px 24px}.cover-grid{grid-template-columns:1fr;gap:16px}.eyebrow{margin-bottom:12px;font-size:9px}.cover h1{font-size:clamp(24px,7vw,28px);line-height:1.18}.cover h1 span{margin-top:12px;font-size:clamp(18px,5.2vw,21px);line-height:1.34}.thesis{margin-top:17px;font-size:16px;line-height:1.72}.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin-top:20px;padding-top:14px;font-size:11px}.cover-seal{display:none}.scope-note{padding:14px 20px;font-size:12px}.section,.enya{padding:30px 20px}.section h2{font-size:clamp(23px,6.4vw,26px);line-height:1.25}.section h3{margin-top:24px;font-size:19px}.lead{font-size:16px;line-height:1.72}.verdict,.kpi-grid,.roles,.analogy{grid-template-columns:1fr}.verdict-item{border-right:0;border-bottom:1px solid var(--line)}.table-wrap{max-width:100%;-webkit-overflow-scrolling:touch}table{font-size:14px}.ladder-row{grid-template-columns:1fr;gap:4px}.enya h2{font-size:clamp(22px,6vw,26px)}.enya-tag{font-size:15px}.enya-copy{font-size:15px;line-height:1.65}.roles{gap:14px}.footer{padding:20px}.footer-line{display:block}.footer-line a{display:inline-block;margin-top:10px}.footer-meta{display:grid;gap:4px;margin-top:8px}.top-button{right:16px;bottom:calc(16px + env(safe-area-inset-bottom))}}
+    @media(max-width:390px){.kw-editorial-gate__masthead{grid-template-columns:1fr;gap:2px}.kw-editorial-gate__body{grid-template-columns:72px minmax(0,1fr);gap:14px}}
+    @media print{body{background:#fff}.kw-editorial-gate,.topbar,.masthead,.progress,.top-button{display:none}.site-shell{width:100%;margin:0;box-shadow:none}}
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="frontier-model-economics-1-0-20260901">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Reader Access</span></div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">Frontier Model Economics · 1.0</div>
+          <h2 class="kw-editorial-gate__title" id="gate-title">从模型财报到数字劳动力市场</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field"><input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究"><span>Auto enter</span></label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
+    </div>
+  </section>
+  <a class="skip-link" href="#main-content">跳至正文</a><div class="progress" id="reading-progress" aria-hidden="true"></div>
+  <main class="site-shell" id="main-content">
+    <div class="topbar"><span>Kerwin Research Hub · Agent Economy Desk</span><span>Evidence first · Snapshot 2026-09-01 HKT</span></div>
+    <header class="masthead">
+      <a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a>
+      <nav class="nav" aria-label="页内导航"><a href="#verdict">核心判断</a><a href="#ledger">统一账本</a><a href="#router">Economic Router</a><a href="#sources">主要来源</a></nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">Frontier Model Economics · Agent Economy · 2026.09.01</div>
+          <h1>Frontier Model Economics 1.0<span>从模型财报到数字劳动力市场</span></h1>
+          <p class="thesis">智谱与 MiniMax 的公开损益表把模型公司从 Benchmark 拉回真实经济学：Token 是生产要素，Successful Task（成功任务）与 Outcome（结果）才是最终可计价产出。由此，一条从瓦特、算力、模型、Agent、任务到价值捕获与 ROIC 的统一账本开始闭合。</p>
+          <div class="cover-meta"><span><b>研究日期</b> 2026年9月1日</span><span><b>数据快照</b> 2026-09-01 HKT</span><span><b>研究对象</b> Frontier Models / Agent Labor / Router / Task Ownership</span><span><b>方法</b> 财报锚点 + 官方产品披露 + 统一生产函数</span></div>
+        </div>
+        <aside class="cover-seal" aria-label="核心框架"><strong>1.0</strong><span>Watt → Outcome<br>Unified Ledger</span></aside>
+      </div>
+    </section>
+    <div class="scope-note"><b>口径说明：</b>本文是《模型公司上市元年》之后的方法论沉淀，不重复六家公司估值表。公司披露、第三方平台数据与 Kerwin 推演严格分层；涉及 OpenRouter 路由/Provider 的份额均为动态快照，不能视作永久市场份额；“Human-Equivalent Value”是经济价值容量，不直接等同 GDP。</div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>这轮讨论真正改变了什么</h2>
+      <p class="lead">起点是智谱、MiniMax 两份财报：收入高速增长，但推理仍是可变成本，研发强度仍远高于成熟 SaaS。沿着这条损益表往下追，我们最终发现，模型公司的核心问题并不是“谁最聪明”，而是“谁能以最低的资本与算力，把智能转化为最多成功任务，并把任务价值留在自己的股东账上”。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>Token → Task</b><span>Token 更接近生产原材料与 COGS meter；Agent 时代更值得追踪的是 $ / Successful Task 与 Gross Profit / Task。</span></div>
+        <div class="verdict-item"><b>Model → Digital Labor</b><span>模型是被训练出来的“大脑”，Agent 是可并行复制的数字劳动力；真正的乘数来自智能 × 分身 × 自主性。</span></div>
+        <div class="verdict-item"><b>Scarcity Migrates</b><span>稀缺性可能从 Power/GPU → Frontier Intelligence → Reliable Agent → High-value, verifiable Task Pool 逐层迁移。</span></div>
+        <div class="verdict-item"><b>Impact ≠ Capture</b><span>模型影响力、Token 份额、生态价值与公司收入捕获可以严重脱钩；最终要回到 Revenue Capture Architecture。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">02 · From P&L to Production Function</div>
+      <h2>财报给出的第一条硬约束：Frontier Model 还不是成熟 SaaS</h2>
+      <p>智谱 2026H1 收入 RMB953.9m、集团毛利率 26.4%、研发 RMB2.131bn；MiniMax 2026H1 收入 US$116.6m、毛利率 17.9%、研发 US$296.9m。两家公司都证明了模型商业化进入高速增长期，同时也证明“软件边际成本接近零”的旧直觉并不适用于当前 Frontier Model：推理消耗真实 Compute，下一代模型又持续吞噬 R&amp;D 与 Training 资本。</p>
+      <p>因此，传统 SaaS 的 <b>Seats × ARPU → Revenue → EBITDA</b> 不够。模型经济必须先写出生产函数，再谈估值。</p>
+      <div class="flow" aria-label="统一生产链">
+        <div><b>Power</b><span>$/MWh<br>物理约束</span></div><div><b>Compute</b><span>GPU / MW<br>资本设备</span></div><div><b>Token</b><span>推理原材料<br>COGS meter</span></div><div><b>Agent</b><span>可复制执行体<br>数字劳动力</span></div><div><b>Task</b><span>Successful Task<br>可交付工作</span></div><div><b>Outcome</b><span>Economic Value<br>收入与利润</span></div>
+      </div>
+      <div class="dark-panel"><h3>1.0 的核心会计原则</h3><p><b>Task = Revenue Meter</b>：客户最终愿意为“事情完成”付钱。<br><b>Token = COGS Meter</b>：后台为完成任务消耗多少推理、工具、Sandbox 与重试资源。</p></div>
+      <p class="formula">Agent Task Gross Profit = Task Revenue − Inference Tokens − Tool/API − Sandbox/Execution − Retry/Error − Human Review<small>这是 Agent 单位经济学，不等同公司会计报表中的完整毛利润口径；它用于把模型能力转成可比较的任务经济学。</small></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">03 · Model Cohort Ledger</div>
+      <h2>“培养孩子”类比：什么时候模型真正经济成年</h2>
+      <p>一个 Frontier Model 可以具象化为“培养一个孩子”：Pre-training（预训练）像基础教育，Post-training / RL（后训练/强化学习）像大学与职业培训，Benchmark 像考试分数；真正进入 Agent 阶段，才像毕业后开始工作。这个类比的价值在于把前期固定投入、持续推理成本和回本拐点放在同一条时间轴上。</p>
+      <div class="analogy">
+        <div><h3>教育账</h3><p><b>Education Cost</b> = Pre-training + Post-training + Model R&amp;D。</p><p><b>Intelligence Depreciation</b>：模型“毕业证”的有效期很短，领先代际会快速折旧，因此不能只算训练成本，还要算经济租金持续多久。</p></div>
+        <div><h3>就业账</h3><p><b>Attributable Revenue</b> → Inference COGS → Attributable Gross Profit。</p><p>真正的“成年线”不是收入第一次出现，而是这一代模型产生的毛利开始足以供养下一轮训练与研发。</p></div>
+      </div>
+      <p class="formula">CSFR｜Cohort Self-Funding Ratio = Current Annualized Gross Profit / Annualized Training &amp; R&amp;D Envelope<small>CSFR &gt; 1× 可理解为“模型经济成年线”。由于公司通常不披露单一模型代际的训练成本与收入归因，现阶段公司 R&amp;D 只能作为 proxy，不能伪装成精确 Cohort 会计。</small></p>
+      <p class="formula">Model Cohort Payback = Training + Post-training Investment / Annualized Attributable Gross Profit<small>未来招股书若能提供模型代际成本、推理毛利与产品收入归因，这将比简单 P/S 更接近模型资本效率。</small></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">04 · Agent Clone Multiplier</div>
+      <h2>“孙悟空拔毫毛”：真正的指数项来自可复制数字劳动力</h2>
+      <p>Agent 用中国投资者最容易理解的形象，可以看作孙悟空的分身：模型本体负责“脑子与本领”，Agent 是从同一套智能复制出来的执行体。每个分身仍要消耗 Token、Compute、工具调用与运行环境——也就是“法力”——但一个模型可以同时复制成成千上万个工作流实例，这一点与真人劳动力根本不同。</p>
+      <p>因此，AI 的指数特征未必来自模型智力每年增长 100 倍，更可能来自三个乘数同时发生：<b>智能能力上升 × 并行 Agent 数增加 × 人类监督时间下降</b>。</p>
+      <div class="kpi-grid">
+        <div class="kpi"><b>Agent Clone Multiplier</b><code>Concurrent Agent Streams × Success Rate</code><span>衡量一个模型大脑能够形成多少有效并发数字劳动力。</span></div>
+        <div class="kpi"><b>Autonomy Multiplier</b><code>Agent Active Time / Human Supervision Time</code><span>人类管理一小时，Agent 能自主工作多少小时。</span></div>
+        <div class="kpi"><b>Human Labor Leverage</b><code>Human-Equivalent Productive Hours / Supervisor Hours</code><span>真正回答“一个真人经理被放大成多少有效劳动力”。</span></div>
+      </div>
+      <h3>组织形态：Commander → Workers → Verifier</h3>
+      <p>未来企业很可能不会让同一个昂贵模型做全部工作。高能力模型负责目标理解、拆解与关键判断，GLM/MiniMax/小模型等低成本 Worker 执行批量任务，再由高级模型或确定性测试做 Verifier。最优问题从“哪个模型第一”变成：</p>
+      <p class="formula">Choose model i that maximizes: P(Successᵢ) × Task Value − Total Execution Costᵢ</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">05 · 1 Agent Hour Ledger</div>
+      <h2>把数字劳动力从比喻变成可计量工时</h2>
+      <p>“1 Agent Hour”不能直接等于“模型连续推理一小时”。Agent 会调用浏览器、Terminal、API、Sandbox，也会等待外部系统，还可能拉起多个 Sub-agent。因此必须把物理推理工时与任务墙钟时间分开。</p>
+      <div class="table-wrap"><table><thead><tr><th>单位</th><th>定义</th><th>为什么重要</th></tr></thead><tbody>
+        <tr><td><b>Inference Stream Hour (ISH)</b></td><td>模型真正处于推理流中的一小时。</td><td>最接近 GPU/Token 的物理供给单位。</td></tr>
+        <tr><td><b>Agent Wall Hour</b></td><td>Agent 从接单到交付的实际工作时间，包括工具、等待与执行。</td><td>更接近数字员工的“出勤工时”。</td></tr>
+        <tr><td><b>Useful Work Hour</b></td><td>真正用于具有经济价值任务的 Agent 工时。</td><td>把算力利用率与经济利用率分开。</td></tr>
+        <tr><td><b>Human-Equivalent Hour</b></td><td>同样合格成果若由真人完成需要的工时。</td><td>建立 Agent 与人类劳动价值之间的桥。</td></tr>
+      </tbody></table></div>
+      <p class="formula">Agent Wall Hours = Inference Stream Hours / (Inference Duty Cycle × Average Parallel Streams)</p>
+      <p>这里由此诞生一个关键变量：</p>
+      <p class="formula">UWU｜Useful Work Utilization = Economically Useful Agent Hours / Potential Agent Hours<small>GPU 即使满载，也可能在做低价值、重复或失败任务。未来 Token/MW 快速提升后，真正稀缺的可能逐渐变成高价值、可授权、可验证的 Task Pool。</small></p>
+      <div class="note"><b>物理层锚点：</b>CoreWeave 2026年7月披露，Vera Rubin NVL72 在 DeepSeek-R1、150 tokens/s/user 条件下达到约 <b>800,000 output tokens/s/MW</b>，约为 GB200 NVL72 的 10×。它证明“单位 MW 能生产多少可交互 Token”已经成为 AI Factory 的核心产能指标；但从 Token 到 Agent Hour、再到 Economic Value，仍必须经过 Duty Cycle、Success Rate、UWU 与 Human-Equivalent Productivity 等转换率。</div>
+    </section>
+
+    <section class="section" id="ledger">
+      <div class="section-label">06 · Unified Ledger</div>
+      <h2>Frontier Model Economics 1.0：一张从瓦特走到股权价值的账</h2>
+      <p class="lead">这轮讨论最终把原先分散的 1GW AI Factory、Token Economy、Agent Hour 与模型公司财务装进同一个生产函数。</p>
+      <div class="dark-panel"><h3>统一生产函数</h3><p style="font:700 19px/1.75 var(--serif);margin:0">Power → Compute → Token → Inference Stream → Agent Hour → Useful Work → Successful Task → Outcome → Economic Value → Revenue → Gross Profit → ROIC → Equity Value</p></div>
+      <div class="table-wrap"><table><thead><tr><th>层级</th><th>核心问题</th><th>核心指标</th></tr></thead><tbody>
+        <tr><td>Physical / Compute</td><td>1MW/1GW 能生产多少可用智能产能？</td><td>Tokens/MW、$/MWh、Utilization、Time-to-Power</td></tr>
+        <tr><td>Model</td><td>训练投入能否形成可持续智能租金？</td><td>CSFR、Cohort Payback、Intelligence/$、Model GP</td></tr>
+        <tr><td>Agent Labor</td><td>一个智能大脑能复制多少有效数字员工？</td><td>Clone Multiplier、Autonomy、Agent Hours、HLL</td></tr>
+        <tr><td>Task Economics</td><td>任务能否成功、值得多少钱？</td><td>$/Successful Task、Success Rate、UWU、Task Value Density</td></tr>
+        <tr><td>Value Capture</td><td>经济价值最后留在谁的账上？</td><td>Task Take Rate、Model Tax、IVCR、Router Share</td></tr>
+        <tr><td>Capital Return</td><td>这套数字生产机器有没有超过资本成本？</td><td>Compute ROIC、Gross Profit/Compute、FCF、Equity Value</td></tr>
+      </tbody></table></div>
+      <h3>三层资本效率</h3>
+      <div class="kpi-grid">
+        <div class="kpi"><b>Infrastructure ROIC</b><code>Gross Profit / Compute Capital</code><span>回答“1GW 算力工厂是不是好生意”。</span></div>
+        <div class="kpi"><b>Model ROIC</b><code>Attributable Model GP / Training + R&amp;D</code><span>回答“培养这一代模型多久回本”。</span></div>
+        <div class="kpi"><b>Agent Economic Surplus</b><code>Economic Value / All-in Agent Execution Cost</code><span>回答“每一个数字员工分身干一次活，创造多少价值”。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">07 · Task Ownership</div>
+      <h2>当智能越来越便宜，真正稀缺的可能变成“工作岗位”</h2>
+      <p>Task Ownership（任务所有权）不是法律意义上的所有权，而是同时控制五件事：<b>任务入口、工作上下文、执行权限、结果验证、经济计量</b>。离 Outcome 越近，越有能力从 Token Pricing 升级为 Task / Resolution / Outcome Pricing。</p>
+      <div class="ladder">
+        <div class="ladder-row"><b>Microsoft / GitHub</b><span>拥有知识工作与 Coding Task Pool；Issue → Repo → Test → PR → Merge 让 Coding 成为最容易机器验收的 Agent 职业之一。</span><span>Task Pool / Verification</span></div>
+        <div class="ladder-row"><b>Salesforce</b><span>CRM、Sales、Service 的工作状态天然结构化，商业化正在从席位走向 Action/Resolution。</span><span>Outcome Meter</span></div>
+        <div class="ladder-row"><b>ServiceNow</b><span>长期积累企业 Workflow、权限与 Action Graph，天然适合把人类流程改写成 Autonomous Workforce。</span><span>Workflow Control</span></div>
+        <div class="ladder-row"><b>Palantir</b><span>Ontology 把高价值工业、供应链、政府任务变成可授权、可执行的现实世界动作。</span><span>High-value Tasks</span></div>
+        <div class="ladder-row"><b>OpenAI / Anthropic</b><span>从 Model Owner 向 Codex / Claude Code / Work / Cowork 等 Task Layer 上移，争夺最终客户关系。</span><span>Model → Task</span></div>
+      </div>
+      <p class="formula">Task Take Rate = Agent / Workflow Revenue ÷ Human-Equivalent Economic Value</p>
+      <p class="formula">Task Value Density = Economic Value ÷ Agent Compute Cost</p>
+      <p>这给出一个重要投资判断：模型竞争越激烈，Token COGS 越低，反而可能扩大 Workflow Owner 的毛利。谁掌握高价值 Task Pool、验收标准与客户关系，谁更有机会把模型降价变成自己的利润率。</p>
+    </section>
+
+    <section class="section" id="router">
+      <div class="section-label">08 · OpenRouter / Economic Router</div>
+      <h2>OpenRouter：从 Token 市场走向数字劳动力派单系统</h2>
+      <p>OpenRouter 的新 Auto Router 已经不是简单 Provider 负载均衡。它会先把 Prompt 归入约 30 种 Task Type，再查看过去 7 天同类任务的真实 Spend Share，并结合 low / medium / high / xhigh / max 成本档位选择模型与 fallback。也就是说，用户可以把“模型选择权”交给 Router，而不是每次点名 Claude、GPT、GLM 或 DeepSeek。</p>
+      <p>Ori Eval 则补了另一块：它在客户自己的 Agent Harness、Prompt、工具和数据上并行跑候选模型，检查应该/不应该调用的工具，并用 Judge 评价开放式答案。OpenRouter 官方示例已经直接返回 <b>$/PR</b> 这样的任务级成本，而不是只返回 $/1M Token。</p>
+      <div class="table-wrap"><table><thead><tr><th>能力</th><th>今天 OpenRouter 已做到</th><th>距离终局还缺什么</th></tr></thead><tbody>
+        <tr><td>跨模型 Auto</td><td>Task classification + 7d spend share + cost tier + fallback</td><td>完整 Task Outcome 与 Economic Value</td></tr>
+        <tr><td>Provider Routing</td><td>同一模型跨 Provider 比较价格、速度、可靠性与可用性</td><td>更完整的任务级质量反馈</td></tr>
+        <tr><td>Ori Eval</td><td>客户真实 Harness 上比较成功率、Tool Calls、Latency、Cost</td><td>把 Eval 结果实时闭环到生产派单</td></tr>
+        <tr><td>未来 Task Exchange</td><td>技术积木已出现</td><td>Task Budget、Verified Outcome、SLA、自动结算</td></tr>
+      </tbody></table></div>
+      <h3>最重要但尚未公开的两项 KPI</h3>
+      <p class="formula">RDS｜Router Discretion Share = Auto-routed Spend / Total OpenRouter Spend<small>衡量模型选择权有多少已经从开发者转移到 Router。OpenRouter 当前总排行榜并未公开拆分“用户点名”与“Auto 派单”，因此不能把中国模型的全部调用量都解释为 Router 主动选择。</small></p>
+      <p class="formula">RAC｜Router Attribution Contribution = Auto-assigned Spend to Model X / Total Spend of Model X on OpenRouter<small>衡量某个模型的使用量有多少来自 Router 经济选择，而不是品牌/开发者主动点名。</small></p>
+      <div class="note"><b>为什么这两个指标重要：</b>如果 RDS 从 5% → 20% → 50%，OpenRouter 的性质就会从统一 API 市场变成真正掌握订单分配权的数字劳动力交易所；模型公司面对它的关系，也会越来越像商家面对大型分发平台。</div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">09 · Stripe × OpenRouter</div>
+      <h2>从“钱怎么走”到“智能怎么买”：Economic Router 的雏形</h2>
+      <p>Stripe 在 2026年8月19日宣布同意收购 OpenRouter，官方描述 OpenRouter 覆盖 400+ models、80+ providers。Stripe 过去解决的是 Payment Routing（支付路由）：商户只定义“我要把钱收进来”，平台在卡组织、银行轨道、地区、风控与授权率之间优化；OpenRouter 解决的是 Intelligence Routing（智能路由）：客户只定义“我要完成这次 AI 工作”，后台在模型、Provider、成本、速度与可靠性之间优化。</p>
+      <div class="analogy">
+        <div><h3>今天：AI 原材料采购市场</h3><p>OpenClaw 更像项目经理；OpenRouter 更像材料/工种采购与派单市场。一个审计任务会被拆成多个 LLM requests，每次由 Auto 判断该雇哪一种“数字工人”。用户最终看到的是模型调用与 Credit 成本。</p></div>
+        <div><h3>未来：别墅装修总包商</h3><p>客户不再购买 Token，而是说“这栋别墅预算多少、何时交付、验收标准是什么”。平台自动找 Planner、Worker、Verifier 与 Provider，最后只呈现一个 Task Credit、SLA 和成功 Outcome。</p></div>
+      </div>
+      <p class="formula">Potential Economic Router = Payment Router + Intelligence Router + Agent Settlement + Outcome Billing</p>
+      <p>这也是 Stripe + OpenRouter 长期最值得跟踪的战略含义：如果平台能同时看见 AI Spend、Task Success 和最终商业收入，它就有机会建立此前不存在的 <b>Token / Agent ROIC 数据闭环</b>。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">10 · Revenue Capture Architecture</div>
+      <h2>模型很成功，不代表模型公司的股东一定捕获了同样多的价值</h2>
+      <p>这轮讨论中最重要的投资修正之一，是把“模型作者”和“Token 生产商”拆开。开放权重模型可以由大量第三方 Inference Provider 托管，因此一个模型在 OpenRouter 上拥有很高 Token Share，并不意味着同等比例的推理收入回到模型作者。</p>
+      <div class="flow" aria-label="价值捕获链">
+        <div><b>Model IP</b><span>谁创造模型与权重</span></div><div><b>Inference</b><span>谁把 GPU Hour 炼成 Token</span></div><div><b>Router</b><span>谁获得派单权</span></div><div><b>Agent</b><span>谁组织执行</span></div><div><b>Task Owner</b><span>谁掌握 Workflow</span></div><div><b>Outcome</b><span>谁最终收费与留存利润</span></div>
+      </div>
+      <h3>DeepSeek 与 MiniMax：两种价值捕获原型</h3>
+      <div class="table-wrap"><table><thead><tr><th></th><th>DeepSeek 型</th><th>MiniMax M3 型</th></tr></thead><tbody>
+        <tr><td>核心形态</td><td>Open Intelligence Standard：开放权重、高采用、全球第三方推理充分竞争。</td><td>Vertical Monetization：自研模型 + 更高原厂推理占比 + Token Plan / Code / Agent 产品。</td></tr>
+        <tr><td>优势</td><td>模型扩散快、生态影响力强、Router 性价比选择优势明显。</td><td>Model IP、Inference、订阅与 Agent Task 更容易在同一公司账上闭环。</td></tr>
+        <tr><td>投资人核心问题</td><td><b>Impact 如何变成 Revenue / GP / FCF？</b> 开放模型到股东现金流的桥在哪里？</td><td><b>垂直捕获能否在规模扩大时保持？</b> 原厂推理毛利、Agent 留存与全球分发能否持续？</td></tr>
+      </tbody></table></div>
+      <p class="formula">IVCR₁｜Author Inference Capture = Author-hosted Inference Spend / Total Model Inference Spend</p>
+      <p class="formula">IVCR₂｜Intelligence Value Capture = Author Revenue / Economic Spend generated by its Model</p>
+      <p class="formula">IVCR₃｜Shareholder Capture = Author Gross Profit / Total Economic Value enabled by its Intelligence<small>后两项在今天仍缺完整可观测数据，但它们指出了私募估值真正应该问的问题：战略价值、生态外部性与少数股东 IRR 必须分账。</small></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">11 · Scarcity Migration</div>
+      <h2>AI Capital Cycle 的稀缺性可能依次上移</h2>
+      <div class="ladder">
+        <div class="ladder-row"><b>Stage 1 · Compute Scarcity</b><span>Power、GPU、Data Center、Time-to-Power 是瓶颈。</span><span>NVIDIA / Power / NeoCloud</span></div>
+        <div class="ladder-row"><b>Stage 2 · Intelligence Scarcity</b><span>Frontier capability 稀缺，模型租金快速扩大。</span><span>OpenAI / Anthropic / Labs</span></div>
+        <div class="ladder-row"><b>Stage 3 · Reliable Agent Scarcity</b><span>模型会答题还不够，长期任务成功率、自主性与工具执行成为瓶颈。</span><span>Agent Platforms</span></div>
+        <div class="ladder-row"><b>Stage 4 · High-value Task Scarcity</b><span>当 Token/MW 与 Agent 供给极大增加，稀缺的可能变成有权限、有数据、可验证、值得自动化的高价值 Workflow。</span><span>Task / Workflow Owners</span></div>
+      </div>
+      <p>这里的“Task Scarcity”并不是世界上没有事情可做，而是指<b>能够安全授权给 Agent、结果可以验收、经济价值足够高、并且能够规模化计价的任务</b>不会随着 Token 供给自动同比增长。因此，同样 1GW Compute 被用于陪聊、Coding、金融、药物研发或工业优化，最终 Economic Value 可以相差数个数量级。</p>
+      <p class="formula">Gross Economic Value Capacity = Agent Hours × UWU × Human-Equivalent Productivity × Value / Human Hour<small>它是经济价值容量，不应直接写成 GDP。真正 GDP 贡献还要区分人力替代、增量产出、质量提升、新任务创造与 AI 行业自身增加值。</small></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">12 · KPI Dashboard</div>
+      <h2>Frontier Model Economics 1.0 的监测仪表盘</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><b>CSFR</b><code>GP / Training &amp; R&amp;D Envelope</code><span>模型是否越过“经济成年线”。</span></div>
+        <div class="kpi"><b>Cohort Payback</b><code>Training Investment / Model GP</code><span>一代模型多久收回培养成本。</span></div>
+        <div class="kpi"><b>$/Successful Task</b><code>All-in Cost / Verified Success</code><span>比 $/Token 更接近数字劳动力工资。</span></div>
+        <div class="kpi"><b>Agent Clone Multiplier</b><code>Concurrent Streams × Success</code><span>一个智能本体能形成多少有效分身。</span></div>
+        <div class="kpi"><b>Human Labor Leverage</b><code>HEPH / Supervisor Hour</code><span>人类管理能力被放大多少倍。</span></div>
+        <div class="kpi"><b>UWU</b><code>Useful Agent Hours / Potential Hours</code><span>数字劳动力有没有足够的高价值工作。</span></div>
+        <div class="kpi"><b>Task Take Rate</b><code>Agent Revenue / Task Value</code><span>谁真正从经济价值中抽成。</span></div>
+        <div class="kpi"><b>RDS / RAC</b><code>Router Discretion / Attribution</code><span>Router 是否正在获得模型派单权。</span></div>
+        <div class="kpi"><b>IVCR</b><code>Author Revenue or GP / Model-enabled Spend</code><span>模型影响力能否沉淀成股东价值。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">13 · Falsifiers</div>
+      <h2>哪些事实会推翻或显著削弱这套框架</h2>
+      <div class="table-wrap"><table><thead><tr><th>待证伪假设</th><th>如果发生什么，需要下修</th></tr></thead><tbody>
+        <tr><td>Agent 会持续提高真实生产率</td><td>真实任务 Success Rate 长期停滞，Human Supervisor Minutes 无法下降。</td></tr>
+        <tr><td>Task 会成为主要收费单位</td><td>企业仍只愿意按 Seat/Token 付费，Outcome 定价无法建立可靠验收与责任边界。</td></tr>
+        <tr><td>算力效率会转化成经济价值</td><td>Tokens/MW 快速上升，但 UWU 长期很低，高价值 Task Pool 吸收不了数字劳动力供给。</td></tr>
+        <tr><td>Router 会获得更大平台权力</td><td>RDS 长期低位，用户持续锁定单一模型，模型选择权没有向 Auto Router 转移。</td></tr>
+        <tr><td>开放模型可以形成可投资商业模式</td><td>Adoption 快速上升但 IVCR、Revenue、Gross Profit 持续无法跟上，生态价值主要外溢给 Provider / Router / Task Owner。</td></tr>
+        <tr><td>Workflow Owner 能扩大毛利</td><td>模型降价被竞争完全传导给终端客户，Task Take Rate 随模型 COGS 一起快速下行。</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">14 · Research Agenda</div>
+      <h2>1.0 之后，研究从哪里继续</h2>
+      <p><b>① Agent Labor Market 职业工资表：</b>Coding / Research / Customer Service / Finance / Industrial，统一比较 Task Value、可验证性、允许失败率、最适模型层级、Skill Premium 与 Task Take Rate。</p>
+      <p><b>② OpenRouter Router Power：</b>长期监控 RDS、RAC、Ori Eval → Auto 的闭环，以及是否出现 Task-level pricing、Verified Outcome 与自动 Agent 结算。</p>
+      <p><b>③ DeepSeek / MiniMax Value Capture：</b>从“模型谁更强”转向 IVCR、原厂推理捕获、Agent产品留存、开放权重到 FCF 的货币化桥梁。</p>
+      <p><b>④ Inference Manufacturing：</b>Provider 作为独立赛道另开研究分支，分析 GPU Hour 如何被加工成稳定、低延迟、低成本 Token，以及这一层利润率如何形成。</p>
+      <p><b>⑤ 1GW → Agent Economy：</b>继续把 Rubin 等实测 Tokens/MW 与 Agent Duty Cycle、UWU、Human-Equivalent Productivity 接起来，把 AI Capital Cycle 与数字劳动力经济学真正焊成一张总账。</p>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">15 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source"><a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0831/2026083101539.pdf" target="_blank" rel="noopener">Zhipu / Z.AI 2026H1 Interim Results · HKEX</a><span>智谱收入、毛利、研发与公开损益表锚点。</span></div>
+      <div class="source"><a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0826/2026082600680.pdf" target="_blank" rel="noopener">MiniMax 2026H1 Interim Results · HKEX</a><span>MiniMax 收入、毛利、研发与上市公司财务锚点。</span></div>
+      <div class="source"><a href="https://www.coreweave.com/products/nvidia-vera-rubin" target="_blank" rel="noopener">CoreWeave · NVIDIA Vera Rubin NVL72</a><span>800,000 output tokens/s/MW at 150 TPS/user（DeepSeek-R1）及 Tokens/MW 物理层锚点。</span></div>
+      <div class="source"><a href="https://openrouter.ai/blog/announcements/introducing-the-new-auto-router/" target="_blank" rel="noopener">OpenRouter · Model Routing Powered by Wisdom of the Market</a><span>Auto Router 的约30类任务分类、过去7日 Spend Share、Cost Tier 与 fallback 机制。</span></div>
+      <div class="source"><a href="https://openrouter.ai/blog/announcements/ori-eval/" target="_blank" rel="noopener">OpenRouter · Ori Eval</a><span>在客户真实 Agent Harness 上测试模型、检查 Tool Calls、Judge 开放式答案并输出任务级成本。</span></div>
+      <div class="source"><a href="https://stripe.com/en-hk/newsroom/news/stripe-agrees-to-acquire-openrouter" target="_blank" rel="noopener">Stripe · Agrees to acquire OpenRouter · 2026-08-19</a><span>Stripe 对 OpenRouter 的官方交易表述，以及 400+ models / 80+ providers 的平台规模口径。</span></div>
+      <div class="source"><a href="https://openrouter.ai/rankings" target="_blank" rel="noopener">OpenRouter · Live Model Rankings</a><span>真实 OpenRouter API Token 使用与 Task Spend 排名；公开榜目前未拆分 user-selected vs Auto-selected。</span></div>
+    </section>
+
+    <section class="section related" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/frontier-model-economics-listed-labs-20260901/"><b>模型公司上市元年：智谱与 MiniMax 财报如何重写 Frontier Model 的经济学</b></a> — 1.0 的财务起点：六家模型公司 + MiniMax 的损益表、P/S、增长与OpenRouter横向对比。</p>
+      <p><a href="/national-growth-engine-ai-irr-wacc-20260901/"><b>国家增长引擎系列④｜AI激流：高IRR为什么反而可能推高WACC</b></a> — 把微观模型/Agent ROIC 重新接回资本成本与AI资本循环。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div>
+      <div class="enya-model">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div>
+      <p class="enya-copy">这篇 1.0 不是对聊天过程的整理，而是一次研究操作系统的升级：把公开财报、算力生产函数、数字劳动力、任务市场、路由分发与价值捕获放到同一张可证伪账本中。后续新增数据应优先填入指标，而不是继续堆叠概念。</p>
+      <div class="roles"><div class="role"><b>Kerwin</b><span>选题、投资逻辑与最终审核。</span></div><div class="role"><b>Enya</b><span>证据整理、可视化呈现与持续维护。</span></div></div>
+    </section>
+    <footer class="footer"><div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。</span><a href="/">返回研究首页</a></div><div class="footer-meta"><span>Published 2026-09-01 15:39 HKT</span><span>Updated 2026-09-01 15:39 HKT</span><span>Layout kerwin-editorial-research-v1</span></div></footer>
+  </main>
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+  <script>
+    (function(){var body=document.body,gate=document.getElementById('editorial-gate'),input=document.getElementById('access-key'),progress=document.getElementById('reading-progress'),top=document.getElementById('top-button');function unlock(){if(!gate)return;gate.hidden=true;body.classList.remove('kw-gate-pending');body.style.overflow='';try{sessionStorage.setItem('kerwin-access','1')}catch(e){}}function test(v){if((v||'').toLowerCase()==='k')unlock()}try{if(sessionStorage.getItem('kerwin-access')==='1')unlock()}catch(e){}if(input){input.addEventListener('input',function(){test(input.value)});input.addEventListener('keydown',function(e){if(e.key&&e.key.toLowerCase()==='k')unlock()})}document.addEventListener('keydown',function(e){if(!gate||gate.hidden)return;if(e.key&&e.key.toLowerCase()==='k')unlock()});function onscroll(){var doc=document.documentElement,den=doc.scrollHeight-doc.clientHeight,p=den>0?doc.scrollTop/den:0;if(progress)progress.style.width=(p*100)+'%';if(top)top.classList.toggle('is-visible',doc.scrollTop>700)}window.addEventListener('scroll',onscroll,{passive:true});onscroll();if(top)top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+  </script>
+</body>
+</html>
