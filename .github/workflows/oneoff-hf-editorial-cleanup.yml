@@ -1,0 +1,52 @@
+name: One-off HF editorial cleanup
+on:
+  push:
+    paths:
+      - '.github/workflows/oneoff-hf-editorial-cleanup.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Clean editorial traces
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('huggingface-open-model-market-20260904/index.html')
+          s=p.read_text()
+          reps={
+          '先别介绍HF：看DeepSeek-R1怎样从“发行”走到真实Token':'从DeepSeek-R1出发：一款开源模型怎样从“发行”走到真实Token',
+          '所以本文不是从“2016年成立了一家公司”开始，而是从一个真实模型的生命周期开始。读者自然会遇到Hugging Face，因为它正是这条链中最难绕开的基础设施。':'因此，理解Hugging Face最好的起点不是公司沿革，而是一款真实模型的生命周期。模型一旦进入全球开发者生态，Hugging Face便自然成为最难绕开的基础设施之一。',
+          '一级发行基础设施 vs 二级流动性市场：你的类比成立，但边界正在重叠':'一级发行基础设施 vs 二级流动性市场：功能分工正在重叠',
+          'Provider的本质不是“又一家云”。它们把真实GPU / ASIC capacity转化成可交易Token，并在不同分发平台争取订单流。以后研究Provider不能只问有多少GPU，还要问：<strong>你在哪些交易场所挂牌？路由排名如何？订单流从哪里来？</strong>':'Provider的本质不是“又一家云”。它们把真实GPU / ASIC capacity转化成可交易Token，并在不同分发平台争取订单流。因此，Provider研究不能只停留在GPU数量，还需要追踪：<strong>接入哪些分发平台、路由排名如何、订单流来自哪里。</strong>',
+          'Lepton第一次出现时应该这样理解：HF聚合需求，Lepton聚合NVIDIA GPU供给':'Lepton的市场角色：HF聚合需求，Lepton聚合NVIDIA GPU供给',
+          '最值得写进本文的真实链，是<strong>DeepSeek → NVIDIA → Hugging Face</strong>。':'其中最关键的一条真实链，是<strong>DeepSeek → NVIDIA → Hugging Face</strong>。',
+          '这说明我们必须保留Surprise Ledger：<strong>事实不漂亮，就不要为了故事完整性硬塞进框架。</strong>':'因此，Surprise Ledger必须保留：<strong>事实不漂亮，就不能为了故事完整性硬塞进框架。</strong>',
+          '这里OpenRouter的价值反而可能上升。':'在这一背景下，OpenRouter的价值反而可能上升。',
+          '这意味着Kerwin《Inference Manufacturing Unified Ledger》应该继续增加：':'因此，Kerwin《Inference Manufacturing Unified Ledger》新增以下跟踪字段：'
+          }
+          missing=[]
+          for a,b in reps.items():
+              if a not in s:
+                  missing.append(a[:80])
+              s=s.replace(a,b)
+          # Final hard guardrails for conversation residue.
+          forbidden=['你的类比成立','先别介绍HF','以后研究Provider','你在哪些交易场所挂牌','这说明我们必须','最值得写进本文','这里OpenRouter的价值']
+          remain=[x for x in forbidden if x in s]
+          if remain:
+              raise SystemExit('Forbidden editorial traces remain: '+repr(remain))
+          p.write_text(s)
+          print('missing replacements:', missing)
+          PY
+      - name: Remove one-off workflow and commit
+        run: |
+          rm .github/workflows/oneoff-hf-editorial-cleanup.yml
+          git config user.name 'kerwin-research-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add huggingface-open-model-market-20260904/index.html .github/workflows/oneoff-hf-editorial-cleanup.yml
+          git commit -m 'Clean internal editorial traces from HF article'
+          git push
