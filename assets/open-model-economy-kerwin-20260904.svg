@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1760" viewBox="0 0 1200 1760" role="img" aria-labelledby="title desc">
+  <title id="title">Open Model Economy｜开源模型经济市场结构</title>
+  <desc id="desc">Kerwin Research框架：从模型发行人、Hugging Face、Inference Provider、OpenRouter、GPU Cloud、DGX Cloud Lepton与NVIDIA GPU，连接到Token、Agent与Useful Work。</desc>
+  <defs>
+    <style>
+      .bg{fill:#fffaf5}.ink{fill:#262220}.green{fill:#103f35}.muted{fill:#746b65}.paper{fill:#fff1e5}.white{fill:#fff}.greenp{fill:#e4efe9}.bluep{fill:#eef4f8}.violetp{fill:#f1edfb}.line{stroke:#968b83;stroke-width:2}.arrow{stroke:#103f35;stroke-width:5;fill:none;marker-end:url(#m)}.dash{stroke:#9a5c38;stroke-width:2;stroke-dasharray:7 7;fill:none}.box{stroke:#968b83;stroke-width:2;rx:16}.title{font:700 46px Georgia,'Times New Roman','Songti SC',serif;fill:#103f35}.subtitle{font:700 24px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#262220}.h{font:700 28px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#103f35}.b{font:700 22px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#262220}.s{font:400 18px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#746b65}.tiny{font:700 15px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#9a5c38;letter-spacing:1px}.cap{font:700 17px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#103f35}.num{font:700 18px Georgia,'Times New Roman',serif;fill:#fff}.brand{font:700 18px Georgia,'Times New Roman',serif;fill:#103f35}.side{font:400 16px Arial,'PingFang SC','Microsoft YaHei',sans-serif;fill:#746b65}.strong{font-weight:700;fill:#262220}
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#103f35"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#6f5a49" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1200" height="1760" class="bg"/>
+  <rect x="0" y="0" width="1200" height="18" class="green"/>
+  <text x="70" y="92" class="title">OPEN MODEL ECONOMY</text>
+  <text x="72" y="132" class="subtitle">开源模型经济｜从发行、分发、路由到算力与真实工作</text>
+  <text x="72" y="168" class="s">A Kerwin Research Framework · 2026.09.04</text>
+  <line x1="70" y1="194" x2="1130" y2="194" class="line"/>
+
+  <!-- Model issuers -->
+  <circle cx="92" cy="264" r="22" class="green"/><text x="86" y="271" class="num">1</text>
+  <text x="132" y="254" class="h">模型发行人</text><text x="132" y="282" class="s">MODEL ISSUERS</text>
+  <rect x="300" y="220" width="610" height="100" class="box bluep" filter="url(#shadow)"/>
+  <text x="605" y="258" text-anchor="middle" class="b">DeepSeek · Qwen · Llama · Nemotron</text>
+  <text x="605" y="292" text-anchor="middle" class="s">开源模型军团：模型资产的创造者</text>
+  <text x="940" y="254" class="side">发行新的智能资产</text><text x="940" y="279" class="side">决定权重、License与首发节奏</text>
+  <path d="M605 320 L605 368" class="arrow"/>
+
+  <!-- HF -->
+  <circle cx="92" cy="420" r="22" class="green"/><text x="86" y="427" class="num">2</text>
+  <text x="132" y="410" class="h">发行 / 上市 / 存管</text><text x="132" y="438" class="s">MODEL MARKET INFRASTRUCTURE</text>
+  <rect x="300" y="368" width="610" height="126" class="box paper" filter="url(#shadow)"/>
+  <text x="605" y="410" text-anchor="middle" class="h">HUGGING FACE</text>
+  <text x="605" y="444" text-anchor="middle" class="b">Model · Dataset · Tools · Community</text>
+  <text x="605" y="474" text-anchor="middle" class="s">NVIDIA（交易待交割）</text>
+  <text x="940" y="400" class="side">全球开源模型的重要“上市地”</text><text x="940" y="425" class="side">发现 · 托管 · 披露 · 衍生</text><text x="940" y="450" class="side">Developer Demand Graph</text>
+  <text x="620" y="526" text-anchor="middle" class="cap">MODEL DISTRIBUTION｜模型分发与生态扩散</text>
+  <path d="M605 494 L605 552" class="arrow"/>
+
+  <!-- Inference provider distribution -->
+  <circle cx="92" cy="616" r="22" class="green"/><text x="86" y="623" class="num">3</text>
+  <text x="132" y="606" class="h">推理服务商</text><text x="132" y="634" class="s">INFERENCE PROVIDERS</text>
+  <rect x="300" y="552" width="610" height="126" class="box bluep" filter="url(#shadow)"/>
+  <line x1="605" y1="570" x2="605" y2="660" class="line"/>
+  <text x="450" y="602" text-anchor="middle" class="b">Novita · DeepInfra</text>
+  <text x="450" y="634" text-anchor="middle" class="s">Router流量型 Provider</text>
+  <text x="760" y="602" text-anchor="middle" class="b">Nscale · Together</text>
+  <text x="760" y="634" text-anchor="middle" class="s">HF / Lepton 等多入口</text>
+  <text x="940" y="600" class="side">真实GPU / ASIC产能</text><text x="940" y="625" class="side">竞争价格 · 速度 · Uptime</text><text x="940" y="650" class="side">争夺Router Order Flow</text>
+  <text x="605" y="712" text-anchor="middle" class="cap">INFERENCE MARKET｜模型推理市场</text>
+  <path d="M605 678 L605 744" class="arrow"/>
+
+  <!-- OpenRouter -->
+  <circle cx="92" cy="816" r="22" class="green"/><text x="86" y="823" class="num">4</text>
+  <text x="132" y="806" class="h">智能路由与结算</text><text x="132" y="834" class="s">ROUTER & PAYMENTS</text>
+  <rect x="300" y="744" width="610" height="140" class="box violetp" filter="url(#shadow)"/>
+  <text x="605" y="786" text-anchor="middle" class="h">OPENROUTER</text>
+  <text x="605" y="822" text-anchor="middle" class="b">Smart Order Router</text>
+  <text x="605" y="852" text-anchor="middle" class="s">Price · Speed · Uptime · Policy · STRIPE</text>
+  <text x="940" y="786" class="side">像聚合券商 + Smart Order Router</text><text x="940" y="811" class="side">决定这一次Token订单</text><text x="940" y="836" class="side">在哪个Provider执行</text>
+  <text x="605" y="920" text-anchor="middle" class="cap">TOKEN ORDER｜Token订单分发</text>
+  <path d="M605 884 L605 948" class="arrow"/>
+
+  <!-- GPU clouds -->
+  <circle cx="92" cy="1016" r="22" class="green"/><text x="86" y="1023" class="num">5</text>
+  <text x="132" y="1006" class="h">算力服务商</text><text x="132" y="1034" class="s">GPU CLOUD PROVIDERS</text>
+  <rect x="300" y="948" width="610" height="118" class="box white" filter="url(#shadow)"/>
+  <text x="605" y="994" text-anchor="middle" class="b">CoreWeave · Nebius · Nscale · etc.</text>
+  <text x="605" y="1028" text-anchor="middle" class="s">承接订单，提供真实GPU-hours与Active IT MW</text>
+  <text x="940" y="994" class="side">从“有GPU”到“GPU被填满”</text><text x="940" y="1019" class="side">Distribution决定利用率</text><text x="940" y="1044" class="side">利用率决定Revenue/MW</text>
+  <path d="M605 1066 L605 1116" class="arrow"/>
+
+  <!-- Lepton -->
+  <circle cx="92" cy="1180" r="22" class="green"/><text x="86" y="1187" class="num">6</text>
+  <text x="132" y="1170" class="h">算力供给市场</text><text x="132" y="1198" class="s">COMPUTE SUPPLY MARKETPLACE</text>
+  <rect x="300" y="1116" width="610" height="126" class="box greenp" filter="url(#shadow)"/>
+  <text x="605" y="1158" text-anchor="middle" class="h">DGX CLOUD LEPTON</text>
+  <text x="605" y="1192" text-anchor="middle" class="b">Compute Supply Marketplace</text>
+  <text x="605" y="1220" text-anchor="middle" class="s">GPU Supply → GPU-hours → Global Access</text>
+  <text x="940" y="1156" class="side">NVIDIA从供给侧聚合GPU capacity</text><text x="940" y="1181" class="side">HF聚合需求，Lepton聚合供给</text><text x="940" y="1206" class="side">潜在AI Compute Exchange</text>
+  <path d="M605 1242 L605 1292" class="arrow"/>
+
+  <!-- NVIDIA GPU -->
+  <circle cx="92" cy="1344" r="22" class="green"/><text x="86" y="1351" class="num">7</text>
+  <text x="132" y="1334" class="h">底层算力</text><text x="132" y="1362" class="s">PHYSICAL COMPUTE</text>
+  <rect x="350" y="1292" width="510" height="104" class="box bluep" filter="url(#shadow)"/>
+  <text x="605" y="1334" text-anchor="middle" class="h">NVIDIA GPU</text>
+  <text x="605" y="1366" text-anchor="middle" class="s">Blackwell · Hopper · Next Generation</text>
+  <text x="940" y="1334" class="side">开源模型经济的物理生产引擎</text><text x="940" y="1359" class="side">最终消耗电力与IT MW</text>
+  <path d="M605 1396 L605 1444" class="arrow"/>
+
+  <!-- Token agent -->
+  <circle cx="92" cy="1496" r="22" class="green"/><text x="86" y="1503" class="num">8</text>
+  <text x="132" y="1486" class="h">模型输出</text><text x="132" y="1514" class="s">TOKEN / AGENT</text>
+  <rect x="350" y="1444" width="510" height="96" class="box white" filter="url(#shadow)"/>
+  <text x="605" y="1484" text-anchor="middle" class="b">Text · Image · Audio · Code · Agent</text>
+  <text x="605" y="1516" text-anchor="middle" class="s">Compute被转化为可用智能服务</text>
+  <path d="M605 1540 L605 1588" class="arrow"/>
+
+  <!-- Useful work -->
+  <circle cx="92" cy="1640" r="22" class="green"/><text x="86" y="1647" class="num">9</text>
+  <text x="132" y="1630" class="h">真实生产力</text><text x="132" y="1658" class="s">USEFUL WORK</text>
+  <rect x="300" y="1588" width="610" height="104" class="box greenp" filter="url(#shadow)"/>
+  <text x="605" y="1630" text-anchor="middle" class="b">Developers · Enterprises · Industries · People</text>
+  <text x="605" y="1662" text-anchor="middle" class="s">Token → Agent → Useful Work → Economic Value</text>
+  <text x="940" y="1627" class="side">最终检验不是模型榜单</text><text x="940" y="1652" class="side">而是任务、工时、收入与ROIC</text>
+
+  <line x1="70" y1="1720" x2="1130" y2="1720" class="line"/>
+  <text x="70" y="1746" class="brand">Kerwin Research · AI Capital Cycle</text>
+  <text x="1130" y="1746" text-anchor="end" class="s">Model Distribution → Compute → Token → Useful Work</text>
+</svg>
