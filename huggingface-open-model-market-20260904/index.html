@@ -44,13 +44,13 @@
       <div class="kerwin-callout"><b>Kerwin导语：</b>英伟达近年来持续推出自己的开源模型、开源数据与训练Recipe，再到今天收购Hugging Face，可能并不是几条孤立动作，而是它认真评估开源模型全球影响力后的一种主动应对：模型越碎片化、越开源，谁控制发行、分发和Compute入口，谁就越接近AI时代新的控制平面。</div>
     </section>
 
-    <section class="section"><div class="section-label">02 · A Real Model Journey</div><h2>先别介绍HF：看DeepSeek-R1怎样从“发行”走到真实Token</h2>
+    <section class="section"><div class="section-label">02 · A Real Model Journey</div><h2>从DeepSeek-R1出发：一款开源模型怎样从“发行”走到真实Token</h2>
       <p>2025年1月，DeepSeek发布R1。其官方Hugging Face页面显示，R1系列采用MIT License，允许商业使用、修改和衍生，包括蒸馏；原始R1为671B总参数、37B激活参数，并同步发布多个基于Qwen与Llama的蒸馏版本。</p>
       <p>截至2026年9月4日页面快照，`deepseek-ai/DeepSeek-R1`最近一个月仍有<strong>1,013,158次下载</strong>；围绕原始模型已形成<strong>122个Adapter、326个Fine-tune、4个Merge、71个Quantization</strong>，并被<strong>100个公开Spaces</strong>使用。当前模型页还直接显示<strong>Novita</strong>作为Inference Provider。</p>
       <div class="number-grid"><div class="number"><strong>1.01M</strong><b>近月下载</b><span>DeepSeek-R1官方HF页面快照。</span></div><div class="number"><strong>326</strong><b>Fine-tunes</b><span>社区对原始模型继续再生产。</span></div><div class="number"><strong>122</strong><b>Adapters</b><span>围绕同一底座形成轻量衍生层。</span></div><div class="number"><strong>71</strong><b>Quantizations</b><span>把模型带向不同成本与硬件环境。</span></div></div>
       <p>这组数据解释了为什么“模型发布”与传统软件产品发布完全不同。一个开源模型进入HF以后，不是静态地等待下载，而会快速生长出Fine-tune、Adapter、量化版、Merge、Demo与推理服务。原始模型像一只“基础证券”，其上不断产生新的衍生版本。</p>
       <div class="flow"><div><b>DeepSeek</b><span>发行原始开放权重模型</span></div><div><b>Hugging Face</b><span>托管、披露、版本、模型树</span></div><div><b>Community</b><span>Fine-tune / Adapter / Quantize</span></div><div><b>Provider</b><span>Novita / DeepInfra等执行</span></div><div><b>OpenRouter</b><span>在Provider间分配Token订单</span></div><div><b>Agent / App</b><span>Token转成真实任务</span></div></div>
-      <p>所以本文不是从“2016年成立了一家公司”开始，而是从一个真实模型的生命周期开始。读者自然会遇到Hugging Face，因为它正是这条链中最难绕开的基础设施。</p>
+      <p>因此，理解Hugging Face最好的起点不是公司沿革，而是一款真实模型的生命周期。模型一旦进入全球开发者生态，Hugging Face便自然成为最难绕开的基础设施之一。</p>
     </section>
 
     <section class="section" id="hf"><div class="section-label">03 · What Is Hugging Face?</div><h2>Hugging Face到底是什么：它已经远远不只是“AI世界的GitHub”</h2>
@@ -100,7 +100,7 @@
       <p>Qwen的151,448个衍生仓库尤其说明问题：这些并不是Qwen官方发布了15万个模型，而是社区围绕同一底座持续再生产。开源模型的关键特征不是“被消费”，而是<strong>可以繁殖</strong>。HF控制的是这个繁殖网络的重要节点。</p>
     </section>
 
-    <section class="section" id="market"><div class="section-label">08 · HF vs OpenRouter</div><h2>一级发行基础设施 vs 二级流动性市场：你的类比成立，但边界正在重叠</h2>
+    <section class="section" id="market"><div class="section-label">08 · HF vs OpenRouter</div><h2>一级发行基础设施 vs 二级流动性市场：功能分工正在重叠</h2>
       <p class="lead">如果把模型公司看成发行人，那么HF更靠近模型资产本身，OpenRouter更靠近一笔Token订单的实时执行。这个类比不是法律意义上的严格映射，但非常有助于理解市场结构。</p>
       <div class="table-wrap"><table><thead><tr><th>维度</th><th>Hugging Face</th><th>OpenRouter</th></tr></thead><tbody>
         <tr><td>核心对象</td><td><b>模型资产与开发者</b></td><td><b>Token订单与Provider</b></td></tr>
@@ -121,13 +121,13 @@
     </section>
 
     <section class="section"><div class="section-label">09 · Provider Casebook</div><h2>Novita、DeepInfra、Nscale：把Provider放回同一张流量账，赛道突然变清楚了</h2>
-      <p>Provider的本质不是“又一家云”。它们把真实GPU / ASIC capacity转化成可交易Token，并在不同分发平台争取订单流。以后研究Provider不能只问有多少GPU，还要问：<strong>你在哪些交易场所挂牌？路由排名如何？订单流从哪里来？</strong></p>
+      <p>Provider的本质不是“又一家云”。它们把真实GPU / ASIC capacity转化成可交易Token，并在不同分发平台争取订单流。因此，Provider研究不能只停留在GPU数量，还需要追踪：<strong>接入哪些分发平台、路由排名如何、订单流来自哪里。</strong></p>
       <div class="table-wrap"><table><thead><tr><th>Provider</th><th>HF Inference Providers</th><th>OpenRouter</th><th>投资含义</th></tr></thead><tbody>
         <tr><td><b>NovitaAI</b></td><td>正式Provider；DeepSeek-R1官方模型页当前可直接指定Novita</td><td>截至2026-09-04：约<strong>71个模型、641B daily tokens、19.8T monthly tokens</strong></td><td>典型“做市商”：竞争$/M Token、TTFT、Throughput、Uptime和Model Coverage。</td></tr>
         <tr><td><b>DeepInfra</b></td><td>正式Provider，多个Qwen/GLM/Kimi模型上常作为低价或高速选项</td><td>约<strong>101个模型、411.7B daily tokens、16.6T monthly tokens</strong></td><td>Provider breadth更宽；Router-sourced order flow应进入估值账本。</td></tr>
         <tr><td><b>Nscale</b></td><td>正式Provider；例如Qwen模型上可成为cheapest / fastest</td><td>截至本次快照未出现在OpenRouter 83家Provider名单</td><td>更偏HF + Lepton / NVIDIA生态路径，是与Novita、DeepInfra不同的Distribution Mix。</td></tr>
       </tbody></table></div>
-      <p>这意味着Kerwin《Inference Manufacturing Unified Ledger》应该继续增加：<strong>HF Presence、OpenRouter Presence、Router-sourced Token Flow、Routing Rank、Price、TTFT、Throughput、Uptime、Distribution Concentration</strong>。GPU Capacity只是生产能力，Distribution决定产能能否被填满。</p>
+      <p>因此，Kerwin《Inference Manufacturing Unified Ledger》新增以下跟踪字段：<strong>HF Presence、OpenRouter Presence、Router-sourced Token Flow、Routing Rank、Price、TTFT、Throughput、Uptime、Distribution Concentration</strong>。GPU Capacity只是生产能力，Distribution决定产能能否被填满。</p>
     </section>
 
     <section class="section"><div class="section-label">10 · Stripe × OpenRouter</div><h2>Stripe为什么买OpenRouter：AI开始长出自己的“交易、计量与结算层”</h2>
@@ -136,7 +136,7 @@
       <div class="dark-panel"><h3>两周内，两类AI Control Plane被买下</h3><p><b>2026-08-19 · Stripe → OpenRouter：</b>Token交易、Provider路由、计量与结算入口。</p><p><b>2026-09-02/03 · NVIDIA → Hugging Face：</b>模型发行、开发者分发、开源模型图谱与部署入口。</p><p>真正值得思考的不是两笔交易谁更贵，而是为什么基础设施资本几乎同时开始争夺开源AI市场的<strong>发行端与交易端</strong>。</p></div>
     </section>
 
-    <section class="section" id="lepton"><div class="section-label">11 · DGX Cloud Lepton</div><h2>Lepton第一次出现时应该这样理解：HF聚合需求，Lepton聚合NVIDIA GPU供给</h2>
+    <section class="section" id="lepton"><div class="section-label">11 · DGX Cloud Lepton</div><h2>Lepton的市场角色：HF聚合需求，Lepton聚合NVIDIA GPU供给</h2>
       <p><strong>如果Hugging Face帮助开发者找到模型，DGX Cloud Lepton帮助开发者找到NVIDIA GPU。</strong>Lepton把不同Cloud / NeoCloud的NVIDIA GPU Capacity组织进一个全球Compute Marketplace，合作方包括CoreWeave、Nebius、Nscale、Together、AWS、Crusoe、Fluidstack、Lambda、Scaleway等。</p>
       <p>更关键的是，HF × Lepton不是收购之后才想象出来的协同。2025年6月，两家公司已经推出<strong>Training Cluster as a Service</strong>：研究机构提出GPU型号、数量、区域和使用时间，HF与NVIDIA共同处理sourcing、pricing与provisioning，后台由DGX Cloud Lepton接入Cloud Partner的GPU集群。</p>
       <div class="flow"><div><b>HF Model / Org</b><span>模型与研究机构产生需求</span></div><div><b>Training Cluster</b><span>定义GPU、规模、区域、时长</span></div><div><b>DGX Cloud Lepton</b><span>聚合NVIDIA GPU供给</span></div><div><b>Cloud / NeoCloud</b><span>真实GPU Capacity</span></div><div><b>GPU-hours</b><span>需求转为可计费算力</span></div><div><b>Active IT MW</b><span>落到利用率与Revenue/MW</span></div></div>
@@ -145,7 +145,7 @@
 
     <section class="section" id="nvda"><div class="section-label">12 · NVIDIA × Open-Source Models</div><h2>NVIDIA不是刚刚进入开源模型世界：它自己已经是参与者，而且DeepSeek就在它的训练链里</h2>
       <p>NVIDIA的Nemotron已经不是“几款开放权重模型”那么简单。NVIDIA在HF官方文章中把Nemotron定义成<strong>模型 + 开源数据 + 训练Recipe</strong>的组合，并明确表示：它会通过公开实验理解模型训练和推理，再反过来指导下一代GPU、软件与网络的设计。</p>
-      <p>最值得写进本文的真实链，是<strong>DeepSeek → NVIDIA → Hugging Face</strong>。</p>
+      <p>其中最关键的一条真实链，是<strong>DeepSeek → NVIDIA → Hugging Face</strong>。</p>
       <div class="flow"><div><b>DeepSeek-R1-0528</b><span>提供高质量Reasoning能力</span></div><div><b>5M Responses</b><span>NVIDIA公开模型卡披露500万条DeepSeek-R1生成回答</span></div><div><b>OpenReasoning Nemotron</b><span>形成1.5B/7B/14B/32B等模型族</span></div><div><b>Hugging Face</b><span>模型与数据重新发布</span></div><div><b>Provider / Router</b><span>再次进入全球推理市场</span></div><div><b>NVIDIA Compute</b><span>训练与推理反向拉动算力</span></div></div>
       <p>NVIDIA OpenReasoning-Nemotron-32B模型卡明确写明，其训练语料包含<strong>5M DeepSeek-R1-0528 generated responses</strong>。这是一条非常具象的事实：东方大国的开源Reasoning能力进入NVIDIA的数据生产，再被蒸馏成新的模型，重新在HF“上市”，继续被全球开发者使用。</p>
       <div class="kerwin-callout"><b>Kerwin进一步的推演是：</b> NVIDIA自身发展开源模型、开源数据与训练Recipe，以及最终收购Hugging Face，很可能都是在认真应对开源模型全球影响力上升后的主动布局。它未必希望自己成为唯一最强模型公司；更理想的世界可能是——<strong>模型越来越多、越来越便宜、越来越开源，而真正稀缺且通用的Compute持续由NVIDIA平台提供。</strong></div>
@@ -161,7 +161,7 @@
         <tr><td>HF Inference → Lepton自动闭环</td><td><span class="evidence-tag">INFERENCE</span>尚未正式宣布统一自动市场</td><td>最重要的未来协同之一</td></tr>
         <tr><td>NIM × HF</td><td><span class="evidence-tag">SURPRISE</span>HF当前文档写明NVIDIA NIM container自2024-10-01起不再在UI正式支持</td><td class="risk">不能写成既成强协同</td></tr>
       </tbody></table></div>
-      <p>NIM这一点很重要，因为它不符合“收购之后一切都已经无缝连接”的漂亮叙事。HF当前官方Inference Endpoints文档明确保留“NVIDIA NIM (no longer available in UI)”提示。这说明我们必须保留Surprise Ledger：<strong>事实不漂亮，就不要为了故事完整性硬塞进框架。</strong></p>
+      <p>NIM这一点很重要，因为它不符合“收购之后一切都已经无缝连接”的漂亮叙事。HF当前官方Inference Endpoints文档明确保留“NVIDIA NIM (no longer available in UI)”提示。因此，Surprise Ledger必须保留：<strong>事实不漂亮，就不能为了故事完整性硬塞进框架。</strong></p>
       <p>真正值得期待的是另外一种锁定方式：不是禁止AMD/TPU，而是保持平台中立，同时让NVIDIA路径因为CUDA、TensorRT、Lepton、优化工具与GPU Supply更充足而成为<strong>摩擦最小的默认选择</strong>。</p>
     </section>
 
@@ -183,7 +183,7 @@
       <p>HF之所以能成为行业基础设施，一个关键原因是不同硬件和云生态都愿意接入。它与AWS长期合作，明确帮助开发者使用Inferentia和Trainium；与Google Cloud合作推动TPU原生支持；当前Optimum-AMD仍直接连接HF Libraries与AMD ROCm / Ryzen AI。</p>
       <p>所以NVIDIA不能简单把HF变成“自家商店”。SEC文件也专门承诺，交易完成后HF将继续保持开放，开发者仍可选择自己的模型、框架、云与Compute，并继续支持其他Silicon Vendor。</p>
       <div class="table-wrap"><table><thead><tr><th>未来监控指标</th><th>支持交易逻辑</th><th>削弱交易逻辑</th></tr></thead><tbody><tr><td>AMD / TPU / Trainium支持</td><td>继续获得高质量工具、优化与文档</td><td class="risk">竞争硬件支持明显减弱</td></tr><tr><td>HF Router</td><td>:fastest / :cheapest规则透明、性能驱动</td><td class="risk">NVIDIA相关Provider出现不可解释的系统偏好</td></tr><tr><td>Model Distribution</td><td>东方大国和全球模型继续以HF为主要发行地</td><td class="risk">模型作者迁移到独立Hub或出现分叉</td></tr><tr><td>Lepton转化</td><td>带来新增客户与新增GPU-hours</td><td class="risk">只是改变订单入口</td></tr><tr><td>监管</td><td>开源模型跨境流动保持可用</td><td class="risk">地域限制削弱全球网络效应</td></tr></tbody></table></div>
-      <p>这里OpenRouter的价值反而可能上升。HF属于NVIDIA以后，一个由Stripe拥有、而Stripe本身不生产GPU也不训练Frontier Model的Router，可能更容易获得“中立交易层”的市场定位。未来潜在分工可能是：<strong>NVIDIA/HF偏Model Supply + Developer Ecosystem + Compute Integration；Stripe/OpenRouter偏Neutral Model Selection + Token Execution + Billing。</strong></p>
+      <p>在这一背景下，OpenRouter的价值反而可能上升。HF属于NVIDIA以后，一个由Stripe拥有、而Stripe本身不生产GPU也不训练Frontier Model的Router，可能更容易获得“中立交易层”的市场定位。未来潜在分工可能是：<strong>NVIDIA/HF偏Model Supply + Developer Ecosystem + Compute Integration；Stripe/OpenRouter偏Neutral Model Selection + Token Execution + Billing。</strong></p>
     </section>
 
     <section class="section"><div class="section-label">17 · Kerwin AI Capital Cycle</div><h2>这笔交易真正修改的是 Kerwin《AI Capital Cycle / 1GW统一账本》的市场结构图</h2>
