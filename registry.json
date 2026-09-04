@@ -3,7 +3,7 @@
     "slug": "agility-digit-physical-agent-benchmark-20260904",
     "title": "Agility Robotics：第一张可算清楚的人形机器人经济账",
     "date": "2026年9月4日",
-    "deck": "以Agility Robotics的SEC/SPAC材料为行业锚，把Digit的真实部署、RaaS定价、31K小时五年寿命假设、$30.5/h人类完全负担成本、约$16/h机器人服务价格与成熟规模产品成本放进同一张账本，建立后续比较Figure、Optimus、Apollo、Atlas与Unitree的Physical Agent benchmark。",
+    "deck": "以Agility Robotics的SEC/SPAC材料为行业锚，把Digit真实工业工作流、RaaS定价、31K小时五年寿命假设、特定美国物料搬运工$30.5/h完全负担成本、约$100K/robot-year合同锚与成熟规模Product Margin放进同一张账本。",
     "tag": "Agility Robotics · Digit · Physical Agent Economics · RaaS",
     "category": "Physical Agent Economics · Humanoid Robotics",
     "source": "enya",
@@ -14,17 +14,17 @@
     "desktop_qa_version": "1.0.0",
     "axis": "agent-economy",
     "content_type": "deep-dive",
-    "homepage_deck": "Digit把人形机器人第一次拉进可审计的经济账：65K+ fleet operating hours是现实验证，31K/台是五年寿命模型；同类人工约$30.5/h，RaaS隐含约$16/h，当前给客户节省接近一半劳动力支出。更重要的是，它提供BOM、部署、软件维护、Product Margin与SPAC估值锚，为后续比较Figure、Optimus、Apollo、Atlas和Unitree建立统一基准。",
+    "homepage_deck": "Digit把人形机器人第一次拉进可审计经济账：65K+ fleet hours来自真实工业部署；$30.5/h只对应特定美国物料搬运工岗位，并非所有工种；>$300M订单隐含约$100K/robot-year，提供第一个合同级年化收费锚；10K台/年成熟情景约75% Product Margin展示规模化潜力，但不是当前已实现历史毛利率。",
     "status": "new",
-    "updated_at": "2026-09-04T13:26:00+08:00"
+    "updated_at": "2026-09-04T16:03:00+08:00"
   },
   {
     "slug": "huggingface-open-model-market-20260904",
-    "title": "开源模型军团出海：英伟达130亿美元抢占桥头堡",
+    "title": "模型从哪里“上市”：Hugging Face、OpenRouter 与开放 AI 的新市场结构",
     "date": "2026年9月4日",
-    "deck": "从DeepSeek时刻到Qwen生态，精细拆解Hugging Face作为开源模型发行、托管、衍生、部署与开发者分发基础设施的行业地位；比较OpenRouter、Inference Provider与DGX Cloud Lepton，并推演英伟达约130亿美元收购HF后的AI Demand Graph、Compute Demand与Control Plane价值。",
+    "deck": "从DeepSeek时刻到Qwen 15.1万+衍生仓库，开放模型已经长出发行、做市、路由、结算与算力供给基础设施。NVIDIA以$12.93B收购Hugging Face，真正买入的是模型分发、18M+开发者Demand Graph与AI Control Plane。",
     "tag": "Hugging Face · OpenRouter · NVIDIA · AI Control Plane",
-    "category": "Open-Source Model Economy · AI Control Plane",
+    "category": "Open Model Economy · AI Control Plane",
     "source": "enya",
     "homepage_approved": true,
     "published_at": "2026-09-04T12:14:00+08:00",
@@ -33,9 +33,9 @@
     "desktop_qa_version": "1.0.0",
     "axis": "compute-chain",
     "content_type": "deep-dive",
-    "homepage_deck": "DeepSeek打开缺口，Qwen 15.1万+衍生仓库证明开源模型已形成生态。Hugging Face负责模型发行、托管与开发者分发，OpenRouter负责Token交易与Provider路由，Lepton聚合GPU供给；英伟达约130亿美元买下的是开源模型全球分发桥头堡、一张18M+开发者Demand Graph与AI Control Plane。",
+    "homepage_deck": "从DeepSeek时刻到Qwen 15.1万+衍生仓库，开放模型已从单一产品变成市场。Hugging Face负责发行、托管与开发者分发，OpenRouter负责Token交易与Provider路由，Lepton聚合GPU供给；NVIDIA以$12.93B买下的是一张18M+开发者Demand Graph与AI Control Plane。",
     "status": "new",
-    "updated_at": "2026-09-04T14:15:00+08:00"
+    "updated_at": "2026-09-04T12:14:00+08:00"
   },
   {
     "slug": "ai-capital-cycle-1gw-unified-ledger-20260903",
