@@ -1,0 +1,34 @@
+name: One-off fix Open Model SVG
+on:
+  push:
+    paths:
+      - '.github/workflows/oneoff-fix-open-model-svg.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fix and validate SVG
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          p=Path('assets/open-model-economy-kerwin-20260904.svg')
+          s=p.read_text()
+          s=s.replace('ROUTER & PAYMENTS','ROUTER &amp; PAYMENTS')
+          p.write_text(s)
+          ET.parse(p)
+          print('SVG XML validation: PASS')
+          PY
+      - name: Remove one-off workflow and commit
+        run: |
+          rm .github/workflows/oneoff-fix-open-model-svg.yml
+          git config user.name 'kerwin-research-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add assets/open-model-economy-kerwin-20260904.svg .github/workflows/oneoff-fix-open-model-svg.yml
+          git commit -m 'Fix Open Model Economy SVG XML rendering'
+          git push
