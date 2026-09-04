@@ -26,13 +26,13 @@
 
   <!-- HF -->
   <circle cx="92" cy="420" r="22" class="green"/><text x="86" y="427" class="num">2</text>
-  <text x="132" y="410" class="h">发行 / 上市 / 存管</text><text x="132" y="438" class="s">MODEL MARKET INFRASTRUCTURE</text>
+  <text x="132" y="410" class="h">发行 / 上市 / 存管</text><text x="132" y="438" class="s">MODEL INFRASTRUCTURE</text>
   <rect x="300" y="368" width="610" height="126" class="box paper" filter="url(#shadow)"/>
   <text x="605" y="410" text-anchor="middle" class="h">HUGGING FACE</text>
   <text x="605" y="444" text-anchor="middle" class="b">Model · Dataset · Tools · Community</text>
   <text x="605" y="474" text-anchor="middle" class="s">NVIDIA（交易待交割）</text>
   <text x="940" y="400" class="side">全球开源模型的重要“上市地”</text><text x="940" y="425" class="side">发现 · 托管 · 披露 · 衍生</text><text x="940" y="450" class="side">Developer Demand Graph</text>
-  <text x="620" y="526" text-anchor="middle" class="cap">MODEL DISTRIBUTION｜模型分发与生态扩散</text>
+  <text x="400" y="526" text-anchor="middle" class="cap">MODEL DISTRIBUTION｜模型分发与生态扩散</text>
   <path d="M605 494 L605 552" class="arrow"/>
 
   <!-- Inference provider distribution -->
@@ -45,7 +45,7 @@
   <text x="760" y="602" text-anchor="middle" class="b">Nscale · Together</text>
   <text x="760" y="634" text-anchor="middle" class="s">HF / Lepton 等多入口</text>
   <text x="940" y="600" class="side">真实GPU / ASIC产能</text><text x="940" y="625" class="side">竞争价格 · 速度 · Uptime</text><text x="940" y="650" class="side">争夺Router Order Flow</text>
-  <text x="605" y="712" text-anchor="middle" class="cap">INFERENCE MARKET｜模型推理市场</text>
+  <text x="400" y="712" text-anchor="middle" class="cap">INFERENCE MARKET｜模型推理市场</text>
   <path d="M605 678 L605 744" class="arrow"/>
 
   <!-- OpenRouter -->
@@ -56,7 +56,7 @@
   <text x="605" y="822" text-anchor="middle" class="b">Smart Order Router</text>
   <text x="605" y="852" text-anchor="middle" class="s">Price · Speed · Uptime · Policy · STRIPE</text>
   <text x="940" y="786" class="side">像聚合券商 + Smart Order Router</text><text x="940" y="811" class="side">决定这一次Token订单</text><text x="940" y="836" class="side">在哪个Provider执行</text>
-  <text x="605" y="920" text-anchor="middle" class="cap">TOKEN ORDER｜Token订单分发</text>
+  <text x="420" y="920" text-anchor="middle" class="cap">TOKEN ORDER｜Token订单分发</text>
   <path d="M605 884 L605 948" class="arrow"/>
 
   <!-- GPU clouds -->
