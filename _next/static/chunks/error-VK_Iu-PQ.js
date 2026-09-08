@@ -1,0 +1,1 @@
+import{r as e}from"./framework-D_rUT4EX.js";var t=e();function n({reset:e}){return(0,t.jsxs)(`main`,{id:`main`,className:`container not-found`,children:[(0,t.jsx)(`h1`,{children:`研究页面暂时无法打开`}),(0,t.jsx)(`p`,{children:`请重新尝试加载。`}),(0,t.jsx)(`button`,{className:`primary-link`,onClick:e,children:`重新加载`})]})}export{n as default};
