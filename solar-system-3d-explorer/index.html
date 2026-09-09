@@ -16,6 +16,8 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{width:100%;height:100%;overflow:hidden;background:#02030a;font-family:'ZCOOL KuaiLe','PingFang SC','Microsoft YaHei',sans-serif;color:var(--ink)}
+  #site-home{position:fixed;top:14px;left:14px;z-index:50;padding:7px 11px;border:1px solid rgba(125,211,252,.35);border-radius:999px;background:rgba(8,14,30,.62);color:var(--ink);font:600 12px/1.2 Arial,"PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.08em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  #site-home:hover,#site-home:focus-visible{border-color:var(--gold);color:var(--gold);outline:none}
   #scene{position:fixed;inset:0;cursor:grab}
   #scene.grabbing{cursor:grabbing}
 
@@ -157,6 +159,7 @@
   <link rel="stylesheet" href="/assets/kerwin-system-v2.css?v=20260718gate">
 </head>
 <body data-page-slug="solar-system-3d-explorer" class="kw-experience">
+  <a id="site-home" href="/" aria-label="返回 EnyaClawd 研究首页">← EnyaClawd</a>
 <div id="scene"></div>
 
 <div id="title">
@@ -681,3 +684,4 @@ setTimeout(()=>document.getElementById('hint').classList.add('fade'),9000);
   <script defer src="/assets/kerwin-system-v2.js?v=20260718gate"></script>
 </body>
 </html>
+
