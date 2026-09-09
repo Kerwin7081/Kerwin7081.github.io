@@ -333,19 +333,22 @@ body.kw-experience #site-corner { top: max(10px, env(safe-area-inset-top)) !impo
 
 /* FT editorial refinement · 2026-07-18 */
 :root {
-  --kw-outer: #e6d8cb;
-  --kw-outer-2: #fff1e5;
-  --kw-surface: #fff1e5;
-  --kw-paper: #fffaf5;
-  --kw-ink: #262220;
-  --kw-muted: #746b65;
-  --kw-line: #cdbfb3;
-  --kw-mint: #dbe9e2;
-  --kw-mint-deep: #103f35;
-  --kw-copper: #9a5c38;
-  --kw-shadow: 0 12px 34px rgba(38,34,32,.08);
-  --kw-radius: 2px;
-  --kw-serif: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+  /* v2 keeps its public aliases while consuming the shared v1 tokens. */
+  --kw-outer: var(--enya-color-canvas);
+  --kw-outer-2: var(--enya-color-surface);
+  --kw-surface: var(--enya-color-surface);
+  --kw-paper: var(--enya-color-surface-raised);
+  --kw-ink: var(--enya-color-ink);
+  --kw-muted: var(--enya-color-ink-muted);
+  --kw-line: var(--enya-color-line);
+  --kw-mint: var(--enya-color-brand-soft);
+  --kw-mint-deep: var(--enya-color-brand);
+  --kw-copper: var(--enya-color-accent);
+  --kw-danger: var(--enya-color-danger);
+  --kw-shadow: var(--enya-shadow-card);
+  --kw-radius: var(--enya-radius-card);
+  --kw-sans: var(--enya-font-sans);
+  --kw-serif: var(--enya-font-serif);
 }
 body.kw-research {
   padding-top: 61px !important;
