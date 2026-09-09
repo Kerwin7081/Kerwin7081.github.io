@@ -12,12 +12,15 @@
   --enya-color-surface: #fff1e5;
   --enya-color-surface-raised: #fffaf5;
   --enya-color-surface-tinted: #f3e4d7;
+  --enya-color-surface-subtle: #f7e7d8;
   --enya-color-ink: #262220;
   --enya-color-ink-muted: #746b65;
   --enya-color-ink-subtle: #8c8178;
   --enya-color-ink-inverse: #fff1e5;
   --enya-color-brand: #103f35;
+  --enya-color-brand-hover: #1f5a4d;
   --enya-color-brand-soft: #dbe9e2;
+  --enya-color-brand-wash: #dce8e2;
   --enya-color-accent: #9a5c38;
   --enya-color-accent-soft: #f1dfd1;
   --enya-color-danger: #7d2933;
@@ -71,6 +74,19 @@
   --enya-focus-ring: 0 0 0 3px rgba(154, 92, 56, .28);
   --enya-motion-fast: 140ms ease;
   --enya-motion-standard: 220ms ease;
+
+  /* Semantic aliases used by the generated research hub pages. */
+  --background: var(--enya-color-surface);
+  --foreground: var(--enya-color-ink);
+  --primary: var(--enya-color-brand);
+  --primary-foreground: var(--enya-color-ink-inverse);
+  --muted: var(--enya-color-surface-subtle);
+  --muted-foreground: var(--enya-color-ink-muted);
+  --border: var(--enya-color-line);
+  --accent: var(--enya-color-brand-wash);
+  --card: var(--enya-color-surface-raised);
+  --secondary: var(--enya-color-surface-subtle);
+  --destructive: var(--enya-color-danger);
 }
 
 /* Page-level adoption hook. It is intentionally low-impact. */
@@ -224,6 +240,78 @@ body[data-enya-design-system="v1"] {
 .enya-ui-mono {
   font-family: var(--enya-font-mono);
   font-variant-numeric: tabular-nums;
+}
+
+/* Generated hub component bridge. These values intentionally match the
+ * current site; the bridge makes the next migration a token swap, not a
+ * visual rewrite. */
+body[data-enya-design-system="v1"] .mast {
+  color: var(--enya-color-ink-inverse);
+  background: var(--enya-color-brand);
+}
+
+body[data-enya-design-system="v1"] .header {
+  background: var(--enya-color-surface-raised);
+}
+
+body[data-enya-design-system="v1"] .brand,
+body[data-enya-design-system="v1"] .monogram {
+  color: var(--enya-color-brand);
+}
+
+body[data-enya-design-system="v1"] .header nav .active {
+  color: var(--enya-color-danger);
+  border-color: var(--enya-color-danger);
+}
+
+body[data-enya-design-system="v1"] .eyebrow.amber {
+  color: var(--enya-color-accent);
+}
+
+body[data-enya-design-system="v1"] .page-heading h1 {
+  color: var(--enya-color-ink);
+  font-family: var(--enya-font-serif);
+}
+
+body[data-enya-design-system="v1"] .page-heading h1 .serif {
+  color: var(--enya-color-brand);
+}
+
+body[data-enya-design-system="v1"] .research-row {
+  border-color: var(--enya-color-line);
+}
+
+body[data-enya-design-system="v1"] .research-row .eyebrow {
+  color: var(--enya-color-danger);
+}
+
+body[data-enya-design-system="v1"] .research-row time,
+body[data-enya-design-system="v1"] .research-row small,
+body[data-enya-design-system="v1"] .muted {
+  color: var(--enya-color-ink-muted);
+}
+
+body[data-enya-design-system="v1"] .primary-link,
+body[data-enya-design-system="v1"] .map-stage[data-active] {
+  color: var(--enya-color-ink-inverse);
+  background: var(--enya-color-brand);
+}
+
+body[data-enya-design-system="v1"] .primary-link:hover {
+  background: var(--enya-color-brand-hover);
+}
+
+body[data-enya-design-system="v1"] .reading-note {
+  background: var(--enya-color-brand-wash);
+}
+
+body[data-enya-design-system="v1"] .watch-panel {
+  background: var(--enya-color-surface-subtle);
+}
+
+body[data-enya-design-system="v1"] footer {
+  color: var(--enya-color-ink-inverse);
+  background: var(--enya-color-brand);
 }
 
 @media (prefers-reduced-motion: reduce) {
