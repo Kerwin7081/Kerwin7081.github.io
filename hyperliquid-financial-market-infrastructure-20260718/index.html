@@ -21,6 +21,7 @@ html,body{margin:0;min-height:100%;background:#fff1e5;color:#1f1a17;font-family:
     responses.forEach(function(r){if(!r.ok)throw new Error('HTTP '+r.status);});
     var parts=await Promise.all(responses.map(function(r){return r.text();}));
     document.open();document.write(parts.join(''));document.close();
+    var readerLoader=document.createElement('script');readerLoader.src='/assets/enya-reader-loader-v1.js?v=20260909reader';document.body.appendChild(readerLoader);
   }catch(error){
     document.getElementById('loading').innerHTML='<h1>页面加载失败</h1><p>请刷新页面重试。</p>';
     console.error(error);
@@ -32,3 +33,4 @@ html,body{margin:0;min-height:100%;background:#fff1e5;color:#1f1a17;font-family:
 <script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>
 </html>
+
