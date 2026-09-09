@@ -2,3 +2,4 @@
 @media(max-width:760px){.enya-reader{gap:8px;padding:8px 12px;font-size:14px}.enya-reader__brand{flex-basis:100%;margin:0}.enya-reader__secondary{display:none}.enya-reader button,.enya-reader select,.enya-reader summary{padding:7px 9px;font-size:14px;min-height:40px}.enya-reader__toc{position:fixed;top:100px;right:12px;max-height:55vh}.enya-reading-text{font-size:calc(17px * var(--enya-text-scale,1));line-height:1.85}.enya-reading-heading{scroll-margin-top:125px}.enya-model-tools{padding:12px}}
 @media(prefers-reduced-motion:reduce){html:has(.enya-reader){scroll-behavior:auto}}
 @media print{.enya-reader,.enya-model-tools{display:none}.enya-reading-text{font-size:12pt;line-height:1.6}.enya-table-scroll{overflow:visible}table{break-inside:auto}tr,img{break-inside:avoid}h2,h3{break-after:avoid}}
+.enya-model-invalid .calculator .result,.enya-model-invalid .calc-result,.enya-model-invalid .calc-result .result{opacity:.5}
