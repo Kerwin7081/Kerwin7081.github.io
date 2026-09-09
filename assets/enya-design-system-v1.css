@@ -1,0 +1,245 @@
+/*
+ * EnyaClawd / Kerwin Research — shared design system v1
+ *
+ * This is an additive compatibility layer. It records the current visual
+ * language and exposes reusable primitives without replacing page-specific
+ * layouts. Existing pages can adopt it one component at a time.
+ */
+
+:root {
+  /* Current site palette — keep these values stable across the migration. */
+  --enya-color-canvas: #e8ddd2;
+  --enya-color-surface: #fff1e5;
+  --enya-color-surface-raised: #fffaf5;
+  --enya-color-surface-tinted: #f3e4d7;
+  --enya-color-ink: #262220;
+  --enya-color-ink-muted: #746b65;
+  --enya-color-ink-subtle: #8c8178;
+  --enya-color-ink-inverse: #fff1e5;
+  --enya-color-brand: #103f35;
+  --enya-color-brand-soft: #dbe9e2;
+  --enya-color-accent: #9a5c38;
+  --enya-color-accent-soft: #f1dfd1;
+  --enya-color-danger: #7d2933;
+  --enya-color-danger-soft: #f7e2e4;
+  --enya-color-line: #cdbfb3;
+  --enya-color-line-strong: #a99d94;
+  --enya-color-overlay: rgba(38, 34, 32, .14);
+
+  /* Semantic aliases for legacy article styles. */
+  --enya-bg: var(--enya-color-canvas);
+  --enya-paper: var(--enya-color-surface);
+  --enya-paper-raised: var(--enya-color-surface-raised);
+  --enya-ink: var(--enya-color-ink);
+  --enya-muted: var(--enya-color-ink-muted);
+  --enya-line: var(--enya-color-line);
+  --enya-green: var(--enya-color-brand);
+  --enya-green-soft: var(--enya-color-brand-soft);
+  --enya-copper: var(--enya-color-accent);
+  --enya-wine: var(--enya-color-danger);
+
+  --enya-font-sans: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --enya-font-serif: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+  --enya-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --enya-text-xs: 10px;
+  --enya-text-sm: 12px;
+  --enya-text-body: 16px;
+  --enya-text-lead: 19px;
+  --enya-text-h3: clamp(20px, 2.4vw, 28px);
+  --enya-text-h2: clamp(27px, 3.4vw, 40px);
+  --enya-text-display: clamp(34px, 5vw, 58px);
+
+  --enya-space-1: 4px;
+  --enya-space-2: 8px;
+  --enya-space-3: 12px;
+  --enya-space-4: 16px;
+  --enya-space-5: 20px;
+  --enya-space-6: 24px;
+  --enya-space-7: 32px;
+  --enya-space-8: 40px;
+  --enya-space-9: 56px;
+  --enya-space-10: 72px;
+
+  --enya-content-reading: 760px;
+  --enya-content-wide: 1120px;
+  --enya-radius-control: 2px;
+  --enya-radius-card: 2px;
+  --enya-radius-pill: 999px;
+  --enya-shadow-card: 0 12px 34px rgba(38, 34, 32, .08);
+  --enya-shadow-popover: 0 18px 42px rgba(38, 34, 32, .16);
+  --enya-focus-ring: 0 0 0 3px rgba(154, 92, 56, .28);
+  --enya-motion-fast: 140ms ease;
+  --enya-motion-standard: 220ms ease;
+}
+
+/* Page-level adoption hook. It is intentionally low-impact. */
+body[data-enya-design-system="v1"] {
+  color: var(--enya-ink);
+  font-family: var(--enya-font-sans);
+}
+
+.enya-ui-surface {
+  color: var(--enya-ink);
+  background: var(--enya-paper);
+  border: 1px solid var(--enya-line);
+}
+
+.enya-ui-card {
+  padding: var(--enya-space-6);
+  color: var(--enya-ink);
+  background: var(--enya-paper-raised);
+  border: 1px solid var(--enya-line);
+  border-radius: var(--enya-radius-card);
+  box-shadow: var(--enya-shadow-card);
+}
+
+.enya-ui-kicker {
+  margin: 0;
+  color: var(--enya-green);
+  font: 800 var(--enya-text-xs)/1.2 var(--enya-font-sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.enya-ui-title {
+  margin: 0;
+  color: var(--enya-ink);
+  font-family: var(--enya-font-serif);
+  letter-spacing: -.035em;
+}
+
+.enya-ui-title--display { font-size: var(--enya-text-display); line-height: 1.04; }
+.enya-ui-title--section { font-size: var(--enya-text-h2); line-height: 1.14; }
+
+.enya-ui-muted {
+  color: var(--enya-muted);
+  font-size: var(--enya-text-sm);
+}
+
+.enya-ui-divider {
+  height: 1px;
+  margin: var(--enya-space-7) 0;
+  background: var(--enya-line);
+  border: 0;
+}
+
+.enya-ui-link {
+  color: var(--enya-green);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color var(--enya-motion-fast), text-decoration-color var(--enya-motion-fast);
+}
+
+.enya-ui-link:hover,
+.enya-ui-link:focus-visible {
+  color: var(--enya-accent);
+  text-decoration-color: currentColor;
+}
+
+.enya-ui-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--enya-space-2);
+  padding: 8px 14px;
+  border: 1px solid var(--enya-green);
+  border-radius: var(--enya-radius-control);
+  color: var(--enya-green);
+  background: transparent;
+  font: 800 var(--enya-text-sm)/1.2 var(--enya-font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--enya-motion-fast), background var(--enya-motion-fast), border-color var(--enya-motion-fast), transform var(--enya-motion-fast);
+}
+
+.enya-ui-button:hover,
+.enya-ui-button:focus-visible {
+  color: var(--enya-ink-inverse);
+  background: var(--enya-accent);
+  border-color: var(--enya-accent);
+  transform: translateY(-1px);
+}
+
+.enya-ui-button--primary {
+  color: var(--enya-ink-inverse);
+  background: var(--enya-green);
+}
+
+.enya-ui-button--primary:hover,
+.enya-ui-button--primary:focus-visible {
+  background: var(--enya-accent);
+  border-color: var(--enya-accent);
+}
+
+.enya-ui-callout {
+  padding: var(--enya-space-4) var(--enya-space-5);
+  color: var(--enya-ink);
+  background: var(--enya-color-surface-tinted);
+  border-left: 3px solid var(--enya-accent);
+}
+
+.enya-ui-callout--positive { border-left-color: var(--enya-green); background: var(--enya-green-soft); }
+.enya-ui-callout--danger { border-left-color: var(--enya-wine); background: var(--enya-color-danger-soft); }
+
+.enya-ui-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--enya-space-2);
+  color: var(--enya-muted);
+  font: 700 var(--enya-text-xs)/1.2 var(--enya-font-sans);
+  letter-spacing: .04em;
+}
+
+.enya-ui-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--enya-accent);
+}
+
+.enya-ui-status--live::before { background: var(--enya-green); }
+.enya-ui-status--alert::before { background: var(--enya-wine); }
+
+.enya-ui-table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--enya-line);
+}
+
+.enya-ui-table-scroll table { min-width: 640px; }
+
+.enya-ui-focus:focus-visible,
+.enya-ui-button:focus-visible,
+.enya-ui-link:focus-visible {
+  outline: none;
+  box-shadow: var(--enya-focus-ring);
+}
+
+.enya-ui-mono {
+  font-family: var(--enya-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enya-ui-link,
+  .enya-ui-button { transition: none; }
+  .enya-ui-button:hover,
+  .enya-ui-button:focus-visible { transform: none; }
+}
+
+@media (max-width: 760px) {
+  .enya-ui-card { padding: var(--enya-space-5); }
+  .enya-ui-title--display { font-size: clamp(32px, 10vw, 44px); }
+}
+
+@media print {
+  .enya-ui-button { color: var(--enya-ink); background: transparent; }
+  .enya-ui-card { box-shadow: none; }
+}
+
