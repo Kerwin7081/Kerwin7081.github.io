@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-09-10T20:55:00+08:00",
+  "election_date": "2026-11-03",
+  "countdown_days": 54,
+  "status": "LIVE",
+  "control": {
+    "house_current": "Republican narrow majority",
+    "senate_current": "R 53 · D 45 · I 2",
+    "house_dem_pct": 88,
+    "house_rep_pct": 14,
+    "senate_dem_pct": 53,
+    "senate_rep_pct": 49,
+    "cook_house_tossups": 21,
+    "cook_senate_tossups": 6,
+    "competitive_house_races": "~50",
+    "dem_house_net_needed": "~3",
+    "dem_senate_net_needed": "4"
+  },
+  "national_signals": {
+    "trump_approval": 33,
+    "dem_enthusiasm": 46,
+    "rep_enthusiasm": 31,
+    "generic_ballot_note": "Democratic lead around 6 points in major public averages; track trend, not one poll."
+  },
+  "scenarios": [
+    {"label": "Democrats Sweep", "pct": 50, "note": "D House + D Senate", "class": "dem"},
+    {"label": "Split Congress", "pct": 36, "note": "D House + R Senate", "class": "split"},
+    {"label": "Republicans Sweep", "pct": 14, "note": "R House + R Senate", "class": "rep"},
+    {"label": "Reverse Split", "pct": 1.3, "note": "R House + D Senate", "class": "other"}
+  ],
+  "senate_races": [
+    {"state": "Alaska", "seat": "Sullivan (R)", "matchup": "Dan Sullivan (R) vs Mary Peltola (D)", "rating": "Toss Up", "held": "R", "signal": "Ranked-choice structure + national headwind"},
+    {"state": "Iowa", "seat": "OPEN (R)", "matchup": "Ashley Hinson (R) vs Josh Turek (D)", "rating": "Toss Up", "held": "R", "signal": "Red-state expansion; tariffs/farm economy matter"},
+    {"state": "Maine", "seat": "Collins (R)", "matchup": "Susan Collins (R) vs Troy Jackson (D)", "rating": "Toss Up", "held": "R", "signal": "Incumbency vs anti-Trump environment"},
+    {"state": "Michigan", "seat": "OPEN (D)", "matchup": "Abdul El-Sayed (D) vs Mike Rogers (R)", "rating": "Toss Up", "held": "D", "signal": "Critical Democratic defensive seat"},
+    {"state": "Ohio", "seat": "Husted (R)", "matchup": "Jon Husted (R) vs Sherrod Brown (D)", "rating": "Toss Up", "held": "R", "signal": "Brown comeback makes path-to-51 broader"},
+    {"state": "Texas", "seat": "OPEN (R)", "matchup": "Ken Paxton (R) vs James Talarico (D)", "rating": "Toss Up", "held": "R", "signal": "Largest map expansion; GOP money deployment is key"},
+    {"state": "Georgia", "seat": "Ossoff (D)", "matchup": "Jon Ossoff (D) vs Mike Collins (R)", "rating": "Lean D", "held": "D", "signal": "High-cost Democratic defense"},
+    {"state": "North Carolina", "seat": "OPEN (R)", "matchup": "Michael Whatley (R) vs Roy Cooper (D)", "rating": "Lean D", "held": "R", "signal": "Core Democratic pickup path"},
+    {"state": "New Hampshire", "seat": "OPEN (D)", "matchup": "John Sununu (R) vs Chris Pappas (D)", "rating": "Lean D", "held": "D", "signal": "Open-seat defense currently tilts Democratic"}
+  ],
+  "house": {
+    "cook_summary": {"solid_d": 184, "likely_d": 12, "lean_d": 9, "toss_up": 21, "lean_r": 7, "likely_r": 20, "solid_r": 182},
+    "key_states": ["Arizona", "California", "Colorado", "Florida", "Iowa", "Michigan", "New Jersey", "New York", "Ohio", "Pennsylvania", "Texas", "Virginia", "Wisconsin"],
+    "note": "Do not track all 435 districts equally. Prioritize Tier-1 races capable of changing the majority and rating shifts."
+  },
+  "issues": [
+    {"name": "Affordability / Cost of Living", "level": 92, "direction": "↑", "why": "Primary Democratic attack line; weak Trump marks on living costs."},
+    {"name": "Oil / Gasoline / Inflation", "level": 88, "direction": "↑", "why": "Connects Iran war directly to household pain and rates."},
+    {"name": "Iran War", "level": 82, "direction": "↑", "why": "Foreign-policy issue with direct energy-price and approval spillover."},
+    {"name": "Immigration", "level": 68, "direction": "→", "why": "Core GOP mobilization issue; watch whether economics displaces it."},
+    {"name": "Healthcare", "level": 62, "direction": "↑", "why": "Democratic affordability frame extends into premiums and medicine."},
+    {"name": "Tariffs / Trade", "level": 60, "direction": "↑", "why": "Farm and consumer-cost exposure matters in Iowa and Midwest seats."},
+    {"name": "Abortion", "level": 55, "direction": "→", "why": "Persistent turnout issue but not the sole national frame."},
+    {"name": "AI / Jobs / Power Bills", "level": 36, "direction": "↑", "why": "Emerging issue; regulation and electricity affordability can localize races."}
+  ],
+  "events": [
+    {"date": "2026-09-10", "level": "L3", "side": "Republican", "title": "Dallas midterm convention nationalizes the race", "detail": "Trump tells voters to treat the midterms as if he were on the ballot; vulnerable Republicans face a localize-vs-nationalize trade-off."},
+    {"date": "2026-09-09", "level": "L3", "side": "Republican", "title": "Trump proposes a conditional $5,000 adult payment", "detail": "Confirmed campaign promise; funding and legislative path remain unresolved. Track fiscal and voter-response effects separately."},
+    {"date": "2026-09-09", "level": "L3", "side": "Democratic", "title": "DNC targets conservative YouTube audiences on affordability", "detail": "Counter-programming around the GOP convention reinforces lower-costs / healthcare / housing as the Democratic national frame."},
+    {"date": "2026-09-09", "level": "L3", "side": "Rules", "title": "Missouri map fight returns to the U.S. Supreme Court", "detail": "One district can matter because the House majority margin is extremely narrow."},
+    {"date": "2026-09-06", "level": "L3", "side": "Rules", "title": "Administration renews Supreme Court bid on mail-voting rule", "detail": "Voting-administration litigation becomes a direct election-process variable as ballots begin moving."},
+    {"date": "2026-09-04", "level": "L2", "side": "Money", "title": "FEC 60-day electioneering-communications window begins", "detail": "24-hour disclosure requirements make ad spending and sponsor behavior more observable into Election Day."}
+  ],
+  "money": {
+    "headline": "Money is the GOP's clearest structural counterweight to the national environment.",
+    "facts": [
+      "Supreme Court preserved access to discounted broadcast rates for party committees.",
+      "Reuters reported a large national-committee resource advantage for Republicans in the related litigation.",
+      "MAGA Inc. is deploying major resources into Texas, signaling that the seat is not being treated as safely Republican."
+    ]
+  },
+  "market_readthrough": [
+    {"asset": "US 10Y", "bias": "↑ risk", "logic": "Oil/inflation + election-linked fiscal promises can lift term premium; divided government can offset through gridlock."},
+    {"asset": "USD", "bias": "Two-way", "logic": "Higher U.S. yields support USD; political/fiscal risk and weaker growth can work the other way."},
+    {"asset": "Oil", "bias": "Election driver", "logic": "Oil is not merely an asset outcome; it is an input into approval, inflation and turnout."},
+    {"asset": "Gold", "bias": "↑ hedge", "logic": "War, fiscal uncertainty and institutional conflict strengthen hedging demand."},
+    {"asset": "Defense", "bias": "Policy-sensitive", "logic": "War duration and post-election congressional composition affect authorization and oversight."},
+    {"asset": "Banks", "bias": "Regulation-sensitive", "logic": "A Democratic Congress raises oversight risk; executive deregulation can continue under divided government."},
+    {"asset": "Healthcare", "bias": "Policy-sensitive", "logic": "Affordability politics can pull subsidies, drug costs and insurance policy into the center."},
+    {"asset": "Clean Energy", "bias": "Congress-sensitive", "logic": "Tax-credit durability and appropriations depend more on chamber control than campaign rhetoric."},
+    {"asset": "Crypto", "bias": "Congress-sensitive", "logic": "Market-structure legislation and oversight intensity depend on committee control."},
+    {"asset": "AI / Power", "bias": "Emerging", "logic": "AI regulation, grid bills, power infrastructure and data-center politics are becoming local election inputs."}
+  ],
+  "delta": {
+    "headline": "T-54 baseline established",
+    "items": [
+      "House: Democratic-favored in prediction markets; Cook still shows a narrow structural battlefield.",
+      "Senate: genuine toss-up after Texas and Iowa moved into the top competitive tier.",
+      "National frame: affordability is dominant; Iran → oil → inflation is the highest-value cross-domain transmission chain.",
+      "Campaign strategy: GOP is nationalizing around Trump while Democrats are localizing pain around prices and turnout."
+    ]
+  },
+  "history": [
+    {"date": "2026-09-10", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6}
+  ],
+  "sources": [
+    {"title": "Federal Election Commission — 2026 federal general election date", "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/", "supports": "Election Day = Nov. 3, 2026."},
+    {"title": "U.S. Senate — current party division", "url": "https://www.senate.gov/senators/", "supports": "119th Congress Senate: 53 Republicans, 45 Democrats, 2 Independents."},
+    {"title": "Cook Political Report — House ratings", "url": "https://www.cookpolitical.com/ratings/house-race-ratings", "supports": "House rating distribution and 21 Toss-Ups."},
+    {"title": "Cook Political Report — Senate ratings", "url": "https://www.cookpolitical.com/ratings/senate-race-ratings", "supports": "Six Toss-Ups and three Lean Democratic battleground seats."},
+    {"title": "Reuters — nine Senate races", "url": "https://www.reuters.com/world/us/nine-midterm-races-that-will-decide-control-us-senate-2026-09-07/", "supports": "Nine-state Senate battlefield and candidate context."},
+    {"title": "Reuters — House races to watch", "url": "https://www.reuters.com/world/us/us-house-races-watch-2026-midterm-elections-2026-09-07/", "supports": "Roughly 50 competitive House races and Democratic pickup threshold."},
+    {"title": "Reuters/Ipsos — approval and enthusiasm", "url": "https://www.reuters.com/world/us/trumps-approval-stuck-33-democrats-appear-more-fired-up-midterms-reutersipsos-2026-08-31/", "supports": "Trump approval 33%; Democratic vs Republican enthusiasm gap."},
+    {"title": "Reuters — Dallas GOP convention", "url": "https://www.reuters.com/world/us/trump-touts-5000-payout-if-republicans-win-vance-waits-wings-2026-09-10/", "supports": "Trump-centered nationalization strategy and $5,000 campaign promise."},
+    {"title": "DNC — targeted affordability ad campaign", "url": "https://democrats.org/dnc-launches-targeted-ad-campaign-around-rncs-midterm-convention-boondoggle-highlighting-trumps-repeated-disregard-for-hiking-costs-on-americans/", "supports": "Democratic campaign messaging and targeted digital ad strategy; treated as partisan-source evidence."},
+    {"title": "FEC — electioneering communications window", "url": "https://www.fec.gov/help-candidates-and-committees/dates-and-deadlines/2026-reporting-dates/electioneering-communications-periods-general-election-2026/", "supports": "60-day electioneering window: Sep. 4–Nov. 3."},
+    {"title": "Polymarket — House control", "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026", "supports": "Current trader-implied House control prices; not an objective probability."},
+    {"title": "Polymarket — Senate control", "url": "https://polymarket.com/event/which-party-will-win-the-senate-in-2026", "supports": "Current trader-implied Senate control prices; not an objective probability."},
+    {"title": "Polymarket — balance of power", "url": "https://polymarket.com/event/balance-of-power-2026-midterms", "supports": "Current trader-implied four-way control scenarios."}
+  ]
+}
