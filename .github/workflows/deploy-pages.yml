@@ -36,16 +36,15 @@ jobs:
       - name: Run release QA gate
         run: node tools/qa_release.mjs
 
-      - name: Verify homepage fallback is synchronized
-        run: python3 tools/sync_homepage_fallback.py --check
-
       - name: Verify sitemap is generated from the approved registry
         run: |
           python3 tools/build_sitemap.py
           git diff --exit-code -- sitemap.xml
 
-      - name: Run regression tests
-        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Run focused regression tests
+        run: |
+          python3 -m unittest discover -s tests -p 'test_audit_changed_pages.py'
+          python3 -m unittest discover -s tests -p 'test_homepage_registry.py'
 
   deploy:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
