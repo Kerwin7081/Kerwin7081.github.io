@@ -54,6 +54,7 @@ const PUBLIC_CORE_ROUTES = [
   "/models/",
   "/series/",
   "/earnings/",
+  "/kerwin-ai-investment-skill/",
   "/404.html",
 ];
 
@@ -238,6 +239,12 @@ function checkHtmlPage(pagePath) {
     fail(`${relativePage}: missing meta description`);
   }
 
+  if (
+    relativePage === "index.html" &&
+    !/<section\b[^>]+class=["']skill-promo["'][\s\S]*?href=["']\/kerwin-ai-investment-skill\/["']/i.test(html)
+  ) {
+    fail("index.html: homepage Kerwin Skill entry is missing");
+  }
   const references = [
     ...html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/gi),
   ].map((match) => match[1]);

@@ -333,3 +333,134 @@ body[data-enya-design-system="v1"] footer {
   .enya-ui-card { box-shadow: none; }
 }
 
+/* Homepage primary entry for the Kerwin AI Investment Skill. */
+body[data-enya-design-system="v1"] .skill-promo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: var(--enya-space-8);
+  align-items: stretch;
+  margin-top: var(--enya-space-9);
+  padding: var(--enya-space-7) var(--enya-space-8);
+  color: var(--enya-color-ink-inverse);
+  background: var(--enya-color-brand);
+  border: 1px solid var(--enya-color-brand);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-main { min-width: 0; }
+
+body[data-enya-design-system="v1"] .skill-promo .eyebrow {
+  color: var(--enya-color-brand-wash);
+}
+
+body[data-enya-design-system="v1"] .skill-promo h2 {
+  margin: var(--enya-space-3) 0;
+  color: var(--enya-color-ink-inverse);
+  font-family: var(--enya-font-serif);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.14;
+  letter-spacing: -.03em;
+}
+
+body[data-enya-design-system="v1"] .skill-promo h2 span {
+  color: var(--enya-color-accent-soft);
+}
+
+body[data-enya-design-system="v1"] .skill-promo p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 0;
+  color: var(--enya-color-ink-inverse);
+  font-size: var(--enya-text-body);
+  line-height: 1.75;
+}
+
+body[data-enya-design-system="v1"] .skill-promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--enya-space-3);
+  align-items: center;
+  margin-top: var(--enya-space-6);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-primary,
+body[data-enya-design-system="v1"] .skill-promo-download {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: background var(--enya-motion-fast), color var(--enya-motion-fast), border-color var(--enya-motion-fast);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-primary {
+  color: var(--enya-color-brand);
+  background: var(--enya-color-brand-wash);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-primary:hover {
+  color: var(--enya-color-brand);
+  background: var(--enya-color-surface-raised);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-download {
+  color: var(--enya-color-ink-inverse);
+  border: 1px solid var(--enya-color-brand-wash);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-download:hover {
+  color: var(--enya-color-brand);
+  background: var(--enya-color-brand-wash);
+  border-color: var(--enya-color-brand-wash);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-primary:focus-visible,
+body[data-enya-design-system="v1"] .skill-promo-download:focus-visible {
+  outline: none;
+  box-shadow: var(--enya-focus-ring);
+}
+
+body[data-enya-design-system="v1"] .skill-promo-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--enya-space-4);
+  min-width: 0;
+  padding-left: var(--enya-space-7);
+  border-left: 1px solid #739587;
+}
+
+body[data-enya-design-system="v1"] .skill-promo-index {
+  color: var(--enya-color-accent-soft);
+  font-family: var(--enya-font-serif);
+  font-size: 54px;
+  line-height: 1;
+}
+
+body[data-enya-design-system="v1"] .skill-promo-aside strong {
+  display: block;
+  color: var(--enya-color-ink-inverse);
+  font: 700 12px/1.6 var(--enya-font-mono);
+  letter-spacing: .08em;
+}
+
+body[data-enya-design-system="v1"] .skill-promo-aside small {
+  color: var(--enya-color-brand-wash);
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  body[data-enya-design-system="v1"] .skill-promo {
+    grid-template-columns: 1fr;
+    gap: var(--enya-space-6);
+    padding: var(--enya-space-6) var(--enya-space-5);
+  }
+
+  body[data-enya-design-system="v1"] .skill-promo-aside {
+    gap: var(--enya-space-3);
+    padding-top: var(--enya-space-5);
+    padding-left: 0;
+    border-top: 1px solid #739587;
+    border-left: 0;
+  }
+
+  body[data-enya-design-system="v1"] .skill-promo-index { font-size: 44px; }
+}
