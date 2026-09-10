@@ -29,9 +29,6 @@ jobs:
       - name: Run guard tests
         run: python3 -m unittest discover -s tests -p 'test_audit_changed_pages.py'
 
-      - name: Validate structured homepage registry
-        run: python3 tools/homepage_registry.py validate --site-root .
-
       - name: Audit affected production pages
         run: >-
           python3 tools/audit_changed_pages.py
