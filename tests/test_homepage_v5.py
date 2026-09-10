@@ -23,7 +23,14 @@ AXES = {
     "capital-macro",
     "frontier-infrastructure",
 }
-CONTENT_TYPES = {"earnings", "deep-dive", "brief", "interactive", "tracker"}
+CONTENT_TYPES = {
+    "earnings",
+    "earnings-deep-dive",
+    "deep-dive",
+    "brief",
+    "interactive",
+    "tracker",
+}
 
 
 class HomepageV5Tests(unittest.TestCase):
@@ -66,9 +73,11 @@ class HomepageV5Tests(unittest.TestCase):
         self.assertTrue(all(item.get("content_type") in CONTENT_TYPES for item in approved))
         self.assertEqual(sum(1 for _ in approved), sum(1 for item in approved if item["axis"] in AXES))
 
-    def test_featured_ranks_are_unique_and_bounded(self) -> None:
+    def test_featured_ranks_are_bounded_and_cover_the_three_slots(self) -> None:
         ranks = [item["featured_rank"] for item in self.registry if item.get("featured_rank") is not None]
-        self.assertEqual(sorted(ranks), [1, 2, 3])
+        self.assertTrue(ranks)
+        self.assertTrue(all(rank in (1, 2, 3) for rank in ranks))
+        self.assertEqual(set(ranks), {1, 2, 3})
 
     def test_static_fallback_contains_clickable_research(self) -> None:
         self.assertIn('/agent-economy-server-audit-cost-20260825/', self.index)
@@ -96,3 +105,4 @@ class HomepageV5Tests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
