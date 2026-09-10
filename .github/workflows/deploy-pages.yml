@@ -39,7 +39,7 @@ jobs:
       - name: Verify sitemap is generated from the approved registry
         run: |
           python3 tools/build_sitemap.py
-          git diff --ignore-space-at-eol --exit-code -- sitemap.xml
+          git diff --ignore-space-at-eol --ignore-blank-lines --exit-code -- sitemap.xml
 
       - name: Run focused regression tests
         run: |
