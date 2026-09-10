@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-09-10T22:39:00+08:00",
+  "as_of": "2026-09-11T00:32:00+08:00",
   "election_date": "2026-11-03",
-  "countdown_days": 54,
+  "countdown_days": 53,
   "status": "LIVE（持续跟踪）",
   "control": {
     "house_current": "Republican narrow majority（共和党微弱多数）",
@@ -43,7 +43,7 @@
   "house": {
     "cook_summary": {"solid_d": 184, "likely_d": 12, "lean_d": 9, "toss_up": 21, "lean_r": 7, "likely_r": 20, "solid_r": 182},
     "key_states": ["Arizona", "California", "Colorado", "Florida", "Iowa", "Michigan", "Missouri", "New Jersey", "New York", "Ohio", "Pennsylvania", "Texas", "Virginia", "Wisconsin"],
-    "note": "不平均跟踪全部 435 个选区。优先 Tier-1（一级关键战场）、评级变化，以及足以改变众议院多数党的席位。Missouri（密苏里州）因选区重划诉讼直接影响潜在净增 1 个共和党席位，已纳入重点。"
+    "note": "不平均跟踪全部 435 个选区。优先 Tier-1（一级关键战场）、评级变化，以及足以改变众议院多数党的席位。Missouri（密苏里州）因选区重划诉讼直接影响潜在净增 1 个共和党席位，已纳入重点；Sabato's Crystal Ball（萨巴托水晶球）9 月 10 日又将 AL-02 从 Likely R（较可能共和党）调至 Lean R（偏共和党），并将 TX-34 从 Toss Up（胜负难分）调至 Lean D（偏民主党）。"
   },
   "issues": [
     {"name": "Affordability / Cost of Living（可负担性 / 生活成本）", "level": 92, "direction": "↑", "why": "民主党当前最主要的全国攻击线；特朗普在生活成本问题上的评价偏弱。"},
@@ -56,6 +56,7 @@
     {"name": "AI / Jobs / Power Bills（AI / 就业 / 电费）", "level": 36, "direction": "↑", "why": "新兴议题；AI regulation（AI监管）和 electricity affordability（电费可负担性）可能使地方选战重新定价。"}
   ],
   "events": [
+    {"date": "2026-09-10", "level": "L3", "side": "Ratings（评级）", "title": "Sabato's Crystal Ball（萨巴托水晶球）调整两场 House（众议院）关键战评级", "detail": "9 月 10 日评级更新将 AL-02 从 Likely R（较可能共和党）调至 Lean R（偏共和党），显示民主党现任议员 Shomari Figures 在深红结构选区中的竞争力上升；同时将 TX-34 从 Toss Up（胜负难分）调至 Lean D（偏民主党），使民主党在得州南部的一个关键防守席位获得更有利评级。两项变化方向均边际利好 Democrats（民主党）的 House control（众议院控制权）路径，但不足以单独重估全局控制权百分比。"},
     {"date": "2026-09-10", "level": "L3", "side": "Rules（选举规则）", "title": "U.S. Supreme Court（美国最高法院）暂停 Missouri GOP map（密苏里州共和党新版选区地图）", "detail": "最高法院应 People Not Politicians 等申请，暂停下级联邦法院要求在 11 月 3 日大选使用 2025 年共和党新版地图的命令。该新版地图原本旨在削弱民主党众议员 Emanuel Cleaver 的 Kansas City（堪萨斯城）席位、为共和党争取额外 1 席；在众议院多数权极窄的背景下，这直接削弱 GOP（共和党）的一条净增席位路径。当前属于紧急程序性裁定，后续法律程序仍需继续跟踪。"},
     {"date": "2026-09-10", "level": "L3", "side": "Republican（共和党）", "title": "Dallas midterm convention（达拉斯中期选举大会）把选举全国化", "detail": "Trump 要求选民把中期选举当作他本人在选；脆弱州共和党候选人面临 localize vs nationalize（地方化 vs 全国化）的取舍。"},
     {"date": "2026-09-09", "level": "L3", "side": "Republican（共和党）", "title": "$5,000 adult payment（每位成年人 5,000 美元支付）竞选承诺", "detail": "竞选承诺本身已确认；funding（融资来源）与 legislative path（立法路径）仍未明确，财政影响只能列为情景。"},
@@ -73,34 +74,36 @@
     ]
   },
   "market_readthrough": [
-    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。Missouri（密苏里州）单一席位法律变化本身不足以直接改变利率路径。"},
-    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。Missouri（密苏里州）事件当前不是美元的一阶驱动。"},
-    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量；Missouri（密苏里州）选区裁定对原油无直接基本面影响。"},
-    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；单一州选区诉讼的边际影响很小。"},
+    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。新增 House（众议院）评级变化本身不足以直接改变利率路径。"},
+    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。House（众议院）两席评级变化当前不是美元的一阶驱动。"},
+    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量；本轮评级变化对原油无直接基本面影响。"},
+    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；单一 House（众议院）评级更新的边际影响很小。"},
     {"asset": "Defense（国防）", "bias": "Policy-sensitive（政策敏感）", "logic": "战争持续时间、国防授权与 congressional oversight（国会监督）强度都受选后权力结构影响。若众议院控制权更偏向民主党，监督强度的尾部概率上升。"},
-    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "民主党控制国会会提高 oversight risk（监督风险）；分裂政府下行政部门仍可推进部分 deregulation（放松监管）。Missouri（密苏里州）变化仅通过众议院控制权概率产生二阶影响。"},
-    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "生活成本政治会把补贴、药价和保险政策推向竞选中心；该裁定仅通过 House（众议院）控制权路径产生二阶影响。"},
-    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免的持续性与拨款，比竞选口号更依赖两院控制权。GOP（共和党）潜在净增 1 席路径受阻，对民主党众议院情景边际有利。"},
+    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "民主党控制国会会提高 oversight risk（监督风险）；分裂政府下行政部门仍可推进部分 deregulation（放松监管）。本轮评级变化仅通过众议院控制权概率产生二阶影响。"},
+    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "生活成本政治会把补贴、药价和保险政策推向竞选中心；本轮评级变化仅通过 House（众议院）控制权路径产生二阶影响。"},
+    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免的持续性与拨款，比竞选口号更依赖两院控制权。AL-02 与 TX-34 两项评级变化均边际有利于民主党众议院情景。"},
     {"asset": "Crypto（加密资产）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "Market-structure legislation（市场结构立法）与监管强度取决于委员会和两院控制权；本事件仅是控制权概率的二阶输入。"},
-    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在从产业问题进入地方选举；Missouri（密苏里州）裁定当前无直接行业基本面变化。"}
+    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在从产业问题进入地方选举；本轮 House（众议院）评级变化当前无直接行业基本面变化。"}
   ],
   "delta": {
-    "headline": "Level 3：Missouri redistricting（密苏里州选区重划）出现新的最高法院阻断",
+    "headline": "Level 3：Sabato's Crystal Ball（萨巴托水晶球）两场 House（众议院）评级同步向民主党方向移动",
     "items": [
-      "House（众议院）：美国最高法院暂停共和党新版 Missouri（密苏里州）地图，削弱 GOP 争取额外 1 个众议院席位的路径；但尚不足以单独重估全局控制权百分比。",
-      "Senate（参议院）：本轮无对应的新 Level 3/4 席位变化。",
-      "全国主线：Affordability（生活成本）居首；Iran → Oil → Inflation（伊朗 → 油价 → 通胀）仍是当前价值最高的跨域传导链。",
-      "竞选策略：GOP（共和党）正围绕 Trump 全国化；Democrats（民主党）正围绕价格与投票动员地方化。"
+      "House（众议院）：AL-02 从 Likely R（较可能共和党）调至 Lean R（偏共和党）；TX-34 从 Toss Up（胜负难分）调至 Lean D（偏民主党），两项变化都边际改善民主党的 House control（众议院控制权）路径。",
+      "控制权：暂不机械修改 88% 的 Democratic House trader-implied price（民主党众议院交易者隐含价格）；需要等待预测市场、其他评级机构或更多区级民调确认是否形成跨来源再定价。",
+      "Senate（参议院）：本轮未发现新的 Level 3/4 席位或评级变化。",
+      "全国主线：Affordability（生活成本）与 Iran → Oil → Inflation（伊朗 → 油价 → 通胀）仍是更高阶的全国驱动，本轮属于 House battlefield（众议院战场）层面的增量证据。"
     ]
   },
   "history": [
-    {"date": "2026-09-10", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6}
+    {"date": "2026-09-10", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6},
+    {"date": "2026-09-11", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6}
   ],
   "sources": [
     {"title": "Federal Election Commission（美国联邦选举委员会）— 2026 federal general election date", "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/", "supports": "确认 Election Day（联邦大选日）= 2026-11-03。"},
     {"title": "U.S. Senate（美国参议院）— current party division", "url": "https://www.senate.gov/senators/", "supports": "确认第119届国会参议院党派结构：53 名共和党、45 名民主党、2 名独立议员。"},
     {"title": "Cook Political Report — House Ratings（众议院评级）", "url": "https://www.cookpolitical.com/ratings/house-race-ratings", "supports": "支持众议院评级分布与 21 个 Toss-Up（胜负难分）席位。"},
     {"title": "Cook Political Report — Senate Ratings（参议院评级）", "url": "https://www.cookpolitical.com/ratings/senate-race-ratings", "supports": "支持 6 个 Toss-Up（胜负难分）与 3 个 Lean D（偏民主党）核心战场。"},
+    {"title": "Sabato's Crystal Ball（萨巴托水晶球）— 2026 House ratings via 270toWin", "url": "https://www.270towin.com/2026-house-election/crystal-ball-2026-house-forecast", "supports": "支持 2026-09-10 评级变化：AL-02 Likely R（较可能共和党）→ Lean R（偏共和党）；TX-34 Toss Up（胜负难分）→ Lean D（偏民主党）。"},
     {"title": "Reuters — nine Senate races（九个参议院核心战场）", "url": "https://www.reuters.com/world/us/nine-midterm-races-that-will-decide-control-us-senate-2026-09-07/", "supports": "支持九州参议院战场及候选人背景。"},
     {"title": "Reuters — House races to watch（众议院关键战场）", "url": "https://www.reuters.com/world/us/us-house-races-watch-2026-midterm-elections-2026-09-07/", "supports": "支持约 50 个竞争性众议院选区及民主党翻转门槛。"},
     {"title": "Reuters/Ipsos — approval and enthusiasm（支持率与投票热情）", "url": "https://www.reuters.com/world/us/trumps-approval-stuck-33-democrats-appear-more-fired-up-midterms-reutersipsos-2026-08-31/", "supports": "支持特朗普 33% approval（支持率）及民主党 / 共和党投票热情差。"},
