@@ -81,7 +81,7 @@
   background: var(--enya-color-danger-soft, #f7e2e4);
 }
 
-body.kw-research [data-enya-model-input],
+body:has(.enya-reader) [data-enya-model-input],
 body.kw-research .ctrl input,
 body.kw-research .input-wrap input,
 body.kw-research .calculator input,
@@ -89,7 +89,7 @@ body.kw-research .calc-inputs input {
   font-family: var(--enya-font-sans, Arial, "Microsoft YaHei", sans-serif);
 }
 
-body.kw-research [data-enya-model-input]:focus-visible,
+body:has(.enya-reader) [data-enya-model-input]:focus-visible,
 body.kw-research .ctrl input:focus-visible,
 body.kw-research .input-wrap input:focus-visible,
 body.kw-research .calculator input:focus-visible,
@@ -99,39 +99,39 @@ body.kw-research .calc-inputs input:focus-visible {
   box-shadow: var(--enya-focus-ring, 0 0 0 3px rgba(154, 92, 56, .28));
 }
 
-body.kw-research input[aria-invalid="true"] {
+body:has(.enya-reader) input[aria-invalid="true"] {
   border-color: var(--enya-color-danger, #7d2933) !important;
   box-shadow: 0 0 0 3px rgba(125, 41, 51, .16);
 }
 
-body.kw-research .callout,
-body.kw-research .call,
-body.kw-research .alert,
-body.kw-research .note {
+body:has(.enya-reader) .callout,
+body:has(.enya-reader) .call,
+body:has(.enya-reader) .alert,
+body:has(.enya-reader) .note {
   border-left: 4px solid var(--enya-color-accent, #9a5c38) !important;
   border-radius: var(--enya-radius-control, 2px) !important;
   color: var(--enya-color-ink, #262220) !important;
   background: var(--enya-color-surface-tinted, #f3e4d7) !important;
 }
 
-body.kw-research .callout.green,
-body.kw-research .call.green,
-body.kw-research .alert.green,
-body.kw-research .note.green {
+body:has(.enya-reader) .callout.green,
+body:has(.enya-reader) .call.green,
+body:has(.enya-reader) .alert.green,
+body:has(.enya-reader) .note.green {
   border-left-color: var(--enya-color-brand, #103f35) !important;
   background: var(--enya-color-brand-soft, #dbe9e2) !important;
 }
 
-body.kw-research .callout.red,
-body.kw-research .call.red,
-body.kw-research .alert.red,
-body.kw-research .note.red,
-body.kw-research .risk {
+body:has(.enya-reader) .callout.red,
+body:has(.enya-reader) .call.red,
+body:has(.enya-reader) .alert.red,
+body:has(.enya-reader) .note.red,
+body:has(.enya-reader) .risk {
   border-left-color: var(--enya-color-danger, #7d2933) !important;
   background: var(--enya-color-danger-soft, #f7e2e4) !important;
 }
 
-body.kw-research .conclusion {
+body:has(.enya-reader) .conclusion {
   margin-top: var(--enya-space-9, 56px);
   padding: clamp(26px, 4vw, 42px) clamp(20px, 4vw, 36px);
   color: var(--enya-color-reading-inverse, #f5e8dc) !important;
@@ -141,20 +141,20 @@ body.kw-research .conclusion {
   border-radius: var(--enya-radius-control, 2px) !important;
 }
 
-body.kw-research .conclusion h2 {
+body:has(.enya-reader) .conclusion h2 {
   margin-top: 0;
   color: var(--enya-color-ink-inverse, #fff1e5) !important;
   font-family: var(--enya-font-serif, Georgia, serif) !important;
 }
 
-body.kw-research .conclusion p,
-body.kw-research .conclusion li,
-body.kw-research .conclusion blockquote,
-body.kw-research .conclusion .enya-reading-text {
+body:has(.enya-reader) .conclusion p,
+body:has(.enya-reader) .conclusion li,
+body:has(.enya-reader) .conclusion blockquote,
+body:has(.enya-reader) .conclusion .enya-reading-text {
   color: var(--enya-color-reading-inverse, #f5e8dc) !important;
 }
 
-body.kw-research .conclusion a {
+body:has(.enya-reader) .conclusion a {
   color: var(--enya-color-accent-soft, #f1dfd1) !important;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -164,21 +164,21 @@ body.kw-research .conclusion a {
   .enya-table-scroll th,
   .enya-table-scroll td { padding: 10px 12px; }
   .enya-model-tools { padding: 12px; }
-  body.kw-research .conclusion { margin-top: 40px; padding: 24px 18px; }
+  body:has(.enya-reader) .conclusion { margin-top: 40px; padding: 24px 18px; }
 }
 
 @media print {
   .enya-table-scroll { margin: 18px 0; border: 0; overflow: visible; }
   .enya-table-scroll table { min-width: 0; }
-  body.kw-research .conclusion {
+  body:has(.enya-reader) .conclusion {
     color: var(--enya-color-ink, #262220) !important;
     background: transparent !important;
     border: 1px solid var(--enya-color-line, #cdbfb3) !important;
     border-top: 3px solid var(--enya-color-accent, #9a5c38) !important;
   }
-  body.kw-research .conclusion h2,
-  body.kw-research .conclusion p,
-  body.kw-research .conclusion li,
-  body.kw-research .conclusion blockquote { color: var(--enya-color-ink, #262220) !important; }
+  body:has(.enya-reader) .conclusion h2,
+  body:has(.enya-reader) .conclusion p,
+  body:has(.enya-reader) .conclusion li,
+  body:has(.enya-reader) .conclusion blockquote { color: var(--enya-color-ink, #262220) !important; }
 }
 
