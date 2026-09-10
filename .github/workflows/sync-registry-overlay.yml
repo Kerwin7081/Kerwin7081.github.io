@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - registry-pending.json
+      - .github/workflows/sync-registry-overlay.yml
   workflow_dispatch:
 
 permissions:
