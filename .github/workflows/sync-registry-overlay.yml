@@ -54,8 +54,38 @@ jobs:
           registry_path.write_text(json.dumps(registry, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
 
-      - name: Validate structured registry
-        run: python3 tools/homepage_registry.py validate --site-root .
+      - name: Validate pending catalog entries
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          pending = json.loads(Path('registry-pending.json').read_text(encoding='utf-8'))
+          axes = {'physical-infrastructure','compute-chain','agent-economy','capital-macro','frontier-infrastructure'}
+          content_types = {'earnings','deep-dive','brief','interactive','tracker'}
+          required = ('slug','title','date','deck','tag','published_at','axis','content_type')
+          errors = []
+          for item in pending:
+              if not isinstance(item, dict):
+                  errors.append('pending item must be an object')
+                  continue
+              slug = item.get('slug') or '<missing-slug>'
+              for field in required:
+                  if not item.get(field):
+                      errors.append(f'{slug}: missing {field}')
+              if item.get('axis') not in axes:
+                  errors.append(f"{slug}: invalid axis {item.get('axis')!r}")
+              if item.get('content_type') not in content_types:
+                  errors.append(f"{slug}: invalid content_type {item.get('content_type')!r}")
+              if item.get('homepage_approved') is True:
+                  path = Path(item.get('path', slug)).as_posix().strip('/')
+                  candidates = [Path(path), Path(path) / 'index.html']
+                  if not any(candidate.is_file() for candidate in candidates):
+                      errors.append(f'{slug}: public path does not exist')
+          if errors:
+              raise SystemExit('\n'.join('ERROR: ' + e for e in errors))
+          print(f'pending catalog valid: {len(pending)} entries')
+          PY
 
       - name: Rebuild sitemap
         run: python3 tools/build_sitemap.py
