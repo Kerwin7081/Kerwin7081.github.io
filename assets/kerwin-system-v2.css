@@ -751,3 +751,204 @@ html body textarea[data-kw-contrast-fixed="true"]::placeholder {
   opacity: 1;
 }
 
+/* Shared content components — applies to every legacy research page. */
+body.kw-research .section p,
+body.kw-research .section li {
+  color: var(--enya-color-reading) !important;
+}
+
+body.kw-research .table-wrap,
+body.kw-research .matrix,
+body.kw-research .table-scroll,
+body.kw-research .table-container {
+  margin-block: var(--enya-space-6) !important;
+  border: 1px solid var(--enya-color-line) !important;
+  border-radius: var(--enya-radius-control) !important;
+  background: var(--enya-color-surface-raised) !important;
+}
+
+body.kw-research .table-wrap table,
+body.kw-research .matrix table,
+body.kw-research .table-scroll table,
+body.kw-research .table-container table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  color: var(--enya-color-ink);
+  font-family: var(--enya-font-sans) !important;
+}
+
+body.kw-research .table-wrap th,
+body.kw-research .matrix th,
+body.kw-research .table-scroll th,
+body.kw-research .table-container th {
+  padding: 12px 14px !important;
+  color: var(--enya-color-ink-inverse) !important;
+  background: var(--enya-color-brand) !important;
+  text-align: left;
+}
+
+body.kw-research .table-wrap td,
+body.kw-research .matrix td,
+body.kw-research .table-scroll td,
+body.kw-research .table-container td {
+  padding: 12px 14px !important;
+  color: var(--enya-color-reading) !important;
+  border-top: 1px solid var(--enya-color-line) !important;
+  vertical-align: top;
+}
+
+body.kw-research .table-wrap tbody tr:nth-child(even),
+body.kw-research .matrix tbody tr:nth-child(even),
+body.kw-research .table-scroll tbody tr:nth-child(even),
+body.kw-research .table-container tbody tr:nth-child(even) {
+  background: var(--enya-color-surface-subtle) !important;
+}
+
+body.kw-research .callout,
+body.kw-research .call,
+body.kw-research .alert,
+body.kw-research .note {
+  border-left: 4px solid var(--enya-color-accent) !important;
+  border-radius: var(--enya-radius-control) !important;
+  color: var(--enya-color-ink) !important;
+  background: var(--enya-color-surface-tinted) !important;
+}
+
+body.kw-research .callout.green,
+body.kw-research .call.green,
+body.kw-research .alert.green,
+body.kw-research .note.green {
+  border-left-color: var(--enya-color-brand) !important;
+  background: var(--enya-color-brand-soft) !important;
+}
+
+body.kw-research .callout.red,
+body.kw-research .call.red,
+body.kw-research .alert.red,
+body.kw-research .note.red,
+body.kw-research .risk {
+  border-left-color: var(--enya-color-danger) !important;
+  background: var(--enya-color-danger-soft) !important;
+}
+
+body.kw-research .conclusion {
+  margin-top: var(--enya-space-9) !important;
+  padding: clamp(26px, 4vw, 42px) clamp(20px, 4vw, 36px) !important;
+  color: var(--enya-color-reading-inverse) !important;
+  background: var(--enya-color-brand) !important;
+  border: 1px solid var(--enya-color-brand) !important;
+  border-top: 5px solid var(--enya-color-accent) !important;
+  border-radius: var(--enya-radius-control) !important;
+}
+
+body.kw-research .conclusion h2 {
+  margin-top: 0;
+  color: var(--enya-color-ink-inverse) !important;
+  font-family: var(--enya-font-serif) !important;
+}
+
+body.kw-research .conclusion p,
+body.kw-research .conclusion li,
+body.kw-research .conclusion blockquote {
+  color: var(--enya-color-reading-inverse) !important;
+}
+
+body.kw-research .conclusion a {
+  color: var(--enya-color-accent-soft) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body.kw-research .verdict {
+  border-color: var(--enya-color-line) !important;
+  background: var(--enya-color-line) !important;
+}
+
+body.kw-research .verdict > div {
+  background: var(--enya-color-surface-raised) !important;
+}
+
+body.kw-research .verdict b {
+  color: var(--enya-color-brand) !important;
+  font-family: var(--enya-font-serif) !important;
+}
+
+body.kw-research .verdict span {
+  color: var(--enya-color-reading) !important;
+}
+
+body.kw-research .enya-model-tools {
+  align-items: flex-start;
+  border: 1px solid var(--enya-color-line) !important;
+  border-left: 4px solid var(--enya-color-brand) !important;
+  border-radius: var(--enya-radius-control) !important;
+  background: var(--enya-color-surface-tinted) !important;
+  box-shadow: none !important;
+}
+
+body.kw-research .input-panel {
+  border-color: var(--enya-color-line) !important;
+  border-radius: var(--enya-radius-control) !important;
+  background: var(--enya-color-surface-tinted) !important;
+}
+
+body.kw-research .inputs .row {
+  border-bottom-color: var(--enya-color-line) !important;
+}
+
+body.kw-research .ctrl input,
+body.kw-research [data-enya-model-input],
+body.kw-research .input-wrap input,
+body.kw-research .calculator input,
+body.kw-research .calc-inputs input {
+  min-height: 42px;
+  color: var(--enya-color-brand) !important;
+  font-family: var(--enya-font-sans) !important;
+  border-color: var(--enya-color-line) !important;
+  border-radius: var(--enya-radius-control) !important;
+}
+
+body.kw-research .ctrl input:focus-visible,
+body.kw-research [data-enya-model-input]:focus-visible,
+body.kw-research .input-wrap input:focus-visible,
+body.kw-research .calculator input:focus-visible,
+body.kw-research .calc-inputs input:focus-visible {
+  outline: none !important;
+  box-shadow: var(--enya-focus-ring) !important;
+}
+
+body.kw-research input[aria-invalid="true"] {
+  border-color: var(--enya-color-danger) !important;
+  box-shadow: 0 0 0 3px rgba(125, 41, 51, .16) !important;
+}
+
+@media (max-width: 760px) {
+  body.kw-research .table-wrap th,
+  body.kw-research .table-wrap td,
+  body.kw-research .matrix th,
+  body.kw-research .matrix td,
+  body.kw-research .table-scroll th,
+  body.kw-research .table-scroll td,
+  body.kw-research .table-container th,
+  body.kw-research .table-container td { padding: 10px 12px !important; }
+  body.kw-research .conclusion { margin-top: 40px !important; padding: 24px 18px !important; }
+}
+
+@media print {
+  body.kw-research .table-wrap,
+  body.kw-research .matrix,
+  body.kw-research .table-scroll,
+  body.kw-research .table-container { border: 0 !important; overflow: visible !important; }
+  body.kw-research .conclusion {
+    color: var(--enya-color-ink) !important;
+    background: transparent !important;
+    border: 1px solid var(--enya-color-line) !important;
+    border-top: 3px solid var(--enya-color-accent) !important;
+  }
+  body.kw-research .conclusion h2,
+  body.kw-research .conclusion p,
+  body.kw-research .conclusion li,
+  body.kw-research .conclusion blockquote { color: var(--enya-color-ink) !important; }
+}
+
