@@ -4,3 +4,181 @@
 @media print{.enya-reader,.enya-model-tools{display:none}.enya-reading-text{font-size:12pt;line-height:1.6}.enya-table-scroll{overflow:visible}table{break-inside:auto}tr,img{break-inside:avoid}h2,h3{break-after:avoid}}
 .enya-model-invalid .calculator .result,.enya-model-invalid .calc-result,.enya-model-invalid .calc-result .result{opacity:.5}
 
+/* Shared article components — v1 adoption layer. */
+.enya-reading-text {
+  color: var(--enya-color-reading, #404945);
+  font-family: var(--enya-font-sans, Arial, "Microsoft YaHei", sans-serif);
+}
+
+.enya-table-scroll {
+  margin: var(--enya-space-6, 24px) 0;
+  border: 1px solid var(--enya-color-line, #cdbfb3);
+  border-radius: var(--enya-radius-control, 2px);
+  background: var(--enya-color-surface-raised, #fffaf5);
+}
+
+.enya-table-scroll table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  color: var(--enya-color-ink, #262220);
+  font-family: var(--enya-font-sans, Arial, "Microsoft YaHei", sans-serif);
+}
+
+.enya-table-scroll th {
+  padding: 12px 14px;
+  color: var(--enya-color-ink-inverse, #fff1e5);
+  background: var(--enya-color-brand, #103f35);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.enya-table-scroll td {
+  padding: 12px 14px;
+  color: var(--enya-color-reading, #404945);
+  border-top: 1px solid var(--enya-color-line, #cdbfb3);
+  vertical-align: top;
+}
+
+.enya-table-scroll tbody tr:nth-child(even) {
+  background: var(--enya-color-surface-subtle, #f7e7d8);
+}
+
+.enya-model-tools {
+  flex-basis: 100%;
+  align-items: flex-start;
+  border: 1px solid var(--enya-color-line, #cdbfb3);
+  border-left: 4px solid var(--enya-color-brand, #103f35);
+  border-radius: var(--enya-radius-control, 2px);
+  background: var(--enya-color-surface-tinted, #f3e4d7);
+  box-shadow: none;
+}
+
+.enya-model-tools button {
+  min-height: 42px;
+  border: 1px solid var(--enya-color-brand, #103f35);
+  border-radius: var(--enya-radius-control, 2px);
+  color: var(--enya-color-ink-inverse, #fff1e5);
+  background: var(--enya-color-brand, #103f35);
+  transition: background var(--enya-motion-fast, 140ms ease), border-color var(--enya-motion-fast, 140ms ease);
+}
+
+.enya-model-tools button:hover,
+.enya-model-tools button:focus-visible {
+  border-color: var(--enya-color-brand-hover, #1f5a4d);
+  background: var(--enya-color-brand-hover, #1f5a4d);
+}
+
+.enya-model-message {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--enya-color-danger, #7d2933);
+}
+
+.enya-model-invalid .enya-model-tools {
+  border-left-color: var(--enya-color-danger, #7d2933);
+  background: var(--enya-color-danger-soft, #f7e2e4);
+}
+
+body.kw-research [data-enya-model-input],
+body.kw-research .ctrl input,
+body.kw-research .input-wrap input,
+body.kw-research .calculator input,
+body.kw-research .calc-inputs input {
+  font-family: var(--enya-font-sans, Arial, "Microsoft YaHei", sans-serif);
+}
+
+body.kw-research [data-enya-model-input]:focus-visible,
+body.kw-research .ctrl input:focus-visible,
+body.kw-research .input-wrap input:focus-visible,
+body.kw-research .calculator input:focus-visible,
+body.kw-research .calc-inputs input:focus-visible {
+  outline: none;
+  border-color: var(--enya-color-brand, #103f35);
+  box-shadow: var(--enya-focus-ring, 0 0 0 3px rgba(154, 92, 56, .28));
+}
+
+body.kw-research input[aria-invalid="true"] {
+  border-color: var(--enya-color-danger, #7d2933) !important;
+  box-shadow: 0 0 0 3px rgba(125, 41, 51, .16);
+}
+
+body.kw-research .callout,
+body.kw-research .call,
+body.kw-research .alert,
+body.kw-research .note {
+  border-left: 4px solid var(--enya-color-accent, #9a5c38) !important;
+  border-radius: var(--enya-radius-control, 2px) !important;
+  color: var(--enya-color-ink, #262220) !important;
+  background: var(--enya-color-surface-tinted, #f3e4d7) !important;
+}
+
+body.kw-research .callout.green,
+body.kw-research .call.green,
+body.kw-research .alert.green,
+body.kw-research .note.green {
+  border-left-color: var(--enya-color-brand, #103f35) !important;
+  background: var(--enya-color-brand-soft, #dbe9e2) !important;
+}
+
+body.kw-research .callout.red,
+body.kw-research .call.red,
+body.kw-research .alert.red,
+body.kw-research .note.red,
+body.kw-research .risk {
+  border-left-color: var(--enya-color-danger, #7d2933) !important;
+  background: var(--enya-color-danger-soft, #f7e2e4) !important;
+}
+
+body.kw-research .conclusion {
+  margin-top: var(--enya-space-9, 56px);
+  padding: clamp(26px, 4vw, 42px) clamp(20px, 4vw, 36px);
+  color: var(--enya-color-reading-inverse, #f5e8dc) !important;
+  background: var(--enya-color-brand, #103f35) !important;
+  border: 1px solid var(--enya-color-brand, #103f35) !important;
+  border-top: 5px solid var(--enya-color-accent, #9a5c38) !important;
+  border-radius: var(--enya-radius-control, 2px) !important;
+}
+
+body.kw-research .conclusion h2 {
+  margin-top: 0;
+  color: var(--enya-color-ink-inverse, #fff1e5) !important;
+  font-family: var(--enya-font-serif, Georgia, serif) !important;
+}
+
+body.kw-research .conclusion p,
+body.kw-research .conclusion li,
+body.kw-research .conclusion blockquote,
+body.kw-research .conclusion .enya-reading-text {
+  color: var(--enya-color-reading-inverse, #f5e8dc) !important;
+}
+
+body.kw-research .conclusion a {
+  color: var(--enya-color-accent-soft, #f1dfd1) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .enya-table-scroll th,
+  .enya-table-scroll td { padding: 10px 12px; }
+  .enya-model-tools { padding: 12px; }
+  body.kw-research .conclusion { margin-top: 40px; padding: 24px 18px; }
+}
+
+@media print {
+  .enya-table-scroll { margin: 18px 0; border: 0; overflow: visible; }
+  .enya-table-scroll table { min-width: 0; }
+  body.kw-research .conclusion {
+    color: var(--enya-color-ink, #262220) !important;
+    background: transparent !important;
+    border: 1px solid var(--enya-color-line, #cdbfb3) !important;
+    border-top: 3px solid var(--enya-color-accent, #9a5c38) !important;
+  }
+  body.kw-research .conclusion h2,
+  body.kw-research .conclusion p,
+  body.kw-research .conclusion li,
+  body.kw-research .conclusion blockquote { color: var(--enya-color-ink, #262220) !important; }
+}
+
