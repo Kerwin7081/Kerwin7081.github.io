@@ -267,8 +267,11 @@ function checkHtmlPage(pagePath) {
     }
   }
 
-  if (lower.includes("http://")) {
-    warn(`${relativePage}: contains an http:// reference; verify it is intentional`);
+  const insecureReferences = references.filter((reference) => /^http:\/\//i.test(reference));
+  if (insecureReferences.length) {
+    warn(
+      `${relativePage}: contains ${insecureReferences.length} insecure href/src reference(s); verify they are intentional`,
+    );
   }
 }
 
