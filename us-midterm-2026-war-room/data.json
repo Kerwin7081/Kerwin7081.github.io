@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-09-11T08:10:56+08:00",
+  "as_of": "2026-09-11T18:52:50+08:00",
   "election_date": "2026-11-03",
   "countdown_days": 53,
   "status": "LIVE（持续跟踪）",
@@ -30,15 +30,15 @@
     {"label": "Reverse Split（反向分裂）", "pct": 1.3, "note": "R House（共和党众议院） + D Senate（民主党参议院）", "class": "other"}
   ],
   "senate_races": [
-    {"state": "Alaska", "seat": "Sullivan (R)", "matchup": "Dan Sullivan (R) vs Mary Peltola (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "Ranked-choice voting（排序选择投票）结构叠加全国环境逆风。"},
+    {"state": "Alaska", "seat": "Sullivan (R)", "matchup": "Dan Sullivan (R) vs Mary Peltola (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "Ranked-choice voting（排序选择投票）结构叠加全国环境逆风；Trump-affiliated No Going Back PAC 已在 Alaska 等六个战场州锁定电视广告时段。"},
     {"state": "Iowa", "seat": "OPEN (R)", "matchup": "Ashley Hinson (R) vs Josh Turek (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "红州战场扩张；tariffs（关税）与农业经济是关键地方变量。"},
     {"state": "Maine", "seat": "Collins (R)", "matchup": "Susan Collins (R) vs Troy Jackson (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "Incumbency（现任优势）对抗 anti-Trump environment（反特朗普全国环境）。"},
-    {"state": "Michigan", "seat": "OPEN (D)", "matchup": "Abdul El-Sayed (D) vs Mike Rogers (R)", "rating": "Toss Up（胜负难分）", "held": "D", "signal": "民主党必须守住的关键 defensive seat（防守席位）。"},
-    {"state": "Ohio", "seat": "Husted (R)", "matchup": "Jon Husted (R) vs Sherrod Brown (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "Sherrod Brown 回归，使民主党通往 51 席的路径明显变宽。"},
-    {"state": "Texas", "seat": "OPEN (R)", "matchup": "Ken Paxton (R) vs James Talarico (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "AARP/Fabrizio Ward + Impact Research 9月10日公布民调：Talarico 48%、Paxton 44%；与近期多项公开民调同向，强化 Texas（得州）已成为真实资源消耗型战场的判断。"},
-    {"state": "Georgia", "seat": "Ossoff (D)", "matchup": "Jon Ossoff (D) vs Mike Collins (R)", "rating": "Lean D（偏民主党）", "held": "D", "signal": "高成本的 Democratic defense（民主党防守战）。"},
-    {"state": "North Carolina", "seat": "OPEN (R)", "matchup": "Michael Whatley (R) vs Roy Cooper (D)", "rating": "Lean D（偏民主党）", "held": "R", "signal": "Elon University Poll 9月10日公布 likely voters（可能投票者）结果：Cooper 49%、Whatley 38%；生活成本、经济与医疗仍是州内高权重议题。"},
-    {"state": "New Hampshire", "seat": "OPEN (D)", "matchup": "John Sununu (R) vs Chris Pappas (D)", "rating": "Lean D（偏民主党）", "held": "D", "signal": "Open-seat defense（开放席位防守）目前暂偏民主党。"}
+    {"state": "Michigan", "seat": "OPEN (D)", "matchup": "Abdul El-Sayed (D) vs Mike Rogers (R)", "rating": "Toss Up（胜负难分）", "held": "D", "signal": "民主党必须守住的关键 defensive seat（防守席位）；No Going Back PAC 已在 Michigan 锁定电视广告时段。"},
+    {"state": "Ohio", "seat": "Husted (R)", "matchup": "Jon Husted (R) vs Sherrod Brown (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "Sherrod Brown 回归，使民主党通往 51 席的路径明显变宽；No Going Back PAC 已在 Ohio 锁定电视广告时段。"},
+    {"state": "Texas", "seat": "OPEN (R)", "matchup": "Ken Paxton (R) vs James Talarico (D)", "rating": "Toss Up（胜负难分）", "held": "R", "signal": "AARP/Fabrizio Ward + Impact Research 9月10日公布民调：Talarico 48%、Paxton 44%；Reuters 9月11日报道 MAGA Inc. 已投入 1000 万美元、Musk 的 America PAC 再投入 240 万美元，确认 Texas（得州）已成为高资源消耗型真实战场。"},
+    {"state": "Georgia", "seat": "Ossoff (D)", "matchup": "Jon Ossoff (D) vs Mike Collins (R)", "rating": "Lean D（偏民主党）", "held": "D", "signal": "高成本的 Democratic defense（民主党防守战）；No Going Back PAC 已在 Georgia 锁定电视广告时段。"},
+    {"state": "North Carolina", "seat": "OPEN (R)", "matchup": "Michael Whatley (R) vs Roy Cooper (D)", "rating": "Lean D（偏民主党）", "held": "R", "signal": "Elon University Poll 9月10日公布 likely voters（可能投票者）结果：Cooper 49%、Whatley 38%；生活成本、经济与医疗仍是州内高权重议题；No Going Back PAC 已在 North Carolina 锁定电视广告时段。"},
+    {"state": "New Hampshire", "seat": "OPEN (D)", "matchup": "John Sununu (R) vs Chris Pappas (D)", "rating": "Lean D（偏民主党）", "held": "D", "signal": "Open-seat defense（开放席位防守）目前暂偏民主党；No Going Back PAC 已在 New Hampshire 锁定电视广告时段。"}
   ],
   "house": {
     "cook_summary": {"solid_d": 184, "likely_d": 12, "lean_d": 9, "toss_up": 21, "lean_r": 7, "likely_r": 20, "solid_r": 182},
@@ -56,6 +56,7 @@
     {"name": "AI / Jobs / Power Bills（AI / 就业 / 电费）", "level": 36, "direction": "↑", "why": "新兴议题；AI regulation（AI监管）和 electricity affordability（电费可负担性）可能使地方选战重新定价。"}
   ],
   "events": [
+    {"date": "2026-09-11", "level": "L3", "side": "Money（资金）", "title": "Trump 与 Musk 阵营开始向关键战场大规模部署中期选举资金", "detail": "CONFIRMED FACT｜Reuters 9月11日报道：Trump-affiliated No Going Back PAC 已在 Alaska、Georgia、Michigan、North Carolina、New Hampshire、Ohio 六个 battleground states（战场州）锁定超过 2490 万美元电视广告时段；Trump 此前表示计划为中期选举投入 4亿–5亿美元。Texas Senate（得州参议院）方面，MAGA Inc. 已投入 1000 万美元，Musk 的 America PAC 再投入 240 万美元；America PAC 此前还已为数字广告、短信、电话、邮件和线下动员支出逾 700 万美元。属于 Money War（资金战）的实质性大规模重新部署。"},
     {"date": "2026-09-11", "level": "L3", "side": "Money（资金）", "title": "Americans for Prosperity（繁荣美国）向五场 Senate（参议院）战投入 530 万美元新广告", "detail": "CONFIRMED FACT｜Koch network 旗下 Americans for Prosperity 启动 530 万美元数字及 connected-TV（联网电视）广告：Alaska 70 万美元、Iowa 75 万美元、Michigan 150 万美元、New Hampshire 85 万美元、Ohio 150 万美元。资金集中于五个核心参议院战场，属于 Money War（资金战）的实质部署变化；它本身不构成评级变化。"},
     {"date": "2026-09-11", "level": "L3", "side": "Polling（民调）", "title": "Texas Senate（得州参议院）AARP 双党民调团队给出 Talarico 48% / Paxton 44%", "detail": "AARP 委托 Fabrizio Ward 与 Impact Research 联合完成的调查于 9 月 10 日公布，显示 James Talarico（D）48%、Ken Paxton（R）44%。这是单份民调，不能单独决定评级；但与近期 Texas（得州）多项公开民调同向，确认该州继续属于资源密集型 Senate battleground（参议院战场）。"},
     {"date": "2026-09-11", "level": "L3", "side": "Polling（民调）", "title": "North Carolina Senate（北卡参议院）Elon University Poll：Cooper 49% / Whatley 38% among likely voters（可能投票者）", "detail": "Elon University 9 月 10 日发布调查：likely voters（可能投票者）中 Roy Cooper（D）49%、Michael Whatley（R）38%，8% 未决定。调查同时显示 inflation/cost of living（通胀/生活成本）是高权重议题。该结果强化北卡开放席位仍需共和党持续投入资源，但没有新的主要评级机构变更可确认。"},
@@ -70,12 +71,13 @@
     {"date": "2026-09-04", "level": "L2", "side": "Money（资金）", "title": "FEC（联邦选举委员会）60-day electioneering-communications window（60天竞选传播披露窗口）开启", "detail": "24 小时披露要求提高了广告支出与赞助方行为的可观察性，一直延续到投票日。"}
   ],
   "money": {
-    "headline": "Money War（资金战）：外部资金正在进一步集中到 Senate（参议院）核心战场。",
+    "headline": "Money War（资金战）：Trump 与 Musk 阵营已开始把超大规模 war chest（竞选资金池）部署到核心 battlegrounds（战场）。",
     "facts": [
-      "Americans for Prosperity（繁荣美国）新部署 530 万美元数字及 connected-TV（联网电视）广告，覆盖 Alaska、Iowa、Michigan、New Hampshire、Ohio 五场 Senate（参议院）战。",
-      "美国最高法院维持政党委员会获得 discounted broadcast rates（折扣广播广告费率）的路径。",
-      "Reuters 报道，相关诉讼披露的 national committee resources（全国委员会可用资源）显示共和党具有明显优势。",
-      "MAGA Inc. 向 Texas（得州）部署重大资金，说明该席位已不再被内部视作安全的共和党席。"
+      "Reuters 9月11日报道：No Going Back PAC 已在 Alaska、Georgia、Michigan、North Carolina、New Hampshire、Ohio 六个 battleground states（战场州）锁定超过 2490 万美元电视广告时段。",
+      "Texas Senate（得州参议院）：MAGA Inc. 已投入 1000 万美元，Musk 的 America PAC 再投入 240 万美元，其中约 690 万美元用于攻击 James Talarico 的广告。",
+      "Trump 此前表示计划向 2026 中期选举投入约 4亿–5亿美元；America PAC 已在数字广告、短信、电话、邮件和线下动员等渠道支出逾 700 万美元。",
+      "Americans for Prosperity（繁荣美国）另部署 530 万美元数字及 connected-TV（联网电视）广告，覆盖 Alaska、Iowa、Michigan、New Hampshire、Ohio 五场 Senate（参议院）战。",
+      "美国最高法院维持政党委员会获得 discounted broadcast rates（折扣广播广告费率）的路径。"
     ]
   },
   "market_readthrough": [
@@ -91,12 +93,12 @@
     {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在进入地方选举；本轮无新的政策级变化。"}
   ],
   "delta": {
-    "headline": "Board unchanged｜唯一新增的实质 delta 是 Money War（资金战）向五个 Senate（参议院）核心战场进一步集中",
+    "headline": "Money War（资金战）升级｜Trump 与 Musk 阵营开始把超大规模资金直接压向核心 Senate（参议院）与跨州战场",
     "items": [
-      "CONFIRMED FACT｜Americans for Prosperity（繁荣美国）新部署 530 万美元数字及 connected-TV（联网电视）广告：Alaska 70 万、Iowa 75 万、Michigan 150 万、New Hampshire 85 万、Ohio 150 万美元。",
-      "CONFIRMED FACT｜Ratings（评级）：本次核验未发现 Cook Political Report、Sabato's Crystal Ball、Inside Elections 在上一成功运行之后出现新的 House（众议院）或 Senate（参议院）评级变更。",
-      "CONFIRMED FACT｜Prediction Market（预测市场）：未发现足以视作棋盘迁移的新市场信号；继续将任何报价仅作为 trader-implied price（交易者隐含价格），而非客观概率。",
-      "INFERENCE｜Event → voter/polling impact → seat/control path → policy path → market impact：530 万美元本身不会改变民调或评级，但它确认外部组织正在把资源集中于 Alaska、Iowa、Michigan、New Hampshire、Ohio 这些决定参议院控制路径的关键州；下一步应观察广告投放是否对应 measurable polling/turnout movement（可测量的民调/投票动员变化）。"
+      "CONFIRMED FACT｜No Going Back PAC 已在 Alaska、Georgia、Michigan、North Carolina、New Hampshire、Ohio 六州锁定超过 2490 万美元电视广告时段。",
+      "CONFIRMED FACT｜Texas Senate（得州参议院）已获得 MAGA Inc. 1000 万美元 + America PAC 240 万美元新增部署；这与近期 Paxton 在公开民调中落后 Talarico 的战场变化同向。",
+      "CONFIRMED FACT｜Trump 已公开表示计划为中期选举投入约 4亿–5亿美元；America PAC 此前已投入逾 700 万美元用于数字广告与 voter turnout（选民动员）工具。",
+      "INFERENCE｜资金并不会自动等于选票，但共和党必须在 Texas 等原本不应高成本防守的州投入真金白银，说明防守版图被迫扩大。若这种 spending pressure（支出压力）继续扩散，会提高其他 Senate（参议院）战场的 opportunity cost（机会成本）。"
     ]
   },
   "history": [
@@ -110,6 +112,7 @@
     {"title": "Cook Political Report — Senate Ratings（参议院评级）", "url": "https://www.cookpolitical.com/ratings/senate-race-ratings", "supports": "支持 6 个 Toss-Up（胜负难分）与 3 个 Lean D（偏民主党）核心战场。"},
     {"title": "Inside Elections — Ratings（选举评级）", "url": "https://insideelections.com/ratings/", "supports": "用于核验 House（众议院）和 Senate（参议院）评级是否出现新的公开更新。"},
     {"title": "Sabato's Crystal Ball（萨巴托水晶球）— 2026 House ratings via 270toWin", "url": "https://www.270towin.com/2026-house-election/crystal-ball-2026-house-forecast", "supports": "支持 2026-09-10 评级变化：AL-02 Likely R（较可能共和党）→ Lean R（偏共和党）；TX-34 Toss Up（胜负难分）→ Lean D（偏民主党）。"},
+    {"title": "Reuters — Trump and Musk super PACs unleash millions in battleground races（Trump与Musk阵营战场资金部署）", "url": "https://www.reuters.com/legal/government/trump-musk-super-pacs-unleash-millions-boost-republicans-battleground-races-2026-09-11/", "supports": "支持 No Going Back PAC 六州 2490 万美元电视广告预订、Texas Senate 的 MAGA Inc. 1000 万美元与 America PAC 240 万美元投入，以及 Trump 计划投入 4亿–5亿美元和 America PAC 已投入逾 700 万美元 voter-turnout / digital spending（选民动员 / 数字支出）。"},
     {"title": "Washington Examiner — Americans for Prosperity $5.3M Senate ad deployment（530万美元参议院广告部署）", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4720641/koch-midterm-ad-campaign-senate/", "supports": "支持 Americans for Prosperity 向 Alaska、Iowa、Michigan、New Hampshire、Ohio 五场参议院战部署 530 万美元广告及州别金额。"},
     {"title": "Americans for Prosperity Action — 2026 battleground memo（2026战场备忘录）", "url": "https://americansforprosperity.org/wp-content/uploads/2026/04/AFPA-Interested-Parties-Memo-4.30.26.pdf", "supports": "作为组织自身材料，支持 AFP Action 已把 Michigan、New Hampshire、North Carolina、Ohio 等视为重点战场并实施多渠道选民触达。"},
     {"title": "Reuters — appeals court rejects USPS mail-in voting restrictions（上诉法院继续阻止邮寄投票限制）", "url": "https://www.reuters.com/world/us-appeals-court-rejects-trump-bid-implement-mail-in-voting-restrictions-2026-09-10/", "supports": "支持 2026-09-10 第一巡回上诉法院拒绝暂停禁令、规则可能影响全国数百万选民，以及最高法院紧急申请仍待裁决。"},
