@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-09-11T08:04:00+08:00",
+  "as_of": "2026-09-11T08:10:56+08:00",
   "election_date": "2026-11-03",
   "countdown_days": 53,
   "status": "LIVE（持续跟踪）",
@@ -56,6 +56,7 @@
     {"name": "AI / Jobs / Power Bills（AI / 就业 / 电费）", "level": 36, "direction": "↑", "why": "新兴议题；AI regulation（AI监管）和 electricity affordability（电费可负担性）可能使地方选战重新定价。"}
   ],
   "events": [
+    {"date": "2026-09-11", "level": "L3", "side": "Money（资金）", "title": "Americans for Prosperity（繁荣美国）向五场 Senate（参议院）战投入 530 万美元新广告", "detail": "CONFIRMED FACT｜Koch network 旗下 Americans for Prosperity 启动 530 万美元数字及 connected-TV（联网电视）广告：Alaska 70 万美元、Iowa 75 万美元、Michigan 150 万美元、New Hampshire 85 万美元、Ohio 150 万美元。资金集中于五个核心参议院战场，属于 Money War（资金战）的实质部署变化；它本身不构成评级变化。"},
     {"date": "2026-09-11", "level": "L3", "side": "Polling（民调）", "title": "Texas Senate（得州参议院）AARP 双党民调团队给出 Talarico 48% / Paxton 44%", "detail": "AARP 委托 Fabrizio Ward 与 Impact Research 联合完成的调查于 9 月 10 日公布，显示 James Talarico（D）48%、Ken Paxton（R）44%。这是单份民调，不能单独决定评级；但与近期 Texas（得州）多项公开民调同向，确认该州继续属于资源密集型 Senate battleground（参议院战场）。"},
     {"date": "2026-09-11", "level": "L3", "side": "Polling（民调）", "title": "North Carolina Senate（北卡参议院）Elon University Poll：Cooper 49% / Whatley 38% among likely voters（可能投票者）", "detail": "Elon University 9 月 10 日发布调查：likely voters（可能投票者）中 Roy Cooper（D）49%、Michael Whatley（R）38%，8% 未决定。调查同时显示 inflation/cost of living（通胀/生活成本）是高权重议题。该结果强化北卡开放席位仍需共和党持续投入资源，但没有新的主要评级机构变更可确认。"},
     {"date": "2026-09-10", "level": "L3", "side": "Rules（选举规则）", "title": "1st U.S. Circuit（美国第一巡回上诉法院）继续阻止 USPS mail-in voting rule（邮寄投票新规）实施", "detail": "9 月 10 日，美国第一巡回上诉法院拒绝暂停下级法院禁令，因此 USPS（美国邮政署）目前不能在 11 月中期选举前实施新的 mail-in voting（邮寄投票）要求。拟议规则要求各州向 USPS 提供邮寄选票收件人名单，并要求往返选票信封使用唯一条码；不符合要求的选票可能被拒绝投递。上诉法院指出，允许规则生效可能导致全国数百万选民被 disenfranchised（剥夺投票权）。美国最高法院仍在审理政府提出的紧急申请，因此最终规则状态尚未落定。"},
@@ -69,33 +70,33 @@
     {"date": "2026-09-04", "level": "L2", "side": "Money（资金）", "title": "FEC（联邦选举委员会）60-day electioneering-communications window（60天竞选传播披露窗口）开启", "detail": "24 小时披露要求提高了广告支出与赞助方行为的可观察性，一直延续到投票日。"}
   ],
   "money": {
-    "headline": "Money War（资金战）：资金仍是共和党对冲全国环境逆风最清晰的结构性筹码。",
+    "headline": "Money War（资金战）：外部资金正在进一步集中到 Senate（参议院）核心战场。",
     "facts": [
+      "Americans for Prosperity（繁荣美国）新部署 530 万美元数字及 connected-TV（联网电视）广告，覆盖 Alaska、Iowa、Michigan、New Hampshire、Ohio 五场 Senate（参议院）战。",
       "美国最高法院维持政党委员会获得 discounted broadcast rates（折扣广播广告费率）的路径。",
       "Reuters 报道，相关诉讼披露的 national committee resources（全国委员会可用资源）显示共和党具有明显优势。",
       "MAGA Inc. 向 Texas（得州）部署重大资金，说明该席位已不再被内部视作安全的共和党席。"
     ]
   },
   "market_readthrough": [
-    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。新增州级民调本身不是利率的一阶驱动。"},
-    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。新增州级民调当前不足以改变美元主线。"},
-    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量；North Carolina（北卡）新民调再次显示生活成本议题权重高。"},
-    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；本轮州级民调变化不足以单独改变黄金逻辑。"},
-    {"asset": "Defense（国防）", "bias": "Policy-sensitive（政策敏感）", "logic": "战争持续时间、国防授权与 congressional oversight（国会监督）强度都受选后权力结构影响。本轮州级民调仅是控制权路径的二阶输入。"},
-    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "不同国会控制组合会影响金融监管与 oversight（监督）路径；新增 Texas（得州）与 North Carolina（北卡）民调只改变边际政治风险，不改变银行基本面。"},
-    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "Elon University Poll 显示 healthcare（医疗）与生活成本在北卡仍是高权重议题，强化医疗政策继续处于竞选中心的判断。"},
-    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免与拨款更依赖两院控制结构；新增州级民调暂不构成政策变化。"},
-    {"asset": "Crypto（加密资产）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "Market-structure legislation（市场结构立法）与监管强度取决于委员会和两院控制权；新增州级民调仅为二阶输入。"},
-    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在进入地方选举；北卡 affordability（可负担性）民调强化 power bills（电费）可能成为地方化传导渠道。"}
+    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。新增政治广告支出本身不是利率的一阶驱动。"},
+    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。新增资金部署不足以改变美元主线。"},
+    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量。"},
+    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；本轮资金变化不足以单独改变黄金逻辑。"},
+    {"asset": "Defense（国防）", "bias": "Policy-sensitive（政策敏感）", "logic": "战争持续时间、国防授权与 congressional oversight（国会监督）强度都受选后权力结构影响。本轮资金变化仅是控制权路径的二阶输入。"},
+    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "不同国会控制组合会影响金融监管与 oversight（监督）路径；新增资金部署不改变银行基本面。"},
+    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "医疗与生活成本仍处于竞选中心；本轮无新的医疗政策事件。"},
+    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免与拨款更依赖两院控制结构；新增资金部署暂不构成政策变化。"},
+    {"asset": "Crypto（加密资产）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "Market-structure legislation（市场结构立法）与监管强度取决于委员会和两院控制权；新增资金部署仅为二阶输入。"},
+    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在进入地方选举；本轮无新的政策级变化。"}
   ],
   "delta": {
-    "headline": "Board unchanged｜两项 Senate battleground（参议院战场）民调强化既有结构，但无主要评级机构控制权级别变化",
+    "headline": "Board unchanged｜唯一新增的实质 delta 是 Money War（资金战）向五个 Senate（参议院）核心战场进一步集中",
     "items": [
-      "CONFIRMED FACT｜Texas（得州）：AARP/Fabrizio Ward + Impact Research 9 月 10 日公布 Talarico 48%、Paxton 44%；与近期公开民调同向。",
-      "CONFIRMED FACT｜North Carolina（北卡）：Elon University Poll 9 月 10 日公布 likely voters（可能投票者）Cooper 49%、Whatley 38%，8% 未决定；inflation/cost of living（通胀/生活成本）仍是高权重议题。",
-      "CONFIRMED FACT｜Ratings（评级）：本次核验未发现 Cook Political Report、Sabato's Crystal Ball、Inside Elections 在基线之后出现新的 House（众议院）或 Senate（参议院）评级变更。",
-      "INFERENCE｜Event → voter/polling impact → seat/control path：两州新民调都强化共和党必须在原本可防守州持续投入资金与候选人注意力的判断；但单份民调不足以推导控制权结论，因此不重估控制权数值。",
-      "Prediction Market（预测市场）：Polymarket Senate control 市场当前仍显示 Democratic 53¢ / Republican 49¢ 的 trader-implied price（交易者隐含价格）；与基线一致，未视为独立棋盘移动。"
+      "CONFIRMED FACT｜Americans for Prosperity（繁荣美国）新部署 530 万美元数字及 connected-TV（联网电视）广告：Alaska 70 万、Iowa 75 万、Michigan 150 万、New Hampshire 85 万、Ohio 150 万美元。",
+      "CONFIRMED FACT｜Ratings（评级）：本次核验未发现 Cook Political Report、Sabato's Crystal Ball、Inside Elections 在上一成功运行之后出现新的 House（众议院）或 Senate（参议院）评级变更。",
+      "CONFIRMED FACT｜Prediction Market（预测市场）：未发现足以视作棋盘迁移的新市场信号；继续将任何报价仅作为 trader-implied price（交易者隐含价格），而非客观概率。",
+      "INFERENCE｜Event → voter/polling impact → seat/control path → policy path → market impact：530 万美元本身不会改变民调或评级，但它确认外部组织正在把资源集中于 Alaska、Iowa、Michigan、New Hampshire、Ohio 这些决定参议院控制路径的关键州；下一步应观察广告投放是否对应 measurable polling/turnout movement（可测量的民调/投票动员变化）。"
     ]
   },
   "history": [
@@ -107,7 +108,10 @@
     {"title": "U.S. Senate（美国参议院）— current party division", "url": "https://www.senate.gov/senators/", "supports": "确认第119届国会参议院党派结构：53 名共和党、45 名民主党、2 名独立议员。"},
     {"title": "Cook Political Report — House Ratings（众议院评级）", "url": "https://www.cookpolitical.com/ratings/house-race-ratings", "supports": "支持众议院评级分布与 21 个 Toss-Up（胜负难分）席位。"},
     {"title": "Cook Political Report — Senate Ratings（参议院评级）", "url": "https://www.cookpolitical.com/ratings/senate-race-ratings", "supports": "支持 6 个 Toss-Up（胜负难分）与 3 个 Lean D（偏民主党）核心战场。"},
+    {"title": "Inside Elections — Ratings（选举评级）", "url": "https://insideelections.com/ratings/", "supports": "用于核验 House（众议院）和 Senate（参议院）评级是否出现新的公开更新。"},
     {"title": "Sabato's Crystal Ball（萨巴托水晶球）— 2026 House ratings via 270toWin", "url": "https://www.270towin.com/2026-house-election/crystal-ball-2026-house-forecast", "supports": "支持 2026-09-10 评级变化：AL-02 Likely R（较可能共和党）→ Lean R（偏共和党）；TX-34 Toss Up（胜负难分）→ Lean D（偏民主党）。"},
+    {"title": "Washington Examiner — Americans for Prosperity $5.3M Senate ad deployment（530万美元参议院广告部署）", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4720641/koch-midterm-ad-campaign-senate/", "supports": "支持 Americans for Prosperity 向 Alaska、Iowa、Michigan、New Hampshire、Ohio 五场参议院战部署 530 万美元广告及州别金额。"},
+    {"title": "Americans for Prosperity Action — 2026 battleground memo（2026战场备忘录）", "url": "https://americansforprosperity.org/wp-content/uploads/2026/04/AFPA-Interested-Parties-Memo-4.30.26.pdf", "supports": "作为组织自身材料，支持 AFP Action 已把 Michigan、New Hampshire、North Carolina、Ohio 等视为重点战场并实施多渠道选民触达。"},
     {"title": "Reuters — appeals court rejects USPS mail-in voting restrictions（上诉法院继续阻止邮寄投票限制）", "url": "https://www.reuters.com/world/us-appeals-court-rejects-trump-bid-implement-mail-in-voting-restrictions-2026-09-10/", "supports": "支持 2026-09-10 第一巡回上诉法院拒绝暂停禁令、规则可能影响全国数百万选民，以及最高法院紧急申请仍待裁决。"},
     {"title": "Reuters — nine Senate races（九个参议院核心战场）", "url": "https://www.reuters.com/world/us/nine-midterm-races-that-will-decide-control-us-senate-2026-09-07/", "supports": "支持九州参议院战场及候选人背景。"},
     {"title": "Reuters — House races to watch（众议院关键战场）", "url": "https://www.reuters.com/world/us/us-house-races-watch-2026-midterm-elections-2026-09-07/", "supports": "支持约 50 个竞争性众议院选区及民主党翻转门槛。"},
