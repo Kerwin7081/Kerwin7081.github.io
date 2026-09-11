@@ -21,7 +21,7 @@
 </style>
 </head>
 <body>
-<div class="gate" id="gate"><div class="gate-card"><div class="eyebrow">Kerwin Research · Editorial Access</div><h2>US MIDTERM 2026</h2><p>输入访问字符继续。</p><input id="access" autocomplete="off" aria-label="访问字符"></div></div>
+<div class="gate" id="gate"><div class="gate-card"><div class="eyebrow">Kerwin Research · Editorial Access</div><h2>US MIDTERM 2026</h2><p>输入 <b>K</b> 继续访问。</p><input id="access" autocomplete="off" aria-label="访问字符" placeholder="输入 K"></div></div>
 <main class="shell" id="main">
 <div class="topbar"><span>Kerwin Research Hub · US Election Desk</span><span id="top-snapshot">Snapshot · 2026-09-11 HKT</span></div>
 <header class="masthead"><a class="brand" href="/">EnyaClawd<span>Independent Investment Research</span></a><nav class="nav"><a href="#control">先看谁可能控国会</a><a href="#senate">参议院</a><a href="#house">众议院</a><a href="#events">事件</a><a href="#markets">市场影响</a></nav><a class="home" href="/">研究首页 ↗</a></header>
@@ -31,7 +31,7 @@
 <div class="quick-grid">
 <div class="quick"><span class="k">距投票日</span><strong id="ctl-countdown">T−53</strong><small>2026-11-03</small></div>
 <div class="quick"><span class="k">当前众议院</span><strong id="house-current">共和党微弱多数</strong><small id="house-needed">民主党约需净增 3 席</small></div>
-<div class="quick"><span class="k">当前参议院</span><strong id="senate-current">共和党 53 · 民主党 45 · 独立 2</strong><small id="senate-needed">民主党需净增 4 席，才能稳到 51</small></div>
+<div class="quick"><span class="k">当前参议院</span><strong id="senate-current">共和党 53席 · 民主党 45席 · 独立议员 2席</strong><small id="senate-needed">民主党需净增 4 席，才能稳到 51</small></div>
 <div class="quick"><span class="k">特朗普支持率</span><strong id="ctl-approval">33%</strong><small>民调快照；具体来源与日期见底部来源</small></div>
 </div>
 <div class="explainer"><h3>预测市场到底是什么意思？</h3><p>把它想成一张“事件合约”。例如一张“民主党最终控制众议院”的 <b>Yes</b> 合约，如果现在价格是 <b>88¢</b>，你花 0.88 美元买入；如果民主党最后真的控制众议院，合约结算为 1 美元；如果没有，则结算为 0。</p><p>所以 88¢ 常被粗略读成“市场大约按 88% 来定价”。但它是交易者用真钱买卖形成的<b>市场隐含判断</b>，不是统计学意义上的客观概率。买卖价差、流动性、手续费和不同合约的报价方式，都可能让屏幕上的两个对立价格相加不等于 100%。</p></div>
@@ -78,7 +78,7 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){retur
 function pct(v){var n=Number(v);return n.toFixed(n%1===0?0:1)+'%'}
 function cents(v){var n=Number(v);return n.toFixed(n%1===0?0:1)+'¢'}
 function partyWords(s){return String(s||'').replace(/\bOPEN\b/g,'开放席位').replace(/\(R\)/g,'（共和党）').replace(/\(D\)/g,'（民主党）').replace(/\(I\)/g,'（独立）').replace(/\bRepublican\b/g,'共和党').replace(/\bDemocratic\b/g,'民主党')}
-function senateCurrent(s){return String(s||'').replace(/\bR\s*(\d+)/,'共和党 $1').replace(/\bD\s*(\d+)/,'民主党 $1').replace(/\bI\s*(\d+)/,'独立 $1')}
+function senateCurrent(s){return String(s||'').replace(/（共和党）|（民主党）|（独立议员）/g,'').replace(/\bR\s*(\d+)/,'共和党 $1席').replace(/\bD\s*(\d+)/,'民主党 $1席').replace(/\bI\s*(\d+)/,'独立议员 $1席')}
 var stateCN={Alaska:'阿拉斯加',Iowa:'爱荷华',Maine:'缅因',Michigan:'密歇根',Ohio:'俄亥俄',Texas:'得州',Georgia:'佐治亚','North Carolina':'北卡罗来纳','New Hampshire':'新罕布什尔',Arizona:'亚利桑那',California:'加州',Colorado:'科罗拉多',Florida:'佛州',Missouri:'密苏里','New Jersey':'新泽西','New York':'纽约',Pennsylvania:'宾州',Virginia:'弗吉尼亚',Wisconsin:'威斯康星'};
 function stateLabel(s){return (stateCN[s]?stateCN[s]+' · ':'')+s}
 function render(d){
