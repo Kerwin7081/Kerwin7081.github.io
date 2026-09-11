@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-09-11T18:52:50+08:00",
+  "as_of": "2026-09-12T03:21:47+08:00",
   "election_date": "2026-11-03",
-  "countdown_days": 53,
+  "countdown_days": 52,
   "status": "LIVE（持续跟踪）",
   "control": {
     "house_current": "Republican narrow majority（共和党微弱多数）",
@@ -43,7 +43,7 @@
   "house": {
     "cook_summary": {"solid_d": 184, "likely_d": 12, "lean_d": 9, "toss_up": 21, "lean_r": 7, "likely_r": 20, "solid_r": 182},
     "key_states": ["Arizona", "California", "Colorado", "Florida", "Iowa", "Michigan", "Missouri", "New Jersey", "New York", "Ohio", "Pennsylvania", "Texas", "Virginia", "Wisconsin"],
-    "note": "不平均跟踪全部 435 个选区。优先 Tier-1（一级关键战场）、评级变化，以及足以改变众议院多数党的席位。Missouri（密苏里州）因选区重划诉讼直接影响潜在净增 1 个共和党席位，已纳入重点；Sabato's Crystal Ball（萨巴托水晶球）9 月 10 日又将 AL-02 从 Likely R（较可能共和党）调至 Lean R（偏共和党），并将 TX-34 从 Toss Up（胜负难分）调至 Lean D（偏民主党）。"
+    "note": "不平均跟踪全部 435 个选区。优先 Tier-1（一级关键战场）、评级变化，以及足以改变众议院多数党的席位。Missouri（密苏里州）因选区重划诉讼直接影响潜在净增 1 个共和党席位，已纳入重点；Sabato's Crystal Ball（萨巴托水晶球）9 月 10 日将 AL-02 从 Likely R（较可能共和党）调至 Lean R（偏共和党），并将 TX-34 从 Toss Up（胜负难分）调至 Lean D（偏民主党）。Cook Political Report（库克政治报告）最新 House（众议院）rating changes（评级变化）进一步显示：FL-14 与 MI-10 从 Lean R（偏共和党）进入 Toss Up（胜负难分）；MI-08 从 Lean D（偏民主党）升至 Likely D（较可能民主党）；OH-15、OH-10、CO-03 从 Solid R（稳固共和党）降至 Likely R（较可能共和党）。Cook 当前汇总仍为 21 个 Toss Up（胜负难分），因此不机械改写总体席位计数，但上述逐席变化构成民主党方向的边际改善。"
   },
   "issues": [
     {"name": "Affordability / Cost of Living（可负担性 / 生活成本）", "level": 92, "direction": "↑", "why": "民主党当前最主要的全国攻击线；特朗普在生活成本问题上的评价偏弱。"},
@@ -56,6 +56,7 @@
     {"name": "AI / Jobs / Power Bills（AI / 就业 / 电费）", "level": 36, "direction": "↑", "why": "新兴议题；AI regulation（AI监管）和 electricity affordability（电费可负担性）可能使地方选战重新定价。"}
   ],
   "events": [
+    {"date": "2026-09-11", "level": "L3", "side": "Ratings（评级）", "title": "Cook Political Report（库克政治报告）最新 House（众议院）评级变化扩大民主党可竞争版图", "detail": "CONFIRMED FACT｜Cook 最新 rating changes（评级变化）列出：FL-14 Castor（D）由 Lean R（偏共和党）→ Toss Up（胜负难分）；MI-10 James（R）由 Lean R（偏共和党）→ Toss Up（胜负难分）；MI-08 McDonald Rivet（D）由 Lean D（偏民主党）→ Likely D（较可能民主党）；OH-15 Carey（R）、OH-10 Turner（R）、CO-03 Hurd（R）由 Solid R（稳固共和党）→ Likely R（较可能共和党）。INFERENCE｜变化整体向民主党方向移动，尤其 FL-14 与 MI-10 进入最激烈的 Toss Up 区间，说明共和党需要防守的 House（众议院）席位继续扩张；但 Cook 当前总计仍为 21 个 Toss Up（胜负难分），因此暂不机械修改 House control trader-implied price（众议院控制权交易者隐含价格）。"},
     {"date": "2026-09-11", "level": "L3", "side": "Money（资金）", "title": "Trump 与 Musk 阵营开始向关键战场大规模部署中期选举资金", "detail": "CONFIRMED FACT｜Reuters 9月11日报道：Trump-affiliated No Going Back PAC 已在 Alaska、Georgia、Michigan、North Carolina、New Hampshire、Ohio 六个 battleground states（战场州）锁定超过 2490 万美元电视广告时段；Trump 此前表示计划为中期选举投入 4亿–5亿美元。Texas Senate（得州参议院）方面，MAGA Inc. 已投入 1000 万美元，Musk 的 America PAC 再投入 240 万美元；America PAC 此前还已为数字广告、短信、电话、邮件和线下动员支出逾 700 万美元。属于 Money War（资金战）的实质性大规模重新部署。"},
     {"date": "2026-09-11", "level": "L3", "side": "Money（资金）", "title": "Americans for Prosperity（繁荣美国）向五场 Senate（参议院）战投入 530 万美元新广告", "detail": "CONFIRMED FACT｜Koch network 旗下 Americans for Prosperity 启动 530 万美元数字及 connected-TV（联网电视）广告：Alaska 70 万美元、Iowa 75 万美元、Michigan 150 万美元、New Hampshire 85 万美元、Ohio 150 万美元。资金集中于五个核心参议院战场，属于 Money War（资金战）的实质部署变化；它本身不构成评级变化。"},
     {"date": "2026-09-11", "level": "L3", "side": "Polling（民调）", "title": "Texas Senate（得州参议院）AARP 双党民调团队给出 Talarico 48% / Paxton 44%", "detail": "AARP 委托 Fabrizio Ward 与 Impact Research 联合完成的调查于 9 月 10 日公布，显示 James Talarico（D）48%、Ken Paxton（R）44%。这是单份民调，不能单独决定评级；但与近期 Texas（得州）多项公开民调同向，确认该州继续属于资源密集型 Senate battleground（参议院战场）。"},
@@ -81,34 +82,35 @@
     ]
   },
   "market_readthrough": [
-    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。新增政治广告支出本身不是利率的一阶驱动。"},
-    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。新增资金部署不足以改变美元主线。"},
-    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量。"},
-    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；本轮资金变化不足以单独改变黄金逻辑。"},
-    {"asset": "Defense（国防）", "bias": "Policy-sensitive（政策敏感）", "logic": "战争持续时间、国防授权与 congressional oversight（国会监督）强度都受选后权力结构影响。本轮资金变化仅是控制权路径的二阶输入。"},
-    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "不同国会控制组合会影响金融监管与 oversight（监督）路径；新增资金部署不改变银行基本面。"},
-    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "医疗与生活成本仍处于竞选中心；本轮无新的医疗政策事件。"},
-    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免与拨款更依赖两院控制结构；新增资金部署暂不构成政策变化。"},
-    {"asset": "Crypto（加密资产）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "Market-structure legislation（市场结构立法）与监管强度取决于委员会和两院控制权；新增资金部署仅为二阶输入。"},
-    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在进入地方选举；本轮无新的政策级变化。"}
+    {"asset": "US 10Y（美国10年期国债收益率）", "bias": "↑ risk（上行风险）", "logic": "油价 / 通胀与 election-linked fiscal promises（选举挂钩财政承诺）可能抬升期限溢价；divided government（分裂政府）则可能通过 gridlock（立法僵局）抵消部分压力。Cook House（众议院）评级整体向民主党方向移动，边际提高 divided government（分裂政府）/ gridlock（立法僵局）情景权重，但单次评级变化不足以形成利率交易信号。"},
+    {"asset": "USD（美元）", "bias": "Two-way（双向）", "logic": "更高的美国收益率通常支持美元；政治 / 财政风险与增长走弱则可能反向作用。House（众议院）评级变化本身不是美元的一阶驱动。"},
+    {"asset": "Oil（原油）", "bias": "Election driver（选举驱动变量）", "logic": "油价不只是资产结果变量，也是支持率、通胀与投票行为的输入变量；本轮 House（众议院）评级变化不改变油价主线。"},
+    {"asset": "Gold（黄金）", "bias": "↑ hedge（对冲需求上升）", "logic": "战争、财政不确定性与制度冲突通常提高避险 / 对冲需求；House（众议院）控制权边际向民主党移动只构成二阶政治风险输入。"},
+    {"asset": "Defense（国防）", "bias": "Policy-sensitive（政策敏感）", "logic": "战争持续时间、国防授权与 congressional oversight（国会监督）强度都受选后权力结构影响；民主党 House（众议院）概率边际提高，意味着 oversight（监督）权重略升。"},
+    {"asset": "Banks（银行）", "bias": "Regulation-sensitive（监管敏感）", "logic": "不同国会控制组合会影响金融监管与 oversight（监督）路径；民主党 House（众议院）概率边际提高，意味着委员会监督和监管议程约束略增强。"},
+    {"asset": "Healthcare（医疗）", "bias": "Policy-sensitive（政策敏感）", "logic": "医疗与生活成本仍处于竞选中心；民主党 House（众议院）路径改善，边际提高医疗议题的听证与立法监督权重。"},
+    {"asset": "Clean Energy（清洁能源）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "税收抵免与拨款更依赖两院控制结构；民主党 House（众议院）概率边际提高，降低单党共和党全面回撤相关政策的概率。"},
+    {"asset": "Crypto（加密资产）", "bias": "Congress-sensitive（国会控制权敏感）", "logic": "Market-structure legislation（市场结构立法）与监管强度取决于委员会和两院控制权；民主党 House（众议院）概率边际提高，可能增加监管妥协与立法摩擦。"},
+    {"asset": "AI / Power（AI / 电力）", "bias": "Emerging（新兴变量）", "logic": "AI regulation（AI监管）、电网账单、电力基础设施与数据中心正在进入地方选举；民主党 House（众议院）概率边际提高，意味着 AI oversight（AI监督）和公用事业成本议题的委员会权重略升。"}
   ],
   "delta": {
-    "headline": "Money War（资金战）升级｜Trump 与 Musk 阵营开始把超大规模资金直接压向核心 Senate（参议院）与跨州战场",
+    "headline": "House Ratings（众议院评级）出现新一轮民主党方向移动｜FL-14 与 MI-10 进入 Toss Up（胜负难分）",
     "items": [
-      "CONFIRMED FACT｜No Going Back PAC 已在 Alaska、Georgia、Michigan、North Carolina、New Hampshire、Ohio 六州锁定超过 2490 万美元电视广告时段。",
-      "CONFIRMED FACT｜Texas Senate（得州参议院）已获得 MAGA Inc. 1000 万美元 + America PAC 240 万美元新增部署；这与近期 Paxton 在公开民调中落后 Talarico 的战场变化同向。",
-      "CONFIRMED FACT｜Trump 已公开表示计划为中期选举投入约 4亿–5亿美元；America PAC 此前已投入逾 700 万美元用于数字广告与 voter turnout（选民动员）工具。",
-      "INFERENCE｜资金并不会自动等于选票，但共和党必须在 Texas 等原本不应高成本防守的州投入真金白银，说明防守版图被迫扩大。若这种 spending pressure（支出压力）继续扩散，会提高其他 Senate（参议院）战场的 opportunity cost（机会成本）。"
+      "CONFIRMED FACT｜Cook Political Report（库克政治报告）最新 rating changes（评级变化）将 FL-14 Castor（D）与 MI-10 James（R）从 Lean R（偏共和党）调至 Toss Up（胜负难分）。",
+      "CONFIRMED FACT｜MI-08 McDonald Rivet（D）从 Lean D（偏民主党）升至 Likely D（较可能民主党）；OH-15 Carey（R）、OH-10 Turner（R）、CO-03 Hurd（R）从 Solid R（稳固共和党）降至 Likely R（较可能共和党）。",
+      "CONFIRMED FACT｜Cook 当前总计仍为 21 个 Toss Up（胜负难分），因此本轮不机械调整 House control trader-implied price（众议院控制权交易者隐含价格）。",
+      "INFERENCE｜逐席位变化方向整体利好民主党：两个原偏共和党席位进入五五开区间，三个原稳固共和党席位降级，说明 GOP（共和党）House 防守资源压力进一步扩大。"
     ]
   },
   "history": [
     {"date": "2026-09-10", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6},
-    {"date": "2026-09-11", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6}
+    {"date": "2026-09-11", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6},
+    {"date": "2026-09-12", "house_dem": 88, "senate_dem": 53, "trump_approval": 33, "cook_house_tossups": 21, "cook_senate_tossups": 6}
   ],
   "sources": [
     {"title": "Federal Election Commission（美国联邦选举委员会）— 2026 federal general election date", "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/", "supports": "确认 Election Day（联邦大选日）= 2026-11-03。"},
     {"title": "U.S. Senate（美国参议院）— current party division", "url": "https://www.senate.gov/senators/", "supports": "确认第119届国会参议院党派结构：53 名共和党、45 名民主党、2 名独立议员。"},
-    {"title": "Cook Political Report — House Ratings（众议院评级）", "url": "https://www.cookpolitical.com/ratings/house-race-ratings", "supports": "支持众议院评级分布与 21 个 Toss-Up（胜负难分）席位。"},
+    {"title": "Cook Political Report — House Ratings（众议院评级）", "url": "https://www.cookpolitical.com/ratings/house-race-ratings", "supports": "支持众议院当前 21 个 Toss Up（胜负难分）及最新评级变化：FL-14 Lean R（偏共和党）→ Toss Up（胜负难分）；MI-10 Lean R（偏共和党）→ Toss Up（胜负难分）；MI-08 Lean D（偏民主党）→ Likely D（较可能民主党）；OH-15、OH-10、CO-03 Solid R（稳固共和党）→ Likely R（较可能共和党）。"},
     {"title": "Cook Political Report — Senate Ratings（参议院评级）", "url": "https://www.cookpolitical.com/ratings/senate-race-ratings", "supports": "支持 6 个 Toss-Up（胜负难分）与 3 个 Lean D（偏民主党）核心战场。"},
     {"title": "Inside Elections — Ratings（选举评级）", "url": "https://insideelections.com/ratings/", "supports": "用于核验 House（众议院）和 Senate（参议院）评级是否出现新的公开更新。"},
     {"title": "Sabato's Crystal Ball（萨巴托水晶球）— 2026 House ratings via 270toWin", "url": "https://www.270towin.com/2026-house-election/crystal-ball-2026-house-forecast", "supports": "支持 2026-09-10 评级变化：AL-02 Likely R（较可能共和党）→ Lean R（偏共和党）；TX-34 Toss Up（胜负难分）→ Lean D（偏民主党）。"},
