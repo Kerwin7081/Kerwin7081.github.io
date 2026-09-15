@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff1e5">
+  <meta name="description" content="从 Dario Amodei 的 Pace the Frontier 出发，追踪 METR、Apollo、Good Ventures、Coefficient、Tarbell 与 ControlAI 背后的资金、研究、媒体与政策网络，并回答：谁来审计审计员？">
+  <link rel="canonical" href="https://enyaclawd.com/who-audits-ai-safety-auditors-20260915/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="EnyaClawd · Kerwin Research Hub">
+  <meta property="og:title" content="谁在审计 AI，又是谁在资助审计员？">
+  <meta property="og:description" content="从 Pace the Frontier 到独立评估、慈善资本、媒体议题设置与立法：一张可审计的 AI Safety 制度网络。">
+  <meta property="og:url" content="https://enyaclawd.com/who-audits-ai-safety-auditors-20260915/">
+  <meta name="twitter:card" content="summary">
+  <title>谁在审计 AI，又是谁在资助审计员？｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;--paper:#fffaf5;--paper-2:#f7e7d8;--outer:#e6d8cb;
+      --ink:#262220;--muted:#746b65;--line:#cdbfb3;--line-dark:#968b83;
+      --green:#103f35;--green-2:#1f5a4d;--green-pale:#dce8e2;
+      --copper:#9a5c38;--risk:#9f332b;--wine:#7d2933;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    body{margin:0;color:var(--ink);background:var(--outer);font-family:var(--sans);font-size:17px;line-height:1.88;overflow-x:hidden}
+    img,svg,video{max-width:100%;height:auto}a{color:inherit;text-underline-offset:3px}button,input{font:inherit}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #d29b5d;outline-offset:3px}
+    .skip-link{position:fixed;left:12px;top:-80px;z-index:1000;padding:8px 12px;border:1px solid var(--green);background:var(--paper);color:var(--green)}.skip-link:focus{top:12px}
+    .progress{position:fixed;left:0;top:0;z-index:950;width:0;height:4px;background:var(--copper)}
+    body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):not(script):not(noscript){visibility:hidden}
+    .kw-editorial-gate{position:fixed;inset:0;z-index:990;display:grid;place-items:center;padding:18px;background:var(--green)}.kw-editorial-gate[hidden]{display:none}
+    .kw-editorial-gate__paper{width:min(860px,100%);border-top:6px solid var(--ink);background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.22)}
+    .kw-editorial-gate__masthead{display:flex;justify-content:space-between;gap:20px;padding:13px 22px;border-bottom:1px solid var(--line-dark);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .kw-editorial-gate__body{display:grid;grid-template-columns:164px minmax(0,1fr);gap:clamp(32px,7vw,72px);align-items:center;min-height:370px;padding:clamp(36px,6vw,66px)}
+    .kw-editorial-gate__seal{display:grid;place-items:center;width:148px;aspect-ratio:1;border:1px solid var(--green);border-radius:50%;color:var(--green);text-align:center;font:700 20px/1.15 var(--serif)}
+    .kw-editorial-gate__kicker,.eyebrow,.section-label{font-size:10px;font-weight:800;letter-spacing:.16em;line-height:1.4;text-transform:uppercase}
+    .kw-editorial-gate__title{margin:10px 0 0;color:var(--green);font:700 clamp(29px,4vw,42px)/1.08 var(--serif)}
+    .kw-editorial-gate__copy{margin:14px 0 18px;color:var(--green);font-family:var(--serif);font-weight:700;font-size:clamp(18px,2.4vw,23px);line-height:1.28}.kw-editorial-gate__copy strong{font:inherit}.kw-editorial-gate__copy span{display:block;margin-top:5px;color:var(--muted);font-family:var(--sans);font-size:13px;font-weight:400;line-height:1.55}
+    .kw-editorial-gate__field{display:flex;align-items:center;gap:12px;min-height:50px;border-bottom:1px solid var(--green)}.kw-editorial-gate__field input{min-width:0;width:100%;height:48px;border:0;padding:0 4px;background:transparent;color:var(--green);font:700 24px/1 var(--serif)}.kw-editorial-gate__field input:focus{outline:0}.kw-editorial-gate__field span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .kw-editorial-gate__foot{display:grid;gap:2px;padding:12px 22px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.55}
+    .site-shell{width:min(1120px,calc(100% - 32px));margin:30px auto;background:var(--paper);box-shadow:0 18px 52px rgba(68,49,37,.16)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:11px 24px;background:var(--green);color:var(--paper);font-size:11px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase}.topbar a{text-decoration:none}
+    .masthead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:18px 32px;border-bottom:1px solid var(--line-dark);background:var(--surface)}
+    .brand-mark{color:var(--green);font:700 27px/1 var(--serif);text-decoration:none}.brand-mark span{display:block;margin-top:7px;color:var(--muted);font:700 9px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+    .nav{display:flex;justify-content:center;gap:18px;font-size:11px;font-weight:700}.nav a{text-decoration:none}.home-route{color:var(--green);font-size:12px;font-weight:800;text-decoration:none}
+    .cover{padding:62px 64px 48px;border-bottom:1px solid var(--line-dark);background:var(--surface)}.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:52px;align-items:end}.eyebrow{margin-bottom:18px;color:var(--copper)}
+    .cover h1{max-width:790px;margin:0;font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);letter-spacing:-.02em}.cover h1 span{display:block;margin-top:11px;color:var(--green)}
+    .thesis{max-width:800px;margin:24px 0 0;font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif)}
+    .cover-meta{display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6}.cover-meta b{color:var(--ink)}
+    .cover-seal{padding:24px 18px;border:1px solid var(--green);color:var(--green);text-align:center}.cover-seal strong{display:block;font:700 36px/1 var(--serif)}.cover-seal span{display:block;margin-top:9px;font-size:10px;line-height:1.55;letter-spacing:.12em;text-transform:uppercase}
+    .scope-note{padding:18px 64px;border-bottom:1px solid var(--line);background:var(--paper-2);color:var(--muted);font-size:13px;line-height:1.7}.scope-note b{color:var(--ink)}
+    .section{padding:44px 64px;border-bottom:1px solid var(--line)}.section-label{margin-bottom:9px;color:var(--green)}.section h2{margin:0 0 21px;font:700 clamp(28px,4vw,36px)/1.17 var(--serif);letter-spacing:-.012em}.section h3{margin:30px 0 12px;font:700 21px/1.35 var(--serif)}.section p{margin:0 0 16px}.lead{font-size:18px;line-height:1.78}
+    .verdict{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}.verdict-item{padding:19px 18px;border-right:1px solid var(--line)}.verdict-item:last-child{border-right:0}.verdict-item b{display:block;margin-bottom:8px;color:var(--green);font:700 18px/1.35 var(--serif)}.verdict-item span{display:block;color:var(--muted);font-size:14px;line-height:1.65}
+    .table-wrap{width:100%;max-width:100%;overflow-x:auto;border:1px solid var(--line-dark);-webkit-overflow-scrolling:touch}table{width:100%;min-width:760px;border-collapse:collapse;font-size:15px;line-height:1.58}th{padding:12px 14px;background:var(--green);color:#fff;text-align:left}td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:var(--surface)}
+    .dark-panel{margin-top:24px;padding:26px;background:var(--green);color:var(--paper)}.dark-panel h3{margin-top:0;color:#fff}.dark-panel p:last-child{margin-bottom:0}
+    .source{padding:12px 0;border-bottom:1px solid var(--line)}.source a{color:var(--green);font-weight:800;word-break:break-word}.source span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.55}
+    .badge{display:inline-block;padding:3px 7px;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.06em;line-height:1.3}.badge.inference{border-color:var(--copper);color:var(--copper)}.badge.unverified{border-color:var(--risk);color:var(--risk)}
+    .stack-flow{display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:1px;margin:24px 0;border:1px solid var(--line-dark);background:var(--line);overflow-x:auto}.stack-node{min-width:140px;padding:20px 16px;background:#fff;position:relative}.stack-node:not(:last-child):after{content:"→";position:absolute;right:-14px;top:50%;z-index:2;width:27px;height:27px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--wine);font-weight:800;transform:translateY(-50%)}.stack-node b{display:block;color:var(--green);font:700 18px/1.3 var(--serif)}.stack-node span{display:block;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.58}
+    .network{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:24px 0}.network-col{border-top:5px solid var(--green);background:#fff;padding:22px}.network-col.alt{border-top-color:var(--wine)}.network-title{font:700 21px/1.3 var(--serif);color:var(--green)}.network-col.alt .network-title{color:var(--wine)}.network-chain{display:grid;gap:10px;margin-top:16px}.network-box{padding:14px;border:1px solid var(--line);background:var(--surface)}.network-box b{display:block}.network-box small{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.55}.network-arrow{text-align:center;color:var(--copper);font-weight:800}.network-bridge{grid-column:1/-1;padding:18px;border:1px solid var(--line-dark);background:var(--paper-2)}
+    .relation-map{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:24px 0;border:1px solid var(--line);background:var(--line)}.relation-card{padding:18px;background:#fff}.relation-card strong{display:block;color:var(--green);font:700 17px/1.35 var(--serif)}.relation-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.58}
+    .pipeline{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:0;margin:24px 0;overflow-x:auto}.pipeline div{min-width:130px;padding:18px 14px;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);border-right:1px solid var(--line);background:#fff}.pipeline div:first-child{border-left:1px solid var(--line-dark)}.pipeline b{display:block;color:var(--green);font:700 16px/1.3 var(--serif)}.pipeline span{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.5}.pipeline .policy{background:var(--green);color:#fff}.pipeline .policy b,.pipeline .policy span{color:#fff}
+    .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}.fact-card{padding:20px;border-top:5px solid var(--green);background:#fff}.fact-card.inference{border-top-color:var(--copper)}.fact-card.overreach{border-top-color:var(--risk)}.fact-card h3{margin:0 0 12px}.fact-card ul{margin:0;padding-left:20px}.fact-card li{margin:8px 0;font-size:14px;line-height:1.6}
+    .loop-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}.loop{padding:22px;background:#fff;border-top:5px solid var(--green)}.loop.bad{border-top-color:var(--risk)}.loop h3{margin-top:0}.loop-line{display:flex;flex-wrap:wrap;gap:7px;align-items:center;color:var(--green);font-weight:800}.loop.bad .loop-line{color:var(--risk)}.loop-line i{font-style:normal;color:var(--copper)}
+    .audit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:24px 0;border:1px solid var(--line);background:var(--line)}.audit-item{padding:18px;background:#fff}.audit-item b{display:block;color:var(--green);font:700 17px/1.35 var(--serif)}.audit-item span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.58}
+    .watchlist{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}.watch{padding:18px;background:#fff;border-left:4px solid var(--copper)}.watch b{display:block;color:var(--green)}.watch span{display:block;margin-top:5px;color:var(--muted);font-size:13px;line-height:1.58}
+    .enya{padding:36px 64px;background:var(--green);color:var(--paper)}.enya h2{margin:0;font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.08}.enya-tag{margin-top:10px;font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.55}.enya-model{margin-top:5px;color:#c7dbd2;font-size:12px;line-height:1.5}.enya-copy{max-width:760px;margin:16px 0 0;color:#dce8e2;font-size:16px;line-height:1.7}.roles{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.role{padding-top:12px;border-top:1px solid rgba(255,255,255,.35)}.role span{display:block;margin-top:5px;color:#dce8e2;font-size:13px;line-height:1.6}
+    .footer{padding:22px 32px;background:var(--ink);color:#e8ddd5;font-size:12px;line-height:1.7}.footer-line{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.footer-meta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:5px;overflow-wrap:anywhere}.footer a{color:#fff}
+    .top-button{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border:1px solid var(--paper);border-radius:50%;background:var(--green);color:#fff;font:700 20px/1 var(--serif);cursor:pointer;opacity:0;visibility:hidden;transition:opacity 150ms ease}.top-button.is-visible{opacity:1;visibility:visible}
+    @media(max-width:960px){.cover-grid{grid-template-columns:1fr}.cover-seal{width:210px}.verdict{grid-template-columns:repeat(2,1fr)}.verdict-item{border-bottom:1px solid var(--line)}.verdict-item:nth-child(2n){border-right:0}.network,.loop-grid{grid-template-columns:1fr}.relation-map{grid-template-columns:repeat(2,1fr)}.audit-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){
+      body{font-size:16px;line-height:1.80}.kw-editorial-gate{display:flex;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom));overflow:auto}.kw-editorial-gate__paper{width:min(100%,420px);max-width:100%;max-height:calc(100svh - 24px);overflow:auto;border-top-width:4px}.kw-editorial-gate__masthead{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 16px;font-size:9px;line-height:1.45;white-space:normal;overflow-wrap:anywhere}.kw-editorial-gate__masthead span{min-width:0;overflow-wrap:anywhere}.kw-editorial-gate__body{grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:start;min-height:0;padding:24px 18px 20px}.kw-editorial-gate__body>*{min-width:0}.kw-editorial-gate__seal{width:72px;font-size:13px;line-height:1.15}.kw-editorial-gate__kicker{font-size:9px;letter-spacing:.12em}.kw-editorial-gate__title{max-width:100%;margin-top:7px;font-size:clamp(23px,6.4vw,26px);line-height:1.14;letter-spacing:-.015em;overflow-wrap:anywhere}.kw-editorial-gate__copy{margin:9px 0 12px;font-size:clamp(17px,4.8vw,19px);line-height:1.25}.kw-editorial-gate__copy span{margin-top:4px;font-size:13px;line-height:1.5}.kw-editorial-gate__field{min-height:44px;gap:0}.kw-editorial-gate__field input{width:100%;height:42px;padding:0;font-size:23px}.kw-editorial-gate__field span{display:none}.kw-editorial-gate__foot{display:grid;gap:4px;padding:10px 16px;font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+      .site-shell{width:100%;margin:0;box-shadow:none}.topbar{padding:8px 20px;font-size:9px}.topbar span:last-child{display:none}.masthead{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:12px 20px}.masthead>*{min-width:0}.nav{display:none}.brand-mark{font-size:23px}.brand-mark span{margin-top:5px;font-size:8px}.home-route{font-size:12px;white-space:nowrap}.cover{padding:27px 20px 24px}.cover-grid{grid-template-columns:1fr;gap:16px}.eyebrow{margin-bottom:12px;font-size:9px;line-height:1.5;letter-spacing:.12em}.cover h1{font-size:clamp(24px,7vw,28px);line-height:1.18;letter-spacing:-.012em;overflow-wrap:anywhere}.cover h1 span{margin-top:12px;font-size:clamp(18px,5.2vw,21px);line-height:1.34}.thesis{margin-top:17px;font-size:16px;line-height:1.72}.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin-top:20px;padding-top:14px;font-size:11px;line-height:1.55}.cover-meta span:last-child:nth-child(odd){grid-column:1/-1}.cover-seal{display:none}.scope-note{padding:14px 20px;font-size:12px;line-height:1.7}.section,.enya{padding:30px 20px}.section h2{font-size:clamp(23px,6.4vw,26px);line-height:1.25}.section h3{margin-top:24px;font-size:19px}.lead{font-size:16px;line-height:1.72}.verdict,.relation-map,.audit-grid,.fact-grid,.watchlist,.roles{grid-template-columns:1fr}.verdict-item{border-right:0;border-bottom:1px solid var(--line)}.table-wrap{max-width:100%;-webkit-overflow-scrolling:touch}table{font-size:14px}.stack-flow,.pipeline{overflow-x:auto}.fact-card li{font-size:14px}.enya h2{font-size:clamp(22px,6vw,26px);line-height:1.1}.enya-tag{margin-top:9px;font-size:15px;line-height:1.58}.enya-model{margin-top:5px;font-size:12px;line-height:1.5}.enya-copy{margin-top:15px;font-size:15px;line-height:1.65}.roles{gap:14px;margin-top:20px}.role{padding-top:10px}.role b{font-size:15px}.role span{margin-top:4px;font-size:13px;line-height:1.55}.footer{padding:20px}.footer-line{display:block}.footer-line a{display:inline-block;margin-top:10px}.footer-meta{display:grid;gap:4px;margin-top:8px}.top-button{right:16px;bottom:calc(16px + env(safe-area-inset-bottom))}
+    }
+    @media(max-width:390px){.kw-editorial-gate__masthead{grid-template-columns:1fr;gap:2px}.kw-editorial-gate__body{grid-template-columns:72px minmax(0,1fr);gap:14px}}
+    @media print{body{background:#fff}.kw-editorial-gate,.topbar,.masthead,.progress,.top-button{display:none}.site-shell{width:100%;margin:0;box-shadow:none}}
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="who-audits-ai-safety-auditors-20260915">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">Kerwin Research Hub</span><span class="kw-editorial-gate__access">Reader Access</span></div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">AI Safety · Governance</div>
+          <h2 class="kw-editorial-gate__title" id="gate-title">谁在审计 AI？</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field"><input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究"><span>Auto enter</span></label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot"><span>Kerwin｜研究框架与投资判断</span><span>Enya｜自动化跟踪、核验、整理与排版执行</span><span>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</span></div>
+    </div>
+  </section>
+  <a class="skip-link" href="#main-content">跳至正文</a><div class="progress" id="reading-progress" aria-hidden="true"></div>
+  <main class="site-shell" id="main-content">
+    <div class="topbar"><span>Kerwin Research Hub · AI Governance & Institutional Capital</span><span>Evidence first · Snapshot 2026-09-15 HKT</span></div>
+    <header class="masthead">
+      <a class="brand-mark" href="/">EnyaClawd<span>Independent Investment Research</span></a>
+      <nav class="nav" aria-label="页内导航"><a href="#verdict">核心判断</a><a href="#safety-stack">安全栈</a><a href="#capital-network">资金网络</a><a href="#auditor">审计审计员</a><a href="#sources">来源</a></nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">AI SAFETY · GOVERNANCE · PHILANTHROPIC CAPITAL</div>
+          <h1>谁在审计 AI，<span>又是谁在资助审计员？</span></h1>
+          <p class="thesis">AI Safety 正从实验室内部的技术议题演化为资金、研究、媒体与立法共同构成的制度基础设施。真正成熟的治理，不只是审计模型，也必须审计审计体系本身。</p>
+          <div class="cover-meta"><span><b>研究日期</b> 2026-09-15</span><span><b>数据快照</b> 2026-09-15 HKT</span><span><b>研究对象</b> AI Safety 资金—机构—媒体—政策网络</span><span><b>证据边界</b> 原始机构披露、议会/国会资料与公开治理文件</span></div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据"><strong>200+</strong><span>ControlAI 自报已 brief 的美国国会办公室；用于说明政策触达，不代表支持程度</span></aside>
+      </div>
+    </section>
+    <div class="scope-note"><b>口径说明：</b>本文严格区分“已证实直接关系 / 已证实间接关系 / 公开合作 / 理念同源 / 未证实推断”。资金关联不自动等于控制关系；理念相近也不自动等于统一行动。</div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div><h2>真正的问题不是“谁相信 AI Doom”，而是谁正在建设 AI Safety 的制度基础设施</h2>
+      <p class="lead">Dario Amodei 的“Pace the Frontier”把第三方评估推到前沿模型治理中心。由此产生的下一层问题更重要：当评估机构、慈善资本、专业记者与政策组织开始共同塑造模型训练节奏时，独立性必须从身份标签升级为可验证的制度设计。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>外部审计正在制度化</b><span>Embedded evaluator 不再只是发布后跑 benchmark，而可能进入训练、监控与事故调查流程。</span></div>
+        <div class="verdict-item"><b>“第三方”不等于天然独立</b><span>真正独立至少包括资金、治理、方法和运营四层，而不是只有“非营利”或“非实验室”身份。</span></div>
+        <div class="verdict-item"><b>慈善资本已经能够“造领域”</b><span>Good Ventures / Coefficient 与 Tallinn 等资本节点正在资助研究、人才、机构与政策能力，影响力远超过单笔捐赠。</span></div>
+        <div class="verdict-item"><b>治理开始触及物理算力</b><span>ASI 禁令、kill switch 与训练许可思路意味着未来监管变量可能进入 GPU、数据中心和 MW 账本。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="safety-stack">
+      <div class="section-label">02 · AI Safety Stack</div><h2>第一张图：谁负责测能力、抓欺骗、拦攻击，谁最终设门槛？</h2>
+      <p>AI Safety 正在出现专业分工。METR 更像“能力刻度尺”，Apollo 更聚焦 scheming（暗中谋划）、alignment faking（假装对齐）和持续监控；CrowdStrike 代表的是成熟网络安全平台向 Agent 安全延伸；政府与标准机构则可能把技术评估转化为训练或部署门槛。</p>
+      <div class="stack-flow" aria-label="AI Safety Stack">
+        <div class="stack-node"><b>Frontier Lab</b><span>OpenAI / Anthropic / Google / xAI 等训练更强模型。</span></div>
+        <div class="stack-node"><b>METR</b><span>测自主能力、长时任务、AI R&amp;D 与失控边界。</span></div>
+        <div class="stack-node"><b>Apollo</b><span>测 scheming、欺骗、规避监督，并做 Agent monitoring。</span></div>
+        <div class="stack-node"><b>Cyber Defense</b><span>CrowdStrike 等在真实网络层做红队、监控、隔离与阻断。</span></div>
+        <div class="stack-node"><b>Government</b><span>将阈值、事故报告与评估结果转化成制度规则。</span></div>
+      </div>
+      <div class="dark-panel"><h3>关键变化</h3><p>过去的安全问题主要是“模型能不能发布”；Dario 推动的是把审计前移到“模型还在变强的过程中”。如果外部评估者拥有接近员工级的访问权，那么 evaluator 自身就会成为 AI 时代的新关键基础设施。</p></div>
+    </section>
+
+    <section class="section" id="capital-network">
+      <div class="section-label">03 · Philanthropic Capital Network</div><h2>第二张图：AI Safety 的资金不是一条“Anthropic 链”，而是多个科技慈善资本节点交叉形成的网络</h2>
+      <p>最容易犯的错误，是看到重叠关系后直接画成一条单向控制链。公开资料更支持“双资本极 + 多机构交叉”的结构：Moskovitz / Tuna 体系通过 Good Ventures 与 Coefficient 进行大规模慈善配置；Jaan Tallinn 则通过 SFF、FLI 等长期资助 AI 风险研究与治理，并同时具有 AI 公司投资人的身份。</p>
+      <div class="network">
+        <div class="network-col">
+          <div class="network-title">Dustin Moskovitz / Cari Tuna</div>
+          <div class="network-chain">
+            <div class="network-box"><b>Good Ventures Foundation</b><small><span class="badge">已证实</span> 501(c)(3) private foundation；更接近长期慈善资产池。</small></div>
+            <div class="network-arrow">↓</div>
+            <div class="network-box"><b>Coefficient Giving</b><small><span class="badge">已证实</span> 原 Open Philanthropy；研究、grant、investment 与 field-building 的配置中枢。</small></div>
+            <div class="network-arrow">↓</div>
+            <div class="network-box"><b>Research / Talent / Policy / Journalism</b><small>其中 Tarbell 明确披露 Coefficient 是主要资助者之一；其他项目须逐一核实直接或间接关系。</small></div>
+          </div>
+        </div>
+        <div class="network-col alt">
+          <div class="network-title">Jaan Tallinn</div>
+          <div class="network-chain">
+            <div class="network-box"><b>AI Investor</b><small><span class="badge">已证实</span> DeepMind 早期投资人；Anthropic 2021 Series A 领投者。</small></div>
+            <div class="network-arrow">↓</div>
+            <div class="network-box"><b>SFF / FLI / Safety Philanthropy</b><small><span class="badge">已证实</span> 长期资助 existential-risk、AI Safety 与治理机构。</small></div>
+            <div class="network-arrow">↓</div>
+            <div class="network-box"><b>METR / Apollo / Tarbell / Policy</b><small>SFF 公开拨款记录可见对多个安全与媒体项目的直接支持；ControlAI 亦公开获 Tallinn 支持。</small></div>
+          </div>
+        </div>
+        <div class="network-bridge"><b>不能画成的等号：</b>“同一金主支持多个机构” ≠ “这些机构由同一总部指挥”。真正需要评估的是资金集中度、治理权、人员流动和方法独立性。</div>
+      </div>
+      <div class="relation-map" aria-label="关系审计图例">
+        <div class="relation-card"><strong>已证实直接关系</strong><span>例如 Good Ventures ↔ Coefficient 的治理与资金合作、Coefficient → Tarbell 资助。</span></div>
+        <div class="relation-card"><strong>已证实间接关系</strong><span>同一慈善生态通过不同载体与中间组织支持同一领域，但不等于直接付款。</span></div>
+        <div class="relation-card"><strong>公开合作</strong><span>例如实验室向 evaluator 提供模型访问、token 或内部评估环境。</span></div>
+        <div class="relation-card"><strong>理念同源</strong><span>共同关注 x-risk / longtermism / AI governance，不等于存在财务或治理控制。</span></div>
+        <div class="relation-card"><strong>人员流动</strong><span>研究员、政策人员与记者跨机构流动，应作为独立性变量单独披露。</span></div>
+        <div class="relation-card"><strong>未证实推断</strong><span>如“Anthropic 统一控制整个 Safety 生态”，目前公开证据不足。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="metr">
+      <div class="section-label">04 · METR Independence</div><h2>“独立评估者”到底要独立什么？</h2>
+      <p>METR 是 Dario 文中最具代表性的第三方 evaluator。它明确披露不接受 frontier AI 公司资金，也不接受这些公司员工本人或由其指示的捐赠；与此同时，OpenAI、Anthropic 等会提供模型与 token 访问。这意味着“财务独立”与“运营依赖”可以同时存在，不能用单一标签代替审计。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>独立性维度</th><th>真正要问的问题</th><th>当前判断</th></tr></thead>
+        <tbody>
+          <tr><td><b>Financial</b></td><td>预算是否高度依赖被审计公司？捐赠者是否持有重大相关股权？</td><td><span class="badge">事实</span> METR 公开称不接受 frontier labs 资金；其资助者来自多家基金会与个人。</td></tr>
+          <tr><td><b>Governance</b></td><td>董事与重大捐赠者能否影响项目、结论或发布？</td><td><span class="badge inference">需持续披露</span> 机构级 donor concentration 仍值得单独审查。</td></tr>
+          <tr><td><b>Methodology</b></td><td>benchmark、阈值、失败定义是否公开、可复核、可被其他 evaluator 挑战？</td><td><span class="badge inference">核心变量</span> 多 evaluator 交叉验证比“相信一家机构”更重要。</td></tr>
+          <tr><td><b>Operational</b></td><td>如果实验室不给模型访问、算力或内部信息，审计是否还能进行？</td><td><span class="badge inference">现实依赖</span> 深度审计天然需要被审计方提供访问，因此应有合同与发布权防火墙。</td></tr>
+        </tbody>
+      </table></div>
+      <p>因此，最准确的表述不是“METR 在 Anthropic payroll 上”，也不是“非营利就天然独立”。更严格的结论是：</p>
+      <div class="dark-panel"><h3>Independent Evaluator ≠ Automatically Independent</h3><p>第三方身份只是起点。真正的独立性必须通过资金结构、治理权、方法公开、模型访问合同和多家 evaluator 竞争共同证明。</p></div>
+    </section>
+
+    <section class="section" id="tarbell">
+      <div class="section-label">05 · Journalism & Agenda Setting</div><h2>Tarbell：金主不必写稿，也可以影响社会“培养什么样的记者”</h2>
+      <p>Tarbell Center for AI Journalism 不是一家传统媒体，而是 AI 专业记者的培训与资助平台。它公开披露，Coefficient Giving 是重要且高度集中的资金来源；同时又设立明确编辑防火墙：donor 不能选择 Fellow、不能审稿、不能决定文章 framing 或结论。</p>
+      <p>因此这里必须区分两个概念：</p>
+      <div class="relation-map">
+        <div class="relation-card"><strong>Editorial Control</strong><span>“这篇稿子必须这么写。”目前没有公开证据证明 Coefficient 对 Tarbell Fellow 的具体稿件拥有这种权力。</span></div>
+        <div class="relation-card"><strong>Agenda Setting</strong><span>“社会应该培养更多长期研究 AI 风险与治理的记者。”资助一个专业领域本身就会改变媒体系统的注意力分布。</span></div>
+        <div class="relation-card"><strong>Self-selection</strong><span>愿意申请 AI Journalism Fellowship 的记者本身就更可能对 AI 的制度、风险与权力问题感兴趣。</span></div>
+      </div>
+      <p>这解释了为什么部分 Tarbell Fellow 的代表报道明显更多聚焦 rogue agents、cyber、失控、就业与监管，而不是产品“赞歌”。它既可能来自组织使命，也来自新闻天然偏好冲突与风险，还来自记者自己的专业兴趣。</p>
+      <div class="dark-panel"><h3>更准确的定义</h3><p><b>Mission-aligned field building + arm’s-length editorial independence：</b>价值取向明确的生态建设，但尽量把具体稿件结论留给记者和 newsroom。</p></div>
+    </section>
+
+    <section class="section" id="policy-pipeline">
+      <div class="section-label">06 · Capital to Legislation</div><h2>第三张图：慈善资本如何穿过研究、人才与媒体，最后进入立法？</h2>
+      <p>这种影响不需要任何“秘密指令”。现代慈善最强的能力之一，是长期供给那些短期没有成熟商业模式、却可能改变制度的公共品：研究岗位、评估工具、媒体训练、政策团队和立法能力。</p>
+      <div class="pipeline" aria-label="从慈善资本到政策影响">
+        <div><b>Capital</b><span>Foundation / DAF / philanthropist</span></div>
+        <div><b>Research</b><span>模型安全、评估、治理框架</span></div>
+        <div><b>Talent</b><span>研究员、工程师、政策人员</span></div>
+        <div><b>Media</b><span>专业记者、公共议题、问责报道</span></div>
+        <div><b>Policy</b><span>briefing、白皮书、倡议组织</span></div>
+        <div class="policy"><b>Legislation</b><span>法案、许可、事故报告、算力治理</span></div>
+      </div>
+      <p>这条链最重要的不是证明“钱可以买政策”，而是说明：财富能够先转化为机构能力，再转化为认知资本和政策执行能力。</p>
+    </section>
+
+    <section class="section" id="controlai">
+      <div class="section-label">07 · ControlAI & Legislation</div><h2>当 AI Safety 走进议会：政策对象开始从“模型”延伸到 GPU、数据中心与电力</h2>
+      <p>ControlAI 位于 AI Safety 光谱更强硬的一端，其目标不是单纯提高模型安全，而是推动防止人工超级智能（ASI）出现的国内与国际制度。2026年9月，英国议员 Alex Sobel 提出的 Artificial Superintelligence Bill 明确包含禁止开发、部署和运行 ASI 的方向；ControlAI 将其公开称为自己参与起草和推动的 bill。</p>
+      <p>美国则需要更谨慎表述：Bernie Sanders 与 Greg Casar 宣布的 Ban Artificial Superintelligence Act 框架，ControlAI 公开称其团队 <b>consulted on the framework</b>，这与“整部法案由 ControlAI 起草”不是同一件事。ControlAI 同时自报已 brief 超过 200 个美国国会办公室，该数字说明政策触达规模，不代表这些办公室支持其立场。</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>政策节点</th><th>已确认关系</th><th>为什么重要</th></tr></thead>
+        <tbody>
+          <tr><td>UK Artificial Superintelligence Bill</td><td><span class="badge">直接参与</span> ControlAI 公开称参与起草与推动。</td><td>AI x-risk 从研究讨论进入正式议会文本。</td></tr>
+          <tr><td>Sanders / Casar US framework</td><td><span class="badge">咨询</span> ControlAI 称 consulted on framework。</td><td>美国联邦层面出现“禁止 ASI + 暂停 advanced AI”的政策框架。</td></tr>
+          <tr><td>AI kill-switch / datacenter control</td><td><span class="badge inference">政策倡议</span> 推动紧急情况下控制 hosted AI / data center。</td><td>监管对象可能从软件模型升级为物理算力基础设施。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="dark-panel"><h3>对 AI Compute 投资的新增变量</h3><p>过去的链条是 <b>Power → GPU → GPU-hours → Intelligence</b>。如果最强的安全政策进入主流，链条中可能第一次出现 <b>Regulatory Permission</b>：有电、有 GPU、有数据中心，并不自动意味着可以把全部算力转化为 frontier intelligence。</p></div>
+    </section>
+
+    <section class="section" id="fact-inference">
+      <div class="section-label">08 · Fact / Inference / Overreach</div><h2>“Anthropic Network”帖子：哪些是事实，哪些是合理推断，哪些已经越过证据？</h2>
+      <div class="fact-grid">
+        <div class="fact-card"><h3><span class="badge">FACT</span> 已确认</h3><ul><li>Moskovitz 与 Tallinn 都是 Anthropic 早期投资者。</li><li>Good Ventures / Coefficient 是 AI Safety 生态的重要慈善资本节点。</li><li>Tarbell 明确披露 Coefficient 是主要资助者之一。</li><li>Tallinn 的慈善网络直接支持多个 AI Safety / policy 机构。</li><li>ControlAI 已经进入真实议会与国会政策流程。</li></ul></div>
+        <div class="fact-card inference"><h3><span class="badge inference">INFERENCE</span> 合理推断</h3><ul><li>高度集中的资金可能形成议题设置权。</li><li>研究、人才、媒体和政策网络存在认知单一化风险。</li><li>独立 evaluator 需要比一般 NGO 更严格的利益冲突制度。</li><li>未来 AI 治理可能直接约束算力建设与训练许可。</li></ul></div>
+        <div class="fact-card overreach"><h3><span class="badge unverified">OVERREACH</span> 证据不足</h3><ul><li>Anthropic 统一控制 METR、Tarbell 与整个 Safety 生态。</li><li>“AI Doom”报道全部由金主操纵。</li><li>所有安全倡议的真实目的都是 regulatory capture。</li><li>理念与资金重叠本身即可证明串谋。</li></ul></div>
+      </div>
+      <p>把网络解释成“统一阴谋”会丢掉最值得研究的部分：即使所有参与者都是真诚的，一个高度重叠的资金、人才和思想网络仍然可能形成自我强化的方向性。</p>
+    </section>
+
+    <section class="section" id="epistemic-capital">
+      <div class="section-label">09 · Epistemic Capital</div><h2>现代慈善最大的权力之一，不是决定答案，而是决定什么问题值得被认真研究</h2>
+      <p>传统慈善的图景是 <b>Financial Capital → Social Good</b>。AI Safety 显示了第三层转换：资本先建立研究机构和职业路径，再长期培养研究员、记者与政策团队，最终改变社会对风险的注意力分配。</p>
+      <div class="dark-panel"><h3>Financial Capital → Institutional Capital → Epistemic Capital</h3><p><b>Epistemic Capital（认知资本）</b>不是“花钱买一个结论”，而是拥有能力长期决定：哪些问题值得投入博士、GPU、记者、政策人员与国会时间。</p></div>
+      <p>这种力量本身并不必然有害。公共卫生、气候、核安全、食品安全和金融消费者保护都依赖类似的专业化过程。真正的治理问题是：当一个领域已经被少数资本成功“造出来”之后，它是否同时长出了足够强的反方研究、替代评估者和多元资金来源。</p>
+    </section>
+
+    <section class="section" id="loops">
+      <div class="section-label">10 · Reflexive Feedback</div><h2>第四张图：好的批判式螺旋，与坏的自我强化，只差“认知竞争”</h2>
+      <div class="loop-grid">
+        <div class="loop"><h3>健康的风险治理</h3><div class="loop-line"><span>Research</span><i>→</i><span>Journalism</span><i>→</i><span>Corporate Response</span><i>→</i><span>Safety Improvement</span><i>→</i><span>New Research</span></div><p>新证据可以推翻旧判断；企业改进会让风险下降；政策随事实变化而调整。</p></div>
+        <div class="loop bad"><h3>失衡的自我强化</h3><div class="loop-line"><span>Risk Assumption</span><i>→</i><span>Funding</span><i>→</i><span>Research</span><i>→</i><span>Media</span><i>→</i><span>Policy</span><i>→</i><span>More Funding</span></div><p>如果资金、专家和媒体长期只有一个方向，所有参与者即使诚实，也可能形成 self-reinforcing narrative。</p></div>
+      </div>
+      <p>解决方案不是禁止慈善资本进入 AI Safety，而是建立 <b>Epistemic Competition</b>：多个 evaluator、多个资助人、不同风险框架、公开方法、反方研究和可复核证据。</p>
+    </section>
+
+    <section class="section" id="auditor">
+      <div class="section-label">11 · Who Audits the Auditor?</div><h2>第五张图：未来审计 AI 的机构，也需要一套自己的审计制度</h2>
+      <p>如果 evaluator 最终能影响一家价值数千亿美元公司的训练节奏，审计机构本身就已经成为关键基础设施。独立性不能靠道德自证，而要靠结构证明。</p>
+      <div class="audit-grid">
+        <div class="audit-item"><b>Funding</b><span>披露主要 donor、集中度、期限和重大非现金支持。</span></div>
+        <div class="audit-item"><b>Equity Exposure</b><span>董事、关键员工和重大 donor 的相关公司股权敞口。</span></div>
+        <div class="audit-item"><b>Governance</b><span>谁任命董事？谁能否决项目或发布结论？</span></div>
+        <div class="audit-item"><b>Methodology</b><span>benchmark、阈值、失败定义能否公开与复现。</span></div>
+        <div class="audit-item"><b>Personnel</b><span>实验室与审计机构之间的人才流动及冷静期。</span></div>
+        <div class="audit-item"><b>Rotation</b><span>避免单一 evaluator 长期垄断同一实验室的审计。</span></div>
+        <div class="audit-item"><b>Cross-check</b><span>关键模型至少由多个方法不同的 evaluator 交叉评估。</span></div>
+        <div class="audit-item"><b>Publication Rights</b><span>不利结果能否在预先约定的保密边界后独立发布。</span></div>
+      </div>
+      <div class="dark-panel"><h3>最终判断</h3><p>Dario 提出的外部评估方向可能是必要的。但一个成熟制度不会要求公众“相信审计员”，而会让审计员本身也处于持续、透明、竞争性的监督之下。<b>当 AI 越来越有权力时，审计 AI 的人也会越来越有权力。</b></p></div>
+    </section>
+
+    <section class="section" id="monitoring">
+      <div class="section-label">12 · What Would Change the View?</div><h2>接下来真正值得跟踪的，不是口水战，而是五个可证伪变量</h2>
+      <div class="watchlist">
+        <div class="watch"><b>Evaluator donor concentration</b><span>如果某一家实验室、股东或同一慈善资本对单个 evaluator 的预算占比明显上升，独立性判断需要下调。</span></div>
+        <div class="watch"><b>Cross-evaluator disagreement</b><span>同一模型若由不同机构得出明显不同风险结论，反而能检验“认知竞争”是否真实存在。</span></div>
+        <div class="watch"><b>Editorial interference evidence</b><span>若出现 donor 对 Tarbell Fellow 或 newsroom 具体稿件施压的可核验证据，当前“编辑防火墙有效”的判断将改变。</span></div>
+        <div class="watch"><b>Compute licensing</b><span>如果 GPU / MW / data center 从政策倡议进入正式许可制度，AI Compute 的资本回报模型必须增加监管折价。</span></div>
+        <div class="watch"><b>Lab-to-evaluator control rights</b><span>若合同显示实验室可以阻止重大不利结论发布，“独立 evaluator”需要重新定性。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">13 · Primary Sources</div><h2>主要来源与证据边界</h2>
+      <div class="source"><a href="https://darioamodei.com/post/we-must-pace-the-frontier" target="_blank" rel="noopener">Dario Amodei — We Must Pace the Frontier</a><span>支持 Pace the Frontier、embedded evaluators 与全球协调框架。</span></div>
+      <div class="source"><a href="https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems" target="_blank" rel="noopener">Anthropic — 2021 Series A announcement</a><span>支持 Jaan Tallinn 领投、Dustin Moskovitz 等参与早期融资的事实。</span></div>
+      <div class="source"><a href="https://goodventures.org/governance/" target="_blank" rel="noopener">Good Ventures — Governance</a><span>支持 Good Ventures 法律性质与治理结构。</span></div>
+      <div class="source"><a href="https://coefficientgiving.org/governance/" target="_blank" rel="noopener">Coefficient Giving — Governance</a><span>支持 Coefficient 多实体结构、治理与 Good Ventures 的关系。</span></div>
+      <div class="source"><a href="https://coefficientgiving.org/research/were-urgently-scaling-our-work-on-ai-and-biosecurity/" target="_blank" rel="noopener">Coefficient Giving — Scaling AI & biosecurity work</a><span>支持其 AI / biosecurity 相关 grant 规模与 field-building 加速。</span></div>
+      <div class="source"><a href="https://coefficientgiving.org/tailwind/about/" target="_blank" rel="noopener">Coefficient Giving — Project Tailwind</a><span>支持主动寻找创始人建设 AI Safety 机构的 field-building 模式。</span></div>
+      <div class="source"><a href="https://metr.org/blog/2026-08-14-funding-update/" target="_blank" rel="noopener">METR — 2026 Funding Update</a><span>支持 METR 资助来源、约 7100 万美元新增承诺及不接受 frontier labs 资金的政策。</span></div>
+      <div class="source"><a href="https://apolloresearch.ai/monitoring" target="_blank" rel="noopener">Apollo Research — AI Agent Monitoring</a><span>支持 Watcher、coding-agent monitoring 与 Anthropic 外部监控试点。</span></div>
+      <div class="source"><a href="https://survivalandflourishing.fund/" target="_blank" rel="noopener">Survival and Flourishing Fund — Grant database</a><span>支持 Tallinn 慈善网络对 AI Safety / media / governance 项目的公开拨款关系。</span></div>
+      <div class="source"><a href="https://www.tarbellcenter.org/ethics-and-standards" target="_blank" rel="noopener">Tarbell Center — Ethics & Standards</a><span>支持资助集中度披露、利益冲突与编辑治理规则。</span></div>
+      <div class="source"><a href="https://www.tarbellcenter.org/editorial-independence" target="_blank" rel="noopener">Tarbell Center — Editorial Independence</a><span>支持 donor 与具体稿件之间的编辑防火墙。</span></div>
+      <div class="source"><a href="https://bills.parliament.uk/bills/4288" target="_blank" rel="noopener">UK Parliament — Artificial Superintelligence Bill</a><span>支持英国法案的正式议会文本与议程状态。</span></div>
+      <div class="source"><a href="https://controlai.org/uk-asi-bill" target="_blank" rel="noopener">ControlAI — UK ASI Bill</a><span>支持 ControlAI 对自身参与起草与推动英国法案的公开表述。</span></div>
+      <div class="source"><a href="https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/" target="_blank" rel="noopener">U.S. Senate — Sanders / Casar ASI framework</a><span>支持美国拟议框架的公开政策内容。</span></div>
+      <div class="source"><a href="https://blog.controlai.org/p/first-bill-introduced-to-ban-superintelligent" target="_blank" rel="noopener">ControlAI — First bill introduced to ban superintelligent AI</a><span>支持其关于英国法案、美国政策咨询及国会 briefing 规模的自报数据；后者不是独立统计。</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div><h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/ai-factory-agent-production-function-20260824/">从 Token 到 Agent 工时：AI时代新的生产函数</a> — Time Horizon 与自主工作能力决定为什么“模型安全”开始从哲学变成生产函数变量。</p>
+      <p><a href="/ai-capital-cycle-1gw-unified-ledger-20260903/">1GW AI Capital Cycle统一总账本</a> — 若训练许可进入 GPU / MW 物理层，这张账本需要新增 Regulatory Permission。</p>
+      <p><a href="/huggingface-open-model-market-20260904/">模型从哪里“上市”：Hugging Face、OpenRouter 与开放 AI 的新市场结构</a> — 安全治理的另一面是开放模型的发行、路由与分发权。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2><div class="enya-tag">Kerwin｜研究框架与投资判断</div><div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div><p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+      <div class="roles"><div class="role"><b>Kerwin</b><span>定义研究问题、因果框架、证据边界与最终投资判断。</span></div><div class="role"><b>Enya</b><span>自动化跟踪公开资料，核验事实层级，整理证据并执行网页排版。</span></div></div>
+    </section>
+    <footer class="footer"><div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。涉及政策倡议与组织关系的判断以公开资料为边界，不将相关性自动解释为控制关系。</span><a href="/">返回研究首页</a></div><div class="footer-meta"><span>Published 2026-09-15 21:12 HKT</span><span>Updated 2026-09-15 21:12 HKT</span><span>AI Safety · Governance · Philanthropic Capital</span></div></footer>
+  </main>
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+  <script>
+    (function(){
+      var body=document.body,gate=document.getElementById("editorial-gate"),accessKey=document.getElementById("access-key"),progress=document.getElementById("reading-progress"),topButton=document.getElementById("top-button");
+      function reveal(){body.classList.remove("kw-gate-pending");gate.hidden=true;window.scrollTo(0,0)}
+      accessKey.addEventListener("input",function(){if(accessKey.value.trim().toLowerCase()==="k"){reveal()}});
+      window.addEventListener("scroll",function(){var scrollable=document.documentElement.scrollHeight-window.innerHeight;var ratio=scrollable>0?window.scrollY/scrollable:0;progress.style.width=Math.min(100,Math.max(0,ratio*100))+"%";topButton.classList.toggle("is-visible",window.scrollY>560)},{passive:true});
+      topButton.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+      if(window.matchMedia("(min-width: 761px)").matches){accessKey.focus()}
+    }());
+  </script>
+</body>
+</html>
