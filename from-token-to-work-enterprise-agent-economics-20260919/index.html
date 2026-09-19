@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="From Token to Work｜AI 企业经济转化框架 v1.0：从 Salesforce Koa 与 Agentforce 出发，研究企业 SaaS 如何把 Token 转化为真实工作、经济价值、SaaS 收入与持续算力需求。">
+  <link rel="canonical" href="https://enyaclawd.com/from-token-to-work-enterprise-agent-economics-20260919/">
+  <meta property="og:title" content="From Token to Work｜AI 企业经济转化框架 v1.0">
+  <meta property="og:description" content="深度 SaaS 的护城河不是数据本身，而是 Relationship / State / Permission / Workflow / Economic Activity / Action。最终用 EVW、PCW 与 Compute Jevons Gate 检验 AI 资本循环。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://enyaclawd.com/from-token-to-work-enterprise-agent-economics-20260919/">
+  <title>From Token to Work｜AI 企业经济转化框架 v1.0｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    body.kw-gate-pending { overflow:hidden; }
+    .kw-gate-pending > :not(.kw-editorial-gate):not(script):not(noscript) {
+      visibility:hidden;
+    }
+    .kw-editorial-gate {
+      position:fixed;
+      inset:0;
+      z-index:990;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      background:var(--green);
+    }
+    .kw-editorial-gate[hidden] { display:none; }
+    .kw-editorial-gate__paper {
+      width:min(860px,100%);
+      border-top:6px solid var(--ink);
+      background:var(--surface);
+      color:var(--ink);
+      box-shadow:0 24px 70px rgba(0,0,0,.22);
+    }
+    .kw-editorial-gate__masthead {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:13px 22px;
+      border-bottom:1px solid var(--line-dark);
+      color:var(--green);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__body {
+      display:grid;
+      grid-template-columns:164px minmax(0,1fr);
+      gap:clamp(32px,7vw,72px);
+      align-items:center;
+      min-height:370px;
+      padding:clamp(36px,6vw,66px);
+    }
+    .kw-editorial-gate__seal {
+      display:grid;
+      place-items:center;
+      width:148px;
+      aspect-ratio:1;
+      border:1px solid var(--green);
+      border-radius:50%;
+      color:var(--green);
+      text-align:center;
+      font:700 20px/1.15 var(--serif);
+    }
+    .kw-editorial-gate__kicker,
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__title {
+      margin:10px 0 0;
+      color:var(--green);
+      font:700 clamp(29px,4vw,42px)/1.08 var(--serif);
+    }
+    .kw-editorial-gate__copy {
+      margin:14px 0 18px;
+      color:var(--green);
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(18px,2.4vw,23px);
+      line-height:1.28;
+    }
+    .kw-editorial-gate__copy strong { font:inherit; }
+    .kw-editorial-gate__copy span {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-family:var(--sans);
+      font-size:13px;
+      font-weight:400;
+      line-height:1.55;
+    }
+    .kw-editorial-gate__field {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:50px;
+      border-bottom:1px solid var(--green);
+    }
+    .kw-editorial-gate__field input {
+      min-width:0;
+      height:48px;
+      border:0;
+      padding:0 4px;
+      background:transparent;
+      color:var(--green);
+      font:700 24px/1 var(--serif);
+    }
+    .kw-editorial-gate__field input:focus { outline:0; }
+    .kw-editorial-gate__field span {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__foot {
+      padding:12px 22px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+      .kw-editorial-gate__body {
+        grid-template-columns:1fr;
+        gap:28px;
+        min-height:0;
+        padding:32px 22px;
+      }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .kw-editorial-gate {
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+        padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom));
+        overflow:auto;
+      }
+      .kw-editorial-gate__paper {
+        width:min(100%,420px);
+        max-width:100%;
+        max-height:calc(100svh - 24px);
+        overflow:auto;
+        border-top-width:4px;
+      }
+      .kw-editorial-gate__masthead {
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+        align-items:center;
+        gap:12px;
+        padding:10px 16px;
+        font-size:9px;
+        line-height:1.45;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span {
+        min-width:0;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span:last-child { display:block; }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:16px;
+        align-items:start;
+        min-height:0;
+        padding:24px 18px 20px;
+      }
+      .kw-editorial-gate__body > * { min-width:0; }
+      .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+      .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+      .kw-editorial-gate__title {
+        max-width:100%;
+        margin-top:7px;
+        font-size:clamp(23px,6.4vw,26px);
+        line-height:1.14;
+        letter-spacing:-.015em;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__copy {
+        margin:9px 0 12px;
+        font-size:clamp(17px,4.8vw,19px);
+        line-height:1.25;
+      }
+      .kw-editorial-gate__copy span {
+        margin-top:4px;
+        font-size:13px;
+        line-height:1.5;
+      }
+      .kw-editorial-gate__field { min-height:44px; gap:0; }
+      .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+      .kw-editorial-gate__field span { display:none; }
+      .kw-editorial-gate__foot {
+        display:grid;
+        gap:4px;
+        padding:10px 16px;
+        font-size:10px;
+        line-height:1.5;
+        overflow-wrap:anywhere;
+      }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (max-width:390px) {
+      .kw-editorial-gate__masthead {
+        grid-template-columns:1fr;
+        gap:2px;
+      }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:14px;
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .kw-editorial-gate,
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="from-token-to-work-enterprise-agent-economics-20260919">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead">
+        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+        <span class="kw-editorial-gate__access">Reader Access</span>
+      </div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">Agent Economy · Enterprise SaaS</div>
+          <h2 class="kw-editorial-gate__title" id="gate-title">从 Token 到真实工作</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field">
+            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+            <span>Auto enter</span>
+          </label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot">
+        <span>Kerwin｜研究框架与投资判断</span>
+        <span>Enya｜自动化跟踪、核验、整理与排版执行</span>
+        <span>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · Agent Economy Desk</span>
+      <span>Evidence first · Snapshot 2026-09-19 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#moat">SaaS 护城河</a>
+        <a href="#economics">经济账</a>
+        <a href="#jevons">算力门槛</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">Agent Economy · Enterprise SaaS · AI Capital Loop · 2026.09.19</div>
+          <h1>
+            From Token to Work
+            <span>AI 企业经济转化框架 v1.0</span>
+          </h1>
+          <p class="thesis">企业 AI 的关键正在从“模型能不能回答”转向“能不能借助 SaaS 的关系、状态、权限、流程与 Action 完成真实工作”。Cost-saving 的证据链已经较强，Revenue-up 开始形成；但企业价值增长要真正反推 GPU、电力与数据中心需求，还必须跨过 Compute Jevons Gate：工作量增长必须跑赢每单位工作的算力效率提升。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年9月19日</span>
+            <span><b>数据快照</b> 2026-09-19 HKT</span>
+            <span><b>研究对象</b> Salesforce / ServiceNow / SAP / Workday / Adobe</span>
+            <span><b>研究主线</b> Token → Work → $ → More Compute</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="核心框架">
+          <strong>EVW / PCW</strong>
+          <span>Economic Value<br>÷ Physical Cost</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>证据边界：</b>公司财报与官方客户案例属于公司/客户自报结果；文中由披露数据推导出的比率均标为“计算值”。不同厂商的 AWU、Action、Agent Job 并非同一口径，本文不会直接机械横比；“Compute Jevons”仍是待验证命题，而不是既成事实。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>这不是“SaaS 加一个 AI 功能”，而是企业软件生产函数在改变</h2>
+      <p class="lead">从 Salesforce Koa 出发，真正值得留下来的不是一个产品发布，而是一条需求侧资本循环：模型输出 Token，SaaS 提供企业上下文、权限与执行接口，Agent 把推理变成 Completed Work，企业再用成本节省与新增毛利润决定是否继续扩大 AI 预算。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>护城河不是数据本身</b><span>真正稀缺的是 Relationship + State + Permission + Workflow + Economic Activity + Action 形成的 Enterprise Interaction Graph。</span></div>
+        <div class="verdict-item"><b>Seat → Work</b><span>企业软件的计量单位开始从席位迁移到 Action、AWU、Agent Job 与完整业务 Outcome。</span></div>
+        <div class="verdict-item"><b>Work → $ 已有证据</b><span>客服、IT、销售与 ERP 场景已经出现小时节省、美元价值、转化率与 AI ACV/ARR 的连续证据。</span></div>
+        <div class="verdict-item"><b>$ → GPU 仍需一关</b><span>AI ROI 高不等于 GPU 需求必然同比增长；只有 Work Volume 增长跑赢 Compute Efficiency Gain，总推理需求才扩张。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">02 · Koa as the Entry Point</div>
+      <h2>Koa 让“垂直模型 + Frontier Model + SaaS Harness”第一次变得很具象</h2>
+      <p>Salesforce 在 2026 年 9 月发布 Koa：它不是从零训练的新 frontier model，而是在 NVIDIA Nemotron 3 Super 上进行 post-training，用 Salesforce 根据近三十年 CRM 部署经验构造的专有 synthetic scenarios 学习多步骤 CRM reasoning、tool use 与 decision-making。Salesforce 控制 Koa 权重，并在自己的 trust boundary 内完成后训练与推理。</p>
+      <div class="flow">
+        <div><b>Nemotron</b><span>可定制的开放模型底座</span></div>
+        <div><b>CRM Know-how</b><span>流程、政策、工具调用与工作顺序</span></div>
+        <div><b>Koa</b><span>CRM 专用 reasoning model</span></div>
+        <div><b>Agentforce</b><span>编排、Context、权限与工具</span></div>
+        <div><b>Action</b><span>更新记录、路由 case、发起 workflow</span></div>
+        <div><b>Work</b><span>真正完成企业任务</span></div>
+      </div>
+      <p>但 Koa 并不意味着 Salesforce 与 frontier models 二选一。Claudeforce 同时把 Claude 的推理能力接入 Salesforce 的 data、workflow、business logic、actions 与 governance；Salesforce in Claude 首批就提供 37 个预构建 sales skills。更准确的架构是：<b>高价值开放式推理交给 frontier model，标准 CRM 工作可交给垂直模型，再由 Salesforce 企业执行层统一约束和落地。</b></p>
+      <div class="dark-panel">
+        <h3>因此，Salesforce 真正想控制的不是所有模型，而是 Enterprise Harness</h3>
+        <p>Model 可以替换；但企业真实的 Context、Semantic Layer、Permission、Workflow、API 与 Action 仍然必须被统一治理。Koa 把 CRM know-how 写进 weights，Claude 提供更高的 reasoning ceiling，而 Agentforce 把二者接回企业工作。</p>
+      </div>
+    </section>
+
+    <section class="section" id="moat">
+      <div class="section-label">03 · SaaS Moat</div>
+      <h2>SaaS 的护城河：Enterprise Interaction Graph，而不只是“数据很多”</h2>
+      <p>一个 Data Lake 可以告诉模型“发生过什么”，但企业真正执行工作还需要知道“这些对象之间是什么关系、现在处于什么状态、谁有权做什么、下一步应该走哪条流程、一次动作会怎样改变经济活动”。这才是深度 SaaS 在 Agent 时代可能反而升值的原因。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>图谱</th><th>它回答什么</th><th>典型系统</th><th>为什么 Agent 需要它</th></tr></thead>
+          <tbody>
+            <tr><td><b>Relationship Graph</b></td><td>客户、员工、供应商、订单、机会之间是什么关系？</td><td>Salesforce / Workday / SAP</td><td>决定对象身份和关系上下文。</td></tr>
+            <tr><td><b>State Graph</b></td><td>Lead、Case、PO、Invoice、Incident 当前在哪个状态？</td><td>Salesforce / SAP / ServiceNow</td><td>决定当前允许的下一步。</td></tr>
+            <tr><td><b>Permission Graph</b></td><td>谁能看、谁能改、谁能批准？</td><td>Workday / ServiceNow / SAP</td><td>决定 Agent 能否从“建议”进入“执行”。</td></tr>
+            <tr><td><b>Workflow Graph</b></td><td>事件发生后，该调用什么系统、走什么步骤？</td><td>ServiceNow / Salesforce / SAP</td><td>把 reasoning 转成有序 tool calls。</td></tr>
+            <tr><td><b>Economic Activity Graph</b></td><td>营销、成交、履约、收款、复购如何连接？</td><td>Salesforce / SAP / Adobe</td><td>让 AI 的结果能追到收入、成本与现金流。</td></tr>
+            <tr><td><b>Action Layer</b></td><td>真正可以写回什么？</td><td>API / ERP / Ticket / Payment / Approval</td><td>没有 Action，模型只是在“回答问题”。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="formula">Reasoning ≠ Economic Output<br>Reasoning → Context → Permission → Action → Completed Work<small>这条链是通用 LLM 与企业生产系统之间最关键的断点。</small></div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">04 · Seat Economy → Work Economy</div>
+      <h2>企业软件开始出现新的“数字劳动计量单位”</h2>
+      <p>传统 SaaS 的生产函数接近 <b>Employees × Seats × ARPU</b>。Agent 时代更可能逐步迁移到 <b>Work Volume × Price / Work</b>。厂商已经在用不同口径尝试给数字工作定价与计量，因此未来看 SaaS 不能只问“有多少 seat”，还要问“完成了多少真实工作”。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>公司</th><th>2026 年 AI 经营信号</th><th>正在形成的新计量单位</th><th>投资含义</th></tr></thead>
+          <tbody>
+            <tr><td><b>Salesforce</b></td><td>Q2 FY27 Agentforce ARR &gt;$1.5B；累计 7.0B AWUs，单季 3.2B、QoQ +97%</td><td>AWU / Agent Action</td><td>Usage → Work → ARR 的计量链最完整。</td></tr>
+            <tr><td><b>ServiceNow</b></td><td>Q2 2026 AI ACV &gt;$1B；agentic deployments 九个月约 9×</td><td>AI action / workflow</td><td>正在把企业 IT/安全工作流变成 Agent Control Plane。</td></tr>
+            <tr><td><b>Workday</b></td><td>Q2 FY27 AI 贡献 &gt;25% new ACV；&gt;5,500 客户使用至少一个自研 Agent</td><td>AI Action / digital worker</td><td>“AI 占新增销售多少”开始成为第二增长曲线指标。</td></tr>
+            <tr><td><b>Adobe</b></td><td>Q3 FY26 AI-first ARR 同比 &gt;150%</td><td>AI Credit / Agent Job</td><td>按复杂度和完整 outcome 消耗 credits，已明显从 seat 走向 job。</td></tr>
+            <tr><td><b>SAP</b></td><td>暂未单列可直接横比的 AI ARR；真实 ERP/Finance 场景已出现明确效率与错误率改善</td><td>AI Action / business outcome</td><td>Value / Work 很高，但 Work Volume 更受真实交易量约束。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><b>不可机械横比：</b>Salesforce AWU、Adobe Agent Job、Workday AI Action 和 SAP Agent Action 的抽象层不同。真正可比的终点应统一到 <b>Successful Business Work</b>：一个 case 是否解决、一个 lead 是否 qualified、一个 incident 是否关闭、一个 invoice exception 是否纠正。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">05 · Real Enterprise Evidence</div>
+      <h2>从“会回答”到“会干活”：真实企业案例已经开始形成证据墙</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>企业案例</th><th>Agent 做什么</th><th>公开结果</th><th>经济含义</th></tr></thead>
+          <tbody>
+            <tr><td><b>Engine × Salesforce</b></td><td>端到端处理旅行客服请求，复杂问题带上下文转人工</td><td>50% chat inquiries 由 Agentforce 解决；handle time -15%；CSAT +16%</td><td>典型 Cost-out：同样客服量需要更少人工时间。</td></tr>
+            <tr><td><b>Uber for Business × Salesforce</b></td><td>对几乎全部未完成 onboarding 的 leads 个性化 outreach 与 follow-up</td><td>近 100% lead coverage；outreach capacity +28%；conversion rate 约 +60%；预计低七位数增量收入影响</td><td>典型 Revenue-up：把过去“人工不经济”的 leads 重新变成可服务工作。</td></tr>
+            <tr><td><b>Equipter × Salesforce</b></td><td>处理社媒低质量 leads 与沉睡 leads</td><td>社媒 response rate 4% → 接近 10%，约 2.5×；约 2% agent-contacted leads 转为真实 sales opportunities</td><td>Previously Uneconomic Work 被打开。</td></tr>
+            <tr><td><b>EY × ServiceNow</b></td><td>生成 IT resolution notes、incident/chat summaries</td><td>12,000 actions/day；约 160,000 小时/年、$5.7M 年化节省；首月 103,000 notes，70% 无修改接受</td><td>高频数字任务已经能直接换算成小时和美元。</td></tr>
+            <tr><td><b>Deloitte × ServiceNow</b></td><td>ITSM / HR / search 等 AI-enabled workflows</td><td>740,000 AI-driven actions/年；部分业务生产率最高 +60%；incident resolution -45% 时间；search time -40%</td><td>Work Factory：海量重复工作流被机器持续处理。</td></tr>
+            <tr><td><b>LC Waikiki × SAP Joule</b></td><td>跨销售与采购系统回答 purchase-order 问题</td><td>最长约 10 分钟 → 约 3 秒；运营效率 +70%；人工错误 -50%</td><td>ERP 场景 Work 量未必爆炸，但单次决策质量价值很高。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><b>证据层级：</b>以上均来自厂商官方客户案例，属于公司/客户自报，不等于独立随机对照实验。Uber 的“低七位数收入”是 anticipated impact，不是已经确认的财报收入；SAP Project Billing Agent 的 -75% discrepancy time / -75% revenue leakage 也是产品预期能力，不应与已落地客户结果混为一谈。</p>
+    </section>
+
+    <section class="section" id="economics">
+      <div class="section-label">06 · Token → Work → $</div>
+      <h2>经济价值终于可以开始计量：EVW 与 PCW</h2>
+      <p>真正有意义的不是“一个 Token 值多少钱”，而是一次成功工作创造多少经济价值、消耗多少物理算力。两个指标把企业 ROI 与算力供给放进同一语言。</p>
+      <div class="kpi-grid">
+        <div class="kpi"><b>EVW</b><code>Economic Value / Successful Work</code><span>(Cost Saved + Incremental Gross Profit Created) ÷ Successful Work。衡量一个完成的工作单位给企业带来的价值。</span></div>
+        <div class="kpi"><b>PCW</b><code>Physical Cost / Successful Work</code><span>(GPU depreciation + Power + Network + CPU + Storage) ÷ Successful Work。衡量完成工作所需的物理成本。</span></div>
+        <div class="kpi"><b>AI Work ROIC</b><code>EVW ÷ PCW</code><span>这是从技术指标回到资本预算的核心：企业为什么愿意持续扩大 AI Budget。</span></div>
+      </div>
+
+      <h3>EY：第一次把“一个成功工作”换算成美元</h3>
+      <p>EY 披露首月约 103,000 个 resolution notes，约 70% 无需修改直接接受；单这一项预计每年节省 66,000 小时、价值 $2.3M。按月度 run-rate 机械年化，约 1.236M notes/年，对应约 <b>$1.86 / generated note</b>；若只以 70% 无修改接受的工作作分母，则约 <b>$2.66 / accepted work</b>。这是本文计算值，不是 EY 或 ServiceNow 官方 KPI。</p>
+
+      <h3>Salesforce：平台层已经能观察 Inference-to-Work proxy</h3>
+      <p>Salesforce FY26 Q4 披露累计约 19T tokens 与 2.4B AWUs；Q1 FY27 累计超过 28.6T tokens 与 3.8B AWUs。机械相除约从 <b>7,917 → 7,526 tokens/AWU</b>。但 AWU 类型、模型组合、缓存、任务复杂度都在变化，所以这只能作为平台混合口径 proxy，不能当成固定单位成本。</p>
+
+      <h3>成熟 SaaS 毛利池说明“价值捕获空间”存在，但不能代替 Agent 独立毛利</h3>
+      <p>Salesforce Q2 FY27 Subscription &amp; Support 收入 $10.82B、对应成本 $2.021B，推导毛利率约 <b>81.3%</b>。这说明成熟 SaaS 业务具备很高的软件毛利结构；但它不是 Agentforce 独立毛利率，也不能直接用来倒推 Koa / Claude inference 成本。</p>
+      <div class="formula">Power → GPU → Token → Reasoning → SaaS Context → Permission → Action → Completed Work → Economic Value → SaaS Revenue → More AI Budget</div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">07 · Workload Economics</div>
+      <h2>最好的 Agent 软件生意，和最大的 GPU workload，不一定是同一类</h2>
+      <p>不同企业工作有两个完全不同的维度：<b>Value / Work</b> 决定软件价值捕获；<b>Work Elasticity</b> 决定 AI 变便宜后会不会创造大量新增工作。把二者分开后，Sales、IT/Security 与 ERP/Finance 的经济学明显不同。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Workload</th><th>Value / Work</th><th>Work Elasticity</th><th>为什么</th><th>主要受益端</th></tr></thead>
+          <tbody>
+            <tr><td><b>Sales / Lead Outreach</b></td><td>中高</td><td><b>高</b></td><td>大量边缘、沉睡、低概率 leads 过去因为人工太贵而不处理。</td><td>SaaS + Compute</td></tr>
+            <tr><td><b>IT / Security</b></td><td>中</td><td><b>很高</b></td><td>Work 可由机器事件持续生成，24×7，不受人类工作时长约束。</td><td>Compute 尤其敏感</td></tr>
+            <tr><td><b>Coding</b></td><td>高</td><td><b>高</b></td><td>软件需求上限很高，成本下降会使大量过去“不值得写”的内部工具变得经济。</td><td>SaaS / Model / Compute</td></tr>
+            <tr><td><b>ERP / Finance</b></td><td><b>很高</b></td><td>中低</td><td>一张发票或一次资金决策价值高，但交易量受真实业务约束。</td><td>Software Gold Mine</td></tr>
+            <tr><td><b>Content / Simple Tasks</b></td><td>低至中</td><td>很高</td><td>量很容易爆发，但 attention 和支付意愿约束价值密度。</td><td>Compute &gt; SaaS monetization</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dark-panel">
+        <h3>Previously Uneconomic Work 是 Jevons Effect 的微观来源</h3>
+        <p>AI 最大的需求扩张不一定来自“把 100 个人的工作交给 20 个 Agent”，而可能来自过去根本没有被完成的工作：没有人跟进的 lead、没有人写的小工具、没有人逐条处理的机器事件。只有这部分不断变大，效率提升才可能反而制造更多总算力需求。</p>
+      </div>
+    </section>
+
+    <section class="section" id="jevons">
+      <div class="section-label">08 · Compute Jevons Gate</div>
+      <h2>企业 AI 很赚钱，不等于 NVIDIA 一定需要同比更多 GPU</h2>
+      <p>要把 Enterprise ROI 接回 NVIDIA、NeoCloud、数据中心和电力，必须引入第二个弹性：单位工作所需的算力正在因为 smaller models、MoE、KV cache、routing、量化与更高 GPU 性能持续下降。经济价值可以上升，而总 GPU-seconds 仍可能下降。</p>
+      <div class="formula">Compute Demand Multiple = G<sub>W</sub> × E<sub>T</sub><br><small>G<sub>W</sub> = New Work Volume / Old Work Volume；E<sub>T</sub> = New GPU-seconds per Work / Old GPU-seconds per Work。</small></div>
+      <p>如果单位工作的算力消耗下降 50%，Work Volume 必须增长超过 100%，总 inference 才继续增长。Salesforce Q2 FY27 单季 AWU 环比 +97%，已经说明 Work Expansion 很快；但公司没有同时披露同口径 Q2 token / GPU-seconds 数据，因此还不能宣布 Jevons Effect 已被证明。</p>
+      <h3>为什么最终指标必须从 Tokens / Work 升级到 GPU-seconds / Successful Work</h3>
+      <p>NVIDIA 对 Nemotron 3 Super 的 B200 agentic trace 给出的生产 benchmark 是：median input 64K、median output 400、KV cache hit 90%，系统吞吐量约 1,388.4 output tokens/sec/GPU。这个案例清楚说明：<b>raw token 数并不等于物理 compute</b>；缓存率、模型架构、精度与 routing 都会改变 GPU 消耗。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>Software Thesis</b><span>EVW 高、客户 ROI 高，即使 Work Elasticity 不高，也可能是优秀 Agent SaaS 生意。</span></div>
+        <div class="verdict-item"><b>Compute Thesis</b><span>需要 Work Elasticity 足够高，使新增 Work 跑赢 GPU-seconds/Work 的下降。</span></div>
+        <div class="verdict-item"><b>Power Thesis</b><span>还要再穿过利用率、GPU/Watt、PUE 与资本效率，才会真正转化成新增 MW。</span></div>
+        <div class="verdict-item"><b>结论</b><span>“AI 有价值”与“AI 吃更多电”之间，必须经过一条可审计的需求曲线。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">09 · Three Long-term Ledgers</div>
+      <h2>以后每个季度，不重写故事，只更新三张账</h2>
+      <div class="kpi-grid">
+        <div class="kpi"><b>Fundamental Ledger</b><code>Revenue / ARR / cRPO / Margin / FCF</code><span>判断传统 SaaS 基本面是加速、稳定还是被 Agent cannibalization。</span></div>
+        <div class="kpi"><b>Agent Economy Ledger</b><code>AI ARR / ACV / Work Volume / ROI / Revenue per Work</code><span>判断 AI 是 feature、增量 SKU，还是新的数字劳动商业模式。</span></div>
+        <div class="kpi"><b>Compute Demand Ledger</b><code>GPU-sec / Work / PCW / Work Elasticity / Jevons</code><span>判断企业 ROI 是否真的反推更高的总 inference、GPU-hours 和 MW。</span></div>
+      </div>
+      <p>Salesforce、ServiceNow、SAP、Workday、Adobe 以后最重要的新信息，不是再多一个“AI feature”，而是有没有新增一条可审计的桥：<b>Usage → Successful Work → Economic Value → Vendor Monetization → More Work → More Compute。</b></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">10 · Current Proof Status</div>
+      <h2>截至 2026 年 9 月，我们到底证明到了哪里？</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>证据链</th><th>当前强度</th><th>原因</th><th>下一验证点</th></tr></thead>
+          <tbody>
+            <tr><td>Compute → Token</td><td><b>强</b></td><td>硬件吞吐、模型 serving 与成本曲线已经高度可量化。</td><td>生产环境 GPU-sec / Work。</td></tr>
+            <tr><td>Token → Agent Work</td><td><b>增强中</b></td><td>Salesforce 已同时披露 tokens 与 AWUs，但口径仍是平台混合值。</td><td>按 workload 分拆。</td></tr>
+            <tr><td>Work → Productivity</td><td><b>强</b></td><td>Engine、EY、Deloitte、SAP 等出现大量时间/效率改善。</td><td>跨行业重复验证。</td></tr>
+            <tr><td>Work → Cost Saving</td><td><b>强</b></td><td>EY 已把小时节省直接转成美元年化价值。</td><td>纳入实施与监督全成本。</td></tr>
+            <tr><td>Work → Revenue Creation</td><td><b>增强中</b></td><td>Uber、Equipter 已出现 conversion / pipeline / anticipated revenue。</td><td>Realized incremental gross profit。</td></tr>
+            <tr><td>AI Revenue → Organic Reacceleration</td><td><b>待验证</b></td><td>AI ARR/ACV 增长很快，但仍需证明大到足以改变总公司 organic growth。</td><td>未来数季同口径财报。</td></tr>
+            <tr><td>Enterprise ROI → GPU / Power</td><td><b>待 Jevons 验证</b></td><td>Work Volume 必须持续跑赢 Compute Efficiency Gain。</td><td>Work Volume + GPU-sec/Work 时间序列。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dark-panel">
+        <h3>最终要追的不是“AI 会不会省钱”，而是两条曲线</h3>
+        <p><b>EVW / PCW：</b>AI 工作是否具有足够高的经济回报；<br><b>Work Volume Growth / Compute Efficiency Gain：</b>经济回报提高以后，新增工作量是否足以制造更大的物理算力需求。</p>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">11 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source"><a href="https://investor.salesforce.com/news/news-details/2026/Announcing-Koa-Salesforces-First-CRM-Reasoning-Model-Built-on-NVIDIA-Nemotron/default.aspx" target="_blank" rel="noopener">Salesforce × NVIDIA · Koa announcement · 15 Sep 2026</a><span>支持 Nemotron 3 Super 后训练、27 年 CRM intelligence、synthetic scenarios、Salesforce 自持 weights 与 trust-boundary inference。</span></div>
+      <div class="source"><a href="https://investor.salesforce.com/news/news-details/2026/Salesforce-and-Anthropic-Announce-Claudeforce-The-1-AI-Meets-the-1-AI-CRM/default.aspx" target="_blank" rel="noopener">Salesforce × Anthropic · Claudeforce · 26 Aug 2026</a><span>支持 Claude 与 Salesforce data / workflow / business logic / actions / governance 的联合架构，以及 37 个预构建 sales skills。</span></div>
+      <div class="source"><a href="https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-First-Quarter-Fiscal-2027-Results/default.aspx" target="_blank" rel="noopener">Salesforce · Q1 FY27 results · 27 May 2026</a><span>支持 28.6T+ tokens、3.8B AWUs、Agentforce ARR 与 Data 360 使用数据。</span></div>
+      <div class="source"><a href="https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-Second-Quarter-Fiscal-2027-Results/default.aspx" target="_blank" rel="noopener">Salesforce · Q2 FY27 results · 26 Aug 2026</a><span>支持 Agentforce ARR &gt;$1.5B、7.0B cumulative AWUs、Q2 3.2B / +97% QoQ 及订阅收入/成本。</span></div>
+      <div class="source"><a href="https://www.salesforce.com/customer-stories/engine/agentic-service/" target="_blank" rel="noopener">Engine × Salesforce · Agentic Service</a><span>支持 50% chat inquiries resolved、handle time -15%、CSAT +16%、年处理 800K+ requests。</span></div>
+      <div class="source"><a href="https://www.salesforce.com/customer-stories/uber/agentic-outreach/" target="_blank" rel="noopener">Uber for Business × Salesforce · Agentic Outreach</a><span>支持 near-100% lead outreach、capacity +28%、conversion +~60% 与 anticipated seven-figure incremental revenue impact。</span></div>
+      <div class="source"><a href="https://www.salesforce.com/customer-stories/equipter/" target="_blank" rel="noopener">Equipter × Salesforce · Agentforce Sales</a><span>支持 response rate 4% → nearly 10%、2.5×，及约 2% agent-contacted leads 转为 sales opportunities。</span></div>
+      <div class="source"><a href="https://www.servicenow.com/customers/ey-ai.html" target="_blank" rel="noopener">EY × ServiceNow · AI Service Desk</a><span>支持 12,000 actions/day、160K hours / $5.7M annual savings、103K notes、70% no-change acceptance。</span></div>
+      <div class="source"><a href="https://www.servicenow.com/customers/deloitte.html" target="_blank" rel="noopener">Deloitte × ServiceNow</a><span>支持 740K AI-driven actions/year、部分业务生产率最高 +60%、incident resolution 与 search-time 改善。</span></div>
+      <div class="source"><a href="https://investor.servicenow.com/news/news-details/2026/ServiceNow-Reports-Second-Quarter-2026-Financial-Results/default.aspx" target="_blank" rel="noopener">ServiceNow · Q2 2026 results · 22 Jul 2026</a><span>支持 AI ACV &gt;$1B、agentic deployments 九个月约 9×。</span></div>
+      <div class="source"><a href="https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-Announces-Fiscal-2027-Second-Quarter-Financial-Results/default.aspx" target="_blank" rel="noopener">Workday · Q2 FY27 results · 27 Aug 2026</a><span>支持 AI &gt;25% new ACV 与 5,500+ customers using organic agents。</span></div>
+      <div class="source"><a href="https://news.sap.com/2026/05/future-enterprise-autonomous/" target="_blank" rel="noopener">SAP · LC Waikiki / Joule · 13 May 2026</a><span>支持 purchase-order query 10 min → ~3 sec、operational efficiency +70%、manual errors -50%。</span></div>
+      <div class="source"><a href="https://news.sap.com/2026/07/sap-business-ai-release-highlights-q2-2026/" target="_blank" rel="noopener">SAP Business AI · Q2 2026 release highlights</a><span>支持 Project Billing Price Verification Agent 的 -75% discrepancy resolution time 与 -75% revenue leakage 产品预期。</span></div>
+      <div class="source"><a href="https://www.sec.gov/Archives/edgar/data/796343/000079634326000147/adbeex991q326.htm" target="_blank" rel="noopener">Adobe · Q3 FY26 results · 10 Sep 2026</a><span>支持 AI-first ARR 同比增长 &gt;150%。</span></div>
+      <div class="source"><a href="https://experienceleague.adobe.com/en/docs/cx-enterprise-ai/experience-cloud-ai/overview/ai-credit-consumption" target="_blank" rel="noopener">Adobe CX Enterprise · AI Credit Consumption</a><span>支持 Agent Job 的定义及按任务复杂度消耗 AI Credits 的商业计量方式。</span></div>
+      <div class="source"><a href="https://docs.nvidia.com/dynamo/dev/recipes/nemotron-3-super" target="_blank" rel="noopener">NVIDIA Dynamo · Nemotron 3 Super serving benchmark</a><span>支持 B200 agentic workload 64K/400、90% KV reuse 与 1,388.4 system output tok/s/GPU 的生产 benchmark。</span></div>
+    </section>
+
+    <section class="section related" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">沿三条路径继续读</h2>
+      <p><a href="/frontier-model-economics-1-0-20260901/"><b>Frontier Model Economics 1.0：从模型财报到数字劳动力市场</b></a> — 从 Model P&amp;L 继续进入 Agent Hour、Successful Task 与数字劳动价值捕获。</p>
+      <p><a href="/ai-capital-cycle-1gw-unified-ledger-20260903/"><b>1GW AI Capital Cycle统一总账本</b></a> — 从需求侧 Work/$ 重新接回 Power、Compute、ROIC–WACC 的供给端账本。</p>
+      <p><a href="/agent-economy-server-audit-cost-20260825/"><b>真实案例：一个任务，AI和人各花多少钱？</b></a> — 用真实 Token 账单观察数字劳动的任务成本替代。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-09-19 17:40 HKT</span>
+        <span>Updated 2026-09-19 17:40 HKT</span>
+        <span>Layout kerwin-editorial-research-v1</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+  <script>
+    (function () {
+      var body = document.body;
+      var gate = document.getElementById("editorial-gate");
+      var accessKey = document.getElementById("access-key");
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+      function reveal() {
+        body.classList.remove("kw-gate-pending");
+        gate.hidden = true;
+        window.scrollTo(0, 0);
+      }
+      accessKey.addEventListener("input", function () {
+        if (accessKey.value.trim().toLowerCase() === "k") reveal();
+      });
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+      if (window.matchMedia("(min-width: 761px)").matches) accessKey.focus();
+    }());
+  </script>
+</body>
+</html>
