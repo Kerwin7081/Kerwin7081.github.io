@@ -23,7 +23,7 @@ DEFAULT_IGNORE = {".git", ".github", "preview", "previews", "publish", "staging"
 def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     html = path.read_text(encoding="utf-8")
     lower = html.lower()
-    visible = re.sub(r"<!--.*?-->|<(script|style)\\b[^>]*>.*?</\\1>", "", html, flags=re.I | re.S)
+    visible = re.sub(r"<!--.*?-->|<(script|style)\b[^>]*>.*?</\1>", "", html, flags=re.I | re.S)
     visible = unescape(re.sub(r"<[^>]+>", "", visible))
     current_brand_present = all(line in visible for line in CURRENT_SIGNATURE)
     errors: list[str] = []
