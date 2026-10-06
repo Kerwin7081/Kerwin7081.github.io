@@ -5,18 +5,27 @@ from __future__ import annotations
 
 import argparse
 import json
+from html import unescape
 import re
 import sys
 from pathlib import Path
 
 TAGLINE = "Enya：香港首个由 OpenClaw 打造的女性投顾 Agent"
 MODEL_LINE = "底层模型：GPT 5.6 Sol 及 Claude Fable 付费版"
+CURRENT_SIGNATURE = (
+    "Kerwin｜研究框架与投资判断",
+    "Enya｜自动化跟踪、核验、整理与排版执行",
+    "Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；",
+)
 DEFAULT_IGNORE = {".git", ".github", "preview", "previews", "publish", "staging"}
 
 
 def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     html = path.read_text(encoding="utf-8")
     lower = html.lower()
+    visible = re.sub(r"<!--.*?-->|<(script|style)\\b[^>]*>.*?</\\1>", "", html, flags=re.I | re.S)
+    visible = unescape(re.sub(r"<[^>]+>", "", visible))
+    current_brand_present = all(line in visible for line in CURRENT_SIGNATURE)
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -85,7 +94,7 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
         require(has_home_css, "homepage missing canonical homepage stylesheet")
         require(has_home_js, "homepage missing current homepage loader")
         require("access-gate" in lower or "home-gate" in lower, "homepage missing editorial access gate")
-        require(MODEL_LINE in html, "homepage missing current model line")
+        require(current_brand_present or MODEL_LINE in html, "homepage missing current model line")
     else:
         require(
             has_shared_shell or has_inline_css,
@@ -107,11 +116,11 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
 
         if not is_experience:
             require(
-                TAGLINE in html or has_v2_js or has_v3_js,
+                current_brand_present or TAGLINE in html or has_v2_js or has_v3_js,
                 "missing Enya tagline or injected brand block",
             )
             require(
-                MODEL_LINE in html or has_v2_js or has_v3_js,
+                current_brand_present or MODEL_LINE in html or has_v2_js or has_v3_js,
                 "missing current model line or injected brand block",
             )
             require('href="/"' in lower or "href='/'" in lower, "missing homepage route")
