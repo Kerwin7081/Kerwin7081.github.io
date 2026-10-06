@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ARK Invest 8只ETF全景：比较2026年业绩、持仓与涨幅贡献，深挖ARKG五大功臣与ARKK十大功臣，并识别权重膨胀、估值与重叠暴露风险。">
+  <title>Wood（木头姐）旗下 ETF 全景深研：业绩、持仓与涨幅功臣｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    body.kw-gate-pending { overflow:hidden; }
+    .kw-gate-pending > :not(.kw-editorial-gate):not(script):not(noscript) {
+      visibility:hidden;
+    }
+    .kw-editorial-gate {
+      position:fixed;
+      inset:0;
+      z-index:990;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      background:var(--green);
+    }
+    .kw-editorial-gate[hidden] { display:none; }
+    .kw-editorial-gate__paper {
+      width:min(860px,100%);
+      border-top:6px solid var(--ink);
+      background:var(--surface);
+      color:var(--ink);
+      box-shadow:0 24px 70px rgba(0,0,0,.22);
+    }
+    .kw-editorial-gate__masthead {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:13px 22px;
+      border-bottom:1px solid var(--line-dark);
+      color:var(--green);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__body {
+      display:grid;
+      grid-template-columns:164px minmax(0,1fr);
+      gap:clamp(32px,7vw,72px);
+      align-items:center;
+      min-height:370px;
+      padding:clamp(36px,6vw,66px);
+    }
+    .kw-editorial-gate__seal {
+      display:grid;
+      place-items:center;
+      width:148px;
+      aspect-ratio:1;
+      border:1px solid var(--green);
+      border-radius:50%;
+      color:var(--green);
+      text-align:center;
+      font:700 20px/1.15 var(--serif);
+    }
+    .kw-editorial-gate__kicker,
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__title {
+      margin:10px 0 0;
+      color:var(--green);
+      font:700 clamp(29px,4vw,42px)/1.08 var(--serif);
+    }
+    .kw-editorial-gate__copy {
+      margin:14px 0 18px;
+      color:var(--green);
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(18px,2.4vw,23px);
+      line-height:1.28;
+    }
+    .kw-editorial-gate__copy strong { font:inherit; }
+    .kw-editorial-gate__copy span {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-family:var(--sans);
+      font-size:13px;
+      font-weight:400;
+      line-height:1.55;
+    }
+    .kw-editorial-gate__field {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:50px;
+      border-bottom:1px solid var(--green);
+    }
+    .kw-editorial-gate__field input {
+      min-width:0;
+      height:48px;
+      border:0;
+      padding:0 4px;
+      background:transparent;
+      color:var(--green);
+      font:700 24px/1 var(--serif);
+    }
+    .kw-editorial-gate__field input:focus { outline:0; }
+    .kw-editorial-gate__field span {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__foot {
+      padding:12px 22px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+      .kw-editorial-gate__body {
+        grid-template-columns:1fr;
+        gap:28px;
+        min-height:0;
+        padding:32px 22px;
+      }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .kw-editorial-gate {
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+        padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom));
+        overflow:auto;
+      }
+      .kw-editorial-gate__paper {
+        width:min(100%,420px);
+        max-width:100%;
+        max-height:calc(100svh - 24px);
+        overflow:auto;
+        border-top-width:4px;
+      }
+      .kw-editorial-gate__masthead {
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+        align-items:center;
+        gap:12px;
+        padding:10px 16px;
+        font-size:9px;
+        line-height:1.45;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span {
+        min-width:0;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span:last-child { display:block; }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:16px;
+        align-items:start;
+        min-height:0;
+        padding:24px 18px 20px;
+      }
+      .kw-editorial-gate__body > * { min-width:0; }
+      .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+      .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+      .kw-editorial-gate__title {
+        max-width:100%;
+        margin-top:7px;
+        font-size:clamp(23px,6.4vw,26px);
+        line-height:1.14;
+        letter-spacing:-.015em;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__copy {
+        margin:9px 0 12px;
+        font-size:clamp(17px,4.8vw,19px);
+        line-height:1.25;
+      }
+      .kw-editorial-gate__copy span {
+        margin-top:4px;
+        font-size:13px;
+        line-height:1.5;
+      }
+      .kw-editorial-gate__field { min-height:44px; gap:0; }
+      .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+      .kw-editorial-gate__field span { display:none; }
+      .kw-editorial-gate__foot {
+        display:grid;
+        gap:4px;
+        padding:10px 16px;
+        font-size:10px;
+        line-height:1.5;
+        overflow-wrap:anywhere;
+      }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (max-width:390px) {
+      .kw-editorial-gate__masthead {
+        grid-template-columns:1fr;
+        gap:2px;
+      }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:14px;
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .kw-editorial-gate,
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  
+    .section ul,.section ol{margin:0 0 18px;padding-left:1.35em}
+    .section li{margin:7px 0}
+    .section blockquote{margin:0 0 22px;padding:14px 18px;border-left:3px solid var(--copper);background:var(--surface);color:var(--muted)}
+    .section blockquote p{margin:0}
+    .section h4{margin:24px 0 10px;color:var(--green);font:700 17px/1.42 var(--serif)}
+    .section code{padding:1px 4px;background:var(--paper-2);font-size:.92em}
+    @media(max-width:760px){.section ul,.section ol{padding-left:1.2em}.section h4{font-size:17px}}
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="ark-invest-etf-panorama-20261006">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead">
+        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+        <span class="kw-editorial-gate__access">Reader Access</span>
+      </div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">Public Equity · ARK Invest · ETF</div>
+          <!-- GATE_TITLE is the short reader-facing title; do not repeat CATEGORY or series metadata. -->
+          <h2 class="kw-editorial-gate__title" id="gate-title">ARK ETF 全景</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field">
+            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+            <span>Auto enter</span>
+          </label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot">
+        <span>Kerwin｜研究框架与投资判断</span>
+        <span>Enya｜自动化跟踪、核验、整理与排版执行</span>
+        <span>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · PUBLIC EQUITY</span>
+      <span>Evidence first · Snapshot 2026-10-05 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">Public Equity · ARK Invest · ETF</div>
+          <h1>
+            Wood（木头姐）旗下 ETF 全景深研
+            <span>业绩、持仓与涨幅功臣</span>
+          </h1>
+          <p class="thesis">2026 年 ARK 的超额回报高度集中：ARKG YTD +86.4%，而 ARKK 的核心贡献主要来自 TWST、TXG 与 AMD；这是一场少数高 beta 标的驱动的结构性行情，不是全系主题普涨。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年10月6日</span>
+            <span><b>数据快照</b> 2026-10-05 HKT</span>
+            <span><b>研究对象</b> ARK Invest 8 只运行中 ETF；ARKG 五大涨幅贡献股；ARKK 十大涨幅贡献股</span>
+            <span><b>证据边界</b> 数据截至 2026-10-05 美股收盘；持仓权重与估值沿用源稿口径；“估算贡献”为公开持仓权重与复权价格的近似计算</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>+86.4%</strong>
+          <span>ARKG 2026 YTD，全系第一</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>YTD 以 2025-12-31 收盘为基准；半年以 2026-04-03 为基准；一年以 2025-10-03 为基准；两年以 2024-10-04 为基准；三年以 2023-10-06 为基准。本文按上传整合研究稿原始口径发布。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>2026 年 ARK 不是“全面复苏”，而是少数高 beta 标的驱动</h2>
+      <p class="lead">全系回报表面上普遍修复，但真正决定收益的是高度集中的个股与主题暴露。基因测序工具链是第一主线，AI 算力与少数平台股提供第二层支撑；与此同时，权重膨胀、估值透支与双基金重叠持仓正在同步抬升回撤风险。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>ARKG 断层第一</b><span>YTD +86.4%，第二名 ARKK +16.8%；基因测序工具链成为 2026 年 ARK 最强 beta。</span></div>
+        <div class="verdict-item"><b>ARKK 回报高度集中</b><span>TWST、TXG、AMD 三者估算贡献合计超过 +25pp，高于基金全年 +16.8%，说明其余持仓存在明显拖累。</span></div>
+        <div class="verdict-item"><b>涨出来的权重</b><span>TWST/TXG 在 ARKK 年初合计不足 1.6%，当前约 7.8%；在 ARKG 合计超过 20%，回撤时会反向放大组合波动。</span></div>
+        <div class="verdict-item"><b>不是所有主题都在赢</b><span>ARKF 近一年 -20.8%，PRNT 两年 +24.7%；资金回报呈现明显主题轮动，而不是全系创新资产普涨。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="section-label">02 · Scope</div>
+      <h2>研究范围与数据口径</h2>
+      <blockquote><p>Kerwin Research Hub 出品 ｜ 数据截至 2026-10-05 美股收盘 ｜ 收益率复权收盘价口径 ｜ 持仓权重与估值来源 stockanalysis.com</p></blockquote>
+<p>ARK Invest 目前共 <strong>8 只在运行的 ETF</strong>（第 9 只 CTRU 透明度 ETF 已于 2022 年 7 月清盘）。本文件把三份独立研究整合为一份：全系业绩统计 + ARKG 涨幅五大功臣深研 + ARKK 涨幅十大功臣深研。TWST、TXG、TEM 三家同时是两只基金的核心持仓，深研只写一次，另一处交叉引用，不重复。</p>
+    </section>
+
+<section class="section" id="part-1">
+      <div class="section-label">03 · ARK 全系</div>
+      <h2>第一部分：全系 8 只 ETF 业绩总览</h2>
+      <h3>一、收益率总表</h3>
+<div class="table-wrap"><table><thead><tr><th>代码</th><th>基金名称</th><th>YTD</th><th>近半年</th><th>近一年</th><th>近两年</th><th>近三年</th></tr></thead><tbody><tr><td>ARKK</td><td>创新旗舰</td><td>+16.8%</td><td>+31.0%</td><td>+1.7%</td><td>+93.0%</td><td>+129.1%</td></tr><tr><td>ARKQ</td><td>自动驾驶/机器人</td><td>+8.6%</td><td>+8.3%</td><td>+7.0%</td><td>+102.5%</td><td>+139.6%</td></tr><tr><td>ARKW</td><td>下一代互联网</td><td>+10.3%</td><td>+34.0%</td><td>-6.2%</td><td>+96.1%</td><td>+201.8%</td></tr><tr><td>ARKG</td><td>基因组革命</td><td>+86.4%</td><td>+97.4%</td><td>+79.8%</td><td>+117.2%</td><td>+105.6%</td></tr><tr><td>ARKF</td><td>金融科技创新</td><td>-4.4%</td><td>+19.6%</td><td>-20.8%</td><td>+52.7%</td><td>+134.4%</td></tr><tr><td>ARKX</td><td>太空防务创新</td><td>+12.8%</td><td>+7.8%</td><td>+8.0%</td><td>+98.4%</td><td>+142.3%</td></tr><tr><td>IZRL</td><td>以色列创新科技</td><td>-3.6%</td><td>+4.9%</td><td>+1.3%</td><td>+51.9%</td><td>+62.7%</td></tr><tr><td>PRNT</td><td>3D 打印</td><td>+13.0%</td><td>+22.3%</td><td>+6.1%</td><td>+24.7%</td><td>+28.7%</td></tr></tbody></table></div>
+<p>口径：YTD 以 2025-12-31 收盘为基准；半年以 2026-04-03 为基准；一年以 2025-10-03 为基准；两年以 2024-10-04 为基准；三年以 2023-10-06 为基准。</p>
+<h3>二、每只一句话</h3>
+<ul><li><strong>ARKK（创新旗舰）</strong>：规模最大的旗舰，今年 +16.8% 跑赢大盘但在家族里只算中游；近一年仅 +1.7%，说明涨幅几乎全是今年下半年贡献的。</li><li><strong>ARKQ（自动驾驶/机器人）</strong>：最稳的一只，四个口径全部为正且两年 +102.5% 排第二；特斯拉 + Kratos + 机器人新贵的组合让它穿越了周期。</li><li><strong>ARKW（下一代互联网）</strong>：反转王——近一年还 -6.2%，近半年 +34% 全场第二，下半年互联网回暖的弹性最大。</li><li><strong>ARKG（基因组革命）</strong>：断层第一，四个口径全部第一；YTD +86.4% 主要靠 TWST、TXG 两家测序工具公司各涨近 5 倍（详见第二部分）。</li><li><strong>ARKF（金融科技创新）</strong>：吊车尾，近一年 -20.8% 全场最弱（加密和金融科技去年底到今年初的回撤），但近半年 +19.6% 正在修复。</li><li><strong>ARKX（太空防务创新）</strong>：两年 +98.4% 排第三，吃的是太空 + 国防双 beta；但今年 YTD 只有 +12.8%，动能主要在 2024–2025 年。</li><li><strong>IZRL（以色列创新科技）</strong>：指数型、规模最小的产品之一，两年 +51.9%，存在感最低。</li><li><strong>PRNT（3D 打印）</strong>：指数型，两年仅 +24.7% 全场最弱，3D 打印主题这两年基本没讲出新故事。</li></ul>
+<h3>三、规模与费率</h3>
+<div class="table-wrap"><table><thead><tr><th>代码</th><th>规模</th><th>费率</th><th>类型</th></tr></thead><tbody><tr><td>ARKK</td><td>$5.59B</td><td>0.75%</td><td>主动</td></tr><tr><td>ARKQ</td><td>$2.12B</td><td>0.75%</td><td>主动</td></tr><tr><td>ARKW</td><td>$1.62B</td><td>0.76%</td><td>主动</td></tr><tr><td>ARKG</td><td>$1.56B</td><td>0.75%</td><td>主动</td></tr><tr><td>ARKF</td><td>$832M</td><td>0.75%</td><td>主动</td></tr><tr><td>ARKX</td><td>$760M</td><td>0.75%</td><td>主动</td></tr><tr><td>IZRL</td><td>$137M</td><td>0.49%</td><td>指数</td></tr><tr><td>PRNT</td><td>$58.7M</td><td>0.66%</td><td>指数</td></tr></tbody></table></div>
+<h3>四、五个结论</h3>
+<ol><li><strong>今年是 ARKG 一个人的牛市</strong>：YTD +86.4%，第二名 ARKK 才 +16.8%，差距超过 5 倍——基因测序工具链的 beta 压倒了其他所有主题。</li><li><strong>三年维度看，轮动非常明显</strong>：ARKW 三年 +201.8% 全场第一（2023–2024 年互联网/AI 行情），而今年最猛的 ARKG 三年只有 +105.6%——基因组在 2026 年之前基本是“死钱”，今年才翻身。</li><li><strong>两年维度看，ARK 整体回春</strong>：除 PRNT（+24.7%）和 IZRL（+51.9%）外，其余六只两年涨幅全部超过 +90%，ARKQ 甚至超过 +100%。</li><li><strong>ARKF 是唯一的掉队者</strong>：四个短口径里两个为负，加密敞口让它在去年底到今年初的回撤中受伤最重（不过三年 +134.4% 说明 2023–2024 年它并不差）。</li><li><strong>规模向头部集中</strong>：ARKK 一只占全系规模超四成，尾部 IZRL、PRNT 合计不到 $200M，存在长期清盘风险。</li></ol>
+<p>注：ARK Transparency ETF（CTRU）2021-12 成立，因底层指数停止计算，于 2022-07-26 清盘，为 ARK 历史上第一只也是迄今唯一一只关闭的 ETF。</p>
+    </section>
+
+<section class="section" id="part-2">
+      <div class="section-label">04 · ARKG</div>
+      <h2>第二部分：ARKG —— 基因组革命（YTD +86.4%，全系最猛）</h2>
+      <p>基金速览：规模约 $1.56B，费率 0.75%，主动管理；共 33 只持仓，前十大占 62.48%——是全系集中度最高的基金。按“持仓权重 × YTD 涨幅”估算，对涨幅贡献最大的五家如下（注：权重为 10 月初当前权重，涨幅大的公司权重被动膨胀，贡献为近似估算，排名可靠）：</p>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>代码</th><th>公司</th><th>ARKG权重</th><th>YTD涨幅</th><th>估算贡献</th></tr></thead><tbody><tr><td>1</td><td>TWST</td><td>Twist Bioscience</td><td>10.12%</td><td>+482.5%</td><td>+48.8pp</td></tr><tr><td>2</td><td>TXG</td><td>10x Genomics</td><td>10.38%</td><td>+462.6%</td><td>+48.0pp</td></tr><tr><td>3</td><td>CDNA</td><td>CareDx</td><td>4.51%</td><td>+250.8%</td><td>+11.3pp</td></tr><tr><td>4</td><td>ABSI</td><td>Absci</td><td>5.23%</td><td>+206.6%</td><td>+10.8pp</td></tr><tr><td>5</td><td>PSNL</td><td>Personalis</td><td>4.91%</td><td>+107.4%</td><td>+5.3pp</td></tr></tbody></table></div>
+<h3>一、估值与财务数据一览</h3>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>TWST</th><th>TXG</th><th>CDNA</th><th>ABSI</th><th>PSNL</th></tr></thead><tbody><tr><td>现价 (USD)</td><td>205.00</td><td>97.74</td><td>69.85</td><td>11.53</td><td>16.40</td></tr><tr><td>市值</td><td>$12.86B</td><td>$12.73B</td><td>$3.61B</td><td>$1.98B</td><td>$1.75B</td></tr><tr><td>企业价值 EV</td><td>$12.80B</td><td>$12.26B</td><td>$3.26B</td><td>$1.78B</td><td>$1.58B</td></tr><tr><td>PE (TTM)</td><td>n/a（亏损）</td><td>n/a（亏损）</td><td>32.95</td><td>n/a（亏损）</td><td>n/a（亏损）</td></tr><tr><td>Forward PE</td><td>n/a</td><td>n/a</td><td>64.99</td><td>n/a</td><td>n/a</td></tr><tr><td>PS (TTM)</td><td>29.77</td><td>20.64</td><td>7.89</td><td>1267.59</td><td>25.14</td></tr><tr><td>Forward PS</td><td>24.62</td><td>19.69</td><td>7.23</td><td>191.35</td><td>18.34</td></tr><tr><td>PB</td><td>28.82</td><td>15.42</td><td>8.45</td><td>8.04</td><td>7.42</td></tr><tr><td>EV/Sales</td><td>29.64</td><td>19.88</td><td>7.11</td><td>1141.19</td><td>22.63</td></tr><tr><td>营收 TTM</td><td>$431.8M</td><td>$616.9M</td><td>$458.1M</td><td>$1.56M</td><td>$69.7M</td></tr><tr><td>净利润 TTM</td><td>-$136.7M</td><td>-$75.1M</td><td>+$111.0M</td><td>-$121.1M</td><td>-$107.2M</td></tr><tr><td>毛利率</td><td>52.0%</td><td>70.1%</td><td>70.6%</td><td>n/a</td><td>12.7%</td></tr><tr><td>净现金</td><td>$58.3M</td><td>$473.2M</td><td>$354.4M</td><td>$197.3M</td><td>$174.7M</td></tr><tr><td>自由现金流 TTM</td><td>-$93.1M</td><td>+$121.4M</td><td>+$84.7M</td><td>-$109.0M</td><td>-$101.0M</td></tr><tr><td>做空率</td><td>19.94%</td><td>12.81%</td><td>12.17%</td><td>21.71%</td><td>7.74%</td></tr><tr><td>Beta</td><td>2.19</td><td>2.08</td><td>2.39</td><td>2.44</td><td>2.32</td></tr><tr><td>分析师评级</td><td>Buy（13家）</td><td>Buy（19家）</td><td>Buy（7家）</td><td>Strong Buy（11家）</td><td>Buy（5家）</td></tr><tr><td>平均目标价 vs 现价</td><td>$125.17（-38.9%）</td><td>$58.80（-39.8%）</td><td>$58.83（-15.8%）</td><td>$14.40（+24.9%）</td><td>$15.44（-5.9%）</td></tr></tbody></table></div>
+<p><strong>估值层面四个关键观察：</strong></p>
+<ol><li><strong>只有 CDNA 是赚钱的</strong>（PE 33 倍、自由现金流为正），其余四家全部亏损——这波是纯粹的“梦想 + 订单”行情，不是业绩行情。</li><li><strong>ABSI 是估值最极端的纯叙事股</strong>：年营收只有 $156 万，市值 $19.8 亿，PS 高达 1267 倍；但它也是唯一一家分析师目标价还高于现价（+24.9%）且评级为 Strong Buy 的。</li><li><strong>TWST 和 TXG 涨得太快，分析师根本没跟上</strong>：平均目标价比现价低约 40%，RSI 都超过 75（超买区），两家市值都已干到 $12.7B 以上。</li><li><strong>做空盘是燃料</strong>：ABSI 做空率 21.7%、TWST 19.9%，逼空（short squeeze）是这波涨幅的重要组成部分。</li></ol>
+<h3>二、TWST｜Twist Bioscience（合成 DNA 平台，AI 药物发现的“湿实验军火商”）</h3>
+<p><em>🧬 同时是 ARKK 第 7 大持仓（4.23%）、ARKK 涨幅第 1 大功臣</em></p>
+<h4>业务重大突破</h4>
+<ul><li><strong>2026-08-18：Anthropic 点名 Twist 为其 AI 蛋白设计的独立实验验证方</strong>——Claude 针对 15 个靶点生成 1,320 个 mini-binder 设计，Twist 负责合成与结合力实测，实测命中率 22.6%–35.1%（人类传统方法约 10%–15%）。消息次日股价 +18%，创历史新高 ~$141。这是 TWST 今年行情的总开关（ainvest、TipRanks）。</li><li><strong>2026-09-16：与 Eli Lilly 签署 TuneLab 数据服务协议</strong>——Twist 的抗体表征数据与湿实验服务直接接入 Lilly 的 AI/ML 药物发现平台 TuneLab，成为其“首选湿实验伙伴”。Leerink 随后将目标价 $120 → $160，维持 Outperform（ad-hoc-news、StocksToTrade）。</li><li><strong>盈利拐点临近</strong>：2026 财年 Q3 营收 $118.4M（+23% YoY，超预期），连续第 14 个季度环比增长；毛利率 52.8%；全年指引上调至 $456–457M；公司重申 2026 财年 Q4 实现 adjusted EBITDA 盈亏平衡（StocksToTrade）。</li><li><strong>2025-05：剥离 DNA 数据存储业务</strong>（成立 Atlas Data Storage，保留 24% 股权），一次性收益 $48.8M，消除每年约 $25M 现金消耗，聚焦核心合成业务。2025 财年营收 $376.6M（+20%），毛利率从 42.6% 提升至 50.7%。</li></ul>
+<h4>AI 相关新闻与突破</h4>
+<ul><li><strong>Anthropic 合作的核心逻辑是“干湿闭环”</strong>：AI 负责“干实验”设计，Twist 负责“湿实验”验证与数据回流，形成“AI 设计 → Twist 实测 → 数据回流训练模型”的飞轮。Twist 是 Anthropic 蛋白设计管线中唯一被点名的外部公司，管理层确认该项目已纳入 2027 财年订单展望。</li><li><strong>Lilly TuneLab 是“数据即服务”的管道型合作</strong>：Twist 的实验数据直接训练 Lilly 的抗体 AI 模型，TuneLab 用户可一键下单抗体服务——不是一次性合同，是持续的数据管道。</li><li><strong>AI 客户订单爆发</strong>：2025 财年来自 AI 药物发现客户的订单超过 $25M；Twist 五天交付大规模 DNA 文库的能力，是 AI 公司无法自建的湿实验瓶颈。</li><li>⚠️ 冷静提示：市场把 Anthropic 的一次研究合作当作收入合同来定价（ainvest 明确指出“research credential 被当成 revenue contract”），实际收入贡献尚未披露。</li></ul>
+<h3>三、TXG｜10x Genomics（单细胞 + 空间组学龙头）</h3>
+<p><em>🧬 同时是 ARKK 第 9 大持仓（3.57%）、ARKK 涨幅第 2 大功臣</em></p>
+<h4>业务重大突破</h4>
+<ul><li><strong>2026-09-29 全球发货：Atera 空间生物学平台</strong>——整合全转录组分析、亚细胞分辨率、单细胞灵敏度与前所未有的通量规模；公司称早期需求已超过当前产能。这是 TXG 下一代增长引擎，分析师密集上调目标价：Argus 首发覆盖 Buy/$110、Piper $47→$80、Leerink $40→$90、德银 $40→$70（PR Newswire）。</li><li><strong>2026-09：特拉华陪审团专利胜诉</strong>——确认 Qiagen 旗下 Parse Biosciences 侵犯 10x 三项单细胞专利，判赔约 $4.8M（按 2021–2026 年美国销售额 14% 提成）；TXG 另寻求惩罚性赔偿及美国禁令。金额不大，但确立了单细胞领域的 IP 护城河。</li><li><strong>2026-06-17：与 Cleveland Clinic 多年合作</strong>——用 Flex Apex + Xenium（未来扩展至 Atera）研究膀胱癌 ADC 药物疗效预测生物标志物，向诊断应用转化。</li><li><strong>2025-11-18：发起 ASTRA 泛癌空间图谱联盟</strong>——联合 Garvan 医学研究所与东京大学，用 Xenium 平台绘制 2,000 例肿瘤样本（10 大癌种）的癌-免疫互作图谱，覆盖亚太人群遗传多样性。</li></ul>
+<h4>AI 相关新闻与突破</h4>
+<ul><li><strong>2025-10：与 Anthropic 合作</strong>——10x 分析工具通过 MCP（Model Context Protocol）接入 Claude for Life Sciences，研究人员可用自然语言查询分析单细胞与空间数据，Claude 直连 10x Cloud Analysis 处理大规模数据集。战略意义：降低生物学家的计算门槛 → 提升仪器与耗材的价值。</li><li><strong>2026-09：与韩国 Lunit 合作</strong>——将 Lunit SCOPE IO（AI 病理引擎）接入 Xenium 与 Atera 平台，把 H&amp;E 染色图像分析与空间分子数据结合，主攻 ADC 药物与免疫治疗疗效预测。</li><li><strong>Atera 的 AI 叙事</strong>：官方发货新闻稿明确将“生成大规模数据集以训练生物学 AI 模型”列为核心应用方向之一——这是 TXG 从“卖仪器”转向“AI 生物数据基础设施”的关键话术。</li><li>⚠️ 上述合作均未披露金额，AI 收入贡献尚未在财报中单独体现。</li></ul>
+<h3>四、CDNA｜CareDx（器官移植诊断龙头，五家中唯一盈利的）</h3>
+<h4>业务重大突破</h4>
+<ul><li><strong>2026-07-16：Medicare 最终确定移植检测报销政策（LCD）</strong>——覆盖 AlloSure/AlloMap/AlloSeq 肾、心、肺移植术后监测（肾移植首年最多 6 次、心/肺首年最多 12 次），2026-08-30 生效。终结了自 2025-07 草案以来悬在头顶一年的报销收紧担忧，<strong>当日股价 +35%</strong>。这是 CDNA 今年最大的单一催化剂（PRISM MarketView）。</li><li><strong>2026 年 Q2 业绩爆发</strong>：营收 $132M（+52% YoY），检测服务收入 +61%，单次检测平均收入 $1,720；GAAP 转盈（含出售 Lab Products 业务的 $113M 收益），non-GAAP 净利 $20M、调整后 EBITDA $25M；2026 全年指引 $490–500M（2025 年为 $380M）。</li><li><strong>完成 Naveris 收购</strong>——切入肿瘤 MRD（微小残留病灶）赛道，获得差异化的、已有 Medicare 覆盖的 MRD 检测产品；同时以 <strong>$171.2M 将 Lab Products 业务出售给 Eurobio Scientific</strong>，回笼现金聚焦高增长高毛利业务。</li><li><strong>2026-09-24：创 52 周新高 $63.09</strong>，BTIG 将目标价 $60 → $74，维持 Buy；一年总股东回报达 262.81%。</li><li><strong>临床证据加固</strong>：KOAR 注册研究数据发表于《Journal of the American Society of Nephrology》，证实 AlloSure Kidney 的供体来源游离 DNA 升高与移植物功能障碍/丢失相关，支撑长期报销与检测量。</li></ul>
+<h4>AI 相关新闻与突破</h4>
+<ul><li>CDNA 本身没有重大的“AI 平台”新闻——它的上涨逻辑是<strong>报销政策 + 业绩反转</strong>，而非 AI 叙事。最接近的关联是 Naveris 收购让公司从纯移植诊断扩展为“精准肿瘤 + 细胞治疗平台”，而 MRD 检测本身依赖高通量测序与生物信息学算法。如实标注：五家中 CDNA 的 AI 关联最弱，不宜硬凑。</li></ul>
+<h3>五、ABSI｜Absci（生成式 AI 抗体设计，纯叙事股）</h3>
+<h4>业务重大突破</h4>
+<ul><li><strong>2026-06-24：Eli Lilly 领投 $100M 增发</strong>（Lilly 出资 $40M，股价 $7.41；Adage、BVF、Redmile 等跟投），资金专项推进 ABS-201；<strong>消息当日股价 +36%</strong>，为近一年最大单日涨幅。</li><li><strong>ABS-201（抗 PRLR，全 AI 设计）</strong>：针对脱发（雄秃）与子宫内膜异位症的 first-in-class 注射抗体——两个适应症目前均无获批的注射疗法；HEADLINE 试验 I 期中期数据显示安全性与药代动力学阳性，2025-12 完成首例受试者给药。</li><li><strong>ABS-101（抗 TL1A，炎症性肠病）</strong>：潜在 best-in-class 抗体，I 期中期数据原定 2025 下半年读出——<strong>截至 2026-10-06 未见公开读出结果，待跟进</strong>。</li><li><strong>2025-08-07：Almirall 扩大 AI 药物发现合作</strong>——提名第二个皮肤病靶点；首个难成药靶点已成功交付 AI 从头设计的功能性抗体；两项目合计里程碑款可达 <strong>~$650M</strong>（另加销售分成）（GlobeNewswire）。</li><li><strong>2025-07：完成 $50M 公开增发 + $14M ATM</strong>，现金跑道延至 2028 年上半年。</li></ul>
+<h4>AI 相关新闻与突破</h4>
+<ul><li><strong>公司本体就是“AI 制药”</strong>：Integrated Drug Creation™ 平台 = 生成式 AI + 高通量湿实验自动化的闭环（AI 设计 → 实验验证 → 数据回流训练模型）。ABS-201 是其<strong>首个进入人体试验的纯 AI 设计药物</strong>。</li><li><strong>2025-01：AMD 战略合作 + $20M 股权投资</strong>——用 AMD Instinct 加速器与 ROCm 软件扩展 AI 药物创建平台的算力。</li><li><strong>2025-09-12：与 Oracle Cloud Infrastructure 合作</strong>——OCI 裸金属实例（第五代 AMD EPYC + Instinct MI355X GPU）支撑大规模分子动力学模拟与 AI 抗体设计，加速迭代周期。</li><li><strong>Lilly $40M 入股的象征意义</strong>：传统大药企押注 AI 设计的“生发针”，是 AI 制药从概念走向大药企管线的标志性事件之一。</li><li>⚠️ 公司仍处于临床阶段、无产品收入，估值完全系于管线与合作叙事；做空率 21.7% 为五家最高。</li></ul>
+<h3>六、PSNL｜Personalis（肿瘤 MRD 液体活检，已被并购定价）</h3>
+<h4>业务重大突破</h4>
+<ul><li><strong>2026-07-20：Tempus AI 宣布以 $16.25/股收购 Personalis</strong>（100% 换股，Tempus 可选择最多 50% 现金支付；较前收盘溢价 +6%，较 30 天 VWAP +28%）。收购前一个季度市场已因并购传闻上涨约 72%。这是 PSNL 今年 +107% YTD 的核心解释——<strong>股价已被并购定价</strong>。</li><li><strong>Medicare 覆盖三连击</strong>：2025-10 获批 NeXT Personal 乳腺癌 MRD 检测覆盖（报销 $3,878，追溯至 2025-10-07）；<strong>2026-05 CMS 扩大覆盖</strong>至 II–III 期三阴性/HER2+ 乳腺癌新辅助治疗疗效监测；另获早期/中期非小细胞肺癌 MRD 监测覆盖。</li><li><strong>2026 年 Q2</strong>：营收 $22.4M（+30% YoY）；临床检测量 +199% 至 10,384 次，临床收入 +442% 至 $2.6M（Medicare 报销扩张驱动）；制药检测服务 +51% 至 $16.8M；季末现金约 $212.7M。签署并购协议后公司不再提供指引、不再开业绩会。</li><li>⚠️ Craig-Hallum 在并购宣布后将其降级至 Hold，认为出现更高竞价的概率低——上行空间基本被 $16.25 的收购价封顶。</li></ul>
+<h4>AI 相关新闻与突破</h4>
+<ul><li><strong>Tempus 收购本身就是最大的“AI + 诊断”事件</strong>：Tempus 是 AI 精准肿瘤龙头，收购逻辑是将 Personalis 业界领先的超灵敏 MRD 检测（ctDNA 检测灵敏度可低至百万分之 100 以下）整合进 Tempus 的 <strong>AI 驱动精准肿瘤平台</strong>，用 Tempus 的商业化体系放量。</li><li>Tempus CEO 原话：“通过与 Personalis 的既有合作，我们已经证明了将高灵敏度 MRD 技术与我们的商业基础设施结合的威力”——即 AI 平台 + 最好的检测 = 1+1&gt;2 的叙事。</li><li>背景加持：2026-08 Moderna 癌症疫苗试验阳性数据曾短暂推高整个 MRD/早筛板块，PSNL 亦受益。</li></ul>
+<h3>七、ARKG 小结</h3>
+<div class="table-wrap"><table><thead><tr><th>驱动类型</th><th>公司</th><th>关键事件</th></tr></thead><tbody><tr><td><strong>AI 叙事点火</strong></td><td>TWST、TXG、ABSI</td><td>Anthropic 点名验证（8/18）/ Lilly TuneLab（9/16）；Atera 发货 + Anthropic MCP 接入；Lilly $40M 入股</td></tr><tr><td><strong>报销政策落地</strong></td><td>CDNA、PSNL</td><td>Medicare 移植 LCD 最终政策（7/16，当日+35%）；NeXT Personal 三连覆盖</td></tr><tr><td><strong>并购定价</strong></td><td>PSNL</td><td>Tempus $16.25/股收购，上行空间已被封顶</td></tr></tbody></table></div>
+<ul><li><strong>测序工具链是主引擎</strong>：TWST（DNA 合成）+ TXG（单细胞/空间组学）两家贡献了 ARKG 今年涨幅的绝大部分，是“卖水人”逻辑——AI 制药再火，都得先买他们的工具。</li><li><strong>诊断是第二曲线</strong>：CDNA（移植排斥无创检测，五家中唯一盈利）、PSNL（肿瘤 MRD 早筛）吃的是检测进医保/指南的量。</li><li><strong>ABSI 是纯 AI 制药叙事</strong>：年营收 $156 万撑 $19.8 亿市值，波动最大、做空最多（21.7%），但也是唯一分析师目标价还高于现价的。</li><li><strong>风险提示</strong>：五家 Beta 全部超过 2，TWST/TXG 的 RSI 已进入超买区（&gt;75），分析师平均目标价大幅低于现价——涨幅已有相当部分被“预期”提前透支。</li></ul>
+    </section>
+
+<section class="section" id="part-3">
+      <div class="section-label">05 · ARKK</div>
+      <h2>第三部分：ARKK —— 创新旗舰（YTD +16.8%，基因股扛大旗）</h2>
+      <p>基金速览：规模约 $5.59B，费率 0.75%，主动管理；共 46 只持仓，前十大占 49.39%。和直觉相反，扛旗的不是第一重仓 TSLA，而是 TWST 和 TXG 两家基因股。以下按“平均权重 × YTD 涨幅”估算贡献（注：直接用 10 月当前权重会严重高估暴涨股的贡献——TWST 年初权重仅 0.85%，现在 4.23%，权重是涨出来的；此处用期初/期末平均权重修正，排名可靠、量级更可信）：</p>
+<h3>一、涨幅十大功臣</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>代码</th><th>公司</th><th>期初权重</th><th>当前权重</th><th>YTD涨幅</th><th>估算贡献</th><th>是否为前十大持仓</th><th>同时是 ARKG 持仓</th></tr></thead><tbody><tr><td>1</td><td>TWST</td><td>Twist Bioscience</td><td>0.85%</td><td>4.23%</td><td>+482.5%</td><td>+12.25pp</td><td>✓（第 7）</td><td>✓（ARKG 第 2，10.12%）</td></tr><tr><td>2</td><td>TXG</td><td>10x Genomics</td><td>0.74%</td><td>3.57%</td><td>+462.6%</td><td>+9.97pp</td><td>✓（第 9）</td><td>✓（ARKG 第 1，10.38%）</td></tr><tr><td>3</td><td>AMD</td><td>超威半导体</td><td>0.89%</td><td>2.17%</td><td>+183.7%</td><td>+2.81pp</td><td>—（第 18）</td><td>—</td></tr><tr><td>4</td><td>TEM</td><td>Tempus AI</td><td>5.20%</td><td>5.47%</td><td>+22.9%</td><td>+1.22pp</td><td>✓（第 3）</td><td>✓（ARKG 第 3，8.40%）</td></tr><tr><td>5</td><td>NVDA</td><td>英伟达</td><td>2.88%</td><td>3.06%</td><td>+24.2%</td><td>+0.72pp</td><td>—（第 11）</td><td>—</td></tr><tr><td>6</td><td>CRWV</td><td>CoreWeave</td><td>2.96%</td><td>2.86%</td><td>+13.0%</td><td>+0.38pp</td><td>—（第 12）</td><td>—</td></tr><tr><td>7</td><td>PLTR</td><td>Palantir</td><td>2.80%</td><td>2.69%</td><td>+12.4%</td><td>+0.34pp</td><td>—（第 13）</td><td>—</td></tr><tr><td>8</td><td>XYZ</td><td>Block（原 Square）</td><td>2.21%</td><td>2.16%</td><td>+14.1%</td><td>+0.31pp</td><td>—（第 19）</td><td>—</td></tr><tr><td>9</td><td>META</td><td>Meta</td><td>2.35%</td><td>2.26%</td><td>+12.2%</td><td>+0.28pp</td><td>—（第 15）</td><td>—</td></tr><tr><td>10</td><td>AMZN</td><td>亚马逊</td><td>2.35%</td><td>2.23%</td><td>+11.0%</td><td>+0.25pp</td><td>—（第 17）</td><td>—</td></tr></tbody></table></div>
+<p><strong>最大的反差</strong>：第一大重仓 TSLA（9.39%）今年 -15.4%，拖累 -1.72pp；CBRS -46.5%（-1.67pp）、COIN -22.6%（-1.21pp）紧随其后。<strong>十大功臣里只有 3 家是前十大持仓</strong>，剩下 7 家全在 11–19 名——贡献大纯粹是涨幅太猛。</p>
+<h3>二、前十大持仓（按权重，2026-10-05）</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>代码</th><th>公司</th><th>权重</th><th>持股数</th><th>是否为前十大贡献</th><th>同时是 ARKG 持仓</th></tr></thead><tbody><tr><td>1</td><td>TSLA</td><td>特斯拉</td><td>9.39%</td><td>2,346,110</td><td>—（拖累 -1.72pp）</td><td>—</td></tr><tr><td>2</td><td>SPCX</td><td>SpaceX（未上市，私人份额）</td><td>6.45%</td><td>3,758,866</td><td>—</td><td>—</td></tr><tr><td>3</td><td>TEM</td><td>Tempus AI</td><td>5.47%</td><td>6,610,629</td><td>✓（第 4，+1.22pp）</td><td>✓（ARKG 第 3，8.40%）</td></tr><tr><td>4</td><td>CRCL</td><td>Circle Internet Group</td><td>4.48%</td><td>5,102,795</td><td>—</td><td>—</td></tr><tr><td>5</td><td>CRSP</td><td>CRISPR Therapeutics</td><td>4.42%</td><td>7,383,297</td><td>—（第 11，+0.15pp）</td><td>✓（ARKG 第 4，5.28%）</td></tr><tr><td>6</td><td>COIN</td><td>Coinbase</td><td>4.28%</td><td>2,166,079</td><td>—（拖累 -1.21pp）</td><td>—</td></tr><tr><td>7</td><td>TWST</td><td>Twist Bioscience</td><td>4.23%</td><td>2,076,997</td><td>✓（第 1，+12.25pp）</td><td>✓（ARKG 第 2，10.12%）</td></tr><tr><td>8</td><td>HOOD</td><td>Robinhood</td><td>3.83%</td><td>3,148,625</td><td>—</td><td>—</td></tr><tr><td>9</td><td>TXG</td><td>10x Genomics</td><td>3.57%</td><td>3,538,541</td><td>✓（第 2，+9.97pp）</td><td>✓（ARKG 第 1，10.38%）</td></tr><tr><td>10</td><td>SHOP</td><td>Shopify</td><td>3.27%</td><td>2,001,983</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p>注：前十合计 49.39%。两只基金前 25 大持仓中重叠的共 6 家：上表 4 家（TEM、CRSP、TWST、TXG）+ BEAM（ARKK 第 16，2.25%；ARKG 第 13，2.95%）+ NTLA（ARKK 第 24，1.47%；ARKG 第 23，1.63%）。另有两个值得注意的“暗仓”：第 22 大持仓为 <strong>OPENAI GROUP PBC SERIES C（1.91%，未上市）</strong>，第 19 大持仓 XYZ 即原 Square（Block，2026 年已改代码）。</p>
+<h3>三、估值与财务数据一览（十大功臣）</h3>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>TWST</th><th>TXG</th><th>AMD</th><th>TEM</th><th>NVDA</th></tr></thead><tbody><tr><td>现价 (USD)</td><td>205.00</td><td>97.74</td><td>631.75</td><td>83.55</td><td>238.90</td></tr><tr><td>市值</td><td>$12.86B</td><td>$12.73B</td><td>$1.03T</td><td>$15.08B</td><td>$5.77T</td></tr><tr><td>PE (TTM)</td><td>n/a（亏损）</td><td>n/a（亏损）</td><td>161.25</td><td>n/a（亏损）</td><td>30.21</td></tr><tr><td>Forward PE</td><td>n/a</td><td>n/a</td><td>56.89</td><td>n/a</td><td>19.75</td></tr><tr><td>PS (TTM)</td><td>29.77</td><td>20.64</td><td>24.97</td><td>10.53</td><td>19.04</td></tr><tr><td>营收 TTM</td><td>$431.8M</td><td>$616.9M</td><td>$41.31B</td><td>$1.43B</td><td>$302.97B</td></tr><tr><td>净利润 TTM</td><td>-$136.7M</td><td>-$75.1M</td><td>+$6.43B</td><td>-$254.4M</td><td>+$192.88B</td></tr><tr><td>毛利率</td><td>52.0%</td><td>70.1%</td><td>55.7%</td><td>64.0%</td><td>74.7%</td></tr><tr><td>净现金</td><td>+$58.3M</td><td>+$473.2M</td><td>+$8.84B</td><td>-$628M（净债务）</td><td>+$23.61B</td></tr><tr><td>做空率</td><td>19.94%</td><td>12.81%</td><td>2.45%</td><td>15.55%</td><td>1.22%</td></tr><tr><td>分析师评级</td><td>Buy（13家）</td><td>Buy（19家）</td><td>Strong Buy（55家）</td><td>Buy（20家）</td><td>Strong Buy（61家）</td></tr><tr><td>平均目标价 vs 现价</td><td>$125.17（-38.9%）</td><td>$58.80（-39.8%）</td><td>$619.51（-1.9%）</td><td>$68.56（-17.9%）</td><td>$327.70（+37.2%）</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>CRWV</th><th>PLTR</th><th>XYZ</th><th>META</th><th>AMZN</th></tr></thead><tbody><tr><td>现价 (USD)</td><td>87.39</td><td>189.40</td><td>76.23</td><td>741.90</td><td>251.40</td></tr><tr><td>市值</td><td>$48.20B</td><td>$455.14B</td><td>$46.08B</td><td>$1.89T</td><td>$2.71T</td></tr><tr><td>PE (TTM)</td><td>n/a（亏损）</td><td>161.99</td><td>129.58</td><td>27.96</td><td>20.22</td></tr><tr><td>Forward PE</td><td>n/a</td><td>99.86</td><td>16.70</td><td>23.07</td><td>26.80</td></tr><tr><td>PS (TTM)</td><td>6.35</td><td>73.93</td><td>1.84</td><td>8.28</td><td>3.50</td></tr><tr><td>营收 TTM</td><td>$7.59B</td><td>$6.16B</td><td>$25.04B</td><td>$228.25B</td><td>$775.68B</td></tr><tr><td>净利润 TTM</td><td>-$1.93B</td><td>+$3.02B</td><td>+$357.1M</td><td>+$68.10B</td><td>+$135.28B</td></tr><tr><td>毛利率</td><td>67.4%</td><td>84.8%</td><td>46.6%</td><td>81.8%</td><td>50.8%</td></tr><tr><td>净现金</td><td>-$46.03B（净债务）</td><td>+$9.20B</td><td>-$433M（净债务）</td><td>-$22.06B（净债务）</td><td>-$128.65B（净债务）</td></tr><tr><td>做空率</td><td>9.96%</td><td>2.50%</td><td>2.22%</td><td>1.22%</td><td>0.76%</td></tr><tr><td>分析师评级</td><td>Buy（41家）</td><td>Buy（31家）</td><td>Buy（47家）</td><td>Strong Buy（62家）</td><td>Strong Buy（59家）</td></tr><tr><td>平均目标价 vs 现价</td><td>$141.58（+62.0%）</td><td>$195.57（+3.3%）</td><td>$98.36（+29.0%）</td><td>$793.91（+7.0%）</td><td>$330.59（+31.5%）</td></tr></tbody></table></div>
+<p><strong>估值层面五个关键观察：</strong></p>
+<ol><li><strong>TWST/TXG 是“涨出来的权重”</strong>：年初合计权重不到 1.6%，现在 7.8%——ARKK 今年一半以上的涨幅是这两家测序工具公司给的，但这是事后权重，年初前瞻视角下是“小仓位博到大 beta”。</li><li><strong>CRWV 是负债最高的 neocloud</strong>：$51.6B 债务对 $5.5B 现金，净债务 -$46B，EV（$94.2B）几乎是市值的两倍——典型的“借钱买 GPU”模式，分析师目标价还有 +62% 空间，赌的是收入兑现。</li><li><strong>XYZ（Block）是最便宜的金融科技</strong>：PS 仅 1.84 倍、Forward PE 16.7 倍、自由现金流收益率 8.42%，47 家分析师给 Buy、目标价 +29%——市场在等它的利润释放。</li><li><strong>NVDA 是巨头里估值最“便宜”的</strong>：$5.77T 市值、Forward PE 19.75、PEG 0.40，61 家分析师 Strong Buy、目标价 +37%——“卖铲子”的确定性溢价还没打满。</li><li><strong>TEM 和 CRWV 是基本面最脆弱的两家</strong>：TEM 净债务且仍在亏损、做空率 15.55%；CRWV 净债务 $46B、Altman Z-score 仅 0.29——涨幅都靠叙事和订单，不是利润。</li></ol>
+<h3>四、公司深研</h3>
+<p><em>TWST、TXG 的完整深研见第二部分第二、三节（两只基金共用，不重复）。以下为其余八家。</em></p>
+<h4>1. AMD｜超威半导体（AI 加速器第二极）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2025-10-06：OpenAI 6GW 历史性大单</strong>——OpenAI 承诺部署 6 吉瓦 AMD Instinct GPU（首批 1GW MI450 于 2026H2 上线），AMD 向 OpenAI 发行最多 1.6 亿股认股权证（行权价 $0.01）；AMD 预计该合作年收入达数百亿美元、四年涟漪效应超 $1,000 亿。官宣当日股价 +37%（SEC 8-K、Reuters）。</li><li><strong>2026-02-24：Meta 追加 up to 6GW 定制 MI450 订单</strong>——部署于 Helios 机架系统，同样附带最多 1.6 亿股的业绩型认股权证；Meta 2026 年 AI 基建 capex 高达 $115–135B。</li><li><strong>2026-07 Advancing AI 2026 大会</strong>：发布 Helios 机架级 AI 基础设施（72× MI455X + 18× 第六代 EPYC “Venice” CPU）、MI400 系列 GPU；官方称 Helios 推理 tokens/美元比竞品高 30%，MI455X token 吞吐量是 MI355X 的 34 倍。</li><li><strong>2026-09-28：$82 亿全股票收购 World Labs</strong>——李飞飞创立的空间智能/世界模型实验室；李飞飞本人加入 AMD 任执行副总裁兼首席科学家，直接向苏姿丰汇报。AMD 把“世界模型”定为 MI400/MI500 世代的路线图级负载。</li><li><strong>算力实测首胜</strong>：MLPerf Inference 6.1 中 MI355X 离线推理达 NVIDIA B300 的 118%——AMD 首次在公开基准上正面击败英伟达旗舰芯片。</li><li><strong>2026-08：与 Core Scientific 合作</strong>——获得最高 2.5GW 的 AI 就绪数据中心容量（2027 年起先交付 500MW+），把芯片+机架+电力打包成可交付方案。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>Anthropic 深度绑定（2026-07）</strong>：Anthropic 计划在 Helios 机架中部署最高 2GW 的 MI455X，并用 Claude 优化 Instinct GPU 工作负载、加速 ROCm 软件开发——AI 实验室反哺芯片软件栈的罕见案例。</li><li><strong>MI400 系列规格</strong>：432GB HBM4、近 20TB/s 带宽，主打推理市场；MI350P 号称 tokens/秒/美元是竞品 4.2 倍。</li><li><strong>AMD 给出的 TAM</strong>：AI 推动全系硅片需求，2030 年可触达市场约 $2 万亿。</li><li>⚠️ OpenAI/Meta 的 6GW 均为多年期承诺，2026H2 才开始交付第一批，收入兑现节奏是关键观察点。</li></ul>
+<h4>2. TEM｜Tempus AI（AI 精准肿瘤平台，首次 GAAP 盈利）</h4>
+<p><em>🧬 同时是 ARKG 第 3 大持仓（8.40%）</em></p>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2026-07-20：$16.25/股收购 Personalis</strong>（~$15 亿企业价值，100% 换股、最多 50% 现金），把超灵敏 NeXT Personal MRD 技术并入 Tempus 诊断平台；预计 2026 年底或 2027 年初完成（SEC Form 425）。</li><li><strong>2026-07-30 Q2 财报：首次实现 GAAP 盈利</strong>——营收 $3.825 亿（+22%），GAAP 净利润 +$560 万（去年同期 -$4,280 万），调整后 EBITDA +$800 万；上调 2026 全年指引至 ~$16 亿。</li><li><strong>FDA 里程碑</strong>：xT CDx 肿瘤单检 assay 获 FDA 批准，成为首家同时拥有肿瘤单检和肿瘤-正常配对全面基因组检测 CDx 批准的实验室。</li><li><strong>大药企订单爆发</strong>：Q2 与 BioNTech、第一三共、Incyte 等签大单，单季总 bookings 约 $2 亿；向阿斯利康交付首版基础模型（foundation model）。</li><li><strong>2026-08-20/21：Moderna 癌症疫苗 INTerpath-001 III 期成功</strong>——TEM 一周暴涨 40%、市值增加 $37 亿（超收购 Personalis 金额的两倍）；Piper Sandler 上调至 Overweight、目标价 $76。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>商业模式本身就是“AI + 数据”</strong>：诊断收入（Q2 $2.893 亿，+20%）+ 数据授权/应用收入（Q2 $9,320 万，+28%），后者是纯 AI 数据变现。</li><li><strong>Tempus Preview 上线</strong>：组织样本送达后约 24 小时内给出高价值生物标志物初步结果。</li><li><strong>数字病理 IMS 开源联盟</strong>：联合耶鲁纽黑文医院、MSK 斯隆-凯特琳癌症中心，推动数字病理标准化——为 AI 病理模型积累多中心数据。</li><li><strong>USC Keck 医学院战略合作</strong>：把 Tempus AI 平台、分子诊断、临床试验匹配接入其每年 150 万+患者就诊量。</li></ul>
+<h4>3. NVDA｜英伟达（AI 算力绝对龙头，$5.77T 市值）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2026-03 GTC 2026（圣何塞）</strong>：发布 Vera Rubin 架构（Vera CPU + HBM4，为“智能体 AI”设计，2027 年量产）与 Blackwell Ultra（B300）。</li><li><strong>2026-02-17：Meta 多年期战略合作</strong>——部署数百万颗英伟达芯片（Grace CPU 首次作为独立芯片大规模部署 + Blackwell + Vera Rubin），对应 Meta 当年最高 $1,350 亿 AI capex。</li><li><strong>2026-09-28 非交易路演披露</strong>：Anthropic 已签约 $1,800 亿基础设施价值，其中 2.5GW 为英伟达专属产能（2028 年前交付）；英伟达每 GW 收入机会：Hopper 时代 ~$180 亿 → Grace Blackwell ~$250 亿 → Vera Rubin ~$400 亿。</li><li><strong>2026-10-05：AM Intelligence 加单</strong>——再订 20,000 颗 Rubin GPU（累计 ~29,000 颗、近 100MW，印度+马来西亚），未来 15 个月还计划 300MW、capex 超 $200 亿（Morningstar）。</li><li><strong>2026-06 Computex</strong>：展示 Vera CPU 计算托盘，Rubin 平台进入客户验证阶段。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>主权 AI</strong>：印度/马来西亚的 AMI 订单是“主权 AI 工厂”叙事的最新大单；此前中东主权基金亦有大额采购。</li><li><strong>自动驾驶/物理 AI</strong>：与 Uber、比亚迪等合作自动驾驶方案，黄仁勋把 Omniverse/Isaac 定位为“LLM 之后的下一站：物理 AI 与机器人”。</li><li><strong>软件护城河</strong>：NVIDIA AI Enterprise 被描述为“AI 的操作系统”，经常性收入加深生态锁定。</li><li>⚠️ 2026 年 NVDA 涨幅（~+24% YTD）明显跑输 AMD（~+184%），市场定价已极度充分，边际催化更多来自“需求是否超预期”而非产品发布。</li></ul>
+<h4>4. CRWV｜CoreWeave（Neocloud GPU 云，借钱买卡第一股）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2025-03-28 IPO</strong>：以 $40/股登陆纳斯达克（估值 $230 亿），首日 +45%；2025 年中在 Blackwell 架构需求推动下冲上历史高点 $187，年底因 AI 变现担忧回落至 ~$65（FinancialContent）。</li><li><strong>2026-04-09：与 Meta 签署 $21B 扩容协议</strong>——通过 2032 年 12 月提供 AI 云算力（此前已有 $14B 协议），部分为英伟达 Vera Rubin 平台的首批部署；这是 CoreWeave 上市以来最大单笔合同（公司官方新闻稿、SEC 8-K）。</li><li><strong>2026-04-10：与 Anthropic 签署数十亿美元多年期协议</strong>（估计 $4–7B），用于 Claude 训练与推理——对冲了微软收入集中的结构性风险。</li><li><strong>2026-09-17：宣布 $3B 可转债（2033 年到期）+ 3,500 万股 ATM 增发计划</strong>，潜在募资合计 ~$64 亿；消息当日股价 -7%。这是年内第二次大额可转债（4 月已发 $4B）。模式：强需求、薄现金流、持续融资。</li><li><strong>2026-09-16：Q3 短期算力合同涨价至 ~$40M/MW（年化）</strong>——3–6 个月短约价格继续上行；Q3 初新增净客户承诺超 $250 亿；总签约电力从 6 月底 3.7GW 增至 8 月 11 日 4.2GW；Q2 营收 $25.75 亿（同比翻倍+），但净亏损扩大至 $6.26 亿。</li><li>2025 全年营收 $51.3 亿（+168%），2026 年指引超 $120 亿；调整后 EBITDA margin ~60%，但靠 GPU 抵押的资产支持型债务超 $210 亿。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>Meta $21B 协议本质是“AI 算力外包”</strong>：Meta 用 CoreWeave 跑 Llama 5 训练与 Meta AI 推理，标志超算巨头从纯自建转向“自建+租赁”（Bernstein 称其为更资本高效的路径）。</li><li><strong>2026-09-23：与 Harell Data 签署多年期协议</strong>——在其云上跑生物 AI 训练/微调/推理，客户从 AI lab 向生物科技扩展。</li><li><strong>供应链纵深</strong>：与 SK 海力士旗下 Solidigm 签署多年期企业级 SSD 优先供应协议，应对“存储成为算力规划瓶颈”。</li><li>⚠️ 2026-03 曾主动放弃与 Poolside AI 的 2GW 德州项目（对方融资失败），显示出一定的资本纪律；但高杠杆 + 持续融资仍是核心风险。</li></ul>
+<h4>5. PLTR｜Palantir（AI 决策平台，政府+商业双引擎）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2026-08 Q2 财报：营收 $19.35 亿（+93% YoY）</strong>——美国收入 +115% 至 $15.73 亿，其中美国商业 +149% 至 $7.64 亿、美国政府 +90% 至 $8.09 亿；单季签下 220 个百万美元以上订单（含 73 个千万美元级）；总合同价值 $33.7 亿（+49%）。</li><li><strong>利润率惊人</strong>：GAAP 营业利润 $9.12 亿（47% 利润率），调整后自由现金流 $12.2 亿（63% 利润率）。</li><li><strong>上调全年指引</strong>：2026 年营收 ~$81.5 亿（+82% YoY），美国商业收入超 $34.24 亿（+134%）。</li><li><strong>美国陆军大单</strong>：NGC2 现代化项目选中 Palantir Foundry 为核心云数据层——<strong>10 年 $100 亿企业协议</strong>；TITAN 战术情报系统进入量产（$1.27 亿首批 8 套）；2026-09-17 再获 $4,810 万弹药管理系统订单。</li><li><strong>2026 Q1：美国农业部 $3 亿协议</strong>；北约将其用于情报规划；五角大楼“AI 军火库”倡议在 2027 财年预算申请近 $300 亿 AI 超算现代化经费，Palantir 是其上的软件层。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>AIP（人工智能平台）是增长引擎</strong>：美国商业客户数超 650 家（同比 +35%），AIP Bootcamp（现场实战营）把“几天/几周签约”变成标准打法；公司把 AIP 定位为“在组织内部署 AI 的平台”而非数据分析工具。</li><li><strong>主权 AI 合作</strong>：与 Nebius 的主权 AI 合作、扩大与富士通的联盟。</li><li>⚠️ 估值争议：BofA 给出华尔街最高目标价 $255（隐含 +48% 上行），逻辑是 Ontology 架构+按结果定价；但 PE ~162 倍、PS ~74 倍，几乎不容忍任何增速放缓。</li></ul>
+<h4>6. XYZ｜Block（原 Square，金融科技价值洼地）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2025-01-21：代码由 SQ 改为 XYZ</strong>（纽交所），呼应 2021 年更名 Block（公司 IR 公告）。</li><li><strong>2026-02：一次性裁员 40%</strong>——员工从 10,000 减至不足 6,000，CFO 称“AI 驱动的岗位削减不可避免”；随后在成本节约锁定后又回聘部分人员。Q1 2026 毛利润 $29.1 亿（+27% YoY），调整后 EPS 超预期 25%，股价 +7%。</li><li><strong>2026-08 Q2 财报超预期</strong>：营收 $66.2 亿（+9%），毛利润 $31.7 亿（+25%）；Cash App 毛利润 $19.7 亿（+31%，月活 5,900 万）；Square 毛利润 $11.6 亿（+13%，GPV $728 亿）；调整后 EPS $1.02（+65%）；<strong>上调全年毛利润指引至 $125.1 亿</strong>。</li><li><strong>2026-09：向 OCC 提交全国信托银行（Builders Bank &amp; Trust）申请</strong>——做比特币与稳定币的托管/信托业务，拿下单一联邦牌照可大幅降低托管成本与合规复杂度。</li><li><strong>2026-10-01：启动首个比特币大众营销战役</strong>——目标约 6,000 万“比特币好奇”美国人；Cash App 同期推出“Bitcoin Bonus”（持币每周奖励、年化最高 2% BTC，无锁仓）。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li>Block 的 AI 叙事不在产品端，而在<strong>成本端</strong>：40% 裁员 + 毛利润 +25~27% 增长 = “AI 驱动的经营杠杆”，这才是“54% 盈利增长 @ 18.5x 前瞻 PE”的真正逻辑。</li><li>比特币生态：Cash App 比特币收入 Q2 达 $18–19 亿；Square 商户比特币支付 2025-11-10 起向数百万商户推广；公司财库持有 8,883 BTC（截至 2026 年初）。</li><li>⚠️ AI 与 Block 主业的结合点较弱——它更多是“用 AI 降本 + 用比特币做差异化”的故事，不宜硬归入 AI 主线。</li></ul>
+<h4>7. META｜Meta（AI 基建最大买家之一）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2025 年夏：组建 Meta Superintelligence Labs（MSL）</strong>，挖来 Scale AI 联创 Alexandr Wang 任首席 AI 官；从 OpenAI/Anthropic/Google 挖走 50+ 研究员（VentureBeat）。</li><li><strong>2026-04-08：发布 Muse Spark</strong>——MSL 首个旗舰模型，号称“Meta 发布过的最强模型”，10x 于 Llama 4 Maverick 的算力效率，主打多模态 + 智能体编排 + 工具使用；Llama 品牌逐步让位给 “Muse” 系列。</li><li><strong>2026 年 Q2：营收 $608 亿（+28%）</strong>，广告 $593.6 亿；但 capex 单季 $310.8 亿，总费用 $420.3 亿（+55%），净利润仅 -15%；Reality Labs 单季再亏 $46.2 亿。</li><li><strong>2026-09：推出 AI 订阅制业务</strong>——为广告之外的第二收入曲线探路。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>2026 年 capex 指引上调至 $130–145B</strong>（年初为 $115–130B），约两倍于 2025 年；另有约 $300 亿表外 AI 租赁承诺（SPV 结构）。</li><li><strong>2026-10-01：与 Nebius 签署 $27B 五年期算力协议</strong>（其中 $12B 指定用于英伟达 Vera Rubin GPU，首批 40,000+ 颗）——超算巨头罕见的大规模“租算力”，从纯自建转向“自建+租赁”。</li><li><strong>2026-04：向 CoreWeave 追加 $21B 算力订单</strong>（至 2032 年），跑 Llama 5 训练与 Meta AI 推理。</li><li><strong>自研芯片</strong>：MTIA 300（1.2 PFLOPS）+ 第二代 MTIA（2026-03 tape-out，约快 8 倍），目标逐步替代英伟达 GPU 做推荐/排序推理。</li></ul>
+<h4>8. AMZN｜亚马逊（AWS 重加速 + Anthropic 深度绑定）</h4>
+<p><strong>业务重大突破</strong></p>
+<ul><li><strong>2026 年 Q2：史上首个 $2,000 亿单季</strong>——净销售额 $2,006 亿（+19.6% YoY），营业利润 $275 亿（+43%）；<strong>AWS 重加速至 +37%（$422 亿）</strong>，广告 +26% 至 $198 亿。</li><li><strong>利润含 Anthropic 估值收益</strong>：Q2 非经营性收益 $534 亿（主要来自 Anthropic 融资轮次的估值提升），推高净利至 $626 亿——盈利质量打折，可逆转。</li><li><strong>2026 年 capex 指引 ~$2,200 亿</strong>，TTM 自由现金流已转负 -$76 亿；股价较 8 月高点回落 ~13%。</li></ul>
+<p><strong>AI 相关新闻与突破</strong></p>
+<ul><li><strong>2026-04-20：与 Anthropic 扩大战略合作</strong>——Anthropic 承诺 10 年超 $1,000 亿 AWS 支出（后细化：2026-05 至 2036-04 约 $1,100 亿，最低消费、照付不议），锁定最高 5GW Trainium 算力；这是单个私有云计算承诺的历史最大之一。</li><li><strong>Amazon 的 Anthropic 总投入约 $330 亿</strong>（最初 $80 亿 + 2026-04 $250 亿）；Anthropic IPO（传闻 2026-10、估值 ~$2 万亿）若成行，Amazon 所持股份价值或达 <strong>$4,000 亿</strong>——史上最大单一公司股权投资回报。</li><li><strong>Trainium 自研芯片</strong>：Anthropic 主力训练云 + 5GW Trainium 容量，是 AWS 对抗英伟达依赖的核心抓手；但 Anthropic + OpenAI 将占 Amazon 2026–2027 年 AI 收入的 73%——集中度风险。</li><li>⚠️ 风险面：AWS 巴林 region 据报因无人机袭击“不可恢复”；FTC + 22 州起诉其广告竞价隐藏附加费。</li></ul>
+<h3>五、ARKK 小结</h3>
+<div class="table-wrap"><table><thead><tr><th>驱动类型</th><th>公司</th><th>关键事件</th></tr></thead><tbody><tr><td><strong>AI 叙事点火</strong></td><td>TWST、TXG</td><td>Anthropic 点名验证（8/18）；Atera 发货 + Anthropic MCP 接入</td></tr><tr><td><strong>AI 算力军备竞赛</strong></td><td>AMD、NVDA、CRWV、META、AMZN</td><td>OpenAI 6GW + Meta 6GW 大单（AMD）；Vera Rubin + 主权 AI 订单（NVDA）；Meta $21B 算力外包（CRWV）；$130–145B capex（META）；Anthropic $1,100 亿 AWS 承诺（AMZN）</td></tr><tr><td><strong>并购/收购定价</strong></td><td>TEM</td><td>Tempus $16.25/股收购 Personalis</td></tr><tr><td><strong>业绩兑现</strong></td><td>PLTR、XYZ</td><td>PLTR Q2 +93%、63% FCF margin；Block 裁员 40% 后毛利润 +25%、上调全年指引</td></tr></tbody></table></div>
+<ul><li><strong>ARKK 今年 = 两家基因股 + AMD 三核带队</strong>：TWST（+12.25pp）+ TXG（+9.97pp）+ AMD（+2.81pp）合计贡献超过 +25pp，超过基金全年涨幅（+16.8%）——涨幅全靠这三家，剩下的都是拖累。</li><li><strong>第一重仓反而是最大拖累</strong>：TSLA（9.39%）-15.4%（-1.72pp）、CBRS -46.5%（-1.67pp）、COIN -22.6%（-1.21pp），三大拖油瓶合计 -4.6pp。</li><li><strong>木头姐的“暗仓”</strong>：SPCX（SpaceX 私人份额，6.45% 为第二大持仓）+ OPENAI GROUP PBC SERIES C（1.91%）——ARKK 里藏着 SpaceX 和 OpenAI 的未上市敞口，这是公募 ETF 里极罕见的结构。</li><li><strong>风险提示</strong>：TWST/TXG 的 RSI 均超 75（超买区）、分析师目标价比现价低约 40%；TEM、CRWV 基本面最弱（净债务+亏损）；TSLA 作为第一重仓持续拖累。</li></ul>
+    </section>
+
+<section class="section" id="part-4">
+      <div class="section-label">06 · Cross View</div>
+      <h2>第四部分：交叉视角 —— 当两只旗舰重仓同一批股票</h2>
+      <h3>一、ARKK × ARKG 重叠持仓全表（前 25 大，2026-10-05）</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>ARKK 权重（排名）</th><th>ARKG 权重（排名）</th><th>双基金合计敞口</th></tr></thead><tbody><tr><td>TXG</td><td>3.57%（第 9）</td><td>10.38%（第 1）</td><td><strong>13.95%</strong></td></tr><tr><td>TWST</td><td>4.23%（第 7）</td><td>10.12%（第 2）</td><td><strong>14.35%</strong></td></tr><tr><td>TEM</td><td>5.47%（第 3）</td><td>8.40%（第 3）</td><td><strong>13.87%</strong></td></tr><tr><td>CRSP</td><td>4.42%（第 5）</td><td>5.28%（第 4）</td><td>9.70%</td></tr><tr><td>BEAM</td><td>2.25%（第 16）</td><td>2.95%（第 13）</td><td>5.20%</td></tr><tr><td>NTLA</td><td>1.47%（第 24）</td><td>1.63%（第 23）</td><td>3.10%</td></tr></tbody></table></div>
+<p><strong>核心警示</strong>：同时持有 ARKK 和 ARKG，TWST/TXG/TEM 三家的实际敞口接近 <strong>14% 的双倍下注</strong>——看起来是两只基金在分散，实际是在同一批基因测序工具股上加杠杆。今年这三家涨了 5 倍，是蜜糖；哪天基因板块回调，就是双倍砒霜。</p>
+<h3>二、2026 年 ARK 全系涨幅的驱动力总谱</h3>
+<div class="table-wrap"><table><thead><tr><th>驱动类型</th><th>代表公司</th><th>关键事件</th></tr></thead><tbody><tr><td><strong>AI 叙事点火</strong></td><td>TWST、TXG、ABSI</td><td>Anthropic 点名验证（8/18）；Atera 发货；Lilly $40M 入股 Absci</td></tr><tr><td><strong>AI 算力军备竞赛</strong></td><td>AMD、NVDA、CRWV、META、AMZN</td><td>OpenAI/Meta 各 6GW 大单（AMD）；Vera Rubin（NVDA）；$21B 算力外包（CRWV）；$130–145B capex（META）；Anthropic $1,100 亿 AWS 承诺（AMZN）</td></tr><tr><td><strong>报销政策落地</strong></td><td>CDNA、PSNL</td><td>Medicare 移植 LCD（7/16，当日+35%）；NeXT Personal 三连覆盖</td></tr><tr><td><strong>并购定价</strong></td><td>PSNL、TEM、ROKU*</td><td>Tempus $16.25 收 Personalis；Fox $160 收 Roku（*ROKU 已被 ARKK 换出）</td></tr><tr><td><strong>业绩兑现</strong></td><td>PLTR、XYZ</td><td>PLTR Q2 +93%、63% FCF margin；Block 裁员 40% 后毛利润 +25%</td></tr></tbody></table></div>
+<p>一句话：<strong>2026 年的 ARK 就是“AI 算力 + 基因工具 + 报销/并购”三件事</strong>，其他主题（金融科技、3D 打印、太空防务）都是陪跑。</p>
+<h3>三、四个值得长期跟踪的点</h3>
+<ol><li><strong>TWST/TXG 的权重膨胀不可持续</strong>：两家年初在 ARKK 合计不到 1.6%，现在 7.8%；在 ARKG 更是合计超 20%。木头姐会否获利了结、还是继续加注，是下半年最大的持仓悬念。</li><li><strong>AMD 的 6GW 订单兑现节奏</strong>：OpenAI/Meta 的大单 2026H2 才开始交付第一批，收入确认节奏决定 AMD 能否撑住 $1T 市值。</li><li><strong>Anthropic IPO（传闻 2026-10，估值 ~$2 万亿）</strong>：若成行，AMZN 手中股权价值或达 $4,000 亿，ARKK 手中的 OpenAI C 轮份额也会重估——这是藏在“暗仓”里的期权。</li><li><strong>TSLA 的拖累何时结束</strong>：作为 ARKK 第一重仓（9.39%）今年 -15.4%，是基金涨幅的最大压舱石；特斯拉的机器人/AI 叙事能否接力，决定 ARKK 明年是 16% 还是 60%。</li></ol>
+<h3>四、风险提示（全文通用）</h3>
+<ul><li>本文件所有“估算贡献”均基于公开持仓权重与复权收盘价计算，期初权重为倒推估算，量级供参考、排名可靠。</li><li>TWST/TXG/ABSI/PSNL 等基因股 Beta 全部超过 2，TWST/TXG 的 RSI 已进入超买区（&gt;75），分析师平均目标价大幅低于现价——涨幅已有相当部分被“预期”提前透支。</li><li>TEM、CRWV 基本面最弱（净债务 + 持续亏损），涨幅靠叙事和订单，不是利润。</li><li>ARKK 前十大持仓与前十大功臣严重错位：权重最大的 TSLA、COIN 反而是最大拖累——“信仰仓”与“赚钱仓”不是同一批。</li><li>本文件为研究梳理，不构成投资建议。</li></ul>
+<p><em>Kerwin Research Hub 出品 ｜ 三份原始文件（ark-all-etfs-performance-20261006.md、arkg-top5-contributors-20261006.md、arkk-top5-contributors-20261006.md）已整合至此，不再单独维护。</em></p>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">07 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source">
+        <a href="https://stockanalysis.com/" target="_blank" rel="noopener">StockAnalysis</a>
+        <span>源稿明确注明：持仓权重与估值来源为 stockanalysis.com；收益率按复权收盘价口径，数据截至 2026-10-05 美股收盘。</span>
+      </div>
+      <div class="source">
+        <span>正文保留源稿中的 SEC 8-K、Reuters、公司新闻稿、PR Newswire、Morningstar 等来源标记。本次任务是按用户提供的整合研究稿发布，不对源稿之外的每一条原始链接进行补写或替换。</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/frontier-model-economics-1-0-20260901/">Frontier Model Economics 1.0</a> — 从模型财报与数字劳动力继续检验 AI 叙事最终如何转化为经济价值。</p>
+      <p><a href="/ai-capital-cycle-1gw-unified-ledger-20260903/">1GW AI Capital Cycle 统一总账本</a> — 把 AMD、NVIDIA、CoreWeave 等算力链条重新放回 Power → Compute → Cash → ROIC 的资本循环。</p>
+      <p><a href="/from-token-to-work-enterprise-agent-economics-20260919/">From Token to Work｜AI 企业经济转化框架</a> — 继续追踪 AI 基础设施需求最终能否由可计量工作与企业现金流承接。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-10-06 15:37 HKT</span>
+        <span>Updated 2026-10-06 15:37 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var gate = document.getElementById("editorial-gate");
+      var accessKey = document.getElementById("access-key");
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      function reveal() {
+        body.classList.remove("kw-gate-pending");
+        gate.hidden = true;
+        window.scrollTo(0, 0);
+      }
+
+      accessKey.addEventListener("input", function () {
+        if (accessKey.value.trim().toLowerCase() === "k") {
+          reveal();
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+
+      if (window.matchMedia("(min-width: 761px)").matches) {
+        accessKey.focus();
+      }
+    }());
+  </script>
+</body>
+</html>
