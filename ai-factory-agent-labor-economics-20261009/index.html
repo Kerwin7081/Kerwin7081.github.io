@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="AI Factory生产函数系列⑦：截至2026年10月9日，复核APEX-Agents 1.1、APEX-Accounting、METR与客服因果实验，计算Token到Verified Tasks、Machine Labor Hours、Net Human Hours Saved和经济价值的转换边界。">
+  <link rel="canonical" href="https://enyaclawd.com/ai-factory-agent-labor-economics-20261009/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Factory生产函数系列⑦｜一百万Token值多少机器劳动？">
+<meta property="og:description" content="AI Factory生产函数系列⑦：每百万Token创造多少合格专业工作？基于Mercor APEX-Agents 1.1、METR与企业实证，测算真实节省人类工时及经济价值。">
+<meta property="og:site_name" content="Kerwin Research Hub · EnyaClawd">
+<meta property="og:image" content="https://enyaclawd.com/assets/kerwin-home-og-v5.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<title>AI Factory生产函数系列⑦｜一百万Token值多少机器劳动？｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    body.kw-gate-pending { overflow:hidden; }
+    .kw-gate-pending > :not(.kw-editorial-gate):not(script):not(noscript) {
+      visibility:hidden;
+    }
+    .kw-editorial-gate {
+      position:fixed;
+      inset:0;
+      z-index:990;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      background:var(--green);
+    }
+    .kw-editorial-gate[hidden] { display:none; }
+    .kw-editorial-gate__paper {
+      width:min(860px,100%);
+      border-top:6px solid var(--ink);
+      background:var(--surface);
+      color:var(--ink);
+      box-shadow:0 24px 70px rgba(0,0,0,.22);
+    }
+    .kw-editorial-gate__masthead {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:13px 22px;
+      border-bottom:1px solid var(--line-dark);
+      color:var(--green);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__body {
+      display:grid;
+      grid-template-columns:164px minmax(0,1fr);
+      gap:clamp(32px,7vw,72px);
+      align-items:center;
+      min-height:370px;
+      padding:clamp(36px,6vw,66px);
+    }
+    .kw-editorial-gate__seal {
+      display:grid;
+      place-items:center;
+      width:148px;
+      aspect-ratio:1;
+      border:1px solid var(--green);
+      border-radius:50%;
+      color:var(--green);
+      text-align:center;
+      font:700 20px/1.15 var(--serif);
+    }
+    .kw-editorial-gate__kicker,
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__title {
+      margin:10px 0 0;
+      color:var(--green);
+      font:700 clamp(29px,4vw,42px)/1.08 var(--serif);
+    }
+    .kw-editorial-gate__copy {
+      margin:14px 0 18px;
+      color:var(--green);
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(18px,2.4vw,23px);
+      line-height:1.28;
+    }
+    .kw-editorial-gate__copy strong { font:inherit; }
+    .kw-editorial-gate__copy span {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-family:var(--sans);
+      font-size:13px;
+      font-weight:400;
+      line-height:1.55;
+    }
+    .kw-editorial-gate__field {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:50px;
+      border-bottom:1px solid var(--green);
+    }
+    .kw-editorial-gate__field input {
+      min-width:0;
+      height:48px;
+      border:0;
+      padding:0 4px;
+      background:transparent;
+      color:var(--green);
+      font:700 24px/1 var(--serif);
+    }
+    .kw-editorial-gate__field input:focus { outline:0; }
+    .kw-editorial-gate__field span {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .kw-editorial-gate__foot {
+      padding:12px 22px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+      .kw-editorial-gate__body {
+        grid-template-columns:1fr;
+        gap:28px;
+        min-height:0;
+        padding:32px 22px;
+      }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .kw-editorial-gate {
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+        padding:max(16px,env(safe-area-inset-top)) 12px max(16px,env(safe-area-inset-bottom));
+        overflow:auto;
+      }
+      .kw-editorial-gate__paper {
+        width:min(100%,420px);
+        max-width:100%;
+        max-height:calc(100svh - 24px);
+        overflow:auto;
+        border-top-width:4px;
+      }
+      .kw-editorial-gate__masthead {
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+        align-items:center;
+        gap:12px;
+        padding:10px 16px;
+        font-size:9px;
+        line-height:1.45;
+        white-space:normal;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span {
+        min-width:0;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__masthead span:last-child { display:block; }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:16px;
+        align-items:start;
+        min-height:0;
+        padding:24px 18px 20px;
+      }
+      .kw-editorial-gate__body > * { min-width:0; }
+      .kw-editorial-gate__seal { width:72px; font-size:13px; line-height:1.15; }
+      .kw-editorial-gate__kicker { font-size:9px; letter-spacing:.12em; }
+      .kw-editorial-gate__title {
+        max-width:100%;
+        margin-top:7px;
+        font-size:clamp(23px,6.4vw,26px);
+        line-height:1.14;
+        letter-spacing:-.015em;
+        overflow-wrap:anywhere;
+      }
+      .kw-editorial-gate__copy {
+        margin:9px 0 12px;
+        font-size:clamp(17px,4.8vw,19px);
+        line-height:1.25;
+      }
+      .kw-editorial-gate__copy span {
+        margin-top:4px;
+        font-size:13px;
+        line-height:1.5;
+      }
+      .kw-editorial-gate__field { min-height:44px; gap:0; }
+      .kw-editorial-gate__field input { width:100%; height:42px; padding:0; font-size:23px; }
+      .kw-editorial-gate__field span { display:none; }
+      .kw-editorial-gate__foot {
+        display:grid;
+        gap:4px;
+        padding:10px 16px;
+        font-size:10px;
+        line-height:1.5;
+        overflow-wrap:anywhere;
+      }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (max-width:390px) {
+      .kw-editorial-gate__masthead {
+        grid-template-columns:1fr;
+        gap:2px;
+      }
+      .kw-editorial-gate__body {
+        grid-template-columns:72px minmax(0,1fr);
+        gap:14px;
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .kw-editorial-gate,
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+    .agent-lab{border-top:2px solid #103f35;border-bottom:1px solid #968b83;padding:22px 0;margin:22px 0}.agent-lab__controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 30px}.agent-lab label{display:block;color:#103f35;font-weight:700;font-size:15px}.agent-lab label output{float:right;font-variant-numeric:tabular-nums}.agent-lab input[type=range]{width:100%;accent-color:#103f35;margin:12px 0 4px}.agent-lab__results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin-top:22px}.agent-lab__results div{background:#fff1e5;padding:18px 14px}.agent-lab__results b{display:block;font:700 25px/1.25 Georgia,serif;color:#103f35;font-variant-numeric:tabular-nums}.agent-lab__results span{display:block;font-size:12px;line-height:1.55;color:#746b65;margin-top:8px}.agent-lab__note{font-size:13px;color:#746b65;line-height:1.6;margin:12px 0 0}@media(max-width:760px){.agent-lab__controls{grid-template-columns:1fr;gap:15px}.agent-lab__results{grid-template-columns:1fr}.agent-lab__results div{padding:14px}.agent-lab label{font-size:14px}}
+  
+  </style>
+</head>
+<body class="kw-research kw-wide kw-gate-pending"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="ai-factory-agent-labor-economics-20261009">
+  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
+    <div class="kw-editorial-gate__paper">
+      <div class="kw-editorial-gate__masthead">
+        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
+        <span class="kw-editorial-gate__access">Reader Access</span>
+      </div>
+      <div class="kw-editorial-gate__body">
+        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
+        <div>
+          <div class="kw-editorial-gate__kicker">AI Factory生产函数系列⑦ · Agent Economy</div>
+          <!-- GATE_TITLE is the short reader-facing title; do not repeat CATEGORY or series metadata. -->
+          <h2 class="kw-editorial-gate__title" id="gate-title">一百万Token，值多少机器劳动？</h2>
+          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
+          <label class="kw-editorial-gate__field">
+            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
+            <span>Auto enter</span>
+          </label>
+        </div>
+      </div>
+      <div class="kw-editorial-gate__foot">
+        <span>Kerwin｜研究框架与投资判断</span>
+        <span>Enya｜自动化跟踪、核验、整理与排版执行</span>
+        <span>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</span>
+      </div>
+    </div>
+  </section>
+
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · Agent Economy</span>
+      <span>Evidence first · Snapshot 2026-10-09 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">AI Factory生产函数系列⑦ · Agent Economy</div>
+          <h1>
+            一百万 Token，值多少机器劳动？
+            <span>从 Agent 成功率到净人类工时与经济价值</span>
+          </h1>
+          <p class="thesis">Agent不是按运行时长创造价值，而是按经验证的工作成果创造价值。真正的投资问题是：每MWh可支持多少可交付任务、究竟释放多少人类劳动、最终能否转化为利润与资本回报。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026-10-09</span>
+            <span><b>数据快照</b> 2026-10-09 HKT</span>
+            <span><b>研究对象</b> 投行 · 法律 · 编程 · 客服 · 销售</span>
+            <span><b>证据边界</b> 基准 ≠ 企业ROI；实证 ≠ 演示情景</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>82.4%</strong>
+          <span>APEX-Agents 1.1<br>最新最高 Pass@1<br>Mercor 公开榜单</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>本文为2026年10月9日公开资料快照。Mercor基准的任务评分并不等于真实企业流程已自动交付；工资换算、Token/Attempt及审查时间一律标注为演示假设。所有货币以USD表示。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>机器劳动的单位不应该是Agent运行小时，而应该是被验收的工作成果</h2>
+      <p class="lead">同样100万Token，处理一个短客服咨询、检查复杂交易模型、或编写生产代码，产生的人类等价劳动和企业价值完全不同。衡量顺序必须是：先验收任务，再算净节省工时，最后核算增量利润。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>能力已显著提高</b><span>APEX-Agents 1.1最新领先配置Pass@1为82.4%，但仍是特定基准成绩，不是企业端自动化率。</span></div>
+        <div class="verdict-item"><b>成本差距可以被测量</b><span>会计对照实验中每评分项模型成本为$0.21、人类为$10.35；不可外推为岗位整体成本差距。</span></div>
+        <div class="verdict-item"><b>复杂闭环仍不可靠</b><span>APEX-Accounting的160项任务中，58%未被任何受测模型完整解出；稳定性是下一道闸。</span></div>
+        <div class="verdict-item"><b>价值捕获远未闭环</b><span>从节省时间到毛利、FCF和ROIC，还需验证监督成本、实际需求与增量资本。</span></div>
+      </div>
+    </section>
+
+    
+<section class="section" id="analysis">
+  <div class="section-label">02 · THE CONVERSION CHAIN</div>
+  <h2>从Token到价值，必须连过五道闸门</h2>
+  <p class="lead">工厂生产的是推理服务；任务执行系统生产的是可审阅工作；企业购买的是减少成本、缩短周期或新增收入。这三个市场的价格与价值，不能相互替代。</p>
+  <div class="table-wrap"><table><thead><tr><th>顺序</th><th>计量指标</th><th>真正回答什么问题</th></tr></thead><tbody>
+   <tr><td>01 · Compute</td><td>Serviceable Tokens/MWh @ SLA</td><td>在质量、延迟及设施电耗约束下，能持续交付多少有效Token？</td></tr>
+   <tr><td>02 · Agent</td><td>Attempts / 1M Tokens</td><td>含输入、输出、缓存、工具与失败重试，完成一次任务需要多少资源？</td></tr>
+   <tr><td>03 · Quality</td><td>Verified Tasks / Attempt</td><td>有多少产出通过独立验收，而不是只生成了看似正确的文字？</td></tr>
+   <tr><td>04 · Labor</td><td>Net Human Hours Saved</td><td>扣除审阅、失败回退和返工，企业实际减少多少人类工时？</td></tr>
+   <tr><td>05 · Finance</td><td>Net Operating Benefit / Invested Capital</td><td>扣除模型、工具、集成与运营成本后，有多少利润与现金流？</td></tr>
+  </tbody></table></div>
+  <div class="dark-panel"><h3>AI时代的核心生产函数</h3><p><strong>Economic Value / MWh = Tokens / MWh × Verified Tasks / Token × Net Value / Verified Task</strong></p><p>这是量纲分解框架，不是已经测出的固定常数。MW是功率，MWh是能量；对单位MW的年度价值需额外乘以有效运行小时。</p></div>
+</section>
+<section class="section" id="evidence">
+  <div class="section-label">03 · PRIMARY EVIDENCE</div>
+  <h2>三份新证据：能力进步是真的，但经济外推仍需克制</h2>
+  <h3>01 / Mercor APEX-Agents 1.1：专业任务成功率越来越可观测</h3>
+  <p>2026年9月8日，Mercor调整评估规则，精选投行、咨询、法律每类80项任务，合计<strong>240项、31个工作环境</strong>，并惩罚同时提交多个不相容答案的行为。旧版480任务的成绩与1.1新版不可直接比较。Pass@1是该评估框架下一次尝试成功率，不代表企业部署中的端到端无监督交付率。</p>
+  <div class="table-wrap"><table><thead><tr><th>配置</th><th>APEX-Agents 1.1 Pass@1</th><th>证据口径</th></tr></thead><tbody>
+   <tr><td>Gemini 4 Argon High</td><td><b>82.4% ±4.3%</b></td><td>Mercor公布；当前最高</td></tr>
+   <tr><td>Sonnet 5.5 Max</td><td>75.5% ±4.7%</td><td>同一新版基准</td></tr>
+   <tr><td>Opus 5.5 Max</td><td>73.5% ±4.9%</td><td>同一新版基准</td></tr>
+   <tr><td>Fable 5.1 Max</td><td>68.6% ±4.9%</td><td>9月8日发布时的领先模型</td></tr>
+  </tbody></table></div>
+  <p>上述不同模型的13.8个百分点分差不能被视作一个月的严格同比进步：模型、推理努力与评估时间并非控制变量。APEX-Agents作者特别提示，<strong>“偶尔做对”与“反复可靠地做对”</strong>是两个不同维度。</p>
+  <h3>02 / Mercor 会计实验：一次工作任务的经济比较开始可做</h3>
+  <div class="evidence-grid">
+    <div class="evidence"><strong>$0.21</strong><span>模型每完成一项评分标准的成本；Claude Opus 5，Mercor实验</span></div>
+    <div class="evidence"><strong>$10.35</strong><span>人类会计师对应的每完成一项评分标准成本；工资估算</span></div>
+    <div class="evidence"><strong>≈49×</strong><span>特定评分项成本差距；不能视作岗位替代率或整个公司的ROI</span></div>
+  </div>
+  <p>Mercor于10月1日公布对12名持证会计师、四类简化月末结账任务的对照。模型在这些精选任务上表现更快、更准确；但研究剔除了真实工作的客户沟通、同事协作和完整组织情境。<strong>成本差距的分母是“评分项达标”，不是“每名员工”或“整套关账流程”。</strong></p>
+  <h3>03 / APEX-Accounting：规模化部署受制于尾部错误</h3>
+  <p>Mercor和Ramp公布的会计基准覆盖<strong>160项任务、10个模拟公司工作环境</strong>。在其公布的评估集合里，<strong>58%任务从未在任何模型的任何运行中被完整解出</strong>。这一口径不同于Mean Score，强调企业工作流里的完整性与可靠性。</p>
+  <p><strong>综合解读：</strong>定义清晰的单任务边际成本可能快速下降，但跨应用、跨部门、带会计责任的完整流程尚不能以“最低API价格”进行估值。</p>
+</section>
+<section class="section" id="framework">
+ <div class="section-label">04 · MLH ACCOUNTING</div>
+ <h2>Machine Labor Hour 与净节省人类工时，不是一回事</h2>
+ <div class="table-wrap"><table><thead><tr><th>概念</th><th>定义</th><th>投资用途</th></tr></thead><tbody>
+  <tr><td>Agent Runtime</td><td>系统实际运行、等待工具和执行步骤的墙钟时间</td><td>吞吐、延迟、并发和占用</td></tr>
+  <tr><td>Gross MLH</td><td>通过验收的任务 × 相同任务的人类基准工时</td><td>机器完成工作量的参照标尺</td></tr>
+  <tr><td>Net Human Hours Saved</td><td>Gross MLH − 审阅 − 返工 − 异常与回退的额外人力</td><td>企业劳动成本节省的候选分子</td></tr>
+  <tr><td>Net Economic Benefit</td><td>可兑现的成本节省 + 新增贡献毛利 − 全部AI及集成成本</td><td>现金流与投资回报判断</td></tr>
+ </tbody></table></div>
+ <p>METR的Time Horizon是按<strong>人类专家完成某任务所需的时长</strong>给任务难度定标，不是Agent实际运行时长。其公开曲线最后更新于2026年9月8日、现已不再持续维护；更不能据此直接推出企业利润增长率。</p>
+ <div class="dark-panel"><h3>简化计算口径（用于大量同质任务的期望）</h3>
+  <p><b>Attempts = Token Budget ÷ Tokens / Attempt</b></p>
+  <p><b>Verified Tasks = Attempts × p(success)</b></p>
+  <p><b>Gross MLH = Verified Tasks × Human Baseline Hours</b></p>
+  <p><b>Net Saved Hours = Attempts × [p × Human Hours − Expected Human Review &amp; Rework Hours per Attempt]</b></p>
+  <p>若失败后必须由人类完整重做，则失败任务的人类基准工时不能算作节省；预算内Token消耗也必须包含失败尝试和重试。</p>
+ </div>
+</section>
+<section class="section" id="calculator">
+  <div class="section-label">05 · EXPERIMENTAL MODEL</div>
+  <h2>1M Token → Verified Tasks → Net Human Hours Saved</h2>
+  <p>拖动参数体验生产率如何随任务成功率、上下文消耗、人工审核和单位劳动成本变化。<strong>以下所有默认值均为演示假设，不是某一家公司的实测ROI。</strong>计算以100万总Token、全量归集输入/输出/工具与重试为边界。</p>
+
+  <div class="agent-lab" id="agent-lab">
+    <div class="agent-lab__controls">
+      <label>Token / Attempt <output id="out-token">1.00M</output><input id="lab-token" type="range" min="0.25" max="3" step="0.25" value="1" aria-label="每次尝试消耗百万Token"></label>
+      <label>Success Rate <output id="out-success">70%</output><input id="lab-success" type="range" min="20" max="100" step="1" value="70" aria-label="任务成功率百分比"></label>
+      <label>Human Hours / Task <output id="out-hours">2.00h</output><input id="lab-hours" type="range" min="0.5" max="8" step="0.25" value="2" aria-label="每任务原本人类工时"></label>
+      <label>Review / Attempt <output id="out-review">0.25h</output><input id="lab-review" type="range" min="0" max="2" step="0.05" value="0.25" aria-label="每次尝试人类审核返工时长"></label>
+    </div>
+    <div class="agent-lab__results" aria-live="polite">
+      <div><b id="lab-verified">0.70</b><span>Verified Tasks / 1M Token</span></div>
+      <div><b id="lab-gross">1.40 h</b><span>Gross Machine Labor Hours</span></div>
+      <div><b id="lab-net">1.15 h</b><span>Net Human Hours Saved</span></div>
+      <div><b id="lab-gross-value">$140</b><span>Gross Labor Equivalent</span></div>
+      <div><b id="lab-review-cost">$25</b><span>Human Review / Rework Cost</span></div>
+      <div><b id="lab-benefit">$95</b><span>Net Labor Cost Benefit after AI Cost</span></div>
+    </div>
+    <p class="agent-lab__note">固定示例：Fully Loaded Labor Cost = $100/小时；AI+工具可变成本 = $20/每1M Token；实际现金可兑现比例、固定集成成本和新增收入未计入。高不确定性：合格成果≠直接新增GDP；行业真实值必须用任务追踪数据重新标定。</p>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>非实测情景</th><th>Token/Attempt</th><th>成功率</th><th>人类基准</th><th>审阅/尝试</th><th>净工时/1M</th><th>净劳动效益</th></tr></thead><tbody>
+  <tr><td>谨慎</td><td>1.00M</td><td>40%</td><td>2.0h</td><td>0.30h</td><td>0.50h</td><td>$30</td></tr>
+  <tr><td>中枢</td><td>1.00M</td><td>70%</td><td>2.0h</td><td>0.25h</td><td>1.15h</td><td>$95</td></tr>
+  <tr><td>乐观</td><td>0.50M</td><td>85%</td><td>2.5h</td><td>0.15h</td><td>3.95h</td><td>$375</td></tr>
+  </tbody></table></div>
+  <p>这三个经济效益数字均按$100/人类小时、$20/1M Token的假设计算，且不包含固定成本；仅说明对参数高度敏感，不能用于直接推导模型厂商ARR或股价。</p>
+</section>
+<section class="section" id="sectors">
+  <div class="section-label">06 · FIVE ECONOMIC WORKFLOWS</div>
+  <h2>五个行业：不能把同一个效率倍数乘遍所有职业</h2>
+  <div class="table-wrap"><table><thead><tr><th>工作场景</th><th>目前最可靠的观察指标</th><th>关键约束／反证</th><th>首要财务验证</th></tr></thead><tbody>
+  <tr><td><b>投研 / 投行</b></td><td>交易材料与估值任务 Pass@1；独立模型验算</td><td>来源错误、复杂假设、人工签署与法律责任</td><td>每份合格交付物综合成本</td></tr>
+  <tr><td><b>法律</b></td><td>合同审阅通过率、复核修正率</td><td>司法辖区、隐含条款、律师最终责任</td><td>合格案件/合同每小时净贡献</td></tr>
+  <tr><td><b>Coding</b></td><td>PR完整通过、缺陷回归、维护成本</td><td>METR对2025年前沿工具的RCT曾显示熟练开发者完成任务反而慢19%；不能套用于2026年新模型</td><td>交付速度与后续维护净额</td></tr>
+  <tr><td><b>客服</b></td><td>已解决问题/人工小时</td><td>已发表5,172名客服人员研究显示AI辅助后平均+15%，属于增益而非完整替代</td><td>客服毛利率／人力实际转化</td></tr>
+  <tr><td><b>销售</b></td><td>增量转化、客户留存、贡献毛利的A/B实验</td><td>成交需要营销预算、品牌、定价与客户供给；没有统一的MLH换算</td><td>每次增量成交的净贡献毛利</td></tr>
+  </tbody></table></div>
+  <p>投行与法律目前的优质基准说明“能否做对”；客服的研究更接近“现实人员增产”；销售最需要对照组实验。不同证据层级不应该被放在同一个增长率排行榜。</p>
+</section>
+<section class="section" id="valuation">
+ <div class="section-label">07 · VALUE CAPTURE</div><h2>为什么Agent Value/MWh不等于NeoCloud Revenue/MW</h2>
+ <div class="table-wrap"><table><thead><tr><th>价值层</th><th>可观察量</th><th>潜在赢家</th><th>最易产生的误判</th></tr></thead><tbody>
+ <tr><td>Power &amp; Infrastructure</td><td>Facility / IT MW、PUE、有效运行小时</td><td>开发商、电力、设施</td><td>把预留电力当作已带载算力</td></tr>
+ <tr><td>Compute Operator</td><td>可售GPU小时、Tokens/MWh@SLA、TCO</td><td>Hyperscalers / NeoCloud</td><td>把GPU理论峰值当成持续可售收入</td></tr>
+ <tr><td>Model / Agent Platform</td><td>成功任务/Token、留存、定价、API毛利</td><td>模型与Agent软件厂商</td><td>把全部客户节省工时视作平台可捕获收入</td></tr>
+ <tr><td>Enterprise Customer</td><td>人力净节省、新增贡献毛利、实际FCF</td><td>行业应用企业</td><td>把省时视作立即裁员或新增GDP</td></tr>
+ </tbody></table></div>
+ <p><strong>投资穿透：</strong>Agent效率提升可能导致每任务Token消耗下降，也可能因价格降低、工作量扩张和新任务涌现而提高总Token需求。净结果必须同时跟踪价格弹性、采用率、任务成功率与推理强度，不能单向推出“Agent更好 → GPU需求必然同比增长”。</p>
+ <div class="dark-panel"><h3>终局衡量</h3><p><strong>净经济价值/MWh</strong>衡量机器劳动创造多少客户净价值；<strong>Operator FCF/MW</strong>衡量算力运营商可捕获多少现金；<strong>Incremental ROIC − WACC</strong>才是资本所有者是否创造价值的最终检验。</p></div>
+</section>
+<section class="section" id="watch">
+ <div class="section-label">08 · WATCHLIST &amp; FALSIFICATION</div><h2>接下来六个指标，决定研究假设是强化还是被证伪</h2>
+ <div class="table-wrap"><table><thead><tr><th>未来需要跟踪的数据</th><th>强化投资判断</th><th>削弱投资判断</th></tr></thead><tbody>
+ <tr><td>真实任务的Verified Pass@1与稳定性</td><td>反复无监督完整交付持续改善</td><td>Benchmark涨、生产任务不改善</td></tr>
+ <tr><td>Tokens/Verified Task（含重试）</td><td>质量不降、单位消耗减少</td><td>错误修复造成总成本上升</td></tr>
+ <tr><td>监督/返工的人类分钟数</td><td>随规模下降且安全责任可控</td><td>复杂任务审核成本反弹</td></tr>
+ <tr><td>付费Agent使用与客户留存</td><td>真付费、可复购、ARPU稳定</td><td>低价试用与免费流量虚增</td></tr>
+ <tr><td>企业可兑现成本节省与新增毛利</td><td>产出进入损益表与自由现金流</td><td>省时无法转化为利润或营收</td></tr>
+ <tr><td>Compute Operator FCF/MW与 ROIC−WACC</td><td>AI投资扩大同时资本回报稳定</td><td>Capex/折旧/融资成本蚕食现金</td></tr>
+ </tbody></table></div>
+ <p><strong>证伪条件：</strong>如三至六个季度内仍无法在典型企业工作流中观察到审阅成本下降、净贡献毛利改善，而数据中心负债与折旧不断抬升，则不能继续仅凭Token增长率推导上游估值扩张。</p>
+</section>
+
+    <!-- Duplicate complete .section blocks for additional arguments. Keep the page-level skeleton unchanged. -->
+
+    <section class="section" id="sources"><div class="section-label">09 · PRIMARY SOURCES</div><h2>一手资料与证据边界</h2>
+<div class="source"><a href="https://www.mercor.com/blog/introducing-apex-agents-1-1/" target="_blank" rel="noopener">Mercor · Introducing APEX-Agents 1.1</a><span>2026-09-08 · 240项任务、评分机制修订与重复运行可靠性。</span></div>
+<div class="source"><a href="https://www.mercor.com/apex/apex-agents-leaderboard/" target="_blank" rel="noopener">Mercor · APEX-Agents 公布的实时模型评分</a><span>2026-10-09查阅 · Gemini 4 Argon High 82.4%、Sonnet 5.5 Max 75.5%、Opus 5.5 Max 73.5%，均为Pass@1。</span></div>
+<div class="source"><a href="https://www.mercor.com/blog/human-baselines-for-benchmarks-ai-now-outperforms-junior-accountants/" target="_blank" rel="noopener">Mercor · Human Baselines for Benchmarks</a><span>2026-10-01 · 12名持证会计师与四种精简任务；每评分项成本对照并非全岗位成本。</span></div>
+<div class="source"><a href="https://www.mercor.com/blog/introducing-the-ai-productivity-index-for-accounting/" target="_blank" rel="noopener">Mercor · APEX-Accounting</a><span>2026年发布 · 160任务、未完整解出任务占比58%。</span></div>
+<div class="source"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR · Task-Completion Time Horizons</a><span>最后更新2026-09-08 · 人类专家任务难度标尺，非企业劳动节省。</span></div>
+<div class="source"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">METR · Experienced Open-Source Developers RCT</a><span>2025-07 · 特定资深开发者与当时模型环境，实际任务耗时增加19%。</span></div>
+<div class="source"><a href="https://academic.oup.com/qje/article/140/2/889/7990658" target="_blank" rel="noopener">Brynjolfsson, Li &amp; Raymond · Generative AI at Work (QJE)</a><span>2025年正式发表 · 5,172名客服人员，问题解决率/人工小时平均提高15%。</span></div>
+<div class="source"><a href="https://www.anthropic.com/research/economic-index-june-2026-report" target="_blank" rel="noopener">Anthropic · Economic Index: Cadences</a><span>2026-06-26 · 区分对话、Claude Code与长期Agent工作流及自主度。</span></div>
+<div class="source"><a href="https://openai.com/index/gdpval/" target="_blank" rel="noopener">OpenAI · GDPval</a><span>经济任务基准，支持职业样本分析；不等同于测得GDP增长。</span></div>
+</section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/ai-factory-agent-production-function-20260824/">⑥ 从Token到Agent工时：AI时代新的生产函数</a> — 理论定义、机器劳动与经济价值的边界。</p>
+      <p><a href="/ai-factory-tokens-per-mw-benchmark-20260824/">⑤ GPU战争进入每MW Token时代</a> — 从GPU生产率向任务生产率的中间连接。</p>
+      <p><a href="/ai-cloud-unit-economics-dashboard-20260817/">AI Cloud四层经济模型</a> — 把任务端的客户价值传导回资本成本、FCF与ROIC。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-10-09 21:22 HKT</span>
+        <span>Updated 2026-10-09 21:22 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var body = document.body;
+      var gate = document.getElementById("editorial-gate");
+      var accessKey = document.getElementById("access-key");
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      function reveal() {
+        body.classList.remove("kw-gate-pending");
+        gate.hidden = true;
+        window.scrollTo(0, 0);
+      }
+
+      accessKey.addEventListener("input", function () {
+        if (accessKey.value.trim().toLowerCase() === "k") {
+          reveal();
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+
+      if (window.matchMedia("(min-width: 761px)").matches) {
+        accessKey.focus();
+      }
+    }());
+  </script>
+
+<script>(function(){'use strict';var root=document.getElementById('agent-lab');if(!root)return;function el(id){return document.getElementById(id)}function txt(id,v){var e=el(id);if(e)e.textContent=v}function render(){var tokens=+el('lab-token').value,p=+el('lab-success').value/100,h=+el('lab-hours').value,r=+el('lab-review').value,a=1/tokens,verified=a*p,gross=verified*h,review=a*r,net=gross-review;txt('out-token',tokens.toFixed(2)+'M');txt('out-success',(p*100).toFixed(0)+'%');txt('out-hours',h.toFixed(2)+'h');txt('out-review',r.toFixed(2)+'h');txt('lab-verified',verified.toFixed(2));txt('lab-gross',gross.toFixed(2)+' h');txt('lab-net',net.toFixed(2)+' h');txt('lab-gross-value','
+</html>
++(gross*100).toFixed(0));txt('lab-review-cost','
+</html>
++(review*100).toFixed(0));var benefit=net*100-20;txt('lab-benefit',(benef<0?'−
+</html>
+:'
+</html>
+)+Math.abs(benef).toFixed(0));}['lab-token','lab-success','lab-hours','lab-review'].forEach(function(id){el(id).addEventListener('input',render)});render();}());</script>
+</body>
+</html>
