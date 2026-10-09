@@ -677,6 +677,8 @@
       .top-button { display:none; }
       .site-shell { width:100%; margin:0; box-shadow:none; }
     }
+    .agent-lab{border-top:2px solid #103f35;border-bottom:1px solid #968b83;padding:22px 0;margin:22px 0}.agent-lab__controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 30px}.agent-lab label{display:block;color:#103f35;font-weight:700;font-size:15px}.agent-lab label output{float:right;font-variant-numeric:tabular-nums}.agent-lab input[type=range]{width:100%;accent-color:#103f35;margin:12px 0 4px}.agent-lab__results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin-top:22px}.agent-lab__results div{background:#fff1e5;padding:18px 14px}.agent-lab__results b{display:block;font:700 25px/1.25 Georgia,serif;color:#103f35;font-variant-numeric:tabular-nums}.agent-lab__results span{display:block;font-size:12px;line-height:1.55;color:#746b65;margin-top:8px}.agent-lab__note{font-size:13px;color:#746b65;line-height:1.6;margin:12px 0 0}@media(max-width:760px){.agent-lab__controls{grid-template-columns:1fr;gap:15px}.agent-lab__results{grid-template-columns:1fr}.agent-lab__results div{padding:14px}.agent-lab label{font-size:14px}}
+  
   </style>
 </head>
 <body class="kw-research kw-wide kw-gate-pending"
@@ -829,9 +831,7 @@
   <div class="section-label">05 · EXPERIMENTAL MODEL</div>
   <h2>1M Token → Verified Tasks → Net Human Hours Saved</h2>
   <p>拖动参数体验生产率如何随任务成功率、上下文消耗、人工审核和单位劳动成本变化。<strong>以下所有默认值均为演示假设，不是某一家公司的实测ROI。</strong>计算以100万总Token、全量归集输入/输出/工具与重试为边界。</p>
-  <style>
-  .agent-lab{border-top:2px solid #103f35;border-bottom:1px solid #968b83;padding:22px 0;margin:22px 0}.agent-lab__controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 30px}.agent-lab label{display:block;color:#103f35;font-weight:700;font-size:15px}.agent-lab label output{float:right;font-variant-numeric:tabular-nums}.agent-lab input[type=range]{width:100%;accent-color:#103f35;margin:12px 0 4px}.agent-lab__results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin-top:22px}.agent-lab__results div{background:#fff1e5;padding:18px 14px}.agent-lab__results b{display:block;font:700 25px/1.25 Georgia,serif;color:#103f35;font-variant-numeric:tabular-nums}.agent-lab__results span{display:block;font-size:12px;line-height:1.55;color:#746b65;margin-top:8px}.agent-lab__note{font-size:13px;color:#746b65;line-height:1.6;margin:12px 0 0}@media(max-width:760px){.agent-lab__controls{grid-template-columns:1fr;gap:15px}.agent-lab__results{grid-template-columns:1fr}.agent-lab__results div{padding:14px}.agent-lab label{font-size:14px}}
-  </style>
+
   <div class="agent-lab" id="agent-lab">
     <div class="agent-lab__controls">
       <label>Token / Attempt <output id="out-token">1.00M</output><input id="lab-token" type="range" min="0.25" max="3" step="0.25" value="1" aria-label="每次尝试消耗百万Token"></label>
@@ -900,7 +900,7 @@
 <div class="source"><a href="https://www.mercor.com/blog/human-baselines-for-benchmarks-ai-now-outperforms-junior-accountants/" target="_blank" rel="noopener">Mercor · Human Baselines for Benchmarks</a><span>2026-10-01 · 12名持证会计师与四种精简任务；每评分项成本对照并非全岗位成本。</span></div>
 <div class="source"><a href="https://www.mercor.com/blog/introducing-the-ai-productivity-index-for-accounting/" target="_blank" rel="noopener">Mercor · APEX-Accounting</a><span>2026年发布 · 160任务、未完整解出任务占比58%。</span></div>
 <div class="source"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR · Task-Completion Time Horizons</a><span>最后更新2026-09-08 · 人类专家任务难度标尺，非企业劳动节省。</span></div>
-<div class="source"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-on-experienced-os-devs/" target="_blank" rel="noopener">METR · Experienced Open-Source Developers RCT</a><span>2025-07 · 特定资深开发者与当时模型环境，实际任务耗时增加19%。</span></div>
+<div class="source"><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" target="_blank" rel="noopener">METR · Experienced Open-Source Developers RCT</a><span>2025-07 · 特定资深开发者与当时模型环境，实际任务耗时增加19%。</span></div>
 <div class="source"><a href="https://academic.oup.com/qje/article/140/2/889/7990658" target="_blank" rel="noopener">Brynjolfsson, Li &amp; Raymond · Generative AI at Work (QJE)</a><span>2025年正式发表 · 5,172名客服人员，问题解决率/人工小时平均提高15%。</span></div>
 <div class="source"><a href="https://www.anthropic.com/research/economic-index-june-2026-report" target="_blank" rel="noopener">Anthropic · Economic Index: Cadences</a><span>2026-06-26 · 区分对话、Claude Code与长期Agent工作流及自主度。</span></div>
 <div class="source"><a href="https://openai.com/index/gdpval/" target="_blank" rel="noopener">OpenAI · GDPval</a><span>经济任务基准，支持职业样本分析；不等同于测得GDP增长。</span></div>
