@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import re
 import subprocess
 import sys
 import unittest
@@ -13,8 +12,8 @@ from tools.audit_pages import audit
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
 REGISTRY = ROOT / "registry.json"
-V5_CSS = ROOT / "assets" / "kerwin-home-v5.css"
-V5_JS = ROOT / "assets" / "kerwin-home-v5.js"
+HUB_CSS = ROOT / "assets" / "kerwin-hub.css"
+HUB_JS = ROOT / "assets" / "kerwin-hub.js"
 
 AXES = {
     "physical-infrastructure",
@@ -38,33 +37,44 @@ class HomepageV5Tests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.index = INDEX.read_text(encoding="utf-8")
         cls.registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
-        cls.javascript = V5_JS.read_text(encoding="utf-8")
+        cls.javascript = HUB_JS.read_text(encoding="utf-8")
 
-    def test_v5_assets_are_versioned_and_present(self) -> None:
-        self.assertTrue(V5_CSS.is_file())
-        self.assertTrue(V5_JS.is_file())
-        self.assertIn('/assets/kerwin-home-v5.css?v=20260826v5', self.index)
-        self.assertIn('/assets/kerwin-home-v5.js?v=20260826v5', self.index)
+    def test_hub_assets_are_versioned_and_present(self) -> None:
+        self.assertTrue(HUB_CSS.is_file())
+        self.assertTrue(HUB_JS.is_file())
+        self.assertIn('/assets/kerwin-hub.css?v=20261013hub', self.index)
+        self.assertIn('/assets/kerwin-hub.js?v=20261013hub', self.index)
+        self.assertIn('data-registry="/registry.json"', self.index)
         self.assertNotIn('kerwin-home-v4.js', self.index)
+        self.assertNotIn('kerwin-home-v5.js', self.index)
+        self.assertNotIn('home-gate', self.index)
+        self.assertNotIn('2026.09.08', self.index)
 
-    def test_current_auditor_accepts_v5_homepage_loader(self) -> None:
+    def test_current_auditor_accepts_hub_homepage_loader(self) -> None:
         errors, _warnings = audit(ROOT / "index.html", ROOT)
         self.assertNotIn("homepage missing current homepage loader", errors)
         self.assertNotIn("homepage missing canonical homepage stylesheet", errors)
+        self.assertEqual(errors, [])
 
     def test_locked_brand_title_and_navigation_remain(self) -> None:
-        self.assertGreaterEqual(self.index.count('home-gate__title-line'), 2)
-        self.assertIn('>把复杂世界</span>', self.index)
-        self.assertIn('>整理成一张投资地图</span>', self.index)
-        for label in ("最近更新", "财报桌", "研究地图", "研究库", "关于 Enya"):
+        self.assertIn('整理成一张投资地图。', self.index)
+        self.assertIn('电力、交付与利用率。', self.index)
+        self.assertIn('class="skill-promo"', self.index)
+        self.assertIn('href="/kerwin-ai-investment-skill/"', self.index)
+        self.assertIn('不构成投资建议', self.index)
+        for label in ("首页", "研究地图", "财报桌", "研究库", "系列"):
             self.assertIn(f">{label}</a>", self.index)
-        self.assertIn('home-brand__mark">Kerwin</span>', self.index)
+        self.assertIn('>Kerwin</strong>', self.index)
+        self.assertNotIn('目标价', self.index)
+        self.assertNotIn('买入', self.index)
 
     def test_registry_is_the_only_runtime_source(self) -> None:
         self.assertNotIn('manualPages', self.javascript)
         self.assertNotIn('homepage overlay', self.javascript.lower())
-        self.assertIn("page.axis === axis.id", self.javascript)
-        self.assertIn("page.content_type === 'earnings'", self.javascript)
+        self.assertIn("homepage_approved === true", self.javascript)
+        self.assertIn("item.content_type === 'earnings'", self.javascript)
+        self.assertIn("item.content_type === 'earnings-deep-dive'", self.javascript)
+        self.assertNotIn('text-transform', (ROOT / "assets" / "kerwin-hub.css").read_text(encoding="utf-8").split(".company")[1][:400])
 
     def test_all_approved_entries_have_one_axis_and_content_type(self) -> None:
         approved = [item for item in self.registry if item.get("homepage_approved") is True]
@@ -80,10 +90,15 @@ class HomepageV5Tests(unittest.TestCase):
         self.assertEqual(set(ranks), {1, 2, 3})
 
     def test_static_fallback_contains_clickable_research(self) -> None:
-        self.assertIn('/agent-economy-server-audit-cost-20260825/', self.index)
-        self.assertIn('/ai-factory-agent-production-function-20260824/', self.index)
-        self.assertIn('/ai-cloud-unit-economics-dashboard-20260817/', self.index)
-        self.assertGreaterEqual(len(re.findall(r'class="story-link" href="/', self.index)), 8)
+        self.assertIn('请启用 JavaScript 以载入研究目录。', self.index)
+        self.assertNotIn('class="story-link"', self.index)
+        self.assertNotIn('class="noscript-catalog"', self.index)
+        approved = [item for item in self.registry if item.get("homepage_approved") is True]
+        by_slug = {item["slug"]: item for item in self.registry}
+        self.assertEqual(by_slug["amd-system-level-turn-20260805"]["content_type"], "earnings-deep-dive")
+        self.assertEqual(by_slug["amd-system-level-turn-20260805"]["company"], "超威")
+        self.assertEqual(by_slug["dell-fy27-q2-ai-factory-20260903"]["ticker"], "DELL")
+        self.assertEqual(len(approved), 110)
 
     def test_static_fallback_is_synchronized_with_registry(self) -> None:
         result = subprocess.run(
@@ -99,8 +114,7 @@ class HomepageV5Tests(unittest.TestCase):
         for path in ("robots.txt", "sitemap.xml", "favicon.svg", "site.webmanifest", "404.html"):
             self.assertTrue((ROOT / path).is_file(), path)
         self.assertIn('<link rel="canonical" href="https://enyaclawd.com/">', self.index)
-        self.assertIn('property="og:image"', self.index)
-        self.assertIn('type="application/ld+json"', self.index)
+        self.assertIn('name="description"', self.index)
 
 
 if __name__ == "__main__":

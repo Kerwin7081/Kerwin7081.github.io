@@ -1,0 +1,266 @@
+/* Public research hub. Lists are filled from registry.json by kerwin-hub.js. */
+
+:root {
+  --paper: #fff1e5;
+  --ivory: #fffaf5;
+  --outer: #e6d8cb;
+  --ink: #262220;
+  --muted: #746b65;
+  --green: #103f35;
+  --wine: #7d2933;
+  --copper: #9a5c38;
+  --line: #d8cabc;
+  --serif: Georgia, "Times New Roman", "Songti SC", "STSong", serif;
+  --sans: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.65 var(--sans);
+}
+a { color: inherit; }
+img { max-width: 100%; }
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -40px;
+  background: var(--green);
+  color: var(--paper);
+  padding: 8px 12px;
+}
+.skip:focus { top: 8px; }
+
+.mast, .header, .wrap, .footer { width: min(1120px, calc(100% - 40px)); margin-left: auto; margin-right: auto; }
+.mast {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 8px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.monogram {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  color: var(--paper);
+  font-weight: 700;
+}
+.brand strong { display: block; font-size: 18px; letter-spacing: .02em; }
+.brand small { display: block; color: var(--muted); font-size: 10px; letter-spacing: .14em; }
+.header nav { display: flex; gap: 16px; margin-left: auto; }
+.header nav a { text-decoration: none; font-size: 14px; }
+.header nav a[aria-current="page"] { color: var(--green); font-weight: 700; }
+.nav-search { text-decoration: none; color: var(--green); font-size: 14px; white-space: nowrap; }
+
+.wrap { padding: 28px 0 64px; }
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--copper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.page-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 22px; }
+.page-head h1, .thesis h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+.serif { font-family: var(--serif); font-style: italic; }
+.issue { color: var(--muted); font-size: 13px; text-align: right; }
+.issue b { display: block; color: var(--ink); font-weight: 600; }
+
+.hero { display: block; }
+.thesis h2 {
+  margin: 18px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+.thesis h2 span { color: var(--green); font-style: italic; }
+.thesis p { max-width: 62ch; margin: 0; color: var(--muted); }
+.verdict-links { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; }
+.verdict-links a { color: var(--green); font-weight: 700; text-decoration: none; }
+
+.variables {
+  margin-top: 22px;
+  padding: 18px 18px 8px;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+}
+.variables h2 { margin: 0 0 8px; font-family: var(--serif); font-size: 26px; font-weight: 500; }
+.variables a {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+.variables a span { color: var(--copper); font-size: 12px; }
+.variables a p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+
+.cycle { margin: 28px 0; }
+.cycle-head, .section-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.section-title h2, .cycle-head h2 { margin: 0; font-family: var(--serif); font-size: 28px; font-weight: 500; }
+.cycle-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.cycle-grid a {
+  display: block;
+  padding: 14px 10px 16px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.cycle-grid span { display: block; color: var(--copper); font-size: 12px; }
+.cycle-grid strong { display: block; margin-top: 18px; font-size: 16px; }
+.cycle-grid small { color: var(--muted); }
+
+.latest-row, .lib-row, .earn-row, .series-row {
+  display: grid;
+  gap: 8px 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+.latest-row { grid-template-columns: 52px minmax(0, 1fr); align-items: start; }
+.latest-row time, .lib-row time, .meta { color: var(--muted); font-size: 13px; }
+.kicker { color: var(--green); font-size: 12px; letter-spacing: .04em; }
+.latest-row h3, .lib-row h3, .earn-row h3, .series-row h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.deck { margin: 4px 0 0; color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.library-entry, .text-link {
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skill-promo {
+  display: grid;
+  grid-template-columns: 1.4fr .6fr;
+  gap: 18px;
+  margin-top: 36px;
+  padding: 22px;
+  background: var(--green);
+  color: var(--paper);
+}
+.skill-promo h2 { margin: 0 0 8px; font-family: var(--serif); font-size: 32px; font-weight: 500; }
+.skill-promo p { margin: 0; color: #e7f0ec; }
+.skill-actions { display: flex; gap: 16px; margin-top: 16px; }
+.skill-actions a { color: var(--paper); font-weight: 700; }
+.skill-aside { align-self: end; text-align: right; }
+.skill-aside span { display: block; font-family: var(--serif); font-size: 28px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.filters button, .search {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  padding: 8px 12px;
+}
+.filters button.is-active { background: var(--green); color: var(--paper); border-color: var(--green); }
+.search { min-width: min(100%, 280px); }
+.lib-row { grid-template-columns: 72px minmax(0, 1fr); }
+.series-row { grid-template-columns: 1fr auto; align-items: center; }
+.earn-row { grid-template-columns: 1fr; }
+.company {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.ticker {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+.notice {
+  margin: 0 0 16px;
+  color: var(--wine);
+  font-size: 14px;
+}
+.axis-grid { display: grid; grid-template-columns: 1fr; }
+.axis-row {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+}
+.axis-row b { color: var(--copper); }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0 32px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer a { color: var(--green); }
+.empty { padding: 18px 0; color: var(--muted); }
+
+@media (min-width: 760px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .8fr); gap: 28px; align-items: start; }
+  .variables { margin-top: 28px; }
+  .axis-grid { grid-template-columns: 1fr 1fr; column-gap: 28px; }
+}
+@media (max-width: 759px) {
+  .mast span:last-child, .nav-search, .issue { display: none; }
+  .header { flex-wrap: wrap; min-width: 0; }
+  .header nav { width: 100%; min-width: 0; margin-left: 0; overflow-x: auto; }
+  .header nav a { white-space: nowrap; }
+  .page { display: flex; flex-direction: column; }
+  .hero { display: contents; }
+  .thesis { order: 1; }
+  .latest { order: 2; }
+  .variables { order: 3; }
+  .cycle { order: 4; }
+  .skill-promo { order: 5; }
+  .latest-row:nth-child(n+2) { display: none; }
+  .cycle-grid { grid-template-columns: 1fr 1fr; }
+  .cycle-grid a:last-child { grid-column: 1 / -1; }
+  .skill-promo, .footer, .page-head { display: block; }
+  .skill-aside, .footer div:last-child { text-align: left; margin-top: 12px; }
+  .page-head h1, .thesis h1 { font-size: 34px; }
+}

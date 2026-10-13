@@ -77,6 +77,7 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     has_home_css = any(
         name in lower
         for name in (
+            "kerwin-hub.css",
             "kerwin-home-v2.css",
             "kerwin-home-v3.css",
             "kerwin-home-v4.css",
@@ -85,19 +86,20 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
     )
     has_home_js = any(
         name in lower
-        for name in ("kerwin-home-v3.js", "kerwin-home-v4.js", "kerwin-home-v5.js")
+        for name in ("kerwin-hub.js", "kerwin-home-v3.js", "kerwin-home-v4.js", "kerwin-home-v5.js")
     )
+    has_hub = "kerwin-hub.css" in lower and "kerwin-hub.js" in lower
     has_inline_css = "<style" in lower and "</style>" in lower
     has_shared_shell = (has_v2_css and has_v2_js) or (has_v3_css and has_v3_js)
 
     if is_home:
         require(has_home_css, "homepage missing canonical homepage stylesheet")
         require(has_home_js, "homepage missing current homepage loader")
-        require("access-gate" in lower or "home-gate" in lower, "homepage missing editorial access gate")
-        require(current_brand_present or MODEL_LINE in html, "homepage missing current model line")
+        require("不构成投资建议" in html, "homepage missing disclaimer")
+        require("registry.json" in html, "homepage must load the registry")
     else:
         require(
-            has_shared_shell or has_inline_css,
+            has_shared_shell or has_inline_css or has_hub,
             "page has neither a complete shared shell nor self-contained inline CSS",
         )
         if has_v2_css != has_v2_js:
@@ -107,29 +109,33 @@ def audit(path: Path, root: Path | None) -> tuple[list[str], list[str]]:
         if has_v2_css and has_v2_js:
             warnings.append("uses frozen legacy kerwin-system-v2 assets; do not overwrite, migrate by page")
 
-        require(
-            "kw-research" in lower
-            or "kw-experience" in lower
-            or has_inline_css,
-            "missing page mode or self-contained page styling",
-        )
-
-        if not is_experience:
-            require(
-                current_brand_present or TAGLINE in html or has_v2_js or has_v3_js,
-                "missing Enya tagline or injected brand block",
-            )
-            require(
-                current_brand_present or MODEL_LINE in html or has_v2_js or has_v3_js,
-                "missing current model line or injected brand block",
-            )
+        if has_hub:
             require('href="/"' in lower or "href='/'" in lower, "missing homepage route")
+            require("不构成" in html, "missing disclaimer")
+        else:
             require(
-                "免责声明" in html or "不构成" in html or has_v2_js or has_v3_js,
-                "missing disclaimer",
+                "kw-research" in lower
+                or "kw-experience" in lower
+                or has_inline_css,
+                "missing page mode or self-contained page styling",
             )
-            if not (has_v2_js or has_v3_js or "输入 “k” 即可显示" in html):
-                warnings.append("standard page has no editorial k/K access interaction")
+
+            if not is_experience:
+                require(
+                    current_brand_present or TAGLINE in html or has_v2_js or has_v3_js,
+                    "missing Enya tagline or injected brand block",
+                )
+                require(
+                    current_brand_present or MODEL_LINE in html or has_v2_js or has_v3_js,
+                    "missing current model line or injected brand block",
+                )
+                require('href="/"' in lower or "href='/'" in lower, "missing homepage route")
+                require(
+                    "免责声明" in html or "不构成" in html or has_v2_js or has_v3_js,
+                    "missing disclaimer",
+                )
+                if not (has_v2_js or has_v3_js or "输入 “k” 即可显示" in html):
+                    warnings.append("standard page has no editorial k/K access interaction")
 
     if re.search(
         r"请输入\s*<strong>k</strong>|<input[^>]+id=[\"']gate-input[\"']|<div[^>]+id=[\"']gate-overlay[\"']",

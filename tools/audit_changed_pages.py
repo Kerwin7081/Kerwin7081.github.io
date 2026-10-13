@@ -37,7 +37,7 @@ HOMEPAGE_AXES = {
     "capital-macro",
     "frontier-infrastructure",
 }
-HOMEPAGE_CONTENT_TYPES = {"earnings", "deep-dive", "brief", "interactive", "tracker"}
+HOMEPAGE_CONTENT_TYPES = {"earnings", "earnings-deep-dive", "deep-dive", "brief", "interactive", "tracker"}
 NEW_META_REQUIRED_FIELDS = {
     "title",
     "slug",
