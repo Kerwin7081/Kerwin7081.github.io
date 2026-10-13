@@ -34,6 +34,7 @@ AXIS_NAMES = {
 }
 CONTENT_NAMES = {
     "earnings": "财报",
+    "earnings-deep-dive": "财报深研",
     "deep-dive": "深度研究",
     "brief": "简报",
     "interactive": "互动工具",

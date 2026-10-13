@@ -13,64 +13,6 @@
   var visibleCount = 10;
   var activeFilter = 'all';
   var query = '';
-  var manualPages = [
-    {
-      slug:'ai-factory-ballot-box-community-roi-20260824',
-      title:'AI Factory Meets the Ballot Box｜谁来为 AI 基础设施付账？',
-      date:'2026年8月24日',
-      deck:'美国州际政策竞争系列⑤：以 Texas、Pennsylvania、Georgia、Virginia、Arizona 与 California 六州案例，研究居民电费、水资源、社区收益与地方审批如何通过 Take-or-Pay、Large-load Tariff、Community Benefit Agreement 和 Local Approval 进入 Time-to-Power、WACC 与 ROIC。',
-      tag:'AI Infrastructure · Social License · 2026 Midterms',
-      category:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
-      source:'enya',
-      homepage_approved:true,
-      published_at:'2026-08-24T13:19:00+08:00',
-      layout_id:'kerwin-editorial-research-v1',
-      mobile_qa_version:'1.2.0',
-      desktop_qa_version:'1.0.0'
-    },
-    {
-      slug:'us-ai-deployment-map-midterms-20260823',
-      title:'美国50州 AI Deployment Map｜2026中期选举前的算力基础设施地图',
-      date:'2026年8月23日',
-      deck:'美国州际政策竞争系列④：以50州统一底表比较党派控制、电力、电网、土地、劳工、水资源、审批、社区许可、产业生态与2026州级选举暴露，建立 AI Deployment Capacity、Election Exposure 与 Probability-adjusted Energized MW 框架。',
-      tag:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
-      category:'AI Infrastructure · U.S. State Policy · 2026 Midterms',
-      source:'enya',
-      homepage_approved:true,
-      published_at:'2026-08-23T17:55:00+08:00',
-      layout_id:'kerwin-editorial-research-v1',
-      mobile_qa_version:'1.2.0',
-      desktop_qa_version:'1.0.0'
-    },
-    {
-      slug:'delaware-vs-texas-corporate-domicile-20260823',
-      title:'Delaware vs Texas｜美国公司法的迁册战争',
-      date:'2026年8月23日',
-      deck:'美国州际政策竞争系列③：客观比较 Delaware 与 Texas 的公司法、专业法院、管理层自主权与少数股东保护，并以 Tesla、SpaceX、OpenAI、Anthropic、Stripe、Databricks、SB Energy 与 Cloverleaf 案例拆分法律注册地、总部和物理资产，最终建立 Governance WACC 与 Total Governance Cost 框架。',
-      tag:'U.S. State Policy · Corporate Domicile · Governance WACC',
-      category:'AI Infrastructure · U.S. State Policy · Corporate Law',
-      source:'enya',
-      homepage_approved:true,
-      published_at:'2026-08-23T13:58:00+08:00',
-      layout_id:'kerwin-editorial-research-v1',
-      mobile_qa_version:'1.2.0',
-      desktop_qa_version:'1.0.0'
-    },
-    {
-      slug:'texas-industrial-os-20260820',
-      title:'Texas Industrial OS｜为什么得州正在成为 AI、航天与重资本的制度型平台？',
-      date:'2026年8月20日',
-      deck:'美国州际政策竞争系列②：从公司法、税制、ERCOT 电力、土地、劳工、产业链与社区许可出发，把 Texas 作为一套把资本转化为物理产能的 Industrial OS 来研究，并建立 State Absorption Capacity 与 Probability-adjusted Energized MW 框架。',
-      tag:'AI Infrastructure · U.S. State Policy · Texas Industrial OS',
-      category:'AI Infrastructure · U.S. State Policy',
-      source:'enya',
-      homepage_approved:true,
-      published_at:'2026-08-20T13:39:00+08:00',
-      layout_id:'kerwin-editorial-research-v1',
-      mobile_qa_version:'1.2.0',
-      desktop_qa_version:'1.0.0'
-    }
-  ];
   body.classList.add('home-js', 'home-gate-pending');
 
   function grantAccess() {
@@ -109,13 +51,31 @@
     setTimeout(function () { if (!unlocking) input.focus(); }, 80);
   }
 
+  // Section filters stay ai / digital / macro / companies / explore.
+  // Membership is registry `themes` (array). The row label is registry `theme`,
+  // otherwise the first matching section in the order below.
+  // If neither field is set, `axis` maps to one section:
+  //   compute-chain, physical-infrastructure → ai
+  //   frontier-infrastructure → digital
+  //   capital-macro → macro
+  //   agent-economy → companies
+  // explore is explicit only. Earnings use content_type earnings | earnings-deep-dive.
   var themes = [
-    {id:'ai', number:'01', name:'AI 系统与算力', short:'AI Systems', desc:'GPU、机架、电力、存储、光互联与 Agent。', test:/nvidia|英伟达|alphabet|google|gemini|ai |agent|算力|机架|gpu|edge|光互联|存储|hbm|nand|ssd|semiconductor|芯片|半导体|rubin|colossus|应用图谱/i},
-    {id:'digital', number:'02', name:'数字金融与市场结构', short:'Digital Finance', desc:'支付、稳定币、RWA、交易所与机器经济。', test:/hyperliquid|hype|rwa|支付|stripe|digital asset|fintech|永续|交易所|比特币|稳定币|agent payment/i},
-    {id:'macro', number:'03', name:'宏观与真实资产', short:'Macro & Assets', desc:'利率、美元、黄金、铜与跨资产配置。', test:/宏观|美联储|黄金|铜|美元|利率|fed|royalty|estate tax|遗产税|离岸信托|税务|trust|ipo compliance/i},
-    {id:'companies', number:'04', name:'公司与战略研究', short:'Companies', desc:'商业模式、资本开支、产业地位与估值。', test:/alphabet|google|tesla|spacex|stripe|韩国|korea|financial ai|银行|公司|equity|三星|海力士|台积电|美国ai半导体/i},
-    {id:'explore', number:'05', name:'实验与客户教育', short:'Explorations', desc:'地图、互动实验、科普工具与沟通素材。', test:/科普|互动|游戏|太阳系|警钟|案件|客户教育|block world|casefiles/i}
+    {id:'ai', number:'01', name:'AI 系统与算力', short:'AI Systems', desc:'GPU、机架、电力、存储、光互联与 Agent。'},
+    {id:'digital', number:'02', name:'数字金融与市场结构', short:'Digital Finance', desc:'支付、稳定币、RWA、交易所与机器经济。'},
+    {id:'macro', number:'03', name:'宏观与真实资产', short:'Macro & Assets', desc:'利率、美元、黄金、铜与跨资产配置。'},
+    {id:'companies', number:'04', name:'公司与战略研究', short:'Companies', desc:'商业模式、资本开支、产业地位与估值。'},
+    {id:'explore', number:'05', name:'实验与客户教育', short:'Explorations', desc:'地图、互动实验、科普工具与沟通素材。'}
   ];
+  var themesById = {};
+  themes.forEach(function (theme) { themesById[theme.id] = theme; });
+  var axisTheme = {
+    'compute-chain': 'ai',
+    'physical-infrastructure': 'ai',
+    'frontier-infrastructure': 'digital',
+    'capital-macro': 'macro',
+    'agent-economy': 'companies'
+  };
 
   fetch('/registry.json?v=' + Date.now(), {cache:'no-store'})
     .then(function (response) { if (!response.ok) throw new Error('registry'); return response.json(); })
@@ -124,7 +84,7 @@
 
   function init(registry, available) {
     var map = {};
-    manualPages.concat(registry || []).forEach(function (page) {
+    (registry || []).forEach(function (page) {
       if (page && page.slug && page.homepage_approved === true) map[page.slug] = page;
     });
     allPages = Object.keys(map).map(function (key) { return map[key]; }).sort(sortDesc);
@@ -172,15 +132,15 @@
       return;
     }
     var page = earningsPages[0];
-    lead.innerHTML = '<div class="earnings-lead__top"><b>' + esc(companyName(page)) + '</b><span>' + esc(compactDate(page.date)) + '</span></div><div class="earnings-lead__quarter">' + esc(quarterLabel(page)) + '</div><h3>' + esc(page.title || '') + '</h3><p>' + esc(page.deck || '') + '</p><div class="earnings-lead__foot"><span>财务质量 · 管理层指引 · 估值变量</span><b>阅读全文 ↗</b></div><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a>';
-    list.innerHTML = earningsPages.slice(1, 5).map(function (item, index) { return '<article class="earnings-row"><div class="earnings-row__num">0' + (index + 2) + '</div><div><div class="earnings-row__meta"><span>' + esc(companyName(item)) + '</span><span>' + esc(compactDate(item.date)) + '</span></div><h3>' + esc(item.title || '') + '</h3><a class="story-link" href="' + href(item) + '" aria-label="阅读 ' + esc(item.title || '') + '"></a></div></article>'; }).join('');
+    lead.innerHTML = '<div class="earnings-lead__top">' + companyMark(page, 'b') + '<span>' + esc(compactDate(page.date)) + '</span></div><div class="earnings-lead__quarter">' + esc(quarterLabel(page)) + '</div><h3>' + esc(page.title || '') + '</h3><p>' + esc(page.deck || '') + '</p><div class="earnings-lead__foot"><span>财务质量 · 管理层指引 · 估值变量</span><b>阅读全文 ↗</b></div><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a>';
+    list.innerHTML = earningsPages.slice(1, 5).map(function (item, index) { return '<article class="earnings-row"><div class="earnings-row__num">0' + (index + 2) + '</div><div><div class="earnings-row__meta">' + companyMark(item, 'span') + '<span>' + esc(compactDate(item.date)) + '</span></div><h3>' + esc(item.title || '') + '</h3><a class="story-link" href="' + href(item) + '" aria-label="阅读 ' + esc(item.title || '') + '"></a></div></article>'; }).join('');
   }
 
   function renderAxes() {
     var target = document.getElementById('axis-grid');
     if (!target) return;
     target.innerHTML = themes.map(function (theme) {
-      var count = allPages.filter(function (page) { var ok = theme.test.test(haystack(page)); theme.test.lastIndex = 0; return ok; }).length;
+      var count = allPages.filter(function (page) { return pageThemes(page).indexOf(theme.id) >= 0; }).length;
       return '<a class="axis-row" href="#library" data-theme-link="' + theme.id + '"><b>' + theme.number + '</b><strong>' + theme.name + '</strong><span>' + theme.desc + ' · ' + count + ' 篇研究</span><i>↗</i></a>';
     }).join('');
   }
@@ -209,10 +169,7 @@
     var filtered = allPages.filter(function (page) {
       var filterOk = true;
       if (activeFilter === 'earnings') filterOk = isEarnings(page);
-      else {
-        var theme = themes.find(function (item) { return item.id === activeFilter; });
-        if (theme) { filterOk = theme.test.test(haystack(page)); theme.test.lastIndex = 0; }
-      }
+      else if (activeFilter !== 'all') filterOk = pageThemes(page).indexOf(activeFilter) >= 0;
       return filterOk && (!query || haystack(page).indexOf(query) >= 0);
     });
     if (!filtered.length) { target.innerHTML = '<div class="empty">没有找到匹配专题，换一个关键词试试。</div>'; if (more) more.style.display = 'none'; return; }
@@ -221,9 +178,29 @@
   }
 
   function dispatchRow(page) { return '<article class="dispatch-row"><div class="dispatch-row__date">' + esc(compactDate(page.date)) + '</div><div><b>' + esc(page.title || '') + '</b><span>' + esc(page.tag || 'Research') + '</span></div><span>↗</span><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a></article>'; }
-  function libraryRow(page) { var theme = themes.find(function (item) { var ok = item.test.test(haystack(page)); item.test.lastIndex = 0; return ok; }); return '<article class="library-row"><div class="library-row__meta"><span>' + esc(compactDate(page.date)) + '</span><small>' + esc((theme && theme.short) || page.tag || 'Research') + '</small></div><div><h3>' + esc(page.title || '未命名专题') + '</h3><p>' + esc(page.deck || '') + '</p></div><span class="library-row__arrow">↗</span><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a></article>'; }
-  function isEarnings(page) { if (/AI Industry Applications|AI Application Casebook/i.test([page.category, page.tag].join(' '))) return false; return /earnings|财报|电话会|业绩会|results call/i.test([page.category, page.tag, page.title, page.deck, page.slug].join(' ')); }
-  function companyName(page) { var text = haystack(page); if (/alphabet|google|goog/.test(text)) return 'ALPHABET · GOOG / GOOGL'; if (/tesla|tsla/.test(text)) return 'TESLA · TSLA'; var first = String(page.title || '财报').split(/[\n｜|]/)[0].trim(); return /[\u4e00-\u9fff]/.test(first) ? first : first.toUpperCase(); }
+  function libraryRow(page) { var theme = primaryTheme(page); return '<article class="library-row"><div class="library-row__meta"><span>' + esc(compactDate(page.date)) + '</span><small>' + esc((theme && theme.short) || page.tag || 'Research') + '</small></div><div><h3>' + esc(page.title || '未命名专题') + '</h3><p>' + esc(page.deck || '') + '</p></div><span class="library-row__arrow">↗</span><a class="story-link" href="' + href(page) + '" aria-label="阅读 ' + esc(page.title || '') + '"></a></article>'; }
+  function pageThemes(page) {
+    var list = [];
+    if (Array.isArray(page.themes)) page.themes.forEach(function (id) { if (themesById[id] && list.indexOf(id) < 0) list.push(id); });
+    if (!list.length && themesById[page.theme]) list.push(page.theme);
+    if (!list.length && themesById[axisTheme[page.axis]]) list.push(axisTheme[page.axis]);
+    return list;
+  }
+  function primaryTheme(page) {
+    if (themesById[page.theme]) return themesById[page.theme];
+    var list = pageThemes(page);
+    var found = null;
+    themes.forEach(function (theme) { if (!found && list.indexOf(theme.id) >= 0) found = theme; });
+    return found;
+  }
+  function isEarnings(page) { return page.content_type === 'earnings' || page.content_type === 'earnings-deep-dive'; }
+  function companyName(page) {
+    var company = String(page.company || '').trim();
+    var ticker = String(page.ticker || '').trim();
+    if (company && ticker) return company + ' · ' + ticker;
+    return company || ticker;
+  }
+  function companyMark(page, tag) { var label = companyName(page); return label ? '<' + tag + '>' + esc(label) + '</' + tag + '>' : ''; }
   function quarterLabel(page) { var match = String(page.title || '').match(/(20\d{2})\s*Q([1-4])/i); return match ? match[1] + ' · QUARTER ' + match[2] + ' EARNINGS' : 'EARNINGS & MANAGEMENT CALL'; }
   function href(page) { return page.path || '/' + page.slug + '/'; }
   function haystack(page) { return [page.title, page.deck, page.tag, page.category, page.slug].join(' ').toLowerCase(); }
