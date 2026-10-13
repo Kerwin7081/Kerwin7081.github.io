@@ -43,7 +43,7 @@ class HomepageV5Tests(unittest.TestCase):
         self.assertTrue(HUB_CSS.is_file())
         self.assertTrue(HUB_JS.is_file())
         self.assertIn('/assets/kerwin-hub.css?v=20261013hub', self.index)
-        self.assertIn('/assets/kerwin-hub.js?v=20261013hub', self.index)
+        self.assertIn('/assets/kerwin-hub.js?v=20261013hub2', self.index)
         self.assertIn('data-registry="/registry.json"', self.index)
         self.assertNotIn('kerwin-home-v4.js', self.index)
         self.assertNotIn('kerwin-home-v5.js', self.index)
