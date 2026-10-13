@@ -130,7 +130,9 @@
     var params = new URLSearchParams(location.search);
     axis = params.get('axis') || 'all';
     series = params.get('series') || '';
+    query = (params.get('q') || '').trim().toLowerCase();
     var search = document.getElementById('search');
+    if (search) search.value = params.get('q') || '';
     if (search && !search.dataset.bound) {
       search.dataset.bound = '1';
       search.addEventListener('input', function () {
