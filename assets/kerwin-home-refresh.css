@@ -900,3 +900,20 @@
   .home-refresh .home-search input { padding-left: 10px; font-size: 12px; }
   .home-refresh .home-search button { gap: 6px; padding: 0 12px; }
 }
+
+
+/* Keep the masthead full-bleed while giving both labels a clear inset. */
+.home-refresh .mast {
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 9px clamp(24px, 2vw, 40px);
+}
+.home-refresh .brand .monogram {
+  color: var(--home-paper);
+  font-size: 18px;
+}
+@media (max-width: 760px) {
+  .home-refresh .mast { width: 100%; padding: 9px 20px; }
+}
