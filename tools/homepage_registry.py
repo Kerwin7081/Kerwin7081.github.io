@@ -11,7 +11,7 @@ AXIS_CHOICES = (
     'capital-macro',
     'frontier-infrastructure',
 )
-CONTENT_TYPE_CHOICES = ('earnings', 'deep-dive', 'brief', 'interactive', 'tracker')
+CONTENT_TYPE_CHOICES = ('earnings', 'earnings-deep-dive', 'deep-dive', 'brief', 'interactive', 'tracker')
 STATUS_CHOICES = ('new', 'updated', 'tracking', 'evergreen')
 
 
