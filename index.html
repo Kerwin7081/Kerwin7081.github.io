@@ -3,69 +3,190 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 资本循环研究 · EnyaClawd</title>
-<meta name="description" content="沿着电力、算力、Token 与 Agent，追踪资本如何转化为回报。Kerwin Research Hub。">
+<meta name="theme-color" content="#103f35">
+<title>AI 资本循环研究与产业地图 · EnyaClawd</title>
+<meta name="description" content="沿着电力、算力、Token、Agent 与资本配置，追踪 AI 产业链如何转化为现金流与回报。Kerwin Research Hub。">
 <link rel="icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://enyaclawd.com/">
+<meta property="og:title" content="AI 资本循环研究与产业地图 · EnyaClawd">
+<meta property="og:description" content="沿着电力、算力、Token、Agent 与资本配置，追踪产业链如何走向现金流与回报。">
+<meta property="og:site_name" content="EnyaClawd · Kerwin Research Hub">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://enyaclawd.com/">
+<meta property="og:image" content="https://enyaclawd.com/assets/kerwin-home-og-v5.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 资本循环研究与产业地图 · EnyaClawd">
+<meta name="twitter:description" content="沿着电力、算力、Token、Agent 与资本配置，追踪产业链如何走向现金流与回报。">
+<meta name="twitter:image" content="https://enyaclawd.com/assets/kerwin-home-og-v5.png">
 <link rel="stylesheet" href="/assets/enya-design-system-v1.css">
 <link rel="stylesheet" href="/assets/kerwin-hub.css?v=20261013hub">
+<link rel="stylesheet" href="/assets/kerwin-home-refresh.css?v=20261013hub">
 </head>
-<body data-enya-design-system="v1" data-hub="home">
+<body class="home-refresh" data-enya-design-system="v1" data-hub="home">
 <a class="skip" href="#main">跳至内容</a>
-<p class="mast"><span>Independent Research · Hong Kong</span><span>Evidence first · HKT</span></p>
+<p class="mast"><span>INDEPENDENT RESEARCH · HONG KONG</span><span>EVIDENCE FIRST · HKT</span></p>
 <header class="header">
-  <a class="brand" href="/"><span class="monogram">E↗</span><span><strong>Kerwin</strong><small>EnyaClawd · Research Hub</small></span></a>
-  <nav aria-label="主导航"><a href="/" aria-current="page">首页</a><a href="/map/">研究地图</a><a href="/earnings/">财报桌</a><a href="/library/">研究库</a><a href="/series/">系列</a><a href="/models/">互动工具</a></nav>
-  <a class="nav-search" href="/library/">搜索研究</a>
+  <a class="brand" href="/" aria-label="Kerwin Research Hub 首页">
+    <span class="monogram" aria-hidden="true">E↗</span>
+    <span><strong>Kerwin</strong><small>ENYACLAWD · RESEARCH HUB</small></span>
+  </a>
+  <nav aria-label="主导航">
+    <a href="/" aria-current="page">首页</a>
+    <a href="#recent">最近更新</a>
+    <a href="#earnings">财报桌</a>
+    <a href="#axes">研究地图</a>
+    <a href="#library">研究库</a>
+    <a href="/kerwin-ai-investment-skill/">AI Skill</a>
+    <a href="#enya">关于 Enya</a>
+  </nav>
+  <a class="nav-search" href="/library/">搜索研究&nbsp; ↗</a>
 </header>
-<main id="main" class="wrap page">
-  <div class="hero">
-    <section class="thesis">
-      <p class="eyebrow">The Research Desk / 01</p>
-      <div class="page-head">
-        <h1>把复杂世界，<span class="serif">整理成一张投资地图。</span></h1>
-        <p class="issue"><b>研究目录</b><span id="hub-date">—</span></p>
+<main id="main" class="wrap">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="home-intro">
+      <p class="eyebrow">The Research Desk / Hong Kong · 01</p>
+      <h1 id="home-title">把复杂世界，<span>整理成一张投资地图。</span></h1>
+      <p class="home-lead">独立追踪 AI 基础设施、Agent 经济与资本配置。沿着证据把研究问题连回现金流、回报与可证伪条件。</p>
+      <div class="home-meta" aria-label="研究目录信息">
+        <span>最新更新 <b id="hub-date">2026.10.12 · HONG KONG</b></span>
+        <span><b id="library-count">110</b> 篇已批准研究</span>
       </div>
-      <p class="eyebrow">Kerwin View · 当前主判断</p>
-      <h2>AI 的下一道瓶颈，<br>在<span>电力、交付与利用率。</span></h2>
-      <p>从资本开支到现金回报，中间还有一整条需要验证的因果链。沿着每个环节，寻找真正发生变化的变量。</p>
-      <div class="verdict-links"><a href="/map/">展开资本循环地图</a><span>Power → ROIC</span></div>
-    </section>
-    <aside class="variables">
-      <p class="eyebrow">On the radar</p>
-      <h2>三个验证变量</h2>
-      <a href="/library/?axis=physical-infrastructure"><span>01</span><div><strong>Time-to-Power</strong><p>规划中的 MW，何时真正通电？</p></div></a>
-      <a href="/library/?axis=compute-chain"><span>02</span><div><strong>Delivery</strong><p>订单，何时转成完整系统？</p></div></a>
-      <a href="/library/?axis=agent-economy"><span>03</span><div><strong>Utilization</strong><p>产能，能否形成可售工作？</p></div></a>
+      <a class="home-start" href="#axes"><span>从哪里开始</span><b>沿资本循环阅读</b><span aria-hidden="true">↘</span></a>
+    </div>
+    <aside class="home-thesis" aria-labelledby="view-title">
+      <div class="home-thesis__head">
+        <p class="eyebrow" id="view-title">Kerwin View · Current Thesis</p>
+        <span class="home-thesis__status">持续验证中</span>
+      </div>
+      <h2>AI 的下一道瓶颈，<br><span>在电力、交付与利用率。</span></h2>
+      <p class="home-thesis__summary">从资本开支到现金回报，中间还有一整条需要验证的因果链。研究沿着三个变量推进：电力何时到位、系统何时交付、产能能否转化为有效工作。</p>
+      <div class="radar-list" aria-label="三个验证变量">
+        <a href="/library/?axis=physical-infrastructure"><span>01</span><div><strong>Time-to-Power</strong><small>规划中的 MW，何时真正通电？</small></div><span aria-hidden="true">↗</span></a>
+        <a href="/library/?axis=compute-chain"><span>02</span><div><strong>Delivery</strong><small>订单，何时转成完整系统？</small></div><span aria-hidden="true">↗</span></a>
+        <a href="/library/?axis=agent-economy"><span>03</span><div><strong>Utilization</strong><small>产能，能否形成可售工作？</small></div><span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="home-thesis__link" href="/map/">展开资本循环地图 <span aria-hidden="true">↗</span></a>
     </aside>
-  </div>
-  <section class="cycle" aria-labelledby="cycle-title">
-    <div class="cycle-head"><h2 id="cycle-title">从物理约束，到经济价值</h2><span class="kicker">The Capital Cycle</span></div>
-    <div class="cycle-grid">
-      <a href="/library/?axis=physical-infrastructure"><span>01</span><strong>Power / Land</strong><small>电力与土地</small></a>
-      <a href="/library/?axis=compute-chain"><span>02</span><strong>Compute</strong><small>算力与交付</small></a>
-      <a href="/library/?axis=agent-economy"><span>03</span><strong>Token</strong><small>智能产出</small></a>
-      <a href="/library/?axis=agent-economy"><span>04</span><strong>Agent Hour</strong><small>有效工作</small></a>
-      <a href="/library/?axis=capital-macro"><span>05</span><strong>Cash / ROIC</strong><small>现金与回报</small></a>
+    <div class="capital-cycle" aria-label="资本循环研究路径">
+      <div class="capital-cycle__label"><strong>从物理约束到经济价值</strong><small>The Capital Cycle</small></div>
+      <div class="capital-chain">
+        <a href="/library/?axis=physical-infrastructure"><b>01</b><strong>Power / Land</strong><small>电力与土地</small></a>
+        <a href="/library/?axis=compute-chain"><b>02</b><strong>Compute</strong><small>算力与交付</small></a>
+        <a href="/library/?axis=agent-economy"><b>03</b><strong>Token</strong><small>智能产出</small></a>
+        <a href="/library/?axis=agent-economy"><b>04</b><strong>Agent Hour</strong><small>有效工作</small></a>
+        <a href="/library/?axis=capital-macro"><b>05</b><strong>Cash / ROIC</strong><small>现金与回报</small></a>
+      </div>
     </div>
   </section>
-  <section class="latest home-latest" aria-labelledby="latest-title">
-    <div class="section-title"><h2 id="latest-title">最近更新</h2></div>
-    <div id="latest-list"></div>
-    <a class="library-entry" id="library-entry" href="/library/">进入研究库</a>
+
+  <section class="home-ticker" aria-label="最新研究动态">
+    <div class="home-ticker__label">Latest signals · <span>最新研究</span></div>
+    <div class="ticker__items" id="ticker-items">
+      <a href="/hk-ipo-cornerstone-investors-returns-exit-20261012/"><b>港股基石投资：认购收益与退出容量</b><small>10.12 · 资本与宏观</small></a>
+      <a href="/digital-dollar-public-chain-series-20261012/"><b>从原生代币到链上美元</b><small>10.12 · 资本与宏观</small></a>
+      <a href="/ai-factory-agent-labor-economics-20261009/"><b>一百万 Token 值多少机器劳动？</b><small>10.09 · Token 与 Agent</small></a>
+      <a href="/starlink-d2d-15000-fcc-mobile-network-20261007/"><b>Starlink 直连手机网络</b><small>10.07 · 前沿基础设施</small></a>
+    </div>
   </section>
-  <section class="skill-promo" aria-labelledby="skill-title">
+
+  <section class="home-section" id="recent" aria-labelledby="recent-title">
+    <div class="home-section-head">
+      <div><p class="eyebrow">From the desk / 02</p><h2 id="recent-title">最近更新 <small>Latest Research</small></h2><p>从当前问题出发，查看新研究如何更新判断与证据。</p></div>
+      <a class="section-link" href="/library/">全部研究 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="recent-grid">
+      <div class="latest-lead" id="latest-lead">
+        <a class="latest-feature" href="/hk-ipo-cornerstone-investors-returns-exit-20261012/">
+          <span class="story-meta"><strong>资本与宏观</strong><span>深度研究</span><time>10.12</time></span>
+          <h3>港股基石投资：认购收益与退出容量</h3>
+          <p>六类资金结构、机构模拟回报、解禁日历与成交容量，检视认购收益怎样走到实际退出。</p>
+          <span class="story-more">阅读全文 <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+      <div class="latest-list" id="latest-list">
+        <a class="latest-row" href="/digital-dollar-public-chain-series-20261012/"><time>10.12</time><span class="latest-row__copy"><small>资本与宏观 · 系列研究</small><strong>从原生代币到链上美元</strong></span><span aria-hidden="true">↗</span></a>
+        <a class="latest-row" href="/ai-factory-agent-labor-economics-20261009/"><time>10.09</time><span class="latest-row__copy"><small>Token 与 Agent · 深度研究</small><strong>一百万 Token 值多少机器劳动？</strong></span><span aria-hidden="true">↗</span></a>
+        <a class="latest-row" href="/starlink-d2d-15000-fcc-mobile-network-20261007/"><time>10.07</time><span class="latest-row__copy"><small>前沿基础设施 · 深度研究</small><strong>Starlink 直连手机网络</strong></span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <a class="section-link" id="library-entry" href="/library/" style="margin-top:14px">进入完整研究库 <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <section class="home-section" id="earnings" aria-labelledby="earnings-title">
+    <div class="home-section-head">
+      <div><p class="eyebrow">Earnings desk / 03</p><h2 id="earnings-title">财报桌 <small>Orders → Revenue → Cash</small></h2><p>把订单、交付、收入、利润和现金放在各自的证据边界里。</p></div>
+      <a class="section-link" href="/earnings/">查看财报研究 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="earnings-board" id="earnings-list">
+      <a class="earnings-feature" href="/dell-fy27-q2-ai-factory-20260903/">
+        <span class="earnings-feature__eyebrow">Latest earnings research</span>
+        <p class="earnings-feature__meta">09.03 · DELL · 财报深度研究</p>
+        <h3>戴尔</h3>
+        <p>AI 服务器订单与 backlog 只是表层；进一步追踪利润率、客户结构与融资如何连接到系统交付。</p>
+        <span class="earnings-feature__read">阅读研究 ↗</span>
+      </a>
+      <div class="earnings-list">
+        <a class="earnings-row" href="/broadcom-fy26-q3-ai-xpu-lps-20260903/"><small>09.03 · AVGO</small><strong>博通</strong><span>XPU、交付与资本循环</span></a>
+        <a class="earnings-row" href="/nvidia-q2-fy27-earnings-call-20260827/"><small>08.27 · NVDA</small><strong>英伟达</strong><span>产能扩张、供应承诺与回报</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section" id="axes" aria-labelledby="axes-title">
+    <div class="home-section-head">
+      <div><p class="eyebrow">Research map / 04</p><h2 id="axes-title">研究地图 <small>Five research axes</small></h2><p>五条研究轴帮助读者定位问题；进入研究库后，再按内容类型筛选。</p></div>
+      <a class="section-link" href="/map/">打开研究地图 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="axis-grid" id="axis-list">
+      <a class="axis-row" href="/library/?axis=physical-infrastructure"><span class="axis-row__number">01</span><span class="axis-row__copy"><strong>物理基础设施</strong><small>电力、土地、许可与可交付容量。</small></span><span class="axis-row__count">14 篇</span></a>
+      <a class="axis-row" href="/library/?axis=compute-chain"><span class="axis-row__number">02</span><span class="axis-row__copy"><strong>算力供应链</strong><small>芯片、系统、网络、存储与交付。</small></span><span class="axis-row__count">24 篇</span></a>
+      <a class="axis-row" href="/library/?axis=agent-economy"><span class="axis-row__number">03</span><span class="axis-row__copy"><strong>Token 与 Agent 经济</strong><small>Token 产能、Agent 工时与应用。</small></span><span class="axis-row__count">24 篇</span></a>
+      <a class="axis-row" href="/library/?axis=capital-macro"><span class="axis-row__number">04</span><span class="axis-row__copy"><strong>资本、宏观与成本</strong><small>融资结构、利率、流动性与资本回报。</small></span><span class="axis-row__count">30 篇</span></a>
+      <a class="axis-row" href="/library/?axis=frontier-infrastructure"><span class="axis-row__number">05</span><span class="axis-row__copy"><strong>前沿基础设施</strong><small>航天经济、数字金融与新市场结构。</small></span><span class="axis-row__count">18 篇</span></a>
+    </div>
+  </section>
+
+  <section class="home-section" id="library" aria-labelledby="library-title">
+    <div class="home-section-head">
+      <div><p class="eyebrow">The archive / 05</p><h2 id="library-title">研究库 <small>Evidence archive</small></h2></div>
+    </div>
+    <div class="library-block">
+      <div>
+        <h3>按问题找到下一篇研究。</h3>
+        <p>从研究轴进入主题，再按深度研究、财报、简报、互动模型或跟踪项目缩小范围。研究目录以批准发布的 registry 为唯一动态来源。</p>
+        <div class="library-topics" aria-label="研究轴快捷入口">
+          <a href="/library/?axis=physical-infrastructure">物理基础设施</a>
+          <a href="/library/?axis=compute-chain">算力供应链</a>
+          <a href="/library/?axis=agent-economy">Token 与 Agent</a>
+          <a href="/library/?axis=capital-macro">资本与宏观</a>
+          <a href="/library/?axis=frontier-infrastructure">前沿基础设施</a>
+        </div>
+      </div>
+      <div class="library-count-box"><strong id="library-count-secondary">110</strong><span>篇已发布研究</span><a class="section-link" href="/library/">进入研究库 ↗</a></div>
+    </div>
+  </section>
+
+  <section class="skill-promo" id="enya" aria-labelledby="skill-title">
     <div>
       <p class="eyebrow">Kerwin Skill · Community Edition</p>
       <h2 id="skill-title">把研究方法，交给 AI 一起执行。</h2>
       <p>让 AI 不只会总结，还能定位产业链、追到经济性，并给出可证伪的投资判断。</p>
-      <div class="skill-actions"><a href="/kerwin-ai-investment-skill/">了解 Kerwin Skill</a><a href="/downloads/kerwin-ai-investment/Kerwin-AI-Investment-Skill-WorkBuddy-v0.3.3.zip">下载 v0.3.3</a></div>
+      <div class="skill-actions">
+        <a href="/kerwin-ai-investment-skill/">了解 Kerwin Skill ↗</a>
+        <a href="/downloads/kerwin-ai-investment/Kerwin-AI-Investment-Skill-WorkBuddy-v0.3.3.zip">下载 Community Edition</a>
+      </div>
     </div>
-    <div class="skill-aside"><span>K / 03</span><small>Community Edition v0.3.3</small></div>
+    <div class="skill-aside"><b>KERWIN / 03</b><small>GLOBAL · ECONOMICS · FALSIFIABLE<br>Community Edition</small></div>
   </section>
+
+  <noscript><div class="noscript-note"><strong>请启用 JavaScript 以载入研究目录。</strong><br>你仍可以从<a href="/library/">研究库</a>、<a href="/earnings/">财报桌</a>和<a href="/map/">研究地图</a>继续阅读。</div></noscript>
 </main>
-<noscript><p class="wrap empty">请启用 JavaScript 以载入研究目录。</p></noscript>
-<footer class="footer"><div>研究、教育与信息交流 · 不构成投资建议</div><div><a href="/method/">研究方法</a> · <a href="/kerwin-ai-investment-skill/">AI Skill</a> · <a href="/kerwin-identity-brief/">关于 Kerwin</a> · © 2026 Kerwin</div></footer>
+<footer class="footer home-footer">
+  <div>研究、教育与信息交流 · 不构成投资建议</div>
+  <div><a href="/method/">研究方法</a> · <a href="/kerwin-ai-investment-skill/">AI Skill</a> · <a href="/kerwin-identity-brief/">关于 Kerwin</a> · © 2026 KERWIN</div>
+</footer>
 <script src="/assets/kerwin-hub.js?v=20261013hub" defer data-registry="/registry.json"></script>
 </body>
 </html>
