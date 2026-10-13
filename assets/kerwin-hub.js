@@ -37,21 +37,93 @@
   function render() {
     var newest = pages[0];
     setText('hub-date', newest ? stamp(newest.updated_at || newest.published_at) + ' · HONG KONG' : '—');
-    if (page === 'home') renderLatest(pages.slice(0, 8));
+    if (page === 'home') {
+      setText('library-count', pages.length);
+      setText('library-count-secondary', pages.length);
+      renderTicker(homeRows(pages, 6));
+      renderLatest(homeRows(pages, 4));
+      renderHomeEarnings();
+      renderHomeAxes();
+    }
     if (page === 'library') renderLibrary();
     if (page === 'earnings') renderEarnings();
     if (page === 'map') renderMap();
     if (page === 'series') renderSeries();
   }
 
-  function renderLatest(items) {
-    var target = document.getElementById('latest-list');
+  function homeRows(source, limit) {
+    var seen = {};
+    return source.filter(function (item) {
+      var key = item.series_id ? 'series:' + item.series_id : 'slug:' + item.slug;
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    }).slice(0, limit);
+  }
+
+  function renderTicker(items) {
+    var target = document.getElementById('ticker-items');
     if (!target) return;
     target.innerHTML = items.map(function (item) {
-      return '<a class="latest-row" href="' + esc(href(item)) + '"><time>' + esc(shortStamp(item)) + '</time><div><div class="kicker">' + esc(axisName(item.axis)) + '</div><h3>' + esc(item.title || '') + '</h3></div></a>';
+      return '<a href="' + esc(href(item)) + '"><b>' + esc(item.title || '') + '</b><small>' + esc(shortStamp(item)) + ' · ' + esc(axisName(item.axis)) + '</small></a>';
     }).join('');
+  }
+
+  function renderLatest(items) {
+    var lead = document.getElementById('latest-lead');
+    var target = document.getElementById('latest-list');
+    if (!lead && !target) return;
+    var primary = items[0];
+    if (lead) {
+      lead.innerHTML = primary ? '<a class="latest-feature" href="' + esc(href(primary)) + '"><span class="story-meta"><strong>' + esc(axisName(primary.axis)) + '</strong><span>' + esc(typeLabel(primary.content_type)) + '</span><time>' + esc(shortStamp(primary)) + '</time></span><h3>' + esc(primary.title || '') + '</h3><p>' + esc(primary.homepage_deck || primary.deck || '') + '</p><span class="story-more">阅读全文 <span aria-hidden="true">↗</span></span></a>' : '<p class="empty">暂无已批准的研究条目。</p>';
+    }
+    if (target) {
+      var support = lead ? items.slice(1, 4) : items;
+      target.innerHTML = support.map(function (item) {
+        return '<a class="latest-row" href="' + esc(href(item)) + '"><time>' + esc(shortStamp(item)) + '</time><span class="latest-row__copy"><small>' + esc(axisName(item.axis)) + ' · ' + esc(typeLabel(item.content_type)) + '</small><strong>' + esc(item.title || '') + '</strong></span><span aria-hidden="true">↗</span></a>';
+      }).join('');
+    }
     var entry = document.getElementById('library-entry');
-    if (entry) entry.textContent = '进入研究库 · ' + pages.length + ' 篇';
+    if (entry) entry.textContent = '进入完整研究库 · ' + pages.length + ' 篇';
+  }
+
+  function renderHomeEarnings() {
+    var target = document.getElementById('earnings-list');
+    if (!target) return;
+    var rows = pages.filter(isEarnings).slice(0, 3);
+    if (!rows.length) {
+      target.innerHTML = '<p class="empty">财报桌暂无已批准的研究。</p>';
+      return;
+    }
+    var lead = rows[0];
+    var company = String(lead.company || '').trim() || lead.title || '';
+    var ticker = String(lead.ticker || '').trim();
+    target.innerHTML = '<a class="earnings-feature" href="' + esc(href(lead)) + '"><span class="earnings-feature__eyebrow">Latest earnings research</span><p class="earnings-feature__meta">' + esc(shortStamp(lead)) + (ticker ? ' · ' + esc(ticker) : '') + ' · ' + esc(typeLabel(lead.content_type)) + '</p><h3>' + esc(company) + '</h3><p>' + esc(lead.homepage_deck || lead.deck || '') + '</p><span class="earnings-feature__read">阅读研究 ↗</span></a><div class="earnings-list">' + rows.slice(1).map(function (item) {
+      var name = String(item.company || '').trim() || item.title || '';
+      var symbol = String(item.ticker || '').trim();
+      return '<a class="earnings-row" href="' + esc(href(item)) + '"><small>' + esc(shortStamp(item)) + (symbol ? ' · ' + esc(symbol) : '') + '</small><strong>' + esc(name) + '</strong><span>' + esc(item.title || '') + '</span></a>';
+    }).join('') + '</div>';
+  }
+
+  function renderHomeAxes() {
+    var target = document.getElementById('axis-list');
+    if (!target) return;
+    target.innerHTML = AXES.map(function (item, index) {
+      var count = pages.filter(function (entry) { return entry.axis === item.id; }).length;
+      return '<a class="axis-row" href="/library/?axis=' + encodeURIComponent(item.id) + '"><span class="axis-row__number">0' + (index + 1) + '</span><span class="axis-row__copy"><strong>' + esc(item.zh) + '</strong><small>' + esc(item.desc) + '</small></span><span class="axis-row__count">' + count + ' 篇</span></a>';
+    }).join('');
+  }
+
+  function typeLabel(type) {
+    var labels = {
+      earnings: '财报研究',
+      'earnings-deep-dive': '财报深度研究',
+      'deep-dive': '深度研究',
+      brief: '研究简报',
+      interactive: '互动工具',
+      tracker: '持续跟踪'
+    };
+    return labels[type] || '研究';
   }
 
   function renderLibrary() {
