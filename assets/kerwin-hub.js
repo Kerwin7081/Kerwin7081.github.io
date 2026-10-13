@@ -168,7 +168,7 @@
       if (axis !== 'all' && item.axis !== axis) return false;
       if (series && item.series_id !== series) return false;
       if (!query) return true;
-      return haystack(item).indexOf(query) >= 0;
+      return matchesQuery(item, query);
     });
     var note = document.getElementById('library-note');
     if (note) {
@@ -239,6 +239,12 @@
   }
   function haystack(item) {
     return [item.title, item.homepage_deck, item.deck, item.tag, item.category, item.company, item.ticker, item.series_title, axisName(item.axis)].join(' ').toLowerCase();
+  }
+  function matchesQuery(item, term) {
+    var text = haystack(item);
+    if (text.indexOf(term) >= 0) return true;
+    if (term === '太空通信') return /starlink|d2d|satellite/.test(text);
+    return false;
   }
   function timeOf(item) {
     var value = Date.parse(item.updated_at || item.published_at || '');
