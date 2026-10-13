@@ -775,7 +775,7 @@
   .home-refresh .header nav a { font-size: 12px; }
   .home-refresh .wrap { padding: 0 20px 40px; }
   .home-refresh .home-hero { grid-template-columns: minmax(0,1fr); gap: 22px; padding: 31px 0 20px; }
-  .home-refresh .home-intro h1 { max-width: 15ch; font-size: clamp(34px,8.2vw,43px); line-height: 1.15; }
+  .home-refresh .home-intro h1 { max-width: none; font-size: clamp(29px,8vw,43px); line-height: 1.15; }
   .home-refresh .home-lead { font-size: 15px; }
   .home-refresh .home-thesis { padding: 18px 17px 17px; }
   .home-refresh .home-thesis h2 { font-size: 27px; }
