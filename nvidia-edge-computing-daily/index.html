@@ -78,13 +78,8 @@
     <div class="top-date">报告发布日期：2026年7月22日</div>
     <div class="producer">本文由 Kerwin 团队自动化呈现：Kerwin 确定研究主题及校对逻辑，OpenClaw 打造的 Enya 全程自动化编码实现。<br>底层 AI 模型：GPT-5.5 及 Claude 付费版。Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。</div>
   </div>
-  <div class="gate-prompt" id="gate-prompt">
-    <div class="gate-prompt-inner">
-      <div class="gate-hint">请输入 <strong>k</strong>，方可显示完整内容</div>
-      <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
-    </div>
-  </div>
-  <div class="gated-content" id="gated-content">
+  
+  <div class="gated-content visible" id="gated-content">
   <div class="hero">
     <div class="badge">EDGE COMPUTING · DAILY WATCH</div>
     <h2>五篇 Edge 系列核心标的<br>7月22日行情跟踪</h2>
@@ -242,22 +237,7 @@
   <div class="footer">本页为自动化投资观察，不构成具体投资建议。数据来自 Yahoo Finance，可能存在延迟、缺漏或复权差异，应以交易所公告、公司披露和专业终端为准。<br>© Kerwin｜宏观对冲及 AI 精选组合研究｜Enya.Clawd 自动化呈现</div>
   </div>
 </div></div>
-<script>
-(function(){
-  var input=document.getElementById('gate-input');
-  if(!input)return;
-  input.addEventListener('input',function(){
-    if(input.value==='k'||input.value==='K'){
-      var gate=document.getElementById('gate-prompt');
-      var content=document.getElementById('gated-content');
-      if(gate&&content){
-        gate.style.display='none';
-        content.classList.add('visible');
-      }
-    }
-  });
-})();
-</script>
+
 <script>
 (function(){
   var s='nvidia-edge-computing-daily', u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s), el=document.getElementById('counter-num');

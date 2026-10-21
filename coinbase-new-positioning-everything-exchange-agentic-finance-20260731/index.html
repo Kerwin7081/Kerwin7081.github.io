@@ -189,19 +189,7 @@
 <body class="kw-research kw-wide" data-page-slug="coinbase-new-positioning-everything-exchange-agentic-finance-20260731">
   <div class="progress" id="progress" aria-hidden="true"></div>
 
-  <section class="access-gate" id="access-gate" aria-label="研究页面入口">
-    <div class="gate-card">
-      <div class="seal">Kerwin<br>Research<br>Hub</div>
-      <p class="gate-kicker">EnyaClawd Research Desk</p>
-      <h2>全新定位的 Coinbase</h2>
-      <p class="gate-copy">输入 “k” 即可显示，不分大小写</p>
-      <form class="gate-form" id="gate-form">
-        <input id="gate-key" type="text" inputmode="text" maxlength="1" autocomplete="off" aria-label="输入 k 或 K">
-        <button type="submit">进入研究</button>
-      </form>
-      <p class="gate-error" id="gate-error" role="status"></p>
-    </div>
-  </section>
+  
 
   <header class="sitebar">
     <div class="sitebar-inner">
@@ -531,10 +519,10 @@
   <button class="top" id="top" type="button" aria-label="返回顶部">↑</button>
   <script>
   (function(){
-    var gate=document.getElementById('access-gate');
-    var form=document.getElementById('gate-form');
-    var input=document.getElementById('gate-key');
-    var error=document.getElementById('gate-error');
+    var gate=document.getElementById('access-gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
+    var form=document.getElementById('gate-form')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
+    var input=document.getElementById('gate-key')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
+    var error=document.getElementById('gate-error')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
     var main=document.getElementById('main-content');
     var progress=document.getElementById('progress');
     var topButton=document.getElementById('top');

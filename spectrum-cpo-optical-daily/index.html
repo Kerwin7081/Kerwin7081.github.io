@@ -124,13 +124,7 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 </head>
 <body class="kw-research">
 
-<div id="kw-legacy-gate-overlay">
-<div id="gate-content">
-  <p style="font-size:14px;color:#8a5b2b;margin-bottom:10px;">🔒 Kerwin Research · 请输入密码</p>
-  <input type="text" id="kw-legacy-gate-input" placeholder="输入 k" autofocus maxlength="1">
-  <p class="hint">输入 k（不分大小写，无需回车）</p>
-</div>
-</div>
+
 
 <div id="main-content" style="display:none;">
 
@@ -363,25 +357,7 @@ hr { border:none; border-top:1px solid #dccdbf; margin:14px 0; }
 </div>
 </div>
 
-<script>
-(function(){
-  var input = document.getElementById('kw-legacy-gate-input');
-  var overlay = document.getElementById('kw-legacy-gate-overlay');
-  var main = document.getElementById('main-content');
-  if (sessionStorage.getItem('gate_ok') === '1') {
-    overlay.style.display = 'none';
-    main.style.display = 'block';
-    return;
-  }
-  input.addEventListener('input', function() {
-    if (this.value.toLowerCase() === 'k') {
-      sessionStorage.setItem('gate_ok', '1');
-      overlay.style.display = 'none';
-      main.style.display = 'block';
-    }
-  });
-})();
-</script>
+
 
 
 <a class="kw-static-home-route" href="/">← 返回 EnyaClawd 研究首页</a>

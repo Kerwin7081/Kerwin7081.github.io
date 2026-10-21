@@ -717,35 +717,10 @@
 }
 </script>
 </head>
-<body class="kw-research kw-wide kw-gate-pending"
+<body class="kw-research kw-wide"
       data-layout-id="kerwin-editorial-research-v1"
       data-page-slug="us-ipo-atm-capital-returns-20261004">
-  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
-    <div class="kw-editorial-gate__paper">
-      <div class="kw-editorial-gate__masthead">
-        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
-        <span class="kw-editorial-gate__access">Reader Access</span>
-      </div>
-      <div class="kw-editorial-gate__body">
-        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-        <div>
-          <div class="kw-editorial-gate__kicker">Capital & Macro · US IPO & ATM</div>
-          
-          <h2 class="kw-editorial-gate__title" id="gate-title">美股融资与回报</h2>
-          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
-          <label class="kw-editorial-gate__field">
-            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
-            <span>Auto enter</span>
-          </label>
-        </div>
-      </div>
-      <div class="kw-editorial-gate__foot">
-        <span>Kerwin｜研究框架与投资判断</span>
-        <span>Enya｜自动化跟踪、核验、整理与排版执行</span>
-        <span>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</span>
-      </div>
-    </div>
-  </section>
+  
 
   <a class="skip-link" href="#main-content">跳至正文</a>
   <div class="progress" id="reading-progress" aria-hidden="true"></div>
@@ -831,8 +806,8 @@
   <script>
     (function () {
       var body = document.body;
-      var gate = document.getElementById("editorial-gate");
-      var accessKey = document.getElementById("access-key");
+      var gate = document.getElementById("editorial-gate")||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
+      var accessKey = document.getElementById("access-key")||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
       var progress = document.getElementById("reading-progress");
       var topButton = document.getElementById("top-button");
 

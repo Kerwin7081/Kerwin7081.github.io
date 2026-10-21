@@ -56,15 +56,9 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 }
 </script>
 </head>
-<body class="kw-gate-pending" data-layout-id="kerwin-editorial-research-v1">
+<body  data-layout-id="kerwin-editorial-research-v1">
 <a class="skip-link" href="#main-content">跳到正文</a><div class="progress" id="progress"></div>
-<div class="kw-editorial-gate" id="gate" role="dialog" aria-modal="true" aria-label="Reader Access">
-  <div class="kw-editorial-gate__paper">
-    <div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">KERWIN RESEARCH HUB</span><span class="kw-editorial-gate__access">READER ACCESS</span></div>
-    <div class="kw-editorial-gate__body"><div class="kw-editorial-gate__seal">KERWIN<br>RESEARCH</div><div><div class="kw-editorial-gate__kicker">National Growth Engine · Series 05</div><h2 class="kw-editorial-gate__title">资本最终靠什么证明自己？</h2><p class="kw-editorial-gate__copy"><strong>输入 “K” 即可显示</strong><span>从资产价格反身性到生产率验证，把房地产与AI放进同一张资本账本。</span></p><div class="kw-editorial-gate__field"><input id="gate-input" maxlength="1" autocomplete="off" aria-label="输入K进入"><span>PRESS K</span></div></div></div>
-    <div class="kw-editorial-gate__foot"><span>判断框架：Kerwin</span><span>研究、校验与排版：Enya</span></div>
-  </div>
-</div>
+
 <main class="site-shell" id="main-content">
   <div class="topbar"><span>KERWIN RESEARCH · NATIONAL GROWTH ENGINE</span><span>2026.09.01 · CAPITAL & MACRO</span></div>
   <header class="masthead"><a class="brand-mark" href="/">kerwin<span>把复杂世界，整理成一张投资地图</span></a><nav class="nav"><a href="#validation">验证机制</a><a href="#reflexivity">反身性</a><a href="#wealth">财富效应</a><a href="#scorecard">评分卡</a></nav><a class="home-route" href="/">返回首页 ↗</a></header>
@@ -147,6 +141,6 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 </main>
 <button class="top-button" id="top-button" aria-label="返回顶部">↑</button>
 <script>
-(()=>{const gate=document.getElementById('gate'),input=document.getElementById('gate-input');const unlock=()=>{document.body.classList.remove('kw-gate-pending');gate.hidden=true};input.addEventListener('input',()=>{if(input.value.toLowerCase()==='k')unlock()});document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='k')unlock()});if(window.matchMedia('(min-width:761px)').matches)setTimeout(()=>input.focus(),120);const p=document.getElementById('progress'),btn=document.getElementById('top-button');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;p.style.width=(h>0?scrollY/h*100:0)+'%';btn.classList.toggle('is-visible',scrollY>700)});btn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));})();
+(()=>{const gate=document.getElementById('gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},input=document.getElementById('gate-input')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};const unlock=()=>{document.body.classList.remove('kw-gate-pending');gate.hidden=true};input.addEventListener('input',()=>{if(input.value.toLowerCase()==='k')unlock()});document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='k')unlock()});if(window.matchMedia('(min-width:761px)').matches)setTimeout(()=>input.focus(),120);const p=document.getElementById('progress'),btn=document.getElementById('top-button');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;p.style.width=(h>0?scrollY/h*100:0)+'%';btn.classList.toggle('is-visible',scrollY>700)});btn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));})();
 </script>
 </body></html>

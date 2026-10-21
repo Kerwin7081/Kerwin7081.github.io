@@ -214,26 +214,8 @@
 }
 </script>
 </head>
-<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="spacex-new-beginning-20260805">
-  <aside class="access-gate" id="access-gate" aria-labelledby="gate-title">
-    <div class="access-gate__paper">
-      <div class="access-gate__mast"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
-      <div class="access-gate__body">
-        <div class="seal" aria-hidden="true"><span>Kerwin<small>Research Hub</small></span></div>
-        <div>
-          <div class="eyebrow">Reader Access</div>
-          <h1 id="gate-title">Kerwin Research Hub</h1>
-          <p>企业财报、宏观资产、AI产业链、数字金融与公司研究档案。</p>
-          <form id="access-form">
-            <label for="access-key">输入 “k” 即可显示，不分大小写</label>
-            <div class="gate-field"><input id="access-key" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k"><span>Auto enter</span></div>
-            <p class="gate-error" id="access-error" role="alert" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-      <div class="access-gate__foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-    </div>
-  </aside>
+<body class="kw-research kw-wide" data-layout-id="kerwin-editorial-research-v1" data-page-slug="spacex-new-beginning-20260805">
+  
 
   <div class="site-shell">
     <div class="topbar"><a href="/">← 返回研究首页</a><span>SPACEX · Q2 2026 · STRUCTURAL RE-RATING</span></div>
@@ -492,26 +474,6 @@
     <footer><b>Kerwin Research Hub · Independent Investment Research</b><span>本材料仅供研究交流，不构成任何投资建议。</span></footer>
   </div>
 
-  <script>
-    (() => {
-      const body = document.body;
-      const input = document.getElementById('access-key');
-      const form = document.getElementById('access-form');
-      const error = document.getElementById('access-error');
-      const openGate = () => {
-        body.classList.remove('kw-gate-pending');
-        body.classList.add('kw-gate-open');
-        try { sessionStorage.setItem('kw-access','1'); } catch(e) {}
-      };
-      try { if (sessionStorage.getItem('kw-access') === '1') openGate(); } catch(e) {}
-      const check = () => {
-        if ((input.value || '').toLowerCase() === 'k') openGate();
-        else if (input.value) error.textContent = '请输入 k';
-      };
-      input.addEventListener('input', check);
-      form.addEventListener('submit', (e) => { e.preventDefault(); check(); });
-      if (window.innerWidth > 760 && !body.classList.contains('kw-gate-open')) input.focus();
-    })();
-  </script>
+  
 </body>
 </html>

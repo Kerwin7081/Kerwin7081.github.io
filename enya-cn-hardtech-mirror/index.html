@@ -174,15 +174,8 @@ body.gate-open #gate-overlay { display:none; }
 }
 </script>
 </head>
-<body class="gate-locked">
-<div id="gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div id="gate-card">
-    <h2 id="gate-title">门禁</h2>
-    <p>输入 K 即可显示完整内容；大小写均可，不需要回车。</p>
-    <input id="gate-input" type="text" inputmode="text" autocomplete="off" maxlength="8" autofocus aria-label="门禁口令" />
-    <div id="gate-error">口令不匹配，请输入 K。</div>
-  </div>
-</div>
+<body>
+
 <article class="page">
   <header class="mast">
     <div class="brand-left">
@@ -328,35 +321,6 @@ body.gate-open #gate-overlay { display:none; }
     由 Enya 自动化跟踪并输出。Enya 为香港首个由 OpenClaw 架构打造的女性投顾 Agent；底层 AI 模型由 GPT-5.6 Sol、Grok 4.5、Claude 等付费版赋能。
 </footer>
 </article>
-<script>
-(function () {
-  var body = document.body;
-  var input = document.getElementById('gate-input');
-  var err = document.getElementById('gate-error');
-  var key = 'enya_cn_hardtech_gate_ok';
-  function openGate() {
-    try { sessionStorage.setItem(key, '1'); } catch (e) {}
-    body.classList.remove('gate-locked');
-    body.classList.add('gate-open');
-  }
-  try {
-    if (sessionStorage.getItem(key) === '1') openGate();
-  } catch (e) {}
-  if (input) {
-    input.addEventListener('input', function () {
-      if ((input.value || '').trim().toLowerCase() === 'k') {
-        openGate();
-      } else if (input.value.length > 0) {
-        input.value = '';
-        if (err) {
-          err.style.display = 'block';
-          setTimeout(function () { err.style.display = 'none'; }, 1200);
-        }
-      }
-    });
-    setTimeout(function () { input.focus(); }, 50);
-  }
-})();
-</script>
+
 </body>
 </html>

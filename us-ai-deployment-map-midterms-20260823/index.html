@@ -68,23 +68,9 @@ body{font-size:16px;line-height:1.80}.kw-editorial-gate{display:flex;align-items
 }
 </script>
 </head>
-<body class="kw-gate-pending" data-layout-id="kerwin-editorial-research-v1">
+<body  data-layout-id="kerwin-editorial-research-v1">
 <div class="progress" id="progress"></div>
-<aside class="kw-editorial-gate" id="gate" aria-labelledby="gate-title">
-  <div class="kw-editorial-gate__paper">
-    <div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">KERWIN RESEARCH HUB</span><span class="kw-editorial-gate__access">READER ACCESS</span></div>
-    <div class="kw-editorial-gate__body">
-      <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-      <div>
-        <div class="kw-editorial-gate__kicker">美国州际政策竞争系列④</div>
-        <h2 class="kw-editorial-gate__title" id="gate-title">美国50州 AI 算力地图</h2>
-        <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写；这里只用于控制阅读展示。</span></p>
-        <div class="kw-editorial-gate__field"><input id="gate-key" maxlength="1" aria-label="阅读访问码"><span>AUTO ENTER</span></div>
-      </div>
-    </div>
-    <div class="kw-editorial-gate__foot"><span>EnyaClawd · Kerwin Research</span><span>2026-08-23 · HKT</span></div>
-  </div>
-</aside>
+
 
 <main class="site-shell">
 <header>
@@ -296,7 +282,7 @@ body{font-size:16px;line-height:1.80}.kw-editorial-gate{display:flex;align-items
 <script>
 (function(){
 'use strict';
-var body=document.body,gate=document.getElementById('gate'),key=document.getElementById('gate-key'),progress=document.getElementById('progress');
+var body=document.body,gate=document.getElementById('gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},key=document.getElementById('gate-key')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},progress=document.getElementById('progress');
 function unlock(){body.classList.remove('kw-gate-pending');if(gate){gate.hidden=true;gate.setAttribute('aria-hidden','true');}}
 if(key){key.addEventListener('input',function(){if(String(key.value||'').trim().toLowerCase()==='k')unlock();});if(window.matchMedia&&window.matchMedia('(min-width:761px)').matches){setTimeout(function(){key.focus();},80);}}
 window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';});

@@ -77,18 +77,8 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 }
 </script>
 </head>
-<body class="kw-research kw-gate-pending" data-page-slug="ineffable-superlearner-rubin-a5x-20260723">
-<aside class="kw-editorial-gate" aria-label="页面访问互动">
-<div class="kw-editorial-gate__paper">
-<div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>
-<div class="kw-editorial-gate__body">
-<div class="kw-editorial-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
-<div><div class="kw-editorial-gate__kicker">Reader Access</div><div class="kw-editorial-gate__title">从模仿到持续自主学习</div>
-<form class="kw-editorial-gate__form"><label for="kw-editorial-key">输入 “k” 即可显示，不分大小写</label><div class="kw-editorial-gate__field"><input id="kw-editorial-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-editorial-status"><span>Auto enter</span></div><p class="kw-editorial-gate__status" id="kw-editorial-status" role="status" aria-live="polite"></p></form>
-</div></div>
-<div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-</div>
-</aside>
+<body class="kw-research" data-page-slug="ineffable-superlearner-rubin-a5x-20260723">
+
 <div class="back"><a href="/">EnyaClawd · 返回研究首页</a></div>
 <div class="page"><div class="shell">
 <header class="topbar">
@@ -188,43 +178,6 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 <section class="enya-brand" aria-label="EnyaClawd 品牌说明"><div class="enya-brand-name">EnyaClawd</div><div class="enya-brand-tagline">Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</div><div class="enya-brand-models">底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</div><p class="enya-brand-copy">Kerwin 确定研究主题、投资逻辑与最终校对；Enya 负责证据组织、可视化呈现与持续维护。</p></section>
 <footer class="footer"><b>EnyaClawd · Kerwin Research Hub</b><div>本文为公开资料基础上的产业研究，不构成具体投资建议。有关DeepSeek路线的表述来自网传二手整理稿，已单独标注证据等级；Rubin相关架构中，部分网络、电力与存储方向属于Rubin时代相邻的AI Factory升级，并非全部等同于标准NVL72机柜配置。</div><div style="margin-top:8px">© Kerwin｜宏观对冲及AI精选组合研究｜Enya.Clawd 自动化呈现</div></footer>
 </div></div>
-<script>
-(function(){
-  var body=document.body;
-  var gate=document.querySelector(".kw-editorial-gate");
-  var form=gate.querySelector("form");
-  var input=gate.querySelector("input");
-  var status=gate.querySelector(".kw-editorial-gate__status");
-  var unlocking=false;
-  var clearTimer=0;
-  function openPage(){
-    if(unlocking)return;
-    unlocking=true;
-    if(clearTimer)clearTimeout(clearTimer);
-    gate.classList.add("is-unlocking");
-    status.textContent="正在展开页面…";
-    setTimeout(function(){
-      body.classList.remove("kw-gate-pending");
-      gate.setAttribute("aria-hidden","true");
-      var firstFocus=document.querySelector(".back a, main a, main button");
-      if(firstFocus)firstFocus.focus();
-    },140);
-  }
-  function checkInput(){
-    var value=String(input.value||"").trim().toLowerCase();
-    if(value==="k"){openPage();return}
-    if(value){
-      status.textContent="请输入 “k”，大小写均可。";
-      if(clearTimer)clearTimeout(clearTimer);
-      clearTimer=setTimeout(function(){
-        if(!unlocking){input.value="";input.focus()}
-      },260);
-    }
-  }
-  input.addEventListener("input",checkInput);
-  form.addEventListener("submit",function(event){event.preventDefault();checkInput()});
-  setTimeout(function(){if(!unlocking)input.focus()},60);
-})();
-</script>
+
 </body>
 </html>

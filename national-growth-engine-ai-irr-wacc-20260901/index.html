@@ -57,15 +57,9 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 }
 </script>
 </head>
-<body class="kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="national-growth-engine-ai-irr-wacc-20260901">
+<body  data-layout-id="kerwin-editorial-research-v1" data-page-slug="national-growth-engine-ai-irr-wacc-20260901">
 <a class="skip-link" href="#content">跳到正文</a><div class="progress" id="progress"></div>
-<div class="kw-editorial-gate" id="editorial-gate" role="dialog" aria-modal="true" aria-label="Reader access">
-  <div class="kw-editorial-gate__paper">
-    <div class="kw-editorial-gate__masthead"><span class="kw-editorial-gate__brand">KERWIN RESEARCH HUB</span><span class="kw-editorial-gate__access">READER ACCESS</span></div>
-    <div class="kw-editorial-gate__body"><div class="kw-editorial-gate__seal">KERWIN<br>04</div><div><div class="kw-editorial-gate__kicker">National Growth Engine</div><div class="kw-editorial-gate__title">AI激流</div><p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>同一套资本账本：IRR · WACC · Investment Demand · Productivity。</span></p><div class="kw-editorial-gate__field"><input id="gate-input" aria-label="输入访问字符" autocomplete="off" maxlength="1"><span>PRESS K</span></div></div></div>
-    <div class="kw-editorial-gate__foot"><span>Evidence first · 事实与推导分层</span><span>Kerwin / Enya · 2026.09.01</span></div>
-  </div>
-</div>
+
 <main class="site-shell" id="content">
   <div class="topbar"><span>KERWIN · NATIONAL GROWTH ENGINE · 04</span><span>Capital & Macro · Snapshot 2026.09.01</span></div>
   <header class="masthead"><a class="brand-mark" href="/">kerwin<span>Research Hub</span></a><nav class="nav"><a href="#mirror">镜像</a><a href="#rate">资本价格</a><a href="#reallocation">重配置</a><a href="#falsify">证伪</a></nav><a class="home-route" href="/">返回首页 ↗</a></header>
@@ -99,6 +93,6 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 </main>
 <button class="top-button" id="top-button" aria-label="返回顶部">↑</button>
 <script>
-(function(){const gate=document.getElementById('editorial-gate'),input=document.getElementById('gate-input'),body=document.body;function unlock(){gate.hidden=true;body.classList.remove('kw-gate-pending');}input.addEventListener('input',()=>{if((input.value||'').toLowerCase()==='k')unlock();});document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='k')unlock();});if(window.matchMedia('(min-width:761px)').matches){setTimeout(()=>input.focus(),120);}const p=document.getElementById('progress'),top=document.getElementById('top-button');window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;p.style.width=(max>0?scrollY/max*100:0)+'%';top.classList.toggle('is-visible',scrollY>700);},{passive:true});top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));})();
+(function(){const gate=document.getElementById('editorial-gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},input=document.getElementById('gate-input')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},body=document.body;function unlock(){gate.hidden=true;body.classList.remove('kw-gate-pending');}input.addEventListener('input',()=>{if((input.value||'').toLowerCase()==='k')unlock();});document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='k')unlock();});if(window.matchMedia('(min-width:761px)').matches){setTimeout(()=>input.focus(),120);}const p=document.getElementById('progress'),top=document.getElementById('top-button');window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;p.style.width=(max>0?scrollY/max*100:0)+'%';top.classList.toggle('is-visible',scrollY>700);},{passive:true});top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));})();
 </script>
 </body></html>

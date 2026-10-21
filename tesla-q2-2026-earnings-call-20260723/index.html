@@ -68,18 +68,8 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 }
 </script>
 </head>
-<body class="kw-research kw-gate-pending" data-page-slug="tesla-q2-2026-earnings-call-20260723">
-<aside class="kw-editorial-gate" aria-label="页面访问互动">
-<div class="kw-editorial-gate__paper">
-<div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>
-<div class="kw-editorial-gate__body">
-<div class="kw-editorial-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
-<div><div class="kw-editorial-gate__kicker">Reader Access</div><div class="kw-editorial-gate__title">Tesla 2026 Q2 财报详解</div>
-<form class="kw-editorial-gate__form"><label for="kw-editorial-key">输入 “k” 即可显示，不分大小写</label><div class="kw-editorial-gate__field"><input id="kw-editorial-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-editorial-status"><span>Auto enter</span></div><p class="kw-editorial-gate__status" id="kw-editorial-status" role="status" aria-live="polite"></p></form>
-</div></div>
-<div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-</div>
-</aside>
+<body class="kw-research" data-page-slug="tesla-q2-2026-earnings-call-20260723">
+
 <div class="back-top"><a href="/">← 返回研究首页</a></div>
 <div class="page"><div class="shell">
 <header class="topbar"><div class="top-kicker">KERWIN TEAM PRESENTS · PHYSICAL AI EARNINGS</div><h1 class="top-title">Tesla 2026 Q2<br><em>财报电话会详细纪要</em></h1><div class="top-date">报告发布日期：2026年7月23日</div><div class="top-block">Kerwin 投顾视角。围绕汽车业务盈利质量、FSD与Robotaxi商业化、Cybercab、Optimus、能源储能、AI芯片与Terafab、资本开支及自由现金流进行结构化拆解。</div></header>
@@ -102,43 +92,6 @@ body.kw-gate-pending{overflow:hidden}.kw-gate-pending>:not(.kw-editorial-gate):n
 <footer class="footer"><div class="footer-brand">EnyaClawd · Kerwin Research Hub</div><div>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent。底层模型：GPT 5.6 Sol 及 Claude Fable 付费版。</div><div class="counter-wrap">👀 页面浏览量：<span id="counter-num">...</span></div><div>本文为投资研究参考，不构成具体投资建议。数据及公开信息截至2026年7月23日。管理层前瞻性陈述存在技术、监管、制造、需求和资本回报风险。</div><div>© Kerwin｜宏观对冲及AI精选组合研究｜Enya.Clawd 自动化呈现</div><a class="bottom-link" href="/">返回研究首页 ↗</a></footer>
 </div></div>
 <script>(function(){var slug='tesla-q2-2026-earnings-call-20260723';var url='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(slug);var el=document.getElementById('counter-num');fetch(url).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=Number(d.count||0).toLocaleString('zh-CN')}).catch(function(){if(el)el.textContent='-'});fetch(url,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=Number(d.count||0).toLocaleString('zh-CN')}).catch(function(){});})();</script>
-<script>
-(function(){
-  var body=document.body;
-  var gate=document.querySelector(".kw-editorial-gate");
-  var form=gate.querySelector("form");
-  var input=gate.querySelector("input");
-  var status=gate.querySelector(".kw-editorial-gate__status");
-  var unlocking=false;
-  var clearTimer=0;
-  function openPage(){
-    if(unlocking)return;
-    unlocking=true;
-    if(clearTimer)clearTimeout(clearTimer);
-    gate.classList.add("is-unlocking");
-    status.textContent="正在展开页面…";
-    setTimeout(function(){
-      body.classList.remove("kw-gate-pending");
-      gate.setAttribute("aria-hidden","true");
-      var firstFocus=document.querySelector(".back-top a, main a, main button");
-      if(firstFocus)firstFocus.focus();
-    },140);
-  }
-  function checkInput(){
-    var value=String(input.value||"").trim().toLowerCase();
-    if(value==="k"){openPage();return}
-    if(value){
-      status.textContent="请输入 “k”，大小写均可。";
-      if(clearTimer)clearTimeout(clearTimer);
-      clearTimer=setTimeout(function(){
-        if(!unlocking){input.value="";input.focus()}
-      },260);
-    }
-  }
-  input.addEventListener("input",checkInput);
-  form.addEventListener("submit",function(event){event.preventDefault();checkInput()});
-  setTimeout(function(){if(!unlocking)input.focus()},60);
-})();
-</script>
+
 </body>
 </html>

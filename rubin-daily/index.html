@@ -108,14 +108,9 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
   </div>
 </div>
 
-<div class="gate-prompt" id="gate-prompt">
-  <div class="gate-prompt-inner">
-    <div class="gate-hint">请输入 <strong>k</strong>，方可显示完整内容</div>
-    <input class="gate-input-box" id="gate-input" type="text" maxlength="1" placeholder="_" autofocus>
-  </div>
-</div>
 
-<div class="gated-content" id="gated-content">
+
+<div class="gated-content visible" id="gated-content">
 
 <div class="wrap">
 <div class="hero">
@@ -829,22 +824,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 
 </div></div>
 
-<script>
-(function(){
-  var input=document.getElementById('gate-input');
-  if(!input)return;
-  input.addEventListener('input',function(){
-    if(input.value==='k'||input.value==='K'){
-      var gate=document.getElementById('gate-prompt');
-      var content=document.getElementById('gated-content');
-      if(gate&&content){
-        gate.style.display='none';
-        content.classList.add('visible');
-      }
-    }
-  });
-})();
-</script>
+
 <script>
 (function(){
   var s='rubin-daily',

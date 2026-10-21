@@ -106,25 +106,7 @@ body.kw-gate-granted .kw-access-gate{display:none}
 </script>
 </head>
 <body class="kw-research kw-v3">
-<div class="kw-access-gate" id="kw-access-gate" aria-labelledby="kw-gate-title">
-  <div class="kw-access-gate__paper">
-    <div class="kw-access-gate__masthead"><span>Independent Investment Research</span><span>Hong Kong · Interactive Entry</span></div>
-    <div class="kw-access-gate__body">
-      <div class="kw-access-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
-      <div>
-        <div class="kw-access-gate__kicker">Reader Access</div>
-        <h1 class="kw-access-gate__title" id="kw-gate-title">两套AI工厂的正面交锋</h1>
-        <p class="kw-access-gate__copy">Google Axion、TPU、Virgo与NVIDIA Vera、Rubin、NVLink的产业链研究。</p>
-        <form class="kw-access-gate__form" id="kw-access-form">
-          <label for="kw-access-key">输入 “k” 即可显示，不分大小写</label>
-          <div class="kw-access-gate__field"><input id="kw-access-key" type="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="kw-access-error"><span class="kw-access-gate__auto">Auto enter</span></div>
-          <p class="kw-access-gate__error" id="kw-access-error" role="alert" aria-live="polite"></p>
-        </form>
-      </div>
-    </div>
-    <div class="kw-access-gate__foot"><span>EnyaClawd Research System</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-  </div>
-</div>
+
 <header class="kw-site-rail">
   <div class="kw-site-rail__inner">
     <a class="kw-site-rail__brand" href="/"><span class="kw-site-rail__mark">K</span><span class="kw-site-rail__wordmark">EnyaClawd<small>Kerwin Research Hub</small></span></a>
@@ -247,7 +229,7 @@ body.kw-gate-granted .kw-access-gate{display:none}
 <script>
 (function(){
   'use strict';
-  var body=document.body, gate=document.getElementById('kw-access-gate'), form=document.getElementById('kw-access-form'), input=document.getElementById('kw-access-key'), error=document.getElementById('kw-access-error');
+  var body=document.body, gate=document.getElementById('kw-access-gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""}, form=document.getElementById('kw-access-form'), input=document.getElementById('kw-access-key'), error=document.getElementById('kw-access-error');
   function unlock(){if(!gate)return;gate.classList.add('is-unlocking');setTimeout(function(){body.classList.add('kw-gate-granted');gate.setAttribute('aria-hidden','true');},150)}
   function check(){var value=String(input&&input.value||'').trim().toLowerCase();if(value==='k'){unlock();return}if(value&&error){error.textContent='请输入 “k”，大小写均可。';setTimeout(function(){if(input){input.value='';input.focus()}},300)}}
   if(input){input.addEventListener('input',check);setTimeout(function(){input.focus()},80)}if(form){form.addEventListener('submit',function(e){e.preventDefault();check()})}

@@ -89,15 +89,7 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 </script>
 </head>
 <body>
-<div id="gate-overlay">
-  <div id="gate-box">
-    <h2>🔒</h2>
-    <p>请输入 k，方可显示完整内容</p>
-    <input type="password" id="gate-input" maxlength="10" autofocus>
-    <div id="gate-hint">（输入后自动显示，无需回车）</div>
-    <div id="gate-err"></div>
-  </div>
-</div>
+
 <div id="gate-content">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell"><div class="wrap">
@@ -640,52 +632,6 @@ tbody td{padding:9px 10px;border-bottom:1px solid #e5d9cc;vertical-align:top}
 
 </div></div></div>
 
-<script>
-// 门禁：输入 k（不分大小写）自动显示
-(function(){
-  var overlay = document.getElementById('gate-overlay');
-  var content = document.getElementById('gate-content');
-  var input = document.getElementById('gate-input');
-  var err = document.getElementById('gate-err');
 
-  if (sessionStorage.getItem('gate_ok') === '1') {
-    overlay.style.display = 'none';
-    content.style.display = 'block';
-    return;
-  }
-
-  input.addEventListener('input', function() {
-    var v = input.value.toLowerCase();
-    err.style.display = 'none';
-
-    // "k" 或 "K" 匹配即通过
-    if (v.indexOf('k') !== -1 || v === 'k') {
-      sessionStorage.setItem('gate_ok', '1');
-      overlay.style.display = 'none';
-      content.style.display = 'block';
-    } else if (v.length >= 1) {
-      // 输入了一个非 k 的字符就报错并清空
-      err.style.display = 'block';
-      err.textContent = '密码错误，请重试';
-      input.value = '';
-    }
-  });
-})();
-
-// PV counter
-(function(){
-  var s='serenity-daily',
-      u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s),
-      el=document.getElementById('counter-num');
-  fetch(u)
-    .then(function(r){return r.json()})
-    .then(function(d){if(el)el.textContent=d.count.toLocaleString()})
-    .catch(function(){if(el)el.textContent='-'});
-  fetch(u,{method:'POST'})
-    .then(function(r){return r.json()})
-    .then(function(d){if(el)el.textContent=d.count.toLocaleString()})
-    .catch(function(){});
-})();
-</script>
 </body>
 </html>

@@ -58,7 +58,7 @@ html,body{margin:0;min-height:100%;background:#fff1e5;color:#1f1a17;font-family:
     document.open();document.write(parts.join(''));document.close();
     var readerLoader=document.createElement('script');readerLoader.src='/assets/enya-reader-loader-v1.js?v=20260909reader';document.body.appendChild(readerLoader);
   }catch(error){
-    document.getElementById('loading').innerHTML='<h1>页面加载失败</h1><p>请刷新页面重试。</p>';
+    document.getElementById('loading').innerHTML='<h2>页面加载失败</h2><p>请刷新页面重试。</p>';
     console.error(error);
   }
 })();

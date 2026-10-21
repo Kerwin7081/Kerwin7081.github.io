@@ -50,7 +50,7 @@
 </script>
 </head>
 <body>
-<div class="gate" id="gate"><div class="gate-card"><div class="eyebrow">Kerwin Research Hub · Reader Access</div><h2>把复杂世界<br>整理成一张投资地图</h2><p>输入 “k” 即可显示，不分大小写。</p><input id="access" maxlength="1" autocomplete="off" placeholder="k" aria-label="Reader Access Key"></div></div>
+
 <div class="shell">
 <header><div class="topbar"><span>Physical Agent Economics · Benchmark</span><span>Evidence First · 2026.09.04</span></div><div class="mast"><a class="brand" href="/">kerwin<span>Research Hub</span></a><nav class="nav"><a href="#reality">现实能力</a><a href="#economics">单位经济</a><a href="#commercial">商业证明</a><a href="#multiplier">价值乘数</a><a href="#ledger">统一账本</a></nav><a class="home" href="/">研究首页 ↗</a></div></header>
 <main>
@@ -107,7 +107,7 @@
 <footer class="footer"><div class="footer-line"><span>Kerwin Research Hub · Physical Agent Economics</span><a href="/">返回研究首页 ↗</a></div><div>本页把公司披露、SEC材料、管理层成熟情景与Kerwin计算严格区分；Economic Value Multiple用于跨Software AI与Physical AI建立共同经济尺度，不应把单一小样本或管理层目标外推为全行业既成事实。</div></footer>
 </div>
 <script>
-(function(){const gate=document.getElementById('gate'),input=document.getElementById('access');const ok=sessionStorage.getItem('kerwin-access')==='1';if(ok){gate.hidden=true}else{setTimeout(()=>input.focus(),120)}input.addEventListener('input',()=>{if((input.value||'').toLowerCase()==='k'){sessionStorage.setItem('kerwin-access','1');gate.hidden=true;document.body.style.overflow='auto'}})})();
+(function(){const gate=document.getElementById('gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},input=document.getElementById('access')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};const ok=sessionStorage.getItem('kerwin-access')==='1';if(ok){gate.hidden=true}else{setTimeout(()=>input.focus(),120)}input.addEventListener('input',()=>{if((input.value||'').toLowerCase()==='k'){sessionStorage.setItem('kerwin-access','1');gate.hidden=true;document.body.style.overflow='auto'}})})();
 </script>
 </body>
 </html>

@@ -55,7 +55,7 @@
 </script>
 </head>
 <body>
-<div class="gate" id="gate"><div class="gate-card"><div class="eyebrow">Kerwin Research · Editorial Access</div><h2>US MIDTERM 2026</h2><p>输入 <b>K</b> 继续访问。</p><input id="access" autocomplete="off" aria-label="访问字符" placeholder="输入 K"></div></div>
+
 <main class="shell" id="main">
 <div class="topbar"><span>Kerwin Research Hub · US Election Desk</span><span id="top-snapshot">Snapshot · 2026-09-11 HKT</span></div>
 <header class="masthead"><a class="brand" href="/">EnyaClawd<span>Independent Investment Research</span></a><nav class="nav"><a href="#control">先看谁可能控国会</a><a href="#senate">参议院</a><a href="#house">众议院</a><a href="#events">事件</a><a href="#markets">市场影响</a></nav><a class="home" href="/">研究首页 ↗</a></header>
@@ -103,7 +103,7 @@
 <button class="top-button" id="top-button" aria-label="返回顶部">↑</button>
 <script>
 (function(){
-var gate=document.getElementById('gate'),access=document.getElementById('access'),topBtn=document.getElementById('top-button');
+var gate=document.getElementById('gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},access=document.getElementById('access')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},topBtn=document.getElementById('top-button');
 function reveal(){gate.hidden=true;window.scrollTo(0,0)}
 access.addEventListener('input',function(){if(access.value.trim().toLowerCase()==='k')reveal()});
 if(window.matchMedia('(min-width:761px)').matches)access.focus();

@@ -58,23 +58,9 @@
 }
 </script>
 </head>
-<body class="kw-gate-pending">
+<body>
   <a class="skip-link" href="#main">跳到正文</a><div class="progress" id="reading-progress" aria-hidden="true"></div>
-  <section class="kw-editorial-gate" id="editorial-gate" aria-label="Reader Access">
-    <div class="kw-editorial-gate__paper">
-      <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Reader Access</span></div>
-      <div class="kw-editorial-gate__body">
-        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-        <div>
-          <div class="kw-editorial-gate__kicker">Cybercab Economics · 2026.09.03</div>
-          <h2 class="kw-editorial-gate__title">Cybercab经济学</h2>
-          <div class="kw-editorial-gate__copy">输入 k 即可显示<span>不分大小写；无需按 Enter。</span></div>
-          <label class="kw-editorial-gate__field"><input id="access-key" type="text" inputmode="text" autocomplete="off" aria-label="输入访问字符"><span>TYPE K</span></label>
-        </div>
-      </div>
-      <div class="kw-editorial-gate__foot"><span>Kerwin Research Hub · Independent Investment Research</span><span>FT warm-paper editorial system</span></div>
-    </div>
-  </section>
+  
 
   <main class="site-shell" id="main">
     <div class="topbar"><span>Cybercab Economics · Physical AI</span><a href="/">enyaclawd.com</a></div>
@@ -230,6 +216,6 @@
     <footer class="footer"><div class="footer-line"><span>本文仅用于研究与信息交流，不构成投资建议。</span><a href="/">返回研究首页</a></div><div class="footer-meta"><span>Published 2026-09-03 16:40 HKT</span><span>Updated 2026-09-03 16:40 HKT</span><span>Layout kerwin-editorial-research-v1</span></div></footer>
   </main>
   <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
-  <script>(function(){var body=document.body,gate=document.getElementById('editorial-gate'),input=document.getElementById('access-key'),progress=document.getElementById('reading-progress'),top=document.getElementById('top-button');function unlock(){if(!gate)return;gate.hidden=true;body.classList.remove('kw-gate-pending');body.style.overflow='';try{sessionStorage.setItem('kerwin-access','1')}catch(e){}}function test(v){if((v||'').toLowerCase()==='k')unlock()}try{if(sessionStorage.getItem('kerwin-access')==='1')unlock()}catch(e){}if(input){input.addEventListener('input',function(){test(input.value)});input.addEventListener('keydown',function(e){if(e.key&&e.key.toLowerCase()==='k')unlock()})}document.addEventListener('keydown',function(e){if(!gate||gate.hidden)return;if(e.key&&e.key.toLowerCase()==='k')unlock()});function onscroll(){var doc=document.documentElement,den=doc.scrollHeight-doc.clientHeight,p=den>0?doc.scrollTop/den:0;if(progress)progress.style.width=(p*100)+'%';if(top)top.classList.toggle('is-visible',doc.scrollTop>700)}window.addEventListener('scroll',onscroll,{passive:true});onscroll();if(top)top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
+  <script>(function(){var body=document.body,gate=document.getElementById('editorial-gate')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},input=document.getElementById('access-key')||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""},progress=document.getElementById('reading-progress'),top=document.getElementById('top-button');function unlock(){if(!gate)return;gate.hidden=true;body.classList.remove('kw-gate-pending');body.style.overflow='';try{sessionStorage.setItem('kerwin-access','1')}catch(e){}}function test(v){if((v||'').toLowerCase()==='k')unlock()}try{if(sessionStorage.getItem('kerwin-access')==='1')unlock()}catch(e){}if(input){input.addEventListener('input',function(){test(input.value)});input.addEventListener('keydown',function(e){if(e.key&&e.key.toLowerCase()==='k')unlock()})}document.addEventListener('keydown',function(e){if(!gate||gate.hidden)return;if(e.key&&e.key.toLowerCase()==='k')unlock()});function onscroll(){var doc=document.documentElement,den=doc.scrollHeight-doc.clientHeight,p=den>0?doc.scrollTop/den:0;if(progress)progress.style.width=(p*100)+'%';if(top)top.classList.toggle('is-visible',doc.scrollTop>700)}window.addEventListener('scroll',onscroll,{passive:true});onscroll();if(top)top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
 </body>
 </html>

@@ -82,14 +82,7 @@
 </script>
 </head>
 <body class="kw-research">
-<div id="kw-legacy-gate-overlay">
-  <div id="gate-box">
-    <h2>🔒</h2>
-    <p>请输入 k，方可显示完整内容</p>
-    <input type="password" id="kw-legacy-gate-input" maxlength="10" autofocus>
-    <div id="gate-err"></div>
-  </div>
-</div>
+
 <div id="gate-content">
 <div class="back"><a href="/">← 返回首页</a></div>
 <div class="page"><div class="shell"><div class="wrap">
@@ -467,35 +460,7 @@
 </div></div></div>
 </div>
 
-<script>
-(function(){
-  if(sessionStorage.getItem('gate_ok')==='k'){
-    document.getElementById('kw-legacy-gate-overlay').style.display='none';
-    document.getElementById('gate-content').style.display='block';
-  }
-  var inp=document.getElementById('kw-legacy-gate-input');
-  var err=document.getElementById('gate-err');
-  inp.addEventListener('input',function(){
-    if(inp.value==='k'||inp.value==='K'){
-      sessionStorage.setItem('gate_ok','k');
-      document.getElementById('kw-legacy-gate-overlay').style.display='none';
-      document.getElementById('gate-content').style.display='block';
-      err.style.display='none';
-    }else if(inp.value.length>=1&&inp.value!=='k'){
-      err.textContent='密码错误';
-      err.style.display='block';
-      inp.value='';
-    }
-  });
-})();
-(function(){
-  var s='serenity-tracker',
-      u='https://enyaclawd-counter.kerwin-finance.workers.dev?page='+encodeURIComponent(s),
-      el=document.getElementById('counter-num');
-  fetch(u).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){if(el)el.textContent='-'});
-  fetch(u,{method:'POST'}).then(function(r){return r.json()}).then(function(d){if(el)el.textContent=d.count.toLocaleString()}).catch(function(){});
-})();
-</script>
+
 
 <script defer src="/assets/kerwin-system-v2.js?v=20260718sitewide1"></script>
 </body>

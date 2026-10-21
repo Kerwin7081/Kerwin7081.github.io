@@ -239,31 +239,8 @@
 }
 </script>
 </head>
-<body class="kw-research kw-wide kw-gate-pending" data-layout-id="kerwin-editorial-research-v1" data-page-slug="ai-capital-cycle-after-july-deleveraging-20260817">
-  <section class="kw-editorial-gate" id="editorial-gate" aria-labelledby="gate-title">
-    <div class="kw-editorial-gate__paper">
-      <div class="kw-editorial-gate__masthead">
-        <span class="kw-editorial-gate__brand">Kerwin Research Hub</span>
-        <span class="kw-editorial-gate__access">Reader Access</span>
-      </div>
-      <div class="kw-editorial-gate__body">
-        <div class="kw-editorial-gate__seal">Kerwin<br>Research<br>Hub</div>
-        <div>
-          <div class="kw-editorial-gate__kicker">AI Capital Cycle · Market Reset</div>
-          <h2 class="kw-editorial-gate__title" id="gate-title">7月去杠杆之后，AI变了吗？</h2>
-          <p class="kw-editorial-gate__copy"><strong>输入 “k” 即可显示</strong><span>不分大小写。</span></p>
-          <label class="kw-editorial-gate__field">
-            <input id="access-key" maxlength="1" inputmode="text" autocomplete="off" autocapitalize="none" aria-label="输入 k 显示研究">
-            <span>Auto enter</span>
-          </label>
-        </div>
-      </div>
-      <div class="kw-editorial-gate__foot">
-        <span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span>
-        <span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span>
-      </div>
-    </div>
-  </section>
+<body class="kw-research kw-wide" data-layout-id="kerwin-editorial-research-v1" data-page-slug="ai-capital-cycle-after-july-deleveraging-20260817">
+  
 
   <a class="skip-link" href="#main-content">跳至正文</a>
   <div class="progress" id="reading-progress" aria-hidden="true"></div>
@@ -586,8 +563,8 @@
   <script>
     (function () {
       var body = document.body;
-      var gate = document.getElementById("editorial-gate");
-      var accessKey = document.getElementById("access-key");
+      var gate = document.getElementById("editorial-gate")||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
+      var accessKey = document.getElementById("access-key")||{style:{},dataset:{},classList:{add:function(){},remove:function(){},toggle:function(){}},addEventListener:function(){},removeEventListener:function(){},setAttribute:function(){},getAttribute:function(){return null},focus:function(){},blur:function(){},value:"",hidden:true,textContent:"",innerHTML:""};
       var progress = document.getElementById("reading-progress");
       var topButton = document.getElementById("top-button");
       function reveal() { body.classList.remove("kw-gate-pending"); gate.hidden = true; window.scrollTo(0,0); }

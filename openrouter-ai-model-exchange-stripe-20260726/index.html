@@ -407,28 +407,8 @@ body.kw-gate-pending{overflow:auto}
 }
 </script>
 </head>
-<body class="kw-research kw-wide kw-gate-pending" data-page-slug="openrouter-ai-model-exchange-stripe-20260726" data-asset-mode="self-contained-ft-3.3.2" data-design-id="ft-warm-paper-forest-green-2026-07">
-<aside class="kw-editorial-gate" aria-label="页面访问互动">
-  <div class="kw-editorial-gate__paper">
-    <div class="kw-editorial-gate__masthead"><span>Kerwin Research Hub</span><span>Interactive Entry</span></div>
-    <div class="kw-editorial-gate__body">
-      <div class="kw-editorial-gate__seal" aria-hidden="true"><span>Kerwin</span><small>Research Hub</small></div>
-      <div>
-        <div class="kw-editorial-gate__kicker">Reader Access</div>
-        <div class="kw-editorial-gate__title">OpenRouter：AI 模型时代的交易所</div>
-        <form class="kw-editorial-gate__form">
-          <label for="kw-editorial-key">输入 “k” 即可显示，不分大小写</label>
-          <div class="kw-editorial-gate__field">
-            <input id="kw-editorial-key" type="text" inputmode="text" maxlength="1" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="k" aria-describedby="kw-editorial-status">
-            <span>Auto enter</span>
-          </div>
-          <p class="kw-editorial-gate__status" id="kw-editorial-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </div>
-    <div class="kw-editorial-gate__foot"><span>Enya：香港首个由 OpenClaw 打造的女性投顾 Agent</span><span>底层模型：GPT 5.6 Sol 及 Claude Fable 付费版</span></div>
-  </div>
-</aside>
+<body class="kw-research kw-wide" data-page-slug="openrouter-ai-model-exchange-stripe-20260726" data-asset-mode="self-contained-ft-3.3.2" data-design-id="ft-warm-paper-forest-green-2026-07">
+
 
 <a class="skip-link" href="#main-content">跳至正文</a>
 
@@ -818,46 +798,7 @@ body.kw-gate-pending{overflow:auto}
   </footer>
 </div>
 
-<script>
-(function(){
-  var body=document.body;
-  var gate=document.querySelector(".kw-editorial-gate");
-  var form=gate.querySelector("form");
-  var input=gate.querySelector("input");
-  var status=gate.querySelector(".kw-editorial-gate__status");
-  var unlocking=false;
-  var clearTimer=0;
-  function openPage(){
-    if(unlocking)return;
-    unlocking=true;
-    gate.classList.add("is-unlocking");
-    status.textContent="正在展开页面…";
-    setTimeout(function(){
-      body.classList.remove("kw-gate-pending");
-      gate.setAttribute("aria-hidden","true");
-      var main=document.getElementById("main-content");
-      if(main){
-        try{main.focus({preventScroll:true})}
-        catch(error){main.focus()}
-      }
-    },140);
-  }
-  function checkInput(){
-    var value=String(input.value||"").trim().toLowerCase();
-    if(value==="k"){openPage();return}
-    if(value){
-      status.textContent="请输入 “k”，大小写均可。";
-      if(clearTimer)clearTimeout(clearTimer);
-      clearTimer=setTimeout(function(){
-        if(!unlocking){input.value="";input.focus()}
-      },260);
-    }
-  }
-  input.addEventListener("input",checkInput);
-  form.addEventListener("submit",function(event){event.preventDefault();checkInput()});
-  setTimeout(function(){if(!unlocking)input.focus()},60);
-})();
-</script>
+
 <script>
 (function(){
   var counter=document.getElementById('counter-num');

@@ -34,7 +34,15 @@ for u in urls:
     if 'rel="canonical"' not in html: probs.append("no canonical")
     if 'property="og:image"' not in html: probs.append("no og:image")
     if "application/ld+json" not in html: probs.append("no JSON-LD")
-    if "kw-editorial-gate" in html or "kw-gate-pending" in html: probs.append("READING GATE")
+    # Reading gate = an actual gate overlay element or a body lock class in
+    # body markup. Gate CSS rules left in <style> are inert and do NOT count
+    # (the string-based check false-positived on them after ungating).
+    _body = html.split("</head>", 1)[1] if "</head>" in html else html
+    _bm = re.search(r"<body[^>]*>", html)
+    _body_ns = re.sub(r"<script.*?</script>|<style.*?</style>", "", _body, flags=re.S)
+    if ((_bm and ("kw-gate-pending" in _bm.group(0) or "gate-locked" in _bm.group(0)))
+            or re.search(r'<(div|section|aside)\b[^>]*(?:id="(?:gate|access-gate|gate-overlay|gate-prompt|kw-legacy-gate-overlay)"|class="[^"]*(?:kw-editorial-gate|access-gate|kw-access-gate|gate-overlay)[^"]*")', _body_ns)):
+        probs.append("READING GATE")
     for p in probs:
         key = p.split("=")[0]
         issues[key] = issues.get(key, 0) + 1
