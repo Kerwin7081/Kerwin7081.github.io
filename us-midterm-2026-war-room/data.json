@@ -1,52 +1,52 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-10-09T19:25:09+08:00",
+  "as_of": "2026-10-26T10:23:19+08:00",
   "election_date": "2026-11-03",
-  "countdown_days": 25,
+  "countdown_days": 8,
   "status": "LIVE（持续跟踪）",
   "control": {
-    "house_current": "Republican narrow majority（共和党微弱多数）",
-    "senate_current": "共和党 53席 · 民主党 45席 · 独立议员 2席",
-    "house_dem_pct": 88,
-    "house_rep_pct": 14,
-    "senate_dem_pct": 59,
-    "senate_rep_pct": 41,
-    "cook_house_tossups": 22,
+    "house_current": "Republican narrow majority（共和党微弱多数）：218R / 214D / 1I / 2 vacant（空缺）",
+    "senate_current": "共和党53席 · 民主党45席 · 独立议员2席（与民主党共同组织）",
+    "house_dem_pct": 92,
+    "house_rep_pct": 8,
+    "senate_dem_pct": 67,
+    "senate_rep_pct": 33,
+    "cook_house_tossups": 17,
     "cook_senate_tossups": 7,
-    "competitive_house_races": "Cook：74个non-Solid（非稳固）席位；DCCC：66个Districts in Play（目标选区）",
-    "dem_house_net_needed": "~3",
-    "dem_senate_net_needed": "4"
+    "competitive_house_races": "Cook 10月23日：81个non-Solid（非稳固）席位；220席至少Lean D（偏民主党）、198席至少Lean R（偏共和党）、17席Toss Up（胜负难分）",
+    "dem_house_net_needed": "3（相对2024年215席选举基准；当前在任214席静态差值为4）",
+    "dem_senate_net_needed": "4（需51席；50席仍由共和党副总统决定平票）"
   },
   "national_signals": {
-    "trump_approval": 32,
+    "trump_approval": 38.5,
     "dem_enthusiasm": 61,
     "rep_enthusiasm": 56,
-    "generic_ballot_note": "CONFIRMED FACT｜Reuters/Ipsos 10月5日完成的全国调查：Trump整体施政支持率32%，与9月该机构历史低位持平；registered voters（注册选民）国会一般选票民主党44% / 共和党37%，D+7。Hispanic registered voters（拉丁裔注册选民）为民主党52% / 共和党26%；Hispanic adults对Trump施政支持率24%。调查覆盖4,506名美国成年人，整体MOE约±2pt。全国与族群调查用于环境与coalition（选民联盟）跟踪，不替代逐州逐席likely-voter分析。",
-    "regime_note": "CONFIRMED FACT｜Cook Political Report 10月6日明确写道：House majority（众议院多数）将从共和党转为民主党，悬念转向翻转席位数量与新多数规模；这是Cook的外部判断，不是本站自主预测。Senate方面，Cook同日把Kansas从Lean R调至Toss Up、New Hampshire从Toss Up调至Lean D、North Carolina从Lean D调至Likely D，并将民主党潜在净增区间由1–5席提高至2–6席；民主党取得多数需要净增4席。INFERENCE｜House控制权的外部机构基线已发生质变；Senate仍未被Cook正式标成Lean D，但Toss Up内部重心进一步向民主党方向移动。本站不生成自主胜选概率。 10月9日Maine与NY-21新likely-voter polls进一步确认局部竞争，但不代表House/Senate全国控制权基线新增变化；不据单次民调更新胜率或市场价格。"
+    "generic_ballot_note": "CONFIRMED FACT｜10月25日CBS registered voters（注册选民）generic congressional ballot（国会一般选票）Democrats 53% / Republicans 45%，D+8；Financial Times调查D53/R44，D+9。RCP截至10月25日Trump approval平均38.5%、disapproval 60.2%。各调查方法、样本不同，不能直接拼成同质序列。",
+    "regime_note": "CONFIRMED FACT｜Cook 10月23日将19个House评级向民主党方向调整，至少Lean D席位升至220，超过218席多数门槛；Cook中心情景民主党净增12–22席（227–237席）。Senate 10月20日7个Toss Up（胜负难分），SC Likely R→Lean R、MS Solid R→Likely R、MN Likely D→Lean D，候选人质量使地图双向移动。INFERENCE｜House的外部机构优势强于上期，Senate仍有两党可行路径；网站不制作自主胜率。"
   },
   "scenarios": [
     {
-      "label": "Democrats Sweep（民主党横扫）",
-      "pct": 59,
-      "note": "Prediction Market（预测市场）trader-implied price（交易者隐含价格）沿用上一有效快照，仅作历史市场价格记录，不是客观概率或本站预测",
+      "label": "Democrats Sweep（民主党控制两院）",
+      "pct": 66,
+      "note": "Polymarket 10月25–26日公开页面约66¢；trader-implied price（交易者隐含价格），不是客观胜率或本站模型。政策：民主党两院加强监督，但仍受总统否决权和Senate程序约束。",
       "class": "dem"
     },
     {
-      "label": "Split Congress（分裂国会）",
-      "pct": 32,
-      "note": "沿用上一有效市场快照；不作为本站预测",
+      "label": "Dem House / GOP Senate（民主党众院 / 共和党参院）",
+      "pct": 26,
+      "note": "Polymarket同一Balance of Power合约约26¢。典型gridlock（立法僵局）：众院预算/调查与参院确认权分离。",
       "class": "split"
     },
     {
-      "label": "Republicans Sweep（共和党横扫）",
-      "pct": 11,
-      "note": "沿用上一有效市场快照；不作为本站预测",
+      "label": "GOP Hold（共和党两院）",
+      "pct": 8,
+      "note": "Polymarket同一合约约8¢。行政—立法协同相对较强，财政/关税/移民路径受党内和法院制约。",
       "class": "rep"
     },
     {
-      "label": "Reverse Split（反向分裂）",
-      "pct": 1,
-      "note": "沿用上一有效市场快照；不作为本站预测",
+      "label": "Reverse Split（共和党众院 / 民主党参院）",
+      "pct": 0.9,
+      "note": "尾部情景，报价约<1¢；House税收/拨款与Senate确认权分离。多合约买卖价差导致加总可能偏离100%，不做归一化。",
       "class": "other"
     }
   ],
@@ -57,7 +57,7 @@
       "matchup": "Dan Sullivan (R) vs Mary Peltola (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日likely-voter poll为Mary Peltola 50% / Dan Sullivan 43%；Reuters 10月5日报道DOE将投入1.5亿美元建设223英里Beluga–Healy输电线路（项目总成本约4亿美元、走廊覆盖近四分之三州人口），与副总统JD Vance赴州内为Sullivan助选同步。INFERENCE｜Energy/Affordability（能源/可负担性）与联邦基础设施部署已直接进入该核心Senate战场，但不据此自行改变评级。"
+      "signal": "CONFIRMED FACT｜Cook 10/20仍Toss Up（胜负难分）。Peltola与Sullivan围绕Iran、渔业和Medicaid辩论；州内energy/affordability（能源/可负担性）仍是关键。逐席市场未取得同一时间戳可靠盘口。INFERENCE｜排序选择投票与现任优势（incumbency）使单份民调不可直接推断胜负。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日likely-voter poll为Mary Peltola 50% / Dan Sullivan 43%；Reuters 10月5日报道DOE将投入1.5亿美元建设223英里Beluga–Healy输电线路（项目总成本约4亿美元、走廊覆盖近四分之三州人口），与副总统JD Vance赴州内为Sullivan助选同步。INFERENCE｜Energy/Affordability（能源/可负担性）与联邦基础设施部署已直接进入该核心Senate战场，但不据此自行改变评级。"
     },
     {
       "state": "Iowa",
@@ -65,7 +65,7 @@
       "matchup": "Ashley Hinson (R) vs Josh Turek (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日likely-voter poll显示Ashley Hinson (R) 48% / Josh Turek (D) 47%。9月28日Trump政府与Mesabi Metallics宣布约180亿美元一体化钢铁项目，其中约150亿美元用于Iowa钢厂。INFERENCE｜产业政策利好与高度竞争民调并存，尚无评级变化。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up。10/23 InsiderAdvantage Hinson 47 / Turek 45，R+2；此前Marist Turek+3，机构方向分歧。Cook/AdImpact广告覆盖约$68.9M。农业、柴油、关税和产业政策共同影响地方经济。INFERENCE｜不是单向D领先。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日likely-voter poll显示Ashley Hinson (R) 48% / Josh Turek (D) 47%。9月28日Trump政府与Mesabi Metallics宣布约180亿美元一体化钢铁项目，其中约150亿美元用于Iowa钢厂。INFERENCE｜产业政策利好与高度竞争民调并存，尚无评级变化。"
     },
     {
       "state": "Maine",
@@ -73,7 +73,7 @@
       "matchup": "Susan Collins (R) vs Troy Jackson (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜AP 10月7日报道首场Senate debate（参议院辩论）中，Susan Collins主动强调自己与Trump在tariffs（关税）、immigration enforcement（移民执法）及Iran military action（伊朗军事行动）上的分歧，并表示Trump不会赴Maine为其助选；Troy Jackson则集中攻击Collins与Trump议程及最高法院任命的关联。INFERENCE｜Collins把independence（独立性）正式作为最后阶段核心防守策略，后续需看辩论后likely-voter民调是否变化。 CONFIRMED FACT｜Washington Post–Schar School 10月9日发布9月30日–10月5日likely-voter poll：Jackson 50% / Collins 46%，n=800，MOE ±3.6pt；55%希望民主党控制Senate；63%认为能源/电费不可负担、62%认为汽油不可负担。INFERENCE｜独立民调增加民主党竞争力的交叉验证，但本次调查发生在辩论前，Cook Toss Up评级不变。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up。10/25 Trafalgar Jackson 47 / Collins 47；10/23 FOX Jackson 49 / Collins 49；incumbency（现任优势）与Collins去全国化策略仍是R防守关键。Cook/AdImpact广告覆盖约$86.1M。INFERENCE｜市场/评级与单项民调分开记录。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜AP 10月7日报道首场Senate debate（参议院辩论）中，Susan Collins主动强调自己与Trump在tariffs（关税）、immigration enforcement（移民执法）及Iran military action（伊朗军事行动）上的分歧，并表示Trump不会赴Maine为其助选；Troy Jackson则集中攻击Collins与Trump议程及最高法院任命的关联。INFERENCE｜Collins把independence（独立性）正式作为最后阶段核心防守策略，后续需看辩论后likely-voter民调是否变化。 CONFIRMED FACT｜Washington Post–Schar School 10月9日发布9月30日–10月5日likely-voter poll：Jackson 50% / Collins 46%，n=800，MOE ±3.6pt；55%希望民主党控制Senate；63%认为能源/电费不可负担、62%认为汽油不可负担。INFERENCE｜独立民调增加民主党竞争力的交叉验证，但本次调查发生在辩论前，Cook Toss Up评级不变。"
     },
     {
       "state": "Michigan",
@@ -81,7 +81,7 @@
       "matchup": "Abdul El-Sayed (D) vs Mike Rogers (R)",
       "rating": "Toss Up（胜负难分）",
       "held": "D",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜YouGov 10月7日公布的likely-voter poll为Abdul El-Sayed (D) 49% / Mike Rogers (R) 48%，显示民主党必须防守的Michigan仍处于高度竞争状态。INFERENCE｜这也是对“全面单向蓝移”叙事的约束：部分D-held席位仍是真正高风险战场。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up（民主党防守席）。10/23 InsiderAdvantage El-Sayed 47 / Rogers 46；10/18 Marist El-Sayed 50 / Rogers 48。Cook/AdImpact广告覆盖约$76.0M。Detroit联盟、候选人质量、Trump effect及城市/郊区投票率为关键。INFERENCE｜D微弱领先不等于安全。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜YouGov 10月7日公布的likely-voter poll为Abdul El-Sayed (D) 49% / Mike Rogers (R) 48%，显示民主党必须防守的Michigan仍处于高度竞争状态。INFERENCE｜这也是对“全面单向蓝移”叙事的约束：部分D-held席位仍是真正高风险战场。"
     },
     {
       "state": "New Hampshire",
@@ -89,7 +89,7 @@
       "matchup": "John Sununu (R) vs Chris Pappas (D)",
       "rating": "Lean D（偏民主党）",
       "held": "D",
-      "signal": "CONFIRMED FACT｜Cook 10月6日将New Hampshire从Toss Up（胜负难分）调至Lean D（偏民主党）。YouGov 10月7日公布likely-voter poll显示Chris Pappas (D) 51% / John Sununu (R) 43%。INFERENCE｜共和党原本潜在pickup路径进一步收窄，但本站不把单席评级迁移转换为自主控制权概率。"
+      "signal": "CONFIRMED FACT｜Cook Lean D（偏民主党）。10/22 St. Anselm Pappas 50 / Sununu 43。10/22最高法院允许学生证不能作为投票身份验证补充材料，属已生效投票规则变化；不能推断净票数。INFERENCE｜年轻选民参与和替代证件路径值得核查。 历史记录｜CONFIRMED FACT｜Cook 10月6日将New Hampshire从Toss Up（胜负难分）调至Lean D（偏民主党）。YouGov 10月7日公布likely-voter poll显示Chris Pappas (D) 51% / John Sununu (R) 43%。INFERENCE｜共和党原本潜在pickup路径进一步收窄，但本站不把单席评级迁移转换为自主控制权概率。"
     },
     {
       "state": "Ohio",
@@ -97,7 +97,7 @@
       "matchup": "Jon Husted (R) vs Sherrod Brown (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日为Sherrod Brown (D) 49% / Jon Husted (R) 46%；YouGov 10月7日公布的likely-voter poll为Brown 49% / Husted 45%。同时AI data centers（AI数据中心）的电价、农地与水资源问题已成为该州Senate攻防议题。INFERENCE｜第二轮同方向民调强化竞争度，但不自行调整Cook评级。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up。10/23 InsiderAdvantage Brown 47 / Husted 44；10/22 FOX Brown 52 / Husted 47。Cook/AdImpact广告覆盖约$164.2M。AI数据中心电费、制造业和能源价格进入地方议题。INFERENCE｜民调偏D与R外部资金部署构成背离。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日为Sherrod Brown (D) 49% / Jon Husted (R) 46%；YouGov 10月7日公布的likely-voter poll为Brown 49% / Husted 45%。同时AI data centers（AI数据中心）的电价、农地与水资源问题已成为该州Senate攻防议题。INFERENCE｜第二轮同方向民调强化竞争度，但不自行调整Cook评级。"
     },
     {
       "state": "Texas",
@@ -105,7 +105,7 @@
       "matchup": "Ken Paxton (R) vs James Talarico (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日为James Talarico (D) 51% / Ken Paxton (R) 45%；YouGov 10月7日公布的likely-voter poll再次测得Talarico 50% / Paxton 44%。INFERENCE｜两家机构、同为likely-voter口径的连续领先构成交叉确认，但本站不据此生成自主胜选概率。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up。10/24 Rasmussen Talarico 45 / Paxton 45；10/23 TPOR Talarico 51 / Paxton 47；10/22 FOX 49 / 49。Cook/AdImpact广告覆盖约$147.8M；AI合成竞选广告引发真实性争议。Trump支持、候选人争议、Musk资金与高提前投票率共同决定结果。INFERENCE｜盘口仅作为交易者价格，逐席报价不跨时间拼接。 历史记录｜Cook维持Toss Up（胜负难分）。CONFIRMED FACT｜NYT/Siena 10月3日为James Talarico (D) 51% / Ken Paxton (R) 45%；YouGov 10月7日公布的likely-voter poll再次测得Talarico 50% / Paxton 44%。INFERENCE｜两家机构、同为likely-voter口径的连续领先构成交叉确认，但本站不据此生成自主胜选概率。"
     },
     {
       "state": "Georgia",
@@ -113,7 +113,7 @@
       "matchup": "Jon Ossoff (D) vs Mike Collins (R)",
       "rating": "Likely D（大概率民主党）",
       "held": "D",
-      "signal": "Cook 9月23日由Lean D（偏民主党）调至Likely D（大概率民主党），属于本轮三项向民主党方向的Senate评级迁移之一。"
+      "signal": "CONFIRMED FACT｜Cook Likely D（大概率民主党）。Ossoff对Mike Collins维持D防守优势；Georgia提前投票已开始，不能将参与数直接当作候选人得票。INFERENCE｜仍需关注非洲裔与郊区选民动员。 历史记录｜Cook 9月23日由Lean D（偏民主党）调至Likely D（大概率民主党），属于本轮三项向民主党方向的Senate评级迁移之一。"
     },
     {
       "state": "North Carolina",
@@ -121,7 +121,7 @@
       "matchup": "Michael Whatley (R) vs Roy Cooper (D)",
       "rating": "Likely D（大概率民主党）",
       "held": "R",
-      "signal": "CONFIRMED FACT｜Cook 10月6日将North Carolina从Lean D（偏民主党）调至Likely D（大概率民主党）。此前多家共和党外部组织已削减/停止10月投放，SLF把原计划约1800万美元的大部分撤出并转向Kansas等防守州。INFERENCE｜评级变化与资金撤离方向一致，说明该席在共和党资源配置中的相对优先级明显下降。"
+      "signal": "CONFIRMED FACT｜Cook Likely D。10/22 Carolina Journal/Harper调查Cooper 49 / Whatley 39。提前投票进度高于2022同期，登记党派≠投票选择。INFERENCE｜Cooper州级胜选履历提供candidate-quality优势，但不能排除晚期逆转。 历史记录｜CONFIRMED FACT｜Cook 10月6日将North Carolina从Lean D（偏民主党）调至Likely D（大概率民主党）。此前多家共和党外部组织已削减/停止10月投放，SLF把原计划约1800万美元的大部分撤出并转向Kansas等防守州。INFERENCE｜评级变化与资金撤离方向一致，说明该席在共和党资源配置中的相对优先级明显下降。"
     },
     {
       "state": "Kansas",
@@ -129,15 +129,15 @@
       "matchup": "Roger Marshall (R) vs Adam Hamilton (D)",
       "rating": "Toss Up（胜负难分）",
       "held": "R",
-      "signal": "CONFIRMED FACT｜Cook 10月6日将Kansas从Lean R（偏共和党）调至Toss Up（胜负难分）。YouGov 10月7日公布的likely-voter poll（可能投票者民调）显示Adam Hamilton (D) 48% / Roger Marshall (R) 45%。此前NYT/Siena为45%–45%，且共和党SLF已投入820万美元防守。INFERENCE｜Kansas已完成“民调接近→防守资金→评级下调→第二轮民调确认”的完整验证链，但单州不等于Senate多数已确定。"
+      "signal": "CONFIRMED FACT｜Cook Toss Up。Kansas提前投票相较2022同期增速显著（AP 10/22），但规模与投票方式差异不可推导党派结果。Marshall与Hamilton继续竞争；农业、生活成本与关税为地方经济变量。INFERENCE｜传统R优势仍提供防守基础。 历史记录｜CONFIRMED FACT｜Cook 10月6日将Kansas从Lean R（偏共和党）调至Toss Up（胜负难分）。YouGov 10月7日公布的likely-voter poll（可能投票者民调）显示Adam Hamilton (D) 48% / Roger Marshall (R) 45%。此前NYT/Siena为45%–45%，且共和党SLF已投入820万美元防守。INFERENCE｜Kansas已完成“民调接近→防守资金→评级下调→第二轮民调确认”的完整验证链，但单州不等于Senate多数已确定。"
     },
     {
       "state": "South Carolina",
-      "seat": "Graham (R)",
-      "matchup": "Lindsey Graham (R) vs Democratic nominee",
-      "rating": "Likely R（大概率共和党）",
+      "seat": "Darline Graham (R)",
+      "matchup": "Darline Graham (R) vs Annie Andrews (D)",
+      "rating": "Lean R（偏共和党）",
       "held": "R",
-      "signal": "Cook 9月23日由Solid R（稳固共和党）调至Likely R（大概率共和党），纳入扩大的Senate竞争版图；仍明显不同于Toss Up核心战场。"
+      "signal": "CONFIRMED FACT｜Cook 10/20 Likely R→Lean R（偏共和党）。实际候选人为现任Darline Graham (R) vs Annie Andrews (D)，Lindsey Graham已于2026年7月去世；此前网站候选人字段属于旧信息，现更正并保留本次修正说明。Senate Leadership Fund在该州有新增防守支出。INFERENCE｜候选人质量使R州更竞争，但仍不是Toss Up。 历史记录｜Cook 9月23日由Solid R（稳固共和党）调至Likely R（大概率共和党），纳入扩大的Senate竞争版图；仍明显不同于Toss Up核心战场。"
     },
     {
       "state": "Nebraska",
@@ -145,18 +145,34 @@
       "matchup": "Pete Ricketts (R) vs Dan Osborn (I)",
       "rating": "Likely R（Cook） / Lean R（Inside Elections）",
       "held": "R",
-      "signal": "CONFIRMED FACT｜Cook仍列Likely R（大概率共和党），Inside Elections列Lean R（偏共和党）。YouGov 10月7日公布的likely-voter poll显示Independent（独立候选人）Dan Osborn 48% / Pete Ricketts (R) 47%；该样本中2024 Trump voters占54%。AP此前确认Trump已赴Nebraska为Ricketts助选。INFERENCE｜Nebraska进一步成为GOP defensive perimeter（共和党防守边界）的stress indicator（压力指标），但尚未达到跨机构Toss Up共识。"
+      "signal": "CONFIRMED FACT｜Cook 10/20 Likely R（大概率共和党）；Pete Ricketts (R) vs Dan Osborn (I)。外部组织投入防守资金；独立候选人Osborn不能机械算作民主党席位。INFERENCE｜独立候选人是否加入党团是控制权情景的制度性变量。 历史记录｜CONFIRMED FACT｜Cook仍列Likely R（大概率共和党），Inside Elections列Lean R（偏共和党）。YouGov 10月7日公布的likely-voter poll显示Independent（独立候选人）Dan Osborn 48% / Pete Ricketts (R) 47%；该样本中2024 Trump voters占54%。AP此前确认Trump已赴Nebraska为Ricketts助选。INFERENCE｜Nebraska进一步成为GOP defensive perimeter（共和党防守边界）的stress indicator（压力指标），但尚未达到跨机构Toss Up共识。"
+    },
+    {
+      "state": "Minnesota",
+      "seat": "OPEN (D)",
+      "matchup": "Peggy Flanagan (D) vs Michele Tafoya (R)",
+      "rating": "Lean D（偏民主党）",
+      "held": "D",
+      "signal": "CONFIRMED FACT｜Cook 10/20 Likely D→Lean D（偏民主党）；Peggy Flanagan (D) vs Michele Tafoya (R)。10/23 Rasmussen Flanagan 48 / Tafoya 45；福利欺诈争议使候选人质量成为D防守风险。INFERENCE｜R仍需克服Trump在MN不受欢迎的全国环境。"
+    },
+    {
+      "state": "Mississippi",
+      "seat": "Hyde-Smith (R)",
+      "matchup": "Cindy Hyde-Smith (R) vs Scott Colom (D)",
+      "rating": "Likely R（大概率共和党）",
+      "held": "R",
+      "signal": "CONFIRMED FACT｜Cook 10/20 Solid R→Likely R（大概率共和党）；Cindy Hyde-Smith (R) vs Scott Colom (D)。AP 10/21：Senate Majority PAC投入约$1.2M电视广告支持Colom。INFERENCE｜深红州资本投入升级，但并未进入Toss Up。"
     }
   ],
   "house": {
     "cook_summary": {
-      "solid_d": 185,
-      "likely_d": 12,
-      "lean_d": 11,
-      "toss_up": 22,
-      "lean_r": 10,
-      "likely_r": 19,
-      "solid_r": 176
+      "solid_d": 186,
+      "likely_d": 18,
+      "lean_d": 16,
+      "toss_up": 17,
+      "lean_r": 17,
+      "likely_r": 13,
+      "solid_r": 168
     },
     "key_states": [
       "Arizona",
@@ -178,91 +194,160 @@
       "Washington",
       "Arkansas",
       "Nevada",
-      "Tennessee"
+      "Tennessee",
+      "North Carolina",
+      "Montana",
+      "Kentucky",
+      "Alabama",
+      "Nebraska",
+      "South Carolina"
     ],
-    "note": "CONFIRMED FACT｜Cook 10月6日明确判断House majority（众议院多数）将从共和党翻为民主党，并表示当前问题已从“会不会翻”转为“会翻多少席、民主党多数有多大”；这是Cook的外部判断，不是本站自主预测。Cook当前House评级汇总仍为185 Solid D、12 Likely D、11 Lean D、22 Toss Up、10 Lean R、19 Likely R、176 Solid R。INFERENCE｜House control（众议院控制权）已出现L4级机构判断变化，后续主要验证多数规模，而非单纯是否翻转。 CONFIRMED FACT｜Siena 10月9日公布NY-21 likely-voter poll：Gendebien (D) 46% / Constantino (R) 42%，n=496，MOE ±4.6pt；Cook NY-21仍为Likely R（大概率共和党），此前评级调整不重复计为本次新增。INFERENCE｜共和党现持的NY-21存在民主党翻转可能，但未证实评级变化。"
+    "note": "CONFIRMED FACT｜Cook 10月23日再次将19个House（众议院）席位评级向民主党方向移动：186 Solid D + 18 Likely D + 16 Lean D（偏民主党）=220席；168 Solid R + 13 Likely R + 17 Lean R（偏共和党）=198席；17 Toss Up（胜负难分）。6席Toss Up→Lean D：AZ-06、CO-08、NC-11、TX-34、VA-02、WI-03；2席Lean R→Toss Up：KY-06、TX-35。Cook中心情景D净增12–22席（227–237席），为外部机构评级与判断，不是已发生结果。CONFIRMED FACT｜10月25日NYT/Siena PA-01 Harvie 48/Fitzpatrick 46、PA-07 Brooks 49/Mackenzie 44、PA-08 Cognetti 51/Bresnahan 46、PA-10 Stelson 48/Perry 48。INFERENCE｜House的主要变量从是否翻转转向多数规模，但仍需通过逐席投票验证。 历史变更：10月16日Cook 11席向D调整，10月9日18席向D调整，已保留事件记录。"
   },
   "issues": [
     {
       "name": "Affordability / Cost of Living（可负担性 / 生活成本）",
       "level": 100,
       "direction": "↑",
-      "why": "Reuters 10月7日：白宫在选举前部署约23.5亿美元定向家庭经济利益，包括部分Medicare参保人90美元、Healthcare.gov用户500美元支票等；affordability（可负担性）应对已从叙事进一步进入现金/财政利益部署。 Washington Post–Schar 10月9日Maine调查：63%称家庭能源/电费不可负担、62%称汽油不可负担；NY-21 Siena调查也显示生活成本为候选人差异化议题。"
+      "why": "CONFIRMED FACT｜10/25 CBS generic ballot D53/R45；BLS 9月CPI同比3.7%，汽油环比9.1%，家庭生活成本仍是全国化议题。INFERENCE｜燃油、住房与实际工资对边缘席位投票率的影响大于竞选口水。 历史说明：Reuters 10月7日：白宫在选举前部署约23.5亿美元定向家庭经济利益，包括部分Medicare参保人90美元、Healthcare.gov用户500美元支票等；affordability（可负担性）应对已从叙事进一步进入现金/财政利益部署。 Washington Post–Schar 10月9日Maine调查：63%称家庭能源/电费不可负担、62%称汽油不可负担；NY-21 Siena调查也显示生活成本为候选人差异化议题。"
     },
     {
       "name": "Economy / Competence（经济 / 治理能力）",
       "level": 100,
       "direction": "↑",
-      "why": "AP-NORC：Trump经济处理支持率26%，为新低，较2025年3月下降14个百分点；65%将持续高价更多归因于Trump政策。"
+      "why": "CONFIRMED FACT｜10/25 RCP Trump approval平均38.5%、disapproval 60.2%；10/29 Q3 GDP初值和9月PCE将发布。INFERENCE｜选举前经济数据可能影响最后一周的经济责任归因。 历史说明：AP-NORC：Trump经济处理支持率26%，为新低，较2025年3月下降14个百分点；65%将持续高价更多归因于Trump政策。"
     },
     {
       "name": "Oil / Gasoline / Inflation（油价 / 汽油 / 通胀）",
       "level": 100,
       "direction": "↑",
-      "why": "AP 10月5日：Trump在Nebraska签署行政令，允许更广泛购买免联邦燃油税的red-dye diesel（红染柴油），明确用于压低高企柴油与运输成本；能源可负担性继续直接进入最后四周竞选政策。"
+      "why": "CONFIRMED FACT｜BLS 9月CPI同比3.7%、汽油环比+9.1%；Reuters 10/26早盘Brent约$115.16、WTI约$101.67，Houthi袭击加剧供应风险。INFERENCE｜能源冲击经物流/通胀/利率传导选民预算。 历史说明：AP 10月5日：Trump在Nebraska签署行政令，允许更广泛购买免联邦燃油税的red-dye diesel（红染柴油），明确用于压低高企柴油与运输成本；能源可负担性继续直接进入最后四周竞选政策。"
     },
     {
       "name": "Rates / Fed（利率 / 美联储）",
       "level": 96,
-      "direction": "→",
-      "why": "通胀、油价与Fed路径仍是US10Y核心变量。"
+      "direction": "↑",
+      "why": "CONFIRMED FACT｜Fed 10/27–28召开FOMC，BEA 10/29发布Q3 GDP与9月PCE。INFERENCE｜US10Y以Fed、通胀和财政预期为一阶变量，选举为二阶情景变量。 历史说明：通胀、油价与Fed路径仍是US10Y核心变量。"
     },
     {
       "name": "Iran War（伊朗战争）",
       "level": 98,
       "direction": "↑",
-      "why": "AP-NORC：69%认为Iran war（伊朗战争）不值得打，Trump对Iran处理支持率仅28%；战争继续通过油价、财政和总统评价传导至选举。"
+      "why": "CONFIRMED FACT｜Reuters 10/22美国援引Defense Production Act支持能源生产/炼化；10/26油价仍受中东航运和Houthi袭击影响。INFERENCE｜Iran/Hormuz及外围冲突通过燃油、保险、运输成本影响选民，不能将外交表态当作停战。 历史说明：AP-NORC：69%认为Iran war（伊朗战争）不值得打，Trump对Iran处理支持率仅28%；战争继续通过油价、财政和总统评价传导至选举。"
     },
     {
       "name": "Tariffs / Trade（关税 / 贸易）",
       "level": 88,
-      "direction": "↑",
-      "why": "AP-NORC：64%认为Trump在关税上“走得太远”，贸易谈判处理支持率约3成；关税正与高物价归因绑定。"
+      "direction": "→",
+      "why": "INFERENCE｜关税通过进口商品、农业和工业原材料成本影响地方经济；本周无独立证据显示议题优先级超越生活成本。 历史说明：AP-NORC：64%认为Trump在关税上“走得太远”，贸易谈判处理支持率约3成；关税正与高物价归因绑定。"
     },
     {
       "name": "Immigration（移民）",
       "level": 86,
-      "direction": "↑",
-      "why": "NBC News/Telemundo 10月4日：约三分之二Latino registered voters（拉丁裔注册选民）认为政府deportation policies（驱逐政策）走得太远；该群体对Trump支持率27%，并以59%/35%偏好民主党控制国会。"
+      "direction": "→",
+      "why": "INFERENCE｜仍是共和党核心动员议题，但需分开考察拉丁裔、郊区和边境地区选民，不能由全国态度推断单州结果。 历史说明：NBC News/Telemundo 10月4日：约三分之二Latino registered voters（拉丁裔注册选民）认为政府deportation policies（驱逐政策）走得太远；该群体对Trump支持率27%，并以59%/35%偏好民主党控制国会。"
     },
     {
       "name": "Healthcare（医疗）",
       "level": 70,
       "direction": "↑",
-      "why": "医疗成本继续与affordability（可负担性）叙事结合。 Maine新民调显示Jackson在医疗议题上领先Collins 9个百分点，55%受访者支持Medicare-for-all（全民医保）。仅为Maine样本，不外推全国。"
+      "why": "CONFIRMED FACT｜10/21 Mississippi Senate Majority PAC新广告聚焦Medicaid；Brookings 10/23强调即使总统否决使立法难通过，民主党控制国会仍可通过听证、调查与议程塑造医保政策。 历史说明：医疗成本继续与affordability（可负担性）叙事结合。 Maine新民调显示Jackson在医疗议题上领先Collins 9个百分点，55%受访者支持Medicare-for-all（全民医保）。仅为Maine样本，不外推全国。"
     },
     {
       "name": "Abortion（堕胎权）",
       "level": 55,
       "direction": "→",
-      "why": "仍是turnout issue（投票动员议题）。"
+      "why": "INFERENCE｜继续作为郊区、女性与年轻选民动员变量；没有足够本周新增全国性证据改变优先级。 历史说明：仍是turnout issue（投票动员议题）。"
     },
     {
       "name": "Turnout / GOTV（投票率 / 催票）",
       "level": 88,
-      "direction": "→",
-      "why": "上周确认的左倾选民动员网络资金缺口仍未消失；本周暂无证据显示该缺口已被完全补足。"
+      "direction": "↑",
+      "why": "CONFIRMED FACT｜AP 10/22：Texas提前投票同比2022同期+74%、Kansas逾翻倍、Maine/NC/Ohio超+30%；数据受投票规则和报告口径影响。10/25第三方tracker估计已投约2685万张（含模型估计）。登记党派≠候选人得票。 历史说明：上周确认的左倾选民动员网络资金缺口仍未消失；本周暂无证据显示该缺口已被完全补足。"
     },
     {
       "name": "Campaign Finance / Money War（竞选融资 / 资金战）",
       "level": 100,
       "direction": "↑",
-      "why": "AP 10月7日：共和党主要组织虽合计约10亿美元，但Texas单月已吸收超过1.05亿美元，且晚买广告出现显著价格溢价；同时Kansas、South Carolina等传统红州继续吸收防守资金。"
+      "why": "CONFIRMED FACT｜FEC 10/22 Pre-General报告截止；截至10/14的FEC衍生数据：RNC $76.20M、NRCC $46.51M、DCCC $30.69M、NRSC $25.20M、DSCC $20.67M；DNC $19.17M为9/30旧期，不可直接合并。INFERENCE｜现金余额、独立支出、广告预订和已播出必须分账。 历史说明：AP 10月7日：共和党主要组织虽合计约10亿美元，但Texas单月已吸收超过1.05亿美元，且晚买广告出现显著价格溢价；同时Kansas、South Carolina等传统红州继续吸收防守资金。"
     },
     {
       "name": "AI / Jobs / Power Bills（AI / 就业 / 电费）",
       "level": 72,
       "direction": "↑",
-      "why": "AP 10月3日报道：AI data centers（AI数据中心）的电价、农地与水资源影响已成为全国竞选中的高敏感议题，并在Ohio顶级Senate战场直接进入Trump/Husted/Brown攻防；Husted推动的大型用电户电网成本分摊法案在Senate以57–43未达到60票门槛。"
+      "why": "CONFIRMED FACT｜Washington Post 10/24：AI合成竞选广告真实性争议，2026周期AI生成/增强政治广告支出估计超$137M；地方数据中心电费/水/并网成本是另一条独立政策线。INFERENCE｜AI内容真实性与Grid Cost Allocation/MW（每MW电网成本分摊）不可混为一项。 历史说明：AP 10月3日报道：AI data centers（AI数据中心）的电价、农地与水资源影响已成为全国竞选中的高敏感议题，并在Ohio顶级Senate战场直接进入Trump/Husted/Brown攻防；Husted推动的大型用电户电网成本分摊法案在Senate以57–43未达到60票门槛。"
     },
     {
       "name": "Latino / Coalition Shift（拉丁裔 / 选民联盟变化）",
       "level": 88,
-      "direction": "↑",
-      "why": "Reuters/Ipsos 10月5日：Hispanic registered voters国会票民主党52% / 共和党26%；NBC News/Telemundo 10月4日为59% / 35%。两套独立调查同方向显示2024年共和党在Latino选民中的突破明显回吐，但仍需州级likely-voter和turnout验证。"
+      "direction": "→",
+      "why": "INFERENCE｜Latino coalition（拉丁裔选民联盟）和郊区投票率需结合州/选区实投数据；全国族群调查不自动等于逐席胜率。 历史说明：Reuters/Ipsos 10月5日：Hispanic registered voters国会票民主党52% / 共和党26%；NBC News/Telemundo 10月4日为59% / 35%。两套独立调查同方向显示2024年共和党在Latino选民中的突破明显回吐，但仍需州级likely-voter和turnout验证。"
     }
   ],
   "events": [
+    {
+      "date": "2026-10-25",
+      "level": "L3",
+      "side": "Polling / Early Vote（民调 / 提前投票）",
+      "title": "10月25日CBS一般选票D+8；RCP显示Maine、Texas关键Senate新调查平局",
+      "detail": "CONFIRMED FACT｜CBS 10月25日generic congressional vote（国会一般选票）Democrats 53% / Republicans 45%；Maine Trafalgar 47/47、Texas Rasmussen 45/45。10月25日全国提前投票第三方追踪约2685万张，但含党派推断和报告覆盖差异，不是选票归属。INFERENCE｜全国环境偏D，但逐席民调没有统一单向移动。"
+    },
+    {
+      "date": "2026-10-24",
+      "level": "L3",
+      "side": "AI / Campaign Integrity（AI / 竞选信息真实性）",
+      "title": "AI合成攻击广告在Texas Senate引发真实性争议",
+      "detail": "CONFIRMED FACT｜Washington Post 10月24日报道，Texas Senate竞选使用AI生成的候选人攻击影像，引发信息真实性和选民信任争议；其统计2026周期AI生成/增强政治广告支出超过1.37亿美元，其中约88%由共和党阵营投放。INFERENCE｜应将AI/jobs（AI/就业）、synthetic campaign media（合成竞选媒体）与电费议题分账；广告金额并不直接代表说服效果。"
+    },
+    {
+      "date": "2026-10-23",
+      "level": "L4",
+      "side": "House / Cook Ratings（众议院 / Cook评级）",
+      "title": "Cook再将19个House选区向民主党移动：D至少偏向220席、R198席、17 Toss Up",
+      "detail": "CONFIRMED FACT｜Cook Political Report 10月23日调整19个House（众议院）评级，全部向民主党方向：186 Solid D +18 Likely D +16 Lean D（偏民主党）=220席；168 Solid R +13 Likely R +17 Lean R（偏共和党）=198席；17 Toss Up（胜负难分）。6席由Toss Up→Lean D（AZ-06、CO-08、NC-11、TX-34、VA-02、WI-03），2席由Lean R→Toss Up（KY-06、TX-35）。Cook中心情景民主党净增12–22席（相对2024年215席基准为227–237席）。INFERENCE｜外部机构评级的D优势首次跨过218席门槛，但评级不等于已赢席位。"
+    },
+    {
+      "date": "2026-10-22",
+      "level": "L3",
+      "side": "Court / Voting Rules（法院 / 投票规则）",
+      "title": "最高法院允许New Hampshire禁止学生证作为投票身份验证补充材料",
+      "detail": "CONFIRMED FACT｜美国最高法院10月22日批准New Hampshire紧急申请，阻止下级法院临近选举时恢复学生证作为投票身份验证补充材料；以Purcell principle（临近选举避免改规则原则）为理由。RNC支持州方，Ketanji Brown Jackson公开持异议。INFERENCE｜需观察年轻选民参与及替代身份证明渠道；不能由判决直接推断净票数。"
+    },
+    {
+      "date": "2026-10-22",
+      "level": "L3",
+      "side": "Energy / Iran / Executive Action（能源 / 伊朗 / 行政政策）",
+      "title": "Trump援引Defense Production Act支持石油生产、炼化与基础设施",
+      "detail": "CONFIRMED FACT｜Reuters 10月22日：Trump援引Defense Production Act（国防生产法）支持石油生产、炼化、管道及储存的融资与投资，回应Iran战争以来的燃油价格和供应瓶颈；没有披露已批准项目的完整清单。INFERENCE｜长期能源供给扩张无法在投票日前即时抵消炼化/航运瓶颈，政策与油价仍须分账。"
+    },
+    {
+      "date": "2026-10-21",
+      "level": "L3",
+      "side": "Money War / Mississippi（资金战 / 密西西比）",
+      "title": "Senate Majority PAC向Mississippi投入约120万美元广告支持Scott Colom",
+      "detail": "CONFIRMED FACT｜AP 10月21日报道，Democratic-aligned Senate Majority PAC在Mississippi购买约120万美元电视广告，支持Scott Colom挑战Cindy Hyde-Smith；Cook 10月20日已把该州从Solid R降至Likely R。INFERENCE｜深红州防守资本开始被吸收，但不代表该州已进入Toss Up。"
+    },
+    {
+      "date": "2026-10-20",
+      "level": "L3",
+      "side": "Senate / Candidate Quality（参议院 / 候选人质量）",
+      "title": "Cook：SC Likely R→Lean R、MS Solid R→Likely R、MN Likely D→Lean D",
+      "detail": "CONFIRMED FACT｜Cook Political Report 10月20日调整三场Senate（参议院）评级：South Carolina转Lean R（偏共和党），Mississippi转Likely R（大概率共和党），Minnesota转Lean D（偏民主党）；SC对阵Darline Graham (R) vs Annie Andrews (D)，不是已于7月去世的Lindsey Graham。INFERENCE｜候选人质量可抵消部分全国环境：南部D竞争扩大与明尼苏达D防守风险同时出现，整体Senate控制权判断仍高度竞争。"
+    },
+    {
+      "date": "2026-10-16",
+      "level": "L3",
+      "side": "House / Prior Weekly Catch-up（众议院 / 上期补账）",
+      "title": "Cook 10月16日将11席向民主党调整；本条为补齐历史而非本周新增",
+      "detail": "CONFIRMED FACT｜Cook 10月16日调整11个House席位向民主党方向，其中MT-01进入Toss Up。该事项已在10月19日周报交付，现补入网站事件账本；不重复计作10月26日新增L4。"
+    },
+    {
+      "date": "2026-10-14",
+      "level": "L4",
+      "side": "Macro / CPI（宏观 / 通胀）",
+      "title": "美国9月CPI同比3.7%、汽油环比9.1%；本条为补齐历史",
+      "detail": "CONFIRMED FACT｜BLS 10月14日公布9月CPI环比0.6%、同比3.7%；汽油价格环比9.1%，能源指数环比5.2%。这是10月19日周报已确认的宏观事件，现补入网站历史，不计作本周新增。"
+    },
     {
       "date": "2026-10-09",
       "level": "L3",
@@ -299,6 +384,13 @@
       "detail": "CONFIRMED FACT｜AP 10月7日：约半打主要共和党组织合计拥有约10亿美元资金，但MAGA Inc.与Texas PAC过去一个月在Texas合计投入超过1.05亿美元；部分晚买广告价格可达到提前锁定时段的5倍以上。AP同日还报道SLF向South Carolina增加500万美元防守投入。INFERENCE｜共和党的问题正从“有没有钱”转为“在扩大的防守版图中每一美元还能买到多少有效曝光”，需跟踪effective media dollars（有效媒体美元）和opportunity cost（机会成本）。"
     },
     {
+      "date": "2026-10-07",
+      "level": "L3",
+      "side": "Polling / Senate Map（民调 / 参议院版图）",
+      "title": "YouGov七州likely-voter polls对TX/OH/KS等形成第二轮交叉确认，Nebraska测得Independent微幅领先",
+      "detail": "CONFIRMED FACT｜YouGov 10月7日公布的七州likely-voter polls（调查期9月18日–10月5日；各州样本约1,520–3,949，MOE约±2.5–3.9pt）显示：Texas Talarico 50% / Paxton 44%；Ohio Brown 49% / Husted 45%；Kansas Hamilton 48% / Marshall 45%；New Hampshire Pappas 51% / Sununu 43%；Michigan El-Sayed 49% / Rogers 48%；Nebraska Osborn (I) 48% / Ricketts (R) 47%。INFERENCE｜TX/OH/KS获得第二家机构同方向likely-voter确认，而Nebraska进一步进入外围防守压力区；但单轮多州民调仍不替代独立评级与最终投票。"
+    },
+    {
       "date": "2026-10-06",
       "level": "L4",
       "side": "House Control（众议院控制权）",
@@ -311,27 +403,6 @@
       "side": "Ratings / Senate Control（评级 / 参议院控制权）",
       "title": "Cook再将三州向民主党方向调整，并把民主党潜在净增区间扩大至2–6席",
       "detail": "CONFIRMED FACT｜Cook 10月6日：Kansas Lean R→Toss Up；New Hampshire Toss Up→Lean D；North Carolina Lean D→Likely D；并把民主党潜在净增区间从1–5席提高至2–6席，民主党取得多数需要净增4席。Cook原文仍未把Senate overall control正式改成Lean D。INFERENCE｜这是Senate-control regime（参议院控制权格局）的L4增量：Toss Up内部重心进一步向民主党移动，但尚不能表述为民主党已锁定多数。"
-    },
-    {
-      "date": "2026-10-07",
-      "level": "L3",
-      "side": "Polling / Senate Map（民调 / 参议院版图）",
-      "title": "YouGov七州likely-voter polls对TX/OH/KS等形成第二轮交叉确认，Nebraska测得Independent微幅领先",
-      "detail": "CONFIRMED FACT｜YouGov 10月7日公布的七州likely-voter polls（调查期9月18日–10月5日；各州样本约1,520–3,949，MOE约±2.5–3.9pt）显示：Texas Talarico 50% / Paxton 44%；Ohio Brown 49% / Husted 45%；Kansas Hamilton 48% / Marshall 45%；New Hampshire Pappas 51% / Sununu 43%；Michigan El-Sayed 49% / Rogers 48%；Nebraska Osborn (I) 48% / Ricketts (R) 47%。INFERENCE｜TX/OH/KS获得第二家机构同方向likely-voter确认，而Nebraska进一步进入外围防守压力区；但单轮多州民调仍不替代独立评级与最终投票。"
-    },
-    {
-      "date": "2026-10-01",
-      "level": "L3",
-      "side": "Ratings / Senate（评级 / 参议院）",
-      "title": "Inside Elections扩大Senate竞争版图：AK转Toss-up、NE降至Lean R",
-      "detail": "CONFIRMED FACT｜Inside Elections 10月1日：Alaska Tilt R→Toss-up；Nebraska Likely R→Lean R；North Carolina Tilt D→Lean D；Georgia Tilt D→Lean D；其公开projection为民主党净增3–5席。Cook同期仍把Senate overall control描述为true Toss Up，并将NE列Likely R。INFERENCE｜机构之间出现明显分歧，但共同确认共和党防守面扩大；本站不把任一外部projection改写成自主概率。"
-    },
-    {
-      "date": "2026-10-03",
-      "level": "L3",
-      "side": "Money War / Kansas（资金战 / 堪萨斯）",
-      "title": "共和党Senate资金从North Carolina转防Kansas，SLF投入820万美元",
-      "detail": "CONFIRMED FACT｜AP报道，Senate Leadership Fund削减原计划投向North Carolina的约1800万美元，并向Kansas投入820万美元支持Roger Marshall；其他共和党组织也增加Kansas支出。INFERENCE｜Kansas已从接近民调与评级下调进一步转为真实资本吸收点，强化GOP defensive perimeter（共和党防守边界）扩大，但不自行改变Senate-control基线。"
     },
     {
       "date": "2026-10-05",
@@ -369,11 +440,11 @@
       "detail": "CONFIRMED FACT｜Reuters/Ipsos 10月5日完成的全国调查：Trump施政支持率32%，与9月该机构历史低位持平；registered voters国会票民主党44% / 共和党37%。Hispanic registered voters为民主党52% / 共和党26%，Hispanic adults对Trump支持率仅24%；50岁以上选民共和党仅44% / 民主党42%。调查覆盖4,506名美国成年人，整体MOE约±2pt。INFERENCE｜这是2024年共和党Latino突破明显回吐的跨机构确认，但全国族群数据仍需州级likely-voter与turnout转换验证。"
     },
     {
-      "date": "2026-10-02",
+      "date": "2026-10-03",
       "level": "L3",
-      "side": "Money War / North Carolina（资金战 / 北卡）",
-      "title": "多家共和党外部组织停止North Carolina十月广告投放",
-      "detail": "CONFIRMED FACT｜Axios 10月2日报道，Senate Leadership Fund之外，Prosperity Action与Old North Action也停止/取消10月North Carolina Senate广告投放并把资源转向其他竞争州；9月共和党阵营约投入5300万美元、民主党约4400万美元。INFERENCE｜这从单一机构调仓升级为多组织同步降权，是GOP defensive capital allocation（共和党防守资本配置）的L3信号；不据此自行改变Cook的Lean D评级。"
+      "side": "Money War / Kansas（资金战 / 堪萨斯）",
+      "title": "共和党Senate资金从North Carolina转防Kansas，SLF投入820万美元",
+      "detail": "CONFIRMED FACT｜AP报道，Senate Leadership Fund削减原计划投向North Carolina的约1800万美元，并向Kansas投入820万美元支持Roger Marshall；其他共和党组织也增加Kansas支出。INFERENCE｜Kansas已从接近民调与评级下调进一步转为真实资本吸收点，强化GOP defensive perimeter（共和党防守边界）扩大，但不自行改变Senate-control基线。"
     },
     {
       "date": "2026-10-03",
@@ -395,6 +466,20 @@
       "side": "National / Affordability Regime（全国 / 可负担性格局）",
       "title": "AP-NORC：Trump经济支持率降至26%新低，生活成本支持率仅17%",
       "detail": "CONFIRMED FACT｜AP-NORC调查（9月24–28日，n=2,140，MOE ±2.9pt）：Trump经济处理支持率26%，创该调查新低；生活成本处理支持率17%；65%认为Trump政策比不可控因素更应为持续高价负责；约6成共和党人不认可其生活成本处理；69%认为Iran war（伊朗战争）不值得打，64%认为关税“走得太远”。INFERENCE｜距离11月3日投票约一个月，这把Affordability → Trump blame（高物价→归责总统）从一般不满升级为全国regime级拖累，并强化House偏D、Senate向D倾斜的环境；仍需逐州likely-voter polls确认选票转化。"
+    },
+    {
+      "date": "2026-10-02",
+      "level": "L3",
+      "side": "Money War / North Carolina（资金战 / 北卡）",
+      "title": "多家共和党外部组织停止North Carolina十月广告投放",
+      "detail": "CONFIRMED FACT｜Axios 10月2日报道，Senate Leadership Fund之外，Prosperity Action与Old North Action也停止/取消10月North Carolina Senate广告投放并把资源转向其他竞争州；9月共和党阵营约投入5300万美元、民主党约4400万美元。INFERENCE｜这从单一机构调仓升级为多组织同步降权，是GOP defensive capital allocation（共和党防守资本配置）的L3信号；不据此自行改变Cook的Lean D评级。"
+    },
+    {
+      "date": "2026-10-01",
+      "level": "L3",
+      "side": "Ratings / Senate（评级 / 参议院）",
+      "title": "Inside Elections扩大Senate竞争版图：AK转Toss-up、NE降至Lean R",
+      "detail": "CONFIRMED FACT｜Inside Elections 10月1日：Alaska Tilt R→Toss-up；Nebraska Likely R→Lean R；North Carolina Tilt D→Lean D；Georgia Tilt D→Lean D；其公开projection为民主党净增3–5席。Cook同期仍把Senate overall control描述为true Toss Up，并将NE列Likely R。INFERENCE｜机构之间出现明显分歧，但共同确认共和党防守面扩大；本站不把任一外部projection改写成自主概率。"
     },
     {
       "date": "2026-09-29",
@@ -524,8 +609,13 @@
     }
   ],
   "money": {
-    "headline": "Money War（资金战）进入“名义资金优势 vs 有效边际回报”阶段：共和党仍拥有更大的全国现金池，但Texas、Kansas、South Carolina等防守州持续吸收资本，且晚买广告出现显著价格溢价。",
+    "headline": "Money War（资金战）周度重估｜10月22日Pre-General（选前报告）已披露；RNC/NRCC在已核实的10月14日现金口径领先，候选人直接筹款与Super PAC独立支出必须分账，晚买广告的价格溢价及防守州资本占用仍是关键。",
     "facts": [
+      "CONFIRMED FACT｜FEC衍生账本（截至10月14日，USD）：RNC $76.20M（债务$0）；NRCC $46.51M（债务$0）；DCCC $30.69M（债务$0）；NRSC $25.20M（债务$20M）；DSCC $20.67M（债务$15M）。DNC $19.17M、债务$15M为9月30日口径，不与10/14数据作严格同期合计。",
+      "CONFIRMED FACT｜Cook/AdImpact竞选广告跟踪覆盖Senate：Ohio $164.2M、Texas $147.8M、Maine $86.1M、Michigan $76.0M、Iowa $68.9M、Alaska $25.2M、NH $26.2M、Kansas $11.7M；这些是跟踪器所列广告支出/覆盖，不等于候选人筹款，也不直接等于未来广告预订。",
+      "CONFIRMED FACT｜FEC 10月22日Pre-General报告覆盖10月1–14日，独立支出仍有24/48小时通知和处理时滞；不同口径不能机械相加。",
+      "CONFIRMED FACT｜Senate Majority PAC 10月21日为Mississippi Scott Colom投放约$1.2M广告；Cook同时将MS降至Likely R。2026年Musk向共和党外部组织大额捐赠已在10月19日周报确认，不能当作本周新捐赠。",
+      "INFERENCE｜名义现金（nominal cash）→有效广告美元（effective media dollars）→触达/催票（GOTV）→席位转化，须计入广告晚买价格溢价、重复触达和深红州防守机会成本。",
       "CONFIRMED FACT｜AP 10月7日：约半打主要共和党组织合计拥有约10亿美元可动用资金，可比民主党主要组织约5.79亿美元；但Texas过去一个月MAGA Inc.与Texas PAC合计投入超过1.05亿美元。",
       "CONFIRMED FACT｜AP：共和党竞选人士指出，部分Trump关联组织因9月才大规模购买广告，部分时段价格可达到提前锁定的5倍以上；Texas同一Austin市场的极端案例为PAC约45万美元 vs 候选人竞选团队约5万美元。",
       "CONFIRMED FACT｜AP：Senate Leadership Fund向South Carolina新增500万美元防守投入；此前已从North Carolina削减资金并向Kansas投入820万美元。",
@@ -537,71 +627,74 @@
     {
       "asset": "US 10Y（美国10年期国债收益率）",
       "bias": "Macro-first（宏观优先）",
-      "logic": "Cook已明确判断House majority将翻为民主党，而Senate仍处于竞争状态。若最终形成divided government（分裂政府），2027年新增大规模立法性财政扩张空间可能受约束；但通胀、Oil与Fed仍是一阶利率驱动。"
+      "logic": "CONFIRMED FACT / INFERENCE｜10/27–28 FOMC、10/29 GDP/PCE优先；9月CPI同比3.7%与油价冲击可能抬升通胀预期和期限溢价。选后财政赤字、发债期限与供给路径为第二阶段变量。"
     },
     {
       "asset": "USD（美元）",
-      "bias": "Macro-first（宏观优先）",
-      "logic": "美元当前仍主要受利差、Fed与全球避险需求驱动，选举通过财政和贸易政策形成二阶影响。"
+      "bias": "Rates + risk（利率 + 风险）",
+      "logic": "CONFIRMED FACT / INFERENCE｜短期受利差、Fed与中东避险主导；国会控制权经关税、财政赤字和贸易预期产生二阶影响。"
     },
     {
       "asset": "Oil（原油）",
-      "bias": "Geopolitics-first（地缘优先）",
-      "logic": "Iran、Hormuz及供需仍是一阶变量；选举主要影响制裁、外交和能源政策的中期路径。"
+      "bias": "Iran / supply-first（伊朗 / 供给优先）",
+      "logic": "CONFIRMED FACT / INFERENCE｜10/26早盘Brent约$115.16、WTI约$101.67；Houthi袭击及Hormuz风险是首要驱动。10/22美国援引DPA扶持石油/炼化，短期难即时替代受阻供给。"
     },
     {
       "asset": "Gold（黄金）",
-      "bias": "Rates + geopolitics（利率 + 地缘）",
-      "logic": "实际利率、美元与地缘风险仍主导。"
+      "bias": "Real yields + geopolitics（实际利率 + 地缘）",
+      "logic": "CONFIRMED FACT / INFERENCE｜实际利率、美元与中东风险溢价共同决定方向；选举控制权不应被机械映射为黄金单向走势。"
     },
     {
       "asset": "Defense（国防）",
-      "bias": "Appropriations watch（拨款观察）",
-      "logic": "国会委员会控制、Iran相关安全环境和补库存需求共同决定政策路径。"
+      "bias": "Appropriations + replenishment（拨款 + 补库存）",
+      "logic": "CONFIRMED FACT / INFERENCE｜国会委员会控制影响监督/拨款，但Iran战争与弹药补库存是一阶需求；民主党House多数不等于军工收入下降。"
     },
     {
       "asset": "Banks（银行）",
-      "bias": "Regulatory optionality（监管可选性）",
-      "logic": "House翻转的外部机构基线提高congressional oversight（国会监督）强度；若Senate也转为民主党，监管与人事路径的变化更大。"
+      "bias": "Yield curve + regulation（收益率曲线 + 监管）",
+      "logic": "CONFIRMED FACT / INFERENCE｜收益率曲线、信贷质量和监管机构政策优先；Dem House增强听证/调查，Dem Senate可能影响人事确认，但总统仍保留否决权。"
     },
     {
       "asset": "Healthcare（医疗）",
-      "bias": "Policy optionality（政策可选性）",
-      "logic": "House外部机构基线转向民主党控制，提高ACA/Medicaid等既有政策的防御能力；Senate结果仍决定更完整的立法与人事边界。 Maine 10月9日民调确认医保是关键竞选议题，但民调本身不改变2027年医保政策现金流。"
+      "bias": "ACA / Medicaid oversight（医保 / 监督）",
+      "logic": "CONFIRMED FACT / INFERENCE｜10/23 Brookings指出民主党即使无法通过新医保法，也可借国会监督、议程和拨款谈判改变行业政策风险；区分通过法案与调查权。"
     },
     {
       "asset": "Clean Energy（清洁能源）",
-      "bias": "Tax-credit optionality（税收抵免可选性）",
-      "logic": "House外部机构基线转向民主党控制，降低部分既有清洁能源税收抵免被进一步削减的政治尾部风险；完整路径仍取决于Senate。"
+      "bias": "Tax-credit / permitting（税收抵免 / 许可）",
+      "logic": "CONFIRMED FACT / INFERENCE｜关键为既有税收抵免、拨款和项目许可规则；分裂政府可能限制大规模重写，但行政规则仍可调整。"
     },
     {
       "asset": "Crypto（加密资产）",
-      "bias": "Legislative + political capital（立法 + 政治资本）",
-      "logic": "Fairshake把行业资金扩展至32名House候选人并保留约1.2亿美元现金，同时Ohio Senate已有近3000万美元计划投入；行业正在通过跨党派资本配置塑造2027年market-structure / stablecoin（市场结构 / 稳定币）立法联盟。"
+      "bias": "Committee arithmetic（委员会席位算术）",
+      "logic": "CONFIRMED FACT / INFERENCE｜市场结构与稳定币立法依赖委员会和参院跨党派联盟；Super PAC资金部署不代表法案必然通过。"
     },
     {
       "asset": "AI regulation（AI监管）",
-      "bias": "Rising policy salience（政策关注度上升）",
-      "logic": "House翻转的外部机构基线意味着听证、透明度、AI safety（AI安全）与data-center power bills（数据中心电费）的监督权重上升；若Senate也转向民主党，联邦监管压力更显著。"
+      "bias": "AI authenticity + safety（AI真实性 + 安全）",
+      "logic": "CONFIRMED FACT / INFERENCE｜10/24 AI合成政治广告争议将内容真实性纳入选举监管议程；另需独立跟踪模型安全、就业与竞争法，不可将所有AI议题等同。"
     },
     {
       "asset": "Utilities / Power（公用事业 / 电力）",
-      "bias": "Political cost allocation + grid CAPEX（政治成本分摊 + 电网资本开支）",
-      "logic": "Ohio已把AI数据中心电费推入Senate攻防，Alaska出现联邦输电资金；House控制权外部基线翻转后，grid cost allocation（电网成本分摊）与消费者保护的联邦听证/监督权重进一步上升。 Maine 10月9日民调中63%认为家庭能源/电费不可负担；居民账单政治敏感度提高，但不等于已出台新电网监管规则。"
+      "bias": "Grid Cost Allocation/MW（每MW电网成本分摊）",
+      "logic": "CONFIRMED FACT / INFERENCE｜AI数据中心新增负荷→输配电CAPEX→谁承担成本→居民电费/地方政治→许可时间与WACC。尚未生效的立法/费率提案不得计入已发生现金成本。"
     },
     {
       "asset": "Industrial Policy（产业政策）",
-      "bias": "Trade / tariff watch（贸易 / 关税观察）",
-      "logic": "Iowa约150亿美元钢厂计划把关税、本土制造、供应链与就业直接带入关键Senate战场；完整一体化项目约180亿美元。投资承诺与2030年前后实际投产之间存在时间错配。"
+      "bias": "DPA / tariffs / supply chain（国防生产法 / 关税 / 供应链）",
+      "logic": "CONFIRMED FACT / INFERENCE｜10/22能源DPA新政策是已确认行政行动；长期炼化、管道、钢铁和电网项目仍受建设周期、资金和许可限制。"
     }
   ],
   "delta": {
-    "headline": "L3｜10月9日Maine与NY-21两项独立likely-voter民调强化民主党在共和党现持席位的竞争力；不改变House/Senate总体控制权基线。",
+    "headline": "L4｜Cook 10月23日House 19席再向民主党移动：220席至少Lean D，正式越过218席评级门槛；L3｜Senate候选人质量出现南北反向迁移，New Hampshire投票身份证规则被最高法院确认；选前8天资金与实投进入验证窗口。",
     "items": [
-      "CONFIRMED FACT｜Washington Post–Schar School Maine：Jackson 50% / Collins 46%（n=800，MOE ±3.6pt；辩论前调查）；55%受访者希望民主党控制Senate。",
-      "CONFIRMED FACT｜Siena NY-21：Gendebien 46% / Constantino 42%（n=496，MOE ±4.6pt）；Cook NY-21仍为Likely R（大概率共和党），Maine仍为Toss Up（胜负难分）。",
-      "CONFIRMED FACT｜Maine 63%受访者认为家庭能源/电费不可负担，62%认为汽油不可负担；生活成本、医疗与能源成本继续主导地方竞选。",
-      "INFERENCE｜两项新独立民调提供边际证据，不足以直接认定胜率已显著改变；下一验证点是独立后续likely-voter polls、Cook/Inside Elections评级及广告/动员配置。"
+      "L4 CONFIRMED FACT｜Cook 10/23 House：D至少220席、R198席、17 Toss Up；中心情景D净增12–22席（2027约227–237席）。",
+      "L3 CONFIRMED FACT｜Cook 10/20 Senate：SC→Lean R、MS→Likely R、MN→Lean D；7 Toss Up保持，说明候选人质量不随全国蓝移同步。",
+      "L3 CONFIRMED FACT｜10/22 New Hampshire最高法院投票证件裁定：学生证不能作为备用身份凭证；不可推断净票数。",
+      "L3 CONFIRMED FACT｜10/25 CBS generic D53/R45，RCP最新Maine与Texas关键民调平局；全国环境与逐席转化不可混淆。",
+      "L3 CONFIRMED FACT｜10/22 FEC Pre-General申报完成；RNC/NRCC与DCCC/DSCC的现金余额和债务现可分账比较，但DNC最新数据仍为9/30。",
+      "L3 CONFIRMED FACT｜10/26 Brent约$115、WTI约$102；10/27–28 FOMC及10/29 GDP/PCE构成最后一周宏观验证点。",
+      "INFERENCE｜House机构评级已经越过多数门槛，但Prediction Market仅为trader-implied price；Senate仍是四种政权情景的关键瓶颈。"
     ]
   },
   "history": [
@@ -763,6 +856,14 @@
       "senate_dem": 59,
       "trump_approval": 32,
       "cook_house_tossups": 22,
+      "cook_senate_tossups": 7
+    },
+    {
+      "date": "2026-10-26",
+      "house_dem": 92,
+      "senate_dem": 67,
+      "trump_approval": 38.5,
+      "cook_house_tossups": 17,
       "cook_senate_tossups": 7
     }
   ],
@@ -966,6 +1067,106 @@
       "title": "AP — Voting groups sound alarm on funding shortfalls",
       "url": "https://apnews.com/article/midterms-voting-groups-racial-justice-democrats-2cc2ecb19bc16b572c9c97798303c397",
       "supports": "民主党外围GOTV网络资金缺口基线。"
+    },
+    {
+      "title": "Cook Political Report — 19 House moves, Oct 23",
+      "url": "https://www.cookpolitical.com/analysis/house/house-overview/democrats-projected-majority-grows-19",
+      "supports": "19个House评级向D移动，Cook中心情景D净增12–22席。"
+    },
+    {
+      "title": "Cook Political Report — Senate candidate quality, Oct 20",
+      "url": "https://www.cookpolitical.com/analysis/senate/senate-overview/senate-south-carolina-mississippi-minnesota",
+      "supports": "SC/MS向D移动、MN向R移动，候选人质量导致异向变化。"
+    },
+    {
+      "title": "RealClearPolling — Latest polls, Oct 25",
+      "url": "https://www.realclearpolling.com/",
+      "supports": "CBS generic D53/R45、Trump 39/61；ME/TX平局；PA House选区民调。"
+    },
+    {
+      "title": "Polymarket — House control, Oct 25-26 snapshot",
+      "url": "https://polymarket.com/event/which-party-will-win-the-house-in-2026",
+      "supports": "House Democratic trader-implied price约92¢；动态报价。"
+    },
+    {
+      "title": "Polymarket — Senate control, Oct 25-26 snapshot",
+      "url": "https://polymarket.com/event/which-party-will-win-the-senate-in-2026",
+      "supports": "Senate Democratic trader-implied price约67¢；动态报价。"
+    },
+    {
+      "title": "Polymarket — Balance of Power, Oct 25-26 snapshot",
+      "url": "https://polymarket.com/politics/midterms",
+      "supports": "Democrats Sweep约66¢、R Senate/D House约26¢、GOP Hold约8¢；动态报价。"
+    },
+    {
+      "title": "FEC-derived committee balances — TerraCivic, Oct 24",
+      "url": "https://terracivic.com/money/",
+      "supports": "RNC $76.20M, NRCC $46.51M, DCCC $30.69M, NRSC $25.20M, DSCC $20.67M截至10/14；DNC $19.17M截至9/30，跨期不可直接比较。"
+    },
+    {
+      "title": "FEC — 2026 Pre-General filings",
+      "url": "https://www.fec.gov/updates/do-i-have-to-file-a-pre-general-report-2026/",
+      "supports": "10/22申报截止、10/14结账；后续24/48小时独立支出通知。"
+    },
+    {
+      "title": "Cook/AdImpact — Battleground issue tracker",
+      "url": "https://www.cookpolitical.com/toolbox/battleground-issue-tracker/2026",
+      "supports": "Senate重点州广告投放覆盖：OH $164.2M、TX $147.8M、ME $86.1M、MI $76M、IA $68.9M；口径为tracker所列广告量。"
+    },
+    {
+      "title": "AP — NH student-ID ruling, Oct 22",
+      "url": "https://apnews.com/article/42da13585a80dc52d92efa0dbe86b95e",
+      "supports": "最高法院允许New Hampshire学生证投票身份验证禁令实施。"
+    },
+    {
+      "title": "AP — Early vote in Senate battlegrounds, Oct 22",
+      "url": "https://apnews.com/article/44df2c18b387d28022dbb480e99feaba",
+      "supports": "Texas、Kansas、Maine、NC、Ohio提前投票同比进度；不可将登记党派视作候选人票。"
+    },
+    {
+      "title": "Reuters — Defense Production Act oil, Oct 22",
+      "url": "https://www.reuters.com/business/energy/trump-invokes-cold-war-era-defense-production-act-oil-production-refining-2026-10-22/",
+      "supports": "行政政策支持石油、炼化与管道融资。"
+    },
+    {
+      "title": "Reuters — Oil, Oct 26",
+      "url": "https://www.reuters.com/business/energy/oil-prices-down-almost-1-early-trading-2026-10-25/",
+      "supports": "10/26 00:18 GMT WTI约$101.67、Brent约$115.16；Houthi袭击及供应风险。"
+    },
+    {
+      "title": "BLS — September 2026 CPI",
+      "url": "https://www.bls.gov/news.release/archives/cpi_10142026.htm",
+      "supports": "9月CPI同比3.7%，汽油环比9.1%。"
+    },
+    {
+      "title": "BEA — 2026 releases",
+      "url": "https://www.bea.gov/news/schedule/",
+      "supports": "10/29 Q3 GDP初值和9月个人收入/支出、PCE。"
+    },
+    {
+      "title": "Federal Reserve — FOMC calendar",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "supports": "10/27–28 FOMC。"
+    },
+    {
+      "title": "Washington Post — AI campaign ads, Oct 24",
+      "url": "https://www.washingtonpost.com/politics/2026/10/24/why-democrats-are-shunning-ai-videos-ads/",
+      "supports": "AI生成政治攻击广告真实性争议；AI/增强广告支出估计约$137M。"
+    },
+    {
+      "title": "AP — Mississippi Democratic Senate advertising, Oct 21",
+      "url": "https://apnews.com/article/6cd108dc71751f0d47d9e17c5ed5a01b",
+      "supports": "Senate Majority PAC在MS投约$1.2M广告支持Scott Colom。"
+    },
+    {
+      "title": "House Radio-TV Gallery — party breakdown",
+      "url": "https://radiotv.house.gov/house-data/party-breakdown",
+      "supports": "House 218R/214D/1I/2 vacancies。"
+    },
+    {
+      "title": "Brookings — The midterm effect, Oct 23",
+      "url": "https://www.brookings.edu/articles/the-midterm-effect-what-the-2026-election-could-mean-for-public-policy/",
+      "supports": "2027国会控制权对医疗、政策议程与监督的制度传导。"
     }
   ]
 }
