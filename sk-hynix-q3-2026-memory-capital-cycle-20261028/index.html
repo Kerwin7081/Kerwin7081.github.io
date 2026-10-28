@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="SK海力士2026Q3营收及经营利润创纪录：图解盈利质量、铠侠投资估值、14家LTA、HBM4扩产、现金流与AI Capital Cycle交叉验证。">
+  <title>海力士2026 Q3：80%营业利润率能持续多久？｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  
+    /* Figures: source-backed editorial graphics, scoped to this article */
+    .visual{margin:28px 0;padding:22px 24px;border-top:2px solid var(--green);border-bottom:1px solid var(--line);background:#fff8f0}
+    .figure-title{display:flex;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:20px;font-size:15px;line-height:1.6}
+    .figure-title strong{font-family:var(--serif);font-size:19px;color:var(--green)}
+    .figure-title span,.figure-note{font-size:12px;color:var(--muted);line-height:1.7}
+    .chart-row{display:grid;grid-template-columns:98px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+    .chart-row b{font-size:14px}.chart-pair{display:grid;grid-template-columns:24px 1fr 58px;align-items:center;gap:9px;margin-bottom:4px}
+    .bar-data{font-size:11px;color:var(--muted)}.bartrack{height:15px;background:#e7d8ca;position:relative;overflow:hidden}
+    .bartrack i{display:block;height:100%}.chart-pair strong{font-size:13px;text-align:right}
+    .stacked-bar{display:flex;width:100%;height:33px;overflow:hidden}.stacked-bar span{display:block}
+    .stacked-legend{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;font-size:13px;line-height:1.6}
+    .stacked-legend i{display:inline-block;width:11px;height:11px;margin-right:7px}
+    .flow-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+    .flow-map>div{position:relative;min-width:0;padding:15px;border-right:1px solid var(--line)}
+    .flow-map>div:last-child{border-right:0}.flow-map small{display:block;color:var(--copper);font-weight:700}
+    .flow-map b{display:block;color:var(--green);font-size:15px}.flow-map span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+    .compare-boms{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .compare-boms small,.compare-boms strong{display:block}.compare-boms strong{font:700 30px/1.3 var(--serif);color:var(--green);margin:7px 0 12px}
+    .visual .figure-note{margin-top:14px;margin-bottom:0}.section a{color:var(--green);text-decoration-thickness:1px}
+    @media(max-width:760px){.visual{padding:17px 15px}.figure-title{display:block}.figure-title strong,.figure-title span{display:block}
+     .chart-row{grid-template-columns:75px 1fr}.chart-pair{grid-template-columns:24px 1fr 45px;gap:6px}.stacked-legend,.compare-boms{grid-template-columns:1fr}
+     .flow-map{grid-template-columns:1fr 1fr}.flow-map>div:nth-child(2){border-right:0}.flow-map>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    }
+
+  </style>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="sk-hynix-q3-2026-memory-capital-cycle-20261028">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · Earnings Desk</span>
+      <span>Evidence first · Snapshot 2026-10-28 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">EARNINGS DESK · SK HYNIX · Q3 2026</div>
+          <h1>
+            海力士：80%营业利润率
+            <span>存储超级周期能否穿越下一轮扩产？</span>
+          </h1>
+          <p class="thesis">海力士的经营利润率达到80%，但决定存储超级周期能持续多久的，不是净利润，而是客户长约能否穿过扩产、现金流和ROIC，成为可持续的股东回报。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年10月28日</span>
+            <span><b>数据快照</b> 2026-10-28 HKT</span>
+            <span><b>研究对象</b> SK hynix · HBM4 · DDR5 · eSSD · AI Capital Cycle</span>
+            <span><b>证据边界</b> 官方Q3初值 + SEC半年报 + 电话会公开转录（待官方音频校订）</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>79.7%</strong>
+          <span>2026 Q3 operating margin</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>全文金额除特别标注外均为万亿韩元（₩T）。2026Q3为公司公布的尚未经独立审阅终稿核实的初步业绩；Q2和H1财务附注引用SEC 6-K；电话会个别表述引用公开第三方转录并作明确标识，行业研报与公司展望不等于已实现事实。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>盈利兑现得到验证，远期估值不能线性外推</h2>
+      <p class="lead">HBM4、服务器DDR5和企业级SSD共同支撑创纪录经营利润；14家客户长协提升2027–2028年需求可见度，但投资资产的估值波动、₩61.5T未来资本承诺，以及三星/美光/长鑫的新增供给，共同决定这轮利润能否变成长期自由现金流。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>经营利润真实</b><span>Q3营业利润₩83.33T，环比+38%；不依赖铠侠估值浮盈。</span></div>
+        <div class="verdict-item"><b>合同更长期</b><span>14家LTA，覆盖2027–2028计划产能50%以上；关键条款仍未完全披露。</span></div>
+        <div class="verdict-item"><b>扩产不可忽略</b><span>H1未入账未来PPE资本承诺₩61.48T；收益与投资现金流需同步跟踪。</span></div>
+        <div class="verdict-item"><b>股票仍需估值</b><span>基本面景气不等于股价便宜；应拆分存储经营、投资资产与现金回报。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="section-label">02 · Analysis</div>
+      <h2>同一季度，两张不同的利润表</h2>
+      <p>海力士Q3营收₩104.62T，营业利润₩83.33T，净利润₩39.78T。同比和环比的方向并不一致：营收、经营利润仍在扩张，净利润则因上一季度投资收益高基数而回落。准确理解这一分叉，是分析Memory板块估值的起点。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>财务指标（₩T）</th>
+              <th>2026 Q2</th>
+              <th>2026 Q3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>营业收入</td><td>79.3187</td><td>104.6155</td></tr><tr><td>营业利润</td><td>60.5426</td><td>83.3338</td></tr><tr><td>营业利润率</td><td>76.3%</td><td>79.7%</td></tr><tr><td>净利润</td><td>93.9226</td><td>39.7756</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="section" id="quality">
+      <div class="section-label">03 · Earnings Quality</div>
+      <h2>净利润为什么下降58%，经营利润却创纪录？</h2>
+      <p>这是本次财报最容易被误读的地方。Q3净利润为<strong>₩39.7756T</strong>，较Q2的<strong>₩93.9226T</strong>下降约58%；但同期营业利润由<strong>₩60.5426T</strong>升至<strong>₩83.3338T</strong>，增长约38%。两者方向相反，必须拆开经营与投资。<a href="https://news.skhynix.com/cn/q3-2026-business-results/" target="_blank" rel="noopener">[1]</a></p>
+      <figure class="visual">
+        <figcaption class="figure-title"><strong>图二 · Q2投资相关收益结构</strong><span>单位：万亿韩元｜SEC 2026H1 6-K 附注24，Q2单季度</span></figcaption>
+        <div class="stacked-bar"><span style="width:84.1%;background:#103f35"></span><span style="width:15.9%;background:#9a5c38"></span></div>
+        <div class="stacked-legend"><span><i style="background:#103f35"></i>金融工具估值收益 <strong>₩53.237T</strong> · 84.1%</span><span><i style="background:#9a5c38"></i>股息收入 <strong>₩10.028T</strong> · 15.9%</span></div>
+        <p class="figure-note">合计₩63.265T。估值收益不等于现金到账；股息收入不等于存储产品营业利润。此为财务收益构成，并非铠侠各个投资载体的逐笔收益归因。<a href="https://www.sec.gov/Archives/edgar/data/2120882/000119312526354777/d147827d6k.htm" target="_blank" rel="noopener">[2]</a></p>
+      </figure>
+      <p>公司确认铠侠（Kioxia，日本NAND厂商）投资是本年股东特别回报的重要来源，但不能把上述每项金融收益一对一归为某个铠侠SPC。根据第三方电话会转录，Q3还计入约<strong>₩22.9T投资资产估值损失</strong>、约<strong>₩11.6T汇兑净损失</strong>，这解释了净利润波动的一部分；相关Q3明细仍以正式审阅后财务附注为准。<a href="https://stockanalysis.com/quote/krx/000660/transcripts/717350-q3-2026/" target="_blank" rel="noopener">[3]</a></p>
+      <div class="dark-panel"><h3>利润分三本账，而不是直接使用TTM PE</h3><p><b>账本A｜存储经营利润：</b>营业利润、正常化税后经营利润、营业资本回报；<br><b>账本B｜战略投资价值：</b>铠侠相关公允价值、已实现处置收益、剩余资产及税务；<br><b>账本C｜现金及股东回报：</b>经营现金流、产能CapEx、股息、回购与资产可变现性。</p></div>
+      <h3>现金流：如何把经营现金与股息区分？</h3>
+      <p>SEC半年报列示2026H1合并经营现金流<strong>₩91.743T</strong>；其中已收到股息<strong>₩13.984T</strong>。再扣PPE购置<strong>₩18.329T</strong>和无形资产购置<strong>₩0.665T</strong>，得到一个简化的核心FCF代理值<strong>₩58.765T</strong>。公式为91.743−13.984−18.329−0.665。<a href="https://www.sec.gov/Archives/edgar/data/2120882/000119312526354777/d147827d6k.htm" target="_blank" rel="noopener">[2]</a></p>
+      <p class="figure-note">这是研究用代理值，不是公司正式FCF定义，也未正常化营运资本、所得税、租赁、其他非经常性项目；不能按H1直接年化推导长期价值。</p>
+      <p>同样，2026Q3新闻稿的<strong>₩114.5T</strong>流动性口径，与Q2 SEC报表中狭义银行现金不同；Q2相近的₩88.0T基数包含现金、短期金融工具和短期投资资产。估算净现金与企业价值时，应逐项区分风险和流动性，不能全部当作无风险银行存款。</p>
+    </section>
+
+    <section class="section" id="contracts">
+      <div class="section-label">04 · Contracts → Cash</div>
+      <h2>14家长期合同：存储周期是否真的变了？</h2>
+      <p>海力士已与14家主要客户签署长期供应协议，覆盖2027–2028年计划总产能的50%以上。公司正式说明，合同采用约定价格区间并依据市况调整；电话会转录还提到保证金等履约安排，但未提供合同级违约赔偿或最低采购义务。<a href="https://news.skhynix.com/cn/q3-2026-business-results/" target="_blank" rel="noopener">[1]</a> <a href="https://stockanalysis.com/quote/krx/000660/transcripts/717350-q3-2026/" target="_blank" rel="noopener">[3]</a></p>
+      <figure class="visual">
+        <figcaption class="figure-title"><strong>图三 · 长协不是利润，更不是现金</strong><span>从需求可见度到股东回报的转换链</span></figcaption>
+        <div class="flow-map">
+          <div><small>01</small><b>需求计划</b><span>客户预测与供货安排</span></div>
+          <div><small>02</small><b>LTA数量 / 价格区间</b><span>价格仍与市况挂钩</span></div>
+          <div><small>03</small><b>交付与收入</b><span>良率 / 认证 / 产量</span></div>
+          <div><small>04</small><b>现金 / ROIC</b><span>预收款、CapEx和营运资本</span></div>
+        </div>
+        <p class="figure-note">高覆盖率提高可见度，但并不自动证明所有订单不可取消、最低价格绝对锁定或全额预付。真正决定估值重估的是低谷时期FCF底部能否抬高。</p>
+      </figure>
+      <p>因此，“未来三年基本售罄”只能按管理层包含已签合同及商谈中需求的陈述理解，不能改写成2029年已全部签署不可取消合同。公司“供应紧张延续至2030”的说法是展望，不是业已证明的供需事实。</p>
+      <h3>资本承诺同样正在上升</h3>
+      <p>截至2026年6月末，合并报表列示尚未确认的<strong>未来固定资产资本开支承诺₩61.485T</strong>，而2025年底为<strong>₩6.668T</strong>，约增加至9.2倍。它不是2027年的年度CapEx，更不是已付现金；但显示设备、厂房及基础设施投资承诺显著扩张。<a href="https://www.sec.gov/Archives/edgar/data/2120882/000119312526354777/d147827d6k.htm" target="_blank" rel="noopener">[2]</a></p>
+      <p>2027年龙仁一期、M15X爬坡等支出将强化供给能力，也为中期供需反转埋下可能性。重点应监测<strong>资本开支→有效良率→销售额→FCF→增量ROIC</strong>，而不仅是晶圆厂产能公告。</p>
+    </section>
+
+    <section class="section" id="industry">
+      <div class="section-label">05 · Re-test the Research</div>
+      <h2>三项既有研究，哪些被验证、哪些需要修正？</h2>
+      <h3>HBM之外的“AI记忆体大迁徙”：被强化</h3>
+      <p>《<a href="/ai-memory-hbm-nand-cmx-20260722/">AI记忆体大迁徙：从HBM到CMX</a>》将AI记忆体分成GPU近端HBM、CPU侧DRAM与企业SSD/KV Cache等容量层。Q3的新证据是<strong>HBM4正式放量、服务器DDR5销售大幅增长、321层TLC eSSD扩大出货</strong>，支持利润池向不同内存层扩散。<a href="https://news.skhynix.com/cn/q3-2026-business-results/" target="_blank" rel="noopener">[1]</a></p>
+      <p>但eSSD销售扩张尚不足以证明CMX或未来HBF已形成固定的每GPU采购量；存储的下一阶段价值取决于Agent并发、KV Cache保留和系统级容量配置。</p>
+      <h3>1GW AI Cloud账本：存储成本必须单独建模</h3>
+      <p>《<a href="/ai-cloud-unit-economics-dashboard-20260817/">AI Cloud四层经济模型</a>》曾以示意情景将1GW IT的GB300与Rubin系统Memory/Storage BOM分别设为<strong>约$3.7B和$7.2B</strong>。这两个值属于当时研究假设，而非已验证采购合同。</p>
+      <figure class="visual">
+        <figcaption class="figure-title"><strong>图四 · 1GW IT系统的存储经济含量</strong><span>美元十亿｜历史情景假设；非已签订单或海力士营收指引</span></figcaption>
+        <div class="compare-boms"><div><small>GB300基准情景</small><strong>$3.7B</strong><div class="bartrack"><i style="width:51.4%;background:#9a5c38"></i></div></div><div><small>Vera Rubin基准情景</small><strong>$7.2B</strong><div class="bartrack"><i style="width:100%;background:#103f35"></i></div></div></div>
+        <p class="figure-note">若Rubin情景的$7.2B存储采购总额上升20%，而容量及配置不变，则每1GW CapEx增加$1.44B；按5年直线折旧，每年增加约$0.288B折旧。演示不含融资成本、税收、实际供货价格或系统销售收入变化。</p>
+      </figure>
+      <p>关键是新增 <strong>Memory Cost Pass-through（存储成本传导率）</strong>：存储涨价会强化供应商盈利，但如果云服务商的租赁价格无法同步上涨，便可能推高Depreciation/MW、压低ROIC−WACC。不能把上游利润强劲直接解释为下游AI Factory回报率改善。</p>
+      <h3>NVIDIA AI Factory：交付概率提高，但全链回报尚未同步</h3>
+      <p>《<a href="/nvidia-physical-cuda-ai-factory-20260824/">Physical CUDA与AI Factory</a>》把计算竞争从单颗GPU扩展至Token/MW、价格、系统CapEx与资本回报。HBM4量产减轻部分配套不确定性，却不能替代真实架构采购价、GPU产出、客户利用率和下游FCF的核验。供应确定性与资本回报是两个不同问题。</p>
+    </section>
+
+    <section class="section" id="risk">
+      <div class="section-label">06 · Competition & Falsifiers</div>
+      <h2>竞争与反证：超级周期的另一面</h2>
+      <p>三星2026年2月宣布HBM4商业量产与出货；美光9月官方财报表示HBM4已向领先客户大批量出货。海力士的产品竞争力强，但不能再把HBM4商业化描述成只有一家能够实现。<a href="https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing" target="_blank" rel="noopener">[4]</a> <a href="https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/" target="_blank" rel="noopener">[5]</a></p>
+      <p>同时，长鑫存储2026年9月披露G5平台量产及LPDDR5X产品进展，提示中期供给竞争不会静止；G5的每片晶圆裸片数提升，不能直接等同于全球DRAM有效bit供给增长。<a href="https://www.cxmt.com/news/info_97.html" target="_blank" rel="noopener">[6]</a></p>
+      <div class="table-wrap"><table><thead><tr><th>六项持续验证</th><th>证据评分</th><th>仍需证明的关键变量</th></tr></thead><tbody><tr><td><strong>HBM4量价及订单</strong></td><td><strong>8.5/10</strong></td><td>2027客户量价谈判据公开电话会转录已完成；实际ASP未披露</td></tr><tr><td><strong>LTA与履约保障</strong></td><td><strong>8.0/10</strong></td><td>14家客户、2027–28年计划产能超50%；价格走廊已证实，具体违约责任不明</td></tr><tr><td><strong>扩产与资本效率</strong></td><td><strong>6.5/10</strong></td><td>2026H1未入账未来PPE承诺₩61.48T；分年支付、良率与ROIC不明</td></tr><tr><td><strong>现金流及盈利质量</strong></td><td><strong>7.0/10</strong></td><td>H1现金流可拆；Q3完整现金流待取得</td></tr><tr><td><strong>竞争格局</strong></td><td><strong>7.0/10</strong></td><td>美光、三星已有HBM4出货声明；海力士绝对份额不能由自报推算</td></tr><tr><td><strong>2028–2030供需</strong></td><td><strong>5.0/10</strong></td><td>企业DDR5与eSSD需求强；新增产能、价格弹性和中国供给仍可能反转</td></tr></tbody></table></div>
+      <p class="figure-note">六项等权平均<strong>7.0/10</strong>，前次为6.5/10；评分衡量当前证据对论点的支持程度，而非股价上涨概率或预期回报。2027年行业景气判断<strong>8.5/10</strong>，2028–2030年供需可预测性<strong>5.0/10</strong>。股票风险调整后估值暂不评分。</p>
+      <h3>什么会让结论被推翻？</h3>
+      <p>需要同时监测三类反证：<strong>①订单：</strong>HBM4或服务器DRAM ASP低于合同预期、客户减配/取消；<strong>②供给：</strong>三星、美光及中国厂商爬坡快于需求，价格走廊低端被触发；<strong>③现金：</strong>CapEx和库存增长快于经营现金流，正常化ROIC−WACC回落。</p>
+      <p>由此形成可执行的投资纪律：<strong>产业景气强 ≠ 当前股价便宜 ≠ 下游AI Cloud能实现同等资本回报。</strong>估值应以正常化经营利润、FCF、剩余投资资产价值和股东回报合并分析；不直接使用受铠侠公允价值波动显著影响的TTM PE下结论。</p>
+    </section>
+
+
+    <section class="section" id="sources">
+      <div class="section-label">07 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source">
+        <a href="https://news.skhynix.com/cn/q3-2026-business-results/" target="_blank" rel="noopener">SK海力士 · 2026 Q3官方业绩披露</a>
+        <span>营收、营业利润、净利润、HBM4/DDR5/eSSD、LTA、CapEx方向和约₩100T年度股东回报计划。2026-10-28。</span>
+      </div>
+      <div class="source"><a href="https://www.sec.gov/Archives/edgar/data/2120882/000119312526354777/d147827d6k.htm" target="_blank" rel="noopener">[2] SK hynix 2026 H1 SEC 6-K 财务报表</a><span>Q2财务收益及其分类、现金流量表、资本开支承诺（附注29）、铠侠金融投资附注。</span></div>
+      <div class="source"><a href="https://stockanalysis.com/quote/krx/000660/transcripts/717350-q3-2026/" target="_blank" rel="noopener">[3] Q3电话会公开文字转录（第三方）</a><span>经营与非经营桥、管理层对合同/扩产的发言。未完成官方音频逐句校订。</span></div>
+      <div class="source"><a href="https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing" target="_blank" rel="noopener">[4] Samsung HBM4商业出货公告</a><span>2026-02-12，竞争产品已商业化。</span></div>
+      <div class="source"><a href="https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/" target="_blank" rel="noopener">[5] Micron FY2026 Q4官方财报</a><span>2026-09-30，HBM4已向领先平台大批量出货。</span></div>
+      <div class="source"><a href="https://www.cxmt.com/news/info_97.html" target="_blank" rel="noopener">[6] 长鑫G5平台量产公告</a><span>2026-09-20，新增工艺供给的潜在反证；尚不能转化为全球bit供给数字。</span></div>
+      <div class="source"><a href="https://www.trendforce.com/presscenter/news/20260930-13258.html" target="_blank" rel="noopener">[7] TrendForce 2026Q4 DRAM/NAND合约价展望</a><span>行业预测：传统DRAM环比+10–15%，NAND +15–20%，并非海力士实际成交ASP。</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/ai-memory-hbm-nand-cmx-20260722/">AI记忆体大迁徙：HBM、NAND与CMX</a> — 近端产业链｜从GPU高带宽到Agent上下文存储。</p>
+      <p><a href="/ai-cloud-unit-economics-dashboard-20260817/">AI Cloud四层经济模型</a> — 成本传导｜把内存BOM映射为1GW IT资本开支。</p>
+      <p><a href="/nvidia-physical-cuda-ai-factory-20260824/">Physical CUDA与AI Factory生产函数</a> — 长期回报｜将系统价格与Tokens/MW、ROIC连接。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-10-28T10:54:26.020+08:00</span>
+        <span>Updated 2026-10-28T10:54:26.020+08:00</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+</body>
+</html>
