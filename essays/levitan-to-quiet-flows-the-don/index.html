@@ -1128,7 +1128,7 @@
 
               <div id="syn-yt-drawer" class="mt-3 pt-3 border-t border-borderline">
                 <div class="aspect-video w-full rounded overflow-hidden border border-borderline bg-black">
-                  <iframe id="syn-yt-iframe" class="w-full h-full" src="https://www.youtube.com/embed/qVA1ieo9Js4?autoplay=1" title="Classical Music Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                  <iframe id="syn-yt-iframe" class="w-full h-full" src="" loading="lazy" title="Classical Music Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                 </div>
               </div>
             </div>
@@ -2205,9 +2205,9 @@
         context: '1894年夏天，列维坦在特维尔省乌多姆利亚湖畔创作此画。面对浩瀚的湖水与翻滚的铅灰色风暴云，他对死亡与宇宙永恒产生了极度敬畏，专门请求同行的伴侣索菲亚·库夫申尼科娃在木屋的钢琴上反复为他弹奏贝多芬《英雄交响曲》第二乐章“葬礼进行曲”。画中左下角悬崖木教堂窗户里那一点微弱如豆的橘色烛光，正是人类灵魂在无垠自然面前的倔强闪烁。',
         quoteSource: '文学共振 · 契诃夫《草原》 & 肖洛霍夫《静静的顿河》',
         quote: '“在这庄严的宁静之上，人世间所有的喧嚣、苦难与流血都显得如此渺小。无论顿河岸上的哥萨克为了红军还是白军杀得如何尸横遍野，大河依然在铅灰色的苍穹下静静流淌。”',
-        ytEmbedId: 'xR-UUME1U7A',
+        ytEmbedId: 'UgdSR0N08fM',
         ytLinks: [
-          { label: '🎹 李斯特改编钢琴独奏版《英雄·葬礼进行曲》(Cyprien Katsaris)', url: 'https://www.youtube.com/watch?v=xR-UUME1U7A', id: 'xR-UUME1U7A' },
+          { label: '🎹 卡萨里斯演奏贝多芬／李斯特《英雄交响曲》（葬礼进行曲自17:35）', url: 'https://www.youtube.com/watch?v=UgdSR0N08fM&t=1055s', id: 'UgdSR0N08fM' },
           { label: '🎻 管弦乐现场版：帕沃·耶尔维指挥《英雄》第二乐章', url: 'https://www.youtube.com/watch?v=P4l8ah2Rvm0', id: 'P4l8ah2Rvm0' }
         ],
         notes: [
@@ -2695,11 +2695,22 @@
       renderPortraits();
     }
 
+    const portraitBackupUrls = {
+      "levitan": "https://upload.wikimedia.org/wikipedia/commons/5/58/Shurygin_Levitan_1889.jpg",
+      "chekhov": "https://upload.wikimedia.org/wikipedia/commons/9/93/Anton_Chekhov_1889.jpg",
+      "mizinova": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Mizinova_Lika.jpg",
+      "kuvshinnikova": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A1._%D0%9F._%D0%9A%D1%83%D0%B2%D1%88%D0%B8%D0%BD%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE%D0%B9._1888.jpg/1280px-%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A1._%D0%9F._%D0%9A%D1%83%D0%B2%D1%88%D0%B8%D0%BD%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE%D0%B9._1888.jpg",
+      "tolstoy": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Leo_Tolstoy_1908_Portrait_%283x4_cropped%29.jpg/1280px-Leo_Tolstoy_1908_Portrait_%283x4_cropped%29.jpg",
+      "tchaikovsky": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Tchaikovsky_by_Reutlinger_%28cropped%29.jpg/1280px-Tchaikovsky_by_Reutlinger_%28cropped%29.jpg",
+      "sholokhov": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mikhail_Sholokhov_1960.jpg",
+      "dostoevsky": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg/1280px-Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg"
+};
+
     function renderPortraits() {
       const grid = document.getElementById('portrait-grid');
       grid.innerHTML = portraitsData.map((p) => {
         const chosenUrl = (useAltPhotoMode && p.altImgUrl) ? p.altImgUrl : p.imgUrl;
-        const backupUrl = p.imgUrl;
+        const backupUrl = portraitBackupUrls[p.id] || p.imgUrl;
         return `
         <article class="bg-paper border border-borderline rounded-xl overflow-hidden flex flex-col justify-between shadow-xs hover:border-forest transition">
           <div>
