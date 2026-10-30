@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="从港股GEM上市申请公司Keystone看懂香港外部资产管理人EAM：高净值客户开户、银行托管、交易收费、产品返佣、代理财富经理分佣、2024至2025财务报表及经营风险。">
+  <title>从一家港股上市申请公司，看懂香港EAM怎么赚钱｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  
+/* Analytical content modules — canonical layout skeleton unchanged */
+.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin:20px 0 24px}
+.metric-grid>div{min-width:0;padding:17px 12px;border-right:1px solid var(--line)}
+.metric-grid>div:last-child{border-right:0}
+.metric-grid strong{display:block;color:var(--green);font:700 clamp(20px,3.5vw,27px)/1.1 var(--serif);overflow-wrap:anywhere}
+.metric-grid span{display:block;margin-top:9px;color:var(--muted);font-size:12px;line-height:1.65}
+.source b{color:var(--green);font-size:15px}.source-link{color:var(--green);text-underline-offset:3px}
+.footref{font:700 11px var(--sans)}.footref a{color:var(--copper);text-decoration:none}
+.viz-caption,.viz-note{font-size:13px;color:var(--muted);line-height:1.65;margin:8px 0 20px}
+.viz-caption{padding-top:12px;border-top:1px solid var(--line)}
+.flow-chart{margin:24px auto;max-width:100%;overflow:hidden}.flow-chart svg{display:block;width:100%;height:auto}
+.steps{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-dark);border-left:1px solid var(--line);margin:24px 0}
+.steps>div{min-width:0;padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps b{display:block;color:var(--green);font:700 18px/1.4 var(--serif)}
+.steps span{display:block;margin-top:5px;font-size:14px;line-height:1.72}
+.narrow-callout{margin:22px 0;border-left:4px solid var(--green);background:var(--paper-2);padding:17px 20px}
+.narrow-callout b{display:block;font:700 18px/1.4 var(--serif);color:var(--green);margin-bottom:6px}
+.narrow-callout span{display:block;font-size:14px;line-height:1.75}
+.flow-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:24px 0;border:1px solid var(--line-dark)}
+.flow-steps>div{min-width:0;text-align:center;padding:18px 9px;border-right:1px solid var(--line);background:var(--surface)}
+.flow-steps>div:last-child{border-right:0;background:var(--green);color:var(--paper)}
+.flow-steps strong{display:block;font:700 clamp(21px,3vw,31px)/1.1 var(--serif)}
+.flow-steps span{display:block;margin-top:6px;font-size:12px}
+.bar-compare,.chart-pair,.pnl-bridge{margin:18px 0 24px}
+.barline{display:grid;grid-template-columns:128px minmax(0,1fr) 80px;align-items:center;gap:13px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.55}
+.barline b{text-align:right;white-space:nowrap;font-size:13px}
+.bartrack{background:#ecdfd2;height:14px;overflow:hidden}
+.barfill{height:100%;background:var(--green-2)}
+.barfill.copper{background:var(--copper)}
+.chart-title{font:700 19px/1.4 var(--serif);color:var(--green);margin-bottom:14px}
+.rate-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin:20px 0 26px}
+.rate-tiles>div{padding:17px 12px;border-right:1px solid var(--line);min-width:0}
+.rate-tiles>div:last-child{border-right:0}
+.rate-tiles strong{display:block;font:700 clamp(20px,3vw,28px)/1.15 var(--serif);color:var(--green);overflow-wrap:anywhere}
+.rate-tiles span{display:block;font-size:12px;line-height:1.6;color:var(--muted);margin-top:6px}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line-dark);margin:24px 0}
+.product-grid>div{background:var(--paper);padding:17px}
+.product-grid b{display:block;font:700 18px/1.4 var(--serif);color:var(--green)}
+.product-grid span{display:block;font-size:14px;margin-top:6px;line-height:1.75}
+.fee-ladder{margin:18px 0;border-top:1px solid var(--line-dark)}
+.fee-ladder>div{padding:14px 4px;border-bottom:1px solid var(--line)}
+.fee-ladder em{display:block;font-style:normal;font-size:11px;color:var(--copper);letter-spacing:.08em;font-weight:700}
+.fee-ladder strong{display:block;font:700 19px/1.45 var(--serif);color:var(--green);margin:5px 0}
+.fee-ladder span{display:block;font-size:13px;color:var(--muted);line-height:1.7}
+.scenario{padding:20px;border:1px solid var(--line-dark);background:#fff5e9;margin:24px 0}
+.scenario-title{display:flex;justify-content:space-between;gap:15px;padding-bottom:15px;border-bottom:1px solid var(--line)}
+.scenario-title b{font:700 22px var(--serif);color:var(--green)}
+.scenario-title span{font-size:11px;color:var(--muted)}
+.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0}
+.control-grid label{font-size:13px;display:block}
+.control-grid label b{display:block;color:var(--green);font-size:15px}
+.control-grid input{display:block;width:100%;accent-color:#1f5a4d;cursor:pointer}
+.out-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:12px 0;border:1px solid var(--line-dark);background:var(--paper)}
+.out-grid>div{min-width:0;padding:13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.out-grid strong{display:block;color:var(--green);font:700 clamp(19px,2.6vw,26px) var(--serif);overflow-wrap:anywhere}
+.out-grid span{display:block;font-size:11px;line-height:1.55;color:var(--muted);margin-top:6px}
+.stackbar{display:flex;width:100%;height:15px;margin:16px 0}.stackbar span{height:15px}
+.reset{margin:9px 0;border:1px solid var(--green);color:var(--green);background:transparent;padding:9px 15px;font:700 13px var(--sans);cursor:pointer}
+@media(max-width:760px){
+.metric-grid,.rate-tiles{grid-template-columns:1fr 1fr}
+.metric-grid>div:nth-child(2n),.rate-tiles>div:nth-child(2n){border-right:0}
+.metric-grid>div:nth-child(-n+2),.rate-tiles>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.steps,.product-grid,.control-grid{grid-template-columns:1fr}
+.flow-steps{grid-template-columns:1fr 1fr}
+.flow-steps>div:nth-child(2){border-right:0}
+.flow-steps>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.barline{grid-template-columns:92px minmax(0,1fr) 64px;gap:7px;font-size:12px}.barline b{font-size:12px}
+.out-grid{grid-template-columns:1fr 1fr}
+.scenario{padding:15px}.scenario-title{display:block}.scenario-title span{display:block;margin-top:5px}
+.flow-chart svg{min-width:0}
+}
+
+  </style>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="keystone-hong-kong-eam-business-model-20261030">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · EAM RESEARCH</span>
+      <span>Evidence first · Snapshot 2026-10-30 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#origin">研究由头</a>
+        <a href="#product-ledger">产品收入</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">WEALTH MANAGEMENT · HONG KONG EAM</div>
+          <h1>
+            从一家港股上市申请公司
+            <span>看懂香港 EAM 怎么赚钱</span>
+          </h1>
+          <p class="thesis">沿着Keystone招股书的客户、银行、产品、返佣与利润账本，揭开香港独立财富管理人的商业模式，也看清规模、交易与客户利益之间的张力。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年10月30日</span>
+            <span><b>数据快照</b> 2026-10-30 HKT</span>
+            <span><b>研究对象</b> Keystone Global Financial Group · 2024–2025</span>
+            <span><b>证据边界</b> 港交所GEM Application Proof · 2026Q1经营更新</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>48.5%</strong>
+          <span>2025集团税后净利润率<br>非纯EAM业务净利率</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>发行人2026年5月香港GEM上市申请文件仍为草稿，不能视为已上市。财务数据重点为2024–2025年完整年度，补充截至2026年3月的经营情况。本文仅用Keystone观察一种EAM模式，不将其利润率、收费结构或规模推广为行业平均。
+    </div>
+
+    <section class="section" id="origin"><div class="section-label">01 · ORIGIN</div><h2>IPO创造新财富，香港EAM如何经营这笔钱？</h2>
+<p class="lead">科技公司上市可能让一批员工在短时间内获得数百万美元甚至更高的股权财富。但股票解禁、期权行权、税款、集中持股风险与长期资产配置，是一连串需要专业服务的问题。银行、券商、独立顾问与家族办公室，都会在不同环节争夺这一客户关系。</p>
+<p>此前的<a class="source-link" href="/us-ipo-employee-wealth-ecosystem-20261029/">《美股IPO带来的员工财富管理需求及解决方案全景分析》</a>梳理了新财富如何产生、客户实际需要什么，以及美国不同金融机构的获客入口。下一层问题随之出现：<strong>如果财富管理顾问并不是银行，不拥有托管账户、也不发行金融产品，它究竟凭什么获得收入？</strong></p>
+<p>香港的外部资产管理人（External Asset Manager，简称EAM）提供了一条现实路径：客户可以在私人银行或其他持牌金融机构开立账户，另行聘请独立管理人作出投资决策。管理人并不保管资产，而是通过投资授权、银行合作和交易服务参与客户资产的经营。</p>
+<p>2026年5月，Keystone Global Financial Group提交香港GEM上市申请文件。尚未上市的申请稿意外提供了一套相对透明的EAM经营账本：客户数量、银行合作、产品类别、交易活动、分润、财富经理佣金与最终利润。它让一种常被笼统描述为“独立理财”的商业模式，可以被逐项拆开。<sup class="footref"><a href="#src-1" aria-label="来源 1">[1]</a></sup></p>
+<div class="verdict"><div class="verdict-item"><b>客户在银行</b><span>EAM靠投资授权管理客户的外部托管账户，银行继续负责开户、托管及交易执行。</span></div><div class="verdict-item"><b>收入由银行支付</b><span>Keystone主要不向EAM客户直接收管理费，而是获得合作银行的合资格费用返佣。</span></div><div class="verdict-item"><b>交易比存量重要</b><span>2025年结构性产品仅占年末AUM的3.6%，却贡献超过一半的EAM服务收入。</span></div><div class="verdict-item"><b>利润也有代价</b><span>平台佣金、核心RM依赖、银行准入及复杂产品利益冲突，均影响长期经营质量。</span></div></div>
+<div class="viz-caption">研究范围：Keystone 2024及2025年完整经营年度，补充截至2026年3月31日的客户和交易进展；所有财务数据优先采用发行人披露。</div></section>
+<section class="section" id="identity"><div class="section-label">02 · IDENTITY</div><h2>Keystone是什么公司？不是一家普通基金管理人</h2>
+<div class="metric-grid"><div><strong>2015</strong><span>香港运营实体创立</span></div><div><strong>1 / 4 / 9</strong><span>香港证监会受规管活动牌照类别</span></div><div><strong>81 → 83</strong><span>EAM客户：2025年末至2026年3月末</span></div><div><strong>HK$31.64亿</strong><span>2025年末EAM管理资产</span></div></div>
+<p>Keystone的香港主要营运实体Keystone Capital创立于2015年，2016年起开展相关服务，拥有第1类证券交易、第4类就证券提供意见，以及第9类资产管理牌照。公司自我定位为多家族办公室性质的独立财富管理平台，而不是以自有基金资产作为主要收费基础的公募基金公司。客户主要为高净值个人，另有信托及企业客户。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<p>其EAM客户均为适用香港法律定义的专业投资者。公司披露，2025年末有81名EAM客户；2026年3月末为83名，其中包括个人、信托和企业。公司亦披露2026年3月末AUM约US$402m（HK$31.36亿）。因此，不能把这家公司的客户数量与零售银行开户数直接比较。</p>
+<h3>同时经营三条不同的生意</h3>
+<div class="table-wrap"><table><thead><tr><th>收入来源</th><th>2024年（HK$m）</th><th>2025年（HK$m）</th><th>主要合同和客户</th></tr></thead><tbody><tr><td><strong>EAM服务</strong></td><td>15.198</td><td>32.223</td><td>高净值客户委托管理；合作金融机构向Keystone支付返佣</td></tr><tr><td><strong>券商介绍及转介</strong></td><td>1.554</td><td>11.976</td><td>投资者自行交易；券商按交易活动向Keystone支付介绍费</td></tr><tr><td><strong>基金管理</strong></td><td>—</td><td>0.136</td><td>管理2025年设立的私募OFC基金，按基金合同确认管理收入</td></tr><tr><td><strong>集团总营业收入</strong></td><td><strong>16.752</strong></td><td><strong>44.335</strong></td><td>三条收入线相加</td></tr></tbody></table></div>
+<p><strong>最重要的会计边界：</strong>EAM客户与介绍业务中的投资者不是同一统计群体。介绍业务投资者自行在券商交易，Keystone并不对其账户提供资产管理或投资建议；因此，券商而非被介绍的投资者，是该收入线的合同客户。不能把集团HK$44.335m收入全部除以EAM AUM来估算管理费率。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup><sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<p>2025年初，公司另外设立了私募开放式基金Keystone Multi Strategy OFC（KMS），主要聚焦固定收益、加密资产及相关产品，2025年末基金AUM约HK$23m，集团确认管理费仅HK$0.136m。相对于EAM，这条业务仍处于较小规模。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p></section>
+<section class="section" id="architecture"><div class="section-label">03 · ARCHITECTURE</div><h2>一笔EAM账户怎样运作：从客户签约到银行分润</h2>
+<p>理解香港EAM，必须把三个权利拆开：<strong>谁与客户签资产管理合同、谁有权决定账户交易、谁真正持有和结算客户资产。</strong>在Keystone模式中，这三者不归同一个机构。</p>
+<div class="flow-chart" role="img" aria-label="Keystone EAM客户资产和收入流向">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" aria-hidden="true">
+<rect x="330" y="8" width="280" height="56" fill="#103f35"/><text x="470" y="43" text-anchor="middle" fill="#fffaf5" font-size="20" font-weight="700">高净值客户 / 资产所有人</text>
+<path d="M470 64V90 M470 90H225V112 M470 90H715V112" fill="none" stroke="#98664a" stroke-width="3"/>
+<rect x="70" y="112" width="310" height="79" fill="#e1ede7" stroke="#497467"/><text x="225" y="145" text-anchor="middle" font-size="20" fill="#103f35">Keystone · 独立管理人</text><text x="225" y="172" text-anchor="middle" font-size="15" fill="#405e51">客户合同 / 投资授权 / 内部交易员</text>
+<rect x="560" y="112" width="310" height="79" fill="#f7e7d8" stroke="#aa8570"/><text x="715" y="145" text-anchor="middle" font-size="20" fill="#4d3525">合作银行 / 持牌券商</text><text x="715" y="172" text-anchor="middle" font-size="15" fill="#735947">开户 / 托管 / 产品 / 交易结算</text>
+<path d="M380 151H560" stroke="#98664a" stroke-width="3" stroke-dasharray="7 5" fill="none"/>
+<path d="M715 191V218H225V191" stroke="#1f5a4d" stroke-width="3" fill="none"/>
+<text x="470" y="214" text-anchor="middle" font-size="13" fill="#4d3525">交易指令 →</text>
+<text x="470" y="243" text-anchor="middle" font-size="17" fill="#1f5a4d" font-weight="700">银行合资格净费用 → EAM返佣</text>
+<text x="470" y="268" text-anchor="middle" font-size="13" fill="#746b65">资产所有权留在客户；EAM不直接保管客户证券</text>
+</svg></div>
+<h3>实际作业链，不是一张关系图那么简单</h3>
+<div class="steps"><div><b>01 · 客户引入与适当性判断</b><span>财富经理收集资金来源、投资经历、风险偏好及专业投资者证明；EAM完成自身的客户接受程序。</span></div>
+<div><b>02 · 银行独立开户</b><span>客户选择合作银行或券商，金融机构自行完成KYC、AML、风险评估及账户审批；EAM不能代替银行决定。</span></div>
+<div><b>03 · 签管理与授权文件</b><span>客户与EAM签管理协议，并在银行签全权管理授权（例如MMA或LPOA）；资产仍在客户名下的银行账户。</span></div>
+<div><b>04 · 内部交易员接单</b><span>财富经理提出投资指令，但不得直接向合作银行下单，须由Keystone内部持牌交易员审核、记录并提交。</span></div>
+<div><b>05 · 银行执行及发送对账</b><span>合作金融机构执行并结算交易，客户直接收到银行提供的成交回报及账户报告。</span></div>
+<div><b>06 · 银行向EAM结算返佣</b><span>银行按合资格交易费用、佣金及价差减第三方费用后的合同口径，以月度或季度向EAM支付Retrocession Fees。</span></div>
+<div><b>07 · EAM向代理RM分佣</b><span>按有关代理经理带来的合资格业务收入分佣；平台负担交易中台、合规、员工、技术与一般营运成本。</span></div></div>
+<p>公司披露了两名持第1类牌照的内部交易员。订单可能通过电邮或电话向银行提交，且设置事前限额及价格偏离检查、事后交易抽查、交易成本分析和异常事项升级机制。这些都是EAM不能简单等同于“个人顾问介绍业务”的原因。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<div class="narrow-callout"><b>真正的开户瓶颈</b><span>申请材料将客户初步引入及KYC列为约1–2周；合作金融机构引入、开户和审查可达约2–6个月；之后建仓通常仍需1–2周。管理人取得客户信任，不等于账户立即产生AUM和收入。</span></div></section>
+<section class="section" id="aum"><div class="section-label">04 · AUM</div><h2>客户与AUM：规模增长究竟来自哪里？</h2>
+<p>2025年末Keystone EAM AUM为HK$31.64亿，比2024年末的HK$23.09亿增长37.0%。但这不是一条平滑增长线。此前的银行合作终止事件，清楚展示了渠道依赖会如何影响资产存量。</p>
+<div class="table-wrap"><table><thead><tr><th>经营年度</th><th>2024年</th><th>2025年</th><th>变化</th></tr></thead><tbody><tr><td>EAM客户数</td><td>64</td><td>81</td><td>+17（26.6%）</td></tr><tr><td>年末EAM AUM</td><td>HK$2,309m</td><td>HK$3,164m</td><td>+37.0%</td></tr><tr><td>EAM服务收入</td><td>HK$15.198m</td><td>HK$32.223m</td><td>+112.0%</td></tr><tr><td>财富经理人数</td><td>6</td><td>9</td><td>+3</td></tr></tbody></table></div>
+<h3>2024年：失去合作银行可以直接流失管理资产</h3>
+<p>2024年初EAM AUM约HK$2,407m；年末为HK$2,309m。公司披露，因为与两家合作金融机构终止合作及部分客户账户关闭，既有账户净减少AUM约HK$575m；14个新账户贡献约HK$477m，抵消部分流失，全年净变动约为负HK$98m。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<h3>2025年：新账户与既有账户共同推动复苏</h3>
+<div class="flow-steps"><div><strong>2,309</strong><span>2024年末AUM</span></div><div><strong>+596</strong><span>23个新增账户</span></div><div><strong>+259</strong><span>存量账户净变化</span></div><div><strong>3,164</strong><span>2025年末AUM</span></div></div>
+<div class="bar-compare"><div><b>2025年新增AUM来源</b><div class="barline"><span>新增账户</span><div class="bartrack"><div class="barfill green" style="width:69.7%"></div></div><b>HK$596m</b></div><div class="barline"><span>原账户净变化</span><div class="bartrack"><div class="barfill copper" style="width:30.3%"></div></div><b>HK$259m</b></div></div></div>
+<p>23个新账户贡献HK$596m，约占当年AUM净增加额的69.7%；既有账户净增加HK$259m，占30.3%。但既有账户净变化仍可能混合净入金、赎回和市值变化，招股书没有完整分拆每一种因素，因此不能将HK$259m全部认定为投资增值。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<p>2026年3月末，EAM客户由81增至83，AUM约HK$3,136m。2026年一季度另有四个新EAM账户，合计新增资产约HK$68.6m；但期末AUM与新账户入金并非同一指标，不应拿期末差额简单倒算净投资表现。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<h3>存量AUM、交易流水和收费不是一个东西</h3>
+<p>一个客户持有HK$1亿元债券，即使年内不买卖，资产仍计入AUM；如果同一账户年内反复购买、终止和再投资结构性产品，全年交易额可以大于平均持仓；但不同产品交易的收费率不同，最终EAM收入更不是交易金额的固定百分比。</p>
+<div class="narrow-callout"><b>识别真正的增长质量</b><span>新账户多少、净新增资金多少、存量客户留存多少、市场价格贡献多少、交易周转是否可持续，应该分开跟踪。仅看AUM或营业收入同比增长，都可能遮蔽另一面的风险。</span></div></section>
+<section class="section" id="product-ledger"><div class="section-label">05 · PRODUCT LEDGER</div><h2>资产最多的是债券，返佣最多的却是结构性产品</h2>
+<p>Keystone的2025年收入结构里，有一个决定性的反差：<strong>固定收益及存款占59.6%的期末AUM，但仅贡献约14.1%的EAM服务收入；结构性产品占3.6%的期末AUM，却贡献50.6%的EAM服务收入。</strong>这是一家EAM的管理资产构成与产品收费构成之间的错位，而不是投资收益的对比。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<div class="chart-pair"><div class="chart-title">2025年末资产结构（占EAM AUM）</div>
+<div class="barline"><span>固定收益/存款</span><div class="bartrack"><div class="barfill green" style="width:59.6%"></div></div><b>59.6%</b></div>
+<div class="barline"><span>股票及相关</span><div class="bartrack"><div class="barfill green" style="width:31.7%"></div></div><b>31.7%</b></div>
+<div class="barline"><span>基金</span><div class="bartrack"><div class="barfill green" style="width:5.1%"></div></div><b>5.1%</b></div>
+<div class="barline"><span>结构性产品</span><div class="bartrack"><div class="barfill copper" style="width:3.6%"></div></div><b>3.6%</b></div>
+<div class="viz-note">分母HK$3,164m，仅表示2025年12月31日的持仓结构。</div></div>
+<div class="chart-pair"><div class="chart-title">2025全年EAM收入结构（占EAM收入）</div>
+<div class="barline"><span>结构性产品</span><div class="bartrack"><div class="barfill copper" style="width:50.6%"></div></div><b>50.6%</b></div>
+<div class="barline"><span>股票及相关</span><div class="bartrack"><div class="barfill green" style="width:27.5%"></div></div><b>27.5%</b></div>
+<div class="barline"><span>固定收益/存款</span><div class="bartrack"><div class="barfill green" style="width:14.1%"></div></div><b>14.1%</b></div>
+<div class="barline"><span>托管/尾佣等</span><div class="bartrack"><div class="barfill green" style="width:6.9%"></div></div><b>6.9%</b></div>
+<div class="barline"><span>基金交易</span><div class="bartrack"><div class="barfill green" style="width:0.9%"></div></div><b>0.9%</b></div>
+<div class="viz-note">分母HK$32.223m，是全年EAM服务收入，不是AUM，也不是投资回报。</div></div>
+<h3>四类产品的原始数据对照</h3>
+<div class="table-wrap"><table><thead><tr><th>产品</th><th>2024返佣（HK$m）</th><th>2025返佣（HK$m）</th><th>2025交易笔数</th><th>2025年末AUM（HK$m）</th></tr></thead><tbody><tr><td>固定收益及存款</td><td>5.678</td><td>4.536</td><td>313</td><td>1,887</td></tr><tr><td>结构性产品</td><td>5.287</td><td>16.291</td><td>787</td><td>114</td></tr><tr><td>股票及相关产品</td><td>1.796</td><td>8.874</td><td>1,787</td><td>1,002</td></tr><tr><td>基金</td><td>0.268</td><td>0.302</td><td>18</td><td>161</td></tr><tr><td>托管/尾佣/其他</td><td>2.169</td><td>2.220</td><td>—</td><td>不单列</td></tr><tr><td><strong>EAM服务合计</strong></td><td><strong>15.198</strong></td><td><strong>32.223</strong></td><td>—</td><td><strong>3,164</strong></td></tr></tbody></table></div>
+<p>按产品交易返佣单独统计（排除托管、尾佣及其他HK$2.220m）则2025年为HK$30.003m，结构性产品占54.3%、股票及相关产品占29.6%。两个比例的分母不同，因此不能把50.6%与54.3%当成相互矛盾的数据。</p>
+<h3>交易笔数的变化：资金周转比静态资产更能解释收入</h3>
+<div class="table-wrap"><table><thead><tr><th>类别</th><th>2024笔数</th><th>2025笔数</th><th>2026Q1 / 2025Q1</th></tr></thead><tbody><tr><td>固定收益及存款</td><td>468</td><td>313</td><td>62 / 69</td></tr><tr><td>结构性产品</td><td>224</td><td>787</td><td>215 / 93</td></tr><tr><td>股票及相关</td><td>882</td><td>1,787</td><td>416 / 375</td></tr><tr><td>基金</td><td>17</td><td>18</td><td>6 / 3</td></tr><tr><td><strong>合计</strong></td><td><strong>1,591</strong></td><td><strong>2,905</strong></td><td><strong>699 / 540</strong></td></tr></tbody></table></div>
+<p>2025年结构性产品笔数同比增长约251%，股票相关笔数增长约103%。进入2026年一季度，结构性产品215笔，较2025年同期93笔进一步增长约131%。公司明确提到部分结构性产品由于条款触发提前终止，资金可能重新投入同类产品，进而推动交易笔数和返佣增加。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<p><strong>需要避免的推断：</strong>交易笔数增长不等于交易金额以同等比例增长；交易返佣增加也不等于客户赚取了相应的投资回报。要判断客户的真实经济成本，需要逐笔成交金额、产品期限、提前终止条款、发行人报价、申购及隐含价差，而这些并未全部公开。</p></section>
+<section class="section" id="fees"><div class="section-label">06 · FEES</div><h2>52 bps不是美股佣金：四类收费率究竟是什么</h2>
+<p>香港申请稿给出四类金融产品的交易金额平均收入比例，标题明确为<strong>支付EAM返佣（Retrocession Fees）之前</strong>。它是金融机构在产品交易金额上的收入比例，而不是客户每年按AUM支付的统一管理费，也不等于Keystone最终收到的返佣率。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<div class="rate-tiles"><div><strong>34 bps</strong><span>固定收益及存款</span></div><div><strong>96 bps</strong><span>结构性产品</span></div><div><strong>52 bps</strong><span>股票及相关产品</span></div><div><strong>90 bps</strong><span>基金交易</span></div></div>
+<p><strong>“Equities”的陷阱：</strong>招股书注释特别说明，股票类不仅包括普通股票，还包括Accumulator（累计认购）和Decumulator（累计出售）等股权相关衍生产品。因此52bps不能称为普通美股交易佣金，更不能写成美股市场统一费率。早前美国SEC申报版本按港股、美股及其他产品列示不同的历史收费区间，但其产品定义和统计期间均不同，应单独阅读。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup><sup class="footref"><a href="#src-4" aria-label="来源 4">[4]</a></sup></p>
+<div class="product-grid">
+<div><b>普通股票交易</b><span>通常发生经纪佣金和交易相关收费。持有股票本身不会自动产生一次性的交易佣金收入。</span></div>
+<div><b>Accumulator / Decumulator</b><span>分期买入或卖出标的股票，具有期权和触发条款，可能涉及倍数交割与路径风险，须核对总名义金额、最大义务和条件。</span></div>
+<div><b>结构性产品</b><span>可能含发行人定价、嵌入式期权、对冲、分销费、交易价差及提前终止条款，银行/EAM经济利益不能从票面收益率直接看出。</span></div>
+<div><b>基金、债券及存款</b><span>一次性申购费、交易价差、托管费和基金尾佣是不同收入项；银行存贷款净息差也未必纳入EAM分润池。</span></div></div>
+<h3>谁收钱？客户是不是被多收一层？</h3>
+<div class="fee-ladder">
+<div><em>第一层 · 客户账户产生的金融费用</em><strong>佣金／产品价差／托管及相关费用</strong><span>是否属于客户显性账单或产品嵌入成本，取决于产品与银行收费安排。</span></div>
+<div><em>第二层 · 银行合资格净费用</em><strong>扣除协议约定的第三方收费</strong><span>银行与Keystone签订EAM协议，分润基础通常为相关净费用及特定价差。</span></div>
+<div><em>第三层 · EAM平台收入</em><strong>多数协议约50%–60%分润</strong><span>这不是全部银行收入的50%–60%，也不是从客户AUM直接扣走的固定比例。</span></div>
+<div><em>第四层 · 财富经理分佣</em><strong>代理RM通常取得本人业务相关收入的60%–65%</strong><span>对符合其分佣条件的收入分配；非集团全部收入的统一成本率。</span></div></div>
+<p>Keystone明确表示，实际EAM经营期间没有另向客户收取管理费、表现费或其他额外收费，客户知悉并同意银行返佣安排。这不等于客户使用EAM就没有费用：客户仍要承担账户中由银行或产品方收取、体现于成交价或基金净值的费用。若银行因为EAM协调获得更优报价，客户可能受益；若交易周转被返佣激励放大，客户也可能付出额外成本。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p></section>
+<section class="section" id="revenue-per-aum"><div class="section-label">07 · REVENUE PER AUM</div><h2>87 bps与“约200 bps”的误区：三个不能混算的分母</h2>
+<p>发行人披露，2024年和2025年“实际净EAM服务费率”（actual net EAM service fee margins）分别为0.48%和0.87%，该指标出现在AUM变动敏感性分析中。由于文件并未同时完整列出可复算的逐月平均AUM，本篇保留发行人该口径，不以两个年末值的简单平均取代。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<div class="rate-tiles"><div><strong>87 bps</strong><span>发行人2025年净EAM服务费率</span></div><div><strong>50–60%</strong><span>多数银行EAM协议净费分润区间</span></div><div><strong>145–174 bps</strong><span>仅在同分母与统一分润假设下反推的费用池区间</span></div><div><strong>不可识别</strong><span>客户实际全口径综合费用率</span></div></div>
+<p>若以87bps视为同一AUM分母上的EAM净收入强度，假设全部收入适用50%–60%统一分润，则银行合资格净费用池的条件推算约为145–174bps，中点55%对应约158bps。但银行协议可能按产品差异化、不同费用适用不同分润，并且EAM收入中有托管和尾佣等项目；所以<strong>145–174bps只是敏感性分析，不是客户实际收费率，更不是银行综合收入率。</strong></p>
+<p>银行直营RM收入目标通常可能包括存贷款净利息、外汇、融资、基金、证券交易等综合收入；EAM取得的是协议规定的合资格分润。两者即使同样除以AUM，也不是完全同一分子。与其判断哪条渠道“收费两倍”，更有意义的是查看客户同类产品、同类交易周转及同一银行报价条件下的全费用差异。</p>
+<h3>简化模型：每HK$1亿元平均AUM，费用池如何分配？</h3>
+<div class="scenario" id="fee-lab">
+<div class="scenario-title"><b>收入分配实验室</b><span>参数假设 · 非Keystone实际单客损益</span></div>
+<div class="control-grid"><label>假设银行合资格净费用率 <b id="txt-netrate">160 bps</b><input type="range" id="x-netrate" min="40" max="250" step="10" value="160"></label>
+<label>银行分润给EAM比例 <b id="txt-share">55%</b><input type="range" id="x-share" min="50" max="60" step="1" value="55"></label>
+<label>EAM收入中需支付代理RM分佣的比例 <b id="txt-eligible">50%</b><input type="range" id="x-eligible" min="0" max="100" step="5" value="50"></label>
+<label>相关代理RM佣金比例 <b id="txt-agent">62%</b><input type="range" id="x-agent" min="60" max="65" step="1" value="62"></label></div>
+<div class="out-grid"><div><strong id="out-pool">1,600,000</strong><span>银行可分润净费用池／HK$</span></div><div><strong id="out-bank">720,000</strong><span>银行在该池留存／HK$</span></div><div><strong id="out-eam">880,000</strong><span>EAM取得的分润／HK$</span></div><div><strong id="out-rm">272,800</strong><span>代理RM分佣／HK$</span></div><div><strong id="out-platform">607,200</strong><span>EAM分佣后余额／HK$，未扣平台成本</span></div></div>
+<div class="stackbar"><span id="stack-bank" style="width:45%;background:#7b8c9c"></span><span id="stack-rm" style="width:17.05%;background:#9a5c38"></span><span id="stack-eam" style="width:37.95%;background:#1f5a4d"></span></div>
+<p class="viz-note">这只是分润关系的现金流实验：尚未计入银行其他净利息、融资和外汇收入，也未扣银行与EAM各自的员工、合规、系统、租金及税费。不能将分佣后余额称为净利润。</p>
+<button type="button" class="reset" id="reset-fee">恢复假设</button>
+</div></section>
+<section class="section" id="rm-network"><div class="section-label">08 · RM NETWORK</div><h2>谁真正带来客户？九名财富经理与两名交易员的组织模式</h2>
+<div class="metric-grid"><div><strong>9人</strong><span>2025年末财富经理团队</span></div><div><strong>8人</strong><span>自雇代理财富经理</span></div><div><strong>60–65%</strong><span>相关业务分佣率区间</span></div><div><strong>14天</strong><span>代理经理协议终止通知期</span></div></div>
+<p>团队在2024年末为六名财富经理，2025年末扩至九名，其中八名为自雇代理、一名为全职雇员。独立代理没有固定月薪和普通雇员福利，主要按其所贡献业务收入取得佣金；全职雇员则按固定工资及酌情奖金安排。公司披露代理财富经理可以在符合协议的情况下以提前14天书面通知终止合作。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<p>客户合同归属于集团，而非某个财富经理个人。公司披露其EAM客户服务协议一般自动续期12个月，并通常要求客户提前1–3个月书面通知终止。这意味着个人RM与平台的代理关系、客户与平台的管理关系，是两份期限和权利不同的合同。</p>
+<h3>代理收入并不均衡</h3>
+<div class="table-wrap"><table><thead><tr><th>主要代理RM</th><th>2025佣金（HK$m）</th><th>占代理佣金合计</th></tr></thead><tbody><tr><td>A</td><td>3.933</td><td>38.9%</td></tr><tr><td>B</td><td>2.755</td><td>27.2%</td></tr><tr><td>C</td><td>1.815</td><td>18.0%</td></tr><tr><td>D</td><td>1.368</td><td>13.5%</td></tr><tr><td>E</td><td>0.239</td><td>2.4%</td></tr><tr><td><strong>合计</strong></td><td><strong>10.110</strong></td><td><strong>100%</strong></td></tr></tbody></table></div>
+<p>两名主要代理RM合计领取约66.1%的代理经理佣金。由于分佣取决于相关客户和交易收入，这一分布不能直接等同于他们管理了66.1%的AUM，但足以表明业绩归属与个人客户关系的集中程度。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup><sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<p>2025年支付的代理佣金HK$10.110m，仅占集团营业收入22.8%，而不是全部营业收入的60%–65%。原因在于该佣金比例适用于代理经理有权分享的特定业务收入，同时集团还经营券商介绍及基金业务。公司经营规模很小，既能借助代理关系减少固定薪酬，也面临核心RM流失及客户服务的连续性问题。</p></section>
+<section class="section" id="financials"><div class="section-label">09 · FINANCIALS</div><h2>把收入逐项扣除成本：2025年集团净利润为何达到48.5%？</h2>
+<p>Keystone的财务报表给出了同业研究中少见的完整费用结构。2025年集团收入为HK$44.335m，税前利润HK$25.547m，净利润HK$21.515m；净利润率从2024年的37.6%提高至48.5%。但这里的利润是<strong>三项业务合并后的集团利润</strong>，并非可以直接视为纯EAM平台利润。<sup class="footref"><a href="#src-3" aria-label="来源 3">[3]</a></sup></p>
+<div class="table-wrap"><table><thead><tr><th>损益表项目</th><th>2024年（HK$m）</th><th>2025年（HK$m）</th></tr></thead><tbody><tr><td>营业收入</td><td>16.752</td><td>44.335</td></tr><tr><td>其他收入及损益</td><td>1.014</td><td>0.652</td></tr><tr><td>员工及代理财富经理佣金</td><td>−8.605</td><td>−17.532</td></tr><tr><td>折旧</td><td>−0.518</td><td>−0.640</td></tr><tr><td>法律及专业费用</td><td>−0.690</td><td>−0.191</td></tr><tr><td>其他经营费用</td><td>−0.663</td><td>−1.027</td></tr><tr><td>融资成本</td><td>−0.024</td><td>−0.050</td></tr><tr><td><strong>税前利润</strong></td><td><strong>7.266</strong></td><td><strong>25.547</strong></td></tr><tr><td>所得税</td><td>−0.975</td><td>−4.032</td></tr><tr><td><strong>净利润</strong></td><td><strong>6.291</strong></td><td><strong>21.515</strong></td></tr></tbody></table></div>
+<h3>每100元集团收入，最后留下多少？</h3>
+<div class="pnl-bridge">
+<div class="metric-grid"><div><strong>100.0</strong><span>集团营业收入</span></div><div><strong>−39.5</strong><span>员工佣金及其他经营支出</span></div><div><strong>+1.4</strong><span>其他收益减融资</span></div><div><strong>48.5</strong><span>最终税后利润</span></div></div>
+<div class="barline"><span>集团净利润转化</span><div class="bartrack"><div class="barfill green" style="width:48.5%"></div></div><b>48.5%</b></div>
+<p class="viz-note">HK$17.532m员工薪酬及佣金包含董事、雇员和代理RM，其中代理佣金HK$10.110m。2025税前利润占营业收入57.6%，所得税影响约9.1个百分点，最终净利润率48.5%。</p></div>
+<h3>杠杆不大，经营敏感性仍不低</h3>
+<p>财务比率表披露，2025年流动比率为6.4倍、净负债率为净现金状态，净利润率48.5%、年末股本回报率60.2%。这是一家财务资本开支需求较低的小型平台，收入增长可以显著转化为利润；但当收入主要依赖交易返佣、合作银行和少数代理RM时，经营利润率也可能随成交活跃度变化而快速波动。</p>
+<p>“高利润率”并不等于“每位客户或每个RM都如此高盈利”。如果只针对一名代理经理的特定客户收入计算，还要按协议分佣60%–65%，剩余部分需要承担交易、风控、合规和行政成本。公司未披露可独立计算的纯EAM分部税后净利润，不能把48.5%写成香港EAM行业普遍净利润率。</p></section>
+<section class="section" id="risk"><div class="section-label">10 · RISK</div><h2>一家公司透视香港EAM：最大的风险不在市场行情本身</h2>
+<h3>风险一：合作金融机构高度集中</h3>
+<div class="metric-grid"><div><strong>94.0%</strong><span>2025年五大合作金融机构收入占比</span></div><div><strong>52.6%</strong><span>前两大机构合计占集团收入</span></div><div><strong>12家</strong><span>支付EAM或介绍业务费用的金融机构网络</span></div><div><strong>HK$575m</strong><span>2024年既有账户净减少AUM</span></div></div>
+<p>2025年五大合作金融机构贡献HK$41.678m，约占集团收入94.0%；最大一家贡献26.7%，第二大25.9%。这一口径包含EAM与券商介绍业务的付款机构，不等于12家合作银行，也不能把它写成私人银行客户资产集中度。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<p>2024年与两家合作金融机构终止合作，引发部分客户账户关闭，是比抽象风险提示更直接的案例。EAM拥有客户合同，不等于能迫使任何银行持续开户、托管或保持原有分润条件。</p>
+<h3>风险二：高交易频率的激励冲突</h3>
+<p>公司在申请文件中明确承认，增加交易活动可能增加金融机构收费与EAM返佣，但不认为通过人为提高客户交易活动来驱动收入是适当且可持续的增长方式，因为额外成本可能损害客户长期资本增值。<sup class="footref"><a href="#src-2" aria-label="来源 2">[2]</a></sup></p>
+<p>这与其结构性产品的收入集中形成值得观察的张力。对于Accumulator、Decumulator及其他结构性产品，适合性、触发条件、客户最大交割义务、提前终止与再投资成本需要格外透明。<strong>平台返佣增速不能代替客户税后净回报。</strong></p>
+<h3>风险三：银行准入与RM双重依赖</h3>
+<p>九名财富经理中八名为自雇代理，且少数经理佣金贡献集中；银行端开户又可能耗时数月。即使客户量增长，未来AUM能否真实转入、原银行是否继续合作、个人RM是否留任，都会影响平台的客户终身价值。</p>
+<h3>风险四：上市披露与市场声誉的边界</h3>
+<p>2026年5月文件为GEM Application Proof，仍为未完成、可能修改的申请稿；不能把公司在委托行业研究中获得的EAM规模排名视为香港证监会官方排行榜，也不能据此声称公司已完成上市。历史高增长未必具有可复制性。</p>
+<div class="narrow-callout"><b>可验证的经营质量清单</b><span>观察AUM净新增及留存、每个新账户的获客与开户时间、EAM和券商介绍收入占比、结构性产品交易周转、银行集中度、代理RM流失、真实客户全费用，以及净利润是否能在较低交易活跃度下保持。</span></div></section>
+<section class="section" id="ending"><div class="section-label">11 · ENDING</div><h2>真正值得复制的，不是返佣比例，而是独立顾问的组织能力</h2>
+<p>Keystone提供了一个具体、而非抽象的香港EAM样本。资产留在客户选定的金融机构，EAM根据客户授权管理投资组合；银行提供开户、托管、产品与交易基础设施，EAM获得合资格净费用的分润；代理RM带来客户，平台通过合规、交易、系统和跨银行资源将个人客户关系组织成机构服务。</p>
+<p>这种模式的优势在于无需自建银行资产负债表和大型托管基础设施，也能服务高净值客户；轻资产及分佣机制可以带来相当高的集团利润率。但它的薄弱环节同样清晰：合作银行能否持续接受客户、交易收入能否长期稳定、客户利益与佣金激励是否一致，以及核心财富经理的个人客户关系能否沉淀为机构品牌和服务能力。</p>
+<div class="dark-panel"><h3>一家EAM的经济账，最终要回到客户价值</h3><p>比“有多少AUM”更重要的问题是：客户为什么授权这家独立顾问管理资产，而不是直接在银行交易？如果EAM确实创造更好的组合选择、跨银行比较、成本议价和连续的家庭财富服务，分润才有持续基础；如果收入主要依赖客户频繁买卖复杂产品，高利润就必须接受更严格的客户净回报检验。</p></div>
+<p>通过一家公司的申请文件，可以看清EAM如何经营，却不能把一家公司的产品组合、佣金比例或利润率推广为全行业平均。美国独立RIA等其他模式有不同的客户签约、收费、托管和渠道成本，适合在各自真实监管披露基础上分别研究。</p></section><section class="section" id="sources"><div class="section-label">12 · PRIMARY SOURCES</div><h2>主要资料来源与统计口径</h2><div class="source" id="src-1"><b>01｜香港交易所 · Keystone GEM上市申请（2026年5月11日）</b><br><a class="source-link" target="_blank" rel="noopener" href="https://www1.hkexnews.hk/app/gem/2026/108531/2026051101834.htm">香港交易所一手披露</a><span>申请稿状态、文件目录和正式免责声明。</span></div><div class="source" id="src-2"><b>02｜Keystone · Business（申请稿第77–129页）</b><br><a class="source-link" target="_blank" rel="noopener" href="https://www1.hkexnews.hk/app/gem/2026/108531/a132837/gem26051101884.pdf">香港交易所一手披露</a><span>EAM合同、投资授权、客户流程、12家金融机构、50%–60%银行净费分润、各类交易费率及风险。重点第77–100、103–106页。</span></div><div class="source" id="src-3"><b>03｜Keystone · Financial Information（第147–170页）</b><br><a class="source-link" target="_blank" rel="noopener" href="https://www1.hkexnews.hk/app/gem/2026/108531/a132837/gem26051101890.pdf">香港交易所一手披露</a><span>2024–2025营业收入、EAM产品返佣、交易笔数、AUM、员工与RM佣金、税前及税后利润、2026Q1补充经营数据。重点第149、154–157、165、167页。</span></div><div class="source" id="src-4"><b>04｜Keystone · 美国SEC历史F-1/A申报</b><br><a class="source-link" target="_blank" rel="noopener" href="https://www.sec.gov/Archives/edgar/data/2067719/000118518525002028/keystonef1a1120925.htm">原始文件</a><span>仅用于交叉验证旧版产品收费区间、合同及业务叙述；并非2026年香港上市申请文件的同期间费率。</span></div>
+<p class="viz-note">说明：香港交易所文件为2026年5月的GEM申请稿，未完成发行程序，内容可能修改。2024–2025年财务数据按发行人报告口径。EAM与介绍业务、期末AUM与平均AUM、交易次数与交易金额、可分润净费用与银行全部收入、客户费用与EAM返佣均不等同。</p></section><section class="section" aria-labelledby="related-title"><div class="section-label">RELATED · CONTEXT</div><h2 id="related-title">研究脉络</h2><p><a href="/us-ipo-employee-wealth-ecosystem-20261029/">美股IPO带来的员工财富管理需求及解决方案全景分析</a> — 新富客户的股权、税务、流动性及财富管理需求，是理解EAM获客生态的前一环。</p><p>美国独立注册投资顾问（RIA）的收费、托管与获客渠道属于不同商业制度，适合独立成篇，不混入本次香港EAM公司账本。</p></section><section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-10-30 HKT</span>
+        <span>Updated 2026-10-30 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+<script>(function(){
+  var D={"x-netrate":160,"x-share":55,"x-eligible":50,"x-agent":62},ids=Object.keys(D);
+  var by=function(id){return document.getElementById(id)};
+  function render(){
+    var rate=+by("x-netrate").value,share=+by("x-share").value,eligible=+by("x-eligible").value,agent=+by("x-agent").value;
+    by("txt-netrate").textContent=rate+" bps";
+    by("txt-share").textContent=share+"%";by("txt-eligible").textContent=eligible+"%";by("txt-agent").textContent=agent+"%";
+    var pool=100000000*rate/10000,eam=pool*share/100,bank=pool-eam,rm=eam*eligible/100*agent/100,platform=eam-rm;
+    var fmt=function(v){return Math.round(v).toLocaleString("en-US")};
+    by("out-pool").textContent=fmt(pool);by("out-bank").textContent=fmt(bank);by("out-eam").textContent=fmt(eam);by("out-rm").textContent=fmt(rm);by("out-platform").textContent=fmt(platform);
+    by("stack-bank").style.width=(100-share)+"%";
+    by("stack-rm").style.width=(rm/pool*100)+"%";
+    by("stack-eam").style.width=(platform/pool*100)+"%";
+  }
+  ids.forEach(function(id){by(id).addEventListener("input",render)});
+  by("reset-fee").addEventListener("click",function(){ids.forEach(function(id){by(id).value=D[id]});render()});render();
+}());</script>
+</body>
+</html>
