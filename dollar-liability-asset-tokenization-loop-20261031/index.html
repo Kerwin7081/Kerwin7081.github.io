@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="canonical" href="https://enyaclawd.com/dollar-liability-asset-tokenization-loop-20261031/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="美元负债端及资产端两个路径的代币化将闭环">
+  <meta property="og:description" content="美元负债端的数字现金与资产端的证券权益如何形成真正的金融闭环？">
+  <meta name="theme-color" content="#103f35">
+  <meta name="description" content="Kerwin Research Hub 研究美元负债端稳定币与代币化存款、资产端DTCC证券权益，以及美债融资、抵押品与机构结算闭环的进展与投资边界。">
+  <title>美元负债端及资产端两个路径的代币化将闭环｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  
+
+/* page-specific content modules; canonical article shell stays unchanged */
+.ref{font-size:11px;color:#1f5a4d;white-space:nowrap;margin-left:3px;text-decoration:none;font-weight:700}
+.section strong{color:#103f35}.section .note,.model-caveat{font-size:13px;color:#746b65;line-height:1.7}
+.diagram{margin:25px 0;border:1px solid #cdbfb3;background:#f7e7d8;padding:12px}
+.diagram svg{width:100%;display:block;max-height:430px}.diagram figcaption{font-size:13px;color:#746b65;margin:9px 6px 4px;line-height:1.65}
+.process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin:22px 0}
+.process-grid>div{background:#fff1e5;padding:17px;min-width:0}.process-grid span{display:block;font:700 19px/1 Georgia,serif;color:#9a5c38;margin-bottom:8px}.process-grid b{display:block;font-size:14px;line-height:1.4;color:#103f35}.process-grid small{display:block;color:#746b65;font-size:12px;line-height:1.5;margin-top:5px}
+.callout{border-left:4px solid #103f35;background:#edf1eb;padding:17px 21px;font-size:16px;margin:22px 0;line-height:1.75}
+.ledger-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin:25px 0}.ledger-list>div{padding:20px;background:#fff1e5}.ledger-list b{font-size:15px;color:#103f35}.ledger-list p{font-size:14px;margin:9px 0 0;line-height:1.68}
+.comparison-figure{margin:22px 0;border-top:2px solid #103f35;border-bottom:1px solid #cdbfb3;padding:20px 0}.metric-row{display:grid;grid-template-columns:200px minmax(0,1fr) 100px;align-items:center;gap:12px;margin:13px 0;font-size:13px;line-height:1.35}.metric-row b{white-space:nowrap;text-align:right;color:#103f35}.barbg{height:20px;background:#eee5dc;overflow:hidden}.bar{height:100%;background:#103f35;min-width:2px}.bar.pale{background:#8da69c}.bar.copper{background:#9a5c38}
+.interactive-model{border:2px solid #103f35;padding:22px 26px;margin:25px 0;background:#fff1e5}.model-title{font-size:11px;letter-spacing:.12em;font-weight:800;color:#103f35}.range-control{margin-top:19px}.range-control label{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:700}.range-control output{font-variant-numeric:tabular-nums;color:#103f35}.range-control input{width:100%;accent-color:#103f35;display:block;min-height:33px}.model-results{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin:22px 0 12px}.model-results>div{background:#fffaf5;padding:18px;min-width:0}.model-results span{display:block;font-size:12px;color:#746b65;line-height:1.5}.model-results strong{display:block;font:700 30px/1.2 Georgia,serif;margin-top:7px;color:#103f35}.reset-model{border:1px solid #103f35;background:transparent;color:#103f35;padding:8px 16px;font-size:12px;cursor:pointer}
+.network-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#cdbfb3;border:1px solid #cdbfb3;margin:20px 0}.network-grid>div{padding:20px;background:#fffaf5}.network-grid b{display:block;font-size:18px;font-family:Georgia,serif;margin:10px 0 6px}.network-grid p{font-size:14px;color:#746b65;line-height:1.65;margin:0}.netstatus{font-size:10px;font-weight:700;letter-spacing:.05em;color:#103f35}.netstatus.future{color:#9a5c38}
+.mini-formula{margin:22px 0;padding:24px;background:#103f35;color:#fff1e5;text-align:center}.mini-formula span{display:block;font-size:11px;letter-spacing:.1em}.mini-formula strong{display:block;margin-top:6px;color:#fffaf5;font-size:17px;line-height:1.6}
+.watch-grid details{border-top:1px solid #cdbfb3;padding:12px 0}.watch-grid details:last-child{border-bottom:1px solid #cdbfb3}.watch-grid summary{font-size:16px;font-weight:700;cursor:pointer;color:#103f35;padding-right:14px}.watch-grid details p{font-size:14px;color:#746b65;line-height:1.7;margin:9px 0}
+.source a{color:#103f35;font-weight:700}.section a:not(.ref){overflow-wrap:anywhere}
+@media(max-width:760px){.diagram{padding:6px}.diagram figcaption{font-size:12px}.process-grid{grid-template-columns:1fr 1fr}.ledger-list,.network-grid{grid-template-columns:1fr}.metric-row{grid-template-columns:100px minmax(0,1fr) 71px;gap:8px;font-size:11px}.metric-row b{font-size:11px}.comparison-figure{padding:12px 0}.model-results strong{font-size:24px}.interactive-model{padding:18px 16px}.model-results>div{padding:12px}.range-control label{font-size:13px}.callout{font-size:15px;padding:13px 14px}}
+@media(max-width:390px){.process-grid{grid-template-columns:1fr}.model-results{grid-template-columns:1fr}.metric-row{grid-template-columns:96px minmax(0,1fr) 64px}.diagram svg{min-height:165px}}
+
+</style>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="dollar-liability-asset-tokenization-loop-20261031">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · Digital Dollar & Market Structure</span>
+      <span>Evidence first · Snapshot 2026-10-31 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">CAPITAL & MACRO · DIGITAL DOLLAR · MARKET STRUCTURE</div>
+          <h1>
+            美元负债端及资产端两个路径的代币化将闭环
+            <span>DTCC 代币化基础设施加速推进</span>
+          </h1>
+          <p class="thesis">美元负债端与证券资产端的代币化开始具备相互连接的基础设施条件；但 24/7 资产转移并不等于全市场资金证券同步结算已完成。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026-10-31</span>
+            <span><b>数据快照</b> 2026-10-31 HKT</span>
+            <span><b>研究对象</b> DTCC / Stablecoin / Treasury / Collateral</span>
+            <span><b>证据边界</b> 已投产服务与待验证经济性分开</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>2 × 2</strong>
+          <span>两条路径 · 两个闭环门槛</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>将美元负债端发行、证券资产端权益映射、现金结算以及融资资本效率分别审计；$114T 是 DTC 托管资产，$628B 是财政部季度预测，均不能视作链上新增交易额。
+    </div>
+
+<section class="section" id="verdict"><div class="section-label">01 · Executive Verdict</div><h2>美元体系的第二次链上扩张</h2>
+<p class="lead"><strong>金融代币化正在沿两条不同的路径推进：负债端是稳定币与代币化银行存款，资产端是美债、股票、基金和其他证券权益的代币化。</strong> DTCC 2026 年 10 月 28 日启动 Tokenization Service（DTS），标志着资产端不再只有发行人或加密项目的试验，而是由美国核心证券存管机构直接提供生产服务。<a class="ref" href="#source-01" aria-label="跳转至证据来源 01">[01]</a></p>
+<p>更有意义的变化，不是把所有东西都放到一条链，而是让<strong>合规美元负债、具有法律效力的证券权益，以及机构间融资与抵押品工作流</strong>具备连接条件。技术接口正在形成，但交易所全天候交易、资金证券同步交割、跨机构抵押品可用性与规模化收入，尚未全面闭环。</p>
+<div class="verdict">
+  <div class="verdict-item"><b>负债端：形成真实买盘</b><span>稳定币储备可配置短期美债，已具备可识别的利率传导；不能与长期国债需求混算。</span></div>
+  <div class="verdict-item"><b>资产端：改善可流转性</b><span>DTC 已托管证券映射为可受控转移的代币权益，不凭空创造新国债或新股票。</span></div>
+  <div class="verdict-item"><b>制度端：控制权没有消失</b><span>证券权益簿记、合规钱包、纠错和法律最终性仍掌握在传统基础设施内。</span></div>
+  <div class="verdict-item"><b>投资端：价值需要分账</b><span>链上交易量、代币发行量、机构节约的资金成本和持有人回报并非同一指标。</span></div>
+</div>
+<div class="evidence-grid">
+  <div class="evidence"><strong>$114T+</strong><span>DTC 托管证券资产规模，2026-10-28；不是已代币化的余额<a class="ref" href="#source-01" aria-label="跳转至证据来源 01">[01]</a></span></div>
+  <div class="evidence"><strong>20 家</strong><span>已签署 DTS 接入协议的 DTC 参与机构；不代表 20 家均已产生商业交易<a class="ref" href="#source-01" aria-label="跳转至证据来源 01">[01]</a></span></div>
+  <div class="evidence"><strong>近 $200B</strong><span>稳定币发行商持有的短期美债及近到期证券，2026 年 9 月财政部讲话口径<a class="ref" href="#source-03" aria-label="跳转至证据来源 03">[03]</a></span></div>
+</div></section>
+<section class="section" id="dual-loop"><div class="section-label">02 · System Map</div><h2>两条路径，最终要在证券与现金的交割点相遇</h2>
+<p>美元的资产端与负债端并非镜像复制。<strong>稳定币是持有人对发行人的美元赎回请求权；国债或股票代币则依赖底层证券的法律权益与托管安排。</strong> 两者的发行主体、风险承担和偿付机制并不相同。</p>
+<figure class="diagram" aria-label="美元负债端与资产端双路径示意图">
+<svg viewBox="0 0 920 418" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">双路径代币化闭环</title><desc id="diagram-desc">左侧为稳定币和代币化存款，右侧为DTC证券权益，中间由受监管结算及抵押品工作流连接。</desc>
+<rect width="920" height="418" fill="#f7e7d8"/>
+<text x="38" y="42" font-size="20" font-weight="700" fill="#103f35">LIABILITY · 美元负债端</text><text x="516" y="42" font-size="20" font-weight="700" fill="#103f35">ASSET · 证券资产端</text>
+<rect x="30" y="63" width="400" height="112" fill="#fffaf5" stroke="#8f9f90"/><rect x="490" y="63" width="400" height="112" fill="#fffaf5" stroke="#8f9f90"/>
+<text x="230" y="105" font-size="23" font-weight="700" text-anchor="middle" fill="#103f35">USDC / USDT / Tokenized Deposits</text><text x="230" y="140" font-size="17" text-anchor="middle" fill="#746b65">赎回权 · 储备资产 · 银行负债</text>
+<text x="690" y="105" font-size="23" font-weight="700" text-anchor="middle" fill="#103f35">DTC Tokenized Entitlements</text><text x="690" y="140" font-size="17" text-anchor="middle" fill="#746b65">股票 · 国债 · ETF 证券权益</text>
+<path d="M230 176 L230 222 L460 222" stroke="#9a5c38" stroke-width="3" fill="none"/><path d="M690 176 L690 222 L460 222" stroke="#9a5c38" stroke-width="3" fill="none"/>
+<path d="M455 218 L465 222 L455 226" stroke="#9a5c38" stroke-width="2" fill="none"/><path d="M455 218 L465 222 L455 226" stroke="#9a5c38" stroke-width="2" fill="none"/>
+<rect x="174" y="249" width="572" height="104" fill="#103f35"/>
+<text x="460" y="293" text-anchor="middle" font-size="26" font-weight="700" fill="#fff1e5">DvP · Repo · Collateral Mobility</text>
+<text x="460" y="328" text-anchor="middle" font-size="17" fill="#dce8e2">合规交割 · 现金支付 · 抵押品管理</text>
+<text x="460" y="390" font-size="16" text-anchor="middle" fill="#746b65">图示为基础设施目标架构；不是全市场已完成的链上结算状态</text>
+</svg>
+<figcaption>图 1｜负债端提供可编程的美元支付工具，资产端提供可编程的证券权益。真正的交汇点是资金—证券交付与合规抵押品工作流，而不是简单把两种 Token 放在一起。</figcaption>
+</figure>
+<div class="table-wrap"><table><thead><tr><th>分析层</th><th>负债端</th><th>资产端</th><th>交汇点</th></tr></thead><tbody>
+<tr><td>法律权利</td><td>赎回请求权／银行存款债权</td><td>证券权益与托管簿记</td><td>权利归属、违约与纠纷处置</td></tr>
+<tr><td>经济资产</td><td>发行人储备中的国库券、存款、回购</td><td>已发行并托管的证券</td><td>现金结算、质押和融资</td></tr>
+<tr><td>运行主体</td><td>稳定币发行人／银行</td><td>DTC／券商／托管银行</td><td>受许可网络与金融中介</td></tr>
+<tr><td>最容易误读</td><td>发行量 ≠ 美债净新增需求</td><td>代币化额 ≠ 新增证券发行额</td><td>钱包可转移 ≠ 全市场 DvP 已完成</td></tr></tbody></table></div></section>
+<section class="section" id="dtc"><div class="section-label">03 · Legal Ledger</div><h2>DTC 到底把什么放上链？法律权益比代币更重要</h2>
+<p>DTCC 集团同时经营股票及固定收益证券市场的关键后交易基础设施：NSCC 和 FICC 主要承担不同市场的清算、净额化及中央对手方职能，DTC 负责证券存管、权益记录和相关结算服务。DTS 从 DTC 已持有的合格证券权益出发，不是让加密网络取代全部清算机制。<a class="ref" href="#source-02" aria-label="跳转至证据来源 02">[02]</a></p>
+<div class="process-grid" aria-label="DTC权益代币化六步路径">
+  <div><span>01</span><b>传统证券权益</b><small>DTC 参与者原有簿记持仓</small></div>
+  <div><span>02</span><b>Digital Omnibus Account</b><small>对应资产在专门综合账户隔离记账</small></div>
+  <div><span>03</span><b>Factory Mint</b><small>生成对应的代币化证券权益</small></div>
+  <div><span>04</span><b>注册钱包转移</b><small>只在合格 DTC 参与者钱包间流转</small></div>
+  <div><span>05</span><b>LedgerScan</b><small>追踪链上转移，构成 DTC 正式权益记录</small></div>
+  <div><span>06</span><b>Burn / Convert</b><small>代币销毁后可恢复传统簿记权益</small></div>
+</div>
+<p>SEC 2025 年 12 月 11 日的附条件不采取执法行动函明确了三个边界：底层证券仍以 DTC 名义持有人 Cede &amp; Co. 注册；只有 DTC 注册钱包可收取相关代币权益；DTC 需要具备纠正错误、丢失代币与不当行为的技术控制能力。<a class="ref" href="#source-02" aria-label="跳转至证据来源 02">[02]</a></p>
+<div class="dark-panel"><h3>最容易被忽略的限制</h3><p><strong>在该初始试点安排下，DTC 不赋予 Tokenized Entitlements 用于其净借记限额及 Collateral Monitor 计算的抵押品价值或结算价值。</strong> “证券可以链上转移”和“该证券已全面进入 DTC 风险管理及抵押品信用体系”是两件不同的事。<a class="ref" href="#source-02" aria-label="跳转至证据来源 02">[02]</a></p></div>
+<p>试点合格资产主要覆盖 Russell 1000 指数证券、美国国债及追踪主要指数的 ETF；监管立场以具体事实为前提，并非所有证券和区块链的一般永久许可。2026 年 7 月已完成部分真实生产交易测试，10 月 28 日进入正式服务阶段。<a class="ref" href="#source-01" aria-label="跳转至证据来源 01">[01]</a><a class="ref" href="#source-02" aria-label="跳转至证据来源 02">[02]</a><a class="ref" href="#source-04" aria-label="跳转至证据来源 04">[04]</a></p>
+<div class="callout">Kerwin 判断：被代币化的是可追索、可冻结、可纠错的证券权利体系。华尔街采用区块链，未必意味着它主动放弃对证券市场法律和运行层的控制。</div></section>
+<section class="section" id="ledgers"><div class="section-label">04 · Four-Ledger Architecture</div><h2>从“三本账”升级为“四本账”：价值究竟归谁？</h2>
+<p>数字美元研究最初着重于发行商的美元储备、公链网络以及代币持有人收益；DTS 使“证券权益与抵押品账”成为不可缺少的第四层。资产的数字表达形式可以更自由，但最终权利、融资资格与抵押品折扣由法律及风险管理制度决定。</p>
+<div class="ledger-list">
+<div><b>01 · 货币与储备账</b><p>USDC／USDT 的平均余额、储备配置、利率、赎回压力，决定发行方经济性。关注储备收益归属，而非单看链上交易笔数。</p></div>
+<div><b>02 · 证券权益与抵押品账</b><p>DTC、银行和券商控制合法持有关系、证券服务、保证金资格及违约处置；这层决定“什么能够被可信地融资”。</p></div>
+<div><b>03 · 网络与互操作账</b><p>Canton、Besu、Stellar、Arc 等提供不同的隐私、可编程及传输环境；金融机构可能多链并用，并非赢家通吃。</p></div>
+<div><b>04 · 投资者收益账</b><p>托管费、服务费、银行融资利差、公链手续费、原生代币通胀／销毁及公司自由现金流，需要独立核算。</p></div></div>
+<p>因此不能从“100 亿美元证券在某链上发行”直接推导“该链代币应获得 100 亿美元价值”。首先要知道真实链上活动产生多少费用、费用由谁支付，以及权益如何最终传给持有人。</p></section>
+<section class="section" id="treasury"><div class="section-label">05 · Treasury Financing</div><h2>数字美元能够支持美国财政融资，但主要是短端机制</h2>
+<p>稳定币扩张确实会把部分美元余额转化成短期国债和回购资产需求。美国财政部 2026 年 9 月称稳定币发行人已持有近 <strong>2,000 亿美元短期美债及其他近到期证券</strong>。但同期美国货币市场基金规模约 8 万亿美元，稳定币仍是结构性新增参与者，而非整个短债市场的主导资金池。<a class="ref" href="#source-03" aria-label="跳转至证据来源 03">[03]</a></p>
+<div class="comparison-figure" aria-label="美债短端相关存量与融资预测的不同口径示意">
+<div class="metric-row"><span>货币市场基金资产存量</span><div class="barbg"><div class="bar" style="width:100%"></div></div><b>约 $8T</b></div>
+<div class="metric-row"><span>2026 Q4 财政部净融资预测</span><div class="barbg"><div class="bar pale" style="width:7.85%"></div></div><b>$628B</b></div>
+<div class="metric-row"><span>稳定币发行商近到期证券持仓</span><div class="barbg"><div class="bar copper" style="width:2.5%"></div></div><b>近 $200B</b></div>
+<p class="note">图 2｜均以美元规模示意，但两个是持有资产存量、一个是季度融资净流量预测；不能相加，也不能作为统一市占率。Q4 数字取自财政部 2026 年 8 月 3 日预测。<a class="ref" href="#source-03" aria-label="跳转至证据来源 03">[03]</a><a class="ref" href="#source-05" aria-label="跳转至证据来源 05">[05]</a></p></div>
+<p>在融资机制上，要区分三个层次：<strong>一级发行净增量、二级市场存量转手、抵押品周转率提高</strong>。发行商买进一只已经流通的美债，并不使财政部当日新增一笔融资；但其需求可以通过价格和收益率影响未来发行条件。证券资产端代币化则主要改善移动性，甚至可能释放此前被占用的流动性缓冲，而非必然增加美债持仓。</p>
+<h3>有实证影响的是三个月国库券，不是十年期美债</h3>
+<p>BIS 的研究采用工具变量识别稳定币资金流的市场影响：约 <strong>35 亿美元资金流入</strong>可使三个月国库券收益率在约十天内下降最多约 <strong>4 个基点</strong>，而对更长期限的外溢并不明显；市场压力下效应可能更强。<a class="ref" href="#source-06" aria-label="跳转至证据来源 06">[06]</a></p>
+<p>这一发现应当与 10 年及 30 年期国债的期限溢价、财政可持续性、通胀和联储政策分别研究，不能因为数字美元扩张就系统性下调全部期限的美债风险溢价。</p></section>
+<section class="section" id="simulator"><div class="section-label">06 · Interactive Model</div><h2>同样是 $100B 稳定币扩张，美债净需求可能差很多</h2>
+<p>关键变量不是稳定币增长本身，而是新增资金<strong>从哪里来</strong>：海外新美元配置、原有银行存款、货币基金，还是其他已经持有国债的账户？部分稳定币储备买盘可能只是既有国库券投资者的换手。</p>
+<div class="interactive-model" id="model"><div class="model-title">T-BILL DEMAND · 假设情景计算器</div>
+<div class="range-control"><label for="flow">稳定币新增余额 <output id="flow-value">$100B</output></label><input id="flow" type="range" min="0" max="300" value="100" step="10"></div>
+<div class="range-control"><label for="reserve">新增余额中配置国库券的比例 <output id="reserve-value">80%</output></label><input id="reserve" type="range" min="0" max="100" value="80" step="5"></div>
+<div class="range-control"><label for="replace">对既有国库券需求的假定替代程度 <output id="replace-value">50%</output></label><input id="replace" type="range" min="0" max="100" value="50" step="5"></div>
+<div class="model-results"><div><span>发行商的直接国库券购买</span><strong id="gross">$80.0B</strong></div><div><span>扣除替代效应后的净增量代理值</span><strong id="net">$40.0B</strong></div></div>
+<p class="model-caveat">计算：新增余额 × 购券比例 ×（1−假定替代比例）。这是部分均衡敏感性演示，非实际 TIC 数据、非美债价格预测。未计入汇率、银行资产负债表再平衡、回购、赎回和央行操作。</p>
+<button type="button" class="reset-model" id="reset-model">恢复基准情景</button></div>
+<p>若资金原来停留在持有国库券的货币基金，转入稳定币后只是重新购买相同资产，则发行人账面购券增加与其他投资者减持可能相互抵消；若境外资金首次进入美元国库券市场，才更接近实际增量需求。这就是必须同时观察稳定币储备报告与 TIC、货币基金、银行存款数据的原因。</p></section>
+<section class="section" id="dollar"><div class="section-label">07 · Dollar Hegemony</div><h2>美元网络可变得更强，美元储备份额未必同步上升</h2>
+<p>数字美元的广泛可用性、证券结算网络、全球托管法律秩序，以及美国国债抵押品市场，构成一组相互强化的网络效应。但它们与美元的实际购买力、国际储备币种配置和长期财政信用并不等价。</p>
+<div class="table-wrap"><table><thead><tr><th>美元权力维度</th><th>可能受益机制</th><th>不能推出的结论</th></tr></thead><tbody>
+<tr><td>跨境计价／支付</td><td>全球可编程美元降低部分转账摩擦</td><td>其他货币将失去全部跨境交易</td></tr>
+<tr><td>国债短端需求</td><td>储备资产持仓支持部分国库券需求</td><td>所有期限收益率必然下降</td></tr>
+<tr><td>证券与抵押品市场</td><td>DTC 权益和合规网络提高资产可移动性</td><td>全部交割已无需传统机构</td></tr>
+<tr><td>官方外汇储备</td><td>美元金融市场深度支持储备资产吸引力</td><td>全球央行必然增配美元</td></tr>
+<tr><td>货币购买力</td><td>流通网络效应有助于需求与接受度</td><td>财政赤字、通胀和真实利率不再重要</td></tr></tbody></table></div>
+<p>IMF 2026 年第二季度数据显示，美元在全球已披露外汇储备中的占比为 <strong>56.70%</strong>，低于上一季的 <strong>57.18%</strong>。这意味着数字美元网络扩张可以与央行储备多元化同时存在；COFER 统计不包含黄金。<a class="ref" href="#source-08" aria-label="跳转至证据来源 08">[08]</a></p>
+<p>2026 年 8 月美国财政部 TIC 数据也展示了资金选择的分叉：综合净流入约 <strong>$199.8B</strong>，外国投资者净买入美国长期证券 <strong>$300.7B</strong>，但外国持有国库券的净变化为 <strong>−$47.8B</strong>。单月数据不能说明持续趋势，却足以否定“资金流入美国就同时买入所有期限美债”的机械推导。<a class="ref" href="#source-07" aria-label="跳转至证据来源 07">[07]</a></p>
+<div class="callout">Kerwin 判断：美国能加强自身在“支付—证券—融资”网络的中心性，仍不代表可以无限降低债务融资成本。美元使用便利、长期购买力与债务期限结构，必须分别定价。</div></section>
+<section class="section" id="competition"><div class="section-label">08 · Institutional Networks</div><h2>真正的竞争：银行数字存款与多链机构网络</h2>
+<p>DTS 上线时已接入 <strong>Canton Network</strong> 与 DTCC 私有 <strong>Besu</strong> 网络；DTCC 与 Stellar 的官方计划指向 2027 年上半年接入，Arc 也被列在 2027 年规划网络之中。网络接入是技术与合规事实，不等于某条链已获得全部证券余额。<a class="ref" href="#source-01" aria-label="跳转至证据来源 01">[01]</a><a class="ref" href="#source-09" aria-label="跳转至证据来源 09">[09]</a></p>
+<div class="network-grid">
+<div><span class="netstatus live">已接入</span><b>Canton Network</b><p>面向受监管机构交易，强调隐私、互操作性与金融业务流程。</p></div>
+<div><span class="netstatus live">已接入</span><b>DTCC private Besu</b><p>企业级以太坊兼容执行环境，服务发行与内部工作流。</p></div>
+<div><span class="netstatus future">规划 2027</span><b>Stellar / Arc</b><p>扩展公开网络、数字资产连接与潜在可编程支付能力；进度需持续核查。</p></div>
+<div><span class="netstatus future">并行竞争</span><b>代币化银行存款</b><p>商业银行可能以自身数字存款提供机构支付现金端，与非银行稳定币直接竞争。</p></div></div>
+<p>此外，DTCC 与 Chainlink 在 2026 年 5 月披露了 <strong>Collateral AppChain</strong> 相关的数据编排合作，涉及价格、估值、保证金及抵押品流程。这是与 DTS 相关但不同的项目；不能将它当成 DTS 本身所有抵押品功能均已商用的证据。<a class="ref" href="#source-10" aria-label="跳转至证据来源 10">[10]</a></p>
+<p>对金融机构而言，稳定币结算、代币化商业银行存款、批发央行货币／传统银行清算接口可能长期并存。选择哪一种，取决于法律终局性、赎回风险、资产负债表占用、监管与市场参与者是否愿意承担对手方风险。</p></section>
+<section class="section" id="capture"><div class="section-label">09 · Value Capture</div><h2>从 Token 到 ROIC：哪些资产最可能捕获经济利益？</h2>
+<p>金融基础设施的价值最终不由“上链总资产”决定，而由<strong>费用收入、可归属利润、资本效率和权益归属</strong>决定。DTCC 自身是行业共享型基础设施，并非可直接购买的普通上市股票。对可投资标的，必须把受益机制拆开核算。</p>
+<div class="table-wrap"><table><thead><tr><th>资产／参与方</th><th>潜在受益点</th><th>验证指标</th><th>反证情形</th></tr></thead><tbody>
+<tr><td>CRCL / USDC</td><td>链上证券的数字现金结算</td><td>平均流通余额、储备收益、分销分成及真实机构结算</td><td>代币化银行存款分流机构现金端</td></tr>
+<tr><td>COIN</td><td>钱包、分发、链上金融服务入口</td><td>机构活动、开发者收入、USDC 经济权益</td><td>流量持续增长但归属收入停滞</td></tr>
+<tr><td>CC / XLM</td><td>机构网络使用与结算活动</td><td>实际转移量、费用、原生代币必要性及稀释</td><td>交易由代付机制覆盖，Token 价值捕获薄弱</td></tr>
+<tr><td>LINK</td><td>价格数据、跨网络编排和验证服务</td><td>真实协议服务收入及代币经济传导</td><td>机构采购服务但未转化为 LINK 需求</td></tr>
+<tr><td>V / MA / 托管银行</td><td>数字现金受理、信任、账户及资产服务</td><td>新增服务收入、单位成本及资本回报</td><td>自动化价格竞争压缩既有利润池</td></tr>
+<tr><td>债券融资方／回购市场</td><td>资产调拨与保证金效率提升</td><td>净融资余额、折扣率、失败交割及压力流动性</td><td>更容易加杠杆反而扩大脆弱性</td></tr></tbody></table></div>
+<p>在更广义的 AI Capital Cycle 中，金融交易后效率可能降低某些中介的流动性成本，但不会自动改善重资产 AI Cloud 运营商的供电、资产折旧、客户信用、GPU 利用率或 ROIC－WACC。资本配置仍要回到真实现金流。</p>
+<div class="mini-formula"><span>完整投资逻辑</span><strong>真实业务量 → 可收费服务 → 收入留存 → 净现金流 → 投资者权益</strong></div></section>
+<section class="section" id="history"><div class="section-label">10 · Research Continuity</div><h2>既有研究的四个坐标：哪些被加强，哪些必须加条件？</h2>
+<p>本专题延续 Kerwin Research Hub 既有的公链、数字美元、支付系统与金融资本流动研究，但各篇关注的是不同的经济层级。DTS 的制度进展，使这些层级之间的关系更容易被实证检验。</p>
+<div class="table-wrap"><table><thead><tr><th>既有专题</th><th>成立的核心判断</th><th>2026 年 10 月的新约束／增量</th></tr></thead><tbody>
+<tr><td><a href="/digital-dollar-public-chain-series-20261012/part-01/">公链的第一次价值分化</a></td><td>公链是不同的商业与技术结构，不是同质化“币”</td><td>机构多链、许可钱包和法律权利管理必须进入竞争地图</td></tr>
+<tr><td><a href="/digital-dollar-public-chain-series-20261012/part-02/">当公链接入美元</a></td><td>稳定币连接美元信用、储备资产与链上网络</td><td>增加证券权益与抵押品账，分清储备购债和证券资产代币化</td></tr>
+<tr><td><a href="/digital-dollar-public-chain-series-20261012/part-03/">网络繁荣之后，谁真正获得投资回报？</a></td><td>交易量与 Token 价格之间不存在直接等式</td><td>必须纳入托管、融资、机构网络服务及银行存款竞争</td></tr>
+<tr><td><a href="/future-payment-infrastructure-stablecoin-agentic-commerce-20260809/">全新支付基础设施</a></td><td>Money / Rails / Orchestration / Acceptance 与 Agent 支付各有控制点</td><td>补入机构批发金融：Legal Rights / Custody / Collateral / DvP</td></tr></tbody></table></div>
+<div class="dark-panel"><h3>研究主线的升级</h3><p>从<strong>“稳定币把两个金融世界连接起来”</strong>，延伸为<strong>“美元负债的数字流通、证券资产的法律映射，以及抵押品再配置共同构成数字金融的制度基础”</strong>。这增加了可验证变量，同时显著提高了对法律与金融中介控制权的研究权重。</p></div></section>
+<section class="section" id="risks"><div class="section-label">11 · Falsification</div><h2>闭环何时算真正完成？用六项硬指标而不是叙事判断</h2>
+<p>正式投产是必要条件，不是充分条件。下列指标分别对应发行、流转、支付、抵押品、经济性和系统风险；任何一项停滞，都可能改变对闭环速度与受益者的判断。</p>
+<div class="watch-grid">
+<details open><summary>01 · 实际代币化余额与换手</summary><p>观察 DTS 期末余额、月度真实转移、不同证券 CUSIP 覆盖和烧毁转换率；禁止用 DTC $114T 托管规模代替已代币化余额。</p></details>
+<details><summary>02 · 参与机构从签约到活跃</summary><p>分别计数签约、正式上线的钱包、真正完成交易以及持续重复交易的机构数；20 家签约不等于 20 家活跃。</p></details>
+<details><summary>03 · DvP 是否具备合规现金端</summary><p>观察可同时满足法律终局性和风险要求的数字现金结算比例；特别区分受控示范交易和可普遍使用的市场规则。</p></details>
+<details><summary>04 · 抵押品效率是否体现在资本占用</summary><p>监测保证金转移时间、融资成本、抵押品折扣、结算失败率和压力时期流动性；正常情况下的速度不能替代违约压力测试。</p></details>
+<details><summary>05 · 美债需求是真新增还是资产转移</summary><p>交叉验证稳定币储备、国库券供给、货币基金余额、银行存款及 TIC；重点是资金来源和购买资产期限。</p></details>
+<details><summary>06 · 费用收入能否归属股东或代币持有人</summary><p>追踪协议实际收费、客户留存、费用分成、原生代币供给变化及上市公司的增量自由现金流。</p></details>
+</div>
+<p>根据 SEC 试点安排，DTC 将向监管工作人员提供每季度代币化数量及价值、期末余额、平均日转移量、钱包和链使用情况等报告；并不意味着全部细项一定对公众披露。<a class="ref" href="#source-02" aria-label="跳转至证据来源 02">[02]</a></p>
+<p class="note">观察时间：2026 年 11 月 4 日财政部季度再融资公告、11 月 18 日发布的 9 月 TIC，以及 DTS 后续实际余额和季度运行披露。公开数据缺失应标记“未披露”，而非视作零。</p></section>
+<section class="section" id="sources"><div class="section-label">12 · Primary Sources</div><h2>来源与口径：把事实、估计和推断分开</h2><p>以下为本专题的重要一手证据；宏观规模采用来源披露时点，跨期或存量与流量不混加。文中的 “Kerwin 判断” 均为研究推断而非官方结论。</p><div id="source-01"><div class="source"><a href="https://www.dtcc.com/press-releases/2026/dtcc-tokenization-service-goes-live" target="_blank" rel="noopener noreferrer">[01] DTCC｜Tokenization Service Goes Live · 2026-10-28 ↗</a><span>正式上线、20 家签约机构、托管资产规模与已接入网络</span></div></div><div id="source-02"><div class="source"><a href="https://www.sec.gov/files/tm/no-action/dtc-nal-121125.pdf" target="_blank" rel="noopener noreferrer">[02] SEC｜DTC No-Action Letter · 2025-12-11 ↗</a><span>注册钱包、Digital Omnibus、LedgerScan、适用证券、抵押品限制及季度监管披露</span></div></div><div id="source-03"><div class="source"><a href="https://home.treasury.gov/news/press-releases/sb0633" target="_blank" rel="noopener noreferrer">[03] U.S. Treasury｜Treasury Market Conference · 2026-09 ↗</a><span>稳定币发行商持有近 2,000 亿美元短债与货币基金规模</span></div></div><div id="source-04"><div class="source"><a href="https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality" target="_blank" rel="noopener noreferrer">[04] DTCC｜Tokenized Assets Power U.S. Trades · 2026-07-15 ↗</a><span>上线前真实生产环境的部分交易验证</span></div></div><div id="source-05"><div class="source"><a href="https://home.treasury.gov/news/press-releases/sb0584" target="_blank" rel="noopener noreferrer">[05] U.S. Treasury｜Marketable Borrowing Estimates · 2026-08-03 ↗</a><span>2026 年第四季度 $628B 私人持有净可流通融资预测</span></div></div><div id="source-06"><div class="source"><a href="https://www.bis.org/publications/working-paper-1270-stablecoins-and-safe-asset-prices" target="_blank" rel="noopener noreferrer">[06] BIS｜Stablecoins and Safe Asset Prices ↗</a><span>稳定币流与三个月期国库券利率的计量研究，不能外推长债</span></div></div><div id="source-07"><div class="source"><a href="https://home.treasury.gov/news/press-releases/sb0662/" target="_blank" rel="noopener noreferrer">[07] U.S. Treasury｜TIC August 2026 · 2026-10-16 ↗</a><span>8 月跨境证券资金净流入、长期证券与国库券分项</span></div></div><div id="source-08"><div class="source"><a href="https://data.imf.org/en/news/imf%20data%20brief%20september%2030" target="_blank" rel="noopener noreferrer">[08] IMF｜COFER Q2 2026 · 2026-09-30 ↗</a><span>美元占官方外汇储备比例及季度变化</span></div></div><div id="source-09"><div class="source"><a href="https://www.dtcc.com/press-releases/2026/tokenization-service-to-connect-with-stellar-public-blockchain-as-dtc-advances-multi-chain-strategy" target="_blank" rel="noopener noreferrer">[09] DTCC｜Stellar Multichain Strategy · 2026-05-27 ↗</a><span>Stellar 预计在 2027 年上半年接入的合作计划</span></div></div><div id="source-10"><div class="source"><a href="https://www.dtcc.com/press-releases/2026/dtcc-collaborates-with-chainlink-to-advance-24-7-collateral-management" target="_blank" rel="noopener noreferrer">[10] DTCC｜Collateral AppChain × Chainlink · 2026-05-12 ↗</a><span>另一抵押品服务项目的数据编排与工作流，不应误作 DTS 的全部能力</span></div></div></section>
+<section class="section" aria-labelledby="related-title"><div class="section-label">Related Research · Research Path</div><h2 id="related-title">沿着美元金融网络继续阅读</h2><p><a href="/digital-dollar-public-chain-series-20261012/">从原生代币到链上美元：三篇系列总览</a> — 公链技术、稳定币与投资者价值的经济学起点。</p><p><a href="/digital-dollar-public-chain-series-20261012/part-02/">当公链接入美元</a> — 发行商储备、美元信用和利润分配。</p><p><a href="/future-payment-infrastructure-stablecoin-agentic-commerce-20260809/">全新支付基础设施</a> — 从人类消费、Agent 支付延伸到本篇的机构批发金融。</p></section>
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-10-31 HKT</span>
+        <span>Updated 2026-10-31 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+<script>(function(){var names=["flow","reserve","replace"];function n(id){return document.getElementById(id)}function update(){var f=+n("flow").value,r=+n("reserve").value,c=+n("replace").value;n("flow-value").textContent="$"+f+"B";n("reserve-value").textContent=r+"%";n("replace-value").textContent=c+"%";var g=f*r/100;n("gross").textContent="$"+g.toFixed(1)+"B";n("net").textContent="$"+(g*(100-c)/100).toFixed(1)+"B"}for(var i=0;i<names.length;i++){n(names[i]).addEventListener("input",update)}n("reset-model").addEventListener("click",function(){n("flow").value=100;n("reserve").value=80;n("replace").value=50;update()});update()})()</script>
+</body>
+</html>
