@@ -1,0 +1,61 @@
+name: Cache reader-selected Rothko Chapel photograph
+on:
+  push:
+    paths:
+      - .github/workflows/cache-rothko-chapel-image.yml
+permissions:
+  contents: write
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch reader-selected original photograph and optimize
+        shell: bash
+        run: |
+          python3 -m pip install --quiet Pillow
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import requests, io
+          links=[
+            'https://abaton.es/despiertaymira/wp-content/uploads/2015/12/Rothko_Chapel_dym03b.jpg',
+            'https://abaton.es/wp-content/uploads/2015/12/Rothko_Chapel_dym03b.jpg'
+          ]
+          data=None
+          for url in links:
+            try:
+              resp=requests.get(url,headers={'User-Agent':'Mozilla/5.0 (compatible; KerwinEditorialImageCache/1.0)'},timeout=35)
+              print('Fetch',url,'status',resp.status_code,'type',resp.headers.get('content-type'),'size',len(resp.content),flush=True)
+              resp.raise_for_status()
+              img=Image.open(io.BytesIO(resp.content))
+              print('Dimensions',img.size,'format',img.format,flush=True)
+              if img.width < 600 or img.height < 350:
+                raise ValueError('Unexpected image size; not the user-selected full-frame image')
+              data=resp.content
+              break
+            except Exception as e:
+              print('Fetch issue',str(e),flush=True)
+          if data is None:
+            raise RuntimeError('Could not retrieve authentic user-selected photograph in sufficient resolution')
+          folder=Path('essays/licking-fear-echoes-of-the-sublime/assets')
+          folder.mkdir(parents=True,exist_ok=True)
+          jpg=folder/'rothko-chapel-visitor.jpg'
+          jpg.write_bytes(data)
+          with Image.open(io.BytesIO(data)) as im:
+            im=im.convert('RGB')
+            im.thumbnail((1800,1800),Image.Resampling.LANCZOS)
+            optimized=folder/'rothko-chapel-visitor.webp'
+            im.save(optimized,'WEBP',quality=83,method=6)
+          print('Saved',jpg,len(data),optimized,optimized.stat().st_size,flush=True)
+          PY
+      - name: Commit image assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add essays/licking-fear-echoes-of-the-sublime/assets/rothko-chapel-visitor.*
+          git diff --cached --quiet && exit 0
+          git commit -m "Cache user-selected authentic Rothko Chapel interior photograph"
+          git push origin HEAD:main
