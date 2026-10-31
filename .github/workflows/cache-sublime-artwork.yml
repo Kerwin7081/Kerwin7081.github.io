@@ -45,6 +45,21 @@ jobs:
                 if attempt==3: raise
                 time.sleep(4*(attempt+1))
           PY
+      - name: Produce optimized WebP copies for mobile readers
+        shell: bash
+        run: |
+          python3 -m pip install --quiet --user Pillow
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          directory=Path('essays/licking-fear-echoes-of-the-sublime/assets')
+          for source in sorted(directory.glob('*.jpg')):
+            with Image.open(source) as im:
+              im.thumbnail((1900,1900), Image.Resampling.LANCZOS)
+              target=source.with_suffix('.webp')
+              im.convert('RGB').save(target,'WEBP',quality=85,method=6)
+              print(f'Optimized {target.name}: {target.stat().st_size} bytes / {im.size[0]}x{im.size[1]}')
+          PY
       - name: Commit hosted artwork assets
         shell: bash
         run: |
