@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="referrer" content="no-referrer" />
-  <title>职场OL的浓妆艳抹与一碗杂碎（全本未删节典藏版） | EnyaClawd 宏观与艺术周期策展</title>
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>职场OL的浓妆艳抹与一碗杂碎 | EnyaClawd</title>
   <meta name="description" content="以金融从业者、及艺术爱好者的周期视角回看1929年2月爱德华·霍普《杂碎》(Chop Suey)、1930-1932大萧条底部四联画、同期中国巨作与王家卫海派旗袍建筑学。" />
   <link rel="canonical" href="https://enyaclawd.com/hopper-1929-chop-suey-macro-cycle/" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="职场OL的浓妆艳抹与一碗杂碎（全本未删节典藏版）" />
+  <meta property="og:title" content="职场OL的浓妆艳抹与一碗杂碎" />
   <meta property="og:description" content="以金融从业者、及艺术爱好者的周期视角回看1929年2月爱德华·霍普《杂碎》(Chop Suey)、1930-1932大萧条底部四联画、同期中国巨作与王家卫海派旗袍建筑学。" />
   <meta property="og:url" content="https://enyaclawd.com/hopper-1929-chop-suey-macro-cycle/" />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/c8/Edward_hopper_chop_suey.jpg" />
@@ -184,6 +184,22 @@
       width: 100%;
       height: 40px;
       margin-top: 6px;
+    }
+
+    .video-block { margin-top: 18px; }
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #111;
+      margin-top: 10px;
+    }
+    .video-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     h2 {
@@ -375,9 +391,9 @@
 <body>
 
   <header class="topbar">
-    <a href="/" class="brand-logo">ENYACLAWD · 宏观与艺术周期策展（全本未删节典藏版）</a>
+    <a href="/" class="brand-logo">ENYACLAWD · 宏观与艺术周期策展</a>
     <div class="topbar-controls">
-      <button class="btn-pill" onclick="toggleSynth()" id="synthBtn">🎵 播放《自新大陆》英国管五声音阶 (内置离线引擎)</button>
+      <button class="btn-pill" onclick="toggleSynth()" id="synthBtn">🎵 播放英国管主题合成版</button>
       <button class="btn-pill" onclick="toggleTheme()">🌓 切换画廊暗夜 / FT纸本模式</button>
     </div>
   </header>
@@ -390,7 +406,7 @@
     <div class="meta-bar">
       <span>作者：Kerwin (EnyaClawd.com)</span>
       <span>坐标：纽约哥伦布圆环 · 洛杉矶 · 香港</span>
-      <span>版本：全颗粒度未删节典藏长卷（含19幅历史/馆藏图像与双音频引擎）</span>
+      <span>形式：历史图像 · 音乐导赏</span>
     </div>
 
     <!-- Dual-Mode Audio Player -->
@@ -398,13 +414,21 @@
       <div class="audio-title">🎧 听觉序曲：安东宁·德沃夏克《e小调第九交响曲“自新大陆”》第二乐章（Largo · 广板）</div>
       <div class="audio-sub">1893年写于曼哈顿东17街327号 · 降D大调（D-flat major）英国管独奏 · 抽去半音导音的纯五声音阶（Pentatonic Scale）</div>
       <div class="audio-sub">录音来源：Musopen，经 Wikimedia Commons 提供；录音及作品均标注为 Public Domain。</div>
-      <audio id="orkAudio" controls preload="metadata" crossorigin="anonymous">
-        <source src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg" type="audio/ogg" />
-        您的浏览器不支持 HTML5 Audio，请点击下方内置 Web Audio 英国管合成器按钮播放。
+      <audio id="orkAudio" controls preload="none">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/2/2c/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg.mp3" type="audio/mpeg" />
+        <source src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27%2C_op._95_-_ii._largo.ogg" type="audio/ogg; codecs=vorbis" />
+        您的浏览器不支持 HTML5 Audio，可使用下方 YouTube 播放器聆听，或<a href="https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_%27from_the_new_world%27,_op._95_-_ii._largo.ogg" target="_blank" rel="noopener">打开原始录音</a>。
       </audio>
       <div class="audio-actions">
-        <button class="btn-pill" onclick="toggleSynth()" id="synthBtn2">▶ 启动内置离线英国管五声音阶独奏 (零网络依赖 · 双簧共振合成)</button>
-        <a class="btn-pill" href="https://www.youtube.com/results?search_query=Dvorak+Symphony+No+9+Largo+English+Horn+solo" target="_blank" rel="noopener" style="text-decoration:none;">↗ 在 YouTube 打开交响乐团现场视频</a>
+        <button class="btn-pill" onclick="toggleSynth()" id="synthBtn2">▶ 播放英国管主题合成版</button>
+        <a class="btn-pill" href="https://www.youtube.com/watch?v=yZlenE1Nb8c" target="_blank" rel="noopener" style="text-decoration:none;">↗ 在 YouTube 打开完整第二乐章</a>
+      </div>
+      <div class="video-block">
+        <div class="audio-title">交响乐团演奏 · 第二乐章 Largo</div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/yZlenE1Nb8c" title="Dvořák Symphony No. 9, II. Largo — All-Star Orchestra" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="audio-sub">演奏：All-Star Orchestra；指挥：Gerard Schwarz。若内嵌播放受浏览器或地区限制，可使用上方 YouTube 链接直接打开。</div>
       </div>
     </section>
 
@@ -421,7 +445,7 @@
         </div>
       </div>
       <div class="portrait-card">
-        <img loading="lazy" decoding="async" src="https://www.meisterdrucke.us/kunstwerke/1260px/Byron_Company_-_Chinese_statesman_Li_Hung-Chang_on_his_visit_to_the_US_1896_%28silver_gelatin_prin_-_%28MeisterDrucke-298665%29.jpg" alt="1896年李鸿章访美历史照片" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/0/0f/Li_Hongzhang_in_1896.jpg'" />
+        <img loading="lazy" decoding="async" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Li_Hung_Chang_in_1896.jpg/960px-Li_Hung_Chang_in_1896.jpg" alt="1896年李鸿章访美历史照片" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/d/d7/Li_Hung_Chang_in_1896.jpg'" />
         <div class="portrait-info">
           <span class="portrait-year">1896.08 · 华尔道夫酒店</span>
           <strong>李鸿章</strong><br/>73岁，乘“圣路易斯号”抵美，美国报界借其名号将广东移民的廉价快炒包装成“李鸿章杂碎”。
@@ -455,8 +479,8 @@
     <p>它不仅依然存在，而且在百年间完成了一场近乎魔幻的<strong>阶级与空间大置换</strong>。站在曼哈顿中央公园西南角，百老汇大道斜切过正南北向的第八大道与正东西向的第59街，三条城市大动脉在此猛烈相撞，撕开了一个直径数百英尺的圆形广场。在纽约市政测绘学中，哥伦布圆环是整座城市的<strong>“零点坐标”（Mile Zero）</strong>——所有从纽约辐射向全美的公路里程，皆以广场中心那根1892年为纪念哥伦布航行美洲四百周年而建的70英尺花岗岩纪念柱为起点。</p>
 
     <figure class="art-plate">
-      <img loading="lazy" decoding="async" src="https://www.geographicguide.com/united-states/nyc/antique/broadway/columbus-circle/imagens/columbus-circle-ny.jpg" alt="1920年代纽约哥伦布圆环黑白历史照片" />
-      <figcaption><strong>1920年代前后的哥伦布圆环历史底片：</strong> 广场中央石柱顶端站立着大理石哥伦布雕像，柱身嵌着象征远洋征服的青铜船首（Rostra）；脚下有轨电车环形铁轨与T型福特车交织成机械蛛网，背景树立着“VICTOR留声机”巨幅广告牌。圆环西北角（第八大道983号）二楼弧形大窗内，正是当年霍普与妻子常去的“远东茶楼”（Far East Tea Garden）。</figcaption>
+      <img loading="lazy" decoding="async" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Columbus_Circle%2C_New_York_City-_%28Looking_south%29_LCCN2003677486.jpg/960px-Columbus_Circle%2C_New_York_City-_%28Looking_south%29_LCCN2003677486.jpg" alt="1921年纽约哥伦布圆环黑白历史照片" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/7/70/Columbus_Circle%2C_New_York_City-_%28Looking_south%29_LCCN2003677486.jpg'" />
+      <figcaption><strong>1921年的哥伦布圆环：</strong> 从高处俯瞰纪念柱、环形广场与周边商业建筑。原始档案：<a href="https://www.loc.gov/pictures/item/2003677486/" target="_blank" rel="noopener">美国国会图书馆</a>；图片为公共领域。</figcaption>
     </figure>
 
     <p>凝视上面这张1920年代哥伦布圆环的历史底片：在霍普作画的1929年，这里绝不是什么名流雅集之地，而是一个充满煤烟、铁锈与分贝暴力的<strong>平民工业交通漩涡</strong>。广场西侧紧邻着昼夜轰鸣的第九大道高架蒸汽与电力列车（The El），四周二层与三层的弧形商业楼宇顶上，竖立着美国橡胶轮胎、维克多留声机与报业帝国的巨幅广告牌。而在一楼汽车轮胎行与管乐器铺上方，<strong>二楼那一整排弧形大窗里，就藏着挂满霓虹灯牌的“杂碎中餐馆”</strong>。</p>
@@ -466,16 +490,16 @@
 
     <div class="landmark-grid">
       <figure class="art-plate">
-        <img loading="lazy" decoding="async" src="https://media.istockphoto.com/id/841386354/photo/aerial-view-of-columbus-circle-in-nyc.jpg?s=612x612&w=0&k=20&c=Ry4MUaDXTa-hZH_kdnGdrBaa0oXbPsh9lLAliMnp-zE=" alt="今日哥伦布圆环高空俯瞰实景" />
-        <figcaption><strong>今日哥伦布圆环高空俯瞰：</strong> 中心1892年纪念碑与环形喷泉广场未变，四周已从30美分的杂碎馆变为全球资本与豪宅的制高点。</figcaption>
+        <img loading="lazy" decoding="async" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Columbus_Circle_in_New_York_City.jpg/960px-Columbus_Circle_in_New_York_City.jpg" alt="2015年改造后的纽约哥伦布圆环航拍" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/7/71/Columbus_Circle_in_New_York_City.jpg'" />
+        <figcaption><strong>哥伦布圆环航拍（2015）：</strong> 中心纪念碑与环形广场仍是曼哈顿的城市空间核心。摄影：TarHeel4793；授权：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>；<a href="https://commons.wikimedia.org/wiki/File:Columbus_Circle_in_New_York_City.jpg" target="_blank" rel="noopener">查看原图</a>。</figcaption>
       </figure>
       <figure class="art-plate">
         <img loading="lazy" decoding="async" src="https://www.som.com/wp-content/uploads/2024/06/SOM_TWC_JamesEwing-2109_header-1718646041-scaled.jpg" alt="哥伦布圆环西侧的德意志银行中心双子塔" />
         <figcaption><strong>圆环西侧实景 · 德意志银行中心（Deutsche Bank Center，原时代华纳中心）：</strong> 耗资17亿美元建成的750英尺双子塔，紧邻当年第八大道983号“远东茶楼”原址街区。</figcaption>
       </figure>
       <figure class="art-plate">
-        <img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/4118-NYC-Columbus_Circle.JPG" alt="哥伦布圆环北侧的特朗普国际酒店大厦" />
-        <figcaption><strong>圆环北侧实景 · 特朗普国际酒店大厦（Trump International Hotel and Tower）：</strong> 哥伦布圆环1号，门前矗立着象征全球化的不锈钢地球仪。</figcaption>
+        <img loading="lazy" decoding="async" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/4118-NYC-Columbus_Circle.JPG/960px-4118-NYC-Columbus_Circle.JPG" alt="哥伦布圆环北侧的特朗普国际酒店大厦" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/e/e2/4118-NYC-Columbus_Circle.JPG'" />
+        <figcaption><strong>圆环北侧实景 · 特朗普国际酒店大厦（Trump International Hotel and Tower）：</strong> 哥伦布圆环1号，门前矗立着象征全球化的不锈钢地球仪。摄影：Ingfbruno；授权：<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>；<a href="https://commons.wikimedia.org/wiki/File:4118-NYC-Columbus_Circle.JPG" target="_blank" rel="noopener">查看原图</a>。</figcaption>
       </figure>
       <figure class="art-plate">
         <img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Billionaires%27_Row_2020.jpg" alt="哥伦布圆环南侧紧邻的57街亿万富翁大道超高层建筑群" />
@@ -553,8 +577,8 @@
 
     <div class="landmark-grid">
       <figure class="art-plate">
-        <img loading="lazy" decoding="async" src="https://i.redd.it/q60xjccybxb41.jpg" alt="1920年代纽约街头紧邻乐器行的二楼CHOP SUEY招牌历史照片" />
-        <figcaption><strong>1920年代纽约街头的二楼“杂碎馆”：</strong> 紧挨着西式管乐器行（New York Band Instrument Co.）的右侧建筑二楼，悬挑出繁复的“CHOP SUEY”垂直招牌，敞开的二楼窗台上摆着一排绿植。</figcaption>
+        <img loading="lazy" decoding="async" src="https://cdn.loc.gov/service/pnp/ggbain/32300/32395v.jpg" alt="1920至1925年纽约东14街的CHOP SUEY餐馆与乐器行历史照片" onerror="this.onerror=null;this.src='https://cdn.loc.gov/service/pnp/ggbain/32300/32395r.jpg'" />
+        <figcaption><strong>1920至1925年纽约东14街街景：</strong> 历史照片记录了 New York Band Instrument Co. 与相邻商业建筑。摄影：Bain News Service；档案：<a href="https://www.loc.gov/pictures/item/2014712548/" target="_blank" rel="noopener">美国国会图书馆</a>；馆藏标注无已知出版限制。</figcaption>
       </figure>
       <figure class="art-plate">
         <img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Edward_hopper_chop_suey.jpg" alt="霍普《杂碎》右下角白桌布上的宜兴紫砂茶壶细节对照" style="object-position: bottom right; object-fit: cover;" />
@@ -653,7 +677,7 @@
 
     <footer class="footer-note">
       <span>© 2026 EnyaClawd.com · Kerwin Macro, AI &amp; Capital Markets Research</span>
-      <span>全本未删节典藏版 · Kerwin Web FT Editorial Dual-Theme Standard</span>
+      <span>专题文章 · 图文与音乐导赏</span>
     </footer>
 
     <div class="brand-signature" aria-label="Kerwin 与 Enya 品牌署名">
@@ -778,7 +802,7 @@
         synthTimeouts.forEach(t => clearTimeout(t));
         synthTimeouts = [];
         isPlayingSynth = false;
-        btn1.textContent = '🎵 播放《自新大陆》英国管五声音阶 (内置离线引擎)';
+        btn1.textContent = '🎵 播放英国管主题合成版';
         btn2.textContent = '▶ 启动内置离线英国管五声音阶独奏 (零网络依赖 · 双簧共振合成)';
         return;
       }
