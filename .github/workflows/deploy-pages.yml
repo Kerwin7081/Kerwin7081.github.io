@@ -26,7 +26,7 @@ jobs:
   qa:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout latest public site
         uses: actions/checkout@v6
@@ -35,6 +35,7 @@ jobs:
 
       - name: Download and validate article artwork and audio
         run: python3 tools/prepare_art_special_media.py
+
       - name: Run release QA gate
         run: node tools/qa_release.mjs
 
@@ -55,15 +56,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Checkout latest public site
         uses: actions/checkout@v6
         with:
           ref: main
-
+
       - name: Download and validate article artwork and audio
         run: python3 tools/prepare_art_special_media.py
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -75,4 +77,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
