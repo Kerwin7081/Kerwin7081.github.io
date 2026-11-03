@@ -8,9 +8,12 @@ those local media files for primary playback/rendering.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
+import shutil
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -149,6 +152,34 @@ def download_one(filename: str, kind: str, urls: list[str]) -> dict:
                 time.sleep(1.2 * attempt)
     raise RuntimeError(f"Could not fetch {filename}:\n" + "\n".join(errors))
 
+def deep_verify_media() -> None:
+    try:
+        from PIL import Image
+    except ImportError as exc:
+        raise RuntimeError("Pillow is required for image decode validation") from exc
+
+    for filename, kind, _, _ in ASSETS:
+        path = ASSET_DIR / filename
+        if kind == "jpeg":
+            try:
+                with Image.open(path) as image:
+                    image.verify()
+            except Exception as exc:
+                raise RuntimeError(f"JPEG decode validation failed for {filename}: {exc}") from exc
+            print(f"DECODE OK image {filename}")
+        elif kind == "ogg":
+            if not shutil.which("ffmpeg"):
+                raise RuntimeError("ffmpeg is required for full Ogg audio decode validation")
+            result = subprocess.run(
+                ["ffmpeg", "-nostdin", "-v", "error", "-i", str(path), "-f", "null", "-"],
+                capture_output=True,
+                text=True,
+                timeout=180,
+            )
+            if result.returncode != 0:
+                raise RuntimeError(f"Ogg decode validation failed for {filename}: {result.stderr.strip()}")
+            print(f"DECODE OK audio {filename}")
+
 def verify_html() -> None:
     html = HTML_FILE.read_text(encoding="utf-8")
     image_srcs = re.findall(r"<img\b[^>]*\bsrc=[\"']([^\"']*)[\"']", html, flags=re.I)
@@ -171,6 +202,10 @@ def verify_html() -> None:
         raise RuntimeError("GPT tracking text found in public page source")
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--deep-verify", action="store_true", help="decode every JPEG and Ogg file after download")
+    args = parser.parse_args()
+
     if not HTML_FILE.is_file():
         raise SystemExit(f"Missing page HTML: {HTML_FILE}")
     ASSET_DIR.mkdir(parents=True, exist_ok=True)
@@ -189,6 +224,8 @@ def main() -> int:
         encoding="utf-8",
     )
     verify_html()
+    if args.deep_verify:
+        deep_verify_media()
     print(f"MEDIA QA PASSED: {len([x for x in results if x['kind'] == 'jpeg'])} images + {len([x for x in results if x['kind'] == 'ogg'])} audio files")
     return 0
 
