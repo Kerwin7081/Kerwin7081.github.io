@@ -161,7 +161,7 @@
       color: #1C1A17;
     }
 
-    /* 展开式 YouTube 播放器抽屉 */
+    /* 展开式 哔哩哔哩 播放器抽屉 */
     .video-drawer {
       display: none;
       background: #141210;
@@ -824,8 +824,8 @@
       </div>
       <div class="audio-actions">
         <button onclick="toggleGuzhengSynth()" id="synthBtn">♪ 古筝环境音</button>
-        <button onclick="toggleVideoDrawer()" id="drawerBtn" aria-controls="videoDrawer" aria-expanded="true">▲ 收起 YouTube 内嵌播放器</button>
-        <a href="https://www.youtube.com/watch?v=ffCKlqWOewo" rel="noopener noreferrer" target="_blank">YouTube 原站聆听 ↗</a>
+        <button onclick="toggleVideoDrawer()" id="drawerBtn" aria-controls="videoDrawer" aria-expanded="true">▲ 收起 哔哩哔哩 内嵌播放器</button>
+        <a href="https://www.bilibili.com/video/BV1oS4y1M72Y/" rel="noopener noreferrer" target="_blank">哔哩哔哩 原站聆听 ↗</a>
       </div>
     </div>
   </div>
@@ -834,13 +834,13 @@
   <div class="video-drawer active" id="videoDrawer">
     <div class="video-container">
       <div class="iframe-wrapper">
-        <iframe loading="lazy" src="https://www.youtube.com/embed/ffCKlqWOewo" title="Guzheng - High Mountain Flowing Water 古筝-高山流水" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://player.bilibili.com/player.html?bvid=BV1oS4y1M72Y&amp;page=1&amp;autoplay=0&amp;danmaku=0" title="《高山流水》浙江筝曲｜蔡文峰古筝演奏｜哔哩哔哩" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="listening-guide">
         <h4>视听联觉导读：以琴音游历“三远”</h4>
         <p><strong>第一乐段（低音刮奏与重颤音）：</strong> 对应五代董源《溪岸图》与北宋李成《晴峦萧寺图》底部的盘曲古木与巨石。在浑厚苍劲的琴音中，感受大地山骨的沉稳凝重。</p>
         <p><strong>第二乐段（高音区清越按滑与泛音）：</strong> 犹如飞泉漱玉倾泻而下。此时顺着画中飞瀑的轨迹抬头仰望隐入烟岚的千仞主峰，体会郭熙所言“高远之色清明，高远之势突兀”的胸襟涤荡。</p>
-        <p><strong>尾声（余音留白）：</strong> 对应元代倪瓒《容膝斋图》中的浩渺太湖留白，声希味淡，由高远之崇高归于平远之冲澹。也可点击 <a href="https://www.youtube.com/watch?v=ffCKlqWOewo" target="_blank" rel="noopener" style="color:#E6D7C3;text-decoration:underline;">YouTube 原链接 ↗</a> 聆听。</p>
+        <p><strong>尾声（余音留白）：</strong> 对应元代倪瓒《容膝斋图》中的浩渺太湖留白，声希味淡，由高远之崇高归于平远之冲澹。也可点击 <a href="https://www.bilibili.com/video/BV1oS4y1M72Y/" target="_blank" rel="noopener" style="color:#E6D7C3;text-decoration:underline;">哔哩哔哩 原链接 ↗</a> 聆听。</p>
       </div>
     </div>
   </div>
@@ -1317,16 +1317,16 @@
   </footer>
 
   <script>
-    // 1. YouTube 抽屉切换
+    // 1. 哔哩哔哩 抽屉切换
     function toggleVideoDrawer() {
       const drawer = document.getElementById('videoDrawer');
       const btn = document.getElementById('drawerBtn');
       drawer.classList.toggle('active');
       if (drawer.classList.contains('active')) {
-        btn.textContent = '▲ 收起 YouTube 内嵌播放器';
+        btn.textContent = '▲ 收起 哔哩哔哩 内嵌播放器';
         btn.setAttribute('aria-expanded', 'true');
       } else {
-        btn.textContent = '▶ 展开 YouTube 内嵌播放器';
+        btn.textContent = '▶ 展开 哔哩哔哩 内嵌播放器';
         btn.setAttribute('aria-expanded', 'false');
       }
     }
