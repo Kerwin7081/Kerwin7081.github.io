@@ -55,6 +55,13 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_audit_changed_pages.py'
           python3 -m unittest discover -s tests -p 'test_homepage_registry.py'
 
+      - name: Upload media files that passed full decode validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: art-special-media
+          path: 1600-caravaggio-qinhuai-art-special/assets/
+          retention-days: 1
+
   deploy:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     needs: qa
@@ -69,8 +76,11 @@ jobs:
         with:
           ref: main
 
-      - name: Download and validate article artwork and audio
-        run: python3 tools/prepare_art_special_media.py
+      - name: Download the exact media files that passed QA
+        uses: actions/download-artifact@v4
+        with:
+          name: art-special-media
+          path: 1600-caravaggio-qinhuai-art-special/assets/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
