@@ -831,6 +831,16 @@
       }
     }
 
+    .courtesan-image-note{margin:1rem 0 1.25rem;padding:.8rem 1rem;border-left:2px solid var(--accent-gold);background:rgba(207,165,100,.06);color:var(--text-muted);font-size:.82rem;line-height:1.75}
+    .courtesan-credit{margin:0 1.15rem .15rem;padding-top:.7rem;color:var(--text-muted);font-size:.72rem;line-height:1.6}
+    .courtesan-credit a{color:var(--accent-gold);text-decoration:none;white-space:nowrap}
+    .courtesan-credit a:hover{text-decoration:underline}
+    .courtesan-duo{display:flex;width:100%;height:195px;gap:4px;background:#080706;overflow:hidden}
+    .courtesan-duo .courtesan-thumb{flex:1 1 50%;width:50%;height:195px;min-width:0}
+    .courtesan-thumb.image-load-failed::after,.art-img-wrap.image-load-failed::after{content:"图像暂不可用 · 可查看作品档案";display:flex;align-items:center;justify-content:center;min-height:100%;padding:.5rem;color:var(--text-muted);font-size:.75rem;text-align:center}
+    .image-load-failed img{display:none!important}
+    @media(max-width:640px){.courtesan-credit{font-size:.7rem}.courtesan-image-note{font-size:.78rem}}
+
   </style>
 </head>
 <body>
@@ -918,8 +928,7 @@
     <div class="art-grid">
       <!-- Caravaggio 1 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg/1024px-Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg', '卡拉瓦乔《捧果篮的男孩》（约1593年，罗马博尔盖塞美术馆藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg/800px-Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg" alt="捧果篮的男孩" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg', '卡拉瓦乔《捧果篮的男孩》（约1593—1594年，罗马博尔盖塞美术馆藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg/960px-Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg/960px-Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg" alt="卡拉瓦乔《捧果篮的男孩》，约1593—1594年" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/6/64/Boy_with_a_Basket_of_Fruit-Caravaggio_%281593%29.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -935,8 +944,7 @@
 
       <!-- Caravaggio 2 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg/1280px-The_Lute_Player_by_Caravaggio_%28Hermitage%29.jpg', '卡拉瓦乔《弹鲁特琴的少年》（约1595年，冬宫藏）——画中五线谱为阿卡代尔特四声部牧歌《您知道我爱您》')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg/800px-The_Lute_Player_by_Caravaggio_%28Hermitage%29.jpg" alt="弹鲁特琴的少年" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg', '卡拉瓦乔《弹鲁特琴的少年》（约1595—1596年，圣彼得堡艾尔米塔什博物馆藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg/960px-Caravaggio-The_Lute_Player-Hermitage.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg/960px-Caravaggio-The_Lute_Player-Hermitage.jpg" alt="卡拉瓦乔《弹鲁特琴的少年》，艾尔米塔什博物馆藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/6/65/Caravaggio-The_Lute_Player-Hermitage.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -952,8 +960,7 @@
 
       <!-- Caravaggio 3 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Caravaggio_Judith_Beheading_Holofernes.jpg/1280px-Caravaggio_Judith_Beheading_Holofernes.jpg', '卡拉瓦乔《朱迪斯斩杀荷罗孚尼》（约1599年，罗马巴贝里尼宫藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Caravaggio_Judith_Beheading_Holofernes.jpg/800px-Caravaggio_Judith_Beheading_Holofernes.jpg" alt="朱迪斯斩杀荷罗孚尼" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/d/df/Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg', '卡拉瓦乔《朱迪斯斩杀荷罗孚尼》（约1599年，罗马巴贝里尼宫藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg/960px-Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg/960px-Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg" alt="卡拉瓦乔《朱迪斯斩杀荷罗孚尼》，约1599年" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/d/df/Caravaggio_-_Giuditta_e_Oloferne_%28ca._1599%29.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -969,8 +976,7 @@
 
       <!-- Caravaggio 4 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/1280px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg', '卡拉瓦乔《圣马太蒙召》（1600年，罗马圣王路易堂康塔雷利礼拜堂藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/800px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg" alt="圣马太蒙召" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg', '卡拉瓦乔《圣马太蒙召》（1599—1600年，罗马圣王路易堂康塔雷利礼拜堂）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/960px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/960px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg" alt="卡拉瓦乔《圣马太蒙召》，罗马圣王路易堂藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -986,8 +992,7 @@
 
       <!-- Caravaggio 5 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/1601-2_Caravaggio%2C_Supper_at_Emmaus_National_Gallery%2C_London.jpg/1280px-1601-2_Caravaggio%2C_Supper_at_Emmaus_National_Gallery%2C_London.jpg', '卡拉瓦乔《以马忤斯的晚餐》（1601年，伦敦国家美术馆藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/1601-2_Caravaggio%2C_Supper_at_Emmaus_National_Gallery%2C_London.jpg/800px-1601-2_Caravaggio%2C_Supper_at_Emmaus_National_Gallery%2C_London.jpg" alt="以马忤斯的晚餐" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/5/5c/Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg', '卡拉瓦乔《以马忤斯的晚餐》（1601年，伦敦国家美术馆藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg/960px-Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg/960px-Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg" alt="卡拉瓦乔《以马忤斯的晚餐》，伦敦国家美术馆藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/5/5c/Caravaggio_-_Supper_at_Emmaus_-_National_Gallery_London.jpeg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1002,8 +1007,7 @@
 
       <!-- Caravaggio 6 -->
       <article class="art-card">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg/1024px-David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg', '卡拉瓦乔《手提歌利亚头颅的大卫》（1610年，罗马博尔盖塞美术馆藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg/800px-David_with_the_Head_of_Goliath-Caravaggio_%281610%29.jpg" alt="手提歌利亚头颅的大卫" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/0/09/Caravaggiodavidborghese.jpg', '卡拉瓦乔《手提歌利亚头颅的大卫》（约1606—1610年，罗马博尔盖塞美术馆藏）', 'https://upload.wikimedia.org/wikipedia/commons/0/09/Caravaggiodavidborghese.jpg')"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Caravaggiodavidborghese.jpg" alt="卡拉瓦乔《手提歌利亚头颅的大卫》，罗马博尔盖塞美术馆藏" loading="lazy" decoding="async" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1038,8 +1042,7 @@
     <div class="art-grid" id="ming-gallery">
       <!-- Xu Wei -->
       <article class="art-card" data-group="wanli">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Xu_Wei_-_Grapes.jpg/800px-Xu_Wei_-_Grapes.jpg', '徐渭《墨葡萄图》（北京故宫博物院藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Xu_Wei_-_Grapes.jpg/600px-Xu_Wei_-_Grapes.jpg" alt="徐渭墨葡萄图" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/4/41/Xu_Wei_Grapes.jpg', '徐渭《墨葡萄图》（明代，北京故宫博物院藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Xu_Wei_Grapes.jpg/509px-Xu_Wei_Grapes.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Xu_Wei_Grapes.jpg/509px-Xu_Wei_Grapes.jpg" alt="徐渭《墨葡萄图》，北京故宫博物院藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/4/41/Xu_Wei_Grapes.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1055,11 +1058,10 @@
 
       <!-- Dong Qichang -->
       <article class="art-card" data-group="wanli">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Dong_Qichang_-_Wanluan_Thatched_Hall.jpg/800px-Dong_Qichang_-_Wanluan_Thatched_Hall.jpg', '董其昌《婉娈草堂图》（1597年，台北故宫博物院藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Dong_Qichang_-_Wanluan_Thatched_Hall.jpg/600px-Dong_Qichang_-_Wanluan_Thatched_Hall.jpg" alt="董其昌婉娈草堂图" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/1/1e/Wanluan_Thatched_Hall_by_Dong_Qichang.jpg', '董其昌《婉娈草堂图》（1597年，台北私人收藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Wanluan_Thatched_Hall_by_Dong_Qichang.jpg/500px-Wanluan_Thatched_Hall_by_Dong_Qichang.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Wanluan_Thatched_Hall_by_Dong_Qichang.jpg/500px-Wanluan_Thatched_Hall_by_Dong_Qichang.jpg" alt="董其昌《婉娈草堂图》，台北私人收藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/1/1e/Wanluan_Thatched_Hall_by_Dong_Qichang.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>        </div>
         <div class="art-body">
-          <div class="art-meta">董其昌 (1555–1636) · 台北故宫博物院</div>
+          <div class="art-meta">董其昌 (1555–1636) · 台北私人收藏</div>
           <h3 class="art-title">《婉娈草堂图》与《秋兴八景》· 南北宗首席估值官</h3>
           <p class="art-desc">万历十七年进士。抛出《南北宗论》做多“元四家”、做空南宋院体画与仇英，令黄公望《富春山居图》估值飙升至 1,000两白银（约合 $90,000 美元），其个人润格亦达 30—50两白银（约合 $2,700—$4,500 美元）。</p>
           <div class="art-links">
@@ -1071,8 +1073,7 @@
 
       <!-- Chen Hongshou -->
       <article class="art-card" data-group="wanli">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Leaf_album_painting_by_Chen_Hongshou.jpg/800px-Leaf_album_painting_by_Chen_Hongshou.jpg', '陈洪绶高古人物花鸟册页（明末变形主义代表作）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Leaf_album_painting_by_Chen_Hongshou.jpg/600px-Leaf_album_painting_by_Chen_Hongshou.jpg" alt="陈洪绶作品" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/d/d7/Chen_Hongshou%2C_leaf_album_painting.jpg', '陈洪绶《玉堂柱石图》（北京故宫博物院藏；此图为其代表作品之一，并非《无法可说图》或《水浒叶子》原作）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Chen_Hongshou%2C_leaf_album_painting.jpg/960px-Chen_Hongshou%2C_leaf_album_painting.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Chen_Hongshou%2C_leaf_album_painting.jpg/960px-Chen_Hongshou%2C_leaf_album_painting.jpg" alt="陈洪绶《玉堂柱石图》，北京故宫博物院藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/d/d7/Chen_Hongshou%2C_leaf_album_painting.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1088,8 +1089,7 @@
 
       <!-- Zeng Jing -->
       <article class="art-card" data-group="wanli">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/800px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg', '曾鲸波臣派与晚明人物写真传统对照')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/600px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg" alt="晚明人物肖像" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/c/c7/Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG', '曾鲸《王时敏小像》（1616年，天津博物馆藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG/500px-Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG/500px-Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG" alt="曾鲸《王时敏小像》，1616年" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/c/c7/Zeng_Jing_-_Portrait_of_Wang_Shimin.JPG" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1104,8 +1104,7 @@
 
       <!-- Qiu Ying & 100 Beauties -->
       <article class="art-card" data-group="wumen">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg/1280px-Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg', '仇英《汉宫春晓图》与晚明《百美图》母本（台北故宫博物院藏）')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg/800px-Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg" alt="仇英汉宫春晓图" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/f/fa/Ch%27iu_Ying_001.jpg', '仇英《汉宫春晓图》局部（明代，台北故宫博物院藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Ch%27iu_Ying_001.jpg/960px-Ch%27iu_Ying_001.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Ch%27iu_Ying_001.jpg/960px-Ch%27iu_Ying_001.jpg" alt="仇英《汉宫春晓图》局部" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/f/fa/Ch%27iu_Ying_001.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1121,8 +1120,7 @@
 
       <!-- Tang Yin & Wen Zhengming / Shen Zhou -->
       <article class="art-card" data-group="wumen">
-        <div class="art-img-wrap" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/800px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg', '唐寅《王蜀宫妓图》（北京故宫博物院藏）——明代竖领与子母扣实证')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/600px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg" alt="唐寅王蜀宫妓图" loading="lazy" referrerpolicy="no-referrer" />
+        <div class="art-img-wrap" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg', '唐寅《王蜀宫妓图》（明代，北京故宫博物院藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/960px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg/960px-Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg" alt="唐寅《王蜀宫妓图》，北京故宫博物院藏" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/8/82/Court_Ladies_of_the_Former_Shu_by_Tang_Yin.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" />
           <span class="zoom-hint">点击全屏放大</span>
         </div>
         <div class="art-body">
@@ -1148,14 +1146,15 @@
       </p>
     </div>
 
+    <div class="courtesan-image-note">
+      <strong>图像说明：</strong>明末秦淮名伎并非人人都有可靠的生前肖像。以下优先采用可核实的本人书画、后世画像或群体纪念图像；每张图均标注其性质。后世追绘不等同于本人时代的写生，更不是现代意义上的“照片”。
+    </div>
+
     <div class="courtesan-grid">
       <!-- 1. Ma Xianglan -->
       <div class="courtesan-card">
-        <div class="courtesan-thumb" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Xu_Wei_-_Grapes.jpg/800px-Xu_Wei_-_Grapes.jpg', '马湘兰（1548–1604）水墨兰竹传统真迹风格对照')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Leaf_album_painting_by_Chen_Hongshou.jpg/600px-Leaf_album_painting_by_Chen_Hongshou.jpg" alt="马湘兰兰竹美学" loading="lazy" referrerpolicy="no-referrer" />
-          <span class="zoom-hint">八艳前辈·墨兰宗师</span>
-        </div>
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/a/a9/%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg', '传马守真《兰石图》（大都会艺术博物馆藏）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg/500px-%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg/500px-%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg" alt="传马守真《兰石图》" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/a/a9/%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">传马守真·《兰石图》</span></div>
+        <div class="courtesan-inner"><div class="courtesan-credit">图像：传马守真《兰石图》｜大都会艺术博物馆藏；馆藏归属说明为 attributed to，故以“传”标注。 <a href="https://commons.wikimedia.org/wiki/File:%E6%98%8E_%E5%82%B3%E9%A6%AC%E5%AE%88%E7%9C%9F_%E8%98%AD%E7%9F%B3%E5%9C%96_%E8%BB%B8-Orchid_and_Rock_MET_DT8794.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">1. 马湘兰（马守真）</span>
             <span class="courtesan-dates">1548–1604 · 万历盛世</span>
@@ -1172,11 +1171,8 @@
 
       <!-- 2. Liu Rushi -->
       <div class="courtesan-card">
-        <div class="courtesan-thumb" onclick="openLightbox('https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Dong_Qichang_-_Wanluan_Thatched_Hall.jpg/800px-Dong_Qichang_-_Wanluan_Thatched_Hall.jpg', '柳如是（1618–1664）江南山水与半野堂雅集语境')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Dong_Qichang_-_Wanluan_Thatched_Hall.jpg/600px-Dong_Qichang_-_Wanluan_Thatched_Hall.jpg" alt="柳如是江南山水" loading="lazy" referrerpolicy="no-referrer" />
-          <span class="zoom-hint">八艳之首·儒衫殉国</span>
-        </div>
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/0/0d/Portrait_of_Liu_Rushi.jpg', '《柳如是画像》（陆继、程庭鹭绘）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Portrait_of_Liu_Rushi.jpg/960px-Portrait_of_Liu_Rushi.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Portrait_of_Liu_Rushi.jpg/960px-Portrait_of_Liu_Rushi.jpg" alt="陆继、程庭鹭绘《柳如是画像》" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/0/0d/Portrait_of_Liu_Rushi.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">柳如是·后世画像</span></div>
+        <div class="courtesan-inner"><div class="courtesan-credit">图像：陆继、程庭鹭绘《柳如是画像》｜18—19世纪后世画像，并非生前写照。 <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Liu_Rushi.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">2. 柳如是（河东君）</span>
             <span class="courtesan-dates">1618–1664 · 复社知己</span>
@@ -1193,11 +1189,8 @@
 
       <!-- 3. Li Xiangjun -->
       <div class="courtesan-card">
-        <div class="courtesan-thumb" onclick="switchBiliVideo('BV1PE411e7MX', '昆曲《桃花扇·余韵·哀江南》实景演出')">
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg/600px-Qiu_Ying_-_Spring_Morning_in_the_Han_Palace.jpg" alt="李香君媚香楼" loading="lazy" referrerpolicy="no-referrer" />
-          <span class="zoom-hint">点击在B站剧场播放《桃花扇》</span>
-        </div>
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/a/a9/Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg', '清代崔鹤《李香君像》（约1800—1850年）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg/500px-Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg/500px-Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg" alt="清代崔鹤绘《李香君像》" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/a/a9/Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">李香君·清代画像</span></div>
+        <div class="courtesan-inner"><div class="courtesan-credit">图像：崔鹤《李香君像》（约1800—1850年）｜清代后世画像，并非生前写照。 <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Li_Xiangjun_%28%E6%9D%8E%E9%A6%99%E5%90%9B%29_by_Cui_He.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">3. 李香君（媚香楼）</span>
             <span class="courtesan-dates">1624–1654 · 血染桃花扇</span>
@@ -1214,7 +1207,7 @@
 
       <!-- 4. Gu Hengbo -->
       <div class="courtesan-card">
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/2/2d/%E9%A1%BE%E7%9C%89%E5%85%B0%E8%8A%B1%E5%9B%BE%E6%89%87%E9%A1%B5.jpg', '顾横波《顾眉兰花图扇页》（1636年）', 'https://upload.wikimedia.org/wikipedia/commons/2/2d/%E9%A1%BE%E7%9C%89%E5%85%B0%E8%8A%B1%E5%9B%BE%E6%89%87%E9%A1%B5.jpg')"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/%E9%A1%BE%E7%9C%89%E5%85%B0%E8%8A%B1%E5%9B%BE%E6%89%87%E9%A1%B5.jpg" alt="顾横波《顾眉兰花图扇页》" loading="lazy" decoding="async" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">顾横波·本人书画</span></div><div class="courtesan-inner"><div class="courtesan-credit">图像：顾横波《顾眉兰花图扇页》（1636年）｜故宫博物院藏。 <a href="https://commons.wikimedia.org/wiki/File:%E9%A1%BE%E7%9C%89%E5%85%B0%E8%8A%B1%E5%9B%BE%E6%89%87%E9%A1%B5.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">4. 顾横波（顾眉）</span>
             <span class="courtesan-dates">1619–1664 · 眉楼一品夫人</span>
@@ -1231,7 +1224,7 @@
 
       <!-- 5. Dong Xiaowan -->
       <div class="courtesan-card">
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/f/f6/Dong_Xiaowan.jpg', '禹之鼎《女青莲小影》（董小宛，清代后世画像）', 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Dong_Xiaowan.jpg')"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Dong_Xiaowan.jpg" alt="禹之鼎绘《女青莲小影》（董小宛）" loading="lazy" decoding="async" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">董小宛·后世画像</span></div><div class="courtesan-inner"><div class="courtesan-credit">图像：禹之鼎《女青莲小影》｜清代晚期17—18世纪后世画像；董小宛已于1651年去世，不是生前写照。 <a href="https://commons.wikimedia.org/wiki/File:Dong_Xiaowan.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">5. 董小宛（董白）</span>
             <span class="courtesan-dates">1624–1651 · 水绘园针神</span>
@@ -1248,7 +1241,7 @@
 
       <!-- 6. Bian Yujing -->
       <div class="courtesan-card">
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/5/56/Bian_Yujing_-_yujing_%E5%85%B0%E7%9F%B3.jpg', '卞玉京《兰石》', 'https://upload.wikimedia.org/wikipedia/commons/5/56/Bian_Yujing_-_yujing_%E5%85%B0%E7%9F%B3.jpg')"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Bian_Yujing_-_yujing_%E5%85%B0%E7%9F%B3.jpg" alt="卞玉京《兰石》书画作品" loading="lazy" decoding="async" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">卞玉京·书画作品</span></div><div class="courtesan-inner"><div class="courtesan-credit">图像：卞玉京《兰石》｜以传世书画作品呈现，不作人物肖像。 <a href="https://commons.wikimedia.org/wiki/File:Bian_Yujing_-_yujing_%E5%85%B0%E7%9F%B3.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">6. 卞玉京（玉京道人）</span>
             <span class="courtesan-dates">约1623–1665 · 刺舌血书经卷</span>
@@ -1265,7 +1258,7 @@
 
       <!-- 7. Kou Baimen -->
       <div class="courtesan-card">
-        <div class="courtesan-inner">
+        <div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/5/51/%E7%A7%A6%E6%B7%AE%E5%85%AB%E8%89%B3.JPG', '秦淮八艳纪念浮雕（局部；非寇白门单人肖像）', 'https://upload.wikimedia.org/wikipedia/commons/5/51/%E7%A7%A6%E6%B7%AE%E5%85%AB%E8%89%B3.JPG')"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/%E7%A7%A6%E6%B7%AE%E5%85%AB%E8%89%B3.JPG" alt="秦淮八艳纪念浮雕局部（非寇白门单人肖像）" loading="lazy" decoding="async" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">秦淮八艳·纪念浮雕</span></div><div class="courtesan-inner"><div class="courtesan-credit">图像：秦淮八艳纪念浮雕（局部）｜现有可核实开放图像中未找到可信的寇白门单人传世像，此图仅作群体纪念图像，不冒充本人肖像。 <a href="https://commons.wikimedia.org/wiki/File:%E7%A7%A6%E6%B7%AE%E5%85%AB%E8%89%B3.JPG" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">7. 寇白门（女侠寇湄）</span>
             <span class="courtesan-dates">1624–？ · 匹马万金赎懦夫</span>
@@ -1282,7 +1275,7 @@
 
       <!-- 8. Chen Yuanyuan & Xue Susu -->
       <div class="courtesan-card">
-        <div class="courtesan-inner">
+        <div class="courtesan-duo" aria-label="陈圆圆画像与薛素素书画作品"><div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/d/d0/Portrait_of_Chen_Yuanyuan.jpg', '陈圆圆画像（17世纪图像，作者不详）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Portrait_of_Chen_Yuanyuan.jpg/500px-Portrait_of_Chen_Yuanyuan.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Portrait_of_Chen_Yuanyuan.jpg/500px-Portrait_of_Chen_Yuanyuan.jpg" alt="陈圆圆画像，17世纪图像，作者不详" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/d/d0/Portrait_of_Chen_Yuanyuan.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">陈圆圆·后世画像</span></div><div class="courtesan-thumb" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/7/7e/%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg', '薛素素《梅花水仙图轴》（1633年）', 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg/330px-%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg')"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg/330px-%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg" alt="薛素素《梅花水仙图轴》，1633年" loading="lazy" decoding="async" data-fallback="https://upload.wikimedia.org/wikipedia/commons/7/7e/%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.dataset.fallback='';this.src=f;}else{this.style.display='none';this.parentElement.classList.add('image-load-failed');}" /><span class="zoom-hint">薛素素·《梅花水仙图轴》</span></div></div><div class="courtesan-inner"><div class="courtesan-credit"><strong>陈圆圆：</strong>17世纪图像，收录于《清史图典》，作者不详，非可确认的生前写生。<a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Chen_Yuanyuan.jpg" target="_blank" rel="noopener">画像档案 ↗</a><br><strong>薛素素：</strong>《梅花水仙图轴》（1633年），上海博物馆藏。<a href="https://commons.wikimedia.org/wiki/File:%E8%96%9B%E7%B4%A0%E7%B4%A0_%E6%A2%85%E8%8A%B1%E6%B0%B4%E4%BB%99%E5%9B%BE%E8%BD%B4.jpg" target="_blank" rel="noopener">作品档案 ↗</a></div>
           <div class="courtesan-header">
             <span class="courtesan-name">8. 陈圆圆 &amp; 万历才女薛素素</span>
             <span class="courtesan-dates">1623–1695 / 1564–1650</span>
@@ -1456,7 +1449,7 @@
   <!-- Lightbox Modal -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">关闭 ×</button>
-    <img id="lightbox-img" src="" alt="高清真迹预览" referrerpolicy="no-referrer" />
+    <img id="lightbox-img" src="" alt="高清真迹预览" />
     <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
 
@@ -1502,9 +1495,15 @@
       }
     }
 
-    function openLightbox(src, caption) {
+    function openLightbox(src, caption, fallback) {
       const lb = document.getElementById("lightbox");
-      document.getElementById("lightbox-img").src = src;
+      const image = document.getElementById("lightbox-img");
+      image.onerror = function () {
+        if (fallback && image.src !== fallback) { image.onerror = null; image.src = fallback; }
+        else { image.style.display = "none"; document.getElementById("lightbox-caption").textContent = caption + "（高清图暂不可用，可先查看页面缩略图）"; }
+      };
+      image.style.display = "block";
+      image.src = src;
       document.getElementById("lightbox-caption").textContent = caption;
       lb.classList.add("open");
     }
