@@ -237,7 +237,11 @@ tbody tr:nth-child(even){background:var(--surface)}
 .concept-illustration{margin:26px 0;padding:0;border:1px solid var(--line-dark);background:var(--surface)}
 .concept-illustration svg{display:block;width:100%;height:auto}
 .concept-illustration figcaption{padding:8px 12px;color:var(--muted);font-size:12px;line-height:1.55}
-@media(max-width:760px){.concept-illustration figcaption{font-size:12px}.concept-illustration svg{min-height:130px}}
+@media(max-width:760px){.concept-illustration figcaption{font-size:12px}.concept-illustration svg{display:none}.concept-mobile{display:grid!important}}
+.concept-mobile{display:none;gap:0}
+.concept-mobile div{display:grid;gap:3px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.concept-mobile b{font:700 16px/1.4 var(--serif);color:var(--green)}
+.concept-mobile span{font-size:13px;line-height:1.55;color:var(--muted)}
 </style>
 </head>
 <body class="kw-research kw-wide" data-layout-id="kerwin-editorial-research-v1" data-page-slug="rwa-agent-finance-20261103">
@@ -318,6 +322,11 @@ tbody tr:nth-child(even){background:var(--surface)}
           <text x="450" y="276">法律权属与托管是基础　·　互操作与风控是条件　·　机器执行是增量</text>
         </g>
       </svg>
+      <div class="concept-mobile" aria-label="资产、结算与Agent三层关系">
+        <div><b>01｜资产端</b><span>基金、债券、黄金：权益可验证、可转移</span></div>
+        <div><b>02｜结算端</b><span>代币化存款与稳定币：协调货币与资产交收</span></div>
+        <div><b>03｜Agent端</b><span>目标、授权与规则：机器持续调用金融服务</span></div>
+      </div>
       <figcaption id="concept-caption">金融技术的三条线：资产的数字化权利、能够真正交收的货币、在授权边界内执行的AI Agent。所有示意图与交互案例均为原创结构图，不使用可能失效的外部图片链接。</figcaption>
     </figure>
   </section>
