@@ -163,7 +163,10 @@ def deep_verify_media() -> None:
         if kind == "jpeg":
             try:
                 with Image.open(path) as image:
-                    image.verify()
+                    width, height = image.size
+                    if width < 150 or height < 150:
+                        raise RuntimeError(f"unexpectedly small dimensions: {width}x{height}")
+                    image.load()
             except Exception as exc:
                 raise RuntimeError(f"JPEG decode validation failed for {filename}: {exc}") from exc
             print(f"DECODE OK image {filename}")
