@@ -717,6 +717,7 @@
       box-shadow: 0 0 10px var(--accent-gold);
     }
 
+    .audio-inline-status { color: var(--text-muted); font-size: .72rem; margin-top: .3rem; min-height: 1.2em; }
     #audio-load-status { color: var(--text-muted); font-size: .72rem; line-height: 1.4; min-height: 1.2em; margin-top: .2rem; }
     .player-controls {
       display: flex;
@@ -1377,7 +1378,8 @@
       <div class="track-card">
         <span class="track-badge baroque">1607 巴洛克歌剧开山之作 · 原声直放</span>
         <h3 style="color:#fff;font-size:1.05rem;">蒙特威尔第《奥菲欧》开场托卡塔 (L'Orfeo - Toccata)</h3>
-        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"></audio>
+        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}"></audio>
+      <div class="audio-inline-status" aria-live="polite">音源加载后可直接播放；若浏览器暂时未响应，请使用底部播放器。</div>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(0)">送入底部全局播放器 ♫</button>
           <a class="btn-bili" href="https://www.bilibili.com/video/BV1rq4y1S7nW/" target="_blank" rel="noopener">B站全剧视频 ↗</a>
@@ -1387,7 +1389,8 @@
       <div class="track-card">
         <span class="track-badge baroque">1638 威尼斯牧歌 · 女高音与器乐</span>
         <h3 style="color:#fff;font-size:1.05rem;">蒙特威尔第《仙女的哀歌》（Lamento della Ninfa）</h3>
-        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Monteverdi_-_Lamento_della_Ninfa.ogg"></audio>
+        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Monteverdi_-_Lamento_della_Ninfa.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}"></audio>
+      <div class="audio-inline-status" aria-live="polite">音源加载后可直接播放；若浏览器暂时未响应，请使用底部播放器。</div>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(1)">送入底部全局播放器 ♫</button>
           <a class="btn-bili" href="https://search.bilibili.com/all?keyword=Gesualdo+Moro+lasso" target="_blank" rel="noopener">B站搜杰苏阿尔多牧歌 ↗</a>
@@ -1397,7 +1400,8 @@
       <div class="track-card">
         <span class="track-badge ming">1614 晚明虞山派古琴 · 清微淡远</span>
         <h3 style="color:#fff;font-size:1.05rem;">传统古琴曲《流水》实录 &amp; 昆曲工尺谱合成器</h3>
-        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Liu_Shui.ogg"></audio>
+        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Liu_Shui.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}"></audio>
+      <div class="audio-inline-status" aria-live="polite">音源加载后可直接播放；若浏览器暂时未响应，请使用底部播放器。</div>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(2)">送入底部全局播放器 ♫</button>
           <button class="btn-link" onclick="playSynthesizedKunqu()">离线合成【皂罗袍】笛音 ♫</button>
@@ -1456,7 +1460,7 @@
         <option value="1">2. [西方 1638] 蒙特威尔第《仙女的哀歌》</option>
         <option value="2">3. [东方 晚明] 传统古琴名曲《流水》选段</option>
       </select>
-      <audio id="global-audio" controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"></audio>
+      <audio id="global-audio" controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}"></audio>
       <div id="audio-load-status" role="status" aria-live="polite">选择曲目后按播放键；音源载入后会显示就绪状态。</div>
     </div>
   </div>
@@ -1472,15 +1476,15 @@
     const globalTracks = [
       {
         title: "蒙特威尔第《奥菲欧》开场托卡塔 (1607)",
-        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"
+        url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg"
       },
       {
         title: "蒙特威尔第《仙女的哀歌》（Lamento della Ninfa）",
-        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Monteverdi_-_Lamento_della_Ninfa.ogg"
+        url: "https://upload.wikimedia.org/wikipedia/commons/4/41/Monteverdi_-_Lamento_della_Ninfa.ogg"
       },
       {
         title: "晚明文人雅音 · 传统古琴名曲《流水》",
-        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liu_Shui.ogg"
+        url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Liu_Shui.ogg"
       }
     ];
 
