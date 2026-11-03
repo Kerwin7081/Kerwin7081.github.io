@@ -1381,7 +1381,7 @@
       <div class="track-card">
         <span class="track-badge baroque">1607 巴洛克歌剧开山之作 · 原声直放</span>
         <h3 style="color:#fff;font-size:1.05rem;">蒙特威尔第《奥菲欧》开场托卡塔 (L'Orfeo - Toccata)</h3>
-        <audio controls preload="metadata" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=document.getElementById('audio-load-status');if(s){s.textContent='音源加载失败，请更换曲目或稍后重试';}" oncanplay="var s=document.getElementById('audio-load-status');if(s){s.textContent='音源已就绪 · 可以播放';}"></audio>
+        <audio controls preload="metadata" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}" oncanplay="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源已就绪 · 可以播放';}"></audio>
       <div class="audio-inline-status" aria-live="polite">音源加载后可直接播放；若浏览器暂时未响应，请使用底部播放器。</div>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(0)">送入底部全局播放器 ♫</button>
@@ -1463,7 +1463,7 @@
         <option value="1">2. [西方 1638] 蒙特威尔第《仙女的哀歌》</option>
         <option value="2">3. [东方 晚明] 传统古琴名曲《流水》选段</option>
       </select>
-      <audio id="global-audio" controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源暂时无法加载，请使用下方底部播放器或打开曲目原档。';}" oncanplay="var s=this.nextElementSibling;if(s&&s.classList.contains('audio-inline-status')){s.textContent='音源已就绪 · 可以播放';}"></audio>
+      <audio id="global-audio" controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Orfeo_-_Toccata.ogg" onerror="var s=document.getElementById('audio-load-status');if(s){s.textContent='音源加载失败，请更换曲目或稍后重试';}" oncanplay="var s=document.getElementById('audio-load-status');if(s){s.textContent='音源已就绪 · 可以播放';}"></audio>
       <div id="audio-load-status" role="status" aria-live="polite">选择曲目后按播放键；音源载入后会显示就绪状态。</div>
     </div>
   </div>
