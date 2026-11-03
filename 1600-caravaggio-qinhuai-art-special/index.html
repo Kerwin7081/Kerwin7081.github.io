@@ -132,13 +132,26 @@
     }
 
     .hero h1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       font-size: clamp(1.9rem, 5.2vw, 3.6rem);
       font-weight: 700;
-      line-height: 1.22;
-      max-width: 980px;
-      margin-bottom: 0.75rem;
+      line-height: 1.28;
+      width: 100%;
+      max-width: none;
+      margin: 0 auto 0.75rem;
       color: #ffffff;
       text-shadow: 0 10px 32px rgba(0, 0, 0, 0.75);
+    }
+    .hero h1 span { display: block; width: 100%; text-align: center; }
+    .hero h1 .title-connector {
+      color: var(--accent-gold);
+      font-size: .72em;
+      line-height: 1.35;
+      font-weight: 500;
     }
 
     .hero-subtitle {
@@ -704,6 +717,7 @@
       box-shadow: 0 0 10px var(--accent-gold);
     }
 
+    #audio-load-status { color: var(--text-muted); font-size: .72rem; line-height: 1.4; min-height: 1.2em; margin-top: .2rem; }
     .player-controls {
       display: flex;
       align-items: center;
@@ -860,7 +874,7 @@
   <!-- Hero Section -->
   <header class="hero">
     <span class="hero-kicker">ENYACLAWD SPECIAL · LATE 16TH CENTURY AUDIO-VISUAL ODYSSEY</span>
-    <h1>狂狷的卡拉瓦乔与柔艳刚烈的秦淮八艳</h1>
+    <h1><span>狂狷的卡拉瓦乔</span><span class="title-connector">与</span><span>柔艳刚烈的秦淮八艳</span></h1>
     <div class="hero-subtitle">16世纪末的东西方艺术时空穿梭视听盛宴</div>
 
     <section class="kerwin-foreword" aria-label="Kerwin 导语">
@@ -1363,7 +1377,7 @@
       <div class="track-card">
         <span class="track-badge baroque">1607 巴洛克歌剧开山之作 · 原声直放</span>
         <h3 style="color:#fff;font-size:1.05rem;">蒙特威尔第《奥菲欧》开场托卡塔 (L'Orfeo - Toccata)</h3>
-        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Orfeo_-_Toccata.ogg"></audio>
+        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"></audio>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(0)">送入底部全局播放器 ♫</button>
           <a class="btn-bili" href="https://www.bilibili.com/video/BV1rq4y1S7nW/" target="_blank" rel="noopener">B站全剧视频 ↗</a>
@@ -1371,9 +1385,9 @@
       </div>
 
       <div class="track-card">
-        <span class="track-badge baroque">1602 佛罗伦萨新音乐 · 鲁特琴与独唱</span>
-        <h3 style="color:#fff;font-size:1.05rem;">卡奇尼《新音乐》巴洛克咏叹调与鲁特琴伴奏</h3>
-        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Francesca_Caccini_-_Che_desia_di_saper.ogg"></audio>
+        <span class="track-badge baroque">1638 威尼斯牧歌 · 女高音与器乐</span>
+        <h3 style="color:#fff;font-size:1.05rem;">蒙特威尔第《仙女的哀歌》（Lamento della Ninfa）</h3>
+        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Monteverdi_-_Lamento_della_Ninfa.ogg"></audio>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(1)">送入底部全局播放器 ♫</button>
           <a class="btn-bili" href="https://search.bilibili.com/all?keyword=Gesualdo+Moro+lasso" target="_blank" rel="noopener">B站搜杰苏阿尔多牧歌 ↗</a>
@@ -1383,7 +1397,7 @@
       <div class="track-card">
         <span class="track-badge ming">1614 晚明虞山派古琴 · 清微淡远</span>
         <h3 style="color:#fff;font-size:1.05rem;">传统古琴曲《流水》实录 &amp; 昆曲工尺谱合成器</h3>
-        <audio controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Guqin_-_Flowing_Water.ogg"></audio>
+        <audio controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Liu_Shui.ogg"></audio>
         <div class="art-links">
           <button class="btn-link" onclick="loadGlobalTrack(2)">送入底部全局播放器 ♫</button>
           <button class="btn-link" onclick="playSynthesizedKunqu()">离线合成【皂罗袍】笛音 ♫</button>
@@ -1439,10 +1453,11 @@
     <div class="player-controls">
       <select id="global-track-select" onchange="loadGlobalTrack(this.value)">
         <option value="0">1. [西方 1607] 蒙特威尔第《奥菲欧》托卡塔</option>
-        <option value="1">2. [西方 1618] 佛罗伦萨巴洛克鲁特琴咏叹调</option>
+        <option value="1">2. [西方 1638] 蒙特威尔第《仙女的哀歌》</option>
         <option value="2">3. [东方 晚明] 传统古琴名曲《流水》选段</option>
       </select>
-      <audio id="global-audio" controls preload="none" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Orfeo_-_Toccata.ogg"></audio>
+      <audio id="global-audio" controls preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"></audio>
+      <div id="audio-load-status" role="status" aria-live="polite">选择曲目后按播放键；音源载入后会显示就绪状态。</div>
     </div>
   </div>
 
@@ -1457,15 +1472,15 @@
     const globalTracks = [
       {
         title: "蒙特威尔第《奥菲欧》开场托卡塔 (1607)",
-        url: "https://upload.wikimedia.org/wikipedia/commons/0/07/Orfeo_-_Toccata.ogg"
+        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Orfeo_-_Toccata.ogg"
       },
       {
-        title: "卡奇尼《新音乐》巴洛克独唱与鲁特琴伴奏",
-        url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Francesca_Caccini_-_Che_desia_di_saper.ogg"
+        title: "蒙特威尔第《仙女的哀歌》（Lamento della Ninfa）",
+        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Monteverdi_-_Lamento_della_Ninfa.ogg"
       },
       {
         title: "晚明文人雅音 · 传统古琴名曲《流水》",
-        url: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Guqin_-_Flowing_Water.ogg"
+        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liu_Shui.ogg"
       }
     ];
 
@@ -1478,8 +1493,18 @@
       const selectEl = document.getElementById("global-track-select");
       selectEl.value = idx;
       titleEl.textContent = track.title;
+      const statusEl = document.getElementById("audio-load-status");
+      statusEl.textContent = "正在连接音源…";
+      audioEl.pause();
       audioEl.src = track.url;
-      audioEl.play().catch(() => {});
+      audioEl.load();
+      audioEl.oncanplay = function () { statusEl.textContent = "音源已就绪 · 可以播放"; };
+      audioEl.onerror = function () { statusEl.textContent = "音源加载失败，请更换曲目或稍后重试"; };
+      audioEl.play().then(function () {
+        statusEl.textContent = "正在播放 · " + track.title;
+      }).catch(function () {
+        statusEl.textContent = "音源已载入；如未自动开始，请按播放器的播放键";
+      });
     }
 
     function switchBiliVideo(bvid, title, btnEl) {
