@@ -33,8 +33,14 @@ jobs:
         with:
           ref: main
 
-      - name: Download and validate article artwork and audio
-        run: python3 tools/prepare_art_special_media.py
+      - name: Install media decoders for full integrity checks
+        run: |
+          python3 -m pip install --quiet pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Download and decode-validate article artwork and audio
+        run: python3 tools/prepare_art_special_media.py --deep-verify
 
       - name: Run release QA gate
         run: node tools/qa_release.mjs
