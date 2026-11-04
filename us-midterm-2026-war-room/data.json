@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-11-02T10:17:17+08:00",
+  "as_of": "2026-11-04T16:34:00+08:00",
   "election_date": "2026-11-03",
-  "countdown_days": 1,
-  "status": "LIVE（持续跟踪）｜投票前最后一日，所有市场数据为截点快照",
+  "countdown_days": 0,
+  "status": "POST-ELECTION / RESULT CALLED｜两院控制权已确认；席位仍在核定",
   "control": {
     "house_current": "Republican narrow majority（共和党微弱多数）：218R / 214D / 1I / 2 vacant（空缺）",
     "senate_current": "共和党53席 · 民主党45席 · 独立议员2席（与民主党共同组织）",
@@ -1310,5 +1310,211 @@
       "url": "https://www.axios.com/local/des-moines/2026/10/30/iowa-leads-nation-in-senate-ad-spending-surge",
       "supports": "Iowa 10/12–25广告约$64.59M，增幅第一。"
     }
-  ]
+  ],
+  "election_results": {
+    "as_of": "2026-11-04T16:34:00+08:00",
+    "event_date": "2026-11-03",
+    "headline": "民主党赢得众议院与参议院控制权",
+    "result_status": "AP / Reuters 已确认两院控制权；最终席位与各州认证仍待完成",
+    "house": {
+      "winner": "民主党",
+      "control_called": true,
+      "majority_threshold": 218,
+      "final_seats": null,
+      "explanation": "美联社与路透社确认民主党拿下众议院控制权；部分选区仍在计票，未给最终D/R席位总数。",
+      "reported_pickups": "超过20个众议院席位翻转（AP；具体最终净增仍待核）"
+    },
+    "senate": {
+      "winner": "民主党阵营",
+      "control_called": true,
+      "threshold": 51,
+      "final_seats": null,
+      "explanation": "民主党加上与其共同组织议事的独立议员已达到参议院多数门槛；最终总席位仍待核。",
+      "flips_confirmed": 7
+    },
+    "senate_flips": [
+      {
+        "state": "Texas",
+        "zh": "得克萨斯",
+        "winner": "James Talarico",
+        "loser": "Ken Paxton",
+        "note": "共和党原持席位 → 民主党；历史性翻转"
+      },
+      {
+        "state": "Kansas",
+        "zh": "堪萨斯",
+        "winner": "Adam Hamilton",
+        "loser": "Roger Marshall",
+        "note": "共和党现任议员败选"
+      },
+      {
+        "state": "South Carolina",
+        "zh": "南卡罗来纳",
+        "winner": "Annie Andrews",
+        "loser": "Darline Graham",
+        "note": "共和党防守失利"
+      },
+      {
+        "state": "Iowa",
+        "zh": "爱荷华",
+        "winner": "Josh Turek",
+        "loser": "Ashley Hinson",
+        "note": "共和党开放席位翻转"
+      },
+      {
+        "state": "Ohio",
+        "zh": "俄亥俄",
+        "winner": "Sherrod Brown",
+        "loser": "Jon Husted",
+        "note": "特别选举；民主党夺回席位"
+      },
+      {
+        "state": "North Carolina",
+        "zh": "北卡罗来纳",
+        "winner": "Roy Cooper",
+        "loser": "Michael Whatley",
+        "note": "共和党开放席位翻转"
+      },
+      {
+        "state": "Maine",
+        "zh": "缅因",
+        "winner": "Troy Jackson",
+        "loser": "Susan Collins",
+        "note": "共和党资深现任议员败选"
+      }
+    ],
+    "senate_holds": [
+      {
+        "state": "Michigan",
+        "zh": "密歇根",
+        "winner": "Abdul El-Sayed",
+        "party": "D",
+        "type": "民主党守住开放席位"
+      },
+      {
+        "state": "Georgia",
+        "zh": "佐治亚",
+        "winner": "Jon Ossoff",
+        "party": "D",
+        "type": "民主党现任议员连任"
+      }
+    ],
+    "pending_races_note": "路透社在美国东部时间11月4日凌晨报道：阿拉斯加和密西西比参议院选举仍未决出；此句为该报道时点快照，后续可能变化。",
+    "voter_pulse": [
+      {
+        "value": "70%",
+        "label": "支持国会对总统施加更多制衡",
+        "caveat": "SSRS 选后出口调查，路透社引述；不是最终投票占比"
+      },
+      {
+        "value": "约 3/4",
+        "label": "对美国发展方向不满或愤怒",
+        "caveat": "SSRS 选后出口调查，路透社引述"
+      },
+      {
+        "value": "约 1/2",
+        "label": "把投票视为对特朗普表达否定的机会",
+        "caveat": "SSRS 选后出口调查，路透社引述"
+      }
+    ],
+    "policy_risks": [
+      {
+        "topic": "财政赤字 / 美债10Y",
+        "channel": "两院预算、拨款、税收议程及债务上限谈判变化 → 赤字路径与国债供给预期 → 期限溢价",
+        "watch": "10Y收益率、期限溢价、财政预算谈判、国债发行指引",
+        "boundary": "总统否决权仍在；不能把选举结果直接等同利率下行"
+      },
+      {
+        "topic": "AI数据中心 / 电力",
+        "channel": "联邦能源、税收、输电及许可政策监督力度可能变化；州和地方权限仍关键",
+        "watch": "电网接入、核电/天然气政策、税收抵免、数据中心项目许可",
+        "boundary": "不能推断已签AI算力合同自动取消；逐项目看CapEx与政策风险"
+      },
+      {
+        "topic": "大型科技 / AI监管",
+        "channel": "委员会听证与反垄断/消费者保护议题可能升温；监管机构仍按现有法律和程序运行",
+        "watch": "众参两院委员会领导、法案文本、司法部/FTC动作",
+        "boundary": "政治监督 ≠ 新法已生效"
+      },
+      {
+        "topic": "RWA / 稳定币 / 金融科技",
+        "channel": "数字金融与市场结构立法的议程顺序、妥协成本和监管边界可能重排",
+        "watch": "银行与金融服务委员会任命、市场结构法案、SEC/CFTC规则",
+        "boundary": "已生效法律不会因控制权变更而自动失效"
+      },
+      {
+        "topic": "医疗医保 / 药企",
+        "channel": "医保拨款、药价和保险补贴谈判可能改写预算权衡",
+        "watch": "预算委员会、Medicare/Medicaid提案、药价文本",
+        "boundary": "具体政策需经立法、总统签署或克服否决"
+      },
+      {
+        "topic": "关税 / 国防 / 能源",
+        "channel": "国会监督与预算权影响行政政策可执行性，但外交、关税和战争权力分配复杂",
+        "watch": "关税授权与诉讼、国防授权法案、原油与通胀",
+        "boundary": "不能把油价变化直接归因于国会换届"
+      }
+    ],
+    "events": [
+      {
+        "date": "11/03",
+        "tag": "L4 · 控制权",
+        "title": "民主党夺得两院多数",
+        "desc": "AP和Reuters均确认；结果改变2027年起的国会权力配置，非各州完成认证。"
+      },
+      {
+        "date": "11/03",
+        "tag": "L4 · Senate",
+        "title": "7个共和党参议院席位翻转",
+        "desc": "TX、KS、SC、IA、OH、NC、ME。MI与GA民主党守住席位，不计入净翻转。"
+      },
+      {
+        "date": "11/03",
+        "tag": "L4 · House",
+        "title": "蓝潮超出共和党防守预期",
+        "desc": "AP报道民主党在众议院拿下超过20个翻转选区；最终净增与议席分布尚待完整计票。"
+      },
+      {
+        "date": "11/04",
+        "tag": "L3 · 权力制衡",
+        "title": "政策研究从选前概率转向议会约束",
+        "desc": "新国会2027年1月就任。总统否决权、参议院程序和财政谈判仍然约束立法速度。"
+      }
+    ],
+    "market_checklist": [
+      "美国10年期国债收益率、2s10s与期限溢价是否出现持续性重定价",
+      "标普500/纳斯达克与公用事业、能源、国防、医保板块是否出现相对收益分叉",
+      "2027财政预算、税收、债务上限与监管委员会任命的可验证文本",
+      "AI电力/输电许可和数据中心资本开支指引是否真正发生变化"
+    ],
+    "pre_election": {
+      "as_of": "2026-11-02T10:17:17+08:00",
+      "polymarket_dem_sweep_cents": 71,
+      "polymarket_house_d_cents": 95,
+      "polymarket_senate_d_cents": 72,
+      "cook_house_least_lean_d": 222,
+      "cook_house_least_lean_r": 195,
+      "cook_house_tossups": 18,
+      "cook_house_predicted_d_seats": "227–240",
+      "note": "选前交易者报价与Cook评级是事前记录，不是官方结果，也不能在结果已知后当成当前概率。"
+    },
+    "sources": [
+      {
+        "title": "Associated Press｜Democrats win House and Senate（11月3–4日）",
+        "url": "https://apnews.com/article/f126e12e05b579a327b98481c0ae2226",
+        "supports": "两院控制权、参议院翻转州与众议院广泛翻转；新闻机构选举判定，不是州级认证"
+      },
+      {
+        "title": "Reuters｜Democrats seize Congress（11月4日）",
+        "url": "https://www.reuters.com/legal/government/democrats-seize-congress-sweeping-midterm-repudiation-trump-2026-11-04/",
+        "supports": "两院控制权、7州翻转、MI与Maine、SSRS出口调查及议会政策路径"
+      },
+      {
+        "title": "The New Yorker｜Live results map（11月4日01:35 ET）",
+        "url": "https://www.newyorker.com/news/election-2026/midterms-live-results-map-senate-house-governors-races",
+        "supports": "交叉验证AP对两院控制权的宣布；仍有未决席位"
+      }
+    ],
+    "evidence_boundary": "公开媒体判定（projection/call）≠ 各州法定认证；控制权已被权威媒体判定，最终具体席数仍会变化。市场价格必须记录成交时间和证券收盘时间，不以事后行情倒推选举因果。"
+  }
 }
