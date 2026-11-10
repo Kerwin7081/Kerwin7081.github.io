@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>铁血与理性：从秦腔《赵氏孤儿》看公元前6世纪的东西方轴心镜像</title>
+<meta name="description" content="以秦腔《赵氏孤儿》为起点，从欢音、苦音、板胡与锣鼓出发，横向比较春秋晋国、古希腊悲剧、音乐与哲学，展开一场跨越八千公里的文明镜像。">
+<link rel="canonical" href="https://enyaclawd.com/essays/qinqiang-orphan-of-zhao-axial-age-20261110/">
+<meta property="og:title" content="铁血与理性：从秦腔《赵氏孤儿》看公元前6世纪的东西方轴心镜像">
+<meta property="og:description" content="以秦腔《赵氏孤儿》为起点，从欢音、苦音、板胡与锣鼓出发，横向比较春秋晋国、古希腊悲剧、音乐与哲学，展开一场跨越八千公里的文明镜像。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://enyaclawd.com/essays/qinqiang-orphan-of-zhao-axial-age-20261110/">
+<meta property="og:site_name" content="EnyaClawd · Kerwin Research Hub">
+<meta name="theme-color" content="#0A0D12">
+<style>
+  :root {
+    --bg-abyss: #0A0D12;
+    --bg-card: #131822;
+    --bg-elevated: #1A2130;
+    --cinnabar: #B92B27;
+    --cinnabar-bright: #EF4444;
+    --cinnabar-glow: rgba(185, 43, 39, 0.22);
+    --gold: #D4AF37;
+    --gold-bright: #FDE047;
+    --gold-muted: #AA8C2C;
+    --aegean: #2563EB;
+    --aegean-bright: #60A5FA;
+    --aegean-glow: rgba(37, 99, 235, 0.22);
+    --jade: #10B981;
+    --text-primary: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border-gold: rgba(212, 175, 55, 0.28);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg-abyss);
+    color: var(--text-primary);
+    font-family: "Songti SC", "Noto Serif SC", "STSong", "SimSun", Georgia, serif;
+    line-height: 1.82;
+    font-size: 16.5px;
+    overflow-x: hidden;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-family: "Songti SC", "Noto Serif SC", "STSong", Georgia, serif;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+  .sans {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(185, 43, 39, 0.28) 0%, transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+      linear-gradient(180deg, #160C0E 0%, #0D111A 70%, #0A0D12 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 72px 24px 56px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    font-size: 13px;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    font-weight: 700;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4.5vw, 50px);
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    max-width: 1000px;
+    margin: 0 auto 18px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  .hero h1 span { color: var(--gold-bright); }
+  .hero-subtitle {
+    max-width: 820px;
+    margin: 0 auto 28px;
+    color: var(--text-secondary);
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 400;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .hero-meta span {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  /* Sticky Navigation Bar */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(10, 13, 18, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 10px 16px;
+  }
+  .nav-inner {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: #151B26;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-gold);
+    padding: 6px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--cinnabar);
+    color: #FFF;
+    border-color: var(--gold-bright);
+  }
+  .mode-switch {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-bright);
+    border: 1px solid var(--gold);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+
+  /* Main Container */
+  .main-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px 22px 90px;
+  }
+
+  /* Act Section Styling */
+  .act-section {
+    margin-bottom: 72px;
+    scroll-margin-top: 76px;
+  }
+  .act-section.hidden-tab { display: none; }
+
+  .act-header {
+    background: linear-gradient(90deg, rgba(185, 43, 39, 0.24) 0%, rgba(212, 175, 55, 0.08) 60%, transparent 100%);
+    border-left: 6px solid var(--cinnabar);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 18px 24px;
+    margin-bottom: 32px;
+    border-radius: 0 8px 8px 0;
+  }
+  .act-eyebrow {
+    color: var(--gold-bright);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .act-header h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    color: #FFFFFF;
+  }
+
+  .sub-title {
+    font-size: 21px;
+    color: var(--gold-bright);
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  p.prose {
+    margin-bottom: 18px;
+    color: var(--text-primary);
+    text-align: justify;
+  }
+  p.prose strong { color: var(--gold-bright); font-weight: 700; }
+
+  /* Callout & Quote Boxes */
+  .quote-box {
+    background: linear-gradient(135deg, #1A1625 0%, #131824 100%);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 22px 0;
+    color: var(--text-secondary);
+  }
+  .quote-box .q-title {
+    color: var(--gold-bright);
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  /* Grid & Cards */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 22px;
+    margin: 24px 0;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .card.east { border-top: 4px solid var(--cinnabar); }
+  .card.west { border-top: 4px solid var(--aegean); }
+  .card.gold { border-top: 4px solid var(--gold); }
+  .card h4 {
+    font-size: 18px;
+    color: #FFF;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tag {
+    font-size: 11.5px;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  .tag.east { background: var(--cinnabar); color: #FFF; }
+  .tag.west { background: var(--aegean); color: #FFF; }
+  .tag.gold { background: rgba(212, 175, 55, 0.22); border: 1px solid var(--gold); color: var(--gold-bright); }
+
+  ul.feature-list {
+    list-style: none;
+    margin: 14px 0;
+  }
+  ul.feature-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+  }
+  ul.feature-list li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+  ul.feature-list li strong { color: #FFF; }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-gold);
+  }
+  table.exhibit-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    font-size: 14.5px;
+  }
+  table.exhibit-table th, table.exhibit-table td {
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.exhibit-table th {
+    background: rgba(212, 175, 55, 0.16);
+    color: var(--gold-bright);
+    font-weight: 800;
+  }
+  table.exhibit-table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Interactive Audio Synth Box */
+  .synth-box {
+    background: linear-gradient(135deg, #1E172A 0%, #131B2B 100%);
+    border: 1.5px solid var(--gold);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 28px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+  .synth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .synth-title {
+    font-size: 19px;
+    color: var(--gold-bright);
+    font-weight: 800;
+  }
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .synth-btn {
+    background: linear-gradient(90deg, #9E1F1B, #D9483B);
+    color: #FFF;
+    border: 1px solid var(--gold-bright);
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 700;
+    transition: transform 0.15s, opacity 0.2s;
+  }
+  .synth-btn.west {
+    background: linear-gradient(90deg, #1E40AF, #3B82F6);
+  }
+  .synth-btn:hover { opacity: 0.92; }
+  .synth-btn:active { transform: scale(0.97); }
+  .synth-status {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid var(--gold-bright);
+    padding: 8px 14px;
+    font-size: 13.5px;
+    color: var(--gold-bright);
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* Visual Diagrams & SVG Containers */
+  .diagram-panel {
+    background: #0F131C;
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    padding: 22px;
+    margin: 24px 0;
+  }
+  .diagram-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 10px;
+  }
+
+  /* Pyramid Visual */
+  .pyr-layer {
+    margin: 0 auto 6px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #FFF;
+  }
+
+  /* Flow Chain */
+  .flow-chain {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-weight: 800;
+    color: var(--gold-bright);
+    margin: 16px 0;
+    font-size: 15.5px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border-gold);
+    color: var(--text-muted);
+    font-size: 14px;
+    background: #07090D;
+  }
+
+
+  /* Bilibili listening panels: keep the original Web Audio synthesizers intact. */
+  html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  .bili-audio-panel {
+    background: linear-gradient(135deg, #171522 0%, #111A27 100%);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 22px;
+    margin: 26px 0 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  }
+  .bili-audio-intro { color:var(--text-secondary); font-size:14px; margin:8px 0 16px; }
+  .bili-audio-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+    gap:16px;
+    margin-top:14px;
+  }
+  .bili-audio-card {
+    min-width:0;
+    background:rgba(0,0,0,.28);
+    border:1px solid var(--border-subtle);
+    border-radius:8px;
+    padding:13px;
+  }
+  .bili-audio-card h4 { color:#FFF; font-size:16px; margin:0 0 10px; }
+  .bili-audio-frame {
+    position:relative;
+    width:100%;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    border-radius:6px;
+    background:#000;
+    border:1px solid rgba(212,175,55,.24);
+  }
+  .bili-audio-frame iframe {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+  .bili-audio-card p { color:var(--text-muted); font-size:12.5px; line-height:1.6; margin:10px 0 7px; }
+  .bili-audio-actions { display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:14px; font-size:13px; }
+  .bili-audio-actions a, .bili-open-link { color:var(--gold-bright); text-decoration:underline; text-underline-offset:3px; }
+  .bili-audio-note { color:var(--text-muted); font-size:12px; margin-top:12px; }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns:minmax(0,1fr); }
+    .bili-audio-panel { padding:16px; }
+    .bili-audio-grid { grid-template-columns:minmax(0,1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .main-wrap { padding: 24px 16px 60px; }
+    .card { padding: 18px; }
+  }
+</style>
+</head>
+<body data-page-mode="kw-experience">
+
+<!-- ==================== HERO BANNER ==================== -->
+<header class="hero">
+  <div class="hero-badge sans">戏剧审美 × 轴心文明 × 制度考古</div>
+  <h1>铁血与理性：从秦腔<span>《赵氏孤儿》</span>看公元前6世纪的东西方轴心镜像</h1>
+  <p class="hero-subtitle">一场始于剧场暗灯、横跨八千公里的戏剧审美与文明基因考古</p>
+  <div class="hero-meta sans">
+    <span>📍 观演坐标：深圳大剧院 / 安托山大剧场</span>
+    <span>🎭 艺术参照：陈彦《主角》 · 李梅《再续红梅缘》 · 赵扬武《赵氏孤儿》</span>
+    <span>⏳ 历史跨度：公元前2070年 — 公元前450年 — 1755年巴黎 — 当代</span>
+  </div>
+</header>
+
+<!-- ==================== STICKY NAVIGATION ==================== -->
+<nav class="sticky-nav sans">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a class="nav-btn active" onclick="navTo('act-0', this)">序幕·剧场暗灯</a>
+      <a class="nav-btn" onclick="navTo('act-1', this)">第一幕·听觉考古</a>
+      <a class="nav-btn" onclick="navTo('act-2', this)">第二幕·轴心双生</a>
+      <a class="nav-btn" onclick="navTo('act-3', this)">第三幕·抄家与放逐</a>
+      <a class="nav-btn" onclick="navTo('act-4', this)">第四幕·权钱反转</a>
+      <a class="nav-btn" onclick="navTo('act-5', this)">第五幕·器物与单弦琴</a>
+      <a class="nav-btn" onclick="navTo('act-6', this)">第六幕·哲学与万里回响</a>
+      <a class="nav-btn" onclick="navTo('act-7', this)">终幕·散场亮灯</a>
+    </div>
+    <button class="mode-switch" id="modeBtn" onclick="toggleViewMode()">切换为：分幕独立展厅模式</button>
+  </div>
+</nav>
+
+<main class="main-wrap">
+
+  <!-- ==================== 序幕 ==================== -->
+  <section class="act-section" id="act-0">
+    <div class="act-header">
+      <div class="act-eyebrow sans">PROLOGUE · AWAKENING IN THE DARKENED THEATER</div>
+      <h2>序幕｜剧场暗灯：四十岁的血脉苏醒与关中“生噌冷倔”</h2>
+    </div>
+
+    <p class="prose">离家多年的关中人，往往要到四十岁上下，才会在某一个毫无防备的夜晚，被一声板胡劈开记忆的硬壳。</p>
+    <p class="prose">在陕西的黄土地上，老辈人常说每个秦人骨子里都埋着一段秦腔，年轻时嫌它吵、嫌它土，直到人生行至中途，历经世事磋磨，那股潜伏的血脉才会在某一天突然醒转。这份苏醒，始于案头翻阅陈彦的小说<strong>《主角》</strong>——看着山野女子忆秦娥从县剧团练跷功的懵懂小卒，在半生荣辱与聚散中将一身伤痛熬进唱腔，修成舞台上的“秦腔皇后”；随后便是连续两周在深圳剧场的现场印证。</p>
+    <p class="prose">前一周，在剧场看罢二度梅花奖得主<strong>李梅</strong>领衔的<strong>《再续红梅缘》</strong>。当演至《游西湖·鬼怨》一折，李梅饰演的李慧娘一袭白衣立于幽暗台心，双脚踩着高底靴，以细碎急促的步法在舞台上如幽魂般贴地疾行——那便是秦腔绝活<strong>“鬼步”与长水袖</strong>的合璧，将一个含冤惨死、化作厉鬼也绝不向权奸贾似道低头的刚烈魂魄，演得既凄美又令人寒毛直竖。</p>
+    <p class="prose">紧接着的周六，步入深圳安托山大剧场，直面陕西省戏曲研究院演出的全本大戏<strong>《赵氏孤儿》</strong>。这晚挑大梁饰演程婴的，是梅花奖得主、秦腔须生泰斗贠宗翰的亲传弟子<strong>赵扬武</strong>。与李梅以旦角鬼步展现的阴柔悲烈不同，赵扬武在三个小时里将秦腔须生“宽音大嗓、慷慨苍凉”的阳刚悲剧力量推到了极致：</p>
+
+    <div class="grid-2 sans">
+      <div class="card gold">
+        <h4><span>📜 剧本脉络的古意完整（韩厥之生死考）</span><span class="tag gold">史记正脉</span></h4>
+        <p style="color:var(--text-secondary);font-size:14.5px;">不同于元代纪君祥杂剧及后世京剧马连良版“守将韩厥放走孤儿后当场拔剑自刎，导致十五年后只能另寻大将魏绛替场”的改编，陕西省戏曲研究院这一版《赵氏孤儿》严格遵循《史记·赵世家》的原型脉络。在《盘门》一折中，守将<strong>韩厥（王宏义 饰）</strong>查出草医程婴药箱中的赵氏遗孤后，深明大义放走程婴，自己则弃官隐居避祸；直到十五年后孤儿<strong>赵武（李园 饰）</strong>长大成人，隐居归来的韩厥再度登台，与赵武里应外合共同诛杀权臣<strong>屠岸贾（杨新晓 饰）</strong>，令全剧首尾咬合、一气呵成。</p>
+      </div>
+      <div class="card east">
+        <h4><span>⚡ 舞台绝技的无声惊雷（暗抖髯与咬髯）</span><span class="tag east">高光时刻</span></h4>
+        <p style="color:var(--text-secondary);font-size:14.5px;">从庄姬公主（谭天杏 饰）在《冷宫托孤》里字字泣血的苦音慢板、卜凤（冯艳丽 饰）受酷刑时的甩发水袖功，到程婴在《盘门》中头顶纱帽双翅随内心惊惧高频微颤的“帽翅功”、在《舍子》中双膝跪地滑行向妻子讨要亲儿的“跪步”，全剧张力在《法场打公孙》推向顶点。面对鹤发忠臣公孙杵臼（李兴武 饰）撞阶殉义、亲生骨肉被屠岸贾当场摔死于阶前，赵扬武饰演的程婴背对权臣立于台口——浑身僵直如石雕，唯独唇下三绺胡须剧烈抖动（<strong>“暗抖髯”</strong>），随即猛然将胡须死死咬入齿间（<strong>“咬髯”</strong>），咽下满腔血泪。</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="q-title sans">▍关中精神底色：“生噌冷倔”</div>
+      <p>坐在台下直面这一幕，关中方言里那个形容秦人性格的四字词便自然浮现——<strong>“生噌冷倔”</strong>。“生”是未经驯化的生猛底色；“噌”是认准一条道便死不回头的执拗；“冷”是冷眼向洋、揉不得沙子的孤傲；“倔”是哪怕天塌下来也绝不弯腰的硬骨。这种性格在日常人情世故中或许显得格格不入，但一旦注入《赵氏孤儿》这种绝境求生的悲剧母题，便化作了程婴背负全城骂名十五载、以亲儿性命换忠良血脉的千古绝唱。</p>
+    </div>
+
+    <p class="prose">当剧场的枣木梆子与桐木板胡再度轰鸣，一连串跨越时空的追问也随之在观者心中次第展开：这门穿透耳膜的秦腔究竟从何而来？为什么连地道陕西人听戏也离不开台词字幕板？而在《赵氏孤儿》所处的公元前6世纪，当晋国的世卿家族在黄河岸边喋血火并时，八千公里外的地中海与爱琴海畔，人类的另一支文明又在构建怎样的政治、艺术与哲学秩序？</p>
+  </section>
+
+  <!-- ==================== 第一幕 ==================== -->
+  <section class="act-section" id="act-1">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT I · ACOUSTIC ARCHAEOLOGY OF QINQIANG</div>
+      <h2>第一幕｜听觉考古：从先秦“击缶秦声”到欢音、苦音的声学密码</h2>
+    </div>
+
+    <p class="prose">要听懂台上的《赵氏孤儿》，必须先摸清秦腔的骨相。这门古老的声腔之所以与《赵氏孤儿》如此契合，是因为《赵氏孤儿》演的是春秋故事，而秦腔本身就流淌着春秋战国秦人的血液。</p>
+
+    <h3 class="sub-title">一、 戏曲版图的“大一统”：从泾渭秦声到百戏之祖</h3>
+    <p class="prose">秦腔（古称“西秦腔”、“乱弹”）发源于陕西关中平原（尤以周秦发祥地岐山、凤翔为核心）与甘肃天水、陇东构成的泾渭流域。这片黄土地既是西周“制礼作乐”的王畿旧地，又是秦人浴血御戎、东出函谷的军事大本营：</p>
+    <ul class="feature-list sans">
+      <li><strong>1. 先秦源头（击缶而歌的尚武基因）</strong>：早在春秋时期，《诗经·秦风·无衣》（“岂曰无衣？与子同袍。王于兴师，修我戈矛”）便奠定了秦地歌谣高亢激越、同生共死的尚武底色。战国末期，秦相李斯在《谏逐客书》中留下了秦腔远祖最传神的实录：“击瓮叩缶，弹筝搏髀，而歌呼呜呜快耳者，真秦之声也。”秦人歌唱不尚江南丝竹的温吞婉转，而是直接敲击瓦罐（缶）、拍打大腿（搏髀）以强化急促节拍，扯开真嗓放声高歌——这种<strong>“强打击乐卡点 + 真声高亢呐喊”</strong>的传统，正是后世秦腔以硬枣木梆子击节、须生吼出“脑后炸音”的直接源头。</li>
+      <li><strong>2. 汉唐融汇与明清定型</strong>：盛唐长安汇聚西域百乐，唐玄宗于宫廷设“梨园”，西域龟兹胡乐中带有游移微分音的悲怆调式与关中民歌深度交融，孕育出秦腔悲欢分明的音阶雏形。历经宋金元北曲弦索的演化，现存明代万历三十六年（1608年）抄本《钵中莲》已明确标出完整的“西秦腔”唱词与板式。清乾隆四十四年（1779年），秦腔名伶魏长生进京演出轰动九城，以高亢炽烈的秦腔（花部乱弹）击败统治剧坛数百年的昆曲（雅部），史称“花雅之争”。</li>
+      <li><strong>3. 半部中国戏曲史的鼻祖</strong>：恰如当年秦人自关中东出统一天下地理版图，秦腔也在明清两代沿着黄河与汉水完成了中国北方戏曲的“声腔大一统”——向东跨过黄河进入山西、河北、河南、山东，直接衍生出<strong>蒲剧、晋剧（中路梆子）、河北梆子、豫剧（河南梆子）</strong>等北方梆子大家族；向南翻越秦岭、顺汉水进入湖北襄阳与汉口，演化为当地人所称的<strong>“西皮”</strong>（意即“来自西秦陕西甘肃的皮黄腔”），最终在清代中叶与安徽的“二黄”合流，孕育出国粹<strong>京剧</strong>。</li>
+    </ul>
+
+    <h3 class="sub-title">二、 舞台语言的四层加密：为何地道陕西人听戏也需看字幕？</h3>
+    <p class="prose">走进剧场的陕西观众常有一个共同困惑：明明台上说的是乡音陕西话，为何不盯紧舞台两侧的字幕板，依然听不懂大半唱词与道白？这并非观众的方言退化，而是因为秦腔的舞台语言经过了四道严密的艺术加工：</p>
+    <div class="grid-4 sans">
+      <div class="card">
+        <h4>① 唐宋雅言底色</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">秦腔舞台使用的并非街头日常俚语，而是以泾、渭流域语音为基调提炼的“关中正音（中州雅言）”，保留大量唐宋古汉语词汇与《秦腔十四辙》押韵法则。</p>
+      </div>
+      <div class="card">
+        <h4>② 依腔改调（倒字）</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">关中话四声下行音偏多，为防旋律平淡如“一道汤”，艺人故意改调迁就旋律：如“听一言”之“听”唱作“停”，“山后”之“山”唱作“伞”，“打湿”之“湿”念作“十”，“知书达理”之“知”念作“值”。</p>
+      </div>
+      <div class="card">
+        <h4>③ 一字拖十拍</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">在《赵氏孤儿》等苦音慢板重头戏中，唱出一个核心字（如“恨”、“孤”），往往将字头、字腹、字尾拆开，中间塞入十余秒的板胡过门与滑音颤腔。</p>
+      </div>
+      <div class="card">
+        <h4>④ 二音子（脑后音）</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">不同于普通话口腔前端咬字，秦腔以胸腹强力供气，句尾托腔处频繁用真假声混合的“二音子”猛拔高八度，穿云裂石的声压掩蔽了字面辨识。</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">三、 欢音与苦音的阴阳标尺：从《他大舅》到《韩城县》的微升Fa与微降Si</h3>
+    <p class="prose">在全中国三百多个地方剧种里，秦腔拥有一项极具辨识度的音乐绝活——同一剧种内并存<strong>“欢音”</strong>与<strong>“苦音”</strong>两套独立的音阶系统。对于熟悉关中声音的耳朵而言，只需调出脑海里的两段旋律，便能瞬间摸准这两套音阶的声学秘密：</p>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th style="width:18%;">声腔维度</th>
+            <th style="width:41%;">☀️ 欢音（又称“花音”、“硬音”）</th>
+            <th style="width:41%;">🌙 苦音（又称“哭音”、“软音”）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>核心音阶构成</strong></td>
+            <td><code>5  6  7  1  2  3  4  5</code>（标准七声，突出大三度明亮感）</td>
+            <td><code>5  6  ↓7  1  2  3  ↑4  5</code>（含两个钢琴弹不出的游移微分变音）</td>
+          </tr>
+          <tr>
+            <td><strong>音准与行腔质感</strong></td>
+            <td>音位固定如踩青石板，干脆利落、棱角分明、绝不黏连</td>
+            <td><code>↑4</code> 向上抽泣游移，<code>↓7</code> 向下叹息滑落，如泣如诉</td>
+          </tr>
+          <tr>
+            <td><strong>听觉记忆坐标</strong></td>
+            <td>敲着快板一字一顿的欢快版《他大舅他二舅都是他舅》</td>
+            <td>《三滴血》周仁瑞经典苦音二六“祖籍陕西韩城县”</td>
+          </tr>
+          <tr>
+            <td><strong>舞台戏剧功能</strong></td>
+            <td>表现喜庆、风趣、调侃或少年意气（如《火焰驹·表花》）</td>
+            <td>表现家破人亡、忍辱含冤的极致悲恸（如《赵氏孤儿》全剧主导腔）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 互动声学合成器 1 -->
+    <div class="synth-box sans">
+      <div class="synth-header">
+        <div class="synth-title">🔊 交互式秦腔声学工坊：实时合成“欢音”与“苦音（↑4 / ↓7）”</div>
+        <span class="tag gold">Web Audio 原生发声</span>
+      </div>
+      <p style="font-size:14px;color:var(--text-secondary);">点击下方按钮，直接用耳朵对比欢快版《他大舅》的<strong>欢音硬音阶</strong>与《三滴血》“祖籍陕西韩城县”的<strong>苦音哭腔滑音</strong>：</p>
+      <div class="btn-group">
+        <button class="synth-btn" onclick="playQinSynth('huanyin')">▶ 播放【欢音】音阶（3-5-6 干脆踩石板：欢快版《他大舅》）</button>
+        <button class="synth-btn" onclick="playQinSynth('kuyin')">▶ 播放【苦音】哭腔（含 ↑4 上滑与 ↓7 下坠：“祖籍陕西韩城县”）</button>
+        <button class="synth-btn" onclick="playQinSynth('fa')">▶ 单点解剖：苦音灵魂【微升Fa (↑4)】卡缝抽泣音</button>
+        <button class="synth-btn" onclick="playQinSynth('si')">▶ 单点解剖：苦音叹息【微降Si (↓7)】下坠滑音</button>
+      </div>
+      <div class="synth-status" id="qin-status">声学状态：待命（点击上方任意按钮即可通过浏览器实时发声）</div>
+    </div>
+
+
+    <div class="bili-audio-panel sans" aria-label="秦腔唱腔哔哩哔哩聆听入口">
+      <div class="synth-header">
+        <div class="synth-title">🎧 哔哩哔哩聆听入口｜秦腔真实唱腔</div>
+        <span class="tag east">真实演唱示范</span>
+      </div>
+      <p class="bili-audio-intro">原生 Web Audio 合成器用于辨认音高关系；以下视频补充真实唱腔与声腔辨听。它们是独立教学或演唱材料，并非本次深圳演出的现场录音。</p>
+      <div class="bili-audio-grid">
+        <article class="bili-audio-card">
+          <h4>秦腔《三滴血》选段｜张保卫</h4>
+          <div class="bili-audio-frame">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1et411q7rF&amp;page=1&amp;autoplay=0&amp;danmaku=0" title="秦腔《三滴血》选段｜张保卫｜哔哩哔哩" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p>可对照“祖籍陕西韩城县”一段所体现的苦音二六、拖腔与音色。</p>
+          <a class="bili-open-link" href="https://www.bilibili.com/video/BV1et411q7rF/" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开原视频 ↗</a>
+        </article>
+        <article class="bili-audio-card">
+          <h4>秦腔欢音与苦音辨听</h4>
+          <div class="bili-audio-frame">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV14L411X7u6&amp;page=1&amp;autoplay=0&amp;danmaku=0" title="秦腔欢音与苦音辨听｜哔哩哔哩" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p>适合先听音阶情绪差异，再回到上方合成器比较微升Fa与微降Si。</p>
+          <a class="bili-open-link" href="https://www.bilibili.com/video/BV14L411X7u6/" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开原视频 ↗</a>
+        </article>
+      </div>
+      <div class="bili-audio-actions">
+        <a href="https://www.bilibili.com/video/BV1NR4y1M7Qr/" target="_blank" rel="noopener noreferrer">板胡苦音示范 ↗</a>
+        <a href="https://www.bilibili.com/video/BV1mb411B7Q6/" target="_blank" rel="noopener noreferrer">戏曲打击乐与曲牌 ↗</a>
+        <a href="https://search.bilibili.com/all?keyword=%E4%BB%96%E5%A4%A7%E8%88%85%E4%BB%96%E4%BA%8C%E8%88%85%E9%83%BD%E6%98%AF%E4%BB%96%E8%88%85" target="_blank" rel="noopener noreferrer">《他大舅他二舅都是他舅》相关版本检索 ↗</a>
+      </div>
+      <p class="bili-audio-note">如内嵌播放器因浏览器、地区或平台策略无法加载，可点击每个视频下方的哔哩哔哩原站链接。</p>
+    </div>
+
+    <ul class="feature-list sans">
+      <li><strong>欢音的爽利（以欢快版《他大舅》为标尺）</strong>：当用一字一顿、敲着枣木梆子的明快节奏唱出关中顺口溜“他大舅他二舅都是他舅，高桌子低板凳都是木头”时，每一个字都稳稳砸在明亮的 <code>3 (Mi)</code>、<code>5 (Sol)</code>、<code>6 (La)</code> 上，硬朗欢脱，唱的是关中人“天塌下来当被盖”的豁达（在《主角》里，年少的忆秦娥初进县剧团考学，正是凭着这股山野欢音的灵气打开局面）。</li>
+      <li><strong>苦音的泣血（以《三滴血》“祖籍陕西韩城县”为标尺）</strong>：为什么苦音听起来天然带着一股风沙扑面的酸楚感？秘密全在<strong>微升Fa（<code>↑4</code>，介于4与#4之间的窄缝）</strong>和<strong>微降Si（<code>↓7</code>，介于b7与7之间的窄缝）</strong>这两个钢琴键盘上根本弹不出来的“卡缝音”。在心中默哼一句“祖——籍——陕西韩城县”：当张嘴唱出“祖”字时，声音先往下沉、带出鼻腔共鸣，随后尾音往上揪着“挑”一下却又不完全落稳——那个带着哽咽感往上挣扎的音，正是<strong>微升Fa（<code>↑4</code>）</strong>；紧接着唱到“陕——西——韩城县”的“城”字往“县”字滑落时，声音如一声长叹往下坠——中间擦过的那个令人鼻酸的过渡音，正是<strong>微降Si（<code>↓7</code>）</strong>。</li>
+      <li><strong>人类痛哭的声学模拟与赵扬武的巧合</strong>：人在欢笑或正常说话时，发出的音高是干脆固定的（欢音）；唯独在遭遇灭门大恸、喉咙被眼泪堵住嚎啕痛哭时，发出的哭声必然是打着颤、拐着弯、卡在半空中上不去也下不来的。秦腔艺人用桐木面板的板胡大滑音与嗓音颤音，将人类痛哭时的这两个生理游移音（<code>↑4</code> 与 <code>↓7</code>）定格成了“苦音”。尤为奇妙的是，当年影视剧《关中匪事》里那首苍凉拉长腔版的《他大舅他二舅都是他舅》，其原唱本尊恰恰就是台上饰演程婴的赵扬武——用最悲烈的苦音去吼最质朴的民间大实话，这正是秦腔“悲歌当泣”的灵魂所在。</li>
+    </ul>
+  </section>
+
+  <!-- ==================== 第二幕 ==================== -->
+  <section class="act-section" id="act-2">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT II · PARALLEL AXIAL AGE TIMELINE</div>
+      <h2>第二幕｜轴心双生：先秦王权漏斗与公元前6世纪的东西方平行时空轴</h2>
+    </div>
+
+    <p class="prose">当耳畔的苦音板胡将剧场拉回公元前597年的晋国都城，历史的纵深感便扑面而来：《赵氏孤儿》所处的春秋究竟是一个怎样的时代？在它之前中国经历了什么？而在程婴藏孤的同一百年里，地球另一端的欧洲又在发生什么？</p>
+
+    <h3 class="sub-title">一、 春秋之前的三个王权时代与“诸侯兼并大漏斗”</h3>
+    <p class="prose">若将历史镜头从《赵氏孤儿》的舞台向后拉远，春秋之前的华夏大地先后走过了三个早期王权阶梯，并在<strong>公元前771年</strong>迎来了一次彻底改变中国政治版图的大崩塌：</p>
+
+    <div class="diagram-panel sans">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:860px;margin:0 auto;">
+        <div style="background:#1E293B;padding:12px 18px;border-radius:6px;border-left:4px solid var(--gold);">
+          <strong>【夏朝】约前2070—前1600年</strong> ──► 二里头青铜文明开端，开启“家天下”世袭王权
+        </div>
+        <div style="background:#1E293B;padding:12px 18px;border-radius:6px;border-left:4px solid var(--gold);">
+          <strong>【商朝】约前1600—前1046年</strong> ──► 甲骨占卜、青铜饕餮兽面纹、酷烈人祭，“殷人尚声，鬼神治国”
+        </div>
+        <div style="background:#1E293B;padding:12px 18px;border-radius:6px;border-left:4px solid var(--gold);">
+          <strong>【西周】前1046—前771年</strong> ──► 周公制礼作乐，分封71核心诸侯（姬姓占53国），“礼乐征伐自天子出”
+        </div>
+        <div style="background:rgba(185,43,39,0.25);padding:14px 18px;border-radius:6px;border:1.5px solid var(--cinnabar-bright);color:#FFF;">
+          ⚡ <strong>【前771年历史大断裂：犬戎攻破镐京（西安）】</strong><br>
+          <span style="font-size:14px;color:var(--text-secondary);">周幽王被杀，周平王被迫东迁洛阳，将关中王畿老家让予护送有功的秦国。失去关中沃土与“西六师”常备主力后，周天子一夜间沦为穷困潦倒的名义摆设。</span>
+        </div>
+        <div style="background:#1E293B;padding:12px 18px;border-radius:6px;border-left:4px solid var(--cinnabar);">
+          <strong>【东周·春秋】前770—前476年</strong> ──► 诸侯争霸、世卿大夫专权（《赵氏孤儿》即发生于此阶段中晚期）
+        </div>
+        <div style="background:#1E293B;padding:12px 18px;border-radius:6px;border-left:4px solid var(--cinnabar);">
+          <strong>【东周·战国】前475—前221年</strong> ──► 前403年韩、赵、魏“三家分晋”，战国七雄兼并，前256年周赧王亡
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th>历史阶段</th>
+            <th>年代坐标</th>
+            <th>诸侯国存量</th>
+            <th>地缘棋盘与吞并特征</th>
+            <th>最高权力归属</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>西周初年</strong></td>
+            <td>前1046年立国</td>
+            <td>传千八百国（核心封国71）</td>
+            <td>宗室封国星罗棋布，拱卫关中宗周与洛阳成周</td>
+            <td>周天子执掌天下兵权</td>
+          </tr>
+          <tr>
+            <td><strong>春秋初期</strong></td>
+            <td>前770年东迁后</td>
+            <td>约140—170余国</td>
+            <td>王室衰微，大国开始跨界吞并周边微型方国</td>
+            <td>诸侯国君（五霸迭兴）</td>
+          </tr>
+          <tr>
+            <td><strong>春秋晚期</strong></td>
+            <td>前6世纪—前5世纪</td>
+            <td>仅余20余国</td>
+            <td>晋（并17国）、楚（并40余国）、齐（并35国）、秦（并20余戎）四极争霸，挤压郑、宋、卫、鲁中原十字破碎带</td>
+            <td><strong>世卿大夫家族专权</strong>（如晋国六卿、鲁国三桓）</td>
+          </tr>
+          <tr>
+            <td><strong>战国时期</strong></td>
+            <td>前403—前221年</td>
+            <td>战国七雄 + 卫/宋等残国</td>
+            <td><strong>三家分晋</strong>、田氏代齐，各国推行郡县与耕战变法</td>
+            <td>集权君主与军功官僚</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">二、 公元前6—前5世纪：东西方“轴心时代”平行时空对表</h3>
+    <p class="prose">德国哲学家雅斯贝尔斯曾将公元前800年至前200年命名为人类文明的<strong>“轴心时代（Axial Age）”</strong>。倘若以《赵氏孤儿》案发的公元前597年为圆心，将目光沿北纬35度至40度线向西横移八千公里，会惊奇地发现：当晋国的青铜战车在汾河谷地扬起尘土时，爱琴海畔的古希腊雅典与台伯河畔的古罗马，正以完全相反的制度剧本同步演进：</p>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th style="width:16%;">年代坐标</th>
+            <th style="width:42%;">🇨🇳 东方：春秋中国（晋国 / 汾河与黄河流域）</th>
+            <th style="width:42%;">🇬🇷 西方：古希腊与古罗马（雅典 / 爱琴海与地中海）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>前776—前771年</strong></td>
+            <td>犬戎攻破镐京，周平王东迁洛阳，<strong>春秋时代开启</strong>（前770）</td>
+            <td>古希腊举办<strong>第一届奥林匹克运动会</strong>（前776）；《荷马史诗》定型</td>
+          </tr>
+          <tr>
+            <td><strong>前597—前594年</strong></td>
+            <td>晋楚邲之战爆发；《史记》载晋景公三年<strong>屠岸贾灭赵氏满门三百口</strong>，程婴携遗孤赵武潜伏（前597）</td>
+            <td>雅典执政官<strong>梭伦推行宪政改革</strong>（前594）：废除债务奴隶，以四大财产等级取代贵族血统垄断</td>
+          </tr>
+          <tr>
+            <td><strong>前585—前583年</strong></td>
+            <td>晋景公迁都山西侯马新田，大夫埋下朱砂血誓《侯马盟书》（前585）；<strong>孤儿赵武成年，联合韩厥诛屠岸贾复爵</strong>（前583）</td>
+            <td>米利都哲人<strong>泰勒斯精准预言日食</strong>（前585年5月28日），人类科学理性首次越过神明；罗马老塔克文排干沼泽始建古罗马广场</td>
+          </tr>
+          <tr>
+            <td><strong>前551—前525年</strong></td>
+            <td><strong>孔子诞生</strong>（前551）、老子在世，开启儒道哲学突破；中国铸造春秋晚期《宴乐渔猎攻战纹铜壶》</td>
+            <td><strong>“古希腊悲剧之父”埃斯库罗斯诞生</strong>（前525）；雅典陶瓶画师发明<strong>“红绘技法”</strong>（前530）；毕达哥拉斯创立数学学派</td>
+          </tr>
+          <tr>
+            <td><strong>前509—前508年</strong></td>
+            <td>孔子周游列国前夕；吴王阖闾与孙武、伍子胥率军攻入楚都郢城（前506）</td>
+            <td>罗马驱逐末代暴君建立<strong>罗马共和国</strong>（前509）；雅典克里斯提尼改革确立<strong>“陶片放逐法”</strong>（前508）</td>
+          </tr>
+          <tr>
+            <td><strong>前480—前479年</strong></td>
+            <td><strong>孔子逝世</strong>（前479），儒家弟子编纂《论语》；春秋时代即将落幕</td>
+            <td>雅典提前召回被放逐政客，在<strong>萨拉米斯海战</strong>击败波斯帝国（前480），古典时代黄金期开启</td>
+          </tr>
+          <tr>
+            <td><strong>前458—前453年</strong></td>
+            <td>赵氏孤儿赵武的曾孙赵襄子死守晋阳，联合韩、魏掘水反杀智伯并灭其全族，奠定<strong>“三家分晋”</strong>（前453）</td>
+            <td>埃斯库罗斯在雅典卫城剧场首演王子复仇悲剧<strong>《俄瑞斯忒亚》</strong>（前458），演绎人类首个陪审法庭投票断案</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-title">三、 悲剧双峰的对峙：秦腔《赵氏孤儿》 vs. 埃斯库罗斯《俄瑞斯忒亚》</h3>
+    <p class="prose">在上方平行时间轴的末端（公元前458年，即赵武昭雪百余年后），古希腊诞生了一位与《赵氏孤儿》遥相呼应的戏剧巨人——<strong>埃斯库罗斯（Aeschylus，前525—前456年）</strong>。在埃斯库罗斯之前，古希腊戏剧只是“一名领唱演员加一支歌队”的单向朗诵；这位亲历过马拉松战役肉搏的雅典老兵，<strong>在人类戏剧史上第一次把“第二名演员”推上舞台</strong>，让两个角色面对面爆发语言与命运的直接交锋。而在公元前458年首演的《俄瑞斯忒亚》中，他讲述了一个几乎就是“古希腊版赵氏孤儿”的故事：统帅阿伽门农被杀，幼子俄瑞斯忒斯被秘密送走流亡；成年后返回故国杀死仇人完成血亲复仇。</p>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th style="width:18%;">对比维度</th>
+            <th style="width:41%;">🏮 东方悲剧：《赵氏孤儿》（春秋原型 / 秦腔演绎）</th>
+            <th style="width:41%;">🏛️ 西方悲剧：埃斯库罗斯《俄瑞斯忒亚》（前458年雅典）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>观演与建筑空间</strong></td>
+            <td>传统木构戏台与现代剧院，观众在梆子板胡声中体验人伦苦难</td>
+            <td>雅典卫城山坡<strong>1.5万人露天石砌圆形剧场</strong>，全体公民如开大会般观剧</td>
+          </tr>
+          <tr>
+            <td><strong>悲剧的核心对手</strong></td>
+            <td><strong>人间的极权与暴虐</strong>（大夫屠岸贾的酷刑、搜孤与十五年骂名）</td>
+            <td><strong>神明的神谕与不可逃避的宿命</strong>（阿波罗逼王子复仇，复仇女神随即追杀王子）</td>
+          </tr>
+          <tr>
+            <td><strong>拯救孤儿的力量</strong></td>
+            <td><strong>凡人的道德死磕</strong>（草医程婴舍子、公孙杵臼撞阶、韩厥隐忍归来）</td>
+            <td><strong>神明与城邦制度的介入</strong>（智慧女神雅典娜亲自下凡主持公道）</td>
+          </tr>
+          <tr>
+            <td><strong>大结局终极走向</strong></td>
+            <td><strong>以血还血的同态复仇</strong>：赵武拔剑手刃屠岸贾、将其满门抄斩，忠良重掌大权</td>
+            <td><strong>以法庭投票终结血仇</strong>：雅典娜挑选12名雅典市民组成<strong>人类第一个陪审法庭</strong>，以投票平局赦免王子，将家族私仇收归国家法治</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== 第三幕 ==================== -->
+  <section class="act-section" id="act-3">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT III · FEUDAL PYRAMIDS & POLITICAL BASELINES</div>
+      <h2>第三幕｜制度分水岭：从“士与骑士”到“灭族抄家 vs. 陶片放逐”</h2>
+    </div>
+
+    <h3 class="sub-title">一、 中西封建金字塔：先秦的“士”与欧洲的“骑士”，为何宿命迥异？</h3>
+    <p class="prose">在《赵氏孤儿》中，程婴只是一名草泽医人（门客），公孙杵臼与韩厥则是大夫麾下的臣属。他们在先秦社会中有一个共同的阶层名字——<strong>“士”</strong>。若将先秦宗法分封金字塔与欧洲中世纪封建金字塔并列拆解，会发现“士”与西方“骑士（Knight）”站在完全相同的起跑线上，却走向了截然相反的终点：</p>
+
+    <div class="grid-2 sans">
+      <div class="card east">
+        <h4><span>🇨🇳 先秦中国宗法封建金字塔</span><span class="tag east">科举终结贵族</span></h4>
+        <div style="margin:16px 0;">
+          <div class="pyr-layer" style="width:38%;background:#7F1D1D;">▲ 周天子（天下共主）</div>
+          <div class="pyr-layer" style="width:54%;background:#991B1B;">诸侯（晋景公等 · 统辖一国）</div>
+          <div class="pyr-layer" style="width:70%;background:#B45309;">卿大夫（赵盾 / 屠岸贾 · 世袭封地与私兵）</div>
+          <div class="pyr-layer" style="width:86%;background:#F59E0B;color:#000;">★ 士（贵族最底层：佩剑武士 / 门客 / 医者程婴）</div>
+          <div class="pyr-layer" style="width:100%;background:#334155;">庶民（农夫 / 工匠）与 奴隶</div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-secondary);"><strong>• 两次历史大消亡</strong>：<br>1. <strong>北宋科举灭绝“世袭贵族”</strong>：秦立郡县打破先秦封君，汉魏演变为门阀士族；唐末黄巢起义物理消灭门阀（“天街踏尽公卿骨”），北宋全面放开科举，当官全凭考卷，<strong>自宋代起中国彻底没有了世袭贵族</strong>，“士”转型为文官士大夫。<br>2. <strong>1905年终结“士”阶层</strong>：清光绪三十一年（1905）废除科举制，延续2500年的“士”正式走入历史，转型为现代知识分子。</p>
+      </div>
+      <div class="card west">
+        <h4><span>🇬🇧 中世纪欧洲封建金字塔</span><span class="tag west">世袭延续至近代</span></h4>
+        <div style="margin:16px 0;">
+          <div class="pyr-layer" style="width:38%;background:#1E3A8A;">▲ 国王 (King)</div>
+          <div class="pyr-layer" style="width:56%;background:#1D4ED8;">公爵 / 侯爵 / 伯爵（世袭大领主）</div>
+          <div class="pyr-layer" style="width:72%;background:#2563EB;">男爵（Baron · 世袭庄园领主）</div>
+          <div class="pyr-layer" style="width:86%;background:#38BDF8;color:#000;">★ 骑士（Knight · 贵族最底层的重装骑兵）</div>
+          <div class="pyr-layer" style="width:100%;background:#334155;">自由农 / 市民工匠 与 农奴 (Serfs)</div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-secondary);"><strong>• 同源而异流</strong>：<br>欧洲的“骑士（Knight）”与先秦的“士”起点极像（皆为贵族最底层的佩剑武士、重诺尚义）。但因欧洲从未形成大一统科举官僚帝国，国王打仗长期依赖地方领主与骑士，贵族爵位与庄园得以一直合法世袭至近现代，并最终将骑士精神演变为英国的<strong>“绅士（Gentleman）”</strong>文化。</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">二、 令人脊背发凉的政治底线反差：“满门抄斩” vs. “陶片放逐十年绝不抄家”</h3>
+    <p class="prose">在整场跨时空对比中，最令人震撼的莫过于同一百年间东西方处理“政坛失败者”的底线差异：在春秋以后的东方政坛输掉一局，是赵家满门三百余口人头落地、襁褓婴儿被摔死、家产片瓦不留，是十五年后赵武把屠岸贾满门同样杀绝，是晋阳之战后赵襄子将智伯满门两百余口屠灭；而在同一时期的雅典政坛输掉一局，却是<strong>被公民投票选中后独自离开雅典10年——不杀头、不株连妻儿、家里的橄榄园与房产分毫不动，每年收成照常汇给本人，10年期满回城自动恢复一切政治权利！</strong></p>
+
+    <ul class="feature-list sans">
+      <li><strong>1. 政治的基本单位不同（“血缘宗族” vs. “独立公民 Polites”）</strong>：春秋政治以<strong>血缘宗族</strong>为单位，大夫拥有私家战车、封邑与死士门客，且《礼记·曲礼》明定<strong>“父之仇，弗与共戴天”</strong>。留一个男丁活口就是留下一支复仇大军，掌权者唯有“斩草除根”；秦商鞅变法后更升级为国家法典的“夷三族、诛九族、籍没家产”。反观雅典，自耕农自费买青铜圆盾与长矛并肩组成<strong>“重装步兵密集方阵（Phalanx）”</strong>——左手盾牌护住自己与身边邻居，催生了人类最早的<strong>公民（Polites）意识</strong>；前508年克里斯提尼改革又以“地区选区”彻底打散血缘氏族。雅典政客无私兵，权力全靠个人演说，一旦本人被放逐10年（半代人时间足以瓦解其派系），其留在城内的妻儿既无法替他演讲，更不可能拉起私兵造反，故雅典人视抄家灭族为野蛮且毫无必要。</li>
+      <li><strong>2. 公元前482年雅典陶片投票现场与萨拉米斯召回</strong>：当时雅典保守派领袖<strong>亚里斯提德（外号“公正者”）</strong>与激进派领袖地米斯托克利政见相左。投票日当天，一名不识字的农夫递过碎陶片请亚里斯提德代写“亚里斯提德”的名字。亚里斯提德问：“他得罪你了吗？”农夫答：“我不认识他，但我天天听人夸他是‘公正者’，听烦了！”亚里斯提德一言不发写下自己名字交还农夫，坦然离城。仅仅两年后（前480年），波斯帝国大军入侵，雅典立即投票提前召回所有被放逐政客，亚里斯提德连夜归国与昔日政敌地米斯托克利并肩作战，打赢了拯救西方文明的萨拉米斯海战。</li>
+      <li><strong>3. 柏拉图《法律篇》的产权铁闸</strong>：公元前4世纪，柏拉图在《法律篇》（卷九）中立下西方宪政法学铁律：<strong>即便一个公民犯下最严重的叛国死罪被处决，其家族基础份地（房产与土地）也绝对不能被国家没收，其子女更不受连坐</strong>——因为“父亲的罪恶绝不应由无辜的儿子承担”。</li>
+    </ul>
+  </section>
+
+  <!-- ==================== 第四幕 ==================== -->
+  <section class="act-section" id="act-4">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT IV · REVERSAL OF WEALTH AND POWER</div>
+      <h2>第四幕｜权钱因果的彻底反转：“由富及贵”与“由贵及富”的千年闭环</h2>
+    </div>
+
+    <p class="prose">顺着“雅典不抄家”与“东方籍没充公”的制度分水岭继续往下挖，便会触及中西文明关于<strong>“私有财产与政治权力”</strong>最底层的因果反转：为什么西方从古希腊梭伦改革一直到今天的马斯克（Elon Musk），走的是<strong>“有钱 ➔ 换取政治权力（由富及贵）”</strong>；而传统东方从战国秦汉到明清，走的却是彻底相反的<strong>“有政治权力 ➔ 才有钱（由贵及富）”</strong>？</p>
+
+    <h3 class="sub-title">一、 西方闭环：由富及贵（从梭伦“四大财产等级”到马斯克的现代入局）</h3>
+    <p class="prose">公元前594年，雅典执政官梭伦废除了血统贵族对官职的垄断，改按公民每年土地与贸易产出的<strong>“麦斗数（Medimnoi，1麦斗约合52升谷物或等值橄榄油、葡萄酒）”</strong>将公民划分为四个等级。原因极其务实：<strong>古希腊城邦很穷，没有庞大国库和常备军，打仗的战舰、战马和重甲全靠富人自掏腰包“众筹”</strong>，国家吃人嘴软，必须用选票和官职向富人换军费：</p>
+
+    <div class="flow-chain sans">
+      🌍 西方转化公式：💰 私有财富独立积累 ──► 🛡️ 替国家买单（捐战舰 / 借军费 / 交重税） ──► 🏛️ 国家让渡选票、官职与立法监督权
+    </div>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th>雅典财产等级</th>
+            <th>年收入量化门槛</th>
+            <th>公民必须自费承担的军事买单义务</th>
+            <th>换取的政治权力（参政入场券）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>第一级：500斗级</strong><br><em>(Pentakosiomedimnoi)</em></td>
+            <td>年产满500麦斗以上</td>
+            <td><strong>最烧钱</strong>：自掏腰包为国家出资建造三层桨战舰、组建重骑兵或承包城邦大型节日祭祀</td>
+            <td><strong>最高权力</strong>：无论是否贵族血统，均可竞选<strong>最高执政官（Archon）</strong>、司库官及战神山议事会终身委员</td>
+          </tr>
+          <tr>
+            <td><strong>第二级：300斗级</strong><br><em>(Hippeis 骑士级)</em></td>
+            <td>年产300—500麦斗</td>
+            <td>自费购买并饲养昂贵的战马、披挂铠甲，战时作为骑兵上阵冲锋</td>
+            <td>可担任除最高执政官外的中高级军政官职，进入<strong>400人议事会</strong></td>
+          </tr>
+          <tr>
+            <td><strong>第三级：200斗级</strong><br><em>(Zeugitai 双牛级)</em></td>
+            <td>年产200—300麦斗</td>
+            <td>自费购买约30公斤重的青铜头盔、胸甲、圆盾与长矛，组成<strong>重装步兵方阵</strong></td>
+            <td>可担任城邦基层行政官职，进入<strong>400人议事会</strong></td>
+          </tr>
+          <tr>
+            <td><strong>第四级：雇工级</strong><br><em>(Thetes)</em></td>
+            <td>年产不足200麦斗</td>
+            <td>买不起盔甲，战时仅充当轻装投石兵或<strong>海军战船划桨水手</strong></td>
+            <td>虽不可担任行政官，但拥有<strong>公民大会投票权</strong>与<strong>陪审法庭（Heliaia）陪审员审判权</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="prose">从中世纪英王打仗借债被迫签下1215年《大宪章》确立<strong>“无代表，不纳税”</strong>，一直演进到今天的美国：<strong>马斯克（Elon Musk）</strong>先凭特斯拉与 SpaceX 积累起世界首富的商业资本，随后斥资440亿美元买下 X 平台（掌握公共舆论场），再掏出数亿美元成立超级政治行动委员会（Super PAC）助选，最终直接步入政府核心决策圈操刀机构改革——这正是梭伦“500斗级富商出资买单换取执政权”在21世纪的现代升级版。</p>
+
+    <h3 class="sub-title">二、 东方闭环：由贵及富（商鞅“利出一孔”与“契约产权 vs. 宪政产权”）</h3>
+    <p class="prose">就在梭伦改革两百余年后，战国秦国左庶长<strong>商鞅</strong>在《商君书·靳令》中写下了统治中国两千年的帝国底层代码——<strong>“利出一孔”</strong>：焊死商业上升通道，排出“士、农、工、商”倒金字塔，把天下所有的名利出口锁死在“为朝廷耕战与做官掌权”这唯一的一个孔里。一旦拿到官印，“三年清知府，十万雪花银”。</p>
+
+    <div class="flow-chain sans" style="border-color:var(--cinnabar-bright);color:var(--cinnabar-bright);">
+      🏮 东方转化公式：👑 考科举 / 立军功拿官印 ──► 📜 垄断资源分配（免税 / 盐铁专卖 / 兼并土地） ──► 💰 衍生巨额家族财富
+    </div>
+
+    <div class="quote-box">
+      <div class="q-title sans">▍关键认知校准：东方并非没有私有财产，而是“有交易产权，无防抄家产权”</div>
+      <p>中国民间的土地自由买卖与私有契约制度，其实比欧洲中世纪还要早、还要发达——自战国废井田起即可买卖土地，宋明清遍地房契、地契（红契与白契）。但中国的产权只是<strong>“契约交易产权”</strong>，仅在“老百姓对老百姓”时有效；一旦遇到“皇权对老百姓”（“普天之下，莫非王土”），没有任何法律能挡住抄家圣旨。而西方的产权是<strong>“宪政级产权”</strong>（“风能进，雨能进，国王不能进”），产权高于王权。</p>
+    </div>
+
+    <div class="table-wrap sans">
+      <table class="exhibit-table">
+        <thead>
+          <tr>
+            <th>跨时空首富样本</th>
+            <th>财富积累方式</th>
+            <th>试图将财富转化为政治权力的行动</th>
+            <th>最终历史结局</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>前594年 · 雅典橄榄油船王</strong></td>
+            <td>海外贸易年入600麦斗</td>
+            <td>为雅典海军捐建一艘三层桨战舰</td>
+            <td><strong>合法晋升“500斗级”，当选雅典最高执政官</strong></td>
+          </tr>
+          <tr>
+            <td><strong>当代美国 · 马斯克 (Elon Musk)</strong></td>
+            <td>电动车、火箭与星链首富</td>
+            <td>440亿美元收购X平台 + 巨额政治献金助选</td>
+            <td><strong>直接进入政府核心决策圈，操刀联邦机构改革</strong></td>
+          </tr>
+          <tr>
+            <td><strong>前250年 · 秦国阳翟大贾吕不韦</strong></td>
+            <td>跨国商贸积累万金家财</td>
+            <td>搞政治风险投资（“奇货可居”），倾家荡产扶持质子嬴异人，官拜秦国相邦</td>
+            <td><strong>中国历史上最后一个走“资本控权”路线的商人</strong>；秦始皇亲政后绝不容忍资本分权，赐毒酒自尽</td>
+          </tr>
+          <tr>
+            <td><strong>明初 / 清末 · 江南首富沈万三与胡雪岩</strong></td>
+            <td>垄断漕运贸易与钱庄丝茶</td>
+            <td>沈万三主动提出帮朱元璋出资修筑南京城墙、并自掏腰包<strong>犒赏天子三军</strong>（试图效仿西方富商为国买单）</td>
+            <td>朱元璋暴怒：“匹夫敢犒天子之军？乱民也！”<strong>直接流放云南、家产充公</strong>；胡雪岩亦在靠山失势后被抄家破产。中国富商唯有供子考科举当官才能保住家产</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== 第五幕 ==================== -->
+  <section class="act-section" id="act-5">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT V · SENSES, ARTIFACTS & PYTHAGOREAN MONOCHORD</div>
+      <h2>第五幕｜感官与器物现场：宗庙气味、青铜画卷与单弦琴的数学比</h2>
+    </div>
+
+    <h3 class="sub-title">一、 嗅觉与信仰：周代宗庙“双向气味通神术” vs. 德尔斐神庙的硫磺神谕</h3>
+    <p class="prose">在《赵氏孤儿》中，为什么程婴、公孙杵臼与韩厥宁肯搭上身家性命、甚至牺牲亲生骨肉，也要保住赵家最后一点血脉？因为在先秦人的宗教世界里，最高的恐惧不是肉体死亡，而是<strong>“绝祀（断绝宗庙香火祭祀）”</strong>。儒家十三经《礼记·郊特牲》与《诗经·小雅·信南山》完整记录了周代宗庙祭祀那场震撼感官的<strong>“双向气味通神术”</strong>：</p>
+
+    <div class="quote-box">
+      <div class="q-title sans">▍史料铁证 · 《礼记·郊特牲》</div>
+      <p>“殷人尚声……<strong>周人尚臭（xiù，气味），灌用鬯（chàng）臭，郁合鬯，臭阴达于渊泉</strong>……既灌，然后迎牲，致阴气也。<strong>萧合黍稷，臭阳达于墙屋，故既奠，然后爇（ruò，点燃）萧合膻芗（shān xiāng）</strong>。”</p>
+    </div>
+
+    <div class="grid-2 sans">
+      <div class="card east">
+        <h4><span>🕯️ 东方：郁鬯浇地与燔柴烧肠脂</span><span class="tag east">绝祀重于生死</span></h4>
+        <p style="font-size:14px;color:var(--text-secondary);">周人认为人死后“魂气归于天（阳），形魄归于地（阴）”：<br>
+        <strong>1. 向下通地（郁鬯浇地）</strong>：主祭者先用黑黍与郁金香草酿造的芬芳黄酒（郁鬯）倾倒在宗庙泥土上，酒香顺土壤渗入九泉唤醒祖魄（臭阴达于渊泉）。<br>
+        <strong>2. 向上通天（燔柴爇萧）</strong>：宰杀牛羊，取内脏周围最肥厚的<strong>肠间脂肪（《诗经》称“血膋”）</strong>混合香蒿与小米架火焚烧，肉脂焦香（膻）与谷物清香（芗）直冲云霄召唤祖魂（臭阳达于墙屋）。因春秋人已开启“敬鬼神而远之”的人本祛魅，不信彼岸天堂，故宗庙香火便是现世永生的唯一载体。</p>
+      </div>
+      <div class="card west">
+        <h4><span>🏛️ 西方：德尔斐神谕与灵魂秘仪</span><span class="tag west">彼岸灵魂救赎</span></h4>
+        <p style="font-size:14px;color:var(--text-secondary);">在同一时期的古希腊帕尔纳索斯山悬崖下，女祭司皮提亚坐在德尔斐神庙冒着地热硫磺蒸汽的三脚架上，咀嚼月桂叶发出晦涩的<strong>阿波罗神谕</strong>，神谕背后的“命运（Moira）”连众神之王宙斯也无法篡改。<br>
+        而在南意大利与希腊的暗夜地窖中，<strong>俄耳甫斯秘仪与毕达哥拉斯学派</strong>正燃起火炬，首次向西方世界传授“肉体是灵魂的牢狱（Soma-Sema），唯有通过节制与智慧净化灵魂，才能摆脱轮回重返神界”，埋下了西方灵魂救赎观的种子。</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">二、 视觉与线条：故宫《宴乐渔猎攻战纹铜壶》 vs. 雅典“黑绘升红绘”</h3>
+    <p class="prose">在公元前6至前5世纪，中国与古希腊的顶级画师不约而同地在弧面器物上完成了一场从“神怪图腾/僵硬剪影”向“人间写实/解剖透视”的美学跃迁：</p>
+
+    <!-- 内联 SVG 视觉展品对比 -->
+    <div class="diagram-panel sans">
+      <div class="grid-2" style="margin:0;">
+        <!-- 故宫铜壶三层展开示意图 -->
+        <div style="background:#141A24;padding:18px;border-radius:8px;border:1px solid var(--border-gold);">
+          <h4 style="color:var(--gold-bright);margin-bottom:8px;">🇨🇳 故宫藏《宴乐渔猎攻战纹铜壶》（嵌红铜三层画卷）</h4>
+          <svg viewBox="0 0 420 230" width="100%" style="background:#0B0E14;border-radius:6px;border:1px solid rgba(212,175,55,0.3);">
+            <!-- 第一层 -->
+            <rect x="10" y="10" width="400" height="62" fill="#1A2421" stroke="#D4AF37" stroke-width="1"/>
+            <text x="20" y="30" fill="#FDE047" font-size="12" font-weight="bold">上层：采桑礼与君子习射礼</text>
+            <text x="20" y="52" fill="#CBD5E1" font-size="11">🌿 左侧妇女提篮爬桑树采桑叶  |  🏹 右侧佩剑贵族挽弓搭箭瞄准箭靶（侯）</text>
+            <!-- 第二层 -->
+            <rect x="10" y="82" width="400" height="62" fill="#1F1D2B" stroke="#D4AF37" stroke-width="1"/>
+            <text x="20" y="102" fill="#FDE047" font-size="12" font-weight="bold">中层：击编钟宴乐与弋射渔猎</text>
+            <text x="20" y="124" fill="#CBD5E1" font-size="11">🔔 台上宾主举爵、台下敲击编钟编磬  |  🦆 水泽猎人用系绳之箭（弋射）射落飞雁</text>
+            <!-- 第三层 -->
+            <rect x="10" y="154" width="400" height="66" fill="#2B1619" stroke="#EF4444" stroke-width="1.2"/>
+            <text x="20" y="175" fill="#F87171" font-size="12" font-weight="bold">下层：惨烈的云梯攻城与双层战船水战</text>
+            <text x="20" y="198" fill="#CBD5E1" font-size="11">🪜 甲士架云梯仰攻、城头滚石长戈斩首  |  ⛵ 双层战舰迎头撞击、水兵持戟短剑肉搏</text>
+          </svg>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">告别西周饕餮兽面纹，以嵌红铜工艺将春秋战国世俗礼乐与兼并战火定格于31.6cm青铜壶身。</p>
+        </div>
+
+        <!-- 雅典黑绘 vs 红绘陶瓶示意图 -->
+        <div style="background:#141A24;padding:18px;border-radius:8px;border:1px solid var(--border-gold);">
+          <h4 style="color:var(--aegean-bright);margin-bottom:8px;">🇬🇷 雅典陶瓶：从“黑绘”到“红绘”的底色反转（前530年）</h4>
+          <svg viewBox="0 0 420 230" width="100%" style="background:#0B0E14;border-radius:6px;border:1px solid rgba(59,130,246,0.3);">
+            <!-- 左：黑绘 -->
+            <rect x="15" y="15" width="185" height="200" fill="#C85A32" rx="8"/>
+            <circle cx="107" cy="70" r="22" fill="#111"/>
+            <rect x="85" y="96" width="44" height="65" fill="#111" rx="4"/>
+            <line x1="92" y1="110" x2="122" y2="110" stroke="#C85A32" stroke-width="1.5"/>
+            <line x1="95" y1="125" x2="119" y2="125" stroke="#C85A32" stroke-width="1.5"/>
+            <text x="107" y="182" fill="#111" font-size="12" font-weight="bold" text-anchor="middle">【黑绘 Black-figure】</text>
+            <text x="107" y="200" fill="#FFF" font-size="10.5" text-anchor="middle">橘红底+黑剪影（硬铁针刮刻）</text>
+            <!-- 右：红绘 -->
+            <rect x="220" y="15" width="185" height="200" fill="#111418" stroke="#D4AF37" stroke-width="1" rx="8"/>
+            <circle cx="312" cy="70" r="22" fill="#D96B43"/>
+            <rect x="290" y="96" width="44" height="65" fill="#D96B43" rx="6"/>
+            <path d="M 296 108 Q 312 120 328 108" stroke="#111" stroke-width="1.5" fill="none"/>
+            <path d="M 296 124 Q 312 136 328 124" stroke="#111" stroke-width="1.5" fill="none"/>
+            <path d="M 296 140 Q 312 152 328 140" stroke="#111" stroke-width="1.5" fill="none"/>
+            <text x="312" y="182" fill="#FDE047" font-size="12" font-weight="bold" text-anchor="middle">【红绘 Red-figure】</text>
+            <text x="312" y="200" fill="#CBD5E1" font-size="10.5" text-anchor="middle">黑底+橘红肤色（软毛笔解剖透视）</text>
+          </svg>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">软毛笔取代硬铁针刮刻，精准画出腹肌起伏、3/4转身透视与迎风衣褶，奠定西方写实绘画传统。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">三、 声学与数学：编钟古琴 vs. 里拉琴、奥洛斯管与毕达哥拉斯的 120cm 单弦琴</h3>
+    <p class="prose">春秋的音乐分裂为庙堂与山林两极：庙堂之上是重达数千斤的<strong>青铜编钟与编磬</strong>（合瓦形扁钟敲击正鼓与侧鼓可发相差三度的<strong>“一钟双音”</strong>，以声音等级维护宗法等级）；山林溪涧则是伯牙只为钟子期一人抚弄的<strong>七弦古琴</strong>。而在古希腊，代表日神阿波罗理性的拨弦乐器<strong>里拉琴（Lyre）</strong>与代表酒神悲剧哭腔的芦苇双簧管<strong>奥洛斯管（Aulos，乐手嘴含双管同时吹奏持续音与凄厉滑音，音色酷似秦腔板胡）</strong>分庭抗礼。</p>
+    <p class="prose">更为深远的是，与孔子同时代的古希腊哲人<strong>毕达哥拉斯</strong>在一台<strong>120厘米长的“单弦琴（Monochord）”</strong>上移动琴码，发现了统治西方音乐与科学的数学密码——恰与同一时期中国《管子·地员》记载的<strong>“三分损益法”</strong>算出了完全相同的数学比例，却走向了截然不同的哲学终点：</p>
+
+    <!-- 互动声学合成器 2：毕达哥拉斯单弦琴 -->
+    <div class="synth-box sans">
+      <div class="synth-header">
+        <div class="synth-title" style="color:var(--aegean-bright);">📐 交互式毕达哥拉斯 120cm 单弦琴实验室（万物皆数 vs. 三分损益）</div>
+        <span class="tag west">点击比例尺移动琴码并发声</span>
+      </div>
+      <div class="btn-group">
+        <button class="synth-btn west" onclick="playMonochord(1, 120, '全弦 120cm（比例 1:1）──► 基准音宫 / Do')">▶ 1 : 1 全弦（120cm 基准音 Do）</button>
+        <button class="synth-btn west" onclick="playMonochord(2, 60, '琴码居中 60cm（比例 2:1）──► 纯八度高音 Do（完美重合）')">▶ 2 : 1 纯八度（60cm 半弦和声）</button>
+        <button class="synth-btn west" onclick="playMonochord(1.5, 80, '截取 2/3 弦长 80cm（比例 3:2）──► 纯五度 Sol（即中国《管子》三分损一生徵音！）')">▶ 3 : 2 纯五度（80cm · 同三分损一）</button>
+        <button class="synth-btn west" onclick="playMonochord(1.3333, 90, '截取 3/4 弦长 90cm（比例 4:3）──► 纯四度 Fa（庄重协和）')">▶ 4 : 3 纯四度（90cm 庄重和声）</button>
+      </div>
+      <div class="synth-status" id="mono-status" style="border-left-color:var(--aegean-bright);color:var(--aegean-bright);">单弦琴状态：点击上方比例按钮，观察下方红色琴码滑动并聆听古希腊数学和声</div>
+
+      <div style="background:#0B0E14;border:1px solid var(--border-subtle);border-radius:8px;padding:16px;margin-top:14px;">
+        <svg viewBox="0 0 720 95" width="100%">
+          <!-- 木质共鸣箱 -->
+          <rect x="30" y="56" width="660" height="24" fill="#4A2E1B" stroke="#D4AF37" stroke-width="1.5" rx="4"/>
+          <!-- 琴弦 -->
+          <line x1="50" y1="36" x2="670" y2="36" stroke="#FDE047" stroke-width="3"/>
+          <!-- 两端固定岳山 -->
+          <rect x="44" y="30" width="8" height="26" fill="#D4AF37"/>
+          <rect x="668" y="30" width="8" height="26" fill="#D4AF37"/>
+          <!-- 可移动琴码 -->
+          <polygon id="svg-bridge" points="50,56 38,36 62,36" fill="#EF4444" stroke="#FFF" stroke-width="1.5" style="transition:all 0.35s ease;"/>
+          <!-- 刻度标注 -->
+          <text x="50" y="20" fill="#94A3B8" font-size="12" text-anchor="middle">0cm</text>
+          <text x="360" y="20" fill="#FDE047" font-size="12" font-weight="bold" text-anchor="middle">60cm (1/2 八度 2:1)</text>
+          <text x="463" y="20" fill="#60A5FA" font-size="12" font-weight="bold" text-anchor="middle">80cm (2/3 五度 3:2)</text>
+          <text x="515" y="20" fill="#34D399" font-size="12" font-weight="bold" text-anchor="middle">90cm (3/4 四度 4:3)</text>
+          <text x="670" y="20" fill="#94A3B8" font-size="12" text-anchor="middle">120cm</text>
+        </svg>
+      </div>
+    </div>
+
+
+    <div class="bili-audio-panel sans" aria-label="东西方古乐哔哩哔哩聆听入口">
+      <div class="synth-header">
+        <div class="synth-title" style="color:var(--aegean-bright);">🎼 哔哩哔哩聆听入口｜编钟、古琴与古希腊古乐</div>
+        <span class="tag west">东西方古乐对照</span>
+      </div>
+      <p class="bili-audio-intro">单弦琴实验保留在本页内；以下演奏材料用于建立真实音色参照。古乐复原与后世传统曲目均按各自来源标注，不将现代演奏误作先秦现场录音。</p>
+      <div class="bili-audio-grid">
+        <article class="bili-audio-card">
+          <h4>穿越2700年的声音｜钟磬和鸣</h4>
+          <div class="bili-audio-frame">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1q4411K7SM&amp;page=1&amp;autoplay=0&amp;danmaku=0" title="穿越2700年的声音——钟磬和鸣｜哔哩哔哩" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p>听青铜钟与石磬的音色、余响和合奏层次，回看先秦礼乐的声音秩序。</p>
+          <a class="bili-open-link" href="https://www.bilibili.com/video/BV1q4411K7SM/" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开原视频 ↗</a>
+        </article>
+        <article class="bili-audio-card">
+          <h4>古希腊史诗音乐｜《奥德赛》开幕</h4>
+          <div class="bili-audio-frame">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1ym3S6CEaA&amp;page=1&amp;autoplay=0&amp;danmaku=0" title="古希腊史诗音乐——奥德赛开幕｜里拉琴与阿夫洛斯管｜哔哩哔哩" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p>以历史考证为基础的古希腊音乐近似复原，可同时留意里拉琴与阿夫洛斯管的音色关系。</p>
+          <a class="bili-open-link" href="https://www.bilibili.com/video/BV1ym3S6CEaA/" target="_blank" rel="noopener noreferrer">在哔哩哔哩打开原视频 ↗</a>
+        </article>
+      </div>
+      <div class="bili-audio-actions">
+        <a href="https://www.bilibili.com/video/BV1t3x7eSERd/" target="_blank" rel="noopener noreferrer">古琴《潇湘水云》演奏 ↗</a>
+        <a href="https://www.bilibili.com/video/BV1gH4y1w7mf/" target="_blank" rel="noopener noreferrer">古希腊阿夫洛斯管复原演奏 ↗</a>
+        <a href="https://www.bilibili.com/video/BV17A411K7Kj/" target="_blank" rel="noopener noreferrer">古希腊里拉琴 Lyre ↗</a>
+      </div>
+      <p class="bili-audio-note">如内嵌播放器因浏览器、地区或平台策略无法加载，可点击哔哩哔哩原站链接。页面原有的毕达哥拉斯单弦琴互动实验不受外部网络影响。</p>
+    </div>
+
+    <p class="prose">虽然算出了完全相同的数学比例（如 <code>3:2</code> 纯五度对应“三分损一”），但中国先秦哲人将五音十二律对应君臣民事物（《礼记·乐记》：“宫为君，商为臣，角为民”），把数学拉回了<strong>人间政治秩序的和谐</strong>；而毕达哥拉斯看到最动人的音乐竟然只受 <strong><code>1、2、3、4</code></strong> 四个整数统治，当即得出了震撼西方两千年的信念——<strong>“万物皆数（All Things Are Number）”</strong>：既然连听觉美感背后都是精确的数学比例，那么星辰轨道、几何空间乃至整个宇宙的底层代码，必定全都是数学公式！</p>
+  </section>
+
+  <!-- ==================== 第六幕 ==================== -->
+  <section class="act-section" id="act-6">
+    <div class="act-header">
+      <div class="act-eyebrow sans">ACT VI · PHILOSOPHY, HISTORICAL DEMYSTIFICATION & VOLTAIRE</div>
+      <h2>第六幕｜哲学的终极叩问与万里回响：从“人伦与本原”到伏尔泰的巴黎改编</h2>
+    </div>
+
+    <h3 class="sub-title">一、 东西方哲学的底层基因：“由感性亲情推导理性秩序” vs. “从自然万物追问终极本原”</h3>
+    <p class="prose">为什么同一时期的春秋中国与古希腊，会生长出气质如此迥异的哲学大厦？剖析两者的思维起点与演进轨迹，既能看清一条深刻的主干分野，又能发现两处惊心动魄的交叉校准：</p>
+
+    <div class="grid-2 sans">
+      <div class="card east">
+        <h4><span>🏮 东方主干：从感性亲情（仁）外推理性秩序（礼）</span><span class="tag east">安顿人间</span></h4>
+        <p style="font-size:14px;color:var(--text-secondary);"><strong>• 起跑线是“乱世救火”</strong>：面对“弑君三十六，亡国五十二”的崩塌乱世，孔孟荀墨没有闲暇先去测算星体几何，最紧迫的使命是解答“人如何安顿、人与家国规矩如何平衡”。<br>
+        <strong>• “于汝安乎”的感性基石</strong>：《论语》中宰予嫌守孝三年太久，孔子没有拿法条压他，而是反问：<strong>“食夫稻，衣夫锦，于汝安乎？”（你心里安不安？）</strong>儒家正是以每个人面对父母骨肉最天然的感性亲情与恻隐之心（仁）为圆心，通过“己所不欲，勿施于人”的将心比心，向外推演出整套家国天下的理性规矩（礼）。</p>
+      </div>
+      <div class="card west">
+        <h4><span>🌍 西方主干：越过人伦，直追万物终极本原（Arche）</span><span class="tag west">宇宙惊奇</span></h4>
+        <p style="font-size:14px;color:var(--text-secondary);"><strong>• 起跑线是“航海者的宇宙惊奇”</strong>：古希腊最早的米利都学派与毕达哥拉斯学派诞生于爱琴海商业殖民城邦，航海与贸易需要剥离神话直面自然规律。<br>
+        <strong>• 追问万物的底层代码</strong>：如亚里士多德所言“哲学源于惊奇”，西方第一代哲人越过人际人伦，直接向自然发问：<strong>“构成宇宙万物的终极本原（Arche）究竟是什么？”</strong>泰勒斯说是“水”，阿那克西曼德说是“无定”，毕达哥拉斯说是“数”，德谟克利特则提出了“原子与虚空”。</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="q-title sans">▍完整历史拼图的两大交叉校准：老子的“天地不仁”与苏格拉底的“拉回人间”</div>
+      <p style="margin-bottom:10px;"><strong>• 校准一（东方的宇宙本原追问：老子、赫拉克利特与《墨经》）</strong>：东方并非没有越过人伦直追宇宙本原的哲人。与孔子同时代的<strong>老子（《道德经》）</strong>直接发出了本体论追问：“有物混成，先天地生……吾不知其名，强字之曰道”，更冷峻地写下<strong>“天地不仁，以万物为刍狗”</strong>，打破了将自然道德化的感性投射；这与同时代古希腊哲人<strong>赫拉克利特</strong>“人不能两次踏进同一条河流、宇宙是按<strong>逻各斯（Logos）</strong>燃烧和熄灭的永恒活火”形成了惊人的隔空共鸣。战国<strong>《墨经》</strong>亦深入研究了小孔成像、力学杠杆与形式逻辑，只因汉代“独尊儒术”，道家宇宙论与墨家科学才未能成为帝国主流。</p>
+      <p><strong>• 校准二（西方的城邦伦理转向：苏格拉底与几何逻辑定义法）</strong>：西方也并非一直“只问万物不问人”。在泰勒斯之后约150年，<strong>苏格拉底（前469—前399）</strong>公开宣告研究太阳是不是一块热石头对人生毫无帮助，他<strong>“把哲学从天上召唤下来，安置在城邦和家庭之中”</strong>，每天在雅典街头追问“什么是正义与美德”。但即便转向了人伦，苏格拉底与柏拉图依然沿用了研究数学几何的那套<strong>“严密逻辑定义与公理推演法”</strong>，非要给人类道德找出无懈可击的逻辑定义不可。</p>
+    </div>
+
+    <h3 class="sub-title">二、 历史祛魅与千年逆袭：赵武后代的皇室之路与《左传》真相</h3>
+    <ul class="feature-list sans">
+      <li><strong>赵氏孤儿后代的千年逆袭（从三家分晋到大宋天子）</strong>：程婴与韩厥保下的遗孤<strong>赵武（赵文子）</strong>成年复爵后执掌晋国国政二十余年；其曾孙<strong>赵襄子</strong>在公元前453年晋阳之战反杀智伯，于前403年“三家分晋”正式建立战国七雄之一的<strong>赵国</strong>（后经赵武灵王“胡服骑射”臻于鼎盛）；前222年秦灭赵后，末代代王赵嘉之子徙居甘肃天水衍生出“天水赵氏”，另一支留居河北形成“涿郡赵氏”；直至<strong>公元960年，其后裔赵匡胤通过陈桥兵变建立宋朝（称“天水一朝”）</strong>，使当年险些绝祀的赵氏成为《百家姓》第一大姓。</li>
+      <li><strong>撕开戏曲滤镜（《左传》里的政敌火并真相）</strong>：翻开距事件最近的编年史《左传》，赵盾与政敌绝非脸谱化的“忠臣与奸臣”，而是铁腕权臣之间的残酷火并——公元前607年赵盾堂弟赵穿刺杀晋灵公，赵盾迎立新君继续专权，被太史董狐直书<strong>“赵盾弑其君”</strong>；而前583年赵氏被灭门的“下宫之难”，在《左传》里<strong>根本没有“屠岸贾”这个人</strong>，实因赵武生母庄姬公主与赵盾异母弟赵婴齐私通引发家族内乱，政敌栾氏、郤氏趁机联合晋景公清洗了赵家。</li>
+      <li><strong>为什么后世要塑造“忠臣赵盾 vs. 奸臣屠岸贾”？（叙事即秩序）</strong>：四百多年后司马迁写《史记·赵世家》删去庄姬私通家丑、引入屠岸贾与程婴救孤，元杂剧与明清秦腔又进一步强化忠奸对立。这本质上是一场<strong>“叙事即秩序”的双向规训工程</strong>——<strong>向上</strong>，在缺乏制度制衡的皇权社会里，用戏台搭建一座“历史道德审判庭”，警告当权者若滥杀无辜必将被画成大花脸遭万代唾骂；<strong>向下</strong>，在强权通吃的残酷现实中，用草医程婴“舍子赴义、隐忍十五载终获天道昭雪”的苦音史诗安顿底层人心，将“忠、义、信、节”化作民间社会的秩序稳定器。</li>
+    </ul>
+
+    <h3 class="sub-title">三、 跨越万里的回声：1755年伏尔泰《中国孤儿》的四刀大手术</h3>
+    <p class="prose">1735年，法国传教士马若瑟翻译的《赵氏孤儿》在巴黎出版轰动欧洲；二十年后的<strong>1755年8月20日</strong>，欧洲启蒙运动领袖<strong>伏尔泰（Voltaire）</strong>亲自改编的五幕悲剧<strong>《中国孤儿》（<em>L'Orphelin de la Chine</em>，副标题：孔子的五幕道德剧）</strong>在巴黎法兰西喜剧院首演。为了回击卢梭并借东方儒家礼法批判欧洲君主专制，同时消除欧洲观众对“摔死亲儿与血腥灭族”的伦理不适，伏尔泰对结局动了四刀大手术：</p>
+
+    <div class="grid-4 sans">
+      <div class="card west">
+        <h4>第一刀：时空移植</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">删去赵盾与屠岸贾，将故事搬到宋元鼎革时沦陷的北京：大反派改为崇尚武力的<strong>成吉思汗</strong>，程婴改为笃信孔孟的大宋儒臣<strong>张惕（Zamti）</strong>，遗孤改为南宋唯一皇子。</p>
+      </div>
+      <div class="card west">
+        <h4>第二刀：母爱反抗</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">砍掉“摔死亲儿”：当丈夫张惕出于儒家忠君教条要献出亲儿替死时，妻子<strong>伊达梅（Idamé）</strong>冲上刑场夺回幼子，高呼<strong>“自然母爱高于人造的君臣纲常！”</strong></p>
+      </div>
+      <div class="card west">
+        <h4>第三刀：压缩24小时</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);">遵循西方古典戏剧“三一律”，删去15年漫长抚孤，增设成吉思汗早年流亡时曾狂热爱慕伊达梅遭拒、如今以皇孤性命逼其改嫁的激烈冲突。</p>
+      </div>
+      <div class="card west">
+        <h4>第四刀：感化大团圆</h4>
+        <p style="font-size:13.5px;color:var(--text-secondary);"><strong>全剧未杀一婴、未流一滴血！</strong>成吉思汗被儒臣夫妇宁死不屈的道德崇高感彻底折服，感叹“你们用礼法与美德征服了我”，收养孤儿并拜张惕为相。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 终幕 ==================== -->
+  <section class="act-section" id="act-7">
+    <div class="act-header">
+      <div class="act-eyebrow sans">EPILOGUE · TWO THOUSAND FIVE HUNDRED YEARS IN A SINGLE BOW STROKE</div>
+      <h2>终幕｜散场亮灯：一声板胡里的两千五百年</h2>
+    </div>
+
+    <p class="prose">当深圳安托山大剧场的场灯重新亮起，台上白髯苍苍的赵扬武携全体秦腔演员向台下鞠躬谢幕，那声穿云裂石的苦音板胡似乎仍在剧场的穹顶下回荡。</p>
+    <p class="prose">回望这场从剧场座椅出发的漫长探索，一切线索在此刻轰然合拢：<br>
+    从春秋晋国侯马盟书上的朱砂血誓，到雅典卫城山坡下刻着政客名字的碎陶片；<br>
+    从先秦宗庙里直冲云霄的燔柴牛脂焦香，到毕达哥拉斯120厘米单弦琴上分割出的 <code>2:1</code> 与 <code>3:2</code>；<br>
+    从商鞅“利出一孔”焊死的帝国官印，到梭伦“500斗级”与当代马斯克一脉相承的资本入局；<br>
+    从孔子“于汝安乎”由感性亲情推演出的礼乐人间，到老子“天地不仁”、赫拉克利特“逻各斯活火”与苏格拉底的逻辑诘问；<br>
+    再到中国戏曲家借程婴与屠岸贾搭建的民间道德审判庭，以及伏尔泰在巴黎舞台上借中国孤儿吹响的启蒙号角。</p>
+    <p class="prose">原来，坐在剧场里听懂那一声带着微升Fa（<code>↑4</code>）与微降Si（<code>↓7</code>）的秦腔苦音，听懂关中人骨子里的“生噌冷倔”，从来不只是听懂了一门地方戏。那一声板胡拉开的，是东方人在两千五百年严酷的宗族与皇权棋局中，为了守住心头那一点信义与人间香火，所迸发出的最苍凉、最滚烫的生命回响。</p>
+  </section>
+
+</main>
+
+<footer class="footer sans">
+  <p><strong>《铁血与理性：从秦腔〈赵氏孤儿〉看公元前6世纪的东西方轴心镜像》</strong></p>
+  <p style="margin-top:6px;">沉浸式艺术探索与跨文明比较专题展 · 内置 Web Audio 声学合成器与 SVG 视觉图谱</p>
+
+  <div style="margin-top:18px;line-height:1.75;font-size:12.5px;">
+    <p>Kerwin｜研究框架与投资判断</p>
+    <p>Enya｜自动化跟踪、核验、整理与排版执行</p>
+    <p>Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+  </div>
+  <p style="margin-top:12px;font-size:12.5px;">本文为艺术、历史与文化学习内容，不构成投资建议。</p>
+  <p style="margin-top:8px;font-size:13px;"><a href="/">返回 EnyaClawd 研究首页</a></p>
+  <p style="margin-top:6px;font-size:11px;">Published 2026-11-10 · Updated 2026-11-10</p>
+</footer>
+
+<!-- ==================== INTERACTIVE SCRIPTS ==================== -->
+<script>
+  let isTabMode = false;
+
+  function navTo(actId, btnEl) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+
+    if (isTabMode) {
+      document.querySelectorAll('.act-section').forEach(sec => {
+        sec.classList.toggle('hidden-tab', sec.id !== actId);
+      });
+      window.scrollTo({ top: 320, behavior: 'smooth' });
+    } else {
+      const target = document.getElementById(actId);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function toggleViewMode() {
+    isTabMode = !isTabMode;
+    const btn = document.getElementById('modeBtn');
+    const sections = document.querySelectorAll('.act-section');
+    if (isTabMode) {
+      btn.innerText = '切换为：全景长卷连续阅读模式';
+      const activeBtn = document.querySelector('.nav-btn.active');
+      const activeIndex = Array.from(document.querySelectorAll('.nav-btn')).indexOf(activeBtn);
+      sections.forEach((sec, idx) => {
+        sec.classList.toggle('hidden-tab', idx !== (activeIndex >= 0 ? activeIndex : 0));
+      });
+    } else {
+      btn.innerText = '切换为：分幕独立展厅模式';
+      sections.forEach(sec => sec.classList.remove('hidden-tab'));
+    }
+  }
+
+  // Web Audio Synthesizer
+  let audioCtx = null;
+  function ensureAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  }
+
+  function playQinSynth(type) {
+    ensureAudio();
+    const status = document.getElementById('qin-status');
+    const now = audioCtx.currentTime;
+
+    if (type === 'huanyin') {
+      status.innerText = '正在发声：【欢音（花音）】3 - 5 - 6 - 5 - 3（音位固定如踩青石板，对应欢快版《他大舅》）';
+      const notes = [329.63, 392.00, 440.00, 392.00, 329.63];
+      notes.forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(freq, now + i * 0.3);
+        gain.gain.setValueAtTime(0.18, now + i * 0.3);
+        gain.gain.exponentialRampToValueAtTime(0.002, now + i * 0.3 + 0.26);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now + i * 0.3); osc.stop(now + i * 0.3 + 0.28);
+      });
+    } else if (type === 'kuyin') {
+      status.innerText = '正在发声：【苦音（哭音）】含微升Fa(↑4)抽泣上滑与微降Si(↓7)叹息下坠（对应《三滴血》“祖籍陕西韩城县”）';
+      const phrase = [
+        { s: 360, e: 386, d: 0.65 },
+        { s: 392, e: 392, d: 0.45 },
+        { s: 478, e: 440, d: 0.75 },
+        { s: 293.66, e: 293.66, d: 0.85 }
+      ];
+      let t = now;
+      phrase.forEach(p => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(p.s, t);
+        osc.frequency.linearRampToValueAtTime(p.e, t + p.d);
+        gain.gain.setValueAtTime(0.2, t);
+        gain.gain.exponentialRampToValueAtTime(0.008, t + p.d);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(t); osc.stop(t + p.d);
+        t += p.d + 0.05;
+      });
+    } else if (type === 'fa') {
+      status.innerText = '正在发声：苦音核心【微升Fa (↑4)】（约360Hz，卡在钢琴 Fa 与 #Fa 窄缝之间并带抽泣颤音）';
+      const osc = audioCtx.createOscillator(), lfo = audioCtx.createOscillator(), lg = audioCtx.createGain(), g = audioCtx.createGain();
+      osc.type = 'sawtooth'; osc.frequency.setValueAtTime(359, now);
+      osc.frequency.linearRampToValueAtTime(382, now + 1.4);
+      lfo.frequency.value = 6.5; lg.gain.value = 8;
+      lfo.connect(lg); lg.connect(osc.frequency);
+      g.gain.setValueAtTime(0.22, now); g.gain.exponentialRampToValueAtTime(0.005, now + 1.45);
+      osc.connect(g); g.connect(audioCtx.destination);
+      osc.start(now); lfo.start(now); osc.stop(now + 1.45); lfo.stop(now + 1.45);
+    } else if (type === 'si') {
+      status.innerText = '正在发声：苦音叹息【微降Si (↓7)】（约478Hz，从 b7 与 7 之间向 La 6 叹息滑落）';
+      const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(480, now);
+      osc.frequency.linearRampToValueAtTime(440, now + 1.3);
+      g.gain.setValueAtTime(0.22, now); g.gain.exponentialRampToValueAtTime(0.005, now + 1.35);
+      osc.connect(g); g.connect(audioCtx.destination);
+      osc.start(now); osc.stop(now + 1.35);
+    }
+  }
+
+  function playMonochord(ratio, cm, desc) {
+    ensureAudio();
+    document.getElementById('mono-status').innerText = '单弦琴实测：' + desc;
+    const xPos = 670 - (cm / 120) * 620;
+    document.getElementById('svg-bridge').setAttribute('points', `${xPos},56 ${xPos-12},36 ${xPos+12},36`);
+    const now = audioCtx.currentTime, base = 220;
+    [base, base * ratio].forEach((f, idx) => {
+      const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(f, now + idx * 0.14);
+      g.gain.setValueAtTime(0.26, now + idx * 0.14);
+      g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.14 + 1.5);
+      osc.connect(g); g.connect(audioCtx.destination);
+      osc.start(now + idx * 0.14); osc.stop(now + idx * 0.14 + 1.55);
+    });
+  }
+</script>
+</body>
+</html>
