@@ -380,6 +380,63 @@
     padding: 22px;
     margin: 24px 0;
   }
+  /* Verified museum object photographs */
+  .artifact-comparison-grid { gap:18px; }
+  .artifact-photo-card {
+    min-width:0;
+    margin:0;
+    padding:16px;
+    border-radius:8px;
+    border:1px solid var(--border-gold);
+    background:#141A24;
+  }
+  .artifact-photo-link {
+    display:block;
+    overflow:hidden;
+    border-radius:6px;
+    border:1px solid rgba(212,175,55,.24);
+    background:#0B0E14;
+  }
+  .artifact-photo {
+    display:block;
+    width:100%;
+    height:330px;
+    object-fit:contain;
+    object-position:center;
+    background:#0B0E14;
+  }
+  .artifact-photo-bronze { height:390px; }
+  .artifact-photo-card figcaption {
+    margin-top:10px;
+    color:var(--text-muted);
+    font-size:12px;
+    line-height:1.7;
+  }
+  .artifact-photo-card figcaption a {
+    color:var(--gold-bright);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .artifact-pair {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .artifact-pair-item { min-width:0; margin:0; }
+  .artifact-pair .artifact-photo { height:245px; }
+  .artifact-photo-note {
+    color:var(--text-muted);
+    font-size:12.5px;
+    line-height:1.7;
+    margin:12px 0 0;
+  }
+  @media (max-width: 768px) {
+    .artifact-comparison-grid { grid-template-columns:minmax(0,1fr); }
+    .artifact-photo-bronze { height:auto; max-height:460px; }
+    .artifact-pair { grid-template-columns:minmax(0,1fr); }
+    .artifact-pair .artifact-photo { height:auto; max-height:420px; }
+  }
+
   .diagram-caption {
     text-align: center;
     font-size: 13px;
@@ -1030,53 +1087,47 @@
     <h3 class="sub-title">二、 视觉与线条：故宫《宴乐渔猎攻战纹铜壶》 vs. 雅典“黑绘升红绘”</h3>
     <p class="prose">在公元前6至前5世纪，中国与古希腊的顶级画师不约而同地在弧面器物上完成了一场从“神怪图腾/僵硬剪影”向“人间写实/解剖透视”的美学跃迁：</p>
 
-    <!-- 内联 SVG 视觉展品对比 -->
-    <div class="diagram-panel sans">
-      <div class="grid-2" style="margin:0;">
-        <!-- 故宫铜壶三层展开示意图 -->
-        <div style="background:#141A24;padding:18px;border-radius:8px;border:1px solid var(--border-gold);">
-          <h4 style="color:var(--gold-bright);margin-bottom:8px;">🇨🇳 故宫藏《宴乐渔猎攻战纹铜壶》（嵌红铜三层画卷）</h4>
-          <svg viewBox="0 0 420 230" width="100%" style="background:#0B0E14;border-radius:6px;border:1px solid rgba(212,175,55,0.3);">
-            <!-- 第一层 -->
-            <rect x="10" y="10" width="400" height="62" fill="#1A2421" stroke="#D4AF37" stroke-width="1"/>
-            <text x="20" y="30" fill="#FDE047" font-size="12" font-weight="bold">上层：采桑礼与君子习射礼</text>
-            <text x="20" y="52" fill="#CBD5E1" font-size="11">🌿 左侧妇女提篮爬桑树采桑叶  |  🏹 右侧佩剑贵族挽弓搭箭瞄准箭靶（侯）</text>
-            <!-- 第二层 -->
-            <rect x="10" y="82" width="400" height="62" fill="#1F1D2B" stroke="#D4AF37" stroke-width="1"/>
-            <text x="20" y="102" fill="#FDE047" font-size="12" font-weight="bold">中层：击编钟宴乐与弋射渔猎</text>
-            <text x="20" y="124" fill="#CBD5E1" font-size="11">🔔 台上宾主举爵、台下敲击编钟编磬  |  🦆 水泽猎人用系绳之箭（弋射）射落飞雁</text>
-            <!-- 第三层 -->
-            <rect x="10" y="154" width="400" height="66" fill="#2B1619" stroke="#EF4444" stroke-width="1.2"/>
-            <text x="20" y="175" fill="#F87171" font-size="12" font-weight="bold">下层：惨烈的云梯攻城与双层战船水战</text>
-            <text x="20" y="198" fill="#CBD5E1" font-size="11">🪜 甲士架云梯仰攻、城头滚石长戈斩首  |  ⛵ 双层战舰迎头撞击、水兵持戟短剑肉搏</text>
-          </svg>
-          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">告别西周饕餮兽面纹，以嵌红铜工艺将春秋战国世俗礼乐与兼并战火定格于31.6cm青铜壶身。</p>
-        </div>
+    <!-- 真实馆藏照片对比：故宫战国铜壶与雅典黑绘、红绘陶瓶 -->
+    <div class="diagram-panel sans artifact-comparison">
+      <div class="grid-2 artifact-comparison-grid" style="margin:0;align-items:start;">
+        <figure class="artifact-photo-card">
+          <h4 style="color:var(--gold-bright);margin:0 0 12px;">🇨🇳 故宫藏《宴乐渔猎攻战纹图壶》｜战国</h4>
+          <a class="artifact-photo-link" href="https://www.dpm.org.cn/collection/bronze/234670.html" target="_blank" rel="noopener noreferrer" aria-label="打开故宫博物院宴乐渔猎攻战纹图壶官方藏品记录">
+            <img class="artifact-photo artifact-photo-bronze" src="https://img.dpm.org.cn/Uploads/Picture/dc/249%5B1024%5D.jpg" alt="故宫博物院藏战国宴乐渔猎攻战纹图壶实物正面照片，壶身分层刻画采桑、宴乐、渔猎与水陆攻战场景" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin">
+          </a>
+          <figcaption>
+            藏品编号：故00077464。战国，通高31.6厘米。照片来源：故宫博物院官方藏品页。
+            <a href="https://www.dpm.org.cn/collection/bronze/234670.html" target="_blank" rel="noopener noreferrer">查看馆藏记录 ↗</a>
+            <br>图像使用遵循故宫博物院网站关于非商业教育与个人学习用途的规定；商业出版、推广或其他商业用途须事先取得授权。
+          </figcaption>
+        </figure>
 
-        <!-- 雅典黑绘 vs 红绘陶瓶示意图 -->
-        <div style="background:#141A24;padding:18px;border-radius:8px;border:1px solid var(--border-gold);">
-          <h4 style="color:var(--aegean-bright);margin-bottom:8px;">🇬🇷 雅典陶瓶：从“黑绘”到“红绘”的底色反转（前530年）</h4>
-          <svg viewBox="0 0 420 230" width="100%" style="background:#0B0E14;border-radius:6px;border:1px solid rgba(59,130,246,0.3);">
-            <!-- 左：黑绘 -->
-            <rect x="15" y="15" width="185" height="200" fill="#C85A32" rx="8"/>
-            <circle cx="107" cy="70" r="22" fill="#111"/>
-            <rect x="85" y="96" width="44" height="65" fill="#111" rx="4"/>
-            <line x1="92" y1="110" x2="122" y2="110" stroke="#C85A32" stroke-width="1.5"/>
-            <line x1="95" y1="125" x2="119" y2="125" stroke="#C85A32" stroke-width="1.5"/>
-            <text x="107" y="182" fill="#111" font-size="12" font-weight="bold" text-anchor="middle">【黑绘 Black-figure】</text>
-            <text x="107" y="200" fill="#FFF" font-size="10.5" text-anchor="middle">橘红底+黑剪影（硬铁针刮刻）</text>
-            <!-- 右：红绘 -->
-            <rect x="220" y="15" width="185" height="200" fill="#111418" stroke="#D4AF37" stroke-width="1" rx="8"/>
-            <circle cx="312" cy="70" r="22" fill="#D96B43"/>
-            <rect x="290" y="96" width="44" height="65" fill="#D96B43" rx="6"/>
-            <path d="M 296 108 Q 312 120 328 108" stroke="#111" stroke-width="1.5" fill="none"/>
-            <path d="M 296 124 Q 312 136 328 124" stroke="#111" stroke-width="1.5" fill="none"/>
-            <path d="M 296 140 Q 312 152 328 140" stroke="#111" stroke-width="1.5" fill="none"/>
-            <text x="312" y="182" fill="#FDE047" font-size="12" font-weight="bold" text-anchor="middle">【红绘 Red-figure】</text>
-            <text x="312" y="200" fill="#CBD5E1" font-size="10.5" text-anchor="middle">黑底+橘红肤色（软毛笔解剖透视）</text>
-          </svg>
-          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">软毛笔取代硬铁针刮刻，精准画出腹肌起伏、3/4转身透视与迎风衣褶，奠定西方写实绘画传统。</p>
-        </div>
+        <section class="artifact-photo-card">
+          <h4 style="color:var(--aegean-bright);margin:0 0 12px;">🇬🇷 雅典陶瓶｜黑绘与红绘的实物对照</h4>
+          <div class="artifact-pair">
+            <figure class="artifact-pair-item">
+              <a class="artifact-photo-link" href="https://www.panoply.org.uk/clash-dicers" target="_blank" rel="noopener noreferrer" aria-label="打开Panoply关于梵蒂冈博物馆黑绘陶瓶的资料">
+                <img class="artifact-photo" src="https://www.panoply.org.uk/sites/default/files/Amphora-Achilles-Exekias-Vatican.jpg" alt="梵蒂冈博物馆藏埃克塞基亚斯黑绘双耳瓶实物照片，阿喀琉斯与埃阿斯对弈场景" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin">
+              </a>
+              <figcaption>
+                <strong>黑绘 Black-figure</strong><br>
+                埃克塞基亚斯（Exekias）阿喀琉斯与埃阿斯对弈双耳瓶，约公元前540—530年，梵蒂冈博物馆藏。照片：Steven Zucker，经 Panoply Vase Animation Project 提供。
+                <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 2.0 ↗</a>
+              </figcaption>
+            </figure>
+            <figure class="artifact-pair-item">
+              <a class="artifact-photo-link" href="https://www.metmuseum.org/art/collection/search/255154" target="_blank" rel="noopener noreferrer" aria-label="打开大都会艺术博物馆安多基德斯双语陶瓶馆藏记录">
+                <img class="artifact-photo" src="https://collectionapi.metmuseum.org/api/collection/v1/iiif/255154/533093/main-image" alt="大都会艺术博物馆藏安多基德斯双语陶瓶红绘面实物照片，酒神与随从场景" loading="lazy" decoding="async" referrerpolicy="strict-origin-when-cross-origin">
+              </a>
+              <figcaption>
+                <strong>红绘 Red-figure</strong><br>
+                安多基德斯作坊双语陶瓶，约公元前530年，大都会艺术博物馆藏，编号63.11.6。此图为该器红绘装饰面。
+                <a href="https://www.metmuseum.org/art/collection/search/255154" target="_blank" rel="noopener noreferrer">馆藏记录 · Public Domain ↗</a>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="artifact-photo-note">两张希腊照片分别展示黑绘与红绘技法，来自两件不同的真实馆藏器物，并非同一只陶瓶的正反面。黑绘以黑色釉料形成剪影，再刻划细节；红绘保留陶土色人物，以笔绘制内部线条。</p>
+        </section>
       </div>
     </div>
 
