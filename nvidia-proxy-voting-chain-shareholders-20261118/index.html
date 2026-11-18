@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="英伟达治理专题（增补篇）：追踪一张股东选票的完整旅程——散户 27.5% 的参与率、经纪商无指示股份的计票折算、ISS 与 Glass Lewis 双寡头、资管投票团队的分诊机器、持仓与投票权的分离；香港投资者持有的那张票，多数连投票通道都没有；特斯拉 2025 年总动员证明动员能抬高参与率、抬不过按已发行股份计的门槛。">
+  <title>炒股英伟达，你投过票吗？｜票不在你手里：代理顾问、资管投票团队与英伟达股东大会的隐形链条（增补篇）｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  </style>
+  <style id="kerwin-web-3-7-desktop-qa">
+    /* DESKTOP-QA-LOCK-1.0.0: canonical desktop geometry for kerwin-editorial-research-v1
+       (references/desktop-browser-qa.md; audit requires this locked stylesheet id) */
+    @media (min-width:961px) {
+      body { overflow-x:hidden; }
+      .site-shell { width:min(1120px, calc(100% - 32px)); margin:30px auto; }
+      .cover { padding:62px 64px 48px; }
+      .cover-grid { grid-template-columns:minmax(0,1fr) 210px; gap:52px; }
+      .section { padding:44px 64px; }
+      .enya { padding:36px 64px; }
+    }
+  </style>
+
+<link rel="canonical" href="https://enyaclawd.com/nvidia-proxy-voting-chain-shareholders-20261118/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="炒股英伟达，你投过票吗？｜票不在你手里：代理顾问、资管投票团队与英伟达股东大会的隐形链条（增补篇）｜Kerwin Research Hub"/>
+  <meta property="og:description" content="英伟达治理专题（增补篇）：追踪一张股东选票的完整旅程——散户 27.5% 的参与率、经纪商无指示股份的计票折算、ISS 与 Glass Lewis 双寡头、资管投票团队的分诊机器、持仓与投票权的分离；香港投资者持有的那张票，多数连投票通道都没有；特斯拉 2025 年总动员证明动员能抬高参与率、抬不过按已发行股份计的门槛。"/>
+  <meta property="og:url" content="https://enyaclawd.com/nvidia-proxy-voting-chain-shareholders-20261118/"/>
+  <meta property="og:image" content="https://enyaclawd.com/assets/kerwin-home-og-v5.png"/>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "炒股英伟达，你投过票吗？｜票不在你手里：代理顾问、资管投票团队与英伟达股东大会的隐形链条（增补篇）｜Kerwin Research Hub",
+ "description": "英伟达治理专题（增补篇）：追踪一张股东选票的完整旅程——散户 27.5% 的参与率、经纪商无指示股份的计票折算、ISS 与 Glass Lewis 双寡头、资管投票团队的分诊机器、持仓与投票权的分离；香港投资者持有的那张票，多数连投票通道都没有；特斯拉 2025 年总动员证明动员能抬高参与率、抬不过按已发行股份计的门槛。",
+ "image": "https://enyaclawd.com/assets/kerwin-home-og-v5.png",
+ "inLanguage": "zh-CN",
+ "mainEntityOfPage": "https://enyaclawd.com/nvidia-proxy-voting-chain-shareholders-20261118/",
+ "datePublished": "2026-11-18T11:45:00+08:00",
+ "dateModified": "2026-11-18T11:45:00+08:00",
+ "author": {
+  "@type": "Person",
+  "name": "Kerwin Ye",
+  "alternateName": "叶高峰",
+  "url": "https://enyaclawd.com/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "Kerwin Research Hub",
+  "alternateName": "EnyaClawd",
+  "url": "https://enyaclawd.com/"
+ }
+}
+  </script>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="nvidia-proxy-voting-chain-shareholders-20261118">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · AI Capital Cycle Desk</span>
+      <span>Evidence first · Snapshot 2026-11-18 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">NVIDIA · Corporate Governance · Proxy Voting</div>
+          <h1>
+            炒股英伟达，你投过票吗？
+            <span>票不在你手里：代理顾问、资管投票团队与英伟达股东大会的隐形链条（增补篇）</span>
+          </h1>
+          <p class="thesis">票不是被偷走的，是被让渡的：散户的弃权、经纪商的冻结、代理顾问的建议与资管团队的政策，共同决定股东大会的实际结果——而香港投资者持有的那张票，多数连通道都没有。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年11月18日</span>
+            <span><b>数据快照</b> 2026-11-18 HKT</span>
+            <span><b>研究对象</b> 美国股东投票管道：代理顾问（ISS、Glass Lewis）、资管投票团队、香港投资者美股投票通道、特斯拉 2025 年股东动员</span>
+            <span><b>证据边界</b> 计票数字以 8-K 与委托书原文为准；持仓与投票权严格分开；学术估计、公司倡议与单方指控均就地标注口径</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>27.5%</strong>
+          <span>2026 年代理季美国散户实际投出所持股份的比例（Broadridge ProxyPulse）；香港账户的美股投票通道更窄</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>本文数字分层标注：公司正式披露（8-K、委托书、尽责报告）、官方统计（ProxyPulse）、学术估计（断点回归、样本调查）与单方主张（行政令、诉讼与请愿站自报）互不混用；参与率均为股份口径，无官方账户数口径。持仓比例为受益所有权，不等于可动用投票权。相关诉讼与调查尚在进行中，文中情景为条件分析，不构成投资建议。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>核心判断：决定结果的不是态度，是管道与默认项</h2>
+      <p class="lead">英伟达 2025 年那项 99% 赞成却失败的修订、特斯拉 2025 年那场总动员，指向同一个结论：股东大会的结果首先由谁的票能到达计票机、以及沉默如何被计票公式折算决定，其次才由立场决定。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>缺席即反对</b><span>按已发行股份计门槛的表决里，未投票与反对等值：英伟达 2025 年修订案死于 32.07 亿股经纪商无指示股份与约 49.9 亿股完全缺席，反对票只有 1.53 亿股。</span></div>
+        <div class="verdict-item"><b>动员有上限</b><span>特斯拉 2025 年把参与率推到 74.3% 的近年最高，赞成率却与 2024 年持平；同一场动员在按已发行股份计门槛的提案六面前只拿到 39.4%——宣传武器抬得动参与率，抬不动分母。</span></div>
+        <div class="verdict-item"><b>持仓不是票仓</b><span>委托书脚注显示：贝莱德受益持股 18.06 亿股、独立投票权 16.29 亿股；先锋一家管理实体持股 17.77 亿股、独立投票权只有 2.39 亿股。投票权切碎在基金层面，没有总部能整笔调动。</span></div>
+        <div class="verdict-item"><b>改造不在你这段</b><span>机构在用 AI 自建投票平台、管道在向 Proxymity 迁移、代币化股票在另起炉灶；香港账户的美股投票仍停在收费人工申请、明示不支持或查无安排。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">01 · 导语</div>
+      <h2>炒股英伟达，你投过票吗？</h2>
+      <p>先问一个具体的问题：如果你在香港的银行或券商账户里持有英伟达——亚洲投资者持有这只股票的，何止百万——你有没有为它投过票？大概率没有。不是你懒，是这张票从设计上就很难到达你手里：它要穿过本地券商、美国托管行、存管机构与计票系统，每一层都有自己的截止日、表格与默认设置，而其中一些香港渠道，根本不提供美股投票这项服务。本篇要追踪的，就是这张票的完整旅程。</p>
+      <p>上篇留下一个没有回答完的问题：股东确实没有一票可以投给 CEO，但股东手里那张投给董事的票，究竟是怎么投出来的？请愿网站上逾 18 万个签名改变不了任何计票结果，那么真正被计入的那些票——由谁决定投给谁、依据什么、经过几层转手？本篇从散户的弃权开始，经过经纪商与计票规则的折算，穿过两家代理顾问公司的建议，最后落到几家资管巨头投票团队的桌面上。英伟达 2025 年股东大会那场「99% 赞成却失败」的投票，是观察这条链条最好的标本；特斯拉 2025 年那场动用全部宣传武器的总动员，则是最好的对照实验——当有人真的想把散户的票要回来时，发生了什么。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">02 · 摘要</div>
+      <h2>摘要：四条结论</h2>
+      <h3>一、缺席不是中立，缺席是计票规则里的反对票。</h3><p>在「占全部已发行股份比例」型门槛下，未投票股份与反对票等值。英伟达 2025 年删除超级多数条款的章程修订拿到约 99% 的已投票赞成，仍以约一个百分点之差失败——杀死它的不是反对者（反对票只有 1.53 亿股），是缺席者：32.07 亿股经纪商无指示股份被规则冻结，另有约 49.9 亿股根本没有进入会议。</p>
+      <h3>二、弃权是全行业的默认状态；但特斯拉证明，动员能抬高参与率，抬不过门槛的分母。</h3><p>Broadridge ProxyPulse 对 2026 年代理季的统计：散户投出了其所持股份的 27.5%，机构投出 72.9%，参与率双双再降——可散户实际投出的股数反而多出约 20 亿股（持有基数涨得更快）。而当发行人真的发动总动员——特斯拉 2025 年动用公开信、应用内推送、付费广告与马斯克本人在 X 上的喊话——参与率被推到该公司近年最高，却在同一场会议上，眼睁睁看着另一项按已发行股份计门槛的提案以 39.4% 落败。</p>
+      <h3>三、填补真空的是双寡头与 robo-voting 的组合，但权力图景比流行叙事复杂。</h3><p>ISS 与 Glass Lewis 合计占代理顾问市场九成以上（行政令口径），学术研究估计 ISS 的一份负面建议在断点附近可使薪酬表决支持率下降约 25 个百分点；与此同时，三大资管巨头都运行自有投票政策、把 ISS 当执行管道而非决策者，自动跟投集中在中小基金（其合计持股约占样本公司选举股份的 1.5%）。代理顾问最深的影响力不在投票日，而在投票之前——它们的政策清单是全市场公司治理的「默认设置」参照系。</p>
+      <h3>四、这台机器正在被改造，但改造发生在机构端，海外散户这一段基本没变。</h3><p>法院收窄了 SEC 以「招揽」定义监管代理顾问的路径，各州总检察长轮番起诉，联邦行政令直接点名「外国所有」的代理顾问；机构端开始用 AI 自建投票平台（摩根大通资管 2026 年停用两家顾问、改用内部 AI 系统）；资管巨头推出 pass-through voting 把票权向终端投资者回拨——但按资产计，先锋 2026 赛季实际行使选择的资产仅约占其合格资产池的 3.8%。而香港投资者这一段链条：主流渠道或收费人工申请、或明示不支持、或无公开安排，基本停留在原地。</p>
+      <p>---</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">03 · 入口</div>
+      <h2>入口：2025 年那一个百分点</h2>
+      <p>先把上篇已经核实的事实摆出来，并补上完整的四栏计票。2025 年英伟达股东大会上，董事会提出章程修订（第 4 项提案），删除残余的超级多数条款。据 8-K 披露：赞成 160.19 亿股（16,018,866,893 股），反对 1.53 亿股，赞成票占「赞成＋反对」的 99.06%——在任何按「已投票数」计胜负的表决里，这都是压倒性胜利。但该修订的通过门槛不是已投票数的比例，而是记录日全部有权股份（243.88 亿股）的 66⅔%。160.19 亿股赞成票折算过去只有 65.68%，差 2.40 亿股、约一个百分点，修订未获通过。</p>
+      <p>缺口不是反对者挖的。把四栏摆全：反对 1.53 亿股、明示弃权 0.22 亿股，都不足以解释缺口；真正的量在另外两处——经纪商无指示股份（broker non-votes）32.07 亿股（占有权股份 13.15%）：经纪商把它们带进了会议计入法定人数，却因客户没有指示、规则也不许代投，在这项提案上集体沉默；再加上约 49.88 亿股根本没有进入会议。仅经纪商冻结的那一栏，就是 2.40 亿股缺口的十三倍。需要说清的是：无法知道这 32 亿股若收到指示会如何投——本篇的论点不是「它们本该赞成」，而是计票公式把「没有指示」直接折算成了与反对票等值的东西。</p>
+      <p>2026 年的对照组同样说明问题：同一年股东大会上，「以简单多数取代超级多数」的股东提案以 86.84% 的已投票赞成获得通过——但它是非约束性的，建议性质，不改变章程分毫；而有约束力的 2025 年修订死于缺席。美国公司治理里最有力量的选民，常常不是任何一个人，而是弃权本身。本篇接下来的任务，是把这条「弃权—折算—建议—代投」的链条逐环拆开。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">04 · 选票的旅程</div>
+      <h2>一张选票的旅程：名册、经纪商与计票机器</h2>
+      <p>美国上市公司的股东名册分两层。少数人是登记股东（registered holder），名字直接写在公司的股东名册上；绝大多数人是受益股东（beneficial owner）——股票以「街道名义」（street name）登记在存管机构（DTC，其名义持有人为 Cede &amp; Co.）与经纪商名下，投资者只是受益人。这个区别决定了投票的物理路径：登记股东收到公司寄来的委托书材料（proxy card）直接投票；受益股东收到的是经纪商转发的投票指示表（VIF），投的其实是「指示经纪商如何投票」，再由经纪商汇总执行。</p>
+      <p>中间还站着一家纽交所上市的基础设施公司：Broadridge（NYSE: BR）。它为大多数美国经纪商与银行处理投票材料的分发、回收与汇总——美国代理季的选票，物理上大多流经它的系统。投票截止也不是股东大会当天：经 Broadridge 系统投票的通常截止为会议前一日美东时间 23:59，经纪商还可另设更早的内部截止以便汇总传递。错过经纪商截止，不等于法律上丧失投票权——登记股东仍可按程序在会场投票、已投出的票在会前也可更改或撤回——但对绝大多数隔着经纪商的受益股东而言，实践中等同于弃权。</p>
+      <p>规则层最关键的一条是 NYSE Rule 452 与它的修订史。旧规则下，经纪商可以对未获指示的股份行使酌情投票权——<b>等于经纪商替沉默的客户投票，且惯例上多与管理层一致。</b>SEC 于 2009 年批准修订、2010 年代理季起，禁止经纪商在董事选举（含非竞争选举）中动用无指示股份；2010 年《多德-弗兰克法》第 957 条再把高管薪酬等「重大事项」写入禁令。保留下来的只有例行事项（典型如审计师任命）：<b>经纪商仍可代投——这正是 broker non-vote 的产生方式：经纪商凭例行事项把股份带进会议凑足法定人数，但对非例行事项无指示即无票。</b></p>
+      <p>这套安排的本意是好的：切断经纪商用客户的沉默替管理层站台。<b>但它的副作用在第一节已经现形——在「已发行股份比例」型门槛下，被规则冻结的沉默不再中性，它被计票公式直接折算为反对票</b>。改革者拆掉了一条输送带，却没有处理沉默本身的去向。而且输送带还在继续变细：Charles Schwab 自 2019 年起、TD Ameritrade 自 2021 年起停止行使例行事项的酌情投票权，Robinhood 则从不行使——这些券商的未指示股份连 broker non-vote 都不会形成，而是直接缺席，连法定人数都凑不上（散户重仓的小公司已因此凑不齐法定人数、被迫下调 quorum 门槛）。沉默的股份分两种：一种被带进会场冻结，一种连会场都进不去；后者正在变多。</p>
+      <h3>把镜头拉到香港，这条链还要再长一截。</h3><p>香港投资者经本地券商买美股，链条是：本地券商 → 其美国关联经纪商或托管行在 DTC 的综合账户 → Cede &amp; Co.，比美国本土散户多出一层（部分券商再多一层美国清算商）。投资者只是受益人，靠券商内部账簿确权；投票材料能不能到达他手里，取决于本地券商是否接入分发系统并愿意转发。逐家查核的结果（2026 年 11 月，以各家官方页面为准）差异极大：</p>
+      <p><b>富途</b>：股东大会投票属于收费人工服务——委托富途投票按每笔申请收费（其美股收费表列 US$10/笔），帮助中心找不到 App 内自助投票的入口或指引。要投票，先付费、走人工。</p>
+      <p><b>老虎</b>：帮助中心 FAQ 明示「由于海外券商公司的支持有限，老虎目前无法为美国市场的股东大会（AGM）提供代理支持」；而其香港站收费表却列着「代股东大会投票或报名：每次申请 USD 10」——两处官方口径互相矛盾，实务上以 FAQ 的明示为准：在这个渠道里持有的美股，没有投票通道。</p>
+      <p><b>盈透（IBKR）</b>：主流渠道中唯一实现电子直达的一家——股东材料经 Mediant 默认电子送达，客户凭控制号在 Broadridge 平台在线投票，未见单独收费；代价是内部截止早于发行人截止（其官方 FAQ 对部分市场要求会前至少 4 个营业日提交指示）。</p>
+      <p><b>长桥、汇丰香港</b>：未找到关于美股投票安排的任何公开官方说明——能不能投、怎么投，公开层面无据可查。</p>
+      <p>再加上两道无形的墙：委托材料只有英文（由发行人发出，未见任何香港券商提供中文投票材料的公开记录）；参加了股票出借计划的投资者，借出期间投票权随券而走（老虎官方帮助页明示借出后「不再拥有此部分股份相应的投票权」）——不少人在登记日那天，连「可被投」的资格都不具备。所以「亚洲投资者几乎不投票」不全是意愿问题：对相当一部分人，通道要么不存在、要么收费人工、要么从未被告知存在。本篇后面引用的美国本土散户参与率，统计的还是通道存在的那些人。</p>
+      <p>链条的最后一环是披露的滞后与分层。注册基金须按年以 Form N-PX 申报其组合证券的投票记录（报告期截至 6 月 30 日、最迟 8 月 31 日申报），机构管理人的法定 N-PX 范围则主要限于高管薪酬类表决；大型资管另在官网设有投票披露入口，逐只基金的实际投票可查——所以「贝莱德在英伟达年会上投了什么」其实查得到，查不到的是「为什么」：逐案解释立场的 vote bulletin 已经基本停发（见第六节）。计票机器的结果是公开的，理由越来越不公开。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">05 · 理性弃权</div>
+      <h2>散户为什么不投票：理性弃权的经济学</h2>
+      <p>先看全景数据。Broadridge ProxyPulse 统计 2026 年代理季（2026 年 1 月 1 日至 6 月 30 日召开的年会，口径为 Broadridge 处理的街道名义股份）：散户投出了其所持股份的 <b>27.5%</b>，机构投出 <b>72.9%</b>，较 2025 年的 28.0% 与 76.6% 再度下滑。但同一份报告里藏着一个反直觉的细节：散户实际投出的股数同比多出约 20 亿股——参与率下降的同时，绝对票数在上升，因为散户持有的股份基数（多出约 60 亿股）涨得更快。「弃权率恶化」与「投票总量新高」同时成立，引用时不可只取其一。口径边界同样要标注：ProxyPulse 只披露股份口径的参与率，散户「账户数」参与率并无官方数据，网络流传的账户参与率无从核验，本篇不予引用。</p>
+      <p>28% 的成因不需要用「冷漠」来解释，用算术就够了。一名持有数千美元英伟达股票的散户，认真投票的成本是读完上百页委托书、理解十余项提案、赶在经纪商截止日前完成指示；收益是自己那几千股在一场 243 亿股的表决里改变结果的概率——约等于零。<b>个体理性加总成集体结果：散户席位大面积空置。</b>雪上加霜的是摩擦：受益股东要凭控制号登录指定系统、材料以邮件或纸质形式送达、很多人根本不知道自己持有投票权（通过共同基金与养老金持有的人，连「股东」身份都是双重间接的）。</p>
+      <p>机构那一端的 72.9% 同样值得注意：连受托责任在身的机构都有逾四分之一的股份没有投出。可能机制包括证券借贷（借出的股份投票权随券而走、召回有成本）与跨境托管链条的操作损耗，但 ProxyPulse 并未量化各自贡献，本篇只列为可能机制。弃权不是散户的专利，它是整条链的系统损耗，只是散户那一段损耗最大。</p>
+      <p>英伟达 2026 年年会是很好的注脚：会议代表股份 196.86 亿股、占记录日有权股份的 81.28%——但这个「出席率」具有误导性。以黄仁勋的董事席位计，赞成与反对合计只占有权股份的 69.43%，另有 28.30 亿股是经纪商无指示股份、0.40 亿股明示弃权。也就是说，即便在一场出席率逾八成的明星公司年会上，仍有约三成有权股份没有对董事人选表过态。8-K 汇总表不按机构与散户拆分，无法确知这三成是谁的沉默；结合全市场散户 27.5% 的参与率推断，散户名册贡献了其中大部分——这是推断，不是披露。理解这一点，才能理解为什么「动员散户」在代理权争夺里从来不是主战场：不是动员不动感情，是动员不动算术。下一节的特斯拉案例，恰好是有人不信这道算术、真金白银砸下去动员的结果。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">06 · 特斯拉对照实验</div>
+      <h2>对照实验：特斯拉 2025——当总动员真的发生</h2>
+      <p>如果说英伟达的股东大会是「没人动员」的常态，特斯拉 2025 年年会就是把动员做到极限的对照组。2025 年 11 月 6 日，特斯拉股东表决董事会 9 月授予马斯克的「2025 CEO 绩效奖」：4.24 亿股业绩限制性股票、约占当时已发行股份 12%，分 12 档与市值及运营里程碑挂钩，市场称之为「万亿薪酬包」。ISS 与 Glass Lewis 双双建议反对（ISS 称授予价值为「天文数字」）。结果：赞成 18.92 亿股、反对 5.65 亿股，赞成占「赞成＋反对」的 77.0%，方案通过。</p>
+      <p>动员的规模，先看备案链——美国的征集规则要求公司把公开拉票材料以 DEFA14A 向 SEC 备案，于是这场动员留下了完整的化石记录：2025 年 10 月 9 日起，数字广告与 Google 搜索广告投放、X 上的股东现身说法视频、VoteTesla.com 投票指南站更新（按券商分列操作指引，并明示提醒「部分美国境外券商不允许散户投票」——香港账户正属此类）；10 月 13 日与 27 日，董事长 Robyn Denholm 两度通过 Robinhood 应用内消息直接向股东推送；10 月 20 日，特斯拉官方账号发长文《Take back your vote from proxy advisors》，号召股东把票从代理顾问手里「夺回来」；10 月 27 日，Denholm 发公开信警告方案若被否、马斯克可能「抽身而退」，同日登上 CNBC；10 月 22 日财报电话会上，马斯克本人把 ISS 与 Glass Lewis 称为「企业恐怖分子」，明言没有足够强的投票影响力，他「不放心在特斯拉建一支机器人大军」。公司另聘专业征集公司 Innisfree 操盘；据特斯拉后来向 SEC 披露，2024 与 2025 两次年会的代理征集费用合计超过 200 万美元。一线经验可以作证：有香港投顾曾逐个提醒持有特斯拉的客户去投票，得到的反馈高度一致——通道各异、表格复杂。这正是 VoteTesla.com 要逐家券商写指引的原因。</p>
+      <p>效果如何，用三组数据裁决：</p>
+      <h3>参与率：动员确实把人喊出来了。</h3><p>特斯拉实际投出票占已发行股份的比例：2022 年约 64%、2023 年约 60%、2024 年（追认 2018 年薪酬包、同样有大规模动员）约 72%、2025 年 74.3%，为该公司近年最高（特斯拉在 2026 年股东信中亦自述「约 74%、近年来最高参与率」）。两个薪酬动员年，比此前高出约 10–14 个百分点。另一个旁证：经纪商无指示股份占已发行股份的比例三年连降——2023 年 16.7%、2024 年 10.5%、2025 年 9.1%，方向与「更多受益人真的下达了指示」一致（但同时受股份出借与登记结构变化影响，只能算旁证，不能单独证明动员效果）。</p>
+      <h3>赞成率：动员没有改变意向分布。</h3><p>2025 年赞成率 77.0%，与 2024 年追认表决的约 77% 几乎相同；据测算，剔除马斯克本人可投票的约 15% 后，2025 年赞成率仍有约 71–72%，与 2024 年官方公布的无利害关系口径 72% 基本一致。换句话说：没有马斯克自己的票、甚至没有本轮动员的增量，按 2024 年的股东意向基线，这个方案大概率也会通过——代理征集业者在投票前的共识本就是「预期通过」。散户的倾向也不是动员创造的：马斯克 2024 年 6 月曾在 X 上自述，已投票散户中约 90% 赞成（其本人自述、未经独立核实）；征集业者当时的评论点破了关键：散户本就倾向管理层，难的从来不是说服，是让他们把票投出来。</p>
+      <h3>门槛：同一场动员，在另一种分母面前当场失效。</h3><p>这是本案与英伟达最精确的对照：同一场年会、同一套动员机器，特斯拉提案六（取消超级多数条款）需要已发行股份 66⅔% 赞成，最终只拿到相当于已发行股份 39.4% 的赞成票，落败；提案七（投资 xAI 授权）则因 4.73 亿股弃权按公司章程标准计入分母、效果等同反对而未获通过。动员能把参与率从 60% 抬到 74%，但以「已发行股份」为分母的门槛，需要的不是参与率新高，而是再多约 27 个百分点的全体动员——那是宣传武器到不了的地方。英伟达 2025 年第 4 项提案与特斯拉提案六，死于同一种分母。</p>
+      <p>最后一幕是这场实验的制度化。2026 年 10 月，特斯拉披露推出「散户自愿投票计划」：散户在 2026 年年会投票后，可经 ProxyVote 或 Say by Robinhood 登记一项常设指示——今后的股东大会，其股份自动按董事会建议投票，免费、可随时撤销。动员的终点，原来不是让散户每次都来，而是让散户来一次、把以后的票一并让渡给默认项。这与本篇主线严丝合缝：机器不反对你投票，机器只想替你把「以后」也投了。对香港投资者还有一个冷峻的注脚：这套常设指示依附于美国本土平台，香港账户不在覆盖之内——连「让渡」的资格，都要先有通道。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">07 · 双寡头</div>
+      <h2>代理顾问双寡头：卖建议的人，与他们的争议</h2>
+      <p>当机构投资者持有上万家公司的股票、每年面对五万多场股东大会时，逐家公司研究每一份委托书在经济上不成立。代理顾问行业就是为填补这个真空而生的：<b>ISS（Institutional Shareholder Services）与 Glass Lewis 两家公司</b>，为机构投资者提供逐家公司、逐项提案的投票建议与投票执行服务。两家合计的市场份额没有官方统计：2025 年 12 月 11 日特朗普行政令 EO 14366 的原文称两家「控制代理顾问市场的 90% 以上」（该行政令未给出观测年份与计算方法）；国会证词与州诉讼文件常用的数字是 97%，属主张方的估计。两个数字都只能按出处引用，不能当作实测值。</p>
+      <p>先看清两家的体量与所有权。ISS 官方口径为 1,600 多家机构客户、每年覆盖 5 万多场股东大会；它的所有权在 2026 年 3 月底刚刚完成收官——德意志交易所 2020 年宣布收购约 80% 股权、2021 年 2 月交割，2026 年 3 月底再买下 General Atlantic 持有的剩余 19.69%，ISS STOXX 成为其全资资产。<b>一家德国交易所集团全资拥有美国公司治理最有影响力的建议者</b>，这正是 EO 14366 标题里「外国所有」（foreign-owned）一词的所指。</p>
+      <p><b>Glass Lewis 的所有权在加拿大一侧</b>：2007 年由安大略教师养老金计划收购、2013 年起 AIMCo 参股两成，2021 年整体售予 Peloton Capital 与金融企业家 Stephen Smith 至今；其官方口径为 1,300 多家投资者客户、每年 3 万多场会议。</p>
+      <p>两家的生意模式有三处结构性争议，逐项说清并标注口径：</p>
+      <h3>其一，建议的中立性与「另一只手」。</h3><p>ISS 旗下全资子公司 ISS Corporate Solutions 向上市公司出售治理、薪酬与可持续方面的咨询服务——被建议覆盖的公司，同时是另一条产品线的客户。ISS 在自己的 Form ADV Part 2A（2026 年版）中明文承认这是潜在利益冲突，并称以防火墙（研究团队不知晓发行人客户身份、报告附客户关系披露图例）处理——这是公司披露的安排，其有效性未经独立验证。该子公司的收入占比，ISS 从未单独披露，无从核验。批评者——2025 年 4 月众议院听证上的 Gibson Dunn 合伙人、5 月参议院银行委员会共和党议员联名信——指控的结构是：负面建议与咨询推销之间存在「付费免负评」的激励。需要强调：这是批评方的结构指控，不是已证实的个案事实；但冲突的存在本身由 ISS 自行披露在案，不需要任何人指控。Glass Lewis 长期以「不向发行人提供咨询」自别于 ISS（2018 年回覆参议院银行委员会主席 Heller 的函件语），但其官网现列有 2,300 多家发行人客户（研究报告、股权计划模型等服务），2025 年听证批评方已指出其新设的发行人股权计划咨询服务与旧承诺之间的张力。</p>
+      <h3>其二，robo-voting：建议如何变成票。</h3><p>影响力的传导机制是本节的枢纽。学术证据分两层：Malenko 与 Shen（《金融研究评论》2016）用断点回归估计，<b>ISS 对薪酬表决的负面建议在断点附近使支持率下降约 25 个百分点</b>（局部因果估计，不是对全部表决的平均效应）；<b>Iliev 与 Lowry（2015）发现其样本中超过四分之一的共同基金几乎完全依赖 ISS 建议投票</b>。但反方证据同样来自学术界：Matsusaka 与 Shu（2024 年正式发表）估计 2021 年约三分之一美国共同基金符合其 robo-voting 定义（其中约 22% 跟随 ISS、4% 跟随 Glass Lewis、6% 跟随管理层），可这些基金多为小基金，在其样本的近期公司选举中合计持股平均仅约 1.5%——依赖是普遍的，权重是有限的。两层证据并不矛盾：大基金有自有团队对建议做二次判断（见第六节），小基金把建议当结论；而选举的边际胜负恰恰可能由中间层决定。把 robo-voting 写成「两家公司操纵美国公司治理」是夸大，写成「只是提供参考」是低估，准确的位置在两者之间，且随公司规模与提案类型移动。</p>
+      <h3>其三，政治与监管的围剿。</h3><p>过去六年，这条建议链被装进了美国政治的瞄准镜：SEC 2020 年规则把代理顾问的投票建议纳入《交易法》「招揽」（solicitation）的定义，并以冲突披露、向被评公司提供建议、告知客户发行人回应三项条件作为豁免前提；2022 年新一届 SEC 撤销后两项条件及 Rule 14a-9 的相关示例注释。2025 年 7 月 1 日，D.C. 巡回法院在 ISS 诉 SEC 案（No. 24-5105）中维持下级法院判决、撤销 2020 年那项定义修订——SEC 其后退出上诉，由全国制造商协会（NAM）作为余下上诉方败诉。这项判决抽掉的是「以招揽定义监管建议」这一条路径；SEC 对投资顾问的监管是另一条独立路径，其 2026 年对 ISS 的传票执行申请正是援引该路径（见下）。与此同时战场转向各州：德州 2025 年 SB 2337 要求基于「非财务因素」的建议作指定披露，两家公司分别起诉，联邦法院 2025 年 8 月 29 日在 Glass Lewis 案中发出初步禁令、禁止州方对该原告执行该法（禁令按当事人发出，不等于全州法律失效）；佛州总检察长 2025 年 11 月以反垄断与消费者保护起诉两家；2026 年 5 月四州总检察长同日起诉 ISS，7 月德州再诉 Glass Lewis；联邦层面，EO 14366 之后，SEC 于 2026 年 9 月 4 日向联邦法院申请执行对 ISS 的调查传票（截至本文截稿未见裁决公开，SEC 在发布稿中强调尚未认定任何违法），司法部 2026 年 8 月 5 日撤销了 1987 年发给 ISS 的 business review letter——那是表明司法部当时无意就所述安排采取执法行动的函件，并非许可或豁免，撤回意味着这层安慰不复存在。两家公司也在调整自己的产品：ISS 2025 年 2 月无限期暂停在美国董事选举建议中考虑董事会多元化因素；Glass Lewis 2025 年 10 月宣布改以四种「视角」研究框架取代单一 benchmark 指引、新模式定于 2027 年 9 月 1 日启动，并称约七成客户已在使用定制政策（其公告口径）——双寡头的「一份建议定天下」模式，正在从内部松动。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">08 · 投票团队</div>
+      <h2>资管投票团队：几十个人，十几万项提案</h2>
+      <p>链条的最后一环，是真正把票投出去的人。三大指数巨头的投票团队规模与工作量，先摆官方口径：</p>
+      <p>贝莱德投资尽责管理团队（BIS）由 60 余名专业人员组成、分布在全球 9 个办公室；其截至 2026 年 6 月 30 日的代理年度里，BIS 按其 benchmark 政策在 56 个市场的 16,674 场股东大会上投了 154,110 项提案（覆盖 12,296 家公司）。</p>
+      <p>先锋在 2026 年把内部指数基金的投票拆给两个新团队——由 Glenn Booraem 领导的 VCM Investment Stewardship 与 Carolyn Cross 领导的 VPM Investment Stewardship，官方定位是「让代理投票生态中的声音更加多元」；2025–26 代理季，VCMIS 处理约 13.5 万项提案、VPMIS 处理约 3.4 万项（两队分别披露，同一提案可能在两队各计一次，合计仅作量级参考）。</p>
+      <p>道富的资产尽责团队（全球负责人 Benjamin Colton）2025 年在约 60 个国家的 24,600 多场会议上投票，处理管理层提案约 21.24 万项、股东提案约 5,300 项，其投票与管理层建议立场的一致率约 92%（其报告口径）。</p>
+      <p>做一道粗略的除法可以感受量级：60 余人、每年 15 万余项提案，平均每人每个工作日对应十项以上——这只是量级示例（分子是全球事项、分母并非审阅工时，不能据此推出任何自动投票率），但方向清楚：逐项从零研究在物理上不存在，系统必须靠政策预设运转。真实机制是三层分诊：<b>第一层是政策</b>——每家都有成文的自有投票指引（董事独立性、薪酬结构、合并授权等逐项预设立场），绝大多数提案按政策预设立场处理，ISS 在其中扮演的是执行管道与研究输入的角色（贝莱德、道富都把投票执行平台外包给 ISS，但官方口径一致：决定独立作出、依据自家政策）；<b>第二层是升级</b>——持仓重大、提案有争议、或政策未覆盖的案件，才进入分析师与团队负责人的案头；<b>第三层是接触</b>——投票前的 engagement 与投票后的解释，集中在最大持仓与最具争议的公司。道富约 92% 的一致率是理解这套系统的基准线，但要读对：一致既可以是常态性的认可，也可以是判断后的赞同，单凭一致率无法区分；能区分的，是那少数偏离案件与投票前的接触记录。</p>
+      <p>由此需要修正第五节留下的印象：三大巨头不是 robo-voter。代理顾问对它们的真实影响力走的是另一条更隐蔽的路——<b>默认设置的制定权</b>。</p>
+      <p><b>ISS 与 Glass Lewis 的 benchmark 政策（独立性标准、薪酬红线、毒丸与分级董事会立场）是全市场最先被写出来的「标准答案」。</b>有充分的实务证据显示，不少发行人的董事会与薪酬顾问在设计提案时会参照这两份清单调整——两家面向发行人的产品线本身就建立在这个需求之上。建议甚至不需要在投票日被「采纳」，它已经在提案成形阶段行使过一遍影响力。这是双寡头最难被替代、也最难被监管触及的一层。</p>
+      <p>这条链的透明度呈现一种分裂：结果越来越可查，理由越来越稀缺。贝莱德各基金在英伟达年会上的实际投票，可经其官网投票披露入口与 Form N-PX 查到（见第二节）；但它过去就重大投票逐案解释立场的 vote bulletin——代投链上少有的面向公众的说明机制——已经基本停发：统计显示其 2025 年截至 7 月发布数量为零，官网 bulletin 库的最新一份停在 2024 年。停发时点在 SEC 2025 年 2 月收紧 13D/G 参与边界的工作人员指引之后，但因果关系未经证实，本篇只记录时间上的先后。机器越来越大，说明书越来越薄。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">09 · 票仓地图</div>
+      <h2>回到英伟达：2027 年的票仓地图——先分清持仓与投票权</h2>
+      <p>把前六节的链条落回英伟达。先纠正一个流行误读：媒体与委托书列示的「持股比例」是受益所有权（经济敞口），不是可以整笔调动的投票权。2026 年委托书的主要股东表只列两名 5% 以上持有人，但把脚注读完，图景立刻不同（口径细节见文末注）：</p>
+      <p><b>黄仁勋</b>：受益持有约 3.58%。创始人的票权与他的产业地位完全不成比例——这是上篇的结论。</p>
+      <p><b>贝莱德</b>：委托书列示受益持有 7.43%（18.06 亿股），但脚注同时披露：其中具有独立投票权的只有 16.29 亿股；且该脚注所引 13G 仓位时点为 2023 年 12 月 31 日，口径明显滞后（按 2026 年二季度 13F 汇总，其受益持仓约 8.0%）。</p>
+      <p><b>先锋</b>：委托书列示 Vanguard Capital Management 受益持有 7.31%（17.77 亿股，13G，截至 2026 年 3 月 31 日），脚注披露其独立投票权只有 2.39 亿股——其余股份的投票权不在该管理人手里，而在旗下各基金层面，由基金的受托结构授权投票团队行使（见第六节）。集团另一管理实体另行持有，两实体 13F 合计约 20.59 亿股（约 8.5%），而其 13F 申报的投票权限栏对该证券标注为「无」——投票权在基金，不在申报母体。2027 年这批基金层面的票还将由先锋两个新投票团队分别投出：同一集团、同一家公司、两套政策、两种可能结论，这是今年新出现的变量。</p>
+      <p><b>道富</b>：未列入委托书主要股东表；其 13F 汇总受益持仓约 10.10 亿股（约 4.2%），申报的投票权限拆分是：独立投票 1.23 亿股、共同投票 0.10 亿股、无投票权 8.77 亿股。</p>
+      <p>三大合计的受益持仓约 19%–21%（随口径与基准日而异）——但这张表真正说明的是：<b>没有任何一个总部可以「调动」这约两成票</b>。投票权被切碎在成百上千只基金里，由各自的受托结构与投票团队按政策行使；母体在 13F 上对大部分仓位甚至不持有投票权限。把持仓表读成票仓表，是分析股东大会时最常见的错误。</p>
+      <p>再叠加程序约束（上篇已逐项核实，本篇按 2026 年委托书与公司细则复核）：股东以书面同意行动被章程禁止；特别会议由董事会等主体召集，合资格股东（持股至少 15%、连续持有满一年并满足细则其他条件）可提出请求；proxy access 的提名上限为董事会席位的 20% 与 2 个名额取较大者（董事会现为 10 席，即 2 名），提名股东集团须合计持股至少 3% 满三年、人数不超过 20 名，且须由提名股东（而非候选人）作出无改变或影响控制意图的陈述；2027 年年会的提名与 proxy access 通知窗口均为 2027 年 2 月 24 日至 3 月 26 日。</p>
+      <p>还有一层合规自保，让大票仓更不愿破局。三大资管的指数持仓以 Schedule 13G「被动投资者」身份申报；SEC 2025 年 2 月更新的工作人员解释收紧了 13D/13G 的参与边界：在闭门接触中向发行人施加人事任免或治理改组压力，可能被认定带有影响控制权的意图，从而丧失 13G 资格、被迫转入 13D 申报。这条红线的实际效果是：票仓最大的人，在重大人事危机中最有动机退回机械化的书面政策、拒绝任何带控制色彩的游说——第六节提到的 vote bulletin 停发，与这条红线是同一监管气候的两面。</p>
+      <p>把地图与约束叠在一起，可以做情景推演，但要标明它是推演：黄仁勋 2026 年 11 月同时辞去了董事与 CEO——2027 年若谈「回归」，在股东层面是重新当选董事（无竞争选举中赞成须多于反对；若出现竞争性选举则按细则的相对多数标准），在董事会层面是另行任命 CEO，两件事的主体与程序完全不同。任何一方的胜负手都不在请愿或持仓表本身，而在：两家代理顾问的建议、先锋两个投票团队各自的政策判断、贝莱德 BIS 的分诊结果，以及中间层机构的跟随与偏离。各家实际授权、候选人数量与届时投票率均属未知，本篇不预断「谁必须支持」这类必要条件。可观测的领先指标倒是有一个：登记日之前机构融券召回的动向——常规年会里机构更愿把股份借出赚取融券收益，争议越烈、召回越踊跃，届时机构参与率越可能跳出常态区间。</p>
+      <p>还有一条容易漏掉的进攻路线：通用委托书（Universal Proxy，SEC Rule 14a-19，2022 年 9 月起适用于竞争性董事选举）。异议股东不必走 proxy access——只需按细则的提前通知条款提名，并向至少 67% 有表决权股份的持有人发送征集材料，即可让自己的候选人与公司候选人印在同一张选票上，投票人可以拆单混投。在这条路线下，挑战者靶向替换一两名关键董事（例如提名或治理委员会主席）的成本显著低于传统控制权争夺，代理顾问与投票团队也更容易支持「只换个别董事」的局部方案——2027 年若有挑战，大概率从这里开始，而不是从 proxy access 开始。</p>
+      <p>请愿的签名放在这张地图上是什么量级？请愿站自报签名逾 18 万（发起方页面快照 188,665，2026 年 11 月；签署人身份与持股未经核验）。做一个明确标注为假设的演算：即便签署人全部是股东、人均持有 100 股，合计 1,800 万股，约占 2026 年年会记录日有权股份的 0.074%；人均 1,000 股，也仅约 0.743%。这不是说民意不真诚，而是说两种「票」根本不在同一种计票机里：<b>请愿统计的是人头与情绪，股东大会统计的是股份与程序</b>。请愿对董事会可能产生的间接压力（声誉、舆论、媒体）无法计量，本篇不否认其存在，只指出它不进入计票。18 万人若要把情绪兑换成后者，需要的不是更多签名，而是进入这张地图的组织形态——联合持股、代理征集、提名程序，每一步都有成本与门槛，而这正是第三节那道算术题在机构层面的翻版。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">10 · 机器在变</div>
+      <h2>机器在变：票权回拨、技术改造与它们的限度</h2>
+      <p>如果说前几节描述的是票权如何层层集中，本节看反方向与侧方向的运动。先说回拨：<b>Pass-through voting（投票权穿透）</b>由三大指数巨头先后推出：贝莱德 Voting Choice（2022 年先行机构客户，2024 年试点扩展至散户 ETF 持有人）；先锋 Investor Choice（2023 年试点，2026 年 11 月 9 日宣布 2027 年初起覆盖全部美国股票指数产品）；道富 Proxy Voting Choice（2023 年）。机制大同小异（各家的可选政策范围与适用产品不尽相同）：指数基金持有人可以从若干套现成投票政策（包括 ISS、Glass Lewis、Egan-Jones 等第三方政策与资管自家政策）中选一套，自己那份股份按所选政策投票；不选的人，继续由资管投票团队代投。</p>
+      <p>规模数字必须两层分开看，这是本篇最重要的口径纪律之一。<b>合格资产</b>（有资格参与的资产池）很大：截至 2026 年 6 月 30 日，贝莱德指数股票资产 8.79 万亿美元中 3.96 万亿可参加；先锋宣布全覆盖后合格资产达 8.2 万亿美元（2027 年初起）；道富截至 2026 年 3 月 31 日覆盖约 1.9 万亿美元、占其合格指数股票资产的 81%。<b>实际参与</b>则小得多：贝莱德已行使选择的客户资产约 9,230 亿美元；先锋 2026 赛季参与投资者 507,000 人、参与资产 1,510 亿美元，约占其合格资产池（截至 2026 年 7 月 31 日约 4 万亿美元）的 3.8%——注意这是资产口径之比，不是投资者人数比例，更不是这些股份的投票参与率。</p>
+      <p>这个对照是理解整台机器的钥匙，但要读对：能确认的事实是——参与的人数在快速增长（先锋参与投资者一年增至六倍），参与的资产占比仍然很小；至于没有参与的人为什么没有参与，这份数据本身不能识别原因，它与第三节的注意力结构解释相容，但不构成证明。于是 pass-through voting 的实际功能发生了偏移：它回拨的与其说是票权，不如说是<b>正当性</b>——资管巨头从此可以说「我们提供了选择，是投资者自己没有选」。这句话在政治上是有效的（回应了「少数人控制美国公司投票」的指控，本篇第五节的围剿正是这种指控的燃料），在治理结构上却没有改变默认项的权力：不做选择的人，票仍由投票团队按自家政策投出——默认项依旧是最大的那一档。</p>
+      <p>还有一层悖论藏在菜单里：穿透投票让散户「选」的政策包，核心第三方选项正是由 ISS、Glass Lewis、Egan-Jones 提供的——勾选穿透的投资者，相当一部分只是把票从「资管自家政策」切换到「代理顾问的标准政策包」。为回应「双寡头垄断投票」指控而生的回拨机制，绕了一圈，又把票导流回双寡头。而主动跨过摩擦去勾选的那一小群人也不是中性样本：他们是立场最鲜明、最愿意行动的人，其边际选票比中心化团队更具单向度。</p>
+      <h3>与此同时，技术改造在别处真实发生，只是都不在海外散户这一段。</h3><p>其一，机构端在「换脑子」：2026 年 1 月，摩根大通资管通知客户，美国公司投票不再使用 ISS 与 Glass Lewis，改用内部 AI 平台 Proxy IQ 分析数千场年会数据生成自家指引；富国银行同期停用 ISS、改用由 Broadridge 技术支持的内部投票平台。被替代者也在反击：ISS 推出 AI 产品 PolicySteward 自动生成附理由的政策化建议（2026 年底起向客户开放），Glass Lewis 2026 年 9 月与 Clarity AI 合并，并称 AI 使定制化可行、是其放弃单一 benchmark 的部分动因。建议的生产端正在算法化——未来的分歧，可能发生在几套模型之间。其二，管道端在「换轨道」：银行财团背景的 Proxymity 在机构跨境链上扩张——英国 FTSE 100 公司 94% 已采用其投票传递与确认服务，道富 2025 年起大规模迁移客户，2026 赛季已在 77 个市场启用；它与台湾集中保管结算所（TDCC）合作，台湾外资股东 2025 年电子投票占其总票数 97.38%。但它的主战场是机构与托管链，不触及美国散户，更不触及香港散户账户。其三，区块链绕了一个弯：Broadridge 早在 2018 年就在桑坦德银行年会平行运行过区块链「影子登记册」（参与股份占出席票数 21%，结果两天可得，传统流程需两三周）——此后多年，传统上市公司投票并未商用上链；2026 年它以代币化股票的形态重启：与 Ondo 合作让代币持有人「表达投票偏好」（发行人无义务执行）、为纽交所拟建的代币化证券平台（尚待监管批准、未上线）提供链上治理服务。技术上最先落地的地方，恰恰是股东权利最不完整的地方。其四，确认与规则原地踏步：端到端投票确认在美国仍无强制要求（SEC 投资者咨询委员会 2019 年已建议先行试点，至今未立法）；SEC 2026 年 9 月的两项新提案——废除 Rule 14a-8 与「代理征集现代化」——方向是给发行人减负（包括把 broker search 期限由 20 个营业日缩至 5 个），对跨境散户的送达与确认只字未提。</p>
+      <p>一句话收束本节：截至 2026 年 11 月，投票传递链对海外散户基本没变——机构在换脑子，管道在换轨道，权利在换形态，唯独香港账户里那张英伟达的票，仍停在「收费人工申请、明示不支持、或查无安排」。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">11 · 结论</div>
+      <h2>结论：票不是被偷走的，是被让渡的</h2>
+      <p>三篇至此可以合拢了，而且合拢处是一个因果闭环。上篇说，任免 CEO 的权力在董事会：股东书面同意被禁、特别会议门槛高企、年中动董事的通道被特拉华法与公司章程层层设防——所有年中爆发的治理危机，都被制度强行延后、压缩进每年一次的股东大会董事改选。下篇说，英伟达的护城河一半长在组织里、一半系于创始人个人。本篇补上最后一块：当危机终于抵达年会时，迎接它的是本篇逐环拆开的管道——散户的弃权、经纪商的冻结、代理顾问的建议、代投机器的常态顺从。上篇的空间隔离（年中无门）与本篇的管道损耗（年会折算），共同构成美国大型科技公司管理层与董事会的双重防波堤。股东手里确实有的那张董事选票，并不直接由股东投出——它流经经纪商的默认设置、计票规则的折算、代理顾问的建议与资管团队的政策，最后才落进计票机。现代上市公司治理的实际宪法，不只写在特拉华法典与公司章程里，也写在这套管道与默认项里。</p>
+      <p>对这套管道的流行批评——「两家代理公司操纵了美国」「少数资管巨头控制了投票」——在方向上是真实的，在程度上需要本篇逐环标注的刻度：双寡头占九成市场（行政令口径）是真的，建议的摆动效应有断点回归的因果估计也是真的；但三大巨头跑自有政策、robo-voting 的权重集中在中小基金、pass-through 实际行使的资产只占合格池约 3.8%、持仓与投票权根本不是一回事，同样是真的。这台机器的问题不是阴谋，是结构：每一环的参与者都在做对自己理性的事——散户省下注意力，小基金买下合规，大基金用政策换规模，代理顾问卖标准答案——加总起来，就是票权从名义所有人向专业中间层的系统性让渡。</p>
+      <p>黄仁勋事件给了这台机器一次压力测试的机会。逾 18 万个签名证明了情绪的组织能力，却不进入计票；2027 年年会董事选举的实际权重分布，见本篇第七节那张地图——约两成受益持仓背后的成百上千只基金、它们的投票团队与分诊政策、两家代理顾问的建议、以及中间层机构的跟随与偏离。想改变结果的人，应该去研究那张地图；只想表达态度的人，请愿网站永远开着。两件事都正当，但只有一件计票。</p>
+      <p>---</p>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">12 · Primary Sources</div>
+      <h2>口径注与主要来源</h2>
+      <div class="source">
+        <a href="https://www.sec.gov/edgar/browse/?CIK=1045810" target="_blank" rel="noopener">SEC EDGAR · NVIDIA 备案</a>
+        <span>支持：2025、2026 年股东大会 8-K（Item 5.07）四栏计票、2026 年委托书 DEF 14A 主要股东表及脚注 14–15（受益持仓与独立投票权拆分）、公司细则与提名窗口。</span>
+      </div>
+      <div class="source">
+        <a href="https://www.sec.gov/edgar/browse/?CIK=1318605" target="_blank" rel="noopener">SEC EDGAR · Tesla 备案</a>
+        <span>支持：2025 年股东大会 8-K（提案四 77.0% 通过）、2025 年系列 DEFA14A 征集材料、2026-09-29 致 SEC 信（两次年会征集费用合计逾 200 万美元）、2026-10-19 DEFA14A（散户常设投票计划）。</span>
+      </div>
+      <div class="source">
+        <a href="https://www.broadridge.com/" target="_blank" rel="noopener">Broadridge ProxyPulse</a>
+        <span>支持：2026 年代理季散户投出所持股份 27.5%、机构 72.9%，散户实际投出股数同比多出约 20 亿股（2026 年报告；2025 年报告为对照）。</span>
+      </div>
+      <div class="source">
+        <a href="https://www.issgovernance.com/" target="_blank" rel="noopener">ISS · Glass Lewis 官方资料</a>
+        <span>支持：ISS Form ADV Part 2A 的利益冲突与防火墙披露、两家客户与覆盖口径、Glass Lewis 四种「视角」新模式（2027-09-01 启动）；EO 14366（2025-12-11）与 D.C. 巡回法院 ISS v. SEC 判决（No. 24-5105）为监管与诉讼锚点。</span>
+      </div>
+      <div class="source">
+        <a href="https://www.blackrock.com/corporate/about-us/investment-stewardship" target="_blank" rel="noopener">BlackRock Investment Stewardship</a>
+        <span>支持：BIS 团队规模与 2026 代理年度投票量（16,674 场会议、154,110 项提案）、Voting Choice 合格与已行使资产口径（2026 Global Voting Spotlight）。</span>
+      </div>
+      <p>散户与机构参与率：Broadridge ProxyPulse 2026 年代理季统计（2026 年 1 月 1 日至 6 月 30 日召开的年会，Broadridge 处理的街道名义股份口径）：散户投出其所持股份的 27.5%、机构 72.9%（2025 年分别为 28.0%、76.6%）；同份报告显示散户实际投出股数同比多出约 20 亿股、持有股数多出约 60 亿股。该统计未发布账户数口径参与率，本文未引用任何账户参与率数字。</p>
+      <p>英伟达 2025 年年会第 4 项提案（据 8-K，Item 5.07；记录日 2025-04-28，有权股份 24,387,557,065 股）：赞成 16,018,866,893 股（占「赞成＋反对」99.06%、占有有权股份 65.68%），反对 152,574,185 股，弃权 21,646,577 股，broker non-votes 3,206,621,218 股（占有有权股份 13.15%）；66⅔% 门槛为 16,258,371,377 股，缺口 239,504,484 股（0.98 个百分点）；四栏合计代表 19,399,708,873 股，未进入会议的股份为 4,987,848,192 股。</p>
+      <p>英伟达 2026 年年会（据 8-K，Item 5.07；记录日 2026-04-27，有权股份 24,220,525,225 股）：会议代表股份 19,686,408,119 股（81.28%）；黄仁勋董事席位赞成 16,650,193,763 股（十名候选人中最高），该席赞成＋反对合计 16,816,269,849 股（占有有权股份 69.43%），broker non-votes 2,829,718,733 股，弃权 40,419,537 股；同年非约束性股东提案（以简单多数取代超级多数）以赞成 14,589,671,908 股、反对 2,210,282,205 股（86.84%）通过。8-K 不按机构/散户拆分出席构成，本文对散户贡献的表述为推断。</p>
+      <p>特斯拉 2025 年年会（据 8-K，Item 5.07，2025-11-07 提交；记录日已发行 3,325,150,886 股）：提案四赞成 1,892,235,822 股、反对 564,940,908 股、弃权 12,227,846 股、broker non-votes 302,456,274 股，赞成占「赞成＋反对」77.0%。历年参与率（实际投出票占有发行股份）为本文据历年 8-K 票数测算：2022 年约 64%、2023 年约 60%、2024 年约 72%、2025 年 74.3%；剔除马斯克本人后 2025 年赞成率约 71–72% 为本文测算（其可投票持股约 15% 为媒体口径）；「约 90% 已投票散户赞成」为马斯克 2024 年 6 月在 X 的自述（指 2024 年表决），未经独立核实；两次年会征集费用合计超过 200 万美元，据特斯拉 2026-09-29 致 SEC 信；散户常设投票计划据其 2026-10-19 DEFA14A。特斯拉不披露散户/机构票数拆分，「动员改变结果」不可从事后数据验证，本文结论以参与率与赞成率的对照为限。</p>
+      <p>香港渠道查核（2026 年 11 月 18 日，各家官方页面）：富途股东大会投票为收费人工服务，美股 US$10/笔经第三方镜像引述其美股收费表、未在富途官网原文复核，港股收费表 HK$50/笔为官网原文；老虎帮助中心 FAQ 明示不支持美国市场 AGM 代理，与其香港站收费表所列「代股东大会投票 USD 10/次」互相矛盾，本文并列呈现并以 FAQ 明示为实务结论；IBKR 材料经 Mediant 电子送达、经 Broadridge 平台投票，其「会前至少 4 个营业日」截止出自 IBKR 澳大利亚官方 FAQ（澳股口径，本文用作中介层提前截止的实证）；长桥与汇丰香港未找到公开官方说明，本文表述为「未找到」，不推定其内部安排。美股委托材料为英文、无中文版一节为结构推论，无官方文本。</p>
+      <p>持仓与投票权：2026 年委托书（DEF 14A，2026-05-12）主要股东表及脚注 14–15——贝莱德受益持有 1,805,935,550 股（7.43%，脚注所引 13G 仓位时点 2023-12-31）、独立投票权 1,628,565,130 股；Vanguard Capital Management 受益持有 1,777,408,252 股（7.31%，13G，截至 2026-03-31）、独立投票权 238,857,870 股。先锋两管理实体 2026 年二季度 13F 合计 2,058,633,307 股、投票权限栏标注为「无」；道富 13F 持股 1,009,783,437 股，投票权限为独立 122,821,655 股、共同 10,175,380 股、无 876,786,402 股。文中「三大合计约 19%–21%」为受益持仓的混合口径约数（委托书与不同基准日 13F 并用），不代表可动用投票权；黄仁勋约 3.58% 为委托书受益持有口径。</p>
+      <p>代理顾问市场份额：「90% 以上」为 EO 14366（2025-12-11）原文表述，该行政令未给出观测年份与计算方法；「97%」为国会证词与州诉讼文件中的估计，属主张方口径。ISS、Glass Lewis 客户与覆盖数为其官方口径（查核时点 2026 年 11 月）；ISS Corporate Solutions 收入占比未经单独披露，本文未作估计；「付费免负评」为听证证人及议员联名信的指称，非已证实个案。</p>
+      <p>影响量化：Malenko &amp; Shen（2016）约 25 个百分点为 2010–2011 年薪酬表决样本的断点回归局部因果估计，不可直接套用于董事选举或其他年份；Matsusaka &amp; Shu（2024 年正式发表）robo-voting 定义下约三分之一基金符合定义（22% 跟随 ISS、4% 跟随 Glass Lewis、6% 跟随管理层），其合计持股约 1.5% 为其样本近期公司选举的平均估计；Iliev &amp; Lowry（2015）「超过四分之一」为其样本基金估计。三项均为学术估计而非统计事实。</p>
+      <p>投票团队规模与投票量：贝莱德 BIS 60 余人、9 个办公室，16,674 场会议/154,110 项提案/12,296 家公司/56 个市场为其 benchmark 政策口径、截至 2026-06-30 的代理年度（2026 Global Voting Spotlight）；先锋 VCMIS 约 134,999 项、VPMIS 约 34,377 项（2025–26 代理季，两队年报口径，同一提案可能重复计入）；道富 24,600+ 场会议、管理层提案约 212,400 项、股东提案约 5,300 项、与管理层建议一致率约 92%，据其 Stewardship Report 2025（日历年口径）。先锋与道富未官方披露投票团队人数，本文未作推测。贝莱德 vote bulletin 2025 年发布量为零（截至 7 月）据 Aon 统计转引。</p>
+      <p>Pass-through voting：贝莱德指数股票资产 8.79 万亿、可参加 3.96 万亿、已行使选择约 9,230 亿美元（截至 2026-06-30，2026 Global Voting Spotlight 口径；其 2025 年报的年末口径为 7.7 万亿/3.76 万亿/约 8,850 亿）；先锋参与投资者 507,000 人、参与资产 1,510 亿美元、合格资产池约 4 万亿美元（截至 2026-07-31），3.8% 为资产口径之比；其 2026-11-09 宣布的 8.2 万亿为 2027 年初扩围后的合格规模，不用于计算 2026 年比例；道富覆盖约 1.9 万亿美元、占合格指数股票资产 81%（截至 2026-03-31，其官网口径）。三家安排的产品范围与可选政策不尽相同，「合格」与「实际参与」不可混用。</p>
+      <p>监管与诉讼状态截至 2026 年 11 月 18 日：D.C. 巡回法院 2025-07-01 判决（ISS v. SEC，No. 24-5105）维持撤销 SEC 2020 年将客户委托投票建议纳入「招揽」定义的修订，SEC 已退出上诉、NAM 为余下上诉方；该判决不及于 SEC 对投资顾问的独立监管路径。德州 SB 2337 的初步禁令按案件当事人发出（Glass Lewis v. Paxton，2025-08-29），非全州失效；SEC 对 ISS 的传票执行申请于 2026-09-04 提起（Litigation Release 26632），截至截稿未见裁决公开、SEC 未认定任何违法；司法部 2026-08-05 撤回 1987 年 business review letter，该函件性质为执法意向表示而非豁免。Glass Lewis 四种「视角」新模式定于 2027-09-01 启动。诉讼中各方指控均为单方主张，本文已就地标注。</p>
+      <p>经纪商停止酌情投票：Charles Schwab 2019 年、TD Ameritrade 2021 年起停止行使例行事项酌情投票权、Robinhood 从不行使，据 Hunton Andrews Kurth 律所专题说明与 Morrow Sodali《Lighthouse》（2021-10）；散户重仓小公司凑不齐法定人数、被迫下调 quorum 门槛为同期公开报道的行业现象。</p>
+      <p>通用委托书与 13D/13G 边界：Rule 14a-19（SEC Release No. 34-93596，2022 年 9 月起适用于竞争性选举），异议方须向至少 67% 有表决权股份的持有人发送征集材料；13D/13G 参与边界为 SEC 公司财务部 2025 年 2 月更新的合规与披露解释（C&amp;DI 第 103.11 条等），属工作人员解释而非正式规则，其适用取决于接触的具体事实。</p>
+      <p>技术改造部分：摩根大通资管 Proxy IQ 与富国银行停用 ISS、ISS PolicySteward 的推出时点据律所简报（Skadden、Pearl Meyer 2026 年）转述，未取得三家公司全部一手公告；Broadridge 2018 年桑坦德试点据其官方新闻稿（影子登记册、占出席票数 21%）；2026 年与 Ondo 的代币投票合作据 Broadridge/Ondo 官方稿（代币持有人仅「表达偏好」、发行人无义务执行），纽交所代币化证券平台尚待监管批准；Proxymity 采用率据其官方稿，台湾外资电子投票 97.38% 为转引 TDCC 数据；SEC 2026 年 9 月提案（S7-2026-33 等）为已刊登的拟议规则、尚未生效，意见期至 2026-11-20。</p>
+      <p>请愿签名 188,665 为请愿站发起方页面 2026 年 11 月快照（自报数字，签署人身份与持股未经核验）；第七节人均持股演算（×100 股/×1,000 股，分母为 2026 年年会记录日有权股份 24,220,525,225 股）为明确标注的假设演示。本内容不构成投资建议。</p>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><b>系列说明</b> 本篇为英伟达治理专题增补篇，追踪股东选票的实际旅程；上篇《请愿书救不了黄仁勋》讨论任免权力与特拉华法律结构，下篇《失去黄仁勋之后》讨论护城河与资本周期，见下方研究路径。</p>
+      <p><a href="/nvidia-jensen-huang-delaware-governance-20261118/">请愿书救不了黄仁勋｜英伟达治理专题（上篇）</a> — 本篇的上篇：谁有权决定黄仁勋的去留——董事会专属权力、年中无门的空间隔离，与本篇的年会管道损耗构成双重防波堤。</p>
+      <p><a href="/nvidia-after-jensen-huang-moat-capital-cycle-20261118/">失去黄仁勋之后｜英伟达治理专题（下篇）</a> — 本篇的姊妹篇：五层护城河逐层审计——哪些长在公司身上、哪些系于创始人信用，及 Q3 财报的惯性证明。</p>
+      <p><a href="/delaware-vs-texas-corporate-domicile-20260823/">Delaware vs Texas｜美国公司法的迁册战争</a> — 治理框架背景：注册地规则如何影响创始人、董事会与股东之间的权力分配；特斯拉的得州章程标准是本篇第四节的计票细节之一。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026 年 11 月 18 日 HKT</span>
+        <span>Updated 2026 年 11 月 18 日 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+</body>
+</html>
