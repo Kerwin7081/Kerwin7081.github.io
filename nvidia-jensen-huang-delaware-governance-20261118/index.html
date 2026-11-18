@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="黄仁勋辞任英伟达的公司治理与特拉华法律结构全解：任免 CEO 是董事会专属权力、Caremark 如何逼董事会切割、三份声明构成的口实陷阱与 D&O 战场，以及回归的唯一合法顺序——调查结论在先、CEO 任命居中、董事席位殿后。">
+  <title>请愿书救不了黄仁勋｜英伟达事件的公司治理与特拉华法律结构全解（上篇）｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  </style>
+  <style id="kerwin-web-3-7-desktop-qa">
+    /* DESKTOP-QA-LOCK-1.0.0: canonical desktop geometry for kerwin-editorial-research-v1
+       (references/desktop-browser-qa.md; audit requires this locked stylesheet id) */
+    @media (min-width:961px) {
+      body { overflow-x:hidden; }
+      .site-shell { width:min(1120px, calc(100% - 32px)); margin:30px auto; }
+      .cover { padding:62px 64px 48px; }
+      .cover-grid { grid-template-columns:minmax(0,1fr) 210px; gap:52px; }
+      .section { padding:44px 64px; }
+      .enya { padding:36px 64px; }
+    }
+  </style>
+
+<link rel="canonical" href="https://enyaclawd.com/nvidia-jensen-huang-delaware-governance-20261118/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="请愿书救不了黄仁勋｜英伟达事件的公司治理与特拉华法律结构全解（上篇）｜Kerwin Research Hub"/>
+  <meta property="og:description" content="黄仁勋辞任英伟达的公司治理与特拉华法律结构全解：任免 CEO 是董事会专属权力、Caremark 如何逼董事会切割、三份声明构成的口实陷阱与 D&amp;O 战场，以及回归的唯一合法顺序——调查结论在先、CEO 任命居中、董事席位殿后。"/>
+  <meta property="og:url" content="https://enyaclawd.com/nvidia-jensen-huang-delaware-governance-20261118/"/>
+  <meta property="og:image" content="https://enyaclawd.com/assets/kerwin-home-og-v5.png"/>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "请愿书救不了黄仁勋｜英伟达事件的公司治理与特拉华法律结构全解（上篇）｜Kerwin Research Hub",
+ "description": "黄仁勋辞任英伟达的公司治理与特拉华法律结构全解：任免 CEO 是董事会专属权力、Caremark 如何逼董事会切割、三份声明构成的口实陷阱与 D&O 战场，以及回归的唯一合法顺序——调查结论在先、CEO 任命居中、董事席位殿后。",
+ "image": "https://enyaclawd.com/assets/kerwin-home-og-v5.png",
+ "inLanguage": "zh-CN",
+ "mainEntityOfPage": "https://enyaclawd.com/nvidia-jensen-huang-delaware-governance-20261118/",
+ "datePublished": "2026-11-18T10:08:00+08:00",
+ "dateModified": "2026-11-18T10:08:00+08:00",
+ "author": {
+  "@type": "Person",
+  "name": "Kerwin Ye",
+  "alternateName": "叶高峰",
+  "url": "https://enyaclawd.com/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "Kerwin Research Hub",
+  "alternateName": "EnyaClawd",
+  "url": "https://enyaclawd.com/"
+ }
+}
+  </script>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="nvidia-jensen-huang-delaware-governance-20261118">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · Corporate Governance Desk</span>
+      <span>Evidence first · Snapshot 2026-11-18 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">NVIDIA · Corporate Governance · Delaware Law</div>
+          <h1>
+            请愿书救不了黄仁勋
+            <span>英伟达事件的公司治理与特拉华法律结构全解（上篇）</span>
+          </h1>
+          <p class="thesis">任免 CEO 从来不是股东的权力；董事会十天内的三份声明把自己锁进一条证据链，黄仁勋若要回归，只能等调查结论开锁，并按「CEO 先行、董事殿后」的顺序走完。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年11月18日</span>
+            <span><b>数据快照</b> 2026-11-18 HKT</span>
+            <span><b>研究对象</b> 英伟达（NASDAQ：NVDA）董事会、公司章程与特拉华普通公司法</span>
+            <span><b>证据边界</b> 官方文件与判例为据；调查进展为媒体报道口径，尚无结论</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>6 票</strong>
+          <span>现任 10 名董事中过半数，即可任免 CEO</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>本文事实分三层：官方文件（8-K、董事会声明、章程细则、法案与判例文本）、机构公开资料、媒体报道，三层分开标注，引用时请勿混用。相关调查尚在进行中；本文对事件动机的分析属于基于公开信息的结构推断，不构成对任何个人行为的定性结论。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>核心判断：权力在董事会，钥匙在调查结论</h2>
+      <p class="lead">黄仁勋辞任之后，舆论场的主流叙事是「董事会夺权」「其他股东为什么不投票」。这两种说法都建立在对美国公司治理基本结构的误解之上：任免 CEO 是董事会的法定专属权力；此次切割是三重结构激励叠加的均衡结果；而董事会已被自己的三份公开声明锁定，改口需要一份不来自它自己嘴巴的新事实。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>股东没有一票</b><span>任免 CEO 是董事会的法定专属权力，股东在任何时点都没有一票可投；请愿签名的数量与这件事的法律进程无关。</span></div>
+        <div class="verdict-item"><b>切割是结构均衡</b><span>Caremark 逼董事会「调查」，联邦调查与披露制度逼董事会「切割」——先切割、再调查是定价不对称下的理性输出，不是十位董事的个人意志。</span></div>
+        <div class="verdict-item"><b>反悔难于切割</b><span>十天内三份公开表态构成自我锁定的证据链；往任何方向改口，都会让其中一份声明成为原告律师的展品，战火还会烧到董事个人与 D&O 保单。</span></div>
+        <div class="verdict-item"><b>回归有严格顺序</b><span>调查结论在先、董事会任命 CEO 居中、董事席位最后由股东在年会选举；选举不需要三分之二，真正的门是提名，不是票数。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="section-label">02 · 事件回放</div>
+      <h2>事件回放：先把事实摆正</h2>
+      <p>时间线比舆论场的版本更长，也比它更关键。</p>
+      <p><b>2026 年 6 月 24 日</b>，英伟达年度股东大会，黄仁勋以约 166.5 亿股赞成票连任董事——是当届十名董事中得票最高的一位。五个月后，同一批股东只能眼看他离开，而他们对此没有任何一票可投。这一头一尾的对照，是理解整件事的起点。</p>
+      <p><b>2026 年 11 月 8 日</b>，英伟达董事会发布公开声明：鉴于近期有关创始人兼 CEO 黄仁勋成为外国情报活动目标的报道，董事会启动独立调查，由独立董事组成的委员会主持、外部独立法律顾问协助；声明同时称，董事会「没有理由相信国家安全或英伟达机密已经受损」，黄仁勋本人全力支持并配合调查，且「董事会对黄仁勋及其领导团队有信心」。</p>
+      <p><b>2026 年 11 月 11 日</b>，董事会接受黄仁勋辞去总裁、首席执行官及董事职务（公司次日提交的 8-K 以 11 月 11 日为事件日期）；<b>11 月 12 日</b>，公司发布新闻稿并提交 8-K（Item 5.02）：首席财务官 Colette Kress 出任临时首席执行官，董事 Harvey C. Jones 出任董事会主席——Jones 自 1993 年起担任英伟达董事，与这家公司同龄；董事会同时启动正式 CEO 遴选。这是官方文件的口径——法律形式是「辞职」。</p>
+      <p>从公开表示「有信心」到接受辞职，间隔只有三天。这三天里发生了什么，外界不得而知；但可以确定的是，11 月 8 日那份声明不是辞职的序曲，而是一份按当时信息作出的公开背书——它使后续的切割更需要解释，而不是更不需要。</p>
+      <p>事件的背景，据公开报道有两条线交织：其一，围绕黄仁勋与一名被怀疑为中国情报人员者的关系、以及另一段与下属的关系的报道（路透社 11 月 12 日）；其二，围绕芯片出口管制的联邦层面审查与公司内部举报，指向最高层是否知情、是否失察。据媒体报道，董事会聘请 Wachtell, Lipton, Rosen &amp; Katz 律师事务所及前联邦检察官 Joon Kim 主导独立调查，董事会在事件发酵前后的数周内多次开会讨论出口管制事项。此后数日的公开信息流如下：</p>
+      <p>11 月 15 日，英国《金融时报》报道黄仁勋方面考虑回归的可能性；同日，美国财政部长 Bessent 公开呼吁英伟达进行「大幅度整顿」，并要求审查高管是否明知故犯、违规向中资背景企业出售芯片；</p>
+      <p>11 月 16 日，路透社与 CNBC 引述知情人士称，<b>董事会并未考虑让黄仁勋回归 CEO</b>，当前专注于独立调查；《华盛顿邮报》引董事会消息源称无恢复计划；同日，美国总统特朗普公开表示「不介意」黄仁勋回归；一封逾万名现任及前任员工联署、并有马斯克等人署名的公开信流传，要求董事会若认为黄仁勋持续缺席有必要，应给出基于证据的解释；</p>
+      <p>「Stand With Jensen」请愿签名超过 18 万，马斯克名列签署者；按请愿网站的自报分类，自称股东者逾 9 万人、约占五成（签名约 11.5 万人时自报股东为 63,063 人），另有数千人自称现任员工；Atreides Management 的 Gavin Baker 与 Altimeter Capital 的 Brad Gerstner 两位知名投资人发表公开信，敦促董事会在事实查清之前不要急于敲定继任人选；</p>
+      <p>11 月 17 日上午（美东时间），黄仁勋发表辞职以来首份公开声明：承认自己「在个人生活中犯了严重错误」，表示完全认错并承诺配合独立调查；对回归问题，他写道，若董事会认为其回归符合股东、员工、公司和美国的最佳利益，「我很荣幸接受这些呼吁，重返 CEO 一职」——他把决定权完整交还给董事会，没有诉诸股东，没有质疑程序，也没有为自己附加条件；</p>
+      <p>11 月 17 日盘后，英伟达发布 FY2027 第三季度业绩（营收 1,158 亿美元、数据中心 1,076 亿美元、第四季度指引 1,300 亿美元，全面高于预期）；财报电话会开场，主席 Jones 宣读董事会立场：「董事会一致接受了他的辞职，无意恢复黄仁勋的 CEO 职务」，并宣布已聘请 Heidrick &amp; Struggles 主持 CEO 遴选、新设国家安全与出口管制委员会、此事不接受提问。</p>
+      <p>需要先立三条定性纪律，后文所有分析都建立在此之上：</p>
+      <p>其一，<b>调查尚无结论</b>。董事会从未公开指控黄仁勋有任何不当行为；11 月 8 日的声明反而明确表示，没有理由相信国家安全或公司机密已经受损。「辞职」的措辞纪律本身就是法律安排的一部分（既避免诽谤风险，也为调查留出空间）。</p>
+      <p>其二，「辞职」是法律形式。结合调查时点、临时 CEO 的即时接任与主席人选的同步安排，其实质是董事会在压力下推动的结果——法律形式与实质推动必须分开看。</p>
+      <p>其三，舆论场的两个基本事实错误需要先行纠正：股东从未被剥夺任何「罢免 CEO 的投票权」，因为这项权力从来不属于股东；请愿也不是一种弱化版的投票——签名者的身份均为自报、未经核验，它在公司法上没有任何身份。</p>
+      <h3>还有一个被几乎所有报道漏掉的法律细节，它改变了整件事的定性。</h3><p>董事会能免掉 CEO，却免不掉「董事黄仁勋」：按第 141(k) 条，罢免董事是股东的专属权力——哪怕其余董事 10 比 0 全票通过，也剥夺不了任何一名在任董事的席位。但 8-K 的原文是：董事会于 11 月 11 日以同一个动议，「接受」了他辞去总裁、CEO <b>及董事</b>三个职务。也就是说，他交出的不只是董事会能拿走的东西，还有董事会拿不走的东西。若他只丢 CEO、拒绝辞去董事，他仍是在任董事，享有特拉华法下近乎不受限制的董事知情与调阅权（唯一的例外，是涉及对其本人调查的特权材料），完全可以坐在董事会里，看着调查一步步进行。他没有这样做。</p>
+      <p>这意味着，11 月 11 日的「辞职」在结构上不可能是单方面的清洗，而更像双方在极端监管与披露压力下达成的一种危机隔离式退场：公司得到干净的切割与遴选空间，他保住的则可能是若干未公开的安排——例如离职表述不出现「有因解雇」、高管赔偿与费用垫付权利不受影响等。须强调：这些对价均属结构推断，8-K 没有披露任何离职协议；同样值得记录的是，这份 8-K 也没有出现此类文件惯常的那句「辞任并非源于与公司存在任何分歧」。留白不是证据，但留白值得被指出。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">03 · 流行误解</div>
+      <h2>三个流行误解</h2>
+      <p><b>误解一：「董事会怎么能有这么大的权力？」</b></p>
+      <p>答案是：这项权力自始存在，且是美国公司法的默认设计。特拉华普通公司法第 141(a) 条规定，公司的业务与事务由董事会管理或在其指导下管理。英伟达修订细则进一步明确：公司高管由董事会选举产生、凭董事会的意愿任职，董事会可以随时、以任何理由或无理由将其免职——细则第 32 条给出的表决标准是「在任董事的过半数」，不是出席会议董事的过半数。黄仁勋辞职后董事会剩 10 名董事——<b>6 票，即可更换 CEO</b>。这不是漏洞，这是制度本身。</p>
+      <p><b>误解二：「其他股东为什么不投票保他？」</b></p>
+      <p>因为没有这样一张选票。股东的法定权力清单是封闭的：选举董事、批准合并与出售全部资产等根本性交易、修改章程与细则、以及章程额外授予的权利。任命或挽留 CEO 不在清单内。股东想影响 CEO 人选，唯一的合法通道是先换掉董事会，再由新董事会任命——而英伟达董事会的下一次改选，要等到 2027 年 6 月的年度股东大会。至于请愿：它既不是书面同意（已被章程禁止，见第四节），也不是代理权征集，它只是一种舆论声量。声量可以抬高董事的声誉成本，但不能产生任何法律效力。</p>
+      <p><b>误解三：「他是创始人、大股东，应该说了算。」</b></p>
+      <p>黄仁勋持有英伟达约 3.58% 的股份（约 8.7 亿股，2026 年 3 月委托书口径的受益持股快照；受益持股不等于当下可实际行使的投票权，本文涉及持股的算术均为量级示意），这在法律上只意味着约 3.58% 的投票权。英伟达是单一股权结构：一股一票，没有双重股权，没有创始人超级投票权，没有毒丸计划，董事会不分级、每年全体改选。更关键的是一个常被忽略的细节：黄仁勋在任时是董事会中<b>唯一的执行董事</b>，其余成员全部为独立董事。也就是说，在决定他去留的那个房间里，他结构性地是 1 对 10。这套结构在过去二十年里被治理评级机构视为模范——而模范的含义，就是没有任何一条规则为创始人个人留后门。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">04 · 特拉华底盘</div>
+      <h2>特拉华底盘：这套规则为什么长这样</h2>
+      <p>要理解英伟达事件，必须先理解特拉华州在美国公司版图中的特殊位置。</p>
+      <h3>一个州，半个美国公司界。</h3><p>全美约三分之二的财富 500 强公司注册在特拉华，公司注册相关收入约占该州预算的三成。这决定了特拉华对待公司法的态度：它不是监管的副产品，而是一门经营了上百年的「主权生意」——州政府、州议会、公司律师界与法院形成了一个高度稳定的建制联盟，跨党派运转。特拉华是民主党的铁票州，现任州长与两院均为民主党控制，但公司法的修订历来由州律师协会的公司法律委员会主导，与党派意识形态基本无关。甚至其宪法还规定：主要法院的法官席位必须保持政党平衡，任一政党不得超过微弱多数。</p>
+      <h3>衡平法院：判例即法律。</h3><p>特拉华衡平法院是全美独一无二的专业商事法院：没有陪审团，由精通公司法的法官断案，且其裁量遵循衡平原则。公司法的真实内容——商业判断规则、董事信义义务的边界、反收购审查标准——大部分不在法典条文里，而是长在两百年的判例之中。这套体系的优点是高度专业与可预期；它的另一面是：董事的行为激励，很大程度上由法官们在一代代判例中「定价」，而不是由立法者写明。本文第五节的主角 Caremark 义务，就是这样一条判例规则。</p>
+      <h3>董事会中心主义 vs 股东中心主义。</h3><p>与特拉华形成鲜明对照的是英国与香港：英国《2006 年公司法》第 168 条、香港《公司条例》第 462 条均规定，股东可以普通决议（出席票数过半）罢免任何董事，<b>公司章程写什么都不能阻止</b>；两地又分别以英国法第 303 条、香港条例第 566 条规定，持股 5% 的股东即可强制召集股东大会。特拉华则相反：股东没有法定的会议召集权（第 211(d) 条只承认章程或细则授权的召集人）；唯一的兜底是第 211(c) 条——超过 13 个月不开年会时，衡平法院可以命令召开。黄仁勋事件如果发生在一家英国或香港上市公司，5% 股东即可召集会议、出席票过半即可罢免董事——而且任命一侧完全对称：补选新董事走的是同一道普通决议，同一次会议即可「罢免＋补选」打包完成，新董事会当天便能任命新 CEO。须说明的是，CEO 在这三个法域里同样由董事会任命，股东在任何地方都没有一张直选 CEO 的选票；区别只在链条长度。程序上另有特别通知、被罢免董事陈述权等安排，速度未必是「下个月」，但门槛的性质完全不同：那是出席票数的过半，且章程不得排除。在特拉华，这条路从起点就不存在。</p>
+      <h3>授权型法典的自由与代价。</h3><p>特拉华公司法的多数条文是「默认规则」，公司可以在章程中大幅改写：禁止股东书面同意、给罢免董事设超级多数门槛、限制特别会议召集权——全都是这种自由度的产物。自由的受益者是公司章程的起草者；当起草者与创始人是同一个人时，自由的方向取决于他当年想要什么。黄仁勋当年想要的是「治理优等生」的市场声誉。第四节将看到，这份自由被用到了什么方向上。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">05 · 章程层锁</div>
+      <h2>英伟达章程：比州法更严的第二层锁</h2>
+      <p>如果说特拉华法是底盘，英伟达自己的章程与细则就是在这个底盘上加装的第二层锁。逐条看：</p>
+      <h3>1. 罢免董事的超级多数门槛。</h3><p>特拉华法第 141(k) 条的默认规则其实对股东相当友好：董事可由有权投票股份的过半数罢免，有无理由均可。但英伟达的重述章程把门槛改成了分档：<b>有理由</b>罢免，需全部已发行股份的过半数；<b>无理由</b>罢免，需全部已发行股份的至少三分之二。请注意分母：不是出席会议的票数，而是全部已发行股份——以英伟达约 244 亿股计，三分之二约为 163 亿股。这意味着哪怕所有出席股东一致同意，只要出席率不足，罢免在算术上就不成立。</p>
+      <p>这条常被引用的一个「变数」需要先说清，因为它被舆论高估了：2015 年 VAALCO Energy 案中，特拉华衡平法院曾判决一家非分级董事会公司的「仅可有因罢免」条款无效，理由是它与第 141(k) 条赋予股东的罢免权冲突。但 VAALCO 打掉的是「有因」这个限定本身，并没有直接宣告「无因罢免的表决门槛不得高于过半数」。两年后的 Frechter v. Zier 案（衡平法院，2017 年 1 月 24 日）把这条线划得更清楚：写在<b>细则</b>里的 66⅔% 罢免门槛，因与第 141(k) 条冲突而无效；但法官同时明示，第 102(b)(4) 条允许把更高的表决门槛写进<b>章程</b>——章程里的超级多数是有效的。英伟达的三分之二门槛，恰恰写在《重述公司章程》里，不在细则里。结论因此比「胜算不高」更硬：按现行判例，这条门槛在诉讼上基本拆不动，值得律师个案评估的空间只剩条款文本的边角。把它当作现成的钥匙，是对判例的双重误读。</p>
+      <h3>2. 递补陷阱。</h3><p>章程规定，罢免或辞职产生的董事空缺，由剩余董事填补。后果是：股东即便成功罢免个别董事，空缺也会被留下的人补上——除非在同一次会议上「罢免＋补选」打包完成，单独罢免在治理上毫无意义。</p>
+      <h3>3. 股东书面同意被明文禁止。</h3><p>特拉华法第 228 条本允许股东以书面同意代替开会行动（许多行动派借此绕过年会周期），但英伟达章程明文禁止。股东的一切行动只能在正式召集的会议上进行。</p>
+      <h3>4. 特别会议的高门槛与冻结期。</h3><p>按细则，持股达到已发行股份 15% 且<b>连续持有满一年</b>的股东，可以请求召集特别股东大会。15% 约为 36.6 亿股。做一道简单的算术：黄仁勋 3.58% 加上贝莱德约 7.43%（均为 2026 年 3 月口径），合计约 11%，<b>仍差约 4 个百分点</b>——必须再拉上一家同量级机构才够。须注明：两组数字都是受益持股口径的快照，不等于 2026 年 11 月实际可投票数；机构持股的投票还受其内部授权与客户投票选择的影响。这道算术只说明量级：即便按最乐观口径相加，联盟仍未成形。此外还有时间锁：按细则的间隔规则，上届年会周年日前 90 天（约 2027 年 3 月 26 日）起至 2027 年年会期间，不得提出特别会议请求。换句话说，即便联盟凑齐，窗口也只在 2027 年 3 月下旬之前。</p>
+      <p>还有两层摩擦很少被提及。其一是「进门撞墙」：15% 买到的只是一张进会议室的门票——特别会议就算开起来，会上无因罢免任何一名董事，门槛仍是全部已发行股份的三分之二；改走「有因罢免」（全部已发行股份过半数），则必须先证明董事存在 Campbell v. Loew's 标准下的法定「有因」——欺诈、腐败或严重失职，而「解雇了一位 CEO」这类商业判断，在任何口径下都不构成对董事的法定有因。换句话说，2027 年年会之前，特别会议开得起来，也投不倒董事会；年会改选走的是选举规则而非罢免门槛，那才是唯一不需要过三分之二的战场。其二是持股认定的摩擦：细则对请求方「持股」的计算设有大篇幅的衍生品头寸披露与认定安排，名义持股不等于合格持股；而三大指数基金的大量底层股票日常处于证券借贷池中，借出的股票其投票权随之转移，召回需要成本、时间与客户层面的安排——机构不会为了替一位创始人召集会议而大规模召回借出股票。15% 这道门槛，纸面是算术，执行是工程。</p>
+      <h3>5. 代理权准入（proxy access）装不下创始人本人。</h3><p>细则允许持股 3% 满三年的股东提名最多 2 名董事进入公司委托书——但被提名人必须具备独立性，提名方还须声明无意取得控制权。这条通道是为财务投资者设计的，它在结构上排除的正是「创始人回归」这种诉求。</p>
+      <h3>6. 修改规则的规则也被锁住。</h3><p>股东修改细则需全部已发行股份的三分之二；修改章程则必须由董事会先行发起，股东没有发起权。想拆掉上面任何一把锁，先要过锁本身这一关。</p>
+      <h3>7. 这把锁最有说服力的证据：股东自己拆过，没拆动。</h3><p>2025 年 6 月的年度股东大会上，董事会自己提出章程修订案，主张删除全部超级多数条款。表决结果：赞成约 160.2 亿股、反对约 1.5 亿股——赞成票占出席表决票的约 99%。但修订案没有通过：因为删除超级多数这件事本身，也要过超级多数这一关——通过线是全部已发行股份的 66⅔%，而约 32 亿股经纪商未表决股份不计入赞成，赞成票最终只占全部已发行股份的约 66%，以约一个百分点之差落败。<b>拆锁的提案，被锁本身挡了下来。</b>2026 年 6 月，股东又以非约束性提案（赞成约 145.9 亿股、反对约 22.1 亿股）再次表达了以简单多数取代超级多数的意愿——但非约束性提案不修改章程，门槛至今原样有效。同一批股东在 2025 年还以压倒性票数否决了「取消特别会议一年持股期限」的提案，说明股东对召集门槛的态度并非一边倒地要求放宽：他们想拆的是罢免门槛，不想拆的是召集纪律。这组投票记录的意义在于：英伟达的治理结构不是没人挑战，而是挑战者连续两年输给了结构本身。</p>
+      <p>小结这一节：黄仁勋要反击，他面对的不是一道门，而是一条走廊——特别会议的持股与时间双门槛、罢免的超级多数、递补规则、书面同意禁令、代理权准入的独立性要求，每一道都单独可守，叠加起来就是 2027 年 6 月之前无路可走。而 2025 年那次 99% 赞成仍告失败的修订尝试说明，即便共识形成，结构也有能力让共识落空。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">06 · Caremark 与个人风险</div>
+      <h2>董事会为什么「不得不」动：Caremark 与董事的个人风险</h2>
+      <p>理解董事行为的关键，不在道德评价，而在他们个人面对的责任结构。核心是一条判例规则。</p>
+      <h3>Caremark 义务的来历。</h3><p>1996 年，衡平法院院长 William Allen 在 In re Caremark International 案中写下：董事有义务真诚地努力建立一套信息与汇报系统，使违规事项能够到达董事会层面；董事仅在「持续或系统性地不履行监督」时承担责任。2006 年 Stone v. Ritter 案中，特拉华最高法院将其正式归入忠诚义务，并给出两条可诉路径：其一，董事会根本没有为公司的核心风险建立任何汇报与监督系统；其二，系统存在，但董事对已经报到面前的「红旗」明知而无所作为（「红旗」是判例中的术语，指已经上达董事会层面的违规警示信号——内部举报、监管问询、审计异常等指向具体不当行为的信息；信号既已送到面前，董事便不能再以「不知情」免责）。两个要件都要求证明董事主观明知，因此 Caremark 被法院自己称为公司法中「最难赢的理论」，几十年里原告鲜有胜绩。</p>
+      <h3>2019 年之后，风向变了。</h3><p>Marchand v. Barnhill 案（蓝铃冰淇淋李斯特菌事件）确立了一个事实公式：若某项合规风险是公司的「任务关键型风险」，而董事会层面没有任何委员会、议程与记录显示其对此进行过监督，索赔可以活过驳回动议。其后，波音公司 737 MAX 事件的派生诉讼以 2.375 亿美元和解（由保险赔付）并附带强制治理改革；麦当劳高管骚扰红旗案中，监督义务被延伸适用于高管个人。对今天的上市公司董事而言，Caremark 不再是教科书上的古董，而是他们自己的律师每年都要简报一次的现实风险。</p>
+      <h3>把公式套到英伟达身上。</h3><p>对一家 AI 芯片公司而言，出口管制就是教科书级的任务关键型风险；而检方与举报材料中「内部举报曾上达」的表述，正对应着第二条路径的红旗要件。这解释了董事会动作序列的前半段：密集开会、设立独立调查、聘请 Wachtell——这些动作本身既是回应红旗，也是在为每一位董事构建 Caremark 抗辩的证据链：会议纪要、委员会记录、外部律师意见，就是董事日后在衡平法院自证忠诚的硬通货。</p>
+      <h3>诉讼门槛低，是这套激励的另一半。</h3><p>在特拉华提起派生诉讼（股东代公司起诉董事违反信义义务）<b>不需要任何最低持股</b>：依第 327 条与衡平法院规则 23.1，持有哪怕一股、且在涉案行为发生时已持股并持续持有至今的股东，即可起诉。真正的门槛在程序：原告须以具体事实论证「向董事会提出诉前请求亦属徒劳」（demand futility，特拉华最高法院在 Zuckerberg 案中确立的统一审查标准，2021 年），并可先依第 220 条申请查阅公司账簿记录拼凑事实——2025 年修法后第 220 条的可查范围已收窄至正式文件，但董事会纪要与会议材料仍在清单之内，恰是 Caremark 拼图的主要材料。原告律师业对此高度工业化：丑闻见报数日之内，查账申请递入；数周之内，诉状到达衡平法院。这与联邦证券集体诉讼是两回事——后者依《私人证券诉讼改革法》由损失最大的机构担任首席原告，那才是持股量说话的场合。</p>
+      <h3>董事真正怕的是什么。</h3><p>不是败诉赔钱：金钱赔偿通常由公司补偿与董事责任险覆盖，且章程依第 102(b)(7) 条可免除董事违反注意义务的金钱责任。但 Caremark 索赔被定性为忠诚义务问题——免责条款挡不住，保险覆盖也不完整。他们怕的是：其一，诉讼流程本身——取证、宣誓作证、姓名反复出现在报道中；其二，声誉市场——这十位董事多在其他上市公司兼任董事，「监督失职」的标签会跟着人走遍每一间董事会；其三，一旦索赔活过驳回动议，和解压力陡增，波音案就是前例。</p>
+      <h3>最深的一层是定价不对称。</h3><p>对董事而言，「反应不足」（红旗在案而不作为）是 Caremark 唯一咬得住的情形，个人担责且无从辩解；「反应过度」（事后证明免错了人）则有独立律师背书与完整流程记录，商业判断规则提供近乎全额的保护。法律系统对两类错误开出了完全不同的价格。把十个理性的人放进这个价格结构，输出几乎必然是「先切割，再调查」——这是从激励结构推出的均衡，不是这十个人的品格问题。</p>
+      <p>但要补一句：即便在这个价格结构里，董事会的选项也不止一个——停职待查、限制涉事者权限、待调查结论再作永久决定，在程序上都存在。董事会选择了其中最强的一种。Caremark 解释了为什么「什么都不做」是最差选项，却不自动推出「立即永久免职」是最优选项；从「不得不查」到「立即切割」之间，隔着董事会的自主判断。把判断推到最强档的，是下一节的两层联邦因素。</p>
+      <h3>因此必须划清一条限度：Caremark 只解释了「调查」，解释不了「罢免」。</h3><p>忠诚义务的下限是建立系统、回应红旗——开会、调查、让涉事者回避，做到这些在法律上已经交差。在调查得出结论之前就永久免除 CEO，超出了特拉华法的要求，是董事会自己的选择。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">07 · 联邦层面</div>
+      <h2>另外两层：联邦调查与披露制度</h2>
+      <h3>第一层，联邦调查使「留任」在操作上不可行。</h3><p>当 CEO 本人成为刑事或行政调查的对象（或高度可能的对象）时，他的一系列日常法定职能都会出问题：出口合规认证与对商务部工业与安全局的申报、对政府与云厂商大客户的合规承诺、萨班斯法案下的财报签字认证、与银行及保险方的关系。董事会面对的不是「信不信任他」的问题，而是「他还能不能合法有效地履行这个职位」的问题。</p>
+      <h3>第二层，披露制度使「留任」在法律上昂贵。</h3><p>上市公司负有持续披露义务：公司一边在 10-Q 与公开声明中重复「我们严格遵守出口管制」，一边让正被调查的高层留任，每一句陈述都可能在未来被原告律师逐字引用为证券欺诈的素材。董事会若明知调查存在而维持原状，等于让公司与自己共同暴露在第二条战线上。</p>
+      <p>再叠加政治层面的双向压力：众议院层面的闭门简报与对相关人等的问询安排，使事件的政治半衰期远长于一次财报周期；行政分支的信号甚至并不一致——财政部长公开要求「大幅度整顿」，总统却公开表示「不介意」其回归。董事会无法靠拢任何一方的政治表态来卸责，它能依靠的只有程序与调查本身。董事会的计算因此不是「怎样让股价好看」——他们在法律上本就没有最大化短期股价的义务——而是<b>截断左尾</b>：留任的尾部风险是公司层面的刑事与监管灾难（许可证、政府订单、公司本身成为调查对象）；免职的代价是一次性、幅度大但有界的估值损失。用一句概括本节与上节的关系：<b>特拉华逼他们调查，华盛顿逼他们切割。</b></p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">08 · 迁册反事实</div>
+      <h2>反事实：如果英伟达注册在得州或内华达</h2>
+      <p>一个自然的追问是：近几年不少公司迁出特拉华——如果英伟达也在其中，这次事件还会不会发生？答案需要分两层，因为「州法」与「章程」是两个独立变量，混为一谈是多数评论的错误所在。</p>
+      <h3>换州改变不了的部分。</h3><p>其一，董事会任免高管的权力是各州通例：得克萨斯州商业组织法与内华达州修订法规同样把高管任免交给董事会，股东在任何州都没有直接任命 CEO 的通道。其二，联邦调查与 SEC 披露义务是联邦法，跟着公司走，与注册地无关。也就是说，第六节的两层压力在任何注册地都原样存在，「调查＋切割」的大框架不会因迁册而消失。</p>
+      <h3>换州会改变的部分，是董事的个人责任环境——也就是第五节的加速器。</h3><p>内华达州成文法（NRS 78.138）把董事个人责任限定于故意不当行为、欺诈或明知违法，Caremark 式监督索赔在该州近乎绝迹。得克萨斯州 2025 年通过 SB29，将商业判断规则的推定成文化，并允许公司在章程中为派生诉讼设定原告最低持股门槛（最高 3%）——戴尔公司 2026 年迁往得州时，直接把 3% 门槛写进了新章程。对比之下：在特拉华起诉英伟达董事，一股即可；在得州新规下起诉戴尔董事，先要拿出约 3% 的持股——那差不多是黄仁勋本人的全部持仓。得州还于 2024 年 9 月开设了专门的商事法院，正在长成一个真正的对等法域。</p>
+      <p>由此得出的推论是：<b>同样的事实放在内华达或得州，董事会更可能选择「停职待查、保留职位」而非「立即永久免职」</b>——因为那里的董事不需要为自己的职业生涯抢购 Caremark 保险。特拉华在这次事件中的角色，是加速器，不是发动机。</p>
+      <h3>章程变量必须单独交代。</h3><p>迁册的公司通常把治理结构原样搬走：特斯拉迁往得州时基本保留了原章程框架。因此，即便英伟达三年前迁册，它的 15% 召集门槛、三分之二罢免门槛大概率仍会原样存在——股东反击的走廊不会变宽，变窄的只有董事那一侧的恐惧。州法决定默认规则、诉讼论坛与法官文化；章程决定具体票数。黄仁勋是两层同时不利：州法层（无召集权、董事会中心主义）与章程层（超级多数、书面同意禁令）叠加在一起。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">09 · SB21</div>
+      <h2>特拉华的自救与盲区：SB21 修了什么，没修什么</h2>
+      <p>英伟达事件不是孤立的，它发生在特拉华公司法地位动摇的第三个年头。把这条线补齐，才能看清这次事件在制度史上的位置。</p>
+      <p><b>迁册潮的源头。</b>2024 年 1 月，衡平法院在 Tornetta 案中推翻了马斯克 2018 年约 560 亿美元的薪酬方案，理由是批准程序存在实质不公、董事会独立性不足。马斯克公开宣称「永远不要在特拉华注册公司」，特斯拉、SpaceX 相继迁往得州，Neuralink 迁往内华达。此后 TripAdvisor、Dropbox、Pershing Square、Roblox、Affirm 等陆续出走，「DExit」（特拉华出走）成为公司治理领域的年度词汇。</p>
+      <h3>SB21：一次快速的自救。</h3><p>注册费约占州预算三成，特拉华的反应速度说明了一切：2025 年 2 月法案提出，<b>3 月 25 日即由州长签署生效</b>。SB21 主要改两处：其一，修订第 144 条，为控制股东交易设立法定安全港，并给出控制股东的成文定义——持有至少 50% 投票权，或持有至少三分之一投票权且担任管理职务；符合安全港程序的交易，法院审查框架随之改变。其二，修订第 220 条，首次以成文法列举可查阅的「账簿与记录」范围（章程细则、会议纪要与材料、财务报表、董事独立性问卷等正式文件），清单之外的材料须以「明确而令人信服的证据」证明迫切需要。法案具有溯及力，仅 2025 年 2 月 17 日前已系属的诉讼与查账请求除外。批评者称之为「亿万富翁法案」，支持者则称之为对诉讼不确定性的必要回应。</p>
+      <p><b>2026 年 2 月 27 日</b>，特拉华最高法院在 Rutledge v. Clearway Energy 案中全体一致维持 SB21 合宪：安全港只是改变审查框架，并未剥夺衡平法院对信义义务索赔的管辖权，溯及适用亦不违反正当程序。悬置一年的合宪性不确定性就此落地。（须注明：该案经认证的问题只涉及第 144 条，第 220 条的收窄部分未在该案中受到审查。）</p>
+      <h3>但市场没有买账。</h3><p>据律所 Foley &amp; Lardner 的统计，2024 年 1 月至 2026 年 3 月，约 49 家上市公司向股东提出迁册议案；2025 年全年有 26 项此类提案。更具信号意义的是增量市场：特拉华在新 IPO 注册地中的占比，从常年的 80%–93% 跌至 2025 年的约 62%，内华达约 17%，得州约 4%。大鱼仍在离场：Coinbase 于 2025 年 12 月完成迁往得州（约 78% 投票权批准）；埃克森美孚 2026 年 5 月经股东约 71% 批准迁往得州，两大代理顾问的反对未能拦住；戴尔 2026 年 6 月以约 97% 票数通过，7 月 1 日生效。一句话概括：<b>SB21 在法律上赢了，在市场上没赢</b>——它修的是具体规则，迁册潮担忧的却是衡平法院整体的不可预测感，修两条法条治不了感受。</p>
+      <h3>而 SB21 有一个与本文主题直接相关的盲区：它完全没有触及这次事件用到的任何规则。</h3><p>它处理的是「控制股东＋董事会 对 小股东」的老冲突（马斯克式案件）。黄仁勋持股 3.58%，连 SB21 新定义的控制股东门槛都够不着；第 141 条没动，Caremark 没动，罢免门槛没动，股东召集权没动。这次事件揭示的是 SB21 之后特拉华的新裂缝：<b>无控制权的创始人 对 独立董事会</b>。在这类冲突里，现行框架没有任何一方的安全港——董事只能靠 Caremark 的恐惧自我驱动，创始人则完全裸奔。这大概率是特拉华下一个修法周期的议题，也是观察 2026–27 年州议会动向的理由。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">10 · 口实陷阱</div>
+      <h2>反悔的代价：口实陷阱、董事个人敞口与 D&amp;O 战场</h2>
+      <p>读到这里有一个自然的追问：既然 CEO 任免只需要 6 票，董事会若改变主意，明天就把黄仁勋请回来，违法吗？不违法。但「不违法」与「没有代价」之间，隔着整个美国证券诉讼工业。董事会真正的麻烦，是它在十天内亲手写下的三份公开表态，已经构成一条自我锁定的证据链：11 月 8 日对黄仁勋「有信心」；11 月 12 日以「个人行为违反行为准则」为辞职定性；11 月 17 日在财报电话会上对全球投资者宣读「无意恢复」。此后董事会往任何方向走，都会撞上其中一份自己的声明——原告律师不需要预判结果，他们在两个方向上都备好了诉状模板。</p>
+      <h3>第一层，联邦证券集体诉讼。</h3><p>若董事会短期内改口复职，11 月 17 日那句「无意恢复」立刻成为核心展品：在此话之后卖出股票的投资者会主张，该声明作出时即属重大虚假陈述——董事会内部当时是否已在讨论复职，将成为主观明知（scienter）之争的焦点。反之，若调查最终还他清白而董事会仍拒绝复职，11 月 12 日「违反行为准则」的定性又会被另一批原告拿来主张：公司在事实未明时公开给创始人定罪，误导了市场对事件性质的判断。两批原告、两个方向，告的是同一届董事会。</p>
+      <h3>第二层，特拉华派生诉讼的门槛，被董事会自己拆掉了。</h3><p>派生诉讼的第一关，是原告须以具体事实论证向董事会提出诉前请求亦属徒劳（第五节所述 Zuckerberg 标准，逐名董事审查）。一家刚公开宣读「无意恢复」的董事会转头投票恢复，原告可以直接引用这句话，主张投赞成票的董事对「起诉自己昨天的决定」不可能保持中立。门槛一过，接着是第 220 条调阅：会议纪要、董事通讯，以及全场最值钱的一份文件——独立调查的律师报告。董事会若在公开场合援引调查为自己辩护，原告会主张「以剑为盾」构成律师特权放弃，要求调阅报告全文；这类特权之争可以单独打上数年。原告律师要的从来不是先赢官司，而是先拿到文件。</p>
+      <h3>第三层，战火烧到董事个人，而开关是「不诚信」三个字。</h3><p>忠实义务索赔的核心要件 bad faith（不诚信），在特拉华法上同时是一个金钱开关：第 145 条禁止公司赔偿被认定不诚信的董事；章程的免责条款（第 102(b)(7) 条）对忠诚义务索赔本就不适用；先行垫付的律师费，依董事的偿还承诺，可在终局认定后追回。换句话说，一旦某位董事被认定投票时不诚信，公司不能替他赔——他的防护只剩保单与个人资产两层。这就是为什么在这类诉讼里，董事们打得像在打个人官司：因为本质上就是。</p>
+      <h3>第四层，D&amp;O 保单成为第二战场。</h3><p>董事及高管责任险的申请材料通常并入公司向 SEC 提交的文件，并要求投保人声明不知悉可能引发索赔的情形。索赔一到，承保人先请理赔律师逐条比对申请材料与公开记录。设想对承保人最有利的叙事：续保签约时，董事会私下已在处置黄仁勋的问题，对外却无任何披露，申请书仍声明无已知索赔情形——承保人可据此主张重大不实陈述、保单自始可撤销（rescission）。即便撤不了整张保单，还有保留权利函（先行垫付、保留追偿）、可保与不可保金额的分配争议等常规武器。而在电话会上具名宣读立场的 Jones、在文件上签字的 Kress，还各自背着证券法上「声明作出者」的个人责任。结果是：公司打一场官司，董事个人还要再打一场「谁出钱」的官司，两场互相喂料。</p>
+      <h3>第五层，记录锁定与公司连带成本。</h3><p>据《华尔街日报》11 月 17 日报道，SEC 已对英伟达展开民事调查；12 月 1 日黄仁勋、12 月 2 日总法律顾问 Teter 将赴国会闭门作证。公开声明与宣誓证词必须严丝合缝，电话会上的每一句定性都会在问询室里被逐字比对——这正是 Jones 在电话会上拒绝一切相关提问的原因：多说一句，多一份口实。公司层面，披露内控可能被审计师质疑存在重大缺陷，CEO 遴选在诉讼阴影下拖慢，2027 年年会上代理顾问与机构尽责管理团队会把三份声明做成对相关董事投反对票的现成理由。这类案件的典型结局不是判决，而是和解：公司支付原告律师费，外加一揽子治理改革条款——原告律师的商业模式，就是把董事会自己的话折现，并用每个程序节点的新闻稿，把案件变成面向同行的常年广告。对股价而言，折价是结构性的：调查、诉讼、问询、年会，每一个都是预定的新闻节点，治理不确定性会作为一个长期变量嵌进估值。</p>
+      <h3>这一节的结论，是一个关于「新事实」的命题。</h3><p>董事会并非永远不能改口，而是不能凭自己的意愿改口：它需要一份不来自它自己嘴巴的事实，来解释为什么今天的决定与昨天的声明不矛盾。独立调查的结论——尤其国家安全事项的结论——是目前唯一够格的候选。结论在手，改口叫「依据新证据」；结论未出就改口，叫「承认此前声明不实」。这就是为什么调查的时间线如今比任何舆论声量都值钱，也是理解下一节路径排序的钥匙。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">11 · 回归路径</div>
+      <h2>黄仁勋回归的法律路径全图</h2>
+      <p>先把总图立起来：黄仁勋辞掉的是两个职务，回归的路也是两扇门。<b>CEO 之门归董事会</b>——一纸决议即可任命，不需要任何股东动作；<b>董事之门归股东</b>——席位由年度大会选举产生。两扇门的钥匙不在同一批人手里，开启的顺序也有讲究。这里先纠正一个流传甚广的误读：<b>选举董事不需要三分之二</b>。三分之二（第四节）是罢免在任董事的门槛，是用来赶人走的，不是选人进的：无竞争选举按已投票数多数决（赞成须多于反对，英伟达有多数投票政策），有竞争选举按相对多数、得票居前者当选。黄仁勋回到董事席位要过的真正的门，是提名而非票数（见路径四）。以下按现实程度排序。</p>
+      <h3>路径一：董事会任命其为 CEO（法律上最快，被第九节堵住）。</h3><p>CEO 的任免只需要现任 10 名董事中的 6 票，董事会理论上明天就能请他回来，程序上比请愿的任何一步都简单。但第九节已经说明：调查未结、遴选已启动、董事会刚在电话会上公开宣读「无意恢复」——此时投出的每一张赞成票，都等于把投票者本人送进原告的诉状。这条路的门没有锁，锁在门后每个人的资产负债表上；它被打开的唯一方式，是调查结论先行落地。顺序不可颠倒。</p>
+      <h3>这条路的标准走法：CEO 先行，董事随后。</h3><p>若调查结论有利，董事会的行动序列应当是先以决议任命他为 CEO（当日生效，以 8-K 披露），董事席位留待 2027 年 6 月年会由股东选举——届时股东投的是一位已在任、业绩可检验的 CEO，而不是一个假设。而在他以 CEO 身份任职、却尚未回到董事会的过渡期，他的权力有一组明确边界，值得逐项写清。其一，<b>表决权归零</b>：董事会一切事项——战略、预算、并购、他自己的薪酬、乃至是否解除他本人职务——他都没有票；列席会议是受邀而非权利，独立董事的闭门会议他无权参加。其二，<b>知情权降级</b>：在任董事对公司文件有近乎不受限制的调阅权，非董事高管只有董事会授权范围内的知情；最具讽刺意味的是，调查他本人的委员会材料与律师报告，他以 CEO 身份也无权调阅。其三，<b>存续完全系于董事会</b>：依细则第 32 条，高管由在任董事过半数即可随时免职，无需理由、无需股东参与——请他回来的那批人，用同样的票数、同样的程序，任何一天都能再请他走。但他的经营实权几乎不受影响：产品、客户、日常运营、预算内人事与开支，本就是 CEO 的固有权限。受限的是宪法层面的权力。准确地说，那个阶段的黄仁勋是全公司权力最大的雇员：白天指挥千军，自己的合同在别人抽屉里。董事席位那一步不走完，回归在治理上就没有完成。</p>
+      <h3>附带一条后门：第 223 条补缺。</h3><p>特拉华法第 223 条允许董事会在股东大会之间自行填补董事空缺或扩席任命，任期至下届年会——技术上，董事会甚至可以绕过年会，直接把他任命回董事席位。但这与路径一在责任敞口上毫无区别，属于法律上存在、政治上自杀的选项，列出只为完整。</p>
+      <h3>路径二：先打条款无效之诉（存在，但被高估）。</h3><p>如第四节所述，依 VAALCO 判例挑战章程中三分之二无因罢免条款的效力，是黄仁勋阵营在法理上唯一现成的诉讼抓手——但抓手不等于钥匙：VAALCO 判无效的是「仅可有因罢免」，Frechter 案又已明示写进章程的超级多数门槛受第 102(b)(4) 条保护而有效，英伟达的门槛正在章程里。这场诉讼的真实功能更可能是议价与造势——迫使董事会与机构股东提前表态——而不是指望一纸判决把门槛直接降回过半数。把它排在第二位，是因为它相对便宜且快；把它说成「法理最顺」，则是误读判例。</p>
+      <h3>路径三：机构联盟（凑齐 15%）。</h3><p>特别会议的门槛决定了这是一道联盟题：黄仁勋 3.58%＋贝莱德 7.43%≈11%，还需至少一家同量级机构（口径提醒见第四节：这是受益持股快照的量级示意，不是可投票数的精确加总）。而且如第四节所述，即便凑齐 15%、会议开起来，会上罢免董事仍要过三分之二的章程门槛——这条路径的真正终点不是特别会议，而是 2027 年年会。这就引出真正的权力中枢——三大指数巨头的 stewardship（尽责管理）团队：贝莱德由联席负责人 John Roe 与 Amra Balic 主持；先锋领航 2026 年起拆为两支团队，分别由 Glenn Booraem 与 Carolyn Cross 领军（其票源结构上已是两个口径）；道富由 Benjamin Colton 负责。但有三点必须泼冷水：其一，这些团队按公开投票指引与委员会流程决策，负责人是流程主持人而非个人拍板者，游说的对象是一套先例体系；其二，2025 年 SEC 收紧 13G/13D 指引口径后，机构担心正常交涉被认定为「有控制意图」，与董事会谈话明显趋于谨慎；其三，投票权下放（贝莱德 Voting Choice、先锋 Investor Choice 等 pass-through 计划）正在把「机构意志」打散——贝莱德指数权益中已有约 9,230 亿美元资产由客户自行选择投票政策。还有一条来自股东自身的记录需要计入：2025 年股东大会上，「取消特别会议一年持股期限」的提案被压倒性否决——联盟要凑的不只是股份，还有一套已经被股东投票确认过的程序现状。联盟比五年前更难谈，这是结构性的。</p>
+      <h3>路径四：2027 年 6 月年会代理权之争（最干净，最慢）。</h3><p>英伟达董事会不分级、每年全体改选，这是黄仁勋手里唯一一张真正的牌：提名一套完整董事名单，在通用代理卡规则下与现任董事会同台竞逐。程序要点：须遵守细则的提前通知窗口（据 2026 年委托书，通常情形下为 2027 年 2 月 24 日至 3 月 26 日，即年会周年日前 120 至 90 天；若年会日期大幅提前或延后，窗口相应重算）；须争取 ISS、Glass Lewis 两大代理顾问的支持意见；胜负最终仍取决于路径三里那些 stewardship 团队。这条路合法、公开、可预期，代价是七个月——以及在此期间调查结论必须不朝最坏方向发展。再次强调票数：这条路上没有超级多数，真正的战役在提名窗口与代理顾问的意见里，不在计票规则里。</p>
+      <h3>路径五：软杠杆。</h3><p>第 220 条查账、针对董事的 Caremark 反向施压、舆论与请愿——这些工具不能直接产生任何人事结果，它们的全部意义在于抬高现任董事的成本函数。请愿 18 万签名、马斯克的公开声援、两位知名投资人的公开信属于这一层：它们是给路径三、四输送压力的燃料，仅此而已。把燃料当成发动机，是舆论场对这件事最普遍的误读。</p>
+      <h3>路径六：收购控制权。</h3><p>以英伟达的市值体量与特拉华第 203 条的反收购安排，这条路仅存于理论，列出只为完整。</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">12 · 结论</div>
+      <h2>结论：这件事真正改写了什么</h2>
+      <h3>第一，治理「优等生」范式有它自己的尾部风险。</h3><p>独立董事会、不分级、一年一选、无毒丸、无双重股权——整套最佳实践的设计假定是：风险来自内部人，股东需要武器防范平庸或自肥的创始人。它无法处理、也不打算处理另一种情形：内部人本身就是公司的主要资产。当创始人从「被防范对象」变成「被清除对象」，框架不会为他网开一面，因为框架里根本没有「创始人价值」这个变量。黄仁勋的遭遇不是治理失败，恰恰是治理按设计完美运转了一次——这是它最值得被记录的原因。</p>
+      <p>而按下切割键的人，值得单独看一眼：新任主席 Harvey C. Jones 1993 年就进入了英伟达董事会，Tench Coxe 同为创始期董事——动手的不是从华尔街空降的陌生人，而是陪他走过三十年创业史的老战友。当这批人都在 Caremark 的个人责任与联邦调查的夹击下选择切割，<b>恰恰最冷酷地证明了本文的核心命题：结构激励永远大于个人私交，制度运转起来不认人。</b></p>
+      <h3>第二，创始人保护的窗口，从 IPO 那一刻起只朝一个方向收紧。</h3><p>需要先纠正一个流传很广的过时说法：标普道琼斯指数 2017 年将新设双重股权公司排除在标普 500 之外的政策，已于 2023 年 4 月撤销，多类别股权公司重新具备指数候选资格——「指数政策焊死了创始人保护」这个论据，今天不再成立。真正的棘轮在另外两处：其一，双重股权等控制权安排只能在上市前由创始人与早期投资人谈定，上市之后再行增设，须过股东批准、代理顾问的例行反对与信义义务审查，商业上几乎不可行；其二，上市公司的治理修订天然单向——2025 年英伟达股东连「删除」超级多数都做不到（第四节），更没有人能反向「增设」创始人保护。黄仁勋 1999 年上市时单一股权是时代常态；他的权威三十年来来自业绩与不可替代性，从未需要纸面权力。问题在于，业绩与声望这套护城河，防得住经营质疑，防不住地缘政治与合规风险——风险从框架不设防的方向来时，他唯一能依靠的章程，恰好留了白。</p>
+      <h3>第三，特斯拉与英伟达构成了一组对照实验。</h3><p>马斯克没有结构性控制权，他的「保护」是董事会中坐着亲友与老部下——结果被特拉华法院以董事会不独立为由推翻薪酬方案。黄仁勋的董事会是真正的独立董事会——结果独立到可以把他本人清出公司。特拉华体系下，创始人董事会的两种形态，一种被法院惩罚，一种被董事会本人使用。这大概就是为什么这场讨论最终总会绕回特拉华：它不是背景板，它是现代公司制度的操作系统，而这次事件是这套系统第一次在万亿级市值、创始人仍处巅峰时，完整演示「程序合法地吞掉创始人」。</p>
+      <h3>给投资者的操作含义只有一句：看信号，不看声浪。</h3><p>接下来真正决定事态的变量依次是——调查的结论（定性只由它决定）；司法部是否对公司或个人采取行动；贝莱德、先锋 stewardship 团队的任何公开措辞；以及 2027 年委托书季的提名动向。<b>另有一个动作值得单独标记</b>：若董事会先任命他为 CEO、把董事席位留待年会，不要误读为折中或试探——那是第十节所述唯一合法序列的第一步，是回归真正开始的信号。本文同时留一条可复盘的认错线：若调查以清白收场、董事会仍拒绝黄仁勋回归、且公司业绩随后实质性掉队，则此次切割应被定性为董事以股东核心资产为个人职业风险购买的保险；若司法部对公司或其本人采取行动，则切割将被历史判为果断。两个观察点都会在未来几个月内见分晓。</p>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-label">13 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source">
+        <a href="https://investor.nvidia.com/financial-info/sec-filings/default.aspx" target="_blank" rel="noopener">英伟达投资者关系 · SEC 文件</a>
+        <span>支持官方文件层事实：2026 年 11 月 8 日董事会声明、8-K（Item 5.02，事件日期 11 月 11 日）、2025 与 2026 年股东大会投票结果 8-K（Item 5.07）。</span>
+      </div>
+      <div class="source">
+        <a href="https://delawarecode.delaware.gov/title8/c001/index.html" target="_blank" rel="noopener">特拉华州普通公司法（Title 8, Delaware Code）</a>
+        <span>支持条文依据：第 102(b)(4)、141、145、203、211、220、223、228、327 条。</span>
+      </div>
+      <div class="source">
+        <a href="https://investor.nvidia.com/news/default.aspx" target="_blank" rel="noopener">英伟达投资者关系 · 新闻发布</a>
+        <span>支持：2026 年 11 月 17 日 FY2027 第三季度业绩（营收 1,158 亿美元、数据中心 1,076 亿美元、第四季度指引 1,300 亿美元）。</span>
+      </div>
+      <div class="source">
+        <a href="https://courts.delaware.gov/opinions/" target="_blank" rel="noopener">特拉华州法院 · 判例意见</a>
+        <span>支持判例原文：Caremark（1996）、Stone v. Ritter（2006）、Marchand（2019）、Frechter v. Zier（2017）、Zuckerberg（2021）等。</span>
+      </div>
+      <p><b>口径注</b></p>
+      <p>本文的事实分三层，引用时请勿混用：</p>
+      <p><b>官方文件层</b>：英伟达董事会 2026 年 11 月 8 日公开声明；英伟达 8-K（Item 5.02，事件日期 2026 年 11 月 11 日、11 月 12 日提交）与同日新闻稿；英伟达 FY2027 第三季度业绩新闻稿（2026 年 11 月 17 日）；2025 年股东大会投票结果 8-K（Item 5.07，2025 年 6 月 25 日）；2026 年股东大会投票结果 8-K（Item 5.07，2026 年 6 月 24 日）；重述公司章程、修订细则（第 21、32 条等）、2026 年委托书（持股口径与 2027 年提名通知窗口）；特拉华普通公司法第 102(b)(4)、141、145、203、211、220、223、228、327 条；衡平法院规则 23.1；判例 In re Caremark International (1996)、Stone v. Ritter (2006)、Marchand v. Barnhill (2019)、In re VAALCO Energy (2015)、Frechter v. Zier (2017)、Campbell v. Loew's (1957)、Tornetta v. Musk (2024)、United Food &amp; Commercial Workers Union v. Zuckerberg (2021)；SB21 法案文本（2025 年 3 月 25 日签署）与 Rutledge v. Clearway Energy Group（特拉华最高法院，2026 年 2 月 27 日）。</p>
+      <p><b>机构公开资料层</b>：贝莱德、先锋领航、道富的 stewardship 报告与人事公告；律所 Foley &amp; Lardner 关于迁册数据的统计（2026 年 5 月）；标普道琼斯指数 2023 年 4 月 17 日关于多类别股权公司候选资格的公告。</p>
+      <p><b>媒体报道层</b>：调查进展、董事会内部动向、回归意向、Bessent 表态、Baker 与 Gerstner 公开信、黄仁勋 2026 年 11 月 17 日于 X 发布的声明原文与财报电话会主席发言（据 CNN、TechCrunch 等多家一致转述）等，来自路透社、CNBC、《金融时报》等公开报道与未具名消息源，未获官方证实；请愿签名总数与自报分类来自请愿网站统计、经媒体转述，签名者身份未经核验；持股比例（黄仁勋约 3.58%、贝莱德约 7.43%）为 2026 年 3 月口径的约数。</p>
+      <p>相关调查尚在进行中，本文对事件动机的分析属于基于公开信息的结构推断，不构成对任何个人行为的定性结论，亦不构成投资建议。</p>
+      <p>Kerwin Research Hub 出品</p>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><b>下篇预告</b>：本篇回答的是「谁有权决定、为什么会是这个结果」；下篇《失去黄仁勋之后：英伟达五层护城河与 AI 资本周期的压力测试》回答另一个问题——这次人事地震如何传导到英伟达的经营、毛利率与 AI 资本周期，并以最新一季财报作为第一个验证锚点。</p>
+      <p><a href="/delaware-vs-texas-corporate-domicile-20260823/">Delaware vs Texas｜美国公司法的迁册战争</a> — 同一套特拉华框架的另一面：当创始人与公司想逃离这套规则时，迁册改变了什么、改变不了什么。</p>
+      <p><a href="/musk-state-competition-social-license-20260820/">马斯克、州竞争与社会许可</a> — 对照组：另一位创始人与州政府、法院之间的拉锯，及其社会许可成本。</p>
+      <p><a href="/nvidia-q2-fy27-earnings-call-20260827/">英伟达 FY27 Q2 财报电话会</a> — 经营面背景：理解本篇所涉公司体量与资本开支语境的财报锚点；本专题下篇将以最新一季财报检验五层护城河。</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026 年 11 月 18 日 HKT</span>
+        <span>Updated 2026 年 11 月 18 日 HKT</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+</body>
+</html>
