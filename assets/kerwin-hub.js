@@ -30,8 +30,11 @@
       render();
     })
     .catch(function () {
-      setText('hub-date', '目录暂不可用');
-      paint('#latest-list, #library-list, #earnings-list, #axis-list, #series-list', '<p class="empty">研究目录暂时无法载入，请稍后刷新。</p>');
+      // Preserve the committed homepage links and date when the registry fails.
+      if (page !== 'home') {
+        setText('hub-date', '目录暂不可用');
+        paint('#library-list, #earnings-list, #axis-list, #series-list', '<p class="empty">研究目录暂时无法载入，请稍后刷新。</p>');
+      }
     });
 
   function render() {

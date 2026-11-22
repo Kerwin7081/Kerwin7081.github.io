@@ -58,6 +58,12 @@ const PUBLIC_CORE_ROUTES = [
   "/404.html",
 ];
 
+const fallbackCheck = spawnSync("python3", ["tools/sync_homepage_fallback.py", "--check"], { cwd: ROOT, encoding: "utf8" });
+if (fallbackCheck.status !== 0) {
+  console.error(fallbackCheck.stdout || fallbackCheck.stderr || "Homepage fallback check failed");
+  process.exit(1);
+}
+
 const errors = [];
 const warnings = [];
 
