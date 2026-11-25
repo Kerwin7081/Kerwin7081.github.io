@@ -1,0 +1,70 @@
+name: EA editorial browser review
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  browser:
+    if: github.event.pull_request.head.ref == 'revise/ea-editorial-story-20261125' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: |
+          python3 -m pip install --quiet playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Inspect article layout and interaction in four browser sizes
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ea-editorial-http.log 2>&1 &
+          mkdir -p /tmp/ea-editorial-review
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright
+          import re
+          route="http://127.0.0.1:8765/ea-governance-capital-20261125/"
+          with sync_playwright() as p:
+              b=p.chromium.launch()
+              for w,h in [(360,800),(390,844),(768,1024),(1440,900)]:
+                  page=b.new_page(viewport={"width":w,"height":h})
+                  errors=[]
+                  page.on("pageerror",lambda e: errors.append(str(e)))
+                  assert page.goto(route).status==200
+                  page.locator("img").evaluate_all("(ims)=>ims.forEach(i=>i.loading='eager')")
+                  page.wait_for_function("Array.from(document.images).every(i=>i.complete&&i.naturalWidth>0)",timeout=30000)
+                  assert page.locator(".story-person").count()==48
+                  assert page.locator(".story-person img").count()==37
+                  assert page.locator(".people").count()==0
+                  assert page.locator(".feature-chapter").count()==4
+                  assert page.locator(".feature-chapter table").count()==6
+                  assert page.locator("#sources .source").count()==47
+                  assert page.locator(".portrait-story").count()==24
+                  assert page.evaluate("document.documentElement.scrollWidth")<=w+1
+                  assert page.locator("h1").is_visible()
+                  assert page.locator(".opening-photo img").is_visible()
+                  for elem in page.locator(".portrait-story").all():
+                      assert elem.locator(".portrait-copy").inner_text().strip()
+                  for inp,out in [("evp","evout"),("fp","fout"),("cg","cout")]:
+                      before=page.locator("#"+out).inner_text()
+                      page.locator("#"+inp).evaluate("(e)=>{e.value=Number(e.value)+Number(e.step||1);e.dispatchEvent(new Event('input',{bubbles:true}))}")
+                      assert page.locator("#"+out).inner_text()!=before,(inp,w)
+                  assert not errors,errors
+                  assert not re.search(r"原稿|核验清单|审计意见|本轮|拟发布|纠偏|订正|Gemini|V[12]\\b",page.locator("main").inner_text())
+                  if w in (390,1440):
+                      page.screenshot(path=f"/tmp/ea-editorial-review/cover-{w}.png")
+                      for name in ("Peter Singer","Dario Amodei","Ben Bernanke"):
+                          fig=page.locator("[data-person='"+name+"']")
+                          fig.scroll_into_view_if_needed()
+                          page.screenshot(path=f"/tmp/ea-editorial-review/{name.replace(' ','-')}-{w}.png")
+                  print("PASS",w,h,"48 contextual profiles, 37 portraits, 6 data tables, 47 sources, 3 models")
+                  page.close()
+              b.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ea-editorial-screenshots
+          path: /tmp/ea-editorial-review/
+          retention-days: 2
