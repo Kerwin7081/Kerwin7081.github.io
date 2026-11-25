@@ -1,0 +1,27 @@
+name: Prepare EA research portrait assets (isolated)
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  prepare:
+    if: github.event.pull_request.head.ref == 'release/ea-governance-20261125' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/ea-governance-20261125
+      - run: python3 -m pip install --quiet Pillow requests beautifulsoup4
+      - run: python3 ea-governance-capital-20261125/prepare-portraits.py
+      - name: Commit fixed portrait assets to isolated branch only
+        run: |
+          git config user.name 'Kerwin media preparation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- ea-governance-capital-20261125/portraits ea-governance-capital-20261125/index.html ea-governance-capital-20261125/media-manifest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Prepare verified licensed portrait files and credits"
+            git push origin HEAD:release/ea-governance-20261125
+          fi
