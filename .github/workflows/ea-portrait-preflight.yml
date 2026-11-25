@@ -1,27 +1,53 @@
-name: Prepare EA research portrait assets (isolated)
+name: EA research browser QA
 on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches: [main]
 permissions:
-  contents: write
+  contents: read
 jobs:
-  prepare:
+  browser:
     if: github.event.pull_request.head.ref == 'release/ea-governance-20261125' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 6
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: release/ea-governance-20261125
-      - run: python3 -m pip install --quiet Pillow requests beautifulsoup4
-      - run: python3 ea-governance-capital-20261125/prepare-portraits.py
-      - name: Commit fixed portrait assets to isolated branch only
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: |
+          python3 -m pip install --quiet playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Render article and test viewport, media, interaction and navigation
         run: |
-          git config user.name 'Kerwin media preparation'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- ea-governance-capital-20261125/portraits ea-governance-capital-20261125/index.html ea-governance-capital-20261125/media-manifest.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Prepare verified licensed portrait files and credits"
-            git push origin HEAD:release/ea-governance-20261125
-          fi
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ea-http.log 2>&1 &
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright
+          route="http://127.0.0.1:8765/ea-governance-capital-20261125/"
+          with sync_playwright() as p:
+              b=p.chromium.launch()
+              for w,h in [(360,800),(390,844),(768,1024),(1440,900)]:
+                  page=b.new_page(viewport={"width":w,"height":h})
+                  errors=[]
+                  page.on("pageerror",lambda e: errors.append(str(e)))
+                  assert page.goto(route).status==200
+                  page.locator("img").evaluate_all("(ims)=>ims.forEach(i=>i.loading='eager')")
+                  page.wait_for_function("Array.from(document.images).every(i=>i.complete&&i.naturalWidth>0)",timeout=30000)
+                  assert page.locator(".people img").count()==37
+                  sw=page.evaluate("document.documentElement.scrollWidth")
+                  assert sw<=w+1,(w,sw)
+                  assert page.locator("h1").is_visible()
+                  for inp,out in [("evp","evout"),("fp","fout"),("cg","cout")]:
+                      before=page.locator("#"+out).inner_text()
+                      page.locator("#"+inp).evaluate("(e)=>{e.value=Number(e.value)+Number(e.step||1);e.dispatchEvent(new Event('input',{bubbles:true}))}")
+                      assert page.locator("#"+out).inner_text()!=before,(inp,w)
+                  assert not errors,errors
+                  assert page.locator("a.home-route").get_attribute("href")=="/"
+                  print("PASS viewport",w,h,"all 37 photos decoded; all 3 calculators respond; no horizontal overflow")
+                  page.close()
+              page=b.new_page(java_script_enabled=False,viewport={"width":390,"height":844})
+              assert page.goto(route).status==200
+              assert page.locator("h1").is_visible()
+              assert page.locator(".people figure").count()==48
+              print("PASS no-JS reading and 48 profiles")
+              b.close()
+          PY
