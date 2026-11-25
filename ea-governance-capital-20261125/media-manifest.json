@@ -482,14 +482,18 @@
       "chapter": 3,
       "name": "Dario Amodei",
       "role": "Anthropic CEO",
-      "source": "/anthropic-governance-capital-20261119/",
+      "source": "https://commons.wikimedia.org/wiki/File:Dario_Amodei_at_TechCrunch_Disrupt_2023_05.jpg",
       "preview": "/anthropic-governance-capital-20261119/dario-disrupt-2023.jpg",
       "status": "EXISTING_LOCAL_ASSET",
       "fixed_bytes_verified": true,
-      "license_verified": false,
+      "license_verified": true,
       "sha256": "b0fa0acf09b35ad481e438c7ed7deda0d539896d8ba9b9becf69a2555178659e",
       "width": 1024,
-      "height": 683
+      "height": 683,
+      "author": "Kimberly White / Getty Images for TechCrunch",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "transformation": "resized/re-encoded; no content alteration"
     },
     {
       "chapter": 3,
@@ -714,12 +718,22 @@
       "chapter": 3,
       "name": "Christopher Liddell",
       "role": "企业与公共治理",
-      "source": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Chris_Liddell_official_photo.jpg",
       "preview": null,
-      "status": "PORTRAIT_PENDING",
-      "fixed_bytes_verified": false,
-      "license_verified": false,
-      "profile": "https://investor.anthropic.com/leadership-governance/board-of-directors-and-ltbt/default.aspx"
+      "status": "LOCAL_BYTES_VERIFIED",
+      "fixed_bytes_verified": true,
+      "license_verified": true,
+      "profile": "https://investor.anthropic.com/leadership-governance/board-of-directors-and-ltbt/default.aspx",
+      "commons_filename": "Chris Liddell official photo.jpg",
+      "asset": "portraits/person-41.jpg",
+      "license": "Public domain",
+      "license_url": "",
+      "author": "Stephanie Chasez/ White House",
+      "source_sha1": "eec8fe0aedf86fc5b562fa08fdb3c81988128f9e",
+      "sha256": "d96b08163b061e044fb090d12c1c1f80f03b1462937e0df8db06a6286f5eb230",
+      "width": 433,
+      "height": 600,
+      "transformation": "resized/re-encoded; no content alteration"
     },
     {
       "chapter": 3,
@@ -756,11 +770,21 @@
       "chapter": 4,
       "name": "Émile P. Torres",
       "role": "TESCREAL批判",
-      "source": null,
+      "source": "https://commons.wikimedia.org/wiki/File:%C3%89mile_P._Torres.png",
       "preview": null,
-      "status": "PORTRAIT_PENDING",
-      "fixed_bytes_verified": false,
-      "license_verified": false
+      "status": "LOCAL_BYTES_VERIFIED",
+      "fixed_bytes_verified": true,
+      "license_verified": true,
+      "commons_filename": "Émile P. Torres.png",
+      "asset": "portraits/person-44.jpg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "author": "Systemic Design Association",
+      "source_sha1": "9df6df39a4f3c69e2d4d2b1d93be732811fbe2f4",
+      "sha256": "ec05bce28e9f115cc251f28013ff5c5c52393fa1bc77e22dd65ce56fffd1a306",
+      "width": 480,
+      "height": 269,
+      "transformation": "resized/re-encoded; no content alteration"
     },
     {
       "chapter": 4,
@@ -852,5 +876,5 @@
     "public_http": "NOT_TESTED",
     "browser": "NOT_TESTED"
   },
-  "local_portraits": 35
+  "local_portraits": 37
 }
