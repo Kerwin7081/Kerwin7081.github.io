@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="彼得·蒂尔主义完全解剖（一）：从七次转学的孤僻少年、最高法院的闭门羹，到吉拉尔的模仿理论、大停滞论与施密特的敌我划分——拆解蒂尔劈砍硅谷英美主流的三块欧陆异端思想基石，及2025年他把EA与全球监管钉上「反基督」十字架的神学审判。">
+  <title>彼得·蒂尔主义完全解剖（一）｜思想叛逆——为什么蒂尔要用"欧陆异端"劈砍硅谷的英美主流？｜Kerwin Research Hub</title>
+  <style>
+    :root {
+      --surface:#fff1e5;
+      --paper:#fffaf5;
+      --paper-2:#f7e7d8;
+      --outer:#e6d8cb;
+      --ink:#262220;
+      --muted:#746b65;
+      --line:#cdbfb3;
+      --line-dark:#968b83;
+      --green:#103f35;
+      --green-2:#1f5a4d;
+      --green-pale:#dce8e2;
+      --copper:#9a5c38;
+      --risk:#9f332b;
+      --serif:Georgia,"Times New Roman","Songti SC","STSong",serif;
+      --sans:Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:var(--outer);
+      font-family:var(--sans);
+      font-size:17px;
+      line-height:1.88;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-underline-offset:3px; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline:3px solid #d29b5d;
+      outline-offset:3px;
+    }
+    button,
+    input { font:inherit; }
+    .skip-link {
+      position:fixed;
+      left:12px;
+      top:-80px;
+      z-index:1000;
+      padding:8px 12px;
+      border:1px solid var(--green);
+      background:var(--paper);
+      color:var(--green);
+    }
+    .skip-link:focus { top:12px; }
+    .progress {
+      position:fixed;
+      left:0;
+      top:0;
+      z-index:950;
+      width:0;
+      height:4px;
+      background:var(--copper);
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.16em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .site-shell {
+      width:min(1120px, calc(100% - 32px));
+      margin:30px auto;
+      background:var(--paper);
+      box-shadow:0 18px 52px rgba(68,49,37,.16);
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:11px 24px;
+      background:var(--green);
+      color:var(--paper);
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .topbar a { text-decoration:none; }
+    .masthead {
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+      padding:18px 32px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .brand-mark {
+      color:var(--green);
+      font:700 27px/1 var(--serif);
+      text-decoration:none;
+    }
+    .brand-mark span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font:700 9px/1.4 var(--sans);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .nav {
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .home-route {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .cover {
+      padding:62px 64px 48px;
+      border-bottom:1px solid var(--line-dark);
+      background:var(--surface);
+    }
+    .cover-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 210px;
+      gap:52px;
+      align-items:end;
+    }
+    .eyebrow { margin-bottom:18px; color:var(--copper); }
+    .cover h1 {
+      max-width:790px;
+      margin:0;
+      font:700 clamp(34px,5.6vw,49px)/1.06 var(--serif);
+      letter-spacing:-.02em;
+    }
+    .cover h1 span {
+      display:block;
+      margin-top:11px;
+      color:var(--green);
+    }
+    .thesis {
+      max-width:800px;
+      margin:24px 0 0;
+      font:400 clamp(17px,2.4vw,21px)/1.55 var(--serif);
+    }
+    .cover-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px 18px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .cover-meta b { color:var(--ink); }
+    .cover-seal {
+      padding:24px 18px;
+      border:1px solid var(--green);
+      color:var(--green);
+      text-align:center;
+    }
+    .cover-seal strong { display:block; font:700 36px/1 var(--serif); }
+    .cover-seal span {
+      display:block;
+      margin-top:9px;
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .scope-note {
+      padding:18px 64px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper-2);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .scope-note b { color:var(--ink); }
+
+    .section {
+      padding:44px 64px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-label { margin-bottom:9px; color:var(--green); }
+    .section h2 {
+      margin:0 0 21px;
+      font:700 clamp(28px,4vw,36px)/1.17 var(--serif);
+      letter-spacing:-.012em;
+    }
+    .section h3 { margin:30px 0 12px; font:700 21px/1.35 var(--serif); }
+    .section p { margin:0 0 16px; }
+    .lead { font-size:18px; line-height:1.78; }
+    .verdict {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--line-dark);
+      border-bottom:1px solid var(--line-dark);
+    }
+    .verdict-item {
+      padding:19px 18px;
+      border-right:1px solid var(--line);
+    }
+    .verdict-item:last-child { border-right:0; }
+    .verdict-item b {
+      display:block;
+      margin-bottom:8px;
+      color:var(--green);
+      font:700 18px/1.35 var(--serif);
+    }
+    .verdict-item span {
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+    .evidence-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      margin-top:24px;
+      border:1px solid var(--line-dark);
+      background:var(--line);
+    }
+    .evidence {
+      padding:18px;
+      background:#fff;
+    }
+    .evidence strong {
+      display:block;
+      color:var(--green);
+      font:700 28px/1 var(--serif);
+    }
+    .evidence span {
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .table-wrap {
+      width:100%;
+      overflow-x:auto;
+      border:1px solid var(--line-dark);
+    }
+    table {
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+      font-size:15px;
+      line-height:1.58;
+    }
+    th {
+      padding:12px 14px;
+      background:var(--green);
+      color:#fff;
+      text-align:left;
+    }
+    td { padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tbody tr:nth-child(even) { background:var(--surface); }
+    .dark-panel {
+      margin-top:24px;
+      padding:26px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .dark-panel h3 { margin-top:0; color:#fff; }
+    .source {
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .source span {
+      display:block;
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .enya {
+      padding:36px 64px;
+      background:var(--green);
+      color:var(--paper);
+    }
+    .enya h2 {
+      margin:0;
+      font-family:var(--serif);
+      font-weight:700;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.08;
+    }
+    .enya-tag { margin-top:10px; font-family:var(--serif); font-size:16px; font-weight:600; line-height:1.55; }
+    .enya-model { margin-top:5px; color:#c7dbd2; font-size:12px; line-height:1.5; }
+    .enya-copy { max-width:760px; margin:16px 0 0; color:#dce8e2; font-size:16px; line-height:1.7; }
+    .roles {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:24px;
+    }
+    .role {
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.35);
+    }
+    .role span {
+      display:block;
+      margin-top:5px;
+      color:#dce8e2;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .footer {
+      padding:22px 32px;
+      background:var(--ink);
+      color:#e8ddd5;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .footer-line {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+    }
+    .footer-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 18px;
+      margin-top:5px;
+      overflow-wrap:anywhere;
+    }
+    .footer a { color:#fff; }
+    .top-button {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:1px solid var(--paper);
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      font:700 20px/1 var(--serif);
+      cursor:pointer;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 150ms ease;
+    }
+    .top-button.is-visible { opacity:1; visibility:visible; }
+
+    @media (max-width:960px) {
+      .cover-grid { grid-template-columns:1fr; }
+      .cover-seal { width:210px; }
+      .verdict { grid-template-columns:repeat(2,1fr); }
+      .verdict-item { border-bottom:1px solid var(--line); }
+      .verdict-item:nth-child(2n) { border-right:0; }
+      .evidence-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:760px) {
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:10px 18px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:1fr auto; padding:15px 20px; }
+      .nav { display:none; }
+      .cover,
+      .section { padding:38px 22px; }
+      .scope-note { padding:16px 22px; }
+      .cover { padding-top:44px; }
+      .enya { padding:38px 22px; }
+      .footer { padding:22px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .roles { grid-template-columns:1fr; }
+    }
+    @media (max-width:520px) {
+      body { font-size:16px; line-height:1.86; }
+      .cover h1 { font-size:clamp(30px,9vw,38px); line-height:1.08; }
+      .section h2 { font-size:29px; }
+      .section h3 { font-size:20px; }
+      .lead { font-size:17px; }
+      .verdict,
+      .evidence-grid { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; }
+      table { font-size:14px; }
+      .cover-seal { width:100%; }
+    }
+    /* MOBILE-BROWSER-LOCK-1.2.0 */
+    html {
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    img,
+    svg,
+    video { max-width:100%; height:auto; }
+
+    @media (max-width:760px) {
+      body { font-size:16px; line-height:1.80; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+      .topbar { padding:8px 20px; font-size:9px; }
+      .topbar span:last-child { display:none; }
+      .masthead { grid-template-columns:minmax(0,1fr) auto; gap:14px; padding:12px 20px; }
+      .masthead > * { min-width:0; }
+      .nav { display:none; }
+      .brand-mark { font-size:23px; }
+      .brand-mark span { margin-top:5px; font-size:8px; }
+      .home-route { font-size:12px; white-space:nowrap; }
+      .cover { padding:27px 20px 24px; }
+      .cover-grid { grid-template-columns:1fr; gap:16px; }
+      .eyebrow { margin-bottom:12px; font-size:9px; line-height:1.5; letter-spacing:.12em; }
+      .cover h1 {
+        font-size:clamp(24px,7vw,28px);
+        line-height:1.18;
+        letter-spacing:-.012em;
+        overflow-wrap:anywhere;
+      }
+      .cover h1 span {
+        margin-top:12px;
+        font-size:clamp(18px,5.2vw,21px);
+        line-height:1.34;
+      }
+      .thesis { margin-top:17px; font-size:16px; line-height:1.72; }
+      .cover-meta {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:7px 12px;
+        margin-top:20px;
+        padding-top:14px;
+        font-size:11px;
+        line-height:1.55;
+      }
+      .cover-meta span:last-child:nth-child(odd) { grid-column:1/-1; }
+      .cover-seal { display:none; }
+      .scope-note { padding:14px 20px; font-size:12px; line-height:1.7; }
+      .section,
+      .enya { padding:30px 20px; }
+      .section h2 { font-size:clamp(23px,6.4vw,26px); line-height:1.25; }
+      .section h3 { margin-top:24px; font-size:19px; }
+      .lead { font-size:16px; line-height:1.72; }
+      .enya h2 { font-size:clamp(22px,6vw,26px); line-height:1.1; }
+      .enya-tag { margin-top:9px; font-size:15px; line-height:1.58; }
+      .enya-model { margin-top:5px; font-size:12px; line-height:1.5; }
+      .enya-copy { margin-top:15px; font-size:15px; line-height:1.65; }
+      .roles { gap:14px; margin-top:20px; }
+      .role { padding-top:10px; }
+      .role b { font-size:15px; }
+      .role span { margin-top:4px; font-size:13px; line-height:1.55; }
+      .verdict,
+      .evidence-grid,
+      .roles { grid-template-columns:1fr; }
+      .verdict-item { border-right:0; border-bottom:1px solid var(--line); }
+      .table-wrap { max-width:100%; -webkit-overflow-scrolling:touch; }
+      table { font-size:14px; }
+      .footer { padding:20px; }
+      .footer-line { display:block; }
+      .footer-line a { display:inline-block; margin-top:10px; }
+      .footer-meta { display:grid; gap:4px; margin-top:8px; }
+      .top-button {
+        right:16px;
+        bottom:calc(16px + env(safe-area-inset-bottom));
+      }
+    }
+
+    @media print {
+      body { background:#fff; }
+      .topbar,
+      .masthead,
+      .progress,
+      .top-button { display:none; }
+      .site-shell { width:100%; margin:0; box-shadow:none; }
+    }
+  </style>
+  <style id="kerwin-web-3-7-desktop-qa">
+    /* DESKTOP-QA-LOCK-1.0.0: canonical desktop geometry for kerwin-editorial-research-v1
+       (references/desktop-browser-qa.md; audit requires this locked stylesheet id) */
+    @media (min-width:961px) {
+      body { overflow-x:hidden; }
+      .site-shell { width:min(1120px, calc(100% - 32px)); margin:30px auto; }
+      .cover { padding:62px 64px 48px; }
+      .cover-grid { grid-template-columns:minmax(0,1fr) 210px; gap:52px; }
+      .section { padding:44px 64px; }
+      .enya { padding:36px 64px; }
+    }
+  </style>
+</head>
+<body class="kw-research kw-wide"
+      data-layout-id="kerwin-editorial-research-v1"
+      data-page-slug="peter-thiel-anatomy-1-thought-rebellion-20261126">
+  <a class="skip-link" href="#main-content">跳至正文</a>
+  <div class="progress" id="reading-progress" aria-hidden="true"></div>
+
+  <main class="site-shell" id="main-content">
+    <div class="topbar">
+      <span>Kerwin Research Hub · 资本背后的思想</span>
+      <span>Evidence first · Snapshot 2026-11-26 HKT</span>
+    </div>
+
+    <header class="masthead">
+      <a class="brand-mark" href="/">
+        EnyaClawd
+        <span>Independent Investment Research</span>
+      </a>
+      <nav class="nav" aria-label="页内导航">
+        <a href="#verdict">核心判断</a>
+        <a href="#analysis">深度分析</a>
+        <a href="#sources">主要来源</a>
+      </nav>
+      <a class="home-route" href="/">研究首页 ↗</a>
+    </header>
+
+    <section class="cover">
+      <div class="cover-grid">
+        <div>
+          <div class="eyebrow">资本背后的思想 · 第一期</div>
+          <h1>
+            彼得·蒂尔主义完全解剖（一）
+            <span>思想叛逆——为什么蒂尔要用"欧陆异端"劈砍硅谷的英美主流？</span>
+          </h1>
+          <p class="thesis">蒂尔的思想底盘由吉拉尔、施特劳斯与施密特三块欧陆异端基石拼成——先看懂他的脑子，才看得懂他的钱与权。</p>
+          <div class="cover-meta">
+            <span><b>研究日期</b> 2026年11月26日</span>
+            <span><b>数据快照</b> 2026-11-26 HKT</span>
+            <span><b>研究对象</b> 彼得·蒂尔与「蒂尔主义」思想—资本—权力体系</span>
+            <span><b>证据边界</b> 公开报道 · 原始文件 · 机构披露</span>
+          </div>
+        </div>
+        <aside class="cover-seal" aria-label="关键数据">
+          <strong>3</strong>
+          <span>三块思想基石 · 吉拉尔 / 大停滞 / 施密特</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="scope-note">
+      <b>口径说明：</b>本页为「资本背后的思想」专题《彼得·蒂尔主义完全解剖》第一期（共四期），正文为原始长稿全文；事实与推论在行文中分别呈现，事件进展以正文标注时点为准。
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-label">01 · Executive Verdict</div>
+      <h2>核心判断</h2>
+      <p class="lead">蒂尔的思想底盘由吉拉尔、施特劳斯与施密特三块欧陆异端基石拼成——先看懂他的脑子，才看得懂他的钱与权。</p>
+      <div class="verdict">
+        <div class="verdict-item"><b>反骨底色</b><span>七次转学、棋坛大师与最高法院的闭门羹，塑造了蒂尔对建制精英的终身不信任。</span></div><div class="verdict-item"><b>吉拉尔基石</b><span>模仿欲望与替罪羊机制，推出「竞争是失败者的游戏」的反竞争垄断哲学。</span></div><div class="verdict-item"><b>大停滞基石</b><span>以确定性乐观对抗华尔街的概率躺平，主张用硬科技砸碎原子世界的停滞。</span></div><div class="verdict-item"><b>施密特基石</b><span>从《施特劳斯时刻》到与民主公开决裂，再到把EA与监管钉上「反基督」十字架。</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="section-label">02 · Prologue</div>
+      <h2>思想叛逆——为什么蒂尔要用"欧陆异端"劈砍硅谷的英美主流？</h2>
+      <p>2025年6月26日，《纽约时报》专栏作家罗斯·杜萨特（Ross Douthat）在播客节目 Interesting Times 里，对着坐在对面的硅谷亿万富翁彼得·蒂尔（Peter Thiel）抛出了一个在普通人看来只需要0.1秒就能脱口而出的问题："你希望人类继续存续下去吗（Should the human race endure）？"</p><p>令人错愕的一幕发生了。向来以思维凌厉著称的蒂尔竟然在镜头前卡了壳："呃——（Uh—）。"</p><p>杜萨特敏锐地追问："你在犹豫。"蒂尔吞吞吐吐地回了一句："我不知道，我只是……"杜萨特忍不住惊呼："这犹豫也太长了吧！"直到对方再次把问题递到嘴边，蒂尔才吐出一声"是的"，随即话锋一转，吐露了内心真正执念——他想要的从来不是人类维持原状地繁衍下去，而是彻底的技术蜕变：改变心脏、改写大脑、重构整个肉身，向衰老与死亡本身宣战（见《纽约时报》罗斯·杜萨特深度专访视频）。</p><p>仅仅三个月后，2025年9月至10月，这位掌管着硅谷最硬核资本版图的教父，又在旧金山闭门连讲四场轰动全美的《反基督》（The Antichrist）系列讲座。在流出的现场录音里，他没有把末日魔鬼描绘成头生犄角的暴君，而是径直点名了两个现实中的人物——瑞典环保少女格蕾塔·通贝里（Greta Thunberg），以及硅谷理性主义与 AI 安全先驱艾利泽·尤德科夫斯基（Eliezer Yudkowsky），把气候活动家和呼吁给大模型踩刹车的风险学者统统斥为<strong>"反基督的军团士兵（legionnaires of the Antichrist）"</strong>。</p><p>为什么全硅谷最精明的资本猎手之一，面对"人类是否该延续"会犹豫整整几秒，却把高喊"和平与安全"的环保派与有效利他主义（EA）视为文明死敌？</p><p>要看懂彼得·蒂尔，绝对不能把他塞进"硅谷保守派富豪"或"特朗普金主"的廉价标签里。在华尔街与硅谷清一色信奉英美功利主义、指数分散与风险对冲的精英海洋中，蒂尔是一个彻底的哲学异端。他从托尔金的中土神话起步，亲手把法国人类学家的欲望解剖术、德国法学家的敌我政治神学与极端技术加速论焊在一起，锻造出了一套旨在正面劈碎英美主流共识的思想重武器。</p>
+    </section>
+    <section class="section">
+      <div class="section-label">03 · Analysis</div>
+      <h2>一、孤僻少年的反骨底色：七次转学、棋坛大师与最高法院的"闭门羹"</h2>
+      <p>思想从来不是从真空里掉下来的，蒂尔身上那种近乎冷酷的反群体、反官僚底色，早在童年与青年时期的三次剧烈撞击中就已经定型。</p><p>1967年10月11日，彼得·安德烈亚斯·蒂尔出生于西德法兰克福。他的父亲克劳斯（Klaus Thiel）是一名化学工程师，为了工作带着全家四处迁徙——从德国到美国俄亥俄州克利夫兰，再到南非，随后搬进西南非洲（今纳米比亚）一座极具德意志殖民色彩的沿海小镇斯瓦科普蒙德（Swakopmund），最后才在加州福斯特城（Foster City）安顿下来。</p><p>整个小学阶段，蒂尔一口气换了七所学校。在斯瓦科普蒙德念德语学校的那两年，校方强制穿统一制服、崇尚严苛的集体服从，稍有差池便用戒尺抽打学生手心。那段格格不入的经历，在他骨子里刻下了对一切整齐划一、平庸规训和权威说教的终生生理性厌恶。</p><p>孤独而早熟的少年，一头扎进了三个属于少数天才的精神避难所：奇幻神话、桌面角色扮演游戏《龙与地下城》，以及国际象棋。他成年后坦言自己把托尔金的《指环王》通读了十遍以上——中土世界里的神魔史诗成了他后来命名商业帝国的密码本（情报巨头 Palantir 取自能洞察万物的"真知晶球"，风投基金 Mithril 取自坚不可摧的"秘银"，Valar 取自执掌世界的维拉神族，连早期关联实体都叫过 Lembas 与 Rivendell）。而在国际象棋棋盘上，他一路杀成了美国棋协认证的终身大师（Life Master），巅峰等级分高达 2,342 分——棋手那种"在开局第一步就冷酷推演终局、不靠情绪只算死活"的博弈直觉，伴随了他往后三十年的每一场资本奇袭。</p><p>1985年，以全校毕业生演讲代表身份考入斯坦福大学读哲学后，蒂尔很快发现了比学位更有价值的东西：制造挑衅性的逆向议题，以此筛选并凝聚自己的铁血圈层。1987年，为了反击斯坦福校方用强调多元文化的"文化、观念与价值"课程取代传统的"西方文化"必修课，年仅20岁的蒂尔拿到了新保守主义教父欧文·克里斯托尔（Irving Kristol）的资助，亲手创办了保守派学生报纸《斯坦福评论》（The Stanford Review）。谁也没想到，这份在校园里被主流左派视作异端的学生小报，日后会变成整个硅谷右翼的"黄埔军校"——从大卫·萨克斯（David Sacks）、肯·豪里（Ken Howery）、基思·拉布瓦（Keith Rabois）到后来的乔·朗斯代尔（Joe Lonsdale），围绕《斯坦福评论》生长出来的庞大关系网，直接或间接孕育了近三百位与蒂尔深度绑定的硅谷高管、投资人与白宫幕僚。</p><p>然而，真正把蒂尔彻底推向叛逆深渊的，是他25岁那年撞上的一堵南墙。</p><p>1992年从斯坦福法学院毕业后，彼时的蒂尔其实还在沿着常春藤优等生最世俗的赛道狂奔。他先是去美国联邦第十一巡回上诉法院给法官詹姆斯·拉里·埃德蒙森（James Larry Edmondson）当书记员，紧接着向美国法学界至高无上的圣杯发起冲击——面试美国最高法院保守派大法官安东宁·斯卡利亚（Antonin Scalia）与安东尼·肯尼迪（Anthony Kennedy）的书记员席位。</p><p>结果，两位大法官双双拒绝了他。</p><p>失落之下，蒂尔退而求其次，走进纽约华尔街最显赫的白鞋律所苏利文·克伦威尔（Sullivan &amp; Cromwell）做起证券律师。他在那栋曼哈顿摩天大楼里煎熬了整整七个月零三天，便头也不回地辞职逃离。后来他回望这段人生最低谷，用一句极辛辣的话概括了华尔街顶级精英的荒诞："那是一座在外面时人人都挤破头想进去、可一旦进去之后人人都拼命想逃出来的围城。"</p><p>最高法院的那两记闭门羹，成了蒂尔一生最重要的思想顿悟——他猛然惊醒，自己拼命考法学院、争大法官书记员、挤进顶级律所，根本不是因为内心热爱法律，而是因为周围所有聪明人都在抢同一根骨头。这种盲目的群体踩踏，正好印证了他在斯坦福教室里听过的一套惊世理论。</p>
+    </section>
+    <section class="section">
+      <div class="section-label">04 · Analysis</div>
+      <h2>二、第一块思想基石：勒内·吉拉尔与"反竞争的垄断哲学"</h2>
+      <p>如果说有效利他主义（EA）的精神祖师爷是牛津的边沁与帕菲特，那么彼得·蒂尔一生最敬重的精神导师，是一位讲着浓重法语口音的法兰西学院院士——斯坦福大学文学与人类学教授勒内·吉拉尔（René Girard）。</p><p>吉拉尔毕生只钻研一个足以击穿人类文明伪装的核心学说——模仿欲望理论（Mimetic Theory）：</p><p>人类的欲望从来不是自发的，而是模仿来的：婴儿想要哥哥手里的玩具，不是因为那块塑料多好玩，而是因为哥哥正紧紧抱着它；成年人挤破头去考法学院、去华尔街当投行家、去同一个风口扎堆创业，同样不是出于独立判断，而是潜意识里在模仿周围精英的欲望。</p><p>越相似，竞争越惨烈：当两个原本不同的人开始追逐同一个稀缺目标时，彼此越模仿就会变得越像，嫉妒与敌意呈指数级升级，最终爆发毁灭性的模仿暴力危机（Mimetic Crisis）。</p><p>替罪羊机制：陷入集体癫狂的人群为了防止彻底同归于尽，最终会本能地合力揪出一个<strong>"替罪羊（Scapegoat）"</strong>并将其献祭处死，借此换来短暂的社会和平。</p><p>在绝大多数人眼里，这是象牙塔里晦涩的文学与宗教人类学；但在蒂尔的国际象棋大脑里，吉拉尔的理论瞬间被翻译成了横扫硅谷与华尔街的商业降维打击武器。</p><p>2014年，斯坦福法学院学生布莱克·马斯特斯（Blake Masters）将蒂尔在母校授课的笔记整理成畅销书《从 0 到 1》（Zero to One），其中最振聋发聩的一声断喝，直接源出吉拉尔——"竞争是失败者的游戏（Competition is for losers）"。</p><p>传统商学院和英美古典经济学把"完全竞争"奉为市场效率的圭臬，但在蒂尔看来，资本主义和竞争其实是死敌：资本主义的本质是资本积累，而在完全竞争的红海里，所有的利润都会被惨烈的模仿内卷榨干归零。他举过一个令投资人无法反驳的经典对比：美国航空业每年总收入高达数千亿美元，乘客挤得像沙丁鱼，却因为同质化血拼常年利润微薄甚至濒临破产；而同期的谷歌营收体量只有航空业的一个零头，净利润率却高达20%以上，市值轻松碾压全美所有航空公司之和——只因为谷歌在搜索领域建立了近乎绝对的垄断。</p><p>蒂尔还看穿了硅谷商界最虚伪的一场集体谎言：真正的垄断者总爱拼命撒谎，把自己包装成身处惨烈竞争中的可怜人（比如谷歌绝口不提搜索垄断，总说自己在和全世界所有的广告及科技公司竞争），以防招来华盛顿的反垄断铁拳；而真正深陷红海的失败竞争者，却总爱把自己的市场切得极窄，吹嘘自己是"帕洛阿尔托唯一一家英式有机素食餐厅"，好去骗风投的钱。</p><p>把吉拉尔的模仿论彻底内化之后，蒂尔在管理、投资和战略上都展现出了极其独特的冷峻手感：</p><p>用组织架构掐死内部模仿：在联合创立 PayPal 期间，为了防止聪明绝顶的员工之间陷入模仿性嫉妒和抢地盘内斗，蒂尔强行推行一条铁律——全公司每个人只负责唯一一件独一无二的事情，只背一个核心指标。既然大家做的事互不重叠，模仿竞争就没有了滋生的土壤。</p><p>看透社交网络的本质：2004年，蒂尔以50万美元买下 Facebook 10.2% 的股份，成为扎克伯格的第一位外部投资人。事后他一针见血地解释，Facebook 之所以能横扫全球，正是因为它是一台把人类"模仿欲望"数字化的终极引擎——每个人都在实时窥探并模仿同龄人的生活、社交与审美。</p><p>只投"从 0 到 1"的技术垄断：蒂尔拒绝追逐已经验证的商业风口（从 1 到 N 的水平复制），因为他认定唯有靠十倍级技术代差建立起垂直垄断的企业，才能赚到丰厚的超额利润，才有余力跳出朝不保夕的内卷，去思考十年后的硬核研发与人类未来。</p>
+    </section>
+    <section class="section">
+      <div class="section-label">05 · Analysis</div>
+      <h2>三、第二块思想基石："大停滞"论与确定性乐观——向华尔街的概率躺平宣战</h2>
+      <p>如果说吉拉尔帮蒂尔看穿了微观商业的竞争陷阱，那么他对过去半个世纪宏观文明的诊断，则构成了他全部技术信仰的发动机——"大停滞"论（The Great Stagnation）。</p><p>2011年，蒂尔在 Founders Fund 的旗舰宣言《未来发生了什么？（What Happened to the Future?）》里，写下了一句足以载入21世纪科技史的墓志铭："我们想要飞行汽车，结果只得到了 140 个字符（We wanted flying cars, instead we got 140 characters）。"</p><p>在蒂尔的坐标系里，1970年代初是一个被主流经济学界刻意忽视的文明分水岭——阿波罗登月计划戛然而止，超音速协和客机最终退役，核电站审批彻底冻结。自那以后，世界被硬生生撕裂成了两半：</p><p>比特世界（Bits）的一枝独秀：智能手机、社交网络、电商和流媒体飞速迭代，用炫目的屏幕把人类包裹在"科技日新月异"的廉价幻觉里；</p><p>原子世界（Atoms）的半世纪死寂：看看真实的物理世界——今天从纽约飞往伦敦的时间竟然比五十年前更慢，人类在核聚变能源、太空航行、超高速交通，乃至攻克阿尔茨海默病和逆转衰老等基础生物医学上，几乎陷入了长达五十年的停滞。</p><p>蒂尔之所以对"大停滞"如此焦灼，是因为他看穿了停滞背后致命的政治剧毒。他曾给"中产阶级"下过一个极度锋利的定义：所谓中产阶级，从来不是按年薪划出来的统计群体，而是<strong>"相信下一代会比自己过得更好的人"。一旦物理世界的技术突破停摆、真实经济增长消失，社会就会迅速退化成一场冷酷的零和博弈</strong>——你多吃一口，就意味着我少拿一块。于是，乐观的建设精神死去，取而代之的是永无止境的债务透支、高税率再分配、文化战争与寻找替罪羊的身份撕裂。</p><p>更令蒂尔感到愤怒的，是华尔街与美国精英阶层面对停滞时的精神堕落。在《从 0 到 1》里，他用一张极其犀利的四象限图，把当代美国金融体系批得体无完肤：</p><p>1950–1960年代的美国，属于"确定性乐观主义（Definite Optimism）"：那是一个由工程师和实干家主导的时代。人们不仅相信未来会更好，而且手里攥着极其具体的施工蓝图——修筑横贯大陆的州际公路网、启动阿波罗登月工程、规划旧金山湾区捷运，靠人的意志自上而下重塑物理世界。</p><p>1980年代至今的美国，却堕落成了"不确定乐观主义（Indefinite Optimism）"：人们嘴上依然挂着"未来会更好"，却谁也不知道未来具体长什么样，也没有人敢制定二十年的宏伟计划。于是，金融、法律与咨询取代了工程与科学，成了时代的新霸主——既然不知道明天会发生什么，最"理性"的做法就是放弃判断、全面分散。</p><p>蒂尔对华尔街奉若神明的现代投资组合理论与指数分散化充满了赤裸裸的鄙夷。在他看来，把资金撒进一百只平庸的股票里对冲风险、把青春消耗在刷履历和考取万金油学位上，根本不是什么精明的风险管理，而是整个精英阶层丧失信念与远见后的"概率躺平"。在蒂尔的哲学里，历史从来不是由分散投资的统计均值推动的，而是由少数意志坚定、手握清晰蓝图、敢于逆全市场共识而孤注一掷的确定性创始人亲手改写的。</p>
+    </section>
+    <section class="section">
+      <div class="section-label">06 · Analysis</div>
+      <h2>四、第三块思想基石：《施特劳斯时刻》、卡尔·施密特与跟民主的公开决裂</h2>
+      <p>如果思想止步于"反竞争垄断"和"打破技术停滞"，蒂尔充其量只是硅谷最有个性的风险投资家。真正让他演化为西方政治哲学界高度警惕的"暗黑思想家"的，是他亲手把德意志反启蒙传统与政治神学引入了旧金山湾区。</p><p>理解蒂尔政治内核的必读文献，是他发表于2004年（2007年结集出版）的晦涩却极具爆炸性的纲领长文——《施特劳斯时刻》（The Straussian Moment）。文章开篇直指 9·11 事件 带来的文明剧震：冷战结束后，西方世界曾沉溺在"历史终结"、自由贸易与全球化将带来永久和平的甜美幻梦中；而世贸双子塔的轰然倒塌，彻底撕碎了17世纪以来由英国哲学家约翰·洛克奠定的"启蒙运动妥协"。</p><p>蒂尔冷峻地剖析道，洛克式的现代自由主义其实是一场巧妙的<strong>"回避真相的交易"</strong>：为了终结欧洲惨烈的宗教战争，启蒙思想家诱导人们放弃对宗教真理、美德与人性本质的剧烈争论，转而把全部精力投入到赚钱、消费与保护私有产权的商业游戏里。但 9·11 证明，非西方世界从未签署过这份《威斯特伐利亚和约》式的和平契约。蒂尔在文中写下了一句惊心动魄的宣言："今天，仅仅是为了自我保存，就迫使我们所有人重新审视世界、去思考陌生的新思想，从而从那段被如此误导地称为‘启蒙运动’的漫长而有利可图的思想沉睡与失忆中醒来。"</p><p>为了给"觉醒后的世界"寻找理论武器，蒂尔绕开了英美温和的自由主义政治哲学，直接搬出了20世纪最具争议、甚至因曾与纳粹政权合作而被主流学界打入冷宫的德国魏玛时期法学家——卡尔·施密特（Carl Schmitt）。</p><p>在《施特劳斯时刻》中，蒂尔大段援引施密特的核心命题："政治的最高时刻，正是敌人以无比具体的清晰度被确认为敌人的时刻（The high points of politics are the moments in which the enemy is, in concrete clarity, recognized as the enemy）。" 在施密特看来，政治的本质绝不是议会里的温情妥协或经济学里的交易双赢，而是敌我划分（Friend-Enemy Distinction），以及在危机降临时敢于打破常规法条的<strong>"主权决断（主权者即决定例外状态之人）"</strong>。如果整个地球真的像全球化鼓吹者幻想的那样统一成一个没有国界、没有敌人、彻底"去政治化"的消费大市场，那么一切关乎崇高、牺牲与文明严肃性的终极追问也会随之死亡。</p><p>这套极其冷峻的底层认知，在2008年全球金融危机爆发后彻底引爆了蒂尔对现代西方民主制的公开绝望。</p><p>2009年4月13日，看着华盛顿用史无前例的财政赤字与印钞救市去为华尔街的道德风险兜底，蒂尔在卡托研究所（Cato Unbound）发表了震撼全美的《自由意志主义者的教育》（The Education of a Libertarian）。文章开篇便亮出他少年时代至今未改的三大死敌——"我反对掠夺性税收、极权集体主义，以及每一个体注定死亡的意识形态"——紧接着抛出了他一生最具争议、至今仍被政敌反复引用的名言："最重要的是，我不再相信自由与民主是相容的（Most importantly, I no longer believe that freedom and democracy are compatible）。"</p><p>蒂尔在文中毫不避讳地触碰了西方最敏感的政治禁忌：他写道，美国历史上最后一次没有招致政府大规模干预、允许熊彼特式"创造性破坏"迅速出清的衰退是1920–1921年萧条；自1920年代以来，福利受益人群的急剧膨胀与普选权的扩大（他当时直言不讳地提及福利国家与妇女选举权扩张，迅速招致舆论猛烈炮火），已经让"资本主义民主"变成了一个自相矛盾的词组。在他看来，高智商的人越是看清大众政治的残酷现实，就越会对通过选票和辩论去赢得自由感到绝望——那不过是第一次世界大战西线战场上徒劳流血的堑壕战。</p><p>既然赢不了政治，那就<strong>"逃离一切形式的政治"。2009年的蒂尔把这场文明突围定性为一场"政治与技术之间的生死竞速（a deadly race between politics and technology）"</strong>，并画出了三条用技术开辟无政府自由疆域的逃生路线：网络空间（加密金融与互联网新主权）、外太空（星际殖民）以及公海自治城邦（Seasteading）。</p><p>有趣的是，仅仅七年后的2016年，蒂尔发现"彻底逃离政治"在现实中行不通——监管机器和主权国家的手伸得太长，连加密货币和公海都躲不开。于是他干脆来了一个极具施密特风格的惊天大转弯：既然逃不掉国家机器，那就干脆走进去、用硬核技术与强权盟友亲手重塑华盛顿。这一转弯，直接铺就了后来他力挺特朗普、并把门徒一路送进白宫副总统宝座的权力通途。</p>
+    </section>
+    <section class="section">
+      <div class="section-label">07 · Analysis</div>
+      <h2>五、2025年旧金山神学审判：把 EA 与全球监管钉上"反基督"十字架</h2>
+      <p>把时间轴拉回2025年至2026年，你会震撼地发现，蒂尔过去三十年散落在哲学论文、商学院讲义和政治宣言里的全部碎片，竟然在旧金山的一座闭门礼堂里严丝合缝地拼成了一幅完整的末日神学拼图——而画布正中央被钉上十字架的头号靶子，恰恰就是有效利他主义（EA）与全球 AI 安全监管派。</p><p>2025年9月至10月，受硅谷基督教科技团体 ACTS 17 Collective 邀请，蒂尔在旧金山连讲四场闭门《反基督》系列讲座。随着《华盛顿邮报》获取完整录音、《卫报》披露现场实录，外界终于看清了蒂尔政治神学最深邃也最惊世骇俗的推演：</p><p>原子弹引爆的"和平与安全"陷阱蒂尔从19世纪末俄国哲学家索洛维约夫（Vladimir Solovyov）的《反基督简史》讲起，直指其中被忽视的逻辑漏洞：如果末日里的"反基督"像好莱坞电影里那样穷凶极恶，聪明绝顶的现代人类怎么可能心甘情愿把整个世界交给他？蒂尔给出了自己的答案——转折点就在 1945年原子弹的诞生。核武器的出现让科学第一次拥有了彻底毁灭人类的末日威力（Armageddon），从而在全人类灵魂深处种下了彻骨的生存恐惧。而《圣经·帖撒罗尼迦前书》5:3 早就精准预言了极权降临的真正口号："和平与安全（Peace and Safety）"。反基督绝不会以暴君的面目登场，他会伪装成最慈悲的救世主，通过没完没了地渲染核战争、气候灾难与人工智能灭绝人类的末日恐慌，诱骗吓破胆的全人类交出自由，心甘情愿地接受一个统一全球、严厉管制一切前沿科技的大一统极权国家（One-World Totalitarian State）。</p><p>被点名的"反基督军团"在旧金山的讲台上，当谈及这套全球控制机器的现实化身时，蒂尔丝毫不留情面——他点名列举了欧盟布鲁塞尔官僚、全球金融合规与税务条约、NGO 网络，甚至当众点名格蕾塔·通贝里与 AI 灭绝论先驱艾利泽·尤德科夫斯基，将气候活动家与高喊给 AI 踩刹车的风险派统统斥为<strong>"反基督的军团士兵"</strong>。在他看来，哪怕对方主观上自以为在拯救地球或拯救 10⁵⁴ 个未来数字生命，客观上都在为那座永久扼杀技术进步、把人类锁死在"大停滞"里的全球官僚牢笼添砖加瓦。</p><p>"克制者（Katechon）"的致命反讽蒂尔在这四场讲座中反复援引了卡尔·施密特极其痴迷的神学概念——Katechon（克制者 / 拦阻者），即在末日降临之前，用现实世界的强权与边界强行挡住反基督统一世界的那股力量（在蒂尔的政治映射里，民族国家主权、强硬的美国技术霸权与不受束缚的硅谷硬核创新，正是扮演着阻挡全球官僚大一统的 Katechon）。</p><p>然而，站在冷静的买方与思想史视角，我们必须在这里亮出刺向蒂尔这套雄辩体系心脏的一记回马枪—</p><p>—客厅中央那头无法忽视的巨象。蒂尔在旧金山讲台上痛斥全球金融监控、跨国税务条约与数据合规正在搭建"世界极权政府的骨架"，可他亲手联合创立并至今担任董事长的 Palantir，恰恰是在过去二十年间，为五角大楼、欧美情报机构与跨国银行锻造全景数据监控"肌肉与神经"的头号承包商！</p><p>极具深意的是，蒂尔自己在讲台上竟然也隐约触碰到了这个令他脊背发凉的神学悖论：在施密特的剧本里，那股原本打着抵抗反基督旗号而集聚起无限强权的"克制者（Katechon）"，一旦失去制衡，它自己就会发生极性反转，摇身一变成为新的反基督。当一家万亿级硅谷资本与防务科技帝国，一边把所有主张监管和安全的批评者都打成"末日邪恶的帮凶"，一边却在亲手铸造无孔不入的算法监控与自主武器网络时，这究竟是捍卫自由的最后防线，还是把商业利益包装成末日神学的最高级话术？</p>
+    </section>
+    <section class="section">
+      <div class="section-label">08 · Analysis</div>
+      <h2>思想坐标系对决：彼得·蒂尔主义 vs. 有效利他主义（EA）</h2>
+      <div class="table-wrap"><table><thead><tr><th>思想解剖维度</th><th>有效利他主义（EA 2.0 / 长期主义）</th><th>彼得·蒂尔主义（Thielism / 硬核技术救赎论）</th></tr></thead><tbody><tr><td>哲学血脉</td><td>英美功利主义与分析哲学（边沁、休谟、帕菲特、牛津哲学系）</td><td>欧陆反启蒙与异端哲学（法国勒内·吉拉尔、德国卡尔·施密特、列奥·施特劳斯）</td></tr><tr><td>底层人性观</td><td>人是可计算的效用载体，道德可折算为期望值算法（EV = P × V）</td><td>人的欲望源于盲目模仿，群体天生倾向平庸内卷与寻找替罪羊</td></tr><tr><td>核心文明恐惧</td><td>技术跑得太快引发物种灭绝（未对齐 AGI、合成生物灾难，1/10 主观风险）</td><td>技术停滞不前导致文明窒息（"大停滞"引发零和博弈与全球极权监管国家）</td></tr><tr><td>对资本与市场的态度</td><td>"为捐而赚"工具化逐利，试图用非营利基金会与目的信托（LTBT）给资本装刹车</td><td>"竞争是失败者的游戏"，拥抱靠硬核技术代差建立的垂直垄断与确定性重仓</td></tr><tr><td>终极政治方案</td><td>依靠专业智库、媒体议程、国际公约与前沿模型安全审查守住"悬崖期"</td><td>视全球安全监管为"反基督的和平陷阱"，主张用民族国家技术霸权、防务硬科技与突破物理/生命边界实现突围</td></tr><tr><td>内在无法消解的悖论</td><td>托管人悖论：未经选举的少数精英凭不可验证的概率模型替全人类掌权，终被万亿商业引力驯化</td><td>克制者悖论：打着抵抗全球极权旗号打造的强权监控与垄断资本（如 Palantir），自身可能演变为不受约束的利维坦</td></tr></tbody></table></div>
+    </section>
+    
+
+    <section class="section" id="sources">
+      <div class="section-label">09 · Primary Sources</div>
+      <h2>主要来源与证据边界</h2>
+      <div class="source">
+        <a href="/peter-thiel-anatomy-1-thought-rebellion-20261126/">《技术救赎、垄断神学与权力闭环：彼得·蒂尔主义完全解剖》全集（共四期）</a>
+        <span>本页为该系列第一期，原始长稿于2026年11月26日定稿；本专题四期互为完整论证链。</span>
+      </div>
+      <div class="source">
+        <span style="display:block;color:var(--muted);font-size:12px;line-height:1.55;">证据边界：文中事实来自公开报道、SEC披露、法院判决与当事机构公开文件，已在正文相应位置标注时点；推论部分为Kerwin Research Hub的研究判断，不构成投资建议。</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="related-title">
+      <div class="section-label">Related Research</div>
+      <h2 id="related-title">下一条研究路径</h2>
+      <p><a href="/peter-thiel-anatomy-2-capital-empire-20261126/">彼得·蒂尔主义完全解剖（二）｜技术改命的资本实操——50亿美元免税传奇与蒂尔的硬核垄断帝国</a> — 资本实操：哲学如何铸成资产负债表</p>
+      <p><a href="/peter-thiel-anatomy-3-schmitt-rose-garden-20261126/">彼得·蒂尔主义完全解剖（三）｜当施密特走进玫瑰园——特朗普、彼得·蒂尔与"认真而非字面"的权力逻辑</a> — 权力逻辑：施密特如何走进玫瑰园</p>
+      <p><a href="/peter-thiel-anatomy-4-thielverse-20261126/">彼得·蒂尔主义完全解剖（四）｜"蒂尔宇宙（Thielverse）"权力闭环——从《斯坦福评论》、PayPal 黑帮到2026年白宫实权网络</a> — 权力闭环：人脉帝国与它的天花板</p>
+    </section>
+
+    <section class="enya enya-brand">
+      <h2>EnyaClawd</h2>
+      <div class="enya-tag">Kerwin｜研究框架与投资判断</div>
+      <div class="enya-model">Enya｜自动化跟踪、核验、整理与排版执行</div>
+      <p class="enya-copy">Enya：Kerwin打造的香港首个OpenClaw架构的女性投顾Agent；底层模型为GPT-6、GROK、Claude付费版；</p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-line">
+        <span>本文仅用于研究与信息交流，不构成投资建议。</span>
+        <a href="/">返回研究首页</a>
+      </div>
+      <div class="footer-meta">
+        <span>Published 2026-11-26T15:10:00+08:00</span>
+        <span>Updated 2026-11-26T15:10:00+08:00</span>
+      </div>
+    </footer>
+  </main>
+
+  <button class="top-button" id="top-button" type="button" aria-label="返回顶部">↑</button>
+
+  <script>
+    (function () {
+      var progress = document.getElementById("reading-progress");
+      var topButton = document.getElementById("top-button");
+
+      window.addEventListener("scroll", function () {
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = Math.min(100, Math.max(0, ratio * 100)) + "%";
+        topButton.classList.toggle("is-visible", window.scrollY > 560);
+      }, { passive:true });
+
+      topButton.addEventListener("click", function () {
+        window.scrollTo({ top:0, behavior:"smooth" });
+      });
+    }());
+  </script>
+</body>
+</html>
